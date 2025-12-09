@@ -1,6 +1,6 @@
 Logical: LogKOrderEn
 Id: LogKOrderEn
-Title: "K-order (Referral Form) – Logical Model (CZ)"
+Title: "K-order (Referral Form) – Logical Model (EN)"
 Description: """
 Logical model for the national implementation guide of K-order (referral form) in the Czech Republic.
 The model represents structured data for requesting medical services or consultation requests, 
