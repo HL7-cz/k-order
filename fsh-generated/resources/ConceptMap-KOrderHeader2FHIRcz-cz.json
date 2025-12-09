@@ -1,0 +1,324 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "KOrderHeader2FHIRcz-cz",
+  "url": "https://hl7.cz/fhir/korder/ConceptMap/KOrderHeader2FHIRcz-cz",
+  "name": "KOrderHeader2FHIRcz",
+  "title": "CZ K-order Header Model to this guide Map",
+  "status": "draft",
+  "experimental": true,
+  "description": "CZ K-order Header Model → K-order FHIR profiles mapping (Composition, Patient, Coverage, Practitioner, Organization).",
+  "group": [
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+      "element": [
+        {
+          "code": "pacient",
+          "display": "A.1.1 – Identifikace pacienta",
+          "target": [
+            {
+              "code": "Patient",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "pacient.jmeno",
+          "display": "A.1.1.1 – Jméno",
+          "target": [
+            {
+              "code": "Patient.name.given",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.prijmeni",
+          "display": "A.1.1.2 – Příjmení",
+          "target": [
+            {
+              "code": "Patient.name.family",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.datumNarozeni",
+          "display": "A.1.1.3 – Datum narození",
+          "target": [
+            {
+              "code": "Patient.birthDate",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.identifikatorPacienta",
+          "display": "A.1.1.4 – Identifikátor pacienta",
+          "target": [
+            {
+              "code": "Patient.identifier",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.statniObcanstvi",
+          "display": "A.1.1.5 – Státní občanství",
+          "target": [
+            {
+              "code": "Patient.patient-citizenship",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.uredniPohlavi",
+          "display": "A.1.1.6 – Úřední pohlaví",
+          "target": [
+            {
+              "code": "Patient.gender",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.jazyk",
+          "display": "A.1.1.7 – Komunikační jazyk",
+          "target": [
+            {
+              "code": "Patient.communication.language",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+      "element": [
+        {
+          "code": "pacient.kontaktniUdaje.adresa",
+          "display": "A.1.2.1 – Adresa",
+          "target": [
+            {
+              "code": "Patient.address",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.kontaktniUdaje.telefon",
+          "display": "A.1.2.2 – Telefon",
+          "target": [
+            {
+              "code": "Patient.telecom",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.kontaktniUdaje.email",
+          "display": "A.1.2.3 – E-mail",
+          "target": [
+            {
+              "code": "Patient.telecom",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+      "element": [
+        {
+          "code": "pacient.zakonnyZastupce",
+          "display": "A.1.2.4 – Zákonný zástupce / kontakt",
+          "target": [
+            {
+              "code": "RelatedPerson",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "pacient.zakonnyZastupce.jmeno",
+          "display": "A.1.2.4.1 – Jméno",
+          "target": [
+            {
+              "code": "RelatedPerson.name.given",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.zakonnyZastupce.prijmeni",
+          "display": "A.1.2.4.2 – Příjmení",
+          "target": [
+            {
+              "code": "RelatedPerson.name.family",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pacient.zakonnyZastupce.vztahKPacientovi",
+          "display": "A.1.2.4.3 – Vztah k pacientovi",
+          "target": [
+            {
+              "code": "RelatedPerson.relationship",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage",
+      "element": [
+        {
+          "code": "pojisteni",
+          "display": "A.1.3 – Zdravotní pojištění",
+          "target": [
+            {
+              "code": "Coverage",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "pojisteni.kodZP",
+          "display": "A.1.3.1 – Kód pojišťovny",
+          "target": [
+            {
+              "code": "Coverage.payor.identifier",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pojisteni.nazevZP",
+          "display": "A.1.3.2 – Název pojišťovny",
+          "target": [
+            {
+              "code": "Coverage.payor.display",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "pojisteni.cisloPojistence",
+          "display": "A.1.3.3 – Číslo pojištěnce",
+          "target": [
+            {
+              "code": "Coverage.identifier",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+      "element": [
+        {
+          "code": "zadatel",
+          "display": "A.1.5 – Žadatel",
+          "target": [
+            {
+              "code": "PractitionerRole",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "zadatel.icp",
+          "display": "A.1.5.1 – IČP",
+          "target": [
+            {
+              "code": "PractitionerRole.identifier",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "zadatel.jmenoZadatele",
+          "display": "A.1.5.2 – Jméno žadatele",
+          "target": [
+            {
+              "code": "PractitionerRole.practitioner.name",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+      "element": [
+        {
+          "code": "zpracovatel",
+          "display": "A.1.6 – Zpracovatel",
+          "target": [
+            {
+              "code": "PractitionerRole",
+              "equivalence": "relatedto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz",
+      "element": [
+        {
+          "code": "kOrder.identifikatorEZadanky",
+          "display": "A.1.8.1 – Identifikátor dokumentu",
+          "target": [
+            {
+              "code": "Composition.identifier",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "kOrder.datumVytvoreni",
+          "display": "A.1.8.2 – Datum vytvoření",
+          "target": [
+            {
+              "code": "Composition.date",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "kOrder.stavZadanky",
+          "display": "A.1.8.3 – Stav dokumentu",
+          "target": [
+            {
+              "code": "Composition.status",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "kOrder.typZadanky",
+          "display": "A.1.8.4 – Kategorie dokumentu",
+          "target": [
+            {
+              "code": "Composition.category",
+              "equivalence": "relatedto"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

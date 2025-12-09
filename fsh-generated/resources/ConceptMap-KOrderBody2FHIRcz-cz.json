@@ -1,0 +1,114 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "KOrderBody2FHIRcz-cz",
+  "url": "https://hl7.cz/fhir/korder/ConceptMap/KOrderBody2FHIRcz-cz",
+  "name": "KOrderBody2FHIRcz",
+  "title": "CZ K-order Body Model to this guide Map",
+  "status": "draft",
+  "experimental": true,
+  "description": "CZ K-order Body (A.2–A.6) → FHIR mapping (ServiceRequest, Condition, DocumentReference, Provenance, Composition sections).",
+  "group": [
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz",
+      "element": [
+        {
+          "code": "diagnozy",
+          "display": "A.2 – Diagnózy",
+          "target": [
+            {
+              "code": "Condition",
+              "equivalence": "relatedto",
+              "comment": "Composition.section[diagnoses].entry.ofType(Condition)"
+            }
+          ]
+        },
+        {
+          "code": "diagnozy.hlavniDiagnoza",
+          "display": "A.2.1 – Hlavní diagnóza",
+          "target": [
+            {
+              "code": "Condition.code",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "diagnozy.vedlejsiDiagnozy",
+          "display": "A.2.2 – Vedlejší diagnózy",
+          "target": [
+            {
+              "code": "Condition.code",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+      "element": [
+        {
+          "code": "duvody",
+          "display": "A.3 – Klinické odůvodnění",
+          "target": [
+            {
+              "code": "ServiceRequest.reasonCode",
+              "equivalence": "relatedto",
+              "comment": "alternativně: ServiceRequest.reasonReference → Condition"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+      "element": [
+        {
+          "code": "pozadovanaVysetreni",
+          "display": "A.4 – Požadovaná vyšetření / výkony",
+          "target": [
+            {
+              "code": "ServiceRequest",
+              "equivalence": "relatedto",
+              "comment": "Composition.section[examinations].entry.ofType(ServiceRequest)"
+            }
+          ]
+        },
+        {
+          "code": "pozadovanaVysetreni.slovniPopis",
+          "display": "A.4.1 – Slovní popis požadovaného výkonu",
+          "target": [
+            {
+              "code": "ServiceRequest.code.text",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pozadovanaVysetreni.kodVykonu",
+          "display": "A.4.2 – Kód výkonu (VZP)",
+          "target": [
+            {
+              "code": "ServiceRequest.code",
+              "equivalence": "equivalent",
+              "comment": "Používá KOrderProceduresVS (VZP výkony)."
+            }
+          ]
+        },
+        {
+          "code": "pozadovanaVysetreni.doporuceni",
+          "display": "A.4.3 – Doporučení slovem",
+          "target": [
+            {
+              "code": "ServiceRequest.note",
+              "equivalence": "relatedto"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

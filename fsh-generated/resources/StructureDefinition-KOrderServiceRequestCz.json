@@ -1,0 +1,315 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "KOrderServiceRequestCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+  "name": "KOrderServiceRequestCz",
+  "title": "K-order (CZ) – ServiceRequest",
+  "status": "draft",
+  "publisher": "HL7 CZ",
+  "description": "Národní profil ServiceRequest pro K-order (žádanka).\nReprezentuje klinické/technické zadání (požadované vyšetření nebo výkony).\nPoužívá CZ core profily pro Patient, Practitioner, Organization, Coverage a Condition.",
+  "copyright": "HL7 CZ",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest",
+        "path": "ServiceRequest",
+        "short": "K-order ServiceRequest",
+        "definition": "ServiceRequest reprezentuje požadavek na vyšetření nebo výkon v rámci K-order."
+      },
+      {
+        "id": "ServiceRequest.extension",
+        "path": "ServiceRequest.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "ServiceRequest.extension:informationRecipient",
+        "path": "ServiceRequest.extension",
+        "sliceName": "informationRecipient",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.eu/fhir/StructureDefinition/information-recipient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:informationRecipient.value[x]",
+        "path": "ServiceRequest.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:basedOnComposition",
+        "path": "ServiceRequest.extension",
+        "sliceName": "basedOnComposition",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.eu/fhir/StructureDefinition/composition-basedOn-order-or-requisition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.extension:basedOnComposition.value[x]",
+        "path": "ServiceRequest.extension.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "ServiceRequest.extension:basedOnComposition.value[x]:valueReference",
+        "path": "ServiceRequest.extension.value[x]",
+        "sliceName": "valueReference",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.identifier",
+        "path": "ServiceRequest.identifier",
+        "short": "Identifikátor eŽádanky (UUID)",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.identifier.system",
+        "path": "ServiceRequest.identifier.system",
+        "min": 1,
+        "fixedUri": "urn:ietf:rfc:4122",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.identifier.value",
+        "path": "ServiceRequest.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.basedOn",
+        "path": "ServiceRequest.basedOn",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/ServiceRequest"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/korder-category-vs"
+        }
+      },
+      {
+        "id": "ServiceRequest.priority",
+        "path": "ServiceRequest.priority",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/korder-priority-vs"
+        }
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "short": "Požadované vyšetření/výkon",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/korder-procedures-vs"
+        }
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "short": "Pacient, pro kterého je žádanka určena",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.encounter",
+        "path": "ServiceRequest.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-encounter"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.occurrence[x]",
+        "path": "ServiceRequest.occurrence[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.authoredOn",
+        "path": "ServiceRequest.authoredOn",
+        "short": "Datum a čas vystavení žádanky",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "short": "Žadatel (lékař / pracoviště)",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "short": "Cílový příjemce (laboratoř / PZS)",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonCode",
+        "path": "ServiceRequest.reasonCode",
+        "short": "Slovní/číselné zdůvodnění žádosti"
+      },
+      {
+        "id": "ServiceRequest.reasonReference",
+        "path": "ServiceRequest.reasonReference",
+        "short": "Diagnózy odůvodňující žádanku",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.insurance",
+        "path": "ServiceRequest.insurance",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.specimen",
+        "path": "ServiceRequest.specimen",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-specimen"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

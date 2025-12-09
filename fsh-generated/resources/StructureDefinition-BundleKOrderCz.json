@@ -1,0 +1,282 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "BundleKOrderCz",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz",
+  "name": "BundleKOrderCz",
+  "title": "Bundle: K-Order (CZ)",
+  "status": "draft",
+  "publisher": "HL7 CZ",
+  "description": "Clinical document container for Czech K-Order consultation request.",
+  "purpose": "A structured Czech consultation request bundle containing Composition + related resources.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle",
+        "path": "Bundle",
+        "short": "K-Order consultation request Bundle",
+        "definition": "The document Bundle for a K-Order. It SHALL contain exactly one Composition and all referenced resources.",
+        "constraint": [
+          {
+            "key": "one-comp",
+            "severity": "error",
+            "human": "A K-Order Bundle SHALL include one and only one Composition.",
+            "expression": "entry.resource.ofType(Composition).count() = 1",
+            "source": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+          },
+          {
+            "key": "same-servicerequest-performer",
+            "severity": "warning",
+            "human": "All ServiceRequests SHALL have the same performer.",
+            "expression": "entry.resource.ofType(ServiceRequest).performer.all($this = %context.entry.resource.ofType(ServiceRequest).performer)",
+            "source": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+          },
+          {
+            "key": "same-servicerequest-occurrence",
+            "severity": "warning",
+            "human": "All ServiceRequests SHALL have the same occurrence (dateTime or period).",
+            "expression": "entry.resource.ofType(ServiceRequest).occurrence.all($this = %context.entry.resource.ofType(ServiceRequest).occurrence)",
+            "source": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "Bundle.identifier",
+        "path": "Bundle.identifier",
+        "short": "Business identifier of this K-Order document",
+        "min": 1
+      },
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "short": "This SHALL be a document bundle",
+        "patternCode": "document"
+      },
+      {
+        "id": "Bundle.timestamp",
+        "path": "Bundle.timestamp",
+        "short": "Timestamp when the bundle was assembled",
+        "min": 1
+      },
+      {
+        "id": "Bundle.total",
+        "path": "Bundle.total",
+        "max": "0"
+      },
+      {
+        "id": "Bundle.link",
+        "path": "Bundle.link",
+        "max": "0"
+      },
+      {
+        "id": "Bundle.entry",
+        "path": "Bundle.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "resource"
+            },
+            {
+              "type": "profile",
+              "path": "resource"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 3
+      },
+      {
+        "id": "Bundle.entry:composition",
+        "path": "Bundle.entry",
+        "sliceName": "composition",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Bundle.entry:composition.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Composition",
+            "profile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:patient",
+        "path": "Bundle.entry",
+        "sliceName": "patient",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Bundle.entry:patient.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Patient",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:serviceRequest",
+        "path": "Bundle.entry",
+        "sliceName": "serviceRequest",
+        "min": 1,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:serviceRequest.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "ServiceRequest",
+            "profile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:condition",
+        "path": "Bundle.entry",
+        "sliceName": "condition",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:condition.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "Condition",
+            "profile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:practitioner",
+        "path": "Bundle.entry",
+        "sliceName": "practitioner",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:practitioner.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "Practitioner",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:practitionerRole",
+        "path": "Bundle.entry",
+        "sliceName": "practitionerRole",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:practitionerRole.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "PractitionerRole",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:organization",
+        "path": "Bundle.entry",
+        "sliceName": "organization",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:organization.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "Organization",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:coverage",
+        "path": "Bundle.entry",
+        "sliceName": "coverage",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:coverage.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "Coverage",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:attachment",
+        "path": "Bundle.entry",
+        "sliceName": "attachment",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Bundle.entry:attachment.resource",
+        "path": "Bundle.entry.resource",
+        "type": [
+          {
+            "code": "DocumentReference",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-attachment"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.signature",
+        "path": "Bundle.signature",
+        "short": "Digital signature of the K-Order",
+        "type": [
+          {
+            "code": "Signature",
+            "profile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-signature"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,740 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogCzKOrder",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+  "name": "LogCzKOrder",
+  "title": "K-order (Žádanka) – Logický model (CZ)",
+  "status": "draft",
+  "description": "Logický model pro národní implementační příručku K-order (žádanka). Model reprezentuje strukturovaná data žádanky dle českých core profilů HL7 FHIR a vazeb na národní číselníky.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogCzKOrder",
+        "path": "LogCzKOrder",
+        "short": "K-order (Žádanka) – Logický model (CZ)",
+        "definition": "Logický model pro národní implementační příručku K-order (žádanka). Model reprezentuje strukturovaná data žádanky dle českých core profilů HL7 FHIR a vazeb na národní číselníky."
+      },
+      {
+        "id": "LogCzKOrder.kOrder",
+        "path": "LogCzKOrder.kOrder",
+        "short": "Žádanka (K-order)",
+        "definition": "Záznam o žádance na zdravotní službu, vyšetření nebo konziliární činnost. Slouží jako podklad pro výměnu mezi NIS, LIS a dalšími systémy v rámci ekosystému eHealth ČR.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.identifikatorEZadanky",
+        "path": "LogCzKOrder.kOrder.identifikatorEZadanky",
+        "short": "Identifikátor eŽádanky",
+        "definition": "Unikátní identifikátor eŽádanky generovaný systémem (UUID).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.datumVytvoreni",
+        "path": "LogCzKOrder.kOrder.datumVytvoreni",
+        "short": "Datum a čas vytvoření žádanky",
+        "definition": "Datum a čas vytvoření a autorizace žádanky ve formátu ISO 8601.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.stavZadanky",
+        "path": "LogCzKOrder.kOrder.stavZadanky",
+        "short": "Stav eŽádanky",
+        "definition": "Aktuální stav žádanky v životním cyklu (nová, přijatá, uzavřená).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.typZadanky",
+        "path": "LogCzKOrder.kOrder.typZadanky",
+        "short": "Typ eŽádanky",
+        "definition": "Kategorie žádanky podle národního číselníku (např. Poukaz K).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.priorita",
+        "path": "LogCzKOrder.kOrder.priorita",
+        "short": "Naléhavost požadavku",
+        "definition": "Úroveň naléhavosti žádanky (rutina, urgentní, statim).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient",
+        "path": "LogCzKOrder.kOrder.pacient",
+        "short": "Identifikace pacienta",
+        "definition": "Údaje o pacientovi, pro kterého je žádanka vystavena.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.jmeno",
+        "path": "LogCzKOrder.kOrder.pacient.jmeno",
+        "short": "Křestní jméno pacienta",
+        "definition": "Jméno (nebo jména) pacienta dle osobních dokladů.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.prijmeni",
+        "path": "LogCzKOrder.kOrder.pacient.prijmeni",
+        "short": "Příjmení pacienta",
+        "definition": "Příjmení pacienta.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.datumNarozeni",
+        "path": "LogCzKOrder.kOrder.pacient.datumNarozeni",
+        "short": "Datum narození pacienta",
+        "definition": "Datum narození ve formátu RRRR-MM-DD.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.identifikatorPacienta",
+        "path": "LogCzKOrder.kOrder.pacient.identifikatorPacienta",
+        "short": "Identifikátor pacienta",
+        "definition": "Rodné číslo, RID, nebo jiný národní/mzinárodní identifikátor.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.statniObcanstvi",
+        "path": "LogCzKOrder.kOrder.pacient.statniObcanstvi",
+        "short": "Státní občanství",
+        "definition": "Státní příslušnost pacienta dle ISO 3166-1 alpha-2.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.uredniPohlavi",
+        "path": "LogCzKOrder.kOrder.pacient.uredniPohlavi",
+        "short": "Úřední pohlaví",
+        "definition": "Administrativní pohlaví pacienta dle HL7 administrativeGender.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.jazyk",
+        "path": "LogCzKOrder.kOrder.pacient.jazyk",
+        "short": "Komunikační jazyk",
+        "definition": "Preferovaný jazyk komunikace pacienta dle ISO 639-1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.kontaktniUdaje",
+        "path": "LogCzKOrder.kOrder.pacient.kontaktniUdaje",
+        "short": "Kontaktní údaje pacienta",
+        "definition": "Adresa, telefon a e-mail pacienta.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.kontaktniUdaje.adresa",
+        "path": "LogCzKOrder.kOrder.pacient.kontaktniUdaje.adresa",
+        "short": "Adresa pacienta",
+        "definition": "Bydliště nebo korespondenční adresa pacienta.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.kontaktniUdaje.email",
+        "path": "LogCzKOrder.kOrder.pacient.kontaktniUdaje.email",
+        "short": "E-mail pacienta",
+        "definition": "Kontaktní e-mail pacienta.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.kontaktniUdaje.telefon",
+        "path": "LogCzKOrder.kOrder.pacient.kontaktniUdaje.telefon",
+        "short": "Telefon pacienta",
+        "definition": "Kontaktní telefon pacienta.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce",
+        "short": "Zákonný zástupce nebo kontakt",
+        "definition": "Osoby oprávněné k jednání nebo kontaktní osoby.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.typKontaktu",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.typKontaktu",
+        "short": "Typ kontaktu",
+        "definition": "Rozlišení typu kontaktní osoby (zákonný zástupce, emergentní kontakt, jiný).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.vztahKPacientovi",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.vztahKPacientovi",
+        "short": "Vztah k pacientovi",
+        "definition": "Rodinný nebo právní vztah k pacientovi (např. otec, matka, poručník).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.idOsoby",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.idOsoby",
+        "short": "Identifikátor kontaktní osoby",
+        "definition": "Jedinečný identifikátor kontaktní osoby (např. ID v systému).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.jmeno",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.jmeno",
+        "short": "Jméno kontaktní osoby",
+        "definition": "Jméno kontaktní osoby.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.prijmeni",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.prijmeni",
+        "short": "Příjmení kontaktní osoby",
+        "definition": "Příjmení kontaktní osoby.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.adresa",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.adresa",
+        "short": "Adresa kontaktní osoby",
+        "definition": "Bydliště nebo adresa kontaktní osoby.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.kontakt",
+        "path": "LogCzKOrder.kOrder.pacient.zakonnyZastupce.kontakt",
+        "short": "Kontakt (telefon/e-mail)",
+        "definition": "Telekomunikační kontakt kontaktní osoby.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pojisteni",
+        "path": "LogCzKOrder.kOrder.pojisteni",
+        "short": "Zdravotní pojištění",
+        "definition": "Údaje o zdravotní pojišťovně a úhradě péče.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pojisteni.kodZP",
+        "path": "LogCzKOrder.kOrder.pojisteni.kodZP",
+        "short": "Kód zdravotní pojišťovny",
+        "definition": "Kód ZP dle číselníku VZP (urn:oid:1.2.203.7898.1.1).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pojisteni.nazevZP",
+        "path": "LogCzKOrder.kOrder.pojisteni.nazevZP",
+        "short": "Název zdravotní pojišťovny",
+        "definition": "Název pojišťovny dle registru ZP.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pojisteni.cisloPojistence",
+        "path": "LogCzKOrder.kOrder.pojisteni.cisloPojistence",
+        "short": "Číslo pojištěnce",
+        "definition": "Rodné číslo bez lomítka nebo náhradní identifikátor.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pojisteni.zpusobUhrady",
+        "path": "LogCzKOrder.kOrder.pojisteni.zpusobUhrady",
+        "short": "Způsob úhrady",
+        "definition": "Způsob úhrady nebo program (VZP číselník náhrad).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel",
+        "path": "LogCzKOrder.kOrder.zadatel",
+        "short": "Žadatel (odesílající pracoviště)",
+        "definition": "Údaje o lékaři nebo pracovišti, které žádanku vystavilo.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel.icp",
+        "path": "LogCzKOrder.kOrder.zadatel.icp",
+        "short": "IČP žadatele",
+        "definition": "Identifikační číslo pracoviště žádajícího lékaře (urn:oid:1.2.203.7898.1.3).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel.ico",
+        "path": "LogCzKOrder.kOrder.zadatel.ico",
+        "short": "IČO žádajícího PZS",
+        "definition": "Identifikátor poskytovatele zdravotních služeb (IČO).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel.nazevPZS",
+        "path": "LogCzKOrder.kOrder.zadatel.nazevPZS",
+        "short": "Název žádajícího PZS",
+        "definition": "Oficiální název pracoviště žádajícího lékaře.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel.odbornost",
+        "path": "LogCzKOrder.kOrder.zadatel.odbornost",
+        "short": "Odbornost žadatele",
+        "definition": "Odbornost dle číselníku odborností (urn:oid:1.2.203.7898.1.4).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel.idZadatele",
+        "path": "LogCzKOrder.kOrder.zadatel.idZadatele",
+        "short": "ID žádajícího lékaře",
+        "definition": "Identifikátor lékaře dle registru ZP.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zadatel.jmenoZadatele",
+        "path": "LogCzKOrder.kOrder.zadatel.jmenoZadatele",
+        "short": "Jméno žádajícího lékaře",
+        "definition": "Celé jméno žádajícího lékaře.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zpracovatel",
+        "path": "LogCzKOrder.kOrder.zpracovatel",
+        "short": "Zpracovatel (cílový příjemce)",
+        "definition": "Údaje o cílovém PZS nebo laboratoři, které žádanka směřuje.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zpracovatel.icpZpracovatele",
+        "path": "LogCzKOrder.kOrder.zpracovatel.icpZpracovatele",
+        "short": "IČP zpracovatele",
+        "definition": "Identifikátor pracoviště cílového PZS.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zpracovatel.icoZpracovatele",
+        "path": "LogCzKOrder.kOrder.zpracovatel.icoZpracovatele",
+        "short": "IČO zpracovatele",
+        "definition": "IČO cílového poskytovatele zdravotních služeb.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zpracovatel.nazevZpracovatele",
+        "path": "LogCzKOrder.kOrder.zpracovatel.nazevZpracovatele",
+        "short": "Název zpracovatele",
+        "definition": "Název organizace příjemce žádanky.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.zpracovatel.odbornostZpracovatele",
+        "path": "LogCzKOrder.kOrder.zpracovatel.odbornostZpracovatele",
+        "short": "Odbornost zpracovatele",
+        "definition": "Kód odbornosti cílového pracoviště dle VZP číselníku.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.diagnozy",
+        "path": "LogCzKOrder.kOrder.diagnozy",
+        "short": "Diagnózy",
+        "definition": "Diagnózy odůvodňující žádanku o vyšetření.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.diagnozy.hlavniDiagnoza",
+        "path": "LogCzKOrder.kOrder.diagnozy.hlavniDiagnoza",
+        "short": "Hlavní diagnóza",
+        "definition": "Primární diagnóza dle MKN-10.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.diagnozy.vedlejsiDiagnozy",
+        "path": "LogCzKOrder.kOrder.diagnozy.vedlejsiDiagnozy",
+        "short": "Vedlejší diagnózy",
+        "definition": "Další relevantní diagnózy dle MKN-10.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.duvody",
+        "path": "LogCzKOrder.kOrder.duvody",
+        "short": "Zdůvodnění žádosti",
+        "definition": "Klinické odůvodnění žádosti (anamnéza, objektivní nález).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pozadovanaVysetreni",
+        "path": "LogCzKOrder.kOrder.pozadovanaVysetreni",
+        "short": "Požadované vyšetření / výkony",
+        "definition": "Seznam požadovaných zdravotních výkonů nebo vyšetření.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pozadovanaVysetreni.slovniPopis",
+        "path": "LogCzKOrder.kOrder.pozadovanaVysetreni.slovniPopis",
+        "short": "Požadované vyšetření slovem",
+        "definition": "Popis výkonu slovně dle zadání žadatele.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pozadovanaVysetreni.kodVykonu",
+        "path": "LogCzKOrder.kOrder.pozadovanaVysetreni.kodVykonu",
+        "short": "Kód výkonu",
+        "definition": "Kód dle číselníku výkonů (VZP).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.pozadovanaVysetreni.doporuceni",
+        "path": "LogCzKOrder.kOrder.pozadovanaVysetreni.doporuceni",
+        "short": "Doporučení slovem",
+        "definition": "Doplňující informace o doporučení (např. hospitalizace).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.priloha",
+        "path": "LogCzKOrder.kOrder.priloha",
+        "short": "Přílohy",
+        "definition": "Přiložená dokumentace nebo doplňující soubory.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Attachment"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.podpis",
+        "path": "LogCzKOrder.kOrder.podpis",
+        "short": "Elektronický podpis",
+        "definition": "Informace o elektronickém podpisu nebo pečeti dokumentu.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.podpis.autor",
+        "path": "LogCzKOrder.kOrder.podpis.autor",
+        "short": "Autor podpisu",
+        "definition": "Osoba nebo systém, který žádanku podepsal.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.podpis.casoveRazitko",
+        "path": "LogCzKOrder.kOrder.podpis.casoveRazitko",
+        "short": "Časové razítko",
+        "definition": "Datum a čas elektronického podpisu.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

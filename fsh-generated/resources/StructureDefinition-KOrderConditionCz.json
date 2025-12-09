@@ -1,0 +1,94 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "KOrderConditionCz",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz",
+  "name": "KOrderConditionCz",
+  "title": "Condition: K-order (CZ)",
+  "status": "draft",
+  "publisher": "HL7 CZ",
+  "description": "Condition profil pro K-order (konziliární žádanku).\nPoužívá se pro diagnózy a klinické důvody žádanky.",
+  "copyright": "HL7 CZ",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Condition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition",
+        "path": "Condition",
+        "short": "K-order Condition",
+        "definition": "Diagnóza nebo klinický důvod přiložený k žádance K-order."
+      },
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/ValueSet/condition-category"
+        }
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding",
+        "path": "Condition.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.code.coding:diagnosis",
+        "path": "Condition.code.coding",
+        "sliceName": "diagnosis",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/cz-diagnosis-condition-vs"
+        }
+      },
+      {
+        "id": "Condition.code.coding:reason",
+        "path": "Condition.code.coding",
+        "sliceName": "reason",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/ValueSet/condition-code"
+        }
+      },
+      {
+        "id": "Condition.code.coding:reason.system",
+        "path": "Condition.code.coding.system",
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

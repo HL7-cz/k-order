@@ -3,11 +3,11 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: hl7.fhir.cz.empty
-canonical: https://hl7.cz/fhir/empty #!!change here!!
-name: HL7CzEmptyImplementationGuide
-title: HL7 Czech Empty Implementation Guide
-description: HL7 Czech Empty Implementation Guide
+id: hl7.fhir.cz.korder
+canonical: https://hl7.cz/fhir/korder 
+name: HL7CzKOrderImplementationGuide
+title: HL7 Czech K-Order Implementation Guide
+description: HL7 Czech K-Order Implementation Guide
 status: draft # draft | active | retired | unknown
 version: 0.0.1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
@@ -36,6 +36,10 @@ publisher:
 #     version: 1.0.0
 dependencies:
   hl7.fhir.uv.ips: 1.1.0
+  hl7.fhir.eu.base: current 
+  hl7.fhir.extensions.r4: 4.0.1
+  hl7.fhir.extensions.r5: 4.0.1
+  hl7.fhir.eu.extensions: 0.1.1-ballot
   hl7.fhir.cz.core: current
 #
 #

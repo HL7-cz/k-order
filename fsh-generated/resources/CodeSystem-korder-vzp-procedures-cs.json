@@ -1,0 +1,11 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "not-present",
+  "name": "KOrderVzpProceduresCS",
+  "id": "korder-vzp-procedures-cs",
+  "title": "VZP Výkony – CodeSystem",
+  "description": "Externí kódový systém pro zdravotní výkony dle VZP.\nJedná se o referenci na národní autoritu – obsah není součástí IG.",
+  "url": "urn:oid:1.2.203.439.4",
+  "publisher": "VZP / MZČR"
+}

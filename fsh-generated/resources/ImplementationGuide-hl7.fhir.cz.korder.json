@@ -1,0 +1,233 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.fhir.cz.korder",
+  "url": "https://hl7.cz/fhir/korder/ImplementationGuide/hl7.fhir.cz.korder",
+  "version": "0.0.1",
+  "name": "HL7CzKOrderImplementationGuide",
+  "title": "HL7 Czech K-Order Implementation Guide",
+  "status": "draft",
+  "publisher": "HL7 Czech Republic",
+  "contact": [
+    {
+      "name": "HL7 Czech Republic",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.hl7.cz/"
+        }
+      ]
+    }
+  ],
+  "description": "HL7 Czech K-Order Implementation Guide",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "CZ",
+          "system": "urn:iso:std:iso:3166",
+          "display": "Czechia"
+        }
+      ]
+    }
+  ],
+  "packageId": "hl7.fhir.cz.korder",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.uv.ips",
+      "version": "1.1.0",
+      "uri": "http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips",
+      "id": "hl7_fhir_uv_ips"
+    },
+    {
+      "packageId": "hl7.fhir.eu.base",
+      "version": "current",
+      "uri": "http://hl7.eu/fhir/base/ImplementationGuide/hl7.fhir.eu.base",
+      "id": "hl7_fhir_eu_base"
+    },
+    {
+      "packageId": "hl7.fhir.eu.extensions",
+      "version": "0.1.1-ballot",
+      "uri": "http://hl7.eu/fhir/extensions/ImplementationGuide/hl7.fhir.eu.extensions",
+      "id": "hl7_fhir_eu_extensions"
+    },
+    {
+      "packageId": "hl7.fhir.cz.core",
+      "version": "current",
+      "uri": "https://hl7.cz/fhir/core/ImplementationGuide/hl7.fhir.cz.core",
+      "id": "hl7_fhir_cz_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/BundleKOrderCz"
+        },
+        "name": "Bundle: K-Order (CZ)",
+        "description": "Clinical document container for Czech K-Order consultation request.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/KOrderCompositionCz"
+        },
+        "name": "Composition: K-order (Žádanka) (CZ)",
+        "description": "K-order Composition (žádanka) pro národní IG (CZ).\nKompozice slouží jako dokumentový kontejner nad ServiceRequest (KOrderServiceRequestCz),\nPatient, Coverage (pojištění), Condition (diagnózy) a DocumentReference (přílohy).\nSekce poskytují čitelný přehled a odkazují na příslušné resources obsažené v Bundle.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/KOrderConditionCz"
+        },
+        "name": "Condition: K-order (CZ)",
+        "description": "Condition profil pro K-order (konziliární žádanku).\nPoužívá se pro diagnózy a klinické důvody žádanky.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/cz-diagnosis-condition-vs"
+        },
+        "name": "CZ Diagnosis Condition",
+        "description": "ValueSet for diagnosis in condition in the Czech Imaging project, using MKN-10 and ORPHA codes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/AttachmentKOrder2FHIR-cz"
+        },
+        "name": "CZ K-order Attachment Model to this guide Map",
+        "description": "Mapping LogCzKOrder.priloha → CZ core Attachment & DocumentReference.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/KOrderBody2FHIRcz-cz"
+        },
+        "name": "CZ K-order Body Model to this guide Map",
+        "description": "CZ K-order Body (A.2–A.6) → FHIR mapping (ServiceRequest, Condition, DocumentReference, Provenance, Composition sections).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/KOrderHeader2FHIRcz-cz"
+        },
+        "name": "CZ K-order Header Model to this guide Map",
+        "description": "CZ K-order Header Model → K-order FHIR profiles mapping (Composition, Patient, Coverage, Practitioner, Organization).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/KOrderServiceRequestCz"
+        },
+        "name": "K-order (CZ) – ServiceRequest",
+        "description": "Národní profil ServiceRequest pro K-order (žádanka).\nReprezentuje klinické/technické zadání (požadované vyšetření nebo výkony).\nPoužívá CZ core profily pro Patient, Practitioner, Organization, Coverage a Condition.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LogKOrderEn"
+        },
+        "name": "K-order (Referral Form) – Logical Model (CZ)",
+        "description": "Logical model for the national implementation guide of K-order (referral form) in the Czech Republic.\nThe model represents structured data for requesting medical services or consultation requests, \naligned with CZ Core FHIR profiles and national code systems.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LogCzKOrder"
+        },
+        "name": "K-order (Žádanka) – Logický model (CZ)",
+        "description": "Logický model pro národní implementační příručku K-order (žádanka). Model reprezentuje strukturovaná data žádanky dle českých core profilů HL7 FHIR a vazeb na národní číselníky.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/korder-category-vs"
+        },
+        "name": "K-order Category ValueSet (CZ)",
+        "description": "Kategorie konziliární žádanky K-order.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/korder-priority-vs"
+        },
+        "name": "K-order Priority ValueSet (CZ)",
+        "description": "Prioritizace pro konziliární žádanky K-order, s českými názvy.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/korder-procedures-vs"
+        },
+        "name": "K-order Procedures ValueSet (CZ)",
+        "description": "Kódy zdravotních výkonů dle VZP číselníku pro použití v K-order.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/korder-composition-requestReference"
+        },
+        "name": "K-order Request Reference",
+        "description": "Reference to the K-order ServiceRequest instance(s) that the Composition documents.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/korder-vzp-procedures-cs"
+        },
+        "name": "VZP Výkony – CodeSystem",
+        "description": "Externí kódový systém pro zdravotní výkony dle VZP.\nJedná se o referenci na národní autoritu – obsah není součástí IG.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2025+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "ci-build"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-jurisdiction",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "true"
+      },
+      {
+        "code": "usage-stats-opt-out",
+        "value": "true"
+      }
+    ]
+  }
+}

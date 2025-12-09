@@ -1,0 +1,740 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogKOrderEn",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogKOrderEn",
+  "name": "LogKOrderEn",
+  "title": "K-order (Referral Form) – Logical Model (CZ)",
+  "status": "draft",
+  "description": "Logical model for the national implementation guide of K-order (referral form) in the Czech Republic.\nThe model represents structured data for requesting medical services or consultation requests, \naligned with CZ Core FHIR profiles and national code systems.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogKOrderEn",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogKOrderEn",
+        "path": "LogKOrderEn",
+        "short": "K-order (Referral Form) – Logical Model (CZ)",
+        "definition": "Logical model for the national implementation guide of K-order (referral form) in the Czech Republic.\nThe model represents structured data for requesting medical services or consultation requests, \naligned with CZ Core FHIR profiles and national code systems."
+      },
+      {
+        "id": "LogKOrderEn.kOrder",
+        "path": "LogKOrderEn.kOrder",
+        "short": "K-order Referral",
+        "definition": "Record of a medical referral or request for healthcare service, \nused for communication between hospital, or outpatient systems within the Czech eHealth ecosystem.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.orderIdentifier",
+        "path": "LogKOrderEn.kOrder.orderIdentifier",
+        "short": "K-order Identifier",
+        "definition": "System-generated unique identifier (UUID) for the referral form.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.authoredOn",
+        "path": "LogKOrderEn.kOrder.authoredOn",
+        "short": "Date and Time of Creation",
+        "definition": "Date and time when the referral was created and authorized (ISO 8601 format).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.status",
+        "path": "LogKOrderEn.kOrder.status",
+        "short": "Order Status",
+        "definition": "Current status of the referral in its lifecycle (draft, active, completed, cancelled).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.category",
+        "path": "LogKOrderEn.kOrder.category",
+        "short": "Order Category",
+        "definition": "Type of referral according to the national code list (e.g., Poukaz K).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.priority",
+        "path": "LogKOrderEn.kOrder.priority",
+        "short": "Request Priority",
+        "definition": "Level of urgency (routine, urgent, statim).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient",
+        "path": "LogKOrderEn.kOrder.patient",
+        "short": "Patient Identification",
+        "definition": "Information about the patient for whom the referral is issued.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.givenName",
+        "path": "LogKOrderEn.kOrder.patient.givenName",
+        "short": "Given Name",
+        "definition": "Patient's given name(s).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.familyName",
+        "path": "LogKOrderEn.kOrder.patient.familyName",
+        "short": "Family Name",
+        "definition": "Patient's family name.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.birthDate",
+        "path": "LogKOrderEn.kOrder.patient.birthDate",
+        "short": "Date of Birth",
+        "definition": "Patient's date of birth (YYYY-MM-DD).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.patientIdentifier",
+        "path": "LogKOrderEn.kOrder.patient.patientIdentifier",
+        "short": "Patient Identifier",
+        "definition": "RID, RCIS, or another national/international identifier.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.citizenship",
+        "path": "LogKOrderEn.kOrder.patient.citizenship",
+        "short": "Citizenship",
+        "definition": "Patient’s citizenship (ISO 3166-1 alpha-2).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.gender",
+        "path": "LogKOrderEn.kOrder.patient.gender",
+        "short": "Administrative Gender",
+        "definition": "Patient's administrative gender (HL7 administrativeGender).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.language",
+        "path": "LogKOrderEn.kOrder.patient.language",
+        "short": "Communication Language",
+        "definition": "Preferred patient language (ISO 639-1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.contactInfo",
+        "path": "LogKOrderEn.kOrder.patient.contactInfo",
+        "short": "Patient Contact Information",
+        "definition": "Address, email and telephone contacts of the patient.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.contactInfo.address",
+        "path": "LogKOrderEn.kOrder.patient.contactInfo.address",
+        "short": "Patient Address",
+        "definition": "Permanent or correspondence address.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.contactInfo.email",
+        "path": "LogKOrderEn.kOrder.patient.contactInfo.email",
+        "short": "Email",
+        "definition": "Patient’s contact email.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.contactInfo.phone",
+        "path": "LogKOrderEn.kOrder.patient.contactInfo.phone",
+        "short": "Phone",
+        "definition": "Patient’s contact phone number.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian",
+        "short": "Legal Guardian or Contact",
+        "definition": "Persons authorized to act on behalf of or contact the patient.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.contactType",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.contactType",
+        "short": "Contact Type",
+        "definition": "Type of contact (guardian, emergency contact, other).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.relationship",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.relationship",
+        "short": "Relationship to Patient",
+        "definition": "Relationship between the contact person and patient (e.g., father, mother, guardian).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.contactIdentifier",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.contactIdentifier",
+        "short": "Contact Person Identifier",
+        "definition": "Unique identifier of the contact person.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.givenName",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.givenName",
+        "short": "Contact Person Given Name",
+        "definition": "Contact person’s given name.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.familyName",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.familyName",
+        "short": "Contact Person Family Name",
+        "definition": "Contact person’s family name.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.address",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.address",
+        "short": "Contact Address",
+        "definition": "Contact person’s address.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.patient.legalGuardian.telecom",
+        "path": "LogKOrderEn.kOrder.patient.legalGuardian.telecom",
+        "short": "Contact Telecom",
+        "definition": "Email, phone or other telecom contact.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.insurance",
+        "path": "LogKOrderEn.kOrder.insurance",
+        "short": "Health Insurance",
+        "definition": "Information about the patient's insurance and payment.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.insurance.payerCode",
+        "path": "LogKOrderEn.kOrder.insurance.payerCode",
+        "short": "Insurance Company Code",
+        "definition": "Code of the health insurance company (VZP list, OID 1.2.203.7898.1.1).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.insurance.payerName",
+        "path": "LogKOrderEn.kOrder.insurance.payerName",
+        "short": "Insurance Company Name",
+        "definition": "Name of the health insurance company.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.insurance.insuredNumber",
+        "path": "LogKOrderEn.kOrder.insurance.insuredNumber",
+        "short": "Insurance Number",
+        "definition": "Patient’s insurance number (usually national ID without slash).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.insurance.paymentType",
+        "path": "LogKOrderEn.kOrder.insurance.paymentType",
+        "short": "Payment Type",
+        "definition": "Type of payment or reimbursement (VZP Reimbursement list).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester",
+        "path": "LogKOrderEn.kOrder.requester",
+        "short": "Requester (Referring Practitioner/Facility)",
+        "definition": "Information about the healthcare provider issuing the referral.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester.icp",
+        "path": "LogKOrderEn.kOrder.requester.icp",
+        "short": "ICP of Requester",
+        "definition": "Identifier of the requesting facility (OID 1.2.203.7898.1.3).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester.ico",
+        "path": "LogKOrderEn.kOrder.requester.ico",
+        "short": "ICO of Requester Organization",
+        "definition": "Identifier of the healthcare provider (ICO).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester.organizationName",
+        "path": "LogKOrderEn.kOrder.requester.organizationName",
+        "short": "Requester Organization Name",
+        "definition": "Official name of the requesting facility.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester.specialty",
+        "path": "LogKOrderEn.kOrder.requester.specialty",
+        "short": "Requester Specialty",
+        "definition": "Specialty code according to national list (OID 1.2.203.7898.1.4).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester.practitionerId",
+        "path": "LogKOrderEn.kOrder.requester.practitionerId",
+        "short": "Requester Practitioner ID",
+        "definition": "Practitioner identifier according to payer registry.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requester.practitionerName",
+        "path": "LogKOrderEn.kOrder.requester.practitionerName",
+        "short": "Requester Practitioner Name",
+        "definition": "Full name of the requesting practitioner.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.performer",
+        "path": "LogKOrderEn.kOrder.performer",
+        "short": "Performer (Recipient)",
+        "definition": "Target facility or laboratory receiving the referral.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.performer.icpPerformer",
+        "path": "LogKOrderEn.kOrder.performer.icpPerformer",
+        "short": "Performer ICP",
+        "definition": "Identifier of the performer facility.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.performer.icoPerformer",
+        "path": "LogKOrderEn.kOrder.performer.icoPerformer",
+        "short": "Performer ICO",
+        "definition": "ICO of the recipient healthcare organization.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.performer.performerName",
+        "path": "LogKOrderEn.kOrder.performer.performerName",
+        "short": "Performer Name",
+        "definition": "Name of the performer organization.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.performer.performerSpecialty",
+        "path": "LogKOrderEn.kOrder.performer.performerSpecialty",
+        "short": "Performer Specialty",
+        "definition": "Specialty of the target facility or department.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.diagnoses",
+        "path": "LogKOrderEn.kOrder.diagnoses",
+        "short": "Diagnoses",
+        "definition": "Clinical diagnoses justifying the referral request.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.diagnoses.primaryDiagnosis",
+        "path": "LogKOrderEn.kOrder.diagnoses.primaryDiagnosis",
+        "short": "Primary Diagnosis",
+        "definition": "Main diagnosis coded in ICD-10-CZ.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.diagnoses.secondaryDiagnoses",
+        "path": "LogKOrderEn.kOrder.diagnoses.secondaryDiagnoses",
+        "short": "Secondary Diagnoses",
+        "definition": "Additional diagnoses coded in ICD-10-CZ.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.justification",
+        "path": "LogKOrderEn.kOrder.justification",
+        "short": "Clinical Justification",
+        "definition": "Clinical reasoning for the request (anamnesis, objective findings).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requestedServices",
+        "path": "LogKOrderEn.kOrder.requestedServices",
+        "short": "Requested Services or Procedures",
+        "definition": "List of requested medical procedures or examinations.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requestedServices.textDescription",
+        "path": "LogKOrderEn.kOrder.requestedServices.textDescription",
+        "short": "Requested Service Description",
+        "definition": "Verbal description of the requested examination or service.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requestedServices.procedureCode",
+        "path": "LogKOrderEn.kOrder.requestedServices.procedureCode",
+        "short": "Procedure Code",
+        "definition": "Procedure code according to VZP performance list.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.requestedServices.recommendation",
+        "path": "LogKOrderEn.kOrder.requestedServices.recommendation",
+        "short": "Recommendation Text",
+        "definition": "Additional recommendation or comment (e.g., hospitalization).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.attachment",
+        "path": "LogKOrderEn.kOrder.attachment",
+        "short": "Attachments",
+        "definition": "Supplementary documentation attached to the referral.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Attachment"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.signature",
+        "path": "LogKOrderEn.kOrder.signature",
+        "short": "Electronic Signature",
+        "definition": "Electronic signature or seal of the referral document.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.signature.author",
+        "path": "LogKOrderEn.kOrder.signature.author",
+        "short": "Author of Signature",
+        "definition": "Person or system that signed the referral electronically.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.signature.timestamp",
+        "path": "LogKOrderEn.kOrder.signature.timestamp",
+        "short": "Timestamp",
+        "definition": "Date and time of the electronic signature.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

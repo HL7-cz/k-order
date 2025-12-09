@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "KOrderCategoryVS",
+  "id": "korder-category-vs",
+  "title": "K-order Category ValueSet (CZ)",
+  "description": "Kategorie konziliární žádanky K-order.",
+  "url": "https://hl7.cz/fhir/korder/ValueSet/korder-category-vs",
+  "publisher": "HL7 CZ",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "308467007",
+            "display": "Consultation"
+          }
+        ]
+      }
+    ]
+  }
+}

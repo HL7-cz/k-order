@@ -1,0 +1,15 @@
+[BundleKOrderCz]: StructureDefinition-BundleKOrderCz.html
+[KOrderCompositionCz]: StructureDefinition-KOrderCompositionCz.html
+[KOrderConditionCz]: StructureDefinition-KOrderConditionCz.html
+[CZ_DiagnosisConditionVs]: ValueSet-cz-diagnosis-condition-vs.html
+[AttachmentKOrder2FHIR-cz]: ConceptMap-AttachmentKOrder2FHIR-cz.html
+[KOrderBody2FHIRcz-cz]: ConceptMap-KOrderBody2FHIRcz-cz.html
+[KOrderHeader2FHIRcz-cz]: ConceptMap-KOrderHeader2FHIRcz-cz.html
+[KOrderServiceRequestCz]: StructureDefinition-KOrderServiceRequestCz.html
+[LogKOrderEn]: StructureDefinition-LogKOrderEn.html
+[LogCzKOrder]: StructureDefinition-LogCzKOrder.html
+[KOrderCategoryVS]: ValueSet-korder-category-vs.html
+[KOrderPriorityVS]: ValueSet-korder-priority-vs.html
+[KOrderProceduresVS]: ValueSet-korder-procedures-vs.html
+[KOrderRequestReference]: StructureDefinition-korder-composition-requestReference.html
+[KOrderVzpProceduresCS]: CodeSystem-korder-vzp-procedures-cs.html

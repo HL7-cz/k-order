@@ -1,0 +1,122 @@
+[
+  {
+    "outputFile": "CodeSystem-korder-vzp-procedures-cs.json",
+    "fshName": "KOrderVzpProceduresCS",
+    "fshType": "CodeSystem",
+    "fshFile": "code-systems\\KOrderVzpProceduresCS.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "ConceptMap-AttachmentKOrder2FHIR-cz.json",
+    "fshName": "AttachmentKOrder2FHIR-cz",
+    "fshType": "Instance",
+    "fshFile": "maps\\Attachment.fsh",
+    "startLine": 1,
+    "endLine": 61
+  },
+  {
+    "outputFile": "ConceptMap-KOrderBody2FHIRcz-cz.json",
+    "fshName": "KOrderBody2FHIRcz-cz",
+    "fshType": "Instance",
+    "fshFile": "maps\\Body.fsh",
+    "startLine": 1,
+    "endLine": 78
+  },
+  {
+    "outputFile": "ConceptMap-KOrderHeader2FHIRcz-cz.json",
+    "fshName": "KOrderHeader2FHIRcz-cz",
+    "fshType": "Instance",
+    "fshFile": "maps\\Header.fsh",
+    "startLine": 1,
+    "endLine": 193
+  },
+  {
+    "outputFile": "StructureDefinition-BundleKOrderCz.json",
+    "fshName": "BundleKOrderCz",
+    "fshType": "Profile",
+    "fshFile": "profiles\\bundle-K-Order.fsh",
+    "startLine": 24,
+    "endLine": 118
+  },
+  {
+    "outputFile": "StructureDefinition-KOrderCompositionCz.json",
+    "fshName": "KOrderCompositionCz",
+    "fshType": "Profile",
+    "fshFile": "profiles\\composition-K-Order.fsh",
+    "startLine": 1,
+    "endLine": 190
+  },
+  {
+    "outputFile": "StructureDefinition-KOrderConditionCz.json",
+    "fshName": "KOrderConditionCz",
+    "fshType": "Profile",
+    "fshFile": "profiles\\condition-K-Order.fsh",
+    "startLine": 1,
+    "endLine": 48
+  },
+  {
+    "outputFile": "StructureDefinition-KOrderServiceRequestCz.json",
+    "fshName": "KOrderServiceRequestCz",
+    "fshType": "Profile",
+    "fshFile": "profiles\\serviceRequest-K-Order.fsh",
+    "startLine": 1,
+    "endLine": 102
+  },
+  {
+    "outputFile": "StructureDefinition-LogCzKOrder.json",
+    "fshName": "LogCzKOrder",
+    "fshType": "Logical",
+    "fshFile": "model\\log-model-cz.fsh",
+    "startLine": 1,
+    "endLine": 68
+  },
+  {
+    "outputFile": "StructureDefinition-LogKOrderEn.json",
+    "fshName": "LogKOrderEn",
+    "fshType": "Logical",
+    "fshFile": "model\\log-model-en.fsh",
+    "startLine": 1,
+    "endLine": 74
+  },
+  {
+    "outputFile": "StructureDefinition-korder-composition-requestReference.json",
+    "fshName": "KOrderRequestReference",
+    "fshType": "Extension",
+    "fshFile": "profiles\\composition-K-Order.fsh",
+    "startLine": 194,
+    "endLine": 202
+  },
+  {
+    "outputFile": "ValueSet-cz-diagnosis-condition-vs.json",
+    "fshName": "CZ_DiagnosisConditionVs",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KOrderDiagnosisConditionVS.fsh",
+    "startLine": 1,
+    "endLine": 8
+  },
+  {
+    "outputFile": "ValueSet-korder-category-vs.json",
+    "fshName": "KOrderCategoryVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KOrderCategoryVS.fsh",
+    "startLine": 1,
+    "endLine": 7
+  },
+  {
+    "outputFile": "ValueSet-korder-priority-vs.json",
+    "fshName": "KOrderPriorityVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KOrderPriorityVS.fsh",
+    "startLine": 1,
+    "endLine": 17
+  },
+  {
+    "outputFile": "ValueSet-korder-procedures-vs.json",
+    "fshName": "KOrderProceduresVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KOrderProceduresVS.fsh",
+    "startLine": 1,
+    "endLine": 7
+  }
+]

@@ -1,0 +1,16 @@
+Output File                                                   Name                      Type        FSH File                                   Lines
+CodeSystem-korder-vzp-procedures-cs.json                      KOrderVzpProceduresCS     CodeSystem  code-systems\KOrderVzpProceduresCS.fsh     1 - 10
+ConceptMap-AttachmentKOrder2FHIR-cz.json                      AttachmentKOrder2FHIR-cz  Instance    maps\Attachment.fsh                        1 - 61
+ConceptMap-KOrderBody2FHIRcz-cz.json                          KOrderBody2FHIRcz-cz      Instance    maps\Body.fsh                              1 - 78
+ConceptMap-KOrderHeader2FHIRcz-cz.json                        KOrderHeader2FHIRcz-cz    Instance    maps\Header.fsh                            1 - 193
+StructureDefinition-BundleKOrderCz.json                       BundleKOrderCz            Profile     profiles\bundle-K-Order.fsh                24 - 118
+StructureDefinition-KOrderCompositionCz.json                  KOrderCompositionCz       Profile     profiles\composition-K-Order.fsh           1 - 190
+StructureDefinition-KOrderConditionCz.json                    KOrderConditionCz         Profile     profiles\condition-K-Order.fsh             1 - 48
+StructureDefinition-KOrderServiceRequestCz.json               KOrderServiceRequestCz    Profile     profiles\serviceRequest-K-Order.fsh        1 - 102
+StructureDefinition-LogCzKOrder.json                          LogCzKOrder               Logical     model\log-model-cz.fsh                     1 - 68
+StructureDefinition-LogKOrderEn.json                          LogKOrderEn               Logical     model\log-model-en.fsh                     1 - 74
+StructureDefinition-korder-composition-requestReference.json  KOrderRequestReference    Extension   profiles\composition-K-Order.fsh           194 - 202
+ValueSet-cz-diagnosis-condition-vs.json                       CZ_DiagnosisConditionVs   ValueSet    value-sets\KOrderDiagnosisConditionVS.fsh  1 - 8
+ValueSet-korder-category-vs.json                              KOrderCategoryVS          ValueSet    value-sets\KOrderCategoryVS.fsh            1 - 7
+ValueSet-korder-priority-vs.json                              KOrderPriorityVS          ValueSet    value-sets\KOrderPriorityVS.fsh            1 - 17
+ValueSet-korder-procedures-vs.json                            KOrderProceduresVS        ValueSet    value-sets\KOrderProceduresVS.fsh          1 - 7
