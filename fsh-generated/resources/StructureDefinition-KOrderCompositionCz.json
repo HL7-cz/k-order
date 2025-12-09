@@ -49,14 +49,15 @@
           ],
           "ordered": false,
           "rules": "open"
-        }
+        },
+        "min": 1
       },
       {
         "id": "Composition.extension:presentedForm",
         "path": "Composition.extension",
         "sliceName": "presentedForm",
         "short": "Presented form",
-        "min": 0,
+        "min": 1,
         "max": "*",
         "type": [
           {
@@ -308,7 +309,7 @@
           "rules": "open",
           "ordered": false
         },
-        "min": 4,
+        "min": 2,
         "mustSupport": true
       },
       {
@@ -324,62 +325,6 @@
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:patient",
-        "path": "Composition.section",
-        "sliceName": "patient",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Composition.section:patient.title",
-        "path": "Composition.section.title",
-        "patternString": "Patient"
-      },
-      {
-        "id": "Composition.section:patient.code",
-        "path": "Composition.section.code",
-        "min": 1,
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "code": "48765-2",
-              "system": "http://loinc.org"
-            }
-          ]
-        }
-      },
-      {
-        "id": "Composition.section:patient.author",
-        "path": "Composition.section.author",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:patient.entry",
-        "path": "Composition.section.entry",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
             ]
           }
         ]
@@ -436,121 +381,6 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:requester",
-        "path": "Composition.section",
-        "sliceName": "requester",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Composition.section:requester.title",
-        "path": "Composition.section.title",
-        "patternString": "Requester"
-      },
-      {
-        "id": "Composition.section:requester.code",
-        "path": "Composition.section.code",
-        "min": 1,
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "code": "12118-4",
-              "system": "http://loinc.org"
-            }
-          ]
-        }
-      },
-      {
-        "id": "Composition.section:requester.author",
-        "path": "Composition.section.author",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:requester.entry",
-        "path": "Composition.section.entry",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:performer",
-        "path": "Composition.section",
-        "sliceName": "performer",
-        "min": 0,
-        "max": "1"
-      },
-      {
-        "id": "Composition.section:performer.title",
-        "path": "Composition.section.title",
-        "patternString": "Performer"
-      },
-      {
-        "id": "Composition.section:performer.code",
-        "path": "Composition.section.code",
-        "min": 1,
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "code": "18726-0",
-              "system": "http://loinc.org"
-            }
-          ]
-        }
-      },
-      {
-        "id": "Composition.section:performer.author",
-        "path": "Composition.section.author",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:performer.entry",
-        "path": "Composition.section.entry",
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
             ]
           }
         ]

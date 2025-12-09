@@ -3,7 +3,7 @@
   "id": "LogKOrderEn",
   "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogKOrderEn",
   "name": "LogKOrderEn",
-  "title": "K-order (Referral Form) – Logical Model (CZ)",
+  "title": "K-order (Referral Form) – Logical Model (EN)",
   "status": "draft",
   "description": "Logical model for the national implementation guide of K-order (referral form) in the Czech Republic.\nThe model represents structured data for requesting medical services or consultation requests, \naligned with CZ Core FHIR profiles and national code systems.",
   "fhirVersion": "4.0.1",
@@ -17,7 +17,7 @@
       {
         "id": "LogKOrderEn",
         "path": "LogKOrderEn",
-        "short": "K-order (Referral Form) – Logical Model (CZ)",
+        "short": "K-order (Referral Form) – Logical Model (EN)",
         "definition": "Logical model for the national implementation guide of K-order (referral form) in the Czech Republic.\nThe model represents structured data for requesting medical services or consultation requests, \naligned with CZ Core FHIR profiles and national code systems."
       },
       {

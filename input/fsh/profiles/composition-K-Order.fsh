@@ -28,7 +28,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 
 
 // --------------------------- extensions -------------------------------------
-* extension contains DocumentPresentedForm named presentedForm 0..*
+* extension contains DocumentPresentedForm named presentedForm 1..*
 * extension[presentedForm] ^short = "Presented form"
 * extension[presentedForm].valueAttachment
   * contentType
@@ -118,10 +118,7 @@ Severity: #error
 
 // --------------------------- section contains (UNIFIED) ----------------------
 * section contains
-    patient 1..1 and
     insurance 0..1 and
-    requester 1..1 and
-    performer 0..1 and
     diagnoses 1..1 and
     reasons 0..1 and
     examinations 1..1 and
@@ -131,29 +128,12 @@ Severity: #error
 
 // --------------------------- section definitions ----------------------------
 
-// Patient
-* section[patient].code = $loinc#48765-2
-* section[patient].title = "Patient"
-* section[patient].entry 1..1
-* section[patient].entry only Reference(CZ_PatientCore)
-
 // Insurance
 * section[insurance].code = $loinc#48768-6
 * section[insurance].title = "Insurance"
 * section[insurance].entry 1..1
 * section[insurance].entry only Reference(CZ_Coverage)
 
-// Requester
-* section[requester].code = $loinc#12118-4
-* section[requester].title = "Requester"
-* section[requester].entry 1..1
-* section[requester].entry only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
-
-// Performer
-* section[performer].code = $loinc#18726-0
-* section[performer].title = "Performer"
-* section[performer].entry 0..1
-* section[performer].entry only Reference(CZ_PractitionerCore or CZ_OrganizationCore or CZ_PractitionerRoleCore)
 
 // Diagnoses
 * section[diagnoses].code = $loinc#11450-4
