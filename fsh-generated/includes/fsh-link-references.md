@@ -12,4 +12,6 @@
 [KOrderPriorityVS]: ValueSet-korder-priority-vs.html
 [KOrderProceduresVS]: ValueSet-korder-procedures-vs.html
 [KOrderRequestReference]: StructureDefinition-korder-composition-requestReference.html
+[KOrderTypeCS]: CodeSystem-korder-type-cs.html
+[KOrderTypeVS]: ValueSet-korder-type-vs.html
 [KOrderVzpProceduresCS]: CodeSystem-korder-vzp-procedures-cs.html

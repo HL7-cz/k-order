@@ -76,6 +76,8 @@ pages:
 #   title: Profiles and extensions
 # downloads.md:
 #   title: Download
+  artifacts.xml:
+    title: Artifacts
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -154,6 +156,7 @@ menu:
 #    Profiles and extensions: profiles-and-extensions.html
 #  About:
 #    Downloads: downloads.html
+  Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │

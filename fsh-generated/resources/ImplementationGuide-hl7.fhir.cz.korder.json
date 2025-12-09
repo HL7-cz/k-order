@@ -176,6 +176,22 @@
       },
       {
         "reference": {
+          "reference": "CodeSystem/korder-type-cs"
+        },
+        "name": "K-order Type CodeSystem (CZ)",
+        "description": "Typy konziliárních žádánek K-order pro použití v českém prostředí.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/korder-type-vs"
+        },
+        "name": "K-order Type ValueSet (CZ)",
+        "description": "Typy konziliárních žádostí pro profil KOrderServiceRequestCz.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/korder-vzp-procedures-cs"
         },
         "name": "VZP Výkony – CodeSystem",
@@ -192,6 +208,11 @@
           "nameUrl": "index.html",
           "title": "Home",
           "generation": "markdown"
+        },
+        {
+          "nameUrl": "artifacts.html",
+          "title": "Artifacts",
+          "generation": "html"
         }
       ]
     },

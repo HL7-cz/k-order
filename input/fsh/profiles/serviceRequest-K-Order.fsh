@@ -70,12 +70,13 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * reasonCode 0..*
 * reasonCode ^short = "Slovní/číselné zdůvodnění žádosti"
 
-// --------------------------- category / code / priority ----------------------
+// --------------------------- category / type / code / priority ----------------------
 * category 1..1 MS
 * category from KOrderCategoryVS (extensible)
 
+
 * code 1..1 MS
-* code from KOrderProceduresVS (extensible)
+* code from KOrderProceduresVS (extensible)  // K Order Procedures ValueSet? 
 * code ^short = "Požadované vyšetření/výkon"
 
 * priority 0..1 MS
@@ -99,7 +100,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- workflow links ----------------------------------
 * basedOn 0..*
-* basedOn only Reference(ServiceRequest)
+* basedOn only Reference(KOrderServiceRequestCz)
 
 // --------------------------- invariants --------------------------------------
 Invariant: code-required

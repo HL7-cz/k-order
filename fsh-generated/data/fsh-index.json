@@ -1,5 +1,13 @@
 [
   {
+    "outputFile": "CodeSystem-korder-type-cs.json",
+    "fshName": "KOrderTypeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "code-systems\\KOrderTypeCS.fsh",
+    "startLine": 1,
+    "endLine": 24
+  },
+  {
     "outputFile": "CodeSystem-korder-vzp-procedures-cs.json",
     "fshName": "KOrderVzpProceduresCS",
     "fshType": "CodeSystem",
@@ -61,7 +69,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\serviceRequest-K-Order.fsh",
     "startLine": 1,
-    "endLine": 102
+    "endLine": 103
   },
   {
     "outputFile": "StructureDefinition-LogCzKOrder.json",
@@ -116,6 +124,14 @@
     "fshName": "KOrderProceduresVS",
     "fshType": "ValueSet",
     "fshFile": "value-sets\\KOrderProceduresVS.fsh",
+    "startLine": 1,
+    "endLine": 7
+  },
+  {
+    "outputFile": "ValueSet-korder-type-vs.json",
+    "fshName": "KOrderTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KOrderTypeOrderVS.fsh",
     "startLine": 1,
     "endLine": 7
   }

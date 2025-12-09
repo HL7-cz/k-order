@@ -1,0 +1,58 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "KOrderTypeCS",
+  "id": "korder-type-cs",
+  "title": "K-order Type CodeSystem (CZ)",
+  "description": "Typy konziliárních žádánek K-order pro použití v českém prostředí.",
+  "url": "https://hl7.cz/fhir/korder/CodeSystem/korder-type-cs",
+  "concept": [
+    {
+      "code": "consultation",
+      "display": "Konziliární vyšetření",
+      "definition": "Žádost o posouzení stavu nebo odborný názor jiného oboru."
+    },
+    {
+      "code": "diagnostic",
+      "display": "Diagnostické vyšetření",
+      "definition": "Laboratorní, zobrazovací nebo jiné diagnostické vyšetření."
+    },
+    {
+      "code": "procedure",
+      "display": "Terapeutický / léčebný výkon",
+      "definition": "Žádost o provedení léčebného výkonu."
+    },
+    {
+      "code": "admission",
+      "display": "Návrh na hospitalizaci / příjem",
+      "definition": "Žádost o přijetí pacienta k hospitalizaci."
+    },
+    {
+      "code": "followup",
+      "display": "Kontrolní vyšetření",
+      "definition": "Žádost o následnou nebo kontrolní péči."
+    },
+    {
+      "code": "screening",
+      "display": "Screening",
+      "definition": "Screeningové vyšetření dle národních programů."
+    },
+    {
+      "code": "administrative",
+      "display": "Administrativní úkon",
+      "definition": "Posudky, zprávy, doporučení, potvrzení."
+    },
+    {
+      "code": "other",
+      "display": "Jiné",
+      "definition": "Typ žádanky nezařazený do výše uvedených kategorií."
+    },
+    {
+      "code": "unspecified",
+      "display": "Neuvedeno"
+    }
+  ],
+  "publisher": "HL7 CZ",
+  "count": 9
+}
