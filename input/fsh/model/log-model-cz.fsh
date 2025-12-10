@@ -55,7 +55,7 @@ Description: """Logický model pro národní implementační příručku K-order
     * hlavniDiagnoza 1..1 CodeableConcept "Hlavní diagnóza" """Primární diagnóza dle MKN-10."""
     * vedlejsiDiagnozy 0..* CodeableConcept "Vedlejší diagnózy" """Další relevantní diagnózy dle MKN-10."""
 
-  * duvody 0..1 string "Zdůvodnění žádosti" """Klinické odůvodnění žádosti (anamnéza, objektivní nález)."""
+  * duvody 1..1 string "Zdůvodnění žádosti" """Klinické odůvodnění žádosti (anamnéza, objektivní nález)."""
 
   * pozadovanaVysetreni 1..* Base "Požadované vyšetření / výkony" """Seznam požadovaných zdravotních výkonů nebo vyšetření."""
     * slovniPopis 1..1 string "Požadované vyšetření slovem" """Popis výkonu slovně dle zadání žadatele."""

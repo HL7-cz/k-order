@@ -61,7 +61,7 @@ used for communication between hospital, or outpatient systems within the Czech 
     * primaryDiagnosis 1..1 CodeableConcept "Primary Diagnosis" """Main diagnosis coded in ICD-10-CZ."""
     * secondaryDiagnoses 0..* CodeableConcept "Secondary Diagnoses" """Additional diagnoses coded in ICD-10-CZ."""
 
-  * justification 0..1 string "Clinical Justification" """Clinical reasoning for the request (anamnesis, objective findings)."""
+  * justification 1..1 string "Clinical Justification" """Clinical reasoning for the request (anamnesis, objective findings)."""
 
   * requestedServices 1..* Base "Requested Services or Procedures" """List of requested medical procedures or examinations."""
     * textDescription 1..1 string "Requested Service Description" """Verbal description of the requested examination or service."""
