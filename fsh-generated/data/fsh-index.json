@@ -40,12 +40,68 @@
     "endLine": 193
   },
   {
+    "outputFile": "ConceptMap-LabOrderHeader2FHIRcz-cz.json",
+    "fshName": "LabOrderHeader2FHIRcz-cz",
+    "fshType": "Instance",
+    "fshFile": "maps\\HeaderKOrder2FHIR.fsh",
+    "startLine": 2,
+    "endLine": 404
+  },
+  {
+    "outputFile": "StructureDefinition-AdditionalRecipientKOrderCz.json",
+    "fshName": "LogEnAdditionalRecipientKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\AdditionalRecipient-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-AttachmentsCz.json",
+    "fshName": "LogEnAttachmentsCz",
+    "fshType": "Logical",
+    "fshFile": "model\\Attachments-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-AuthorKOrderCz.json",
+    "fshName": "LogEnAuthorKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\Author-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
     "outputFile": "StructureDefinition-BundleKOrderCz.json",
     "fshName": "BundleKOrderCz",
     "fshType": "Profile",
     "fshFile": "profiles\\bundle-K-Order.fsh",
     "startLine": 24,
     "endLine": 118
+  },
+  {
+    "outputFile": "StructureDefinition-CoverageKOrderCz.json",
+    "fshName": "LogEnCoverageKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\Coverage-en.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
+    "outputFile": "StructureDefinition-DigitalSignatureKOrderCz.json",
+    "fshName": "LogEnDigitalSignatureKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\DigitalSignature-en.fsh",
+    "startLine": 1,
+    "endLine": 9
+  },
+  {
+    "outputFile": "StructureDefinition-DocumentMetadataKOrderCz.json",
+    "fshName": "LogEnDocumentMetadataKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\DocumentMetadata-en.fsh",
+    "startLine": 1,
+    "endLine": 14
   },
   {
     "outputFile": "StructureDefinition-KOrderCompositionCz.json",
@@ -64,12 +120,52 @@
     "endLine": 48
   },
   {
+    "outputFile": "StructureDefinition-KOrderHeader.json",
+    "fshName": "KOrderHeaderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\HeaderKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
     "outputFile": "StructureDefinition-KOrderServiceRequestCz.json",
     "fshName": "KOrderServiceRequestCz",
     "fshType": "Profile",
     "fshFile": "profiles\\serviceRequest-K-Order.fsh",
     "startLine": 1,
     "endLine": 103
+  },
+  {
+    "outputFile": "StructureDefinition-LabOrderInformationCz.json",
+    "fshName": "LogEnImageOrderInformationCz",
+    "fshType": "Logical",
+    "fshFile": "model\\OrderInformation-en.fsh",
+    "startLine": 1,
+    "endLine": 26
+  },
+  {
+    "outputFile": "StructureDefinition-LogAdditionalRecipientKCz.json",
+    "fshName": "LogCzAdditionalRecipientKOrder",
+    "fshType": "Logical",
+    "fshFile": "model\\AddRecipientKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LogAuthorKCz.json",
+    "fshName": "LogCzAuthorKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\authorKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LogCoverageKOrderCz.json",
+    "fshName": "LogCzCoverageKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\coverageKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 15
   },
   {
     "outputFile": "StructureDefinition-LogCzKOrder.json",
@@ -80,6 +176,22 @@
     "endLine": 68
   },
   {
+    "outputFile": "StructureDefinition-LogDigitalSignatureKCz.json",
+    "fshName": "LogCzDigitalSignatureKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\signatureKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 9
+  },
+  {
+    "outputFile": "StructureDefinition-LogDocumentMetadataKCz.json",
+    "fshName": "LogCzDocumentMetadataKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\MetadataKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 14
+  },
+  {
     "outputFile": "StructureDefinition-LogKOrderEn.json",
     "fshName": "LogKOrderEn",
     "fshType": "Logical",
@@ -88,12 +200,76 @@
     "endLine": 74
   },
   {
+    "outputFile": "StructureDefinition-LogPayerKOrderCz.json",
+    "fshName": "LogCzPayerKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\payerKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-LogRequestedPerformerKCz.json",
+    "fshName": "LogCzRequestedPerformerKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\perfomerKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LogSubjectKOrderCz.json",
+    "fshName": "LogCzSubjectKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\subjektKOrder-cz.fsh",
+    "startLine": 2,
+    "endLine": 37
+  },
+  {
+    "outputFile": "StructureDefinition-PayerKOrderCz.json",
+    "fshName": "LogEnPayerOrderKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\PayerOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-PresentedFormCz.json",
+    "fshName": "LogEnPresentedFormCz",
+    "fshType": "Logical",
+    "fshFile": "model\\PresentedForm-en.fsh",
+    "startLine": 1,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-RequestedPerformerKOrderCz.json",
+    "fshName": "LogEnRequestedPerformerKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\RequestedPerformer-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-SubjectKOrderCz.json",
+    "fshName": "LogEnSubjectKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\Subject-en.fsh",
+    "startLine": 1,
+    "endLine": 36
+  },
+  {
     "outputFile": "StructureDefinition-korder-composition-requestReference.json",
     "fshName": "KOrderRequestReference",
     "fshType": "Extension",
     "fshFile": "profiles\\composition-K-Order.fsh",
     "startLine": 174,
     "endLine": 182
+  },
+  {
+    "outputFile": "StructureDefinition-logHeaderKOrder.json",
+    "fshName": "LogCzHeaderKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\headerKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 13
   },
   {
     "outputFile": "ValueSet-cz-diagnosis-condition-vs.json",

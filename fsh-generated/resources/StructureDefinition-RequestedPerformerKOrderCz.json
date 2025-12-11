@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "RequestedPerformerKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/RequestedPerformerKOrderCz",
+  "name": "LogEnRequestedPerformerKOrderCz",
+  "title": "A.1.6 - Requested Performer (processing person)",
+  "status": "draft",
+  "description": "Person who is requested to process document.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/RequestedPerformerKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "RequestedPerformerKOrderCz",
+        "path": "RequestedPerformerKOrderCz",
+        "short": "A.1.6 - Requested Performer (processing person)",
+        "definition": "Person who is requested to process document."
+      },
+      {
+        "id": "RequestedPerformerKOrderCz.identifier",
+        "path": "RequestedPerformerKOrderCz.identifier",
+        "short": "A.1.6.1 -Requested Performer identifier",
+        "definition": "The health professional identification number. Either an internal identifier assigned by a healthcare provider institution or (preferably) a national health professional ID such as the licence or registration number.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "RequestedPerformerKOrderCz.name",
+        "path": "RequestedPerformerKOrderCz.name",
+        "short": "A.1.6.2 - Requested Performer name",
+        "definition": "Person name [the structure of the name will be the same as for the patient (given name, family name / surname)].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "RequestedPerformerKOrderCz.organizationID",
+        "path": "RequestedPerformerKOrderCz.organizationID",
+        "short": "A.1.6.3 - Requested Performer organisation ID",
+        "definition": "The healthcare provider organisation identifier. Identifier that is unique within a defined scope. Example: National healthcare provider ID. Multiple identifiers could be provided.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "RequestedPerformerKOrderCz.organization",
+        "path": "RequestedPerformerKOrderCz.organization",
+        "short": "A.1.6.4 - Requested Performer organisation",
+        "definition": "The healthcare provider organisation information.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,885 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "LabOrderHeader2FHIRcz-cz",
+  "url": "https://hl7.cz/fhir/k-order/ConceptMap/KOrderHeader2FHIRcz-cz",
+  "name": "KOrderHeader2FHIRcz",
+  "title": "CZ Header Model to this guide Map",
+  "status": "draft",
+  "experimental": true,
+  "description": "CZ Laboratory Order Header Model to this guide mapping",
+  "group": [
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+      "element": [
+        {
+          "code": "Subject.identification",
+          "display": "A.1.1 Identification of the patient/subject",
+          "target": [
+            {
+              "code": "Patient",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.givenName",
+          "display": "A.1.1.1 Given name",
+          "target": [
+            {
+              "code": "Patient.name.given",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.familyName",
+          "display": "A.1.1.2 Familyname/surname",
+          "target": [
+            {
+              "code": "Patient.name.family",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.dateOfBirth",
+          "display": "A.1.1.3 Date of birth",
+          "target": [
+            {
+              "code": "Patient.birthDate",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.dateOfDeath",
+          "display": "A.1.1.4 Date of death",
+          "target": [
+            {
+              "code": "Patient.deceased[x].deceasedDateTime",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.identifier",
+          "display": "A.1.1.5 Patient identifier",
+          "target": [
+            {
+              "code": "Patient.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.citizenship",
+          "display": "A.1.1.6 Citizenship",
+          "target": [
+            {
+              "code": "Patient.patient-citizenship",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.gender",
+          "display": "A.1.1.7 Gender",
+          "target": [
+            {
+              "code": "Patient.gender",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.genderForClinicalUse",
+          "display": "A.1.1.8 Gender",
+          "target": [
+            {
+              "code": "Patient.extension:sex-for-clinical-use",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.languageOfCommunication",
+          "display": "A.1.1.9 Language of communication",
+          "target": [
+            {
+              "code": "Patient.communication.language",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.identification.handicap",
+          "display": "A.1.1.10 Handicap",
+          "target": [
+            {
+              "code": "Patient.text",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo",
+          "display": "A.1.2 Patient/subject related contact information",
+          "target": [
+            {
+              "code": "Patient",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.address",
+          "display": "A.1.2.1 Address",
+          "target": [
+            {
+              "code": "Patient.address",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.telecom",
+          "display": "A.1.2.2 Telecom",
+          "target": [
+            {
+              "code": "Patient.telecom",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician",
+          "display": "A.1.2.3 Prefered physician",
+          "target": [
+            {
+              "code": "Patient.generalPractitioner",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent",
+          "display": "A.1.2.4 Legal representatives and other contact persons",
+          "target": [
+            {
+              "code": "Patient.contact",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.type",
+          "display": "A.1.2.4.1 Contact type",
+          "target": [
+            {
+              "code": "Patient.contact.relationship",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.relationToSubject",
+          "display": "A.1.2.4.2 Relationship to the patient",
+          "target": [
+            {
+              "code": "Patient.contact.relationship",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.identifier",
+          "display": "A.1.2.4.3 Person identifier",
+          "target": [
+            {
+              "code": "Patient.contact",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.givenName",
+          "display": "A.1.2.4.4 Given name",
+          "target": [
+            {
+              "code": "Patient.contact.name.given",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.familyName",
+          "display": "A.1.2.4.5 Family name/surname",
+          "target": [
+            {
+              "code": "Patient.contact.name.family",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.address",
+          "display": "A.1.2.4.6 Contact person address",
+          "target": [
+            {
+              "code": "Patient.contact.address",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.legalRepresent.telecom",
+          "display": "A.1.2.4.7 Telecom",
+          "target": [
+            {
+              "code": "Patient.contact.telecom",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+      "element": [
+        {
+          "code": "Subject.contactInfo.preferedPhysician",
+          "display": "A.1.2.3 Prefered physician",
+          "target": [
+            {
+              "code": "Practitioner",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.Identifier",
+          "display": "A.1.2.3.1 Identification of the prefered physician",
+          "target": [
+            {
+              "code": "Practitioner.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.Name",
+          "display": "A.1.2.3.2 Name of the prefered physician",
+          "target": [
+            {
+              "code": "Practitioner.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.telecom",
+          "display": "A.1.2.3.6 Telecom",
+          "target": [
+            {
+              "code": "Practitioner.telecom",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+      "element": [
+        {
+          "code": "Subject.contactInfo.preferedPhysician",
+          "display": "A.1.2.3 Prefered physician",
+          "target": [
+            {
+              "code": "PractitionerRole",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.Identifier",
+          "display": "A.1.2.3.1 Identification of the prefered physician",
+          "target": [
+            {
+              "code": "PractitionerRole.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.Name",
+          "display": "A.1.2.3.2 Name of the prefered physician",
+          "target": [
+            {
+              "code": "PractitionerRole.practiotioner.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.Specialization",
+          "display": "A.1.2.3.3 Specialization of the prefered physician",
+          "target": [
+            {
+              "code": "PractitionerRole.speciality",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.providerIdentifierName",
+          "display": "A.1.2.3.4 Identification and name of the provider the doctor represents",
+          "target": [
+            {
+              "code": "PractitionerRole.organization.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.providerAddress",
+          "display": "A.1.2.3.5 Provider address",
+          "target": [
+            {
+              "code": "PractitionerRole.organization.address",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Subject.contactInfo.preferedPhysician.telecom",
+          "display": "A.1.2.3.6 Telecom",
+          "target": [
+            {
+              "code": "PractitionerRole.telecom",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/PayerKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage",
+      "element": [
+        {
+          "code": "Header.payer",
+          "display": "A.1.3 - Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+          "target": [
+            {
+              "code": "Composition.section:order.insurance",
+              "display": "",
+              "equivalence": "relatedto",
+              "comment": "Composition.section:order.entry.ofType(CZ_ImagingInformationAboutOrder).insurance.ofType(CZ_Coverage)"
+            }
+          ]
+        },
+        {
+          "code": "Header.payer.insuranceCode",
+          "display": "A.1.3.1 - Health insurance code",
+          "target": [
+            {
+              "code": "CZ_Coverage.payor.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.payer.insuranceName",
+          "display": "A.1.3.2 - Health insurance name",
+          "target": [
+            {
+              "code": "CZ_Coverage.payor.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.payer.insuranceNumber",
+          "display": "A.1.3.3 - Health insurance number",
+          "target": [
+            {
+              "code": "CZ_Coverage.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/CoverageKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage",
+      "element": [
+        {
+          "code": "Header.coverage",
+          "display": "A.1.4 - Information about coverage",
+          "target": [
+            {
+              "code": "Composition.section:Coverage",
+              "display": "",
+              "equivalence": "relatedto",
+              "comment": "Composition.section:Coverage.entry.ofType(CZ_Coverage)"
+            }
+          ]
+        },
+        {
+          "code": "Header.coverage.method",
+          "display": "A.1.4.1 - Coverage method",
+          "target": [
+            {
+              "code": "CZ_Coverage.type",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.coverage.informationPayor",
+          "display": "A.1.4.2 - Information about Payor",
+          "target": [
+            {
+              "code": "CZ_Coverage.payor",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core",
+      "element": [
+        {
+          "code": "Header.author",
+          "display": "A.1.5 - Author (by whom the Imaging Order was/were authored)",
+          "target": [
+            {
+              "code": "Composition.author",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": "Composition.author.resolve().ofType(CZ_PractitionerRoleCore)"
+            }
+          ]
+        },
+        {
+          "code": "Header.author.identifier",
+          "display": "A.1.5.1 - Author identifier",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practictioner.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.author.name",
+          "display": "A.1.5.2 - Author name",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practictioner.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.author.address",
+          "display": "A.1.5.3 - Author address",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practictioner.address",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": "ID Organization"
+            }
+          ]
+        },
+        {
+          "code": "Header.author.organization",
+          "display": "A.1.5.4 - Author organisation",
+          "target": [
+            {
+              "code": "Z_PractitionerRoleCore.organization.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-encounter",
+      "element": [
+        {
+          "code": "AuthorCz.organization",
+          "display": "A.1.5.4 - Author organisation",
+          "target": [
+            {
+              "code": "CZ_Encounter.serviceProvider",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/RequestedPerformerKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core",
+      "element": [
+        {
+          "code": "Header.requestedPerformer",
+          "display": "A.1.6 - Requested Performer",
+          "target": [
+            {
+              "code": "CZ_ImagingInformationAboutOrder.performer",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.requestedPerformer.identifier",
+          "display": "A.1.6.1 - Requested Performer identifier",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practictioner.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.requestedPerformer.name",
+          "display": "A.1.6.2 - Requested Performer name",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practictioner.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.requestedPerformer.organizationID",
+          "display": "A.1.6.3 - Requested Performer organisation ID",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.organization.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.requestedPerformer.organization",
+          "display": "A.1.6.4 - Requested Performer organisation",
+          "target": [
+            {
+              "code": "CZ_PractitionerCore.organization.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/AdditionalRecipientKOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core",
+      "element": [
+        {
+          "code": "Header.additionalRecipient",
+          "display": "A.1.7 - Additional Recipient",
+          "target": [
+            {
+              "code": "Composition.extension:informationRecipient",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.additionalRecipient.identifier",
+          "display": "A.1.7.1 - Additional Recipient identifier",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practitioner.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.additionalRecipient.name",
+          "display": "A.1.7.2 - Additional Recipient name",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.practictioner.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.additionalRecipient.organizationID",
+          "display": "A.1.7.3 - Additional Recipient organisation ID",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.organization.identifier",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.additionalRecipient.organization",
+          "display": "A.1.7.4 - Additional Recipient organisation",
+          "target": [
+            {
+              "code": "CZ_PractitionerRoleCore.organization.name",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/DocumentMetadataKOrderCz",
+      "target": "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz",
+      "element": [
+        {
+          "code": "Header.documentMetadata.identifier",
+          "display": "A.1.8.1 - Document ID",
+          "target": [
+            {
+              "code": "Bundle.identifier",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": "If it is the identifier of a particular order instance"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.dateTime",
+          "display": "A.1.8.4 - Order date and time",
+          "target": [
+            {
+              "code": "Bundle.timeStamp",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": "If it is when this particular version of  this order has been assembled into a Bundle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/KOrderHeaderCz",
+      "target": "https://hl7.cz/fhir/k-order/StructureDefinition/KOrderCompositionCz",
+      "element": [
+        {
+          "code": "Header.subject",
+          "display": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
+          "target": [
+            {
+              "code": "Composition.subject",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.author.dateTime",
+          "display": "A.1.5.5 - Date Time",
+          "target": [
+            {
+              "code": "Composition.date",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata",
+          "display": "A.1.8 - Document metadata",
+          "target": [
+            {
+              "code": "Composition",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.category",
+          "display": "A.1.8.2 - Document category",
+          "target": [
+            {
+              "code": "Composition.category",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.status",
+          "display": "A.1.8.3 - Document status",
+          "target": [
+            {
+              "code": "Composition.status",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.dateTime",
+          "display": "A.1.8.4 - Order date and time",
+          "target": [
+            {
+              "code": "Composition.date",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": "If it is when this document has been created (indipendently by its version)"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.title",
+          "display": "A.1.8.5 - Document title",
+          "target": [
+            {
+              "code": "Composition.title",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.custodian",
+          "display": "A.1.8.6 - Order custodian",
+          "target": [
+            {
+              "code": "Composition.custodian",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.confidentiality",
+          "display": "A.1.8.7 - Confidentiality",
+          "target": [
+            {
+              "code": "Composition.confidentiality",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.language",
+          "display": "A.1.8.8 - Language",
+          "target": [
+            {
+              "code": "Composition.language",
+              "display": "",
+              "equivalence": "relatedto"
+            }
+          ]
+        },
+        {
+          "code": "Header.documentMetadata.version",
+          "display": "A.1.8.9 - Version",
+          "target": [
+            {
+              "code": "Composition.extension:versionNumber.valueString",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": "As business version, not as resource version"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/digitalSignatureKOrderCz",
+      "target": "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz",
+      "element": [
+        {
+          "code": "Header.digitalSignatureCz.digitalSignature",
+          "display": "A.1.9.1 - Electronic signature or document seal",
+          "target": [
+            {
+              "code": "Bundle.signature.data",
+              "display": "",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "Header.digitalSignatureCz.timestamp",
+          "display": "A.1.9.2 - Electronic time stamp",
+          "target": [
+            {
+              "code": "Bundle.signature.when",
+              "display": "",
+              "equivalence": "equivalent",
+              "comment": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

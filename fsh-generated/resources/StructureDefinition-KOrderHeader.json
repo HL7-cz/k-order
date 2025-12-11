@@ -1,0 +1,139 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "KOrderHeader",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderHeader",
+  "name": "KOrderHeaderCz",
+  "title": "A.1 Order header data elements",
+  "status": "draft",
+  "description": "Order header data elements",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderHeader",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "KOrderHeader",
+        "path": "KOrderHeader",
+        "short": "A.1 Order header data elements",
+        "definition": "Order header data elements"
+      },
+      {
+        "id": "KOrderHeader.subject",
+        "path": "KOrderHeader.subject",
+        "short": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
+        "definition": "Identification of the patient/subject and Patient/subject related contact information",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/SubjectKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.payer",
+        "path": "KOrderHeader.payer",
+        "short": "A.1.3 - Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+        "definition": "Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/PayerKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.coverage",
+        "path": "KOrderHeader.coverage",
+        "short": "A.1.4 - Information about coverage - the default value will be the patient's insurance company",
+        "definition": "Coverage information - Information about method of coverage, payer identification data and additional information",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/CoverageKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.author",
+        "path": "KOrderHeader.author",
+        "short": "A.1.5 - Author (who requested the order). Multiple authors could be provided.",
+        "definition": "Author (who requested the order). Multiple authors could be provided.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/AuthorKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.requestedPerformer",
+        "path": "KOrderHeader.requestedPerformer",
+        "short": "A.1.6 - Requested performer",
+        "definition": "Requested performer .",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/RequestedPerformerKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.additionalRecipient",
+        "path": "KOrderHeader.additionalRecipient",
+        "short": "A.1.7 - Additional recipient",
+        "definition": "Additional recipient of produced order report",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/AdditionalRecipientKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.documentMetadata",
+        "path": "KOrderHeader.documentMetadata",
+        "short": "A.1.8 - Document metadata",
+        "definition": "Document metadata",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/DocumentMetadataKOrderCz"
+          }
+        ]
+      },
+      {
+        "id": "KOrderHeader.digitalSignature",
+        "path": "KOrderHeader.digitalSignature",
+        "short": "A.1.9 - Digital signatures",
+        "definition": "Digital signatures",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "https://hl7.cz/fhir/korder/StructureDefinition/DigitalSignatureKOrderCz"
+          }
+        ]
+      }
+    ]
+  }
+}

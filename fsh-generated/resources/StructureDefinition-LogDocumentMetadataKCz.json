@@ -1,0 +1,142 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogDocumentMetadataKCz",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogDocumentMetadataKCz",
+  "name": "LogCzDocumentMetadataKOrderCz",
+  "title": "A.1.8 - Metadata dokumentu",
+  "status": "draft",
+  "description": "Metadata dokumentu",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogDocumentMetadataKCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogDocumentMetadataKCz",
+        "path": "LogDocumentMetadataKCz",
+        "short": "A.1.8 - Metadata dokumentu",
+        "definition": "Metadata dokumentu"
+      },
+      {
+        "id": "LogDocumentMetadataKCz.idDokumentu",
+        "path": "LogDocumentMetadataKCz.idDokumentu",
+        "short": "A.1.8.1 - ID dokumentu",
+        "definition": "Identifikátor dokumentu",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.kategorie",
+        "path": "LogDocumentMetadataKCz.kategorie",
+        "short": "A.1.8.2 - Kategorie",
+        "definition": "Kategorie elektronického zdravotního záznamu (EHR).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.stav",
+        "path": "LogDocumentMetadataKCz.stav",
+        "short": "A.1.8.3 - Stav",
+        "definition": "Stav dokumentu (předběžný, finální, doplněný, opravený atp.).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.datumACas",
+        "path": "LogDocumentMetadataKCz.datumACas",
+        "short": "A.1.8.4 - Datum a čas vytvoření",
+        "definition": "Datum a čas vytvoření dokumentu.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.nazev",
+        "path": "LogDocumentMetadataKCz.nazev",
+        "short": "A.1.8.5 - Název dokumentu",
+        "definition": "Název dokumentu",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.spravce",
+        "path": "LogDocumentMetadataKCz.spravce",
+        "short": "A.1.8.6 - Správce dokumentu",
+        "definition": "Název a identifikační údaje subjektu, který dokument spravuje. Alias technický správce dokumentu.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.duvernost",
+        "path": "LogDocumentMetadataKCz.duvernost",
+        "short": "A.1.8.7 - Důvěrnost",
+        "definition": "Stupeň důvěrnosti dokumentu (a jeho obsahu).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.jazyk",
+        "path": "LogDocumentMetadataKCz.jazyk",
+        "short": "A.1.8.8 - Jazyk",
+        "definition": "Jazyk, v němž je dokument napsán (narativní část dokumentu).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogDocumentMetadataKCz.verze",
+        "path": "LogDocumentMetadataKCz.verze",
+        "short": "A.1.8.9 - Verze",
+        "definition": "Verze dokumentu",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

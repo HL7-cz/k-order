@@ -1,0 +1,412 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "SubjectKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/SubjectKOrderCz",
+  "name": "LogEnSubjectKOrderCz",
+  "title": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
+  "status": "draft",
+  "description": "Order - Order subject data element - A.1.1 and A.1.2",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/SubjectKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "SubjectKOrderCz",
+        "path": "SubjectKOrderCz",
+        "short": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
+        "definition": "Order - Order subject data element - A.1.1 and A.1.2"
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification",
+        "path": "SubjectKOrderCz.subjectIdentification",
+        "short": "A.1.1 - Identification of the patient/subject",
+        "definition": "Identification of the patient/subject",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.given",
+        "path": "SubjectKOrderCz.subjectIdentification.given",
+        "short": "A.1.1.1 - Given name",
+        "definition": "The given name/first name of the patient (also known as forename or first name). This field can contain more than one element.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.family",
+        "path": "SubjectKOrderCz.subjectIdentification.family",
+        "short": "A.1.1.2 - Family name/surname",
+        "definition": "The family name/surname/last name of the patient. This field can contain more than one element or multiple fields could be present.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.birthDate",
+        "path": "SubjectKOrderCz.subjectIdentification.birthDate",
+        "short": "A.1.1.3 - Date of birth",
+        "definition": "Complete date, following the ISO 8601.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.deathDate",
+        "path": "SubjectKOrderCz.subjectIdentification.deathDate",
+        "short": "A.1.1.4 - Date of death",
+        "definition": "Complete date, following the ISO 8601.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.identifier",
+        "path": "SubjectKOrderCz.subjectIdentification.identifier",
+        "short": "A.1.1.5 - National healthcare patient ID",
+        "definition": "An identifier of the patient that is unique within a defined scope. Example: National ID (birth number) for a Czech patient. Multiple identifiers could be provided",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.nationality",
+        "path": "SubjectKOrderCz.subjectIdentification.nationality",
+        "short": "A.1.1.6 - Nationality",
+        "definition": "Nationality of the patient.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.gender",
+        "path": "SubjectKOrderCz.subjectIdentification.gender",
+        "short": "A.1.1.7 - Gender",
+        "definition": "This field must contain a recognised valid value for administrative gender. If different, physiological gender should be communicated elsewhere in the relevant clinical information section.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.genderForClinicalUse",
+        "path": "SubjectKOrderCz.subjectIdentification.genderForClinicalUse",
+        "short": "A.1.1.8 - Gender for clinical use",
+        "definition": "Usually only the official gender is stated, gender for clinical use is optional and exceptional. If it is filled in, it is used primarily in clinical practice - e.g. when selecting reference limits for scales, etc.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.communicationLanguage",
+        "path": "SubjectKOrderCz.subjectIdentification.communicationLanguage",
+        "short": "A.1.1.9 - Communication language",
+        "definition": "Language(s) in which the patient communicates",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectIdentification.handicap",
+        "path": "SubjectKOrderCz.subjectIdentification.handicap",
+        "short": "A.1.1.10 - Handicap",
+        "definition": "Patient's handicap (blind, immobile, deaf)s",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact",
+        "path": "SubjectKOrderCz.subjectContact",
+        "short": "A.1.2 - Patient/subject related contact information",
+        "definition": "Patient/subject related contact information",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.address",
+        "path": "SubjectKOrderCz.subjectContact.address",
+        "short": "A.1.2.1 - Address",
+        "definition": "Mailing and home or office addresses. The addresses are always sequences of address parts (e.g. street address line, country, postcode, city) even if postal address formats may vary depending on the country. An address may or may not include a specific use code; if this attribute is not present it is assumed to be the default address useful for any purpose.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.telecom",
+        "path": "SubjectKOrderCz.subjectContact.telecom",
+        "short": "A.1.2.2 - Telecom",
+        "definition": "Telecommunication contact information (addresses) associated with a person, such as phone number, email, or messaging service. Multiple telecommunication addresses might be provided.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP",
+        "short": "A.1.2.3 - Preferred health professional (HP) - This section can be repeated and linked to any specific information in the document, for example a link between a rare disease problem and the rare disease specialist responsible for the care of the individual patient (this section).",
+        "definition": "Preferred health professional (HP) - This section can be repeated and linked to any specific information in the document, for example a link between a rare disease problem and the rare disease specialist responsible for the care of the individual patient (this section).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP.identifier",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP.identifier",
+        "short": "A.1.2.3.1 - Identifier of the HP",
+        "definition": "An identifier of the health professional that is unique within a defined scope. Example: National health professional ID. Multiple identifiers could be provided.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP.name",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP.name",
+        "short": "A.1.2.3.2 - Name of the HP",
+        "definition": "Name of the health professional that has been treating or taking responsibility for the patient.[the structure of the name will be the same as for the patient (given name, family name / surname)]",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP.role",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP.role",
+        "short": "A.1.2.3.3 - Role of the HP",
+        "definition": "Health professional role. Multiple roles could be provided.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP.organization",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP.organization",
+        "short": "A.1.2.3.4 - HP Organisation",
+        "definition": "Health professional organisation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP.address",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP.address",
+        "short": "A.1.2.3.5 - Address",
+        "definition": "Mailing and home or office addresses. The addresses are always sequences of address parts (e.g. street address line, country, postcode, city) even if postal address formats may vary depending on the country. An address may or may not include a specific use code; if this attribute is not present it is assumed to be the default address useful for any purpose.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.preferredHP.telecom",
+        "path": "SubjectKOrderCz.subjectContact.preferredHP.telecom",
+        "short": "A.1.2.3.6 - Telecom",
+        "definition": "Telecommunication contact information (addresses) associated with a person, such as phone number, email, or messaging service. Multiple telecommunication addresses might be provided.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson",
+        "short": "A.1.2.4 - Contact person/ legal guardian (multiple contacts could be provided)",
+        "definition": "Contact person/ legal guardian (multiple contacts could be provided)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.type",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.type",
+        "short": "A.1.2.4.1 - Type of contact",
+        "definition": "Type of contact",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.relationship",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.relationship",
+        "short": "A.1.2.4.2 - Relationship level",
+        "definition": "Relationship type with the patient (e.g. father, wife, daughter)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.identifier",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.identifier",
+        "short": "A.1.2.4.3 - Identifier",
+        "definition": "Identifier of the contact person/guardian . This field can contain more than one element.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.given",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.given",
+        "short": "A.1.2.4.4 - Given name",
+        "definition": "Given name of the contact person/guardian . This field can contain more than one element.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.family",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.family",
+        "short": "A.1.2.4.5 - Family name/surname",
+        "definition": "Family name of the contact person. This field can contain more than one element [the structure of the name will be the same as for the patient (given name, family name / surname)]..",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.address",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.address",
+        "short": "A.1.2.4.6 - Address",
+        "definition": "Mailing, home or office addresses. The addresses are always sequences of address parts (e.g. street address line, country, postcode, city) even if postal address formats may vary depending on the country. An address may or may not include a specific use code; if this attribute is not present it is assumed to be the default address useful for any purpose.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "SubjectKOrderCz.subjectContact.contactPerson.telecom",
+        "path": "SubjectKOrderCz.subjectContact.contactPerson.telecom",
+        "short": "A.1.2.4.7 - Telecom",
+        "definition": "Telecommunication contact information (addresses) associated with a person, such as phone number, email, or messaging service. Multiple telecommunication addresses might be provided.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      }
+    ]
+  }
+}

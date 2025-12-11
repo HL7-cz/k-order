@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DigitalSignatureKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/DigitalSignatureKOrderCz",
+  "name": "LogEnDigitalSignatureKOrderCz",
+  "title": "A.1.9 - Digital signature",
+  "status": "draft",
+  "description": "Digital signature - Electronic signature or seal of a document according to Act 327/2011 §54a",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/DigitalSignatureKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "DigitalSignatureKOrderCz",
+        "path": "DigitalSignatureKOrderCz",
+        "short": "A.1.9 - Digital signature",
+        "definition": "Digital signature - Electronic signature or seal of a document according to Act 327/2011 §54a"
+      },
+      {
+        "id": "DigitalSignatureKOrderCz.digitalSignature",
+        "path": "DigitalSignatureKOrderCz.digitalSignature",
+        "short": "A.1.9.1 - Electronic signature or document seal",
+        "definition": "Electronic signature or document seal.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Signature"
+          }
+        ]
+      },
+      {
+        "id": "DigitalSignatureKOrderCz.timestamp",
+        "path": "DigitalSignatureKOrderCz.timestamp",
+        "short": "A.1.9.2 - Electronic time stamp",
+        "definition": "Electronic time stamp",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      }
+    ]
+  }
+}

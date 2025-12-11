@@ -1,0 +1,116 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PresentedFormCz",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/PresentedFormCz",
+  "name": "LogEnPresentedFormCz",
+  "title": "A.3 - Presented form",
+  "status": "draft",
+  "description": "Presented form - Entire order as issued. Various formats could be provided,  pdf format is recommended.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/PresentedFormCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "PresentedFormCz",
+        "path": "PresentedFormCz",
+        "short": "A.3 - Presented form",
+        "definition": "Presented form - Entire order as issued. Various formats could be provided,  pdf format is recommended."
+      },
+      {
+        "id": "PresentedFormCz.presentedForm",
+        "path": "PresentedFormCz.presentedForm",
+        "short": "A.3 - Presented form",
+        "definition": "Presented form of document",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "PresentedFormCz.presentedForm.contentType",
+        "path": "PresentedFormCz.presentedForm.contentType",
+        "short": "A.3.1 - Type of content",
+        "definition": "Type of content - MIME type is required",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "PresentedFormCz.presentedForm.language",
+        "path": "PresentedFormCz.presentedForm.language",
+        "short": "A.3.2 - Language of content",
+        "definition": "Language of content - HL7 valueset of languages is required",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "PresentedFormCz.presentedForm.data",
+        "path": "PresentedFormCz.presentedForm.data",
+        "short": "A.3.3 - Data of content",
+        "definition": "Data inline, base64ed",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "PresentedFormCz.presentedForm.url",
+        "path": "PresentedFormCz.presentedForm.url",
+        "short": "A.3.4 - URL of content",
+        "definition": "Uri where the data can be found",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "url"
+          }
+        ]
+      },
+      {
+        "id": "PresentedFormCz.presentedForm.title",
+        "path": "PresentedFormCz.presentedForm.title",
+        "short": "A.3.5 - Title of content",
+        "definition": "Label to display in place of the data",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "PresentedFormCz.presentedForm.creation",
+        "path": "PresentedFormCz.presentedForm.creation",
+        "short": "A.3.6 - Date of creation",
+        "definition": "Date attachment was first created",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

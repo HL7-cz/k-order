@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogAdditionalRecipientKCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogAdditionalRecipientKCz",
+  "name": "LogCzAdditionalRecipientKOrder",
+  "title": "A.1.7 - Příjemce nálezu",
+  "status": "draft",
+  "description": "Příjemce nálezu (Dodateční příjemci nálezu kromě objednatele)",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogAdditionalRecipientKCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogAdditionalRecipientKCz",
+        "path": "LogAdditionalRecipientKCz",
+        "short": "A.1.7 - Příjemce nálezu",
+        "definition": "Příjemce nálezu (Dodateční příjemci nálezu kromě objednatele)"
+      },
+      {
+        "id": "LogAdditionalRecipientKCz.identifikator",
+        "path": "LogAdditionalRecipientKCz.identifikator",
+        "short": "A.1.7.1 - Identifikátor příjemce",
+        "definition": "I Identifikátor, který se vztahuje na tuto osobu v této roli.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogAdditionalRecipientKCz.jmeno",
+        "path": "LogAdditionalRecipientKCz.jmeno",
+        "short": "A.1.7.2 - Jméno příjemce",
+        "definition": "Jméno a příjmení osoby příjemce.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "LogAdditionalRecipientKCz.idOrganizace",
+        "path": "LogAdditionalRecipientKCz.idOrganizace",
+        "short": "A.1.7.3 - ID organizace",
+        "definition": "Identifikátor organizace příjemce nálezu, který se používá k identifikaci organizace v různých informačních systémech.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogAdditionalRecipientKCz.organizace",
+        "path": "LogAdditionalRecipientKCz.organizace",
+        "short": "A.1.7.4 - Organizace příjemce",
+        "definition": "Název, identifikační a kontaktní údaje zdravotnického zařízení příjemce, případně také pracoviště příjemce.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      }
+    ]
+  }
+}

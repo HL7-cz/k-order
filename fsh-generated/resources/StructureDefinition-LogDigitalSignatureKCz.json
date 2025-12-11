@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogDigitalSignatureKCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogDigitalSignatureKCz",
+  "name": "LogCzDigitalSignatureKOrderCz",
+  "title": "A.1.9 - Elektronické podpisy",
+  "status": "draft",
+  "description": "Elektronické podpisy - Elektronické podpisy nebo pečetě dle zákona 327/2011 §54a",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogDigitalSignatureKCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogDigitalSignatureKCz",
+        "path": "LogDigitalSignatureKCz",
+        "short": "A.1.9 - Elektronické podpisy",
+        "definition": "Elektronické podpisy - Elektronické podpisy nebo pečetě dle zákona 327/2011 §54a"
+      },
+      {
+        "id": "LogDigitalSignatureKCz.elektronickyPodpis",
+        "path": "LogDigitalSignatureKCz.elektronickyPodpis",
+        "short": "A.1.9.1 - Elektronický podpis",
+        "definition": "Elektronický podpis nebo pečeť dokumentu.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Signature"
+          }
+        ]
+      },
+      {
+        "id": "LogDigitalSignatureKCz.casoveRazitko",
+        "path": "LogDigitalSignatureKCz.casoveRazitko",
+        "short": "A.1.9.2 - Elektronické časové razítko",
+        "definition": "Elektronické časové razítko ",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      }
+    ]
+  }
+}

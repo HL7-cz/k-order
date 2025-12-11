@@ -1,0 +1,139 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogCoverageKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogCoverageKOrderCz",
+  "name": "LogCzCoverageKOrderCz",
+  "title": "A.1.4 - Úhrada",
+  "status": "draft",
+  "description": "Informace o způsobu úhrady objednávky vyšetření",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogCoverageKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogCoverageKOrderCz",
+        "path": "LogCoverageKOrderCz",
+        "short": "A.1.4 - Úhrada",
+        "definition": "Informace o způsobu úhrady objednávky vyšetření"
+      },
+      {
+        "id": "LogCoverageKOrderCz.method",
+        "path": "LogCoverageKOrderCz.method",
+        "short": "A.1.4.1 - Způsob úhrady",
+        "definition": "Způsob úhrady objednávky (zdravotní pojištění, hradí pacient, jiný).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci",
+        "path": "LogCoverageKOrderCz.infoOPlatci",
+        "short": "A.1.4.2 - Informace o plátci",
+        "definition": "Identifikační údaje plátce a doplňující informace, pokud jde o jinou úhradu než ze zdravotního pojištění. Identifikační údaje obsahují identifikátor, název organizace či jméno plátce, adresu plátce a telekomunikační spojení.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci.jmeno",
+        "path": "LogCoverageKOrderCz.infoOPlatci.jmeno",
+        "short": "A.1.4.2.1 - Jméno plátce",
+        "definition": "Jméno a příjmení plátce",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci.idOrganizace",
+        "path": "LogCoverageKOrderCz.infoOPlatci.idOrganizace",
+        "short": "A.1.4.2.2 - ID organizace",
+        "definition": "Identifikátor organizace plátce",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci.organizace",
+        "path": "LogCoverageKOrderCz.infoOPlatci.organizace",
+        "short": "A.1.4.2.3 - Organizace plátce",
+        "definition": "Organizace plátce",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci.adresa",
+        "path": "LogCoverageKOrderCz.infoOPlatci.adresa",
+        "short": "A.1.4.2.4 - Adresa",
+        "definition": "Adresa plátce",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci.zeme",
+        "path": "LogCoverageKOrderCz.infoOPlatci.zeme",
+        "short": "A.1.4.2.5 - Země",
+        "definition": "Země plátce",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogCoverageKOrderCz.infoOPlatci.telekom",
+        "path": "LogCoverageKOrderCz.infoOPlatci.telekom",
+        "short": "A.1.4.2.6 - Telekom",
+        "definition": "Telekomunikační spojení na plátce.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      }
+    ]
+  }
+}

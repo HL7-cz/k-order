@@ -1,0 +1,142 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DocumentMetadataKOrderCz",
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/DocumentMetadataKOrderCz",
+  "name": "LogEnDocumentMetadataKOrderCz",
+  "title": "A.1.8 - Document metadata",
+  "status": "draft",
+  "description": "Document metadata",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/DocumentMetadataKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentMetadataKOrderCz",
+        "path": "DocumentMetadataKOrderCz",
+        "short": "A.1.8 - Document metadata",
+        "definition": "Document metadata"
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.identifier",
+        "path": "DocumentMetadataKOrderCz.identifier",
+        "short": "A.1.8.1 - Document ID",
+        "definition": "Unique identifier of the document",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.category",
+        "path": "DocumentMetadataKOrderCz.category",
+        "short": "A.1.8.2 - Document category",
+        "definition": "Identifies the category of document at hand, e.g. Lab order.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.status",
+        "path": "DocumentMetadataKOrderCz.status",
+        "short": "A.1.8.3 - Document status",
+        "definition": "The status of the Lab order. E.g., preliminary, final.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.dateTime",
+        "path": "DocumentMetadataKOrderCz.dateTime",
+        "short": "A.1.8.4 - Order date and time",
+        "definition": "Date and time of the Lab order creation.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.title",
+        "path": "DocumentMetadataKOrderCz.title",
+        "short": "A.1.8.5 - Document title",
+        "definition": "Document title of the Lab order.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.custodian",
+        "path": "DocumentMetadataKOrderCz.custodian",
+        "short": "A.1.8.6 - Order custodian",
+        "definition": "Organisation that is in charge of maintaining the order [this element will include organisation ID, name, address etc., as other elements describing organisations].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.confidentiality",
+        "path": "DocumentMetadataKOrderCz.confidentiality",
+        "short": "A.1.8.7 - Confidentiality",
+        "definition": "Level of confidentiality of the document. Implicit value is normal.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.language",
+        "path": "DocumentMetadataKOrderCz.language",
+        "short": "A.1.8.8 - Language",
+        "definition": "Language in which the document is written. Language is expressed by the ISO language code.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "DocumentMetadataKOrderCz.version",
+        "path": "DocumentMetadataKOrderCz.version",
+        "short": "A.1.8.9 - Version",
+        "definition": "Version of the document",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

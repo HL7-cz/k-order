@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "AdditionalRecipientKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/AdditionalRecipientKOrderCz",
+  "name": "LogEnAdditionalRecipientKOrderCz",
+  "title": "A.1.7 - Additional Recipient",
+  "status": "draft",
+  "description": "Additional Recipient (Additional recipients of the finding in addition to the author)",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/AdditionalRecipientKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "AdditionalRecipientKOrderCz",
+        "path": "AdditionalRecipientKOrderCz",
+        "short": "A.1.7 - Additional Recipient",
+        "definition": "Additional Recipient (Additional recipients of the finding in addition to the author)"
+      },
+      {
+        "id": "AdditionalRecipientKOrderCz.identifier",
+        "path": "AdditionalRecipientKOrderCz.identifier",
+        "short": "A.1.7.1 - Additional Recipient identifier",
+        "definition": "The health professional identification number. Either an internal identifier assigned by a healthcare provider institution or (preferably) a national health professional ID such as the licence or registration number. Multiple identifiers could be provided.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "AdditionalRecipientKOrderCz.name",
+        "path": "AdditionalRecipientKOrderCz.name",
+        "short": "A.1.7.2 - Additional Recipient name",
+        "definition": "Person name [the structure of the name will be the same as for the patient (given name, family name / surname)].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "AdditionalRecipientKOrderCz.organizationID",
+        "path": "AdditionalRecipientKOrderCz.organizationID",
+        "short": "A.1.7.3 - Additional Recipient organisation ID",
+        "definition": "The healthcare provider organisation identifier. Identifier that is unique within a defined scope. Example: National healthcare provider ID. Multiple identifiers could be provided.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "AdditionalRecipientKOrderCz.organization",
+        "path": "AdditionalRecipientKOrderCz.organization",
+        "short": "A.1.7.4 - Additional Recipient organisation",
+        "definition": "The healthcare provider organisation information.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogSubjectKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogSubjectKOrderCz",
+  "name": "LogCzSubjectKOrderCz",
+  "title": "A.1.1 - Identifikace a A.1.2 - Kontaktní informace Pacienta/subjektu",
+  "status": "draft",
+  "description": "Identifikace pacienta a kontaktní informace pacienta",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogSubjectKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogSubjectKOrderCz",
+        "path": "LogSubjectKOrderCz",
+        "short": "A.1.1 - Identifikace a A.1.2 - Kontaktní informace Pacienta/subjektu",
+        "definition": "Identifikace pacienta a kontaktní informace pacienta"
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace",
+        "path": "LogSubjectKOrderCz.identifikace",
+        "short": "A.1.1 - Identifikace pacienta/subjektu",
+        "definition": "Identifikace pacienta/subjektu",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.jmeno",
+        "path": "LogSubjectKOrderCz.identifikace.jmeno",
+        "short": "A.1.1.1 - Jméno",
+        "definition": "Křestní jméno pacienta.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.prijmeni",
+        "path": "LogSubjectKOrderCz.identifikace.prijmeni",
+        "short": "A.1.1.2 - Příjmení",
+        "definition": "Příjmení pacienta.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.datumNarozeni",
+        "path": "LogSubjectKOrderCz.identifikace.datumNarozeni",
+        "short": "A.1.1.3 - Datum narození",
+        "definition": "Datum, případně i čas narození.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.datumUmrti",
+        "path": "LogSubjectKOrderCz.identifikace.datumUmrti",
+        "short": "A.1.1.4 - Datum úmrtí",
+        "definition": "Datum, případně i čas smrti.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.identifikator",
+        "path": "LogSubjectKOrderCz.identifikace.identifikator",
+        "short": "A.1.1.5 - Identifikátor",
+        "definition": "Typ identifikátoru a identifikátor osoby. Identifikátor musí být unikátní v rámci daného typu identifikátoru. Povinné je zadání alespoň jednoho národního či mezinárodního identifikátoru (rodné číslo, číslo pasu apod.)",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.statniObcanstvi",
+        "path": "LogSubjectKOrderCz.identifikace.statniObcanstvi",
+        "short": "A.1.1.6 - Státní občanství",
+        "definition": "Státní občanství dle zákona 186/2013. Státní občanství, jak je uváděno na oficiálních dokladech k prokázání identity.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.pohlavi",
+        "path": "LogSubjectKOrderCz.identifikace.pohlavi",
+        "short": "A.1.1.7 - Pohlaví",
+        "definition": "Úřední/administrativní pohlaví (pohlaví uváděné v dokladech pro úřední účely). Biologické pohlaví pacienta, které může být odlišné od pohlaví administrativního může být vedeno v jiných částech zdravotnické dokumentace.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.pohlaviProKlinickeUcely",
+        "path": "LogSubjectKOrderCz.identifikace.pohlaviProKlinickeUcely",
+        "short": "A.1.1.8 - Pohlaví pro klinické použití",
+        "definition": "Běžně se uvádí jen pohlaví úřední, pohlaví pro klinické použití je fakultativní - výjimečné. Pokud je vyplněno pracuje se s ním přednostně v klinické praxi - např. při výběru ref. mezí u škál atd.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.komunikacniJazyk",
+        "path": "LogSubjectKOrderCz.identifikace.komunikacniJazyk",
+        "short": "A.1.1.9 - Komunikační jazyk",
+        "definition": "Jazyk (jazyky) v nichž pacient komunikuje",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.identifikace.handicap",
+        "path": "LogSubjectKOrderCz.identifikace.handicap",
+        "short": "A.1.1.10 - Handicap",
+        "definition": "Handicap pacienta (hluchý, apod.)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt",
+        "path": "LogSubjectKOrderCz.kontakt",
+        "short": "A.1.2 - Kontaktní informace pacienta",
+        "definition": "Kontaktní informace pacienta",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.adresa",
+        "path": "LogSubjectKOrderCz.kontakt.adresa",
+        "short": "A.1.2.1 - Adresa",
+        "definition": "Poštovní, domácí a/nebo kancelářské adresa. Adresy jsou vždy sekvence částí adresy (např. řádek adresy, země, PSČ, město), i když se formát poštovní adresy může lišit v závislosti na zemi. Adresa může obsahovat informaci o typu adresy; pokud tento atribut není přítomen, předpokládá se, že jde o výchozí adresu použitelnou pro jakýkoli účel.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.telekom",
+        "path": "LogSubjectKOrderCz.kontakt.telekom",
+        "short": "A.1.2.2 - Telekom",
+        "definition": "Telekomunikační kontakt (e-mail, telefon atp.).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar",
+        "short": "A.1.2.3 - Preferovaný lékař - Registrující praktický lékař, případně jiný lékař, který může poskytovat informace o pacientovi. Zvláště potřebné u pacientů s vzácným onemocněním.",
+        "definition": "A.1.2.3 - Preferovaný lékař - Registrující praktický lékař, případně jiný lékař, který může poskytovat informace o pacientovi. Zvláště potřebné u pacientů s vzácným onemocněním.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar.identifikator",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar.identifikator",
+        "short": "A.1.2.3.1 - Identifikátor preferovaného lékaře",
+        "definition": "Identifikační číslo zdravotnického pracovníka dle Národního registru zdravotnických pracovníků.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar.jmeno",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar.jmeno",
+        "short": "A.1.2.3.2 - Jméno preferovaného lékaře",
+        "definition": "Jméno lékaře, u kterého je pacient v péči, nebo který pacienta eviduje.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar.specializace",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar.specializace",
+        "short": "A.1.2.3.3 - Specializace preferovaného lékaře",
+        "definition": "Specializace lékaře (Praktické lékařství pro děti a dorost, Praktické lékařství pro dospělé, interní lékařství, gynekologie a porodnictví apod.)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar.organizace",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar.organizace",
+        "short": "A.1.2.3.4 - Organizace preferovaného lékaře",
+        "definition": "Identifikátor a název poskytovatele, kterého lékař reprezentuje",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar.adresa",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar.adresa",
+        "short": "A.1.2.3.5 - Adresa preferovaného lékaře",
+        "definition": "Poštovní, domácí a/nebo kancelářské adresa. Adresy jsou vždy sekvence částí adresy (např. řádek adresy, země, PSČ, město), i když se formát poštovní adresy může lišit v závislosti na zemi. Adresa může obsahovat informaci o typu adresy; pokud tento atribut není přítomen, předpokládá se, že jde o výchozí adresu použitelnou pro jakýkoli účel.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.preferovanyLekar.telekom",
+        "path": "LogSubjectKOrderCz.kontakt.preferovanyLekar.telekom",
+        "short": "A.1.2.3.6 - Telekom preferovaného lékaře",
+        "definition": "Telekomunikační kontakt (e-mail, telefon atp.).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba",
+        "short": "A.1.2.4 - Zákonní zástupci a další kontaktní osoby",
+        "definition": "Zákonní zástupci a další kontaktní osoby",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.typ",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.typ",
+        "short": "A.1.2.4.1 - Typ kontaktu",
+        "definition": "Typ kontaktní osoby rozlišující emergentní kontakty, zákonné zástupce a ostatní osoby se vztahem k pacientovi.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.vztah",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.vztah",
+        "short": "A.1.2.4.2 - Vztah k pacientovi",
+        "definition": "Vztah osoby k pacientovi (otec, syn, dcera atp.)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.identifikator",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.identifikator",
+        "short": "A.1.2.4.3 - Identifikátor osoby",
+        "definition": "Identifikátor kontaktní osoby",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.jmeno",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.jmeno",
+        "short": "A.1.2.4.4 - Jméno osoby",
+        "definition": "Jméno kontaktní osoby.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.prijmeni",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.prijmeni",
+        "short": "A.1.2.4.5 - Příjmení osoby",
+        "definition": "Příjmení kontaktní osoby.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.adresa",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.adresa",
+        "short": "A.1.2.4.6 - Adresa",
+        "definition": "Poštovní, domácí a/nebo kancelářské adresa. Adresy jsou vždy sekvence částí adresy (např. řádek adresy, země, PSČ, město), i když se formát poštovní adresy může lišit v závislosti na zemi. Adresa může obsahovat informaci o typu adresy; pokud tento atribut není přítomen, předpokládá se, že jde o výchozí adresu použitelnou pro jakýkoli účel.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Address"
+          }
+        ]
+      },
+      {
+        "id": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.telekom",
+        "path": "LogSubjectKOrderCz.kontakt.kontaktniOsoba.telekom",
+        "short": "A.1.2.4.7 - Telekom",
+        "definition": "Telekomunikační kontakt (e-mail, telefon atp.).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ContactPoint"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PayerKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/PayerKOrderCz",
+  "name": "LogEnPayerOrderKOrderCz",
+  "title": "A.1.3 - Health insurance and payment information",
+  "status": "draft",
+  "description": "Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/PayerKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "PayerKOrderCz",
+        "path": "PayerKOrderCz",
+        "short": "A.1.3 - Health insurance and payment information",
+        "definition": "Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care."
+      },
+      {
+        "id": "PayerKOrderCz.insuranceCode",
+        "path": "PayerKOrderCz.insuranceCode",
+        "short": "A.1.3.1 - Health insurance code",
+        "definition": "Unique health insurance company identification code.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "PayerKOrderCz.insuranceName",
+        "path": "PayerKOrderCz.insuranceName",
+        "short": "A.1.3.2 - Health insurance name",
+        "definition": "Full, official name of the healthcare insurance provider.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "PayerKOrderCz.insuranceNumber",
+        "path": "PayerKOrderCz.insuranceNumber",
+        "short": "A.1.3.3 - Health insurance number",
+        "definition": "Number or code under which the insured person is registered at the insurance provider.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

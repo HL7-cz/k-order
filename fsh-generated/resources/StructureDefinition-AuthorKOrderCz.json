@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "AuthorKOrderCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/AuthorKOrderCz",
+  "name": "LogEnAuthorKOrderCz",
+  "title": "A.1.5 - Author",
+  "status": "draft",
+  "description": "Author (by whom the Lab order was/were authored). Multiple authors could be provided.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/AuthorKOrderCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "AuthorKOrderCz",
+        "path": "AuthorKOrderCz",
+        "short": "A.1.5 - Author",
+        "definition": "Author (by whom the Lab order was/were authored). Multiple authors could be provided."
+      },
+      {
+        "id": "AuthorKOrderCz.identifier",
+        "path": "AuthorKOrderCz.identifier",
+        "short": "A.1.5.1 - Author identifier",
+        "definition": "The health professional identifier that will allow addressing recipients within a national or international data exchange infrastructure, such as the licence or registration number. In case when the recipient is not a health professional, e.g. patient, appropriate personal identifier should be used.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "AuthorKOrderCz.name",
+        "path": "AuthorKOrderCz.name",
+        "short": "A.1.5.2 - Author name",
+        "definition": "Person name [the structure of the name will be the same as for the patient (given name, family name / surname)].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "AuthorKOrderCz.address",
+        "path": "AuthorKOrderCz.address",
+        "short": "A.1.5.3 - Author's address",
+        "definition": "Contact details of the person placing the order (address and telecommunication details).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "AuthorKOrderCz.organization",
+        "path": "AuthorKOrderCz.organization",
+        "short": "A.1.5.4 - Author organisation",
+        "definition": "The healthcare provider organisation information.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "LogRequestedPerformerKCz",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    }
+  ],
+  "url": "https://hl7.cz/fhir/korder/StructureDefinition/LogRequestedPerformerKCz",
+  "name": "LogCzRequestedPerformerKOrderCz",
+  "title": "A.1.6 - Zpracovatel",
+  "status": "draft",
+  "description": "Předpokládaný zpracovatel žádanky (u neadresné žádanky nebude zpracovatel uveden).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://hl7.cz/fhir/korder/StructureDefinition/LogRequestedPerformerKCz",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "LogRequestedPerformerKCz",
+        "path": "LogRequestedPerformerKCz",
+        "short": "A.1.6 - Zpracovatel",
+        "definition": "Předpokládaný zpracovatel žádanky (u neadresné žádanky nebude zpracovatel uveden)."
+      },
+      {
+        "id": "LogRequestedPerformerKCz.id",
+        "path": "LogRequestedPerformerKCz.id",
+        "short": "A.1.6.1 -ID zpracovatele",
+        "definition": "Identifikátor, který se vztahuje na tuto osobu v této roli.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogRequestedPerformerKCz.jmeno",
+        "path": "LogRequestedPerformerKCz.jmeno",
+        "short": "A.1.6.2 - Jméno zpracovatele",
+        "definition": "Jméno a příjmení osoby zpracovatele žádanky.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "HumanName"
+          }
+        ]
+      },
+      {
+        "id": "LogRequestedPerformerKCz.idOrganizace",
+        "path": "LogRequestedPerformerKCz.idOrganizace",
+        "short": "A.1.6.3 - ID organizace zpracovatele",
+        "definition": "Identifikátor organizace zpracovatele, který se používá k identifikaci organizace v různých informačních systémech.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "LogRequestedPerformerKCz.organizace",
+        "path": "LogRequestedPerformerKCz.organizace",
+        "short": "A.1.6.4 - Organizace zpracovatele",
+        "definition": "Název, identifikační a kontaktní údaje zdravotnického zařízení zpracovatele, případně také pracoviště zpracovatele.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      }
+    ]
+  }
+}
