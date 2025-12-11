@@ -19,7 +19,7 @@ Usage: #example
 // * section[requested].title = "Požadovaná vyšetření"
 // * section[requested].code.text = "A.4 Požadovaná vyšetření"
 * section[examinations].entry[0] = Reference(KOrderServiceRequest-1)
-* section[examinations].entry[1] = Reference(KOrderServiceRequest-2)
+//* section[examinations].entry[1] = Reference(KOrderServiceRequest-2)
 
 // identifier.system je fixed v profilu → nastavuje se jen value
 * identifier.value = "KORD-COMP-2025-001"
@@ -123,32 +123,38 @@ Usage: #example
 * entry[0].fullUrl = "urn:uuid:KOrderCompositionExample"
 * entry[0].resource = KOrderCompositionExample
 
-* entry[1].fullUrl = "urn:uuid:Patient-Novak-Petr"
-* entry[1].resource = Patient-Novak-Petr
+* entry[+].fullUrl = "urn:uuid:Patient-Novak-Petr"
+* entry[+].resource = Patient-Novak-Petr
 
-* entry[2].fullUrl = "urn:uuid:Practitioner-Author-detail"
-* entry[2].resource = Practitioner-Author-detail
+* entry[+].fullUrl = "urn:uuid:Practitioner-Author-detail"
+* entry[+].resource = Practitioner-Author-detail
 
-* entry[3].fullUrl = "urn:uuid:Organization-1"
-* entry[3].resource = Organization-1
+* entry[+].fullUrl = "urn:uuid:ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+* entry[+].resource = Organization-1
 
-* entry[4].fullUrl = "urn:uuid:KOrderCondition-Main"
-* entry[4].resource = KOrderCondition-Main
+* entry[+].fullUrl = "urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f"
+* entry[+].resource = Organization-L1-Odd
 
-* entry[5].fullUrl = "urn:uuid:KOrderCondition-Secondary"
-* entry[5].resource = KOrderCondition-Secondary
+* entry[+].fullUrl = "urn:uuid:a4641bd0-34af-4038-a7db-872d08a54df9"
+* entry[+].resource = Organization-L1-HOSP
 
-* entry[6].fullUrl = "urn:uuid:KOrderServiceRequest-1"
-* entry[6].resource = KOrderServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:KOrderCondition-Main"
+* entry[+].resource = KOrderCondition-Main
 
-* entry[7].fullUrl = "urn:uuid:KOrderServiceRequest-2"
-* entry[7].resource = KOrderServiceRequest-2
+* entry[+].fullUrl = "urn:uuid:KOrderCondition-Secondary"
+* entry[+].resource = KOrderCondition-Secondary
 
-* entry[8].fullUrl = "urn:uuid:KOrderCoverage-Example"
-* entry[8].resource = KOrderCoverage-Example
+* entry[+].fullUrl = "urn:uuid:KOrderServiceRequest-1"
+* entry[+].resource = KOrderServiceRequest-1
 
-* entry[9].fullUrl = "urn:uuid:KOrderAttachment-1"
-* entry[9].resource = KOrderAttachment-1
+* entry[+].fullUrl = "urn:uuid:KOrderServiceRequest-2"
+* entry[+].resource = KOrderServiceRequest-2
+
+* entry[+].fullUrl = "urn:uuid:KOrderCoverage-Example"
+* entry[+].resource = KOrderCoverage-Example
+
+* entry[+].fullUrl = "urn:uuid:KOrderAttachment-1"
+* entry[+].resource = KOrderAttachment-1
 
 
 Instance: Patient-Novak-Petr
@@ -192,7 +198,7 @@ Description: "practitioner's detail"
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * meta.profile[0] = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
 * practitioner = Reference(urn:uuid:a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a) "MUDr. Ivan Anděl"
-* organization = Reference(urn:uuid:ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169) "Nemocnice Chrudim"
+* organization = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Nemocnice Chrudim"
 * code = $cz-nrzp_povolani#L00 "Lékař"
 * specialty = $sct#419192003 "Internal medicine"
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Anděl, interní lékař, Nemocnice Chrudim, Václavská 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
@@ -210,3 +216,42 @@ Description: "An example of the organization of a provider"
 * telecom.system = #phone
 * telecom.value = "+420603853227"
 * telecom.use = #work
+
+//---------------------------------------------------------------------------------------------------------------
+Instance: Organization-L1-Odd
+InstanceOf: CZ_OrganizationCore
+Usage: #example
+Description: "A minimalist example of a subordinate department within a hospital hierarchy for the purposes of the L1 HDR document. "
+* id = "af2b3114-e872-43b9-9875-cceb39122f7f"
+* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
+* identifier[=].value = "12345678"  
+* name = "CHIR - Oddělení chirurgie"
+* partOf = Reference(urn:uuid:9f7c3d74-2c71-4b92-9a59-2b6f37ecb3d1) "Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
+* telecom.system = #phone
+* telecom.value = "+42060385555"
+* address[+]
+  * use = #work
+  * line[+] = "Václavská 570"
+  * city = "Chrudim"
+  * postalCode = "53701"
+  * country = "Česká republika"
+    * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
+//---------------------------------------------------------------------------------------------------------------
+Instance: Organization-L1-HOSP
+InstanceOf: CZ_OrganizationCore
+Usage: #example
+Description: "A minimalist example of a subordinate department within a hospital hierarchy for the purposes of the L1 HDR document. "
+* id = "a4641bd0-34af-4038-a7db-872d08a54df9"
+* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
+* identifier[=].value = "12345678"  
+* name = "CHIR-L2 - Lůžková stanice 2"
+* partOf = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Chirurgické oddělení - Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
+* telecom.system = #phone
+* telecom.value = "+42060385111"
+* address[+]
+  * use = #work
+  * line[+] = "Václavská 570"
+  * city = "Chrudim"
+  * postalCode = "53701"
+  * country = "Česká republika"
+    * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
