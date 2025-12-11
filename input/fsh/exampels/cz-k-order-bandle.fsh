@@ -1,4 +1,4 @@
-/*// ------------------------- Composition (K-order) -------------------------
+// ------------------------- Composition (K-order) -------------------------
 Instance: KOrderCompositionExample
 InstanceOf: KOrderCompositionCz
 Usage: #example
@@ -6,16 +6,29 @@ Usage: #example
 * status = #final
 * date = "2025-02-01T10:15:00+01:00"
 * title = "Konziliární žádost – K-order example"
-* subject = Reference(Patient-Novak-Petr) "Patient-Novak-Petr"
-* author[0] = Reference(Practitioner-Author-detail) "Practitioner-Author-detail"
-* section[0].title = "Diagnózy"
-* section[0].code.text = "A.2 Diagnózy"
-* section[0].entry[0] = Reference(KOrderCondition-Main)
-* section[0].entry[1] = Reference(KOrderCondition-Secondary)
-* section[1].title = "Požadovaná vyšetření"
-* section[1].code.text = "A.4 Požadovaná vyšetření"
-* section[1].entry[0] = Reference(KOrderServiceRequest-1)
-* section[1].entry[1] = Reference(KOrderServiceRequest-2)
+* subject = Reference(Patient-Novak-Petr)
+* author[0] = Reference(Practitioner-Author-detail)
+
+// --- Section: Diagnózy ---
+// * section[diagnoses].title = "Diagnózy"
+// * section[diagnoses].code.text = "A.2 Diagnózy"
+* section[diagnoses].entry[0] = Reference(KOrderCondition-Main)
+* section[diagnoses].entry[1] = Reference(KOrderCondition-Secondary)
+
+// --- Section: Požadovaná vyšetření ---
+// * section[requested].title = "Požadovaná vyšetření"
+// * section[requested].code.text = "A.4 Požadovaná vyšetření"
+* section[examinations].entry[0] = Reference(KOrderServiceRequest-1)
+* section[examinations].entry[1] = Reference(KOrderServiceRequest-2)
+
+// identifier.system je fixed v profilu → nastavuje se jen value
+* identifier.value = "KORD-COMP-2025-001"
+
+* type.coding[0].system = "https://ncez.mzcr.cz/fhir/korder/type"
+* type.coding[0].code = #KORDER
+* type.coding[0].display = "Konziliární žádanka (K-order)"
+
+
 
 // ------------------------- Conditions ------------------------------------
 Instance: KOrderCondition-Main
@@ -24,7 +37,7 @@ Usage: #example
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[+].system = "http://hl7.org/fhir/sid/icd-10"
-* code.coding[=].code = "I10"
+* code.coding[=].code = #I10
 * code.coding[=].display = "Hypertenze"
 
 Instance: KOrderCondition-Secondary
@@ -33,16 +46,17 @@ Usage: #example
 * id = "KOrderCondition-Secondary"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[+].system = "http://hl7.org/fhir/sid/icd-10"
-* code.coding[=].code = "E11"
+* code.coding[=].code = #E11
 * code.coding[=].display = "Diabetes mellitus 2. typu"
+
 
 // ------------------------- ServiceRequests --------------------------------
 Instance: KOrderServiceRequest-1
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
 * id = "KOrderServiceRequest-1"
-* identifier[+].system = "https://hl7.cz/fhir/korder/ids"
-* identifier[=].value = "KORD-SR-2025-0001"
+//* identifier[+].system = "https://hl7.cz/fhir/korder/ids"
+* identifier[+].value = "KORD-SR-2025-0001"
 * status = #active
 * intent = #order
 * authoredOn = "2025-02-01T09:50:00+01:00"
@@ -50,15 +64,19 @@ Usage: #example
 * requester = Reference(Practitioner-Author-detail)
 * code.text = "Konziliární vyšetření internistou"
 * code.coding[+].system = "https://vzp.cz/cis/vykony"
-* code.coding[=].code = "09513"
+* code.coding[=].code = #09513
 * reasonReference[0] = Reference(KOrderCondition-Main)
+* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
+* category[0].coding[0].code = #CONSULT
+* category[0].coding[0].display = "Konziliární vyšetření"
+
 
 Instance: KOrderServiceRequest-2
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
 * id = "KOrderServiceRequest-2"
-* identifier[+].system = "https://hl7.cz/fhir/korder/ids"
-* identifier[=].value = "KORD-SR-2025-0002"
+//* identifier[+].system = "https://hl7.cz/fhir/korder/ids"
+* identifier[+].value = "KORD-SR-2025-0002"
 * status = #active
 * intent = #order
 * authoredOn = "2025-02-01T09:52:00+01:00"
@@ -66,7 +84,10 @@ Usage: #example
 * requester = Reference(Practitioner-Author-detail)
 * code.text = "EKG – kontrolní vyšetření"
 * code.coding[+].system = "https://vzp.cz/cis/vykony"
-* code.coding[=].code = "08911"
+* code.coding[=].code = #08911
+* category[0].coding[0].code = #DIAGNOSTIC
+* category[0].coding[0].display = "Diagnostické vyšetření"
+
 
 // ------------------------- Coverage ---------------------------------------
 Instance: KOrderCoverage-Example
@@ -85,7 +106,7 @@ InstanceOf: DocumentReference
 Usage: #example
 * id = "KOrderAttachment-1"
 * status = #current
-* content[0].attachment.contentType = "application/pdf"
+* content[0].attachment.contentType = #application/pdf
 * content[0].attachment.title = "Příloha k žádance"
 * content[0].attachment.url = "https://example.cz/files/korder-attachment-1.pdf"
 
@@ -100,32 +121,92 @@ Usage: #example
 * identifier.value = "KORD-2025-000123"
 
 * entry[0].fullUrl = "urn:uuid:KOrderCompositionExample"
-* entry[0].resource = Reference(KOrderCompositionExample)
+* entry[0].resource = KOrderCompositionExample
 
 * entry[1].fullUrl = "urn:uuid:Patient-Novak-Petr"
-* entry[1].resource = Reference(Patient-Novak-Petr)
+* entry[1].resource = Patient-Novak-Petr
 
 * entry[2].fullUrl = "urn:uuid:Practitioner-Author-detail"
-* entry[2].resource = Reference(Practitioner-Author-detail)
+* entry[2].resource = Practitioner-Author-detail
 
 * entry[3].fullUrl = "urn:uuid:Organization-1"
-* entry[3].resource = Reference(Organization-1)
+* entry[3].resource = Organization-1
 
 * entry[4].fullUrl = "urn:uuid:KOrderCondition-Main"
-* entry[4].resource = Reference(KOrderCondition-Main)
+* entry[4].resource = KOrderCondition-Main
 
 * entry[5].fullUrl = "urn:uuid:KOrderCondition-Secondary"
-* entry[5].resource = Reference(KOrderCondition-Secondary)
+* entry[5].resource = KOrderCondition-Secondary
 
 * entry[6].fullUrl = "urn:uuid:KOrderServiceRequest-1"
-* entry[6].resource = Reference(KOrderServiceRequest-1)
+* entry[6].resource = KOrderServiceRequest-1
 
 * entry[7].fullUrl = "urn:uuid:KOrderServiceRequest-2"
-* entry[7].resource = Reference(KOrderServiceRequest-2)
+* entry[7].resource = KOrderServiceRequest-2
 
 * entry[8].fullUrl = "urn:uuid:KOrderCoverage-Example"
-* entry[8].resource = Reference(KOrderCoverage-Example)
+* entry[8].resource = KOrderCoverage-Example
 
 * entry[9].fullUrl = "urn:uuid:KOrderAttachment-1"
-* entry[9].resource = Reference(KOrderAttachment-1)
-*/
+* entry[9].resource = KOrderAttachment-1
+
+
+Instance: Patient-Novak-Petr
+InstanceOf: CZ_PatientCore
+Usage: #example
+Description: "Example of patient Petr Novak with identification by czech national identifiers (RID, RCIS), registrating healthcare provider and contact information"
+
+* id = "48a9d440-4194-42c1-87ad-b5a39020a4d0"
+//* meta.profile[0] = "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
+* identifier[+]
+  * system = $cz-patient-rid
+  * value = "1597778923"
+* name.text = "Ing. Petr Novák, Ph.D."
+* name.family = "Novák"
+* name.given[0] = "Petr"
+* name.given[+] = "Pavel"
+* telecom[+].system = #phone
+* telecom[=].value = "+420777111222"
+* telecom[+].system = #email
+* telecom[=].value = "novak@example.com"
+* gender = #male
+* birthDate = "1985-06-15"
+* address[+]
+  * use = #home
+  //* type = #physical
+  * text = "Pavlovova 1424/11, 568 02 Svitavy - Předměstí"
+  * line[+] = "Pavlovova 1424/11"
+  * city = "Svitavy - Předměstí"
+  * postalCode = "56802"
+  * country = "Česko"
+    * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
+
+
+
+//-----------------------------------------------------
+Instance: Practitioner-Author-detail
+InstanceOf: CZ_PractitionerRoleCore
+Usage: #example
+Description: "practitioner's detail"
+
+* id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
+* meta.profile[0] = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+* practitioner = Reference(urn:uuid:a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a) "MUDr. Ivan Anděl"
+* organization = Reference(urn:uuid:ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169) "Nemocnice Chrudim"
+* code = $cz-nrzp_povolani#L00 "Lékař"
+* specialty = $sct#419192003 "Internal medicine"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Anděl, interní lékař, Nemocnice Chrudim, Václavská 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
+* text.status = #generated
+
+Instance: Organization-1
+InstanceOf: CZ_OrganizationCore
+Usage: #example
+Description: "An example of the organization of a provider"
+* id = "ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/krpzs"
+* identifier[=].value = "27520536"
+//* type[DRZAR] = $cz-drzar#102 "Nemocnice"
+* name = "Nemocnice Chrudim"
+* telecom.system = #phone
+* telecom.value = "+420603853227"
+* telecom.use = #work
