@@ -619,8 +619,8 @@
         ]
       },
       {
-        "id": "LogCzKOrder.kOrder.kodNahrady",
-        "path": "LogCzKOrder.kOrder.kodNahrady",
+        "id": "LogCzKOrder.kOrder.diagnozy.kodNahrady",
+        "path": "LogCzKOrder.kOrder.diagnozy.kodNahrady",
         "short": "Kód náhrady",
         "definition": "Kód náhrady dle číselníku VZP.",
         "min": 0,

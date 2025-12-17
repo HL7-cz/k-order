@@ -309,7 +309,7 @@
           "rules": "open",
           "ordered": false
         },
-        "min": 2,
+        "min": 1,
         "mustSupport": true
       },
       {
@@ -381,61 +381,6 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:diagnoses",
-        "path": "Composition.section",
-        "sliceName": "diagnoses",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Composition.section:diagnoses.title",
-        "path": "Composition.section.title",
-        "patternString": "Diagnoses"
-      },
-      {
-        "id": "Composition.section:diagnoses.code",
-        "path": "Composition.section.code",
-        "min": 1,
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "code": "11450-4",
-              "system": "http://loinc.org"
-            }
-          ]
-        }
-      },
-      {
-        "id": "Composition.section:diagnoses.author",
-        "path": "Composition.section.author",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Composition.section:diagnoses.entry",
-        "path": "Composition.section.entry",
-        "min": 1,
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
             ]
           }
         ]

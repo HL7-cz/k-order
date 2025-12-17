@@ -9,7 +9,7 @@ name: HL7CzKOrderImplementationGuide
 title: HL7 Czech K-Order Implementation Guide
 description: HL7 Czech K-Order Implementation Guide
 status: draft # draft | active | retired | unknown
-version: 0.0.1
+version: 0.0.2
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -230,16 +230,38 @@ groups:
     name:  Czech logical model (Informative)
     description: Logical model in czech language. Informative for this version of the guide.
     resources:
-      
+         
+      # -------------------------
+      # A.1 – Hlavička dokumentu
+      # -------------------------
       - StructureDefinition/LogAuthorKCz
       - StructureDefinition/LogCoverageKOrderCz
       - StructureDefinition/LogDigitalSignatureKCz
       - StructureDefinition/LogDocumentMetadataKCz
       - StructureDefinition/logHeaderKOrder
-      - StructureDefinition/LogCzKOrder
       - StructureDefinition/LogPayerKOrderCz
       - StructureDefinition/RequestedPerformerKOrderCz
       - StructureDefinition/LogSubjectKOrderCz
+
+      # -------------------------
+      # A.2 – Tělo dokumentu
+      # -------------------------
+      - StructureDefinition/logBodyKOrder
+      - StructureDefinition/logDiagnosisKOrder
+      - StructureDefinition/logClinicalReasonKOrder
+      - StructureDefinition/logRequestedServiceKOrder
+      - StructureDefinition/logRecommendationKOrder
+      - StructureDefinition/logAdditionalClinicalInfoKOrder
+      
+      
+      # -------------------------
+      # A.3 – Zobrazitelná forma dokumentu
+      # -------------------------
+      - StructureDefinition/logPresentedFormKOrderCz
+      # -------------------------
+      # A.4 – Přílohy
+      # -------------------------
+      - StructureDefinition/logAttachmentsKOrderCz
       
 
 #

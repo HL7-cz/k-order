@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "hl7.fhir.cz.korder",
   "url": "https://hl7.cz/fhir/korder/ImplementationGuide/hl7.fhir.cz.korder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "HL7CzKOrderImplementationGuide",
   "title": "HL7 Czech K-Order Implementation Guide",
   "status": "draft",
@@ -223,6 +223,32 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/logBodyKOrder"
+        },
+        "name": "A.2 - Tělo dokumentu",
+        "description": "Tělo dokumentu K-žádanky obsahující klinické údaje, diagnózy,\nzdůvodnění žádosti a specifikaci požadovaných vyšetření a výkonů.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logEnBodyKOrder"
+        },
+        "name": "A.2 – Document Body",
+        "description": "Body of the K-order document containing clinical data, diagnoses,\nclinical reasons for the request, and specification of requested examinations\nand procedures.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logDiagnosisKOrder"
+        },
+        "name": "A.2.1 - Diagnózy",
+        "description": "Diagnózy odůvodňující žádanku na konziliární nebo jinou zdravotní službu.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/LabOrderInformationCz"
         },
         "name": "A.2.1 - Order information and A.2.2 - Order reason",
@@ -231,19 +257,97 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/PresentedFormCz"
+          "reference": "StructureDefinition/logEnDiagnosisKOrder"
         },
-        "name": "A.3 - Presented form",
-        "description": "Presented form - Entire order as issued. Various formats could be provided,  pdf format is recommended.",
+        "name": "A.2.1 – Diagnoses",
+        "description": "Diagnoses justifying the consultation request\nor other healthcare service request.",
         "exampleBoolean": false
       },
       {
         "reference": {
-          "reference": "StructureDefinition/AttachmentsCz"
+          "reference": "StructureDefinition/logEnClinicalReasonKOrder"
         },
-        "name": "A.4 - Attachments",
-        "description": "Additional attachments.",
+        "name": "A.2.2 – Clinical reason for the request",
+        "description": "Clinical reasons for the consultation request\nor other healthcare service request, including medical history,\nobjective findings, and other related clinical information.",
         "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logClinicalReasonKOrder"
+        },
+        "name": "A.2.2 – Klinické zdůvodnění žádosti",
+        "description": "Klinické důvody (reason) žádosti o konziliární vyšetření\nnebo jinou zdravotní službu, včetně anamnézy, objektivního nálezu\na dalších souvisejících klinických informací.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logRequestedServiceKOrder"
+        },
+        "name": "A.2.3 - Požadované vyšetření / výkony",
+        "description": "Specifikace požadovaných konziliárních vyšetření,\nošetření nebo zdravotních výkonů.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logRecommendationKOrder"
+        },
+        "name": "A.2.4 - Doporučení",
+        "description": "Doporučení dalšího postupu, převzetí do péče\nnebo hospitalizace.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logAdditionalClinicalInfoKOrder"
+        },
+        "name": "A.2.5 - Doplňující klinické informace",
+        "description": "Doplňující klinické informace a poznámky\nvztahující se ke konziliární žádance.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logAdditionalClinicalInfoKOrderCz"
+        },
+        "name": "A.2.5 – Additional Clinical Information",
+        "description": "Additional clinical information and notes\nrelated to the consultation request (K-order).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/PresentedFormKOrderCz"
+        },
+        "name": "A.3 - Presented form",
+        "description": "Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logPresentedFormKOrderCz"
+        },
+        "name": "A.3 - Vizuální podoba dokumentu",
+        "description": "Žádanka čitelná lidským okem,  je požadován PDF formát.",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/AttachmentsKOrderCz"
+        },
+        "name": "A.4 - Additional attachments",
+        "description": "K-Order additional attachments - A.4",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logAttachmentsKOrderCz"
+        },
+        "name": "A.4 - Ostatní přílohy",
+        "description": "Ostatní přílohy zprávy z obrazového vyšetření",
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
       },
       {
         "reference": {
@@ -331,8 +435,7 @@
         },
         "name": "K-order (Žádanka) – Logický model (CZ)",
         "description": "Logický model pro národní implementační příručku K-order (žádanka). Model reprezentuje strukturovaná data žádanky dle českých core profilů HL7 FHIR a vazeb na národní číselníky.",
-        "exampleBoolean": false,
-        "groupingId": "czech-logical-model"
+        "exampleBoolean": false
       },
       {
         "reference": {

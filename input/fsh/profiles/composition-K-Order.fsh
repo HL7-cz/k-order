@@ -119,7 +119,6 @@ Severity: #error
 // --------------------------- section contains (UNIFIED) ----------------------
 * section contains
     insurance 0..1 and
-    diagnoses 1..1 and
     reasons 0..1 and
     examinations 1..1 and
     attachments 0..* and
@@ -136,12 +135,12 @@ Severity: #error
 * section[insurance].entry only Reference(CZ_Coverage)
 
 
-// Diagnoses
+/* Diagnoses
 * section[diagnoses].code = $loinc#11450-4
 * section[diagnoses].title = "Diagnoses"
 * section[diagnoses].entry 1..*
 * section[diagnoses].entry only Reference(KOrderConditionCz)
-
+*/
 // Reasons
 * section[reasons].code = $loinc#29299-5
 * section[reasons].title = "Clinical justification"

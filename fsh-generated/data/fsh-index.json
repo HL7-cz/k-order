@@ -59,15 +59,15 @@
     "outputFile": "StructureDefinition-AdditionalRecipientKOrderCz.json",
     "fshName": "LogEnAdditionalRecipientKOrderCz",
     "fshType": "Logical",
-    "fshFile": "model\\AdditionalRecipient-en.fsh",
+    "fshFile": "model\\additionalRecipient-en.fsh",
     "startLine": 1,
     "endLine": 11
   },
   {
-    "outputFile": "StructureDefinition-AttachmentsCz.json",
+    "outputFile": "StructureDefinition-AttachmentsKOrderCz.json",
     "fshName": "LogEnAttachmentsCz",
     "fshType": "Logical",
-    "fshFile": "model\\Attachments-en.fsh",
+    "fshFile": "model\\attachmentKOrder-en.fsh",
     "startLine": 1,
     "endLine": 11
   },
@@ -75,7 +75,7 @@
     "outputFile": "StructureDefinition-AuthorKOrderCz.json",
     "fshName": "LogEnAuthorKOrderCz",
     "fshType": "Logical",
-    "fshFile": "model\\Author-en.fsh",
+    "fshFile": "model\\authorKOrder-en.fsh",
     "startLine": 1,
     "endLine": 11
   },
@@ -91,7 +91,7 @@
     "outputFile": "StructureDefinition-CoverageKOrderCz.json",
     "fshName": "LogEnCoverageKOrderCz",
     "fshType": "Logical",
-    "fshFile": "model\\Coverage-en.fsh",
+    "fshFile": "model\\coverageKOrder-en.fsh",
     "startLine": 1,
     "endLine": 15
   },
@@ -99,7 +99,7 @@
     "outputFile": "StructureDefinition-DigitalSignatureKOrderCz.json",
     "fshName": "LogEnDigitalSignatureKOrderCz",
     "fshType": "Logical",
-    "fshFile": "model\\DigitalSignature-en.fsh",
+    "fshFile": "model\\signatureKOrder-en.fsh",
     "startLine": 1,
     "endLine": 9
   },
@@ -107,7 +107,7 @@
     "outputFile": "StructureDefinition-DocumentMetadataKOrderCz.json",
     "fshName": "LogEnDocumentMetadataKOrderCz",
     "fshType": "Logical",
-    "fshFile": "model\\DocumentMetadata-en.fsh",
+    "fshFile": "model\\metadataKOrder-en.fsh",
     "startLine": 1,
     "endLine": 14
   },
@@ -117,7 +117,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\composition-K-Order.fsh",
     "startLine": 1,
-    "endLine": 173
+    "endLine": 172
   },
   {
     "outputFile": "StructureDefinition-KOrderConditionCz.json",
@@ -129,9 +129,9 @@
   },
   {
     "outputFile": "StructureDefinition-KOrderHeader.json",
-    "fshName": "KOrderHeaderCz",
+    "fshName": "LogEnKOrderHeaderCz",
     "fshType": "Logical",
-    "fshFile": "model\\HeaderKOrder-en.fsh",
+    "fshFile": "model\\headerKOrder-en.fsh",
     "startLine": 1,
     "endLine": 15
   },
@@ -147,7 +147,7 @@
     "outputFile": "StructureDefinition-LabOrderInformationCz.json",
     "fshName": "LogEnImageOrderInformationCz",
     "fshType": "Logical",
-    "fshFile": "model\\OrderInformation-en.fsh",
+    "fshFile": "model\\orderInformation-en.fsh",
     "startLine": 1,
     "endLine": 26
   },
@@ -155,7 +155,7 @@
     "outputFile": "StructureDefinition-LogAdditionalRecipientKCz.json",
     "fshName": "LogCzAdditionalRecipientKOrder",
     "fshType": "Logical",
-    "fshFile": "model\\AddRecipientKOrder-cz.fsh",
+    "fshFile": "model\\additionalRecipient-cz.fsh",
     "startLine": 1,
     "endLine": 11
   },
@@ -181,7 +181,7 @@
     "fshType": "Logical",
     "fshFile": "model\\log-model-cz.fsh",
     "startLine": 1,
-    "endLine": 70
+    "endLine": 69
   },
   {
     "outputFile": "StructureDefinition-LogDigitalSignatureKCz.json",
@@ -195,7 +195,7 @@
     "outputFile": "StructureDefinition-LogDocumentMetadataKCz.json",
     "fshName": "LogCzDocumentMetadataKOrderCz",
     "fshType": "Logical",
-    "fshFile": "model\\MetadataKOrder-cz.fsh",
+    "fshFile": "model\\metadataKOrder-cz.fsh",
     "startLine": 1,
     "endLine": 14
   },
@@ -205,7 +205,7 @@
     "fshType": "Logical",
     "fshFile": "model\\log-model-en.fsh",
     "startLine": 1,
-    "endLine": 76
+    "endLine": 75
   },
   {
     "outputFile": "StructureDefinition-LogPayerKOrderCz.json",
@@ -240,10 +240,10 @@
     "endLine": 10
   },
   {
-    "outputFile": "StructureDefinition-PresentedFormCz.json",
+    "outputFile": "StructureDefinition-PresentedFormKOrderCz.json",
     "fshName": "LogEnPresentedFormCz",
     "fshType": "Logical",
-    "fshFile": "model\\PresentedForm-en.fsh",
+    "fshFile": "model\\presentedFormKOrder-en.fsh",
     "startLine": 1,
     "endLine": 12
   },
@@ -268,8 +268,80 @@
     "fshName": "KOrderRequestReference",
     "fshType": "Extension",
     "fshFile": "profiles\\composition-K-Order.fsh",
-    "startLine": 177,
-    "endLine": 185
+    "startLine": 176,
+    "endLine": 184
+  },
+  {
+    "outputFile": "StructureDefinition-logAdditionalClinicalInfoKOrder.json",
+    "fshName": "LogCzAdditionalClinicalInfoKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\additionalInfoKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 20
+  },
+  {
+    "outputFile": "StructureDefinition-logAdditionalClinicalInfoKOrderCz.json",
+    "fshName": "LogEnAdditionalClinicalInfoKOrderCZ",
+    "fshType": "Logical",
+    "fshFile": "model\\additionalInfoKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 20
+  },
+  {
+    "outputFile": "StructureDefinition-logAttachmentsKOrderCz.json",
+    "fshName": "LogCzAttachmentsCz",
+    "fshType": "Logical",
+    "fshFile": "model\\attachmentKOrder-cz.fsh",
+    "startLine": 2,
+    "endLine": 14
+  },
+  {
+    "outputFile": "StructureDefinition-logBodyKOrder.json",
+    "fshName": "LogCzBodyKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\bodyKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 28
+  },
+  {
+    "outputFile": "StructureDefinition-logClinicalReasonKOrder.json",
+    "fshName": "LogCzClinicalReasonKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\clinicalReasonKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 21
+  },
+  {
+    "outputFile": "StructureDefinition-logDiagnosisKOrder.json",
+    "fshName": "LogCzDiagnosisKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\diagnosisKorder-cz.fsh",
+    "startLine": 1,
+    "endLine": 13
+  },
+  {
+    "outputFile": "StructureDefinition-logEnBodyKOrder.json",
+    "fshName": "LogEnBodyKOrder",
+    "fshType": "Logical",
+    "fshFile": "model\\bodyKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 4
+  },
+  {
+    "outputFile": "StructureDefinition-logEnClinicalReasonKOrder.json",
+    "fshName": "LogEnClinicalReasonKOrderCZ",
+    "fshType": "Logical",
+    "fshFile": "model\\clinicalReasonKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 22
+  },
+  {
+    "outputFile": "StructureDefinition-logEnDiagnosisKOrder.json",
+    "fshName": "LogEnDiagnosisKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\diagnozisKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 14
   },
   {
     "outputFile": "StructureDefinition-logHeaderKOrder.json",
@@ -278,6 +350,30 @@
     "fshFile": "model\\headerKOrder-cz.fsh",
     "startLine": 1,
     "endLine": 13
+  },
+  {
+    "outputFile": "StructureDefinition-logPresentedFormKOrderCz.json",
+    "fshName": "LogCzPresentedFormCz",
+    "fshType": "Logical",
+    "fshFile": "model\\presentedFormKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-logRecommendationKOrder.json",
+    "fshName": "LogCzRecommendationKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\recomendationKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-logRequestedServiceKOrder.json",
+    "fshName": "LogCzRequestedServiceKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\requestServiceKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 14
   },
   {
     "outputFile": "ValueSet-cz-diagnosis-condition-vs.json",

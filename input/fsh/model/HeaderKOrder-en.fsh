@@ -1,4 +1,4 @@
-Logical: KOrderHeaderCz				
+Logical: LogEnKOrderHeaderCz				
 Id: KOrderHeader			
 Title: "A.1 Order header data elements"				
 Description:  """Order header data elements"""		

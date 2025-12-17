@@ -619,10 +619,10 @@
         ]
       },
       {
-        "id": "LogKOrderEn.kOrder.replacmentCode",
-        "path": "LogKOrderEn.kOrder.replacmentCode",
-        "short": "Replacement code",
-        "definition": "Replacement code according to the VZP code list.",
+        "id": "LogKOrderEn.kOrder.diagnoses.reimbursementCode",
+        "path": "LogKOrderEn.kOrder.diagnoses.reimbursementCode",
+        "short": "Reimbursement code",
+        "definition": "Reimbursement code according to the VZP code list.",
         "min": 0,
         "max": "1",
         "type": [

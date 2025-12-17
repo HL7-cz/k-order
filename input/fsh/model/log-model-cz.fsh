@@ -54,8 +54,7 @@ Description: """Logický model pro národní implementační příručku K-order
   * diagnozy 1..* Base "Diagnózy" """Diagnózy odůvodňující žádanku o vyšetření."""
     * hlavniDiagnoza 1..1 CodeableConcept "Hlavní diagnóza" """Primární diagnóza dle MKN-10."""
     * vedlejsiDiagnozy 0..* CodeableConcept "Vedlejší diagnózy" """Další relevantní diagnózy dle MKN-10."""
-  
-  * kodNahrady 0..1 CodeableConcept "Kód náhrady" """Kód náhrady dle číselníku VZP."""
+    * kodNahrady 0..1 CodeableConcept "Kód náhrady" """Kód náhrady dle číselníku VZP."""
 
   * duvody 1..1 string "Zdůvodnění žádosti" """Klinické odůvodnění žádosti (anamnéza, objektivní nález)."""
 

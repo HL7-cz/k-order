@@ -12,7 +12,7 @@
     }
   ],
   "url": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderHeader",
-  "name": "KOrderHeaderCz",
+  "name": "LogEnKOrderHeaderCz",
   "title": "A.1 Order header data elements",
   "status": "draft",
   "description": "Order header data elements",
