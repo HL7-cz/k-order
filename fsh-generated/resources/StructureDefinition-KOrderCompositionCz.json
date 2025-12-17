@@ -655,6 +655,13 @@
             ]
           }
         ]
+      },
+      {
+        "id": "Composition.section:replacement",
+        "path": "Composition.section",
+        "sliceName": "replacement",
+        "min": 0,
+        "max": "1"
       }
     ]
   }

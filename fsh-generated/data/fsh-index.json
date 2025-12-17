@@ -16,6 +16,14 @@
     "endLine": 10
   },
   {
+    "outputFile": "CodeSystem-vzp-nahrady.json",
+    "fshName": "VzpNahradyCS",
+    "fshType": "CodeSystem",
+    "fshFile": "code-systems\\KOrderReplacmentSC.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
     "outputFile": "ConceptMap-AttachmentKOrder2FHIR-cz.json",
     "fshName": "AttachmentKOrder2FHIR-cz",
     "fshType": "Instance",
@@ -109,7 +117,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\composition-K-Order.fsh",
     "startLine": 1,
-    "endLine": 170
+    "endLine": 173
   },
   {
     "outputFile": "StructureDefinition-KOrderConditionCz.json",
@@ -133,7 +141,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\serviceRequest-K-Order.fsh",
     "startLine": 1,
-    "endLine": 103
+    "endLine": 106
   },
   {
     "outputFile": "StructureDefinition-LabOrderInformationCz.json",
@@ -173,7 +181,7 @@
     "fshType": "Logical",
     "fshFile": "model\\log-model-cz.fsh",
     "startLine": 1,
-    "endLine": 68
+    "endLine": 70
   },
   {
     "outputFile": "StructureDefinition-LogDigitalSignatureKCz.json",
@@ -197,7 +205,7 @@
     "fshType": "Logical",
     "fshFile": "model\\log-model-en.fsh",
     "startLine": 1,
-    "endLine": 74
+    "endLine": 76
   },
   {
     "outputFile": "StructureDefinition-LogPayerKOrderCz.json",
@@ -260,8 +268,8 @@
     "fshName": "KOrderRequestReference",
     "fshType": "Extension",
     "fshFile": "profiles\\composition-K-Order.fsh",
-    "startLine": 174,
-    "endLine": 182
+    "startLine": 177,
+    "endLine": 185
   },
   {
     "outputFile": "StructureDefinition-logHeaderKOrder.json",
@@ -310,5 +318,13 @@
     "fshFile": "value-sets\\KOrderTypeOrderVS.fsh",
     "startLine": 1,
     "endLine": 7
+  },
+  {
+    "outputFile": "ValueSet-vzp-nahrady-vs.json",
+    "fshName": "VzpNahradyVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KorderReplacementVS.fsh",
+    "startLine": 1,
+    "endLine": 5
   }
 ]

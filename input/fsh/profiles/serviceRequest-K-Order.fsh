@@ -34,6 +34,9 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 * extension[basedOnComposition].valueReference only Reference(KOrderServiceRequestCz)
 
+
+
+
 // --------------------------- lifecycle / status / intent ---------------------
 * status 1..1 MS
 * intent 1..1 MS
@@ -112,4 +115,3 @@ Invariant: subject-is-patient
 Description: "Subjekt žádanky musí být pacient."
 Severity: #error
 Expression: "subject.resolve().resourceType = 'Patient'"
-

@@ -36,4 +36,6 @@
 [KOrderRequestReference]: StructureDefinition-korder-composition-requestReference.html
 [KOrderTypeCS]: CodeSystem-korder-type-cs.html
 [KOrderTypeVS]: ValueSet-korder-type-vs.html
+[VzpNahradyVS]: ValueSet-vzp-nahrady-vs.html
 [KOrderVzpProceduresCS]: CodeSystem-korder-vzp-procedures-cs.html
+[VzpNahradyCS]: CodeSystem-vzp-nahrady.html

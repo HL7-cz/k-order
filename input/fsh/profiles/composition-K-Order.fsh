@@ -123,7 +123,8 @@ Severity: #error
     reasons 0..1 and
     examinations 1..1 and
     attachments 0..* and
-    signature 0..1
+    signature 0..1 and
+    replacement 0..1
 
 
 // --------------------------- section definitions ----------------------------
@@ -164,6 +165,8 @@ Severity: #error
 * section[signature].title = "Signature"
 * section[signature].entry 0..1
 * section[signature].entry only Reference(CZ_Provenance)
+
+
 
 
 // --------------------------- section-level author rule -----------------------

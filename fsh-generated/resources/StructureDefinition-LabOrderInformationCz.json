@@ -47,7 +47,7 @@
         "id": "LabOrderInformationCz.orderDetails.identifier",
         "path": "LabOrderInformationCz.orderDetails.identifier",
         "short": "A.2.1.1 - Order Id",
-        "definition": "An identifier of the laboratory order.",
+        "definition": "An identifier of the order.",
         "min": 1,
         "max": "*",
         "type": [
@@ -125,7 +125,7 @@
         "id": "LabOrderInformationCz.orderReason",
         "path": "LabOrderInformationCz.orderReason",
         "short": "A.2.2 - Order reason",
-        "definition": "Reason of laboratory order",
+        "definition": "Reason of  order",
         "min": 0,
         "max": "1",
         "type": [
@@ -164,7 +164,7 @@
         "id": "LabOrderInformationCz.orderReason.questionText",
         "path": "LabOrderInformationCz.orderReason.questionText",
         "short": "A.2.2.3 - Clinical question by text",
-        "definition": "The clinical question to be answered by laboratory. Example: Does the patient have a lung tumour ?",
+        "definition": "The clinical question to be answered. Example: Does the patient have a lung tumour ?",
         "min": 1,
         "max": "1",
         "type": [

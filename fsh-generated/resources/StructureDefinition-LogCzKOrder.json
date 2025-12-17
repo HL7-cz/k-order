@@ -619,6 +619,19 @@
         ]
       },
       {
+        "id": "LogCzKOrder.kOrder.kodNahrady",
+        "path": "LogCzKOrder.kOrder.kodNahrady",
+        "short": "Kód náhrady",
+        "definition": "Kód náhrady dle číselníku VZP.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
         "id": "LogCzKOrder.kOrder.duvody",
         "path": "LogCzKOrder.kOrder.duvody",
         "short": "Zdůvodnění žádosti",

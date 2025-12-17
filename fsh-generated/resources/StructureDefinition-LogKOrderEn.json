@@ -619,6 +619,19 @@
         ]
       },
       {
+        "id": "LogKOrderEn.kOrder.replacmentCode",
+        "path": "LogKOrderEn.kOrder.replacmentCode",
+        "short": "Replacement code",
+        "definition": "Replacement code according to the VZP code list.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
         "id": "LogKOrderEn.kOrder.justification",
         "path": "LogKOrderEn.kOrder.justification",
         "short": "Clinical Justification",

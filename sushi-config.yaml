@@ -225,20 +225,23 @@ menu:
 # is specified by id or name, SUSHI will replace it with the correct
 # URL when generating the IG JSON.
 #
-# groups:
-#   GroupA:
-#     name: Group A
-#     description: The Alpha Group
-#     resources:
-#     - StructureDefinition/animal-patient
-#     - StructureDefinition/arm-procedure
-#   GroupB:
-#     name: Group B
-#     description: The Beta Group
-#     resources:
-#     - StructureDefinition/bark-control
-#     - StructureDefinition/bee-sting
-#
+groups:
+  czech-logical-model:
+    name:  Czech logical model (Informative)
+    description: Logical model in czech language. Informative for this version of the guide.
+    resources:
+      
+      - StructureDefinition/LogAuthorKCz
+      - StructureDefinition/LogCoverageKOrderCz
+      - StructureDefinition/LogDigitalSignatureKCz
+      - StructureDefinition/LogDocumentMetadataKCz
+      - StructureDefinition/logHeaderKOrder
+      - StructureDefinition/LogCzKOrder
+      - StructureDefinition/LogPayerKOrderCz
+      - StructureDefinition/RequestedPerformerKOrderCz
+      - StructureDefinition/LogSubjectKOrderCz
+      
+
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
