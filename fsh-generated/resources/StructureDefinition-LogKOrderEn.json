@@ -619,8 +619,8 @@
         ]
       },
       {
-        "id": "LogKOrderEn.kOrder.diagnoses.reimbursementCode",
-        "path": "LogKOrderEn.kOrder.diagnoses.reimbursementCode",
+        "id": "LogKOrderEn.kOrder.reimbursementCode",
+        "path": "LogKOrderEn.kOrder.reimbursementCode",
         "short": "Reimbursement code",
         "definition": "Reimbursement code according to the VZP code list.",
         "min": 0,
@@ -688,6 +688,71 @@
         "path": "LogKOrderEn.kOrder.requestedServices.recommendation",
         "short": "Recommendation Text",
         "definition": "Additional recommendation or comment (e.g., hospitalization).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.notes",
+        "path": "LogKOrderEn.kOrder.notes",
+        "short": "Notes",
+        "definition": "Structured clinical notes supplementing the request. Used to convey relevant clinical context that is not expressed by a diagnosis or a procedure code.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.notes.significantAnamnesis",
+        "path": "LogKOrderEn.kOrder.notes.significantAnamnesis",
+        "short": "Significant medical history",
+        "definition": "Relevant anamnesis data important for the assessment of the request.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.notes.examinationResults",
+        "path": "LogKOrderEn.kOrder.notes.examinationResults",
+        "short": "Results of performed examinations",
+        "definition": "Summary of available results of examinations already performed.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.notes.differentialAssessment",
+        "path": "LogKOrderEn.kOrder.notes.differentialAssessment",
+        "short": "Differential diagnostic assessment",
+        "definition": "Clinical consideration of possible diagnoses.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogKOrderEn.kOrder.notes.currentTreatment",
+        "path": "LogKOrderEn.kOrder.notes.currentTreatment",
+        "short": "Current treatment",
+        "definition": "Current treatment and medication including dosage.",
         "min": 0,
         "max": "1",
         "type": [

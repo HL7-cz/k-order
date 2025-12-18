@@ -179,11 +179,7 @@
       {
         "id": "ServiceRequest.priority",
         "path": "ServiceRequest.priority",
-        "mustSupport": true,
-        "binding": {
-          "strength": "required",
-          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/korder-priority-vs"
-        }
+        "mustSupport": true
       },
       {
         "id": "ServiceRequest.code",

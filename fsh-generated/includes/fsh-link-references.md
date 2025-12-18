@@ -18,13 +18,14 @@
 [LogCzDigitalSignatureKOrderCz]: StructureDefinition-LogDigitalSignatureKCz.html
 [LogCzBodyKOrderCz]: StructureDefinition-logBodyKOrder.html
 [LogEnBodyKOrder]: StructureDefinition-logEnBodyKOrder.html
-[LogCzDiagnosisKOrderCz]: StructureDefinition-logDiagnosisKOrder.html
-[LogEnImageOrderInformationCz]: StructureDefinition-LabOrderInformationCz.html
-[LogEnDiagnosisKOrderCz]: StructureDefinition-logEnDiagnosisKOrder.html
+[LogCzKOrderInformationCz]: StructureDefinition-logKOrderInformationCz.html
+[LogEnKOrderInformationCz]: StructureDefinition-logKOrderInformation.html
 [LogEnClinicalReasonKOrderCZ]: StructureDefinition-logEnClinicalReasonKOrder.html
 [LogCzClinicalReasonKOrderCz]: StructureDefinition-logClinicalReasonKOrder.html
 [LogCzRequestedServiceKOrderCz]: StructureDefinition-logRequestedServiceKOrder.html
+[LogEnRequestedServiceKOrder]: StructureDefinition-logEnRequestedServiceKOrder.html
 [LogCzRecommendationKOrderCz]: StructureDefinition-logRecommendationKOrder.html
+[LogEnRecommendationKOrder]: StructureDefinition-logEnRecommendationKOrder.html
 [LogCzAdditionalClinicalInfoKOrderCz]: StructureDefinition-logAdditionalClinicalInfoKOrder.html
 [LogEnAdditionalClinicalInfoKOrderCZ]: StructureDefinition-logAdditionalClinicalInfoKOrderCz.html
 [LogEnPresentedFormCz]: StructureDefinition-PresentedFormKOrderCz.html

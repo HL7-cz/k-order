@@ -60,7 +60,8 @@ used for communication between hospital, or outpatient systems within the Czech 
   * diagnoses 1..* Base "Diagnoses" """Clinical diagnoses justifying the referral request."""
     * primaryDiagnosis 1..1 CodeableConcept "Primary Diagnosis" """Main diagnosis coded in ICD-10-CZ."""
     * secondaryDiagnoses 0..* CodeableConcept "Secondary Diagnoses" """Additional diagnoses coded in ICD-10-CZ."""
-    * reimbursementCode 0..1 CodeableConcept "Reimbursement code" """Reimbursement code according to the VZP code list."""
+  
+  * reimbursementCode 0..1 CodeableConcept "Reimbursement code" """Reimbursement code according to the VZP code list."""
  
   * justification 1..1 string "Clinical Justification" """Clinical reasoning for the request (anamnesis, objective findings)."""
 
@@ -68,6 +69,12 @@ used for communication between hospital, or outpatient systems within the Czech 
     * textDescription 1..1 string "Requested Service Description" """Verbal description of the requested examination or service."""
     * procedureCode 0..* CodeableConcept "Procedure Code" """Procedure code according to VZP performance list."""
     * recommendation 0..1 string "Recommendation Text" """Additional recommendation or comment (e.g., hospitalization)."""
+    
+  * notes 0..1 Base "Notes" """Structured clinical notes supplementing the request. Used to convey relevant clinical context that is not expressed by a diagnosis or a procedure code."""
+    * significantAnamnesis 0..1 string "Significant medical history" """Relevant anamnesis data important for the assessment of the request."""
+    * examinationResults 0..1 string "Results of performed examinations" """Summary of available results of examinations already performed."""
+    * differentialAssessment 0..1 string "Differential diagnostic assessment" """Clinical consideration of possible diagnoses."""
+    * currentTreatment 0..1 string "Current treatment" """Current treatment and medication including dosage."""
 
   * attachment 0..* Attachment "Attachments" """Supplementary documentation attached to the referral."""
   * signature 0..1 Base "Electronic Signature" """Electronic signature or seal of the referral document."""

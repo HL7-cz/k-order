@@ -619,8 +619,8 @@
         ]
       },
       {
-        "id": "LogCzKOrder.kOrder.diagnozy.kodNahrady",
-        "path": "LogCzKOrder.kOrder.diagnozy.kodNahrady",
+        "id": "LogCzKOrder.kOrder.kodNahrady",
+        "path": "LogCzKOrder.kOrder.kodNahrady",
         "short": "Kód náhrady",
         "definition": "Kód náhrady dle číselníku VZP.",
         "min": 0,
@@ -688,6 +688,71 @@
         "path": "LogCzKOrder.kOrder.pozadovanaVysetreni.doporuceni",
         "short": "Doporučení slovem",
         "definition": "Doplňující informace o doporučení (např. hospitalizace).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.poznamky",
+        "path": "LogCzKOrder.kOrder.poznamky",
+        "short": "Poznámky",
+        "definition": "Strukturované klinické poznámky doplňující žádanku. Slouží k předání relevantního klinického kontextu, který není vyjádřen diagnózou nebo kódem výkonu.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.poznamky.zavaznaAnamneza",
+        "path": "LogCzKOrder.kOrder.poznamky.zavaznaAnamneza",
+        "short": "Závažná anamnestická data",
+        "definition": "Významná anamnestická data důležitá pro posouzení žádosti.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.poznamky.vysledkyVysetreni",
+        "path": "LogCzKOrder.kOrder.poznamky.vysledkyVysetreni",
+        "short": "Výsledky provedených vyšetření",
+        "definition": "Shrnutí dostupných výsledků již provedených vyšetření.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.poznamky.diferencialniRozvaha",
+        "path": "LogCzKOrder.kOrder.poznamky.diferencialniRozvaha",
+        "short": "Diferenciálně diagnostická rozvaha",
+        "definition": "Klinická úvaha nad možnými diagnózami.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LogCzKOrder.kOrder.poznamky.soucasnaLecba",
+        "path": "LogCzKOrder.kOrder.poznamky.soucasnaLecba",
+        "short": "Současná léčba",
+        "definition": "Aktuální léčba a medikace včetně dávkování.",
         "min": 0,
         "max": "1",
         "type": [

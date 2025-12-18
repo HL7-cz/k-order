@@ -240,27 +240,19 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/logDiagnosisKOrder"
+          "reference": "StructureDefinition/logKOrderInformationCz"
         },
-        "name": "A.2.1 - Diagnózy",
-        "description": "Diagnózy odůvodňující žádanku na konziliární nebo jinou zdravotní službu.",
+        "name": "A.2.1 - Informace o objednávce and A.2.2 - Odůvodnění vyšetření (důvod objednávky)",
+        "description": "Informace o objednávce a Odůvodnění vyšetření (důvod objednávky)",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
       },
       {
         "reference": {
-          "reference": "StructureDefinition/LabOrderInformationCz"
+          "reference": "StructureDefinition/logKOrderInformation"
         },
         "name": "A.2.1 - Order information and A.2.2 - Order reason",
         "description": "Information about order and order reason",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/logEnDiagnosisKOrder"
-        },
-        "name": "A.2.1 – Diagnoses",
-        "description": "Diagnoses justifying the consultation request\nor other healthcare service request.",
         "exampleBoolean": false
       },
       {
@@ -291,12 +283,28 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/logEnRequestedServiceKOrder"
+        },
+        "name": "A.2.3 – Requested examinations / procedures",
+        "description": "Specification of requested consultative examinations,\ntreatments, or medical procedures.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logRecommendationKOrder"
         },
         "name": "A.2.4 - Doporučení",
         "description": "Doporučení dalšího postupu, převzetí do péče\nnebo hospitalizace.",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logEnRecommendationKOrder"
+        },
+        "name": "A.2.4 – Recommendation",
+        "description": "Recommendation of further management, transfer of care,\nor hospitalization.",
+        "exampleBoolean": false
       },
       {
         "reference": {

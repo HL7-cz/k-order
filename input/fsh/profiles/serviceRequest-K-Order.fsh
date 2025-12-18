@@ -83,7 +83,8 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * code ^short = "Požadované vyšetření/výkon"
 
 * priority 0..1 MS
-* priority from KOrderPriorityVS (required)
+// Česky překlad v lokalním VS KOrderPriorityVS
+//* priority from KOrderPriorityVS (required)
 
 // --------------------------- timing / quantity -------------------------------
 * occurrence[x] 0..1 MS

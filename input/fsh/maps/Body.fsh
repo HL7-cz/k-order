@@ -10,27 +10,31 @@ Usage: #definition
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// A.2 – DIAGNÓZY  → Condition + Composition.section[diagnoses]
+// A.2 – DIAGNÓZY  → ServiceRequest.reasonCode + ServiceRequest.reasonReference
 ///////////////////////////////////////////////////////////////////////////////
 
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+
 * group[=].element[+].code = #diagnozy
 * group[=].element[=].display = "A.2 – Diagnózy"
-* group[=].element[=].target.code = #Condition
+* group[=].element[=].target.code = #ServiceRequest
 * group[=].element[=].target.equivalence = #relatedto
-* group[=].element[=].target.comment = "Composition.section[diagnoses].entry.ofType(Condition)"
+
 
 * group[=].element[+].code = #diagnozy.hlavniDiagnoza
 * group[=].element[=].display = "A.2.1 – Hlavní diagnóza"
-* group[=].element[=].target.code = #Condition.code
+* group[=].element[=].target.code = #ServiceRequest.reasonCode
 * group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment =
+  "Hlavní diagnóza jako kódovaná indikace vyšetření/výkonu"
 
 * group[=].element[+].code = #diagnozy.vedlejsiDiagnozy
 * group[=].element[=].display = "A.2.2 – Vedlejší diagnózy"
-* group[=].element[=].target.code = #Condition.code
-* group[=].element[=].target.equivalence = #equivalent
-
+* group[=].element[=].target.code = #ServiceRequest.reasonReference
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment =
+  "Vedlejší diagnózy jako samostatné Condition reference"
 
 
 ///////////////////////////////////////////////////////////////////////////////

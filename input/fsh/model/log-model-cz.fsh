@@ -54,7 +54,8 @@ Description: """Logický model pro národní implementační příručku K-order
   * diagnozy 1..* Base "Diagnózy" """Diagnózy odůvodňující žádanku o vyšetření."""
     * hlavniDiagnoza 1..1 CodeableConcept "Hlavní diagnóza" """Primární diagnóza dle MKN-10."""
     * vedlejsiDiagnozy 0..* CodeableConcept "Vedlejší diagnózy" """Další relevantní diagnózy dle MKN-10."""
-    * kodNahrady 0..1 CodeableConcept "Kód náhrady" """Kód náhrady dle číselníku VZP."""
+  
+  * kodNahrady 0..1 CodeableConcept "Kód náhrady" """Kód náhrady dle číselníku VZP."""
 
   * duvody 1..1 string "Zdůvodnění žádosti" """Klinické odůvodnění žádosti (anamnéza, objektivní nález)."""
 
@@ -63,7 +64,14 @@ Description: """Logický model pro národní implementační příručku K-order
     * kodVykonu 0..* CodeableConcept "Kód výkonu" """Kód dle číselníku výkonů (VZP)."""
     * doporuceni 0..1 string "Doporučení slovem" """Doplňující informace o doporučení (např. hospitalizace)."""
 
+  * poznamky 0..1 Base "Poznámky" """Strukturované klinické poznámky doplňující žádanku. Slouží k předání relevantního klinického kontextu, který není vyjádřen diagnózou nebo kódem výkonu."""
+    * zavaznaAnamneza 0..1 string "Závažná anamnestická data" """Významná anamnestická data důležitá pro posouzení žádosti."""
+    * vysledkyVysetreni 0..1 string "Výsledky provedených vyšetření" """Shrnutí dostupných výsledků již provedených vyšetření."""
+    * diferencialniRozvaha 0..1 string "Diferenciálně diagnostická rozvaha" """Klinická úvaha nad možnými diagnózami."""
+    * soucasnaLecba 0..1 string "Současná léčba" """Aktuální léčba a medikace včetně dávkování."""
+
   * priloha 0..* Attachment "Přílohy" """Přiložená dokumentace nebo doplňující soubory."""
+  
   * podpis 0..1 Base "Elektronický podpis" """Informace o elektronickém podpisu nebo pečeti dokumentu."""
     * autor 1..1 string "Autor podpisu" """Osoba nebo systém, který žádanku podepsal."""
     * casoveRazitko 0..1 dateTime "Časové razítko" """Datum a čas elektronického podpisu."""

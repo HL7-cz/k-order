@@ -10,16 +10,15 @@
   "group": [
     {
       "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
-      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
       "element": [
         {
           "code": "diagnozy",
           "display": "A.2 – Diagnózy",
           "target": [
             {
-              "code": "Condition",
-              "equivalence": "relatedto",
-              "comment": "Composition.section[diagnoses].entry.ofType(Condition)"
+              "code": "ServiceRequest",
+              "equivalence": "relatedto"
             }
           ]
         },
@@ -28,8 +27,9 @@
           "display": "A.2.1 – Hlavní diagnóza",
           "target": [
             {
-              "code": "Condition.code",
-              "equivalence": "equivalent"
+              "code": "ServiceRequest.reasonCode",
+              "equivalence": "equivalent",
+              "comment": "Hlavní diagnóza jako kódovaná indikace vyšetření/výkonu"
             }
           ]
         },
@@ -38,8 +38,9 @@
           "display": "A.2.2 – Vedlejší diagnózy",
           "target": [
             {
-              "code": "Condition.code",
-              "equivalence": "equivalent"
+              "code": "ServiceRequest.reasonReference",
+              "equivalence": "relatedto",
+              "comment": "Vedlejší diagnózy jako samostatné Condition reference"
             }
           ]
         }
