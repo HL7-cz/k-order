@@ -12,8 +12,8 @@ Usage: #example
 // --- Section: Diagnózy ---
 // * section[diagnoses].title = "Diagnózy"
 // * section[diagnoses].code.text = "A.2 Diagnózy"
-* section[diagnoses].entry[0] = Reference(KOrderCondition-Main)
-* section[diagnoses].entry[1] = Reference(KOrderCondition-Secondary)
+// * section[diagnoses].entry[0] = Reference(KOrderCondition-Main)
+// * section[diagnoses].entry[1] = Reference(KOrderCondition-Secondary)
 
 // --- Section: Požadovaná vyšetření ---
 // * section[requested].title = "Požadovaná vyšetření"
