@@ -43,7 +43,7 @@ Usage: #example
 Instance: FTServiceRequest-21113
 InstanceOf: FTServiceRequestCz
 Usage: #example
-* id = "FTServiceRequest-21113"
+* id = "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
 * status = #active
@@ -77,7 +77,7 @@ Usage: #example
 Instance: FTServiceRequest-21225
 InstanceOf: FTServiceRequestCz
 Usage: #example
-* id = "FTServiceRequest-21225"
+* id = "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
 * status = #active
@@ -106,7 +106,7 @@ Usage: #example
 Instance: FTServiceRequest-21415
 InstanceOf: FTServiceRequestCz
 Usage: #example
-* id = "FTServiceRequest-21415"
+* id = "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
 * status = #active
@@ -135,7 +135,7 @@ Usage: #example
 Instance: FTServiceRequest-21413
 InstanceOf: FTServiceRequestCz
 Usage: #example
-* id = "FTServiceRequest-21413"
+* id = "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
 * status = #active
@@ -178,7 +178,7 @@ Usage: #example
 * entry[0].resource = FTCompositionExample
 
 // Recyklované resources (NEVYTVÁŘÍM znovu, jen přidávám do Bundle)
-* entry[+].fullUrl = "urn:uuid:Patient-Novak-Petr"
+* entry[+].fullUrl = "urn:uuid:48a9d440-4194-42c1-87ad-b5a39020a4d0"
 * entry[+].resource = Patient-Novak-Petr
 
 * entry[+].fullUrl = "urn:uuid:Practitioner-Author-detail"
@@ -194,14 +194,14 @@ Usage: #example
 * entry[+].resource = KOrderCondition-Main
 
 // Nové FT ServiceRequesty
-* entry[+].fullUrl = "urn:uuid:FTServiceRequest-21113"
+* entry[+].fullUrl = "urn:uuid:d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
 * entry[+].resource = FTServiceRequest-21113
 
-* entry[+].fullUrl = "urn:uuid:FTServiceRequest-21225"
+* entry[+].fullUrl = "urn:uuid:F2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
 * entry[+].resource = FTServiceRequest-21225
 
-* entry[+].fullUrl = "urn:uuid:FTServiceRequest-21415"
+* entry[+].fullUrl = "urn:uuid:0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
 * entry[+].resource = FTServiceRequest-21415
 
-* entry[+].fullUrl = "urn:uuid:FTServiceRequest-21413"
+* entry[+].fullUrl = "urn:uuid:b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
 * entry[+].resource = FTServiceRequest-21413
