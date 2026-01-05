@@ -151,7 +151,7 @@ Severity: #error
 * section[examinations].code = $loinc#57133-1
 * section[examinations].title = "Requested examinations"
 * section[examinations].entry 1..*
-* section[examinations].entry only Reference(KOrderServiceRequestCz)
+* section[examinations].entry only Reference(KOrderServiceRequestCz or FTServiceRequestCz)
 
 // Attachments
 * section[attachments].code = $loinc#55107-7
