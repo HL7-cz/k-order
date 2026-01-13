@@ -3,19 +3,23 @@
 ////////////////////////////////////////////////////////////
 
 Invariant: one-comp
-Description: "A K-Order Bundle SHALL include one and only one Composition."
+Description: "The document Bundle SHALL include one and only one Composition."
 Expression: "entry.resource.ofType(Composition).count() = 1"
 Severity: #error
 
+// performer sjednocený přes performer.first() (protože performer je 0..*)
+// a zároveň safe pro 0 nebo 1 ServiceRequest
 Invariant: same-servicerequest-performer
-Description: "All ServiceRequests SHALL have the same performer."
-Expression: "entry.resource.ofType(ServiceRequest).performer.all($this = %context.entry.resource.ofType(ServiceRequest).performer)"
+Description: "All ServiceRequests SHALL have the same performer[0] (if present)."
+Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(performer.first() = entry.resource.ofType(ServiceRequest).first().performer.first())"
 Severity: #warning
 
+// occurrence sjednocený (if present) – safe pro 0 nebo 1 SR
 Invariant: same-servicerequest-occurrence
-Description: "All ServiceRequests SHALL have the same occurrence (dateTime or period)."
-Expression: "entry.resource.ofType(ServiceRequest).occurrence.all($this = %context.entry.resource.ofType(ServiceRequest).occurrence)"
+Description: "All ServiceRequests SHALL have the same occurrence[x] (if present)."
+Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(occurrence = entry.resource.ofType(ServiceRequest).first().occurrence)"
 Severity: #warning
+
 
 ////////////////////////////////////////////////////////////
 // PROFILE
@@ -24,35 +28,36 @@ Severity: #warning
 Profile: BundleKOrderCz
 Parent: Bundle
 Id: BundleKOrderCz
-Title: "Bundle: K-Order (CZ)"
-Description: "Clinical document container for Czech K-Order consultation request."
+Title: "Bundle: Referral Order (CZ)"
+Description: "Clinical document container for Czech referral/requests (K-order and FT-order)."
 
 * ^publisher = "HL7 CZ"
-* ^purpose = "A structured Czech consultation request bundle containing Composition + related resources."
-* . ^short = "K-Order consultation request Bundle"
-* . ^definition = "The document Bundle for a K-Order. It SHALL contain exactly one Composition and all referenced resources."
+* ^purpose = "A structured Czech request bundle containing Composition + related resources."
+* . ^short = "Referral order document Bundle (CZ)"
+* . ^definition = "The document Bundle for CZ requests. It SHALL contain exactly one Composition and all referenced resources."
 
-// enforce invariants
 * obeys one-comp
 * obeys same-servicerequest-performer
 * obeys same-servicerequest-occurrence
+
 
 ////////////////////////////////////////////////////////////
 // FIXED BUNDLE METADATA
 ////////////////////////////////////////////////////////////
 
+* type 1..1
 * type = #document
 * type ^short = "This SHALL be a document bundle"
 
 * identifier 1..1
-* identifier ^short = "Business identifier of this K-Order document"
+* identifier ^short = "Business identifier of this document"
 
 * timestamp 1..1
 * timestamp ^short = "Timestamp when the bundle was assembled"
 
-// forbid unsupported elements
 * total 0..0
 * link 0..0
+
 
 ////////////////////////////////////////////////////////////
 // ENTRY SLICING
@@ -76,8 +81,9 @@ Description: "Clinical document container for Czech K-Order consultation request
     coverage 0..* and
     attachment 0..*
 
+
 ////////////////////////////////////////////////////////////
-// RESOURCE BINDINGS
+// RESOURCE CONSTRAINTS
 ////////////////////////////////////////////////////////////
 
 // Composition
@@ -109,10 +115,11 @@ Description: "Clinical document container for Czech K-Order consultation request
 // Attachments
 * entry[attachment].resource only CZ_Attachment
 
+
 ////////////////////////////////////////////////////////////
 // SIGNATURE
 ////////////////////////////////////////////////////////////
 
 * signature 0..1
 * signature only CZ_Signature
-* signature ^short = "Digital signature of the K-Order"
+* signature ^short = "Digital signature of the document"

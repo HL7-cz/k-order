@@ -24,10 +24,6 @@ Usage: #example
 // identifier.system je fixed v profilu → nastavuje se jen value
 * identifier.value = "KORD-COMP-2025-001"
 
-* type.coding[0].system = "https://ncez.mzcr.cz/fhir/korder/type"
-* type.coding[0].code = #KORDER
-* type.coding[0].display = "Konziliární žádanka (K-order)"
-
 
 
 // ------------------------- Conditions ------------------------------------
