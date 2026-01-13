@@ -26,6 +26,9 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * identifier 1..1 MS
 * identifier.system = "urn:ietf:rfc:4122"
 
+* type 1..1 MS
+* type = $loinc#57133-1 "Žádanka o vyšetření" (exactly)
+
 
 // --------------------------- extensions -------------------------------------
 * extension contains DocumentPresentedForm named presentedForm 1..*
