@@ -30,11 +30,6 @@ Usage: #example
 // identifier.system je fixed v profilu → nastavuje se jen value
 * identifier.value = "FT-COMP-2025-001"
 
-// Type – FT dokument (nový typový systém)
-* type.coding[0].system = "https://ncez.mzcr.cz/fhir/ft/type"
-* type.coding[0].code = #FT
-* type.coding[0].display = "Žádanka fyzioterapie (FT)"
-
 
 // ============================================================================
 // FT – ServiceRequests (1 řádek poukazu = 1 SR)
