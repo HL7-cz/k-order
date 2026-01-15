@@ -73,6 +73,17 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode 0..*
 * reasonCode ^short = "Slovní/číselné zdůvodnění žádosti"
 
+* reasonCode.coding ^slicing.discriminator[0].type = #value
+* reasonCode.coding ^slicing.discriminator[0].path = "system"
+* reasonCode.coding ^slicing.rules = #open
+* reasonCode.coding contains
+    diagnosis 0..1 and
+    reason 0..1
+* reasonCode.coding[diagnosis] from $mkn10 (preferred)
+* reasonCode.coding[diagnosis].system = "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
+* reasonCode.coding[reason] from $sct-condition-code (preferred)
+* reasonCode.coding[reason].system = "http://snomed.info/sct" (exactly)
+
 // --------------------------- category / type / code / priority ----------------
 * category 1..1 MS
 * category from FTOrderCategoryVS (extensible)  // nový VS pro FT
