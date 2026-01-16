@@ -33,7 +33,7 @@ Používá se pro diagnózy a klinické důvody žádanky.
 * code.coding ^slicing.rules = #open
 
 * code.coding contains 
-    diagnosis 0..1 and 
+    diagnosis 1..1 and  //TODO potvrdit kardinalitu
     reason 0..1
 
 // ----------------------------------------------------------------------------
