@@ -1,0 +1,45 @@
+@startuml header
+hide circle
+hide stereotype
+hide members
+hide methods
+skinparam linetype ortho
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+legend right
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
+endlegend
+class "Header" <<LogicalModel>> [[StructureDefinition-LogCzHeaderKOrderCz.html]]
+note top #PaleTurquoise [[ConceptMap-KOrderHeader2FHIRcz-cz.html]]
+Concept Map
+endnote
+class "patient-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core.html]]
+"Header" <|. "patient-cz-core"
+
+class "practitioner-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core.html]]
+"Header" <|. "practitioner-cz-core"
+"patient-cz-core" -d[hidden]-> "practitioner-cz-core"
+
+class "practitionerRole-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core.html]]
+"Header" <|. "practitionerRole-cz-core"
+"practitioner-cz-core" -d[hidden]-> "practitionerRole-cz-core"
+
+class "Coverage-cz" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-coverage.html]]
+"Header" <|. "Coverage-cz"
+"practitionerRole-cz-core" -d[hidden]-> "Coverage-cz"
+
+class "Encounter-cz" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-encounter.html]]
+"Header" <|. "Encounter-cz"
+"Coverage-cz" -d[hidden]-> "Encounter-cz"
+
+class "Bundle-K-Order-cz" <<Profile>> [[StructureDefinition-BundleKOrderCz.html]]
+"Header" <|. "Bundle-K-Order-cz"
+"Encounter-cz" -d[hidden]-> "Bundle-K-Order-cz" 
+
+class "K-Order-composition" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+"Header" <|. "K-Order-composition"
+"Bundle-K-Order-cz" -d[hidden]-> "K-Order-composition" 
+@enduml

@@ -66,19 +66,20 @@ dependencies:
 pages:
   index.md:
     title: Home
-# general-guidance.md:
-#   title: General Guidance
-# identifiers.md:
-#   title: Identifiers
-# artifacts.xml:
-#   title: Summary artifacts
-# profiles-and-extensions.md:
-#   title: Profiles and extensions
-# downloads.md:
-#   title: Download
+  logical-models.md:
+    title: Logical models
+  logical-models-cs.md:
+    title: Datová sada - logické modely CZ
+  model-map.md:
+    title: Model maps
+  model-map-cs.md:
+    title: Mapování logického modelu
   artifacts.xml:
     title: Artifacts
-#
+ # === MAP ====
+  Header-map.html:
+    title: Header Relationships
+
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
 # resource), the code is the YAML key. If a parameter allows repeating
@@ -151,6 +152,12 @@ menu:
 #  Guidance:
 #    General guidance: general-guidance.html
 #    Identifiers: identifiers.html
+  Functional:
+    Logical models (en): logical-models.html
+    Logical models (cs): logical-models-cs.html
+  Implementation:
+    Mapping to profiles (en): model-map.html
+    Mapping to profiles (cs): model-map-cs.html
 #  Artifacts: 
 #    Czech artifacts: artifacts.html
 #    Profiles and extensions: profiles-and-extensions.html

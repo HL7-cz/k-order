@@ -1,5 +1,21 @@
 [
   {
+    "outputFile": "Bundle-BundleFTExample.json",
+    "fshName": "BundleFTExample",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
+    "startLine": 162,
+    "endLine": 202
+  },
+  {
+    "outputFile": "Bundle-BundleKOrderExample.json",
+    "fshName": "BundleKOrderExample",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 110,
+    "endLine": 153
+  },
+  {
     "outputFile": "CodeSystem-korder-type-cs.json",
     "fshName": "KOrderTypeCS",
     "fshType": "CodeSystem",
@@ -22,6 +38,22 @@
     "fshFile": "code-systems\\KOrderReplacmentSC.fsh",
     "startLine": 1,
     "endLine": 15
+  },
+  {
+    "outputFile": "Composition-FTCompositionExample.json",
+    "fshName": "FTCompositionExample",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
+    "startLine": 7,
+    "endLine": 31
+  },
+  {
+    "outputFile": "Composition-KOrderCompositionExample.json",
+    "fshName": "KOrderCompositionExample",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 2,
+    "endLine": 25
   },
   {
     "outputFile": "ConceptMap-AttachmentKOrder2FHIR-cz.json",
@@ -56,6 +88,126 @@
     "endLine": 404
   },
   {
+    "outputFile": "Condition-KOrderCondition-Main.json",
+    "fshName": "KOrderCondition-Main",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 30,
+    "endLine": 37
+  },
+  {
+    "outputFile": "Condition-KOrderCondition-Secondary.json",
+    "fshName": "KOrderCondition-Secondary",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 39,
+    "endLine": 46
+  },
+  {
+    "outputFile": "Coverage-KOrderCoverage-Example.json",
+    "fshName": "KOrderCoverage-Example",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 89,
+    "endLine": 97
+  },
+  {
+    "outputFile": "DocumentReference-KOrderAttachment-1.json",
+    "fshName": "KOrderAttachment-1",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 100,
+    "endLine": 107
+  },
+  {
+    "outputFile": "Organization-a4641bd0-34af-4038-a7db-872d08a54df9.json",
+    "fshName": "Organization-L1-HOSP",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 236,
+    "endLine": 253
+  },
+  {
+    "outputFile": "Organization-ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169.json",
+    "fshName": "Organization-1",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 203,
+    "endLine": 214
+  },
+  {
+    "outputFile": "Organization-af2b3114-e872-43b9-9875-cceb39122f7f.json",
+    "fshName": "Organization-L1-Odd",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 217,
+    "endLine": 234
+  },
+  {
+    "outputFile": "Patient-48a9d440-4194-42c1-87ad-b5a39020a4d0.json",
+    "fshName": "Patient-Novak-Petr",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 156,
+    "endLine": 184
+  },
+  {
+    "outputFile": "PractitionerRole-2b7e9637-5018-4542-9faf-d5abdee7b849.json",
+    "fshName": "Practitioner-Author-detail",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 189,
+    "endLine": 201
+  },
+  {
+    "outputFile": "ServiceRequest-0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55.json",
+    "fshName": "FTServiceRequest-21415",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
+    "startLine": 101,
+    "endLine": 126
+  },
+  {
+    "outputFile": "ServiceRequest-2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91.json",
+    "fshName": "FTServiceRequest-21225",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
+    "startLine": 72,
+    "endLine": 97
+  },
+  {
+    "outputFile": "ServiceRequest-KOrderServiceRequest-1.json",
+    "fshName": "KOrderServiceRequest-1",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 50,
+    "endLine": 67
+  },
+  {
+    "outputFile": "ServiceRequest-KOrderServiceRequest-2.json",
+    "fshName": "KOrderServiceRequest-2",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-k-order-bandle.fsh",
+    "startLine": 70,
+    "endLine": 85
+  },
+  {
+    "outputFile": "ServiceRequest-b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11.json",
+    "fshName": "FTServiceRequest-21413",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
+    "startLine": 130,
+    "endLine": 155
+  },
+  {
+    "outputFile": "ServiceRequest-d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1.json",
+    "fshName": "FTServiceRequest-21113",
+    "fshType": "Instance",
+    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
+    "startLine": 38,
+    "endLine": 68
+  },
+  {
     "outputFile": "StructureDefinition-AdditionalRecipientKOrderCz.json",
     "fshName": "LogEnAdditionalRecipientKOrderCz",
     "fshType": "Logical",
@@ -84,8 +236,8 @@
     "fshName": "BundleKOrderCz",
     "fshType": "Profile",
     "fshFile": "profiles\\bundle-K-Order.fsh",
-    "startLine": 24,
-    "endLine": 118
+    "startLine": 28,
+    "endLine": 125
   },
   {
     "outputFile": "StructureDefinition-CoverageKOrderCz.json",
@@ -112,12 +264,28 @@
     "endLine": 14
   },
   {
+    "outputFile": "StructureDefinition-FTOrderCompositionCz.json",
+    "fshName": "FTOrderCompositionCz",
+    "fshType": "Profile",
+    "fshFile": "profiles\\composition-FT-Order.fsh",
+    "startLine": 1,
+    "endLine": 149
+  },
+  {
+    "outputFile": "StructureDefinition-FTServiceRequestCz.json",
+    "fshName": "FTServiceRequestCz",
+    "fshType": "Profile",
+    "fshFile": "profiles\\serviceRequest-FT-Order.fsh",
+    "startLine": 1,
+    "endLine": 123
+  },
+  {
     "outputFile": "StructureDefinition-KOrderCompositionCz.json",
     "fshName": "KOrderCompositionCz",
     "fshType": "Profile",
     "fshFile": "profiles\\composition-K-Order.fsh",
     "startLine": 1,
-    "endLine": 172
+    "endLine": 175
   },
   {
     "outputFile": "StructureDefinition-KOrderConditionCz.json",
@@ -141,7 +309,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\serviceRequest-K-Order.fsh",
     "startLine": 1,
-    "endLine": 107
+    "endLine": 118
   },
   {
     "outputFile": "StructureDefinition-LogAdditionalRecipientKCz.json",
@@ -256,12 +424,20 @@
     "endLine": 36
   },
   {
+    "outputFile": "StructureDefinition-ftorder-composition-requestReference.json",
+    "fshName": "FTOrderRequestReference",
+    "fshType": "Extension",
+    "fshFile": "profiles\\composition-FT-Order.fsh",
+    "startLine": 156,
+    "endLine": 164
+  },
+  {
     "outputFile": "StructureDefinition-korder-composition-requestReference.json",
     "fshName": "KOrderRequestReference",
     "fshType": "Extension",
     "fshFile": "profiles\\composition-K-Order.fsh",
-    "startLine": 176,
-    "endLine": 184
+    "startLine": 179,
+    "endLine": 187
   },
   {
     "outputFile": "StructureDefinition-logAdditionalClinicalInfoKOrder.json",
@@ -390,6 +566,22 @@
     "fshFile": "value-sets\\KOrderDiagnosisConditionVS.fsh",
     "startLine": 1,
     "endLine": 8
+  },
+  {
+    "outputFile": "ValueSet-ft-category-vs.json",
+    "fshName": "FTOrderCategoryVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\FTOrderCategoryVS.fsh",
+    "startLine": 1,
+    "endLine": 7
+  },
+  {
+    "outputFile": "ValueSet-ft-vzp-procedures-vs.json",
+    "fshName": "FTOrderProceduresVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\FTOrderProceduresVS.fsh",
+    "startLine": 1,
+    "endLine": 7
   },
   {
     "outputFile": "ValueSet-korder-category-vs.json",

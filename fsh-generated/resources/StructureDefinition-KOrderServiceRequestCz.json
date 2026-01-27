@@ -269,6 +269,53 @@
         "short": "Slovní/číselné zdůvodnění žádosti"
       },
       {
+        "id": "ServiceRequest.reasonCode.coding",
+        "path": "ServiceRequest.reasonCode.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding:diagnosis",
+        "path": "ServiceRequest.reasonCode.coding",
+        "sliceName": "diagnosis",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
+        }
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding:diagnosis.system",
+        "path": "ServiceRequest.reasonCode.coding.system",
+        "min": 1,
+        "patternUri": "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding:reason",
+        "path": "ServiceRequest.reasonCode.coding",
+        "sliceName": "reason",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://hl7.org/fhir/ValueSet/condition-code"
+        }
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding:reason.system",
+        "path": "ServiceRequest.reasonCode.coding.system",
+        "min": 1,
+        "fixedUri": "http://snomed.info/sct"
+      },
+      {
         "id": "ServiceRequest.reasonReference",
         "path": "ServiceRequest.reasonReference",
         "short": "Diagnózy odůvodňující žádanku",

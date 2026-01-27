@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "hl7.fhir.cz.korder",
   "url": "https://hl7.cz/fhir/korder/ImplementationGuide/hl7.fhir.cz.korder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "name": "HL7CzKOrderImplementationGuide",
   "title": "HL7 Czech K-Order Implementation Guide",
   "status": "draft",
@@ -361,8 +361,30 @@
         "reference": {
           "reference": "StructureDefinition/BundleKOrderCz"
         },
-        "name": "Bundle: K-Order (CZ)",
-        "description": "Clinical document container for Czech K-Order consultation request.",
+        "name": "Bundle: Referral Order (CZ)",
+        "description": "Clinical document container for Czech referral/requests (K-order and FT-order).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Bundle/BundleFTExample"
+        },
+        "name": "BundleFTExample",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+      },
+      {
+        "reference": {
+          "reference": "Bundle/BundleKOrderExample"
+        },
+        "name": "BundleKOrderExample",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/FTOrderCompositionCz"
+        },
+        "name": "Composition: FT-order (Žádanka fyzioterapie) (CZ)",
+        "description": "FT-order Composition (žádanka fyzioterapie) pro národní IG (CZ).\nKompozice slouží jako dokumentový kontejner nad ServiceRequest (FTServiceRequestCz),\nPatient, Coverage (pojištění), Condition (diagnózy) a DocumentReference (přílohy).\nSekce poskytují čitelný přehled a odkazují na příslušné resources obsažené v Bundle.",
         "exampleBoolean": false
       },
       {
@@ -420,6 +442,66 @@
         "name": "CZ K-order Header Model to this guide Map",
         "description": "CZ K-order Header Model → K-order FHIR profiles mapping (Composition, Patient, Coverage, Practitioner, Organization).",
         "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/FTServiceRequestCz"
+        },
+        "name": "FT (CZ) – ServiceRequest",
+        "description": "Národní profil ServiceRequest pro eŽádanku fyzioterapie (FT).\nZachovává strukturu KOrderServiceRequestCz, ale:\n- code je VZP výkon (1 ServiceRequest = 1 řádek poukazu)\n- quantity[x] je povinné (např. 12×)\n- category je FT kategorie (VS pro FT)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ft-category-vs"
+        },
+        "name": "FT Category ValueSet (CZ)",
+        "description": "Kategorie žádanky fyzioterapie (FT).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ft-vzp-procedures-vs"
+        },
+        "name": "FT Procedures ValueSet (CZ)",
+        "description": "Kódy zdravotních výkonů VZP pro fyzioterapii (FT).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ftorder-composition-requestReference"
+        },
+        "name": "FT-order Request Reference",
+        "description": "Reference to the FT ServiceRequest instance(s) that the Composition documents.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
+        },
+        "name": "FTServiceRequest-21113",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
+        },
+        "name": "FTServiceRequest-21225",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
+        },
+        "name": "FTServiceRequest-21413",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
+        },
+        "name": "FTServiceRequest-21415",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
       },
       {
         "reference": {
@@ -495,6 +577,102 @@
       },
       {
         "reference": {
+          "reference": "Composition/KOrderCompositionExample"
+        },
+        "name": "Konziliární žádost – K-order example",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/KOrderAttachment-1"
+        },
+        "name": "KOrderAttachment-1",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Condition/KOrderCondition-Main"
+        },
+        "name": "KOrderCondition-Main",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+      },
+      {
+        "reference": {
+          "reference": "Condition/KOrderCondition-Secondary"
+        },
+        "name": "KOrderCondition-Secondary",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+      },
+      {
+        "reference": {
+          "reference": "Coverage/KOrderCoverage-Example"
+        },
+        "name": "KOrderCoverage-Example",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/KOrderServiceRequest-1"
+        },
+        "name": "KOrderServiceRequest-1",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/KOrderServiceRequest-2"
+        },
+        "name": "KOrderServiceRequest-2",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+        },
+        "name": "Organization-1",
+        "description": "An example of the organization of a provider",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/a4641bd0-34af-4038-a7db-872d08a54df9"
+        },
+        "name": "Organization-L1-HOSP",
+        "description": "A minimalist example of a subordinate department within a hospital hierarchy for the purposes of the L1 HDR document. ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
+        },
+        "name": "Organization-L1-Odd",
+        "description": "A minimalist example of a subordinate department within a hospital hierarchy for the purposes of the L1 HDR document. ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
+        },
+        "name": "Patient-Novak-Petr",
+        "description": "Example of patient Petr Novak with identification by czech national identifiers (RID, RCIS), registrating healthcare provider and contact information",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Composition/FTCompositionExample"
+        },
+        "name": "Poukaz FT – eŽádanka (example)",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/2b7e9637-5018-4542-9faf-d5abdee7b849"
+        },
+        "name": "Practitioner-Author-detail",
+        "description": "practitioner's detail",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
           "reference": "ValueSet/vzp-nahrady-vs"
         },
         "name": "VZP Reimbursement Indicator ValueSet",
@@ -529,8 +707,33 @@
           "generation": "markdown"
         },
         {
+          "nameUrl": "logical-models.html",
+          "title": "Logical models",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "logical-models-cs.html",
+          "title": "Datová sada - logické modely CZ",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "model-map.html",
+          "title": "Model maps",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "model-map-cs.html",
+          "title": "Mapování logického modelu",
+          "generation": "markdown"
+        },
+        {
           "nameUrl": "artifacts.html",
           "title": "Artifacts",
+          "generation": "html"
+        },
+        {
+          "nameUrl": "Header-map.html",
+          "title": "Header Relationships",
           "generation": "html"
         }
       ]

@@ -138,6 +138,20 @@
         "mustSupport": true
       },
       {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "fixedCodeableConcept": {
+          "coding": [
+            {
+              "code": "57133-1",
+              "system": "http://loinc.org",
+              "display": "Žádanka o vyšetření"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
         "id": "Composition.subject",
         "path": "Composition.subject",
         "min": 1,
@@ -487,7 +501,8 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+              "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
             ]
           }
         ]
