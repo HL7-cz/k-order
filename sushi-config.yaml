@@ -251,7 +251,7 @@ groups:
       - StructureDefinition/LogSubjectKOrderCz
 
       # -------------------------
-      # A.2 – Tělo dokumentu
+      # A.2 – Tělo dokumentu K 
       # -------------------------
       - StructureDefinition/logBodyKOrder
       - StructureDefinition/logKOrderInformationCz
@@ -260,13 +260,17 @@ groups:
       - StructureDefinition/logRecommendationKOrder
       - StructureDefinition/logAdditionalClinicalInfoKOrder
       
+      # -------------------------
+      # A.5 – Tělo dokumentu FT
+      # -------------------------
+      
       
       # -------------------------
-      # A.3 – Zobrazitelná forma dokumentu
+      # A.4 – Zobrazitelná forma dokumentu
       # -------------------------
       - StructureDefinition/logPresentedFormKOrderCz
       # -------------------------
-      # A.4 – Přílohy
+      # A.5 – Přílohy
       # -------------------------
       - StructureDefinition/logAttachmentsKOrderCz
       

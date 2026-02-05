@@ -1,4 +1,4 @@
-@startuml header
+@startuml 
 hide circle
 hide stereotype
 hide members
@@ -27,11 +27,11 @@ class "practitionerRole-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/Structur
 "Header" <|. "practitionerRole-cz-core"
 "practitioner-cz-core" -d[hidden]-> "practitionerRole-cz-core"
 
-class "Coverage-cz" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-coverage.html]]
+class "Coverage-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/StructureDefinition-cz-coverage.html]]
 "Header" <|. "Coverage-cz"
 "practitionerRole-cz-core" -d[hidden]-> "Coverage-cz"
 
-class "Encounter-cz" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-encounter.html]]
+class "Encounter-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/StructureDefinition-cz-encounter.html]]
 "Header" <|. "Encounter-cz"
 "Coverage-cz" -d[hidden]-> "Encounter-cz"
 

@@ -28,10 +28,12 @@
 [LogEnRecommendationKOrder]: StructureDefinition-logEnRecommendationKOrder.html
 [LogCzAdditionalClinicalInfoKOrderCz]: StructureDefinition-logAdditionalClinicalInfoKOrder.html
 [LogEnAdditionalClinicalInfoKOrderCZ]: StructureDefinition-logAdditionalClinicalInfoKOrderCz.html
-[LogEnPresentedFormCz]: StructureDefinition-PresentedFormKOrderCz.html
+[LogCzBodyFTOrderCz]: StructureDefinition-logBodyFTOrder.html
+[LogCzFTSpecificFTOrder]: StructureDefinition-logFTSpecificKOrder.html
 [LogCzPresentedFormCz]: StructureDefinition-logPresentedFormKOrderCz.html
 [LogEnAttachmentsCz]: StructureDefinition-AttachmentsKOrderCz.html
 [LogCzAttachmentsCz]: StructureDefinition-logAttachmentsKOrderCz.html
+[LogEnPresentedFormCz]: StructureDefinition-PresentedFormKOrderCz.html
 [BundleKOrderCz]: StructureDefinition-BundleKOrderCz.html
 [BundleFTExample]: Bundle-BundleFTExample.html
 [BundleKOrderExample]: Bundle-BundleKOrderExample.html

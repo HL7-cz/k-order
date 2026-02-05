@@ -622,6 +622,271 @@
         "sliceName": "replacement",
         "min": 0,
         "max": "1"
+      },
+      {
+        "id": "Composition.section:significantMedicalHistory",
+        "path": "Composition.section",
+        "sliceName": "significantMedicalHistory",
+        "short": "Serious medical history",
+        "definition": "This section includes significant past medical history that may impact the current hospital stay.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:significantMedicalHistory.title",
+        "path": "Composition.section.title",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:significantMedicalHistory.code",
+        "path": "Composition.section.code",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "11348-0",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://loinc.org"
+        }
+      },
+      {
+        "id": "Composition.section:significantMedicalHistory.author",
+        "path": "Composition.section.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:significantMedicalHistory.text",
+        "path": "Composition.section.text",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:examinationResults",
+        "path": "Composition.section",
+        "sliceName": "examinationResults",
+        "short": "Relevant diagnostic tests",
+        "definition": "This section includes relevant diagnostic tests that may impact the current Patient care.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:examinationResults.title",
+        "path": "Composition.section.title",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:examinationResults.code",
+        "path": "Composition.section.code",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "30954-2",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://loinc.org"
+        }
+      },
+      {
+        "id": "Composition.section:examinationResults.author",
+        "path": "Composition.section.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:examinationResults.text",
+        "path": "Composition.section.text",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:differentialDiagnosis",
+        "path": "Composition.section",
+        "sliceName": "differentialDiagnosis",
+        "short": "Differential diagnosis considerations",
+        "definition": "This section includes differential diagnosis considerations relevant to the current Patient care.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:differentialDiagnosis.title",
+        "path": "Composition.section.title",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:differentialDiagnosis.code",
+        "path": "Composition.section.code",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "51848-0",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://loinc.org"
+        }
+      },
+      {
+        "id": "Composition.section:differentialDiagnosis.author",
+        "path": "Composition.section.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:differentialDiagnosis.text",
+        "path": "Composition.section.text",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:currentTreatment",
+        "path": "Composition.section",
+        "sliceName": "currentTreatment",
+        "short": "Current treatment including medication and dosage",
+        "definition": "This section includes current treatment information including medication and dosage relevant to the current Patient care.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:currentTreatment.title",
+        "path": "Composition.section.title",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:currentTreatment.code",
+        "path": "Composition.section.code",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "11506-3",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://loinc.org"
+        }
+      },
+      {
+        "id": "Composition.section:currentTreatment.author",
+        "path": "Composition.section.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:currentTreatment.text",
+        "path": "Composition.section.text",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:referencedDocumentation",
+        "path": "Composition.section",
+        "sliceName": "referencedDocumentation",
+        "short": "Referenced documentation",
+        "definition": "This section includes references to other documentation relevant to the current Patient care.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Composition.section:referencedDocumentation.title",
+        "path": "Composition.section.title",
+        "min": 1
+      },
+      {
+        "id": "Composition.section:referencedDocumentation.code",
+        "path": "Composition.section.code",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "77599-9",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://loinc.org"
+        }
+      },
+      {
+        "id": "Composition.section:referencedDocumentation.author",
+        "path": "Composition.section.author",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:referencedDocumentation.text",
+        "path": "Composition.section.text",
+        "min": 1
       }
     ]
   }

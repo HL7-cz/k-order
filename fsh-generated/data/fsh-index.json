@@ -269,7 +269,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\composition-FT-Order.fsh",
     "startLine": 1,
-    "endLine": 149
+    "endLine": 157
   },
   {
     "outputFile": "StructureDefinition-FTServiceRequestCz.json",
@@ -285,7 +285,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\composition-K-Order.fsh",
     "startLine": 1,
-    "endLine": 175
+    "endLine": 211
   },
   {
     "outputFile": "StructureDefinition-KOrderConditionCz.json",
@@ -428,16 +428,16 @@
     "fshName": "FTOrderRequestReference",
     "fshType": "Extension",
     "fshFile": "profiles\\composition-FT-Order.fsh",
-    "startLine": 156,
-    "endLine": 164
+    "startLine": 164,
+    "endLine": 172
   },
   {
     "outputFile": "StructureDefinition-korder-composition-requestReference.json",
     "fshName": "KOrderRequestReference",
     "fshType": "Extension",
     "fshFile": "profiles\\composition-K-Order.fsh",
-    "startLine": 179,
-    "endLine": 187
+    "startLine": 215,
+    "endLine": 223
   },
   {
     "outputFile": "StructureDefinition-logAdditionalClinicalInfoKOrder.json",
@@ -462,6 +462,14 @@
     "fshFile": "model\\attachmentKOrder-cz.fsh",
     "startLine": 2,
     "endLine": 14
+  },
+  {
+    "outputFile": "StructureDefinition-logBodyFTOrder.json",
+    "fshName": "LogCzBodyFTOrderCz",
+    "fshType": "Logical",
+    "fshFile": "model\\bodyFTOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 28
   },
   {
     "outputFile": "StructureDefinition-logBodyKOrder.json",
@@ -510,6 +518,14 @@
     "fshFile": "model\\requestServiceKOrder-en.fsh",
     "startLine": 1,
     "endLine": 17
+  },
+  {
+    "outputFile": "StructureDefinition-logFTSpecificKOrder.json",
+    "fshName": "LogCzFTSpecificFTOrder",
+    "fshType": "Logical",
+    "fshFile": "model\\specificFTOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 66
   },
   {
     "outputFile": "StructureDefinition-logHeaderKOrder.json",

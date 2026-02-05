@@ -325,17 +325,25 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/PresentedFormKOrderCz"
+          "reference": "StructureDefinition/logBodyFTOrder"
         },
-        "name": "A.3 - Presented form",
-        "description": "Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended.",
+        "name": "A.3 - Tělo dokumentu FT žádanky",
+        "description": "Tělo dokumentu eŽádanky typu FT obsahující klinické údaje,\nzdůvodnění indikace fyzioterapie / ergoterapie a specifikaci požadované péče.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/logFTSpecificKOrder"
+        },
+        "name": "A.3.3 - Specifické údaje pro FT",
+        "description": "Specifické klinické a organizační údaje eŽádanky typu FT\n(poukaz na vyšetření/ošetření fyzioterapie nebo ergoterapie).",
         "exampleBoolean": false
       },
       {
         "reference": {
           "reference": "StructureDefinition/logPresentedFormKOrderCz"
         },
-        "name": "A.3 - Vizuální podoba dokumentu",
+        "name": "A.4 - Vizuální podoba dokumentu",
         "description": "Žádanka čitelná lidským okem,  je požadován PDF formát.",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
@@ -344,7 +352,7 @@
         "reference": {
           "reference": "StructureDefinition/AttachmentsKOrderCz"
         },
-        "name": "A.4 - Additional attachments",
+        "name": "A.5 - Additional attachments",
         "description": "K-Order additional attachments - A.4",
         "exampleBoolean": false
       },
@@ -352,10 +360,18 @@
         "reference": {
           "reference": "StructureDefinition/logAttachmentsKOrderCz"
         },
-        "name": "A.4 - Ostatní přílohy",
+        "name": "A.5 - Ostatní přílohy",
         "description": "Ostatní přílohy zprávy z obrazového vyšetření",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/PresentedFormKOrderCz"
+        },
+        "name": "A.5 - Presented form",
+        "description": "Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended.",
+        "exampleBoolean": false
       },
       {
         "reference": {

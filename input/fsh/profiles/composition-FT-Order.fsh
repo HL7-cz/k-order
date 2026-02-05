@@ -111,7 +111,8 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
     examinations 1..1 and
     attachments 0..* and
     signature 0..1 and
-    replacement 0..1
+    replacement 0..1 and
+    risks 0..1
 
 // --------------------------- section definitions ----------------------------
 
@@ -144,6 +145,13 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * section[signature].title = "Signature"
 * section[signature].entry 0..1
 * section[signature].entry only Reference(CZ_Provenance)
+
+// Note: Patient risks
+* section[risks]
+  * insert SectionComRules(
+      Patient Risks,
+      This section contains patient-specific risks contraindications and safety warnings relevant to the planned FT therapy including implants medical restrictions and required precautions.,
+      $loinc#51848-0)
 
 // --------------------------- section-level author rule -----------------------
 * section.author only Reference(
