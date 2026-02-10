@@ -126,7 +126,12 @@ Severity: #error
     examinations 1..1 and
     attachments 0..* and
     signature 0..1 and
-    replacement 0..1
+    replacement 0..1 and
+    significantMedicalHistory 0..1 and
+    examinationResults 0..1 and
+    differentialDiagnosis 0..1 and
+    currentTreatment 0..1 and
+    referencedDocumentation 0..1
 
 
 // --------------------------- section definitions ----------------------------
@@ -168,9 +173,40 @@ Severity: #error
 * section[signature].entry 0..1
 * section[signature].entry only Reference(CZ_Provenance)
 
+// Note: Serious medical history/significantMedicalHistory
+* section[significantMedicalHistory]
+  * insert SectionComRules(
+      Serious medical history,
+      This section includes significant past medical history that may impact the current hospital stay.,
+      $loinc#11348-0)
 
+// Note: Relevant diagnostic tests/examinationResults
+* section[examinationResults]
+  * insert SectionComRules(
+      Relevant diagnostic tests,
+      This section includes relevant diagnostic tests that may impact the current Patient care.,
+      $loinc#30954-2)
 
+// Note: Differential diagnosis considerations
+* section[differentialDiagnosis]
+  * insert SectionComRules(
+      Differential diagnosis considerations,
+      This section includes differential diagnosis considerations relevant to the current Patient care.,
+      $loinc#51848-0)
 
+// Note: Current treatment including medication and dosage
+* section[currentTreatment]
+  * insert SectionComRules(
+      Current treatment including medication and dosage,
+      This section includes current treatment information including medication and dosage relevant to the current Patient care.,
+      $loinc#11506-3)
+
+// Note: Referenced documentation
+* section[referencedDocumentation]
+  * insert SectionComRules(
+      Referenced documentation,
+      This section includes references to other documentation relevant to the current Patient care.,
+      $loinc#77599-9)
 // --------------------------- section-level author rule -----------------------
 * section.author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_DeviceObserver or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
 
@@ -185,3 +221,5 @@ Reference to the K-order ServiceRequest instance(s) that the Composition documen
 * insert ExtensionContext(Composition)
 * insert SetFmmandStatusRule ( 2, trial-use)
 * value[x] only Reference(KOrderServiceRequestCz)
+
+

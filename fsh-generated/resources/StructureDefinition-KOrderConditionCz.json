@@ -47,13 +47,14 @@
             }
           ],
           "rules": "open"
-        }
+        },
+        "min": 1
       },
       {
         "id": "Condition.code.coding:diagnosis",
         "path": "Condition.code.coding",
         "sliceName": "diagnosis",
-        "min": 0,
+        "min": 1,
         "max": "1",
         "binding": {
           "strength": "extensible",

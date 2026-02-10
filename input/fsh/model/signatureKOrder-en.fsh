@@ -5,5 +5,5 @@ Description: """Digital signature - Electronic signature or seal of a document a
 
 * insert SetFmmandStatusRule ( 1, draft )
 
-* digitalSignature 0..* Signature "A.1.9.1 - Electronic signature or document seal" """Electronic signature or document seal."""
+* digitalSignature 1..1 Signature "A.1.9.1 - Electronic signature or document seal" """Electronic signature or document seal."""
 * timestamp 0..1 instant "A.1.9.2 - Electronic time stamp" """Electronic time stamp"""
