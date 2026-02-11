@@ -15,7 +15,7 @@ zdůvodnění indikace fyzioterapie / ergoterapie a specifikaci požadované pé
   """Klinické odůvodnění požadavku včetně anamnézy,
 nálezu a souvisejících informací."""
 
-* specifickeUdajeFT 1..1 LogCzFTSpecificFTOrder
+* specifickeUdajeFT 1..1 logFTSpecificOrder
   "A.3.3 - Specifické údaje pro FT"
   """Specifické údaje požadované pro FT žádanku."""
 

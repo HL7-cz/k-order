@@ -16,6 +16,14 @@
     "endLine": 153
   },
   {
+    "outputFile": "CodeSystem-korder-recommendation-disposition-cs.json",
+    "fshName": "KOrderRecommendationDispositionCS",
+    "fshType": "CodeSystem",
+    "fshFile": "code-systems\\KOrderRecommendationCS.fsh",
+    "startLine": 1,
+    "endLine": 6
+  },
+  {
     "outputFile": "CodeSystem-korder-type-cs.json",
     "fshName": "KOrderTypeCS",
     "fshType": "CodeSystem",
@@ -69,7 +77,7 @@
     "fshType": "Instance",
     "fshFile": "maps\\Body.fsh",
     "startLine": 1,
-    "endLine": 82
+    "endLine": 180
   },
   {
     "outputFile": "ConceptMap-KOrderHeader2FHIRcz-cz.json",
@@ -424,6 +432,14 @@
     "endLine": 36
   },
   {
+    "outputFile": "StructureDefinition-cz-order-recommendation-disposition.json",
+    "fshName": "CzKOrderRecommendationDisposition",
+    "fshType": "Extension",
+    "fshFile": "profiles\\serviceRequest-K-Order.fsh",
+    "startLine": 121,
+    "endLine": 131
+  },
+  {
     "outputFile": "StructureDefinition-ftorder-composition-requestReference.json",
     "fshName": "FTOrderRequestReference",
     "fshType": "Extension",
@@ -520,7 +536,7 @@
     "endLine": 17
   },
   {
-    "outputFile": "StructureDefinition-logFTSpecificKOrder.json",
+    "outputFile": "StructureDefinition-logFTSpecificOrder.json",
     "fshName": "LogCzFTSpecificFTOrder",
     "fshType": "Logical",
     "fshFile": "model\\specificFTOrder-cz.fsh",
@@ -622,6 +638,14 @@
     "fshFile": "value-sets\\KOrderProceduresVS.fsh",
     "startLine": 1,
     "endLine": 7
+  },
+  {
+    "outputFile": "ValueSet-korder-recommendation-disposition-vs.json",
+    "fshName": "KOrderRecommendationDispositionVS",
+    "fshType": "ValueSet",
+    "fshFile": "value-sets\\KOrderRecommendationVS.fsh",
+    "startLine": 1,
+    "endLine": 4
   },
   {
     "outputFile": "ValueSet-korder-type-vs.json",

@@ -261,9 +261,10 @@ groups:
       - StructureDefinition/logAdditionalClinicalInfoKOrder
       
       # -------------------------
-      # A.5 – Tělo dokumentu FT
+      # A.3 – Tělo dokumentu FT
       # -------------------------
-      
+      - StructureDefinition/logBodyFTOrder
+      - StructureDefinition/logFTSpecificOrder
       
       # -------------------------
       # A.4 – Zobrazitelná forma dokumentu

@@ -329,15 +329,17 @@
         },
         "name": "A.3 - Tělo dokumentu FT žádanky",
         "description": "Tělo dokumentu eŽádanky typu FT obsahující klinické údaje,\nzdůvodnění indikace fyzioterapie / ergoterapie a specifikaci požadované péče.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
       },
       {
         "reference": {
-          "reference": "StructureDefinition/logFTSpecificKOrder"
+          "reference": "StructureDefinition/logFTSpecificOrder"
         },
         "name": "A.3.3 - Specifické údaje pro FT",
         "description": "Specifické klinické a organizační údaje eŽádanky typu FT\n(poukaz na vyšetření/ošetření fyzioterapie nebo ergoterapie).",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "czech-logical-model"
       },
       {
         "reference": {
@@ -457,6 +459,14 @@
         },
         "name": "CZ K-order Header Model to this guide Map",
         "description": "CZ K-order Header Model → K-order FHIR profiles mapping (Composition, Patient, Coverage, Practitioner, Organization).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cz-order-recommendation-disposition"
+        },
+        "name": "CZ order Recommendation Disposition",
+        "description": "Recommended follow-up disposition from K-order",
         "exampleBoolean": false
       },
       {
@@ -625,6 +635,20 @@
         },
         "name": "KOrderCoverage-Example",
         "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/korder-recommendation-disposition-cs"
+        },
+        "name": "KOrderRecommendationDispositionCS",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/korder-recommendation-disposition-vs"
+        },
+        "name": "KOrderRecommendationDispositionVS",
+        "exampleBoolean": false
       },
       {
         "reference": {

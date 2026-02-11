@@ -123,6 +123,22 @@
         ]
       },
       {
+        "id": "ServiceRequest.extension:recommendationDisposition",
+        "path": "ServiceRequest.extension",
+        "sliceName": "recommendationDisposition",
+        "definition": "Doporučení převzetí do péče nebo hospitalizace z K-žádanky",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/cz-order-recommendation-disposition"
+            ]
+          }
+        ]
+      },
+      {
         "id": "ServiceRequest.identifier",
         "path": "ServiceRequest.identifier",
         "short": "Identifikátor eŽádanky (UUID)",

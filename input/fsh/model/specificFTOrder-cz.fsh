@@ -1,5 +1,5 @@
 Logical: LogCzFTSpecificFTOrder
-Id: logFTSpecificKOrder
+Id: logFTSpecificOrder
 Title: "A.3.3 - Specifické údaje pro FT"
 Description: """Specifické klinické a organizační údaje eŽádanky typu FT
 (poukaz na vyšetření/ošetření fyzioterapie nebo ergoterapie)."""

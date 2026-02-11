@@ -29,7 +29,7 @@
 [LogCzAdditionalClinicalInfoKOrderCz]: StructureDefinition-logAdditionalClinicalInfoKOrder.html
 [LogEnAdditionalClinicalInfoKOrderCZ]: StructureDefinition-logAdditionalClinicalInfoKOrderCz.html
 [LogCzBodyFTOrderCz]: StructureDefinition-logBodyFTOrder.html
-[LogCzFTSpecificFTOrder]: StructureDefinition-logFTSpecificKOrder.html
+[LogCzFTSpecificFTOrder]: StructureDefinition-logFTSpecificOrder.html
 [LogCzPresentedFormCz]: StructureDefinition-logPresentedFormKOrderCz.html
 [LogEnAttachmentsCz]: StructureDefinition-AttachmentsKOrderCz.html
 [LogCzAttachmentsCz]: StructureDefinition-logAttachmentsKOrderCz.html
@@ -45,6 +45,7 @@
 [AttachmentKOrder2FHIR-cz]: ConceptMap-AttachmentKOrder2FHIR-cz.html
 [KOrderBody2FHIRcz-cz]: ConceptMap-KOrderBody2FHIRcz-cz.html
 [KOrderHeader2FHIRcz-cz]: ConceptMap-KOrderHeader2FHIRcz-cz.html
+[CzKOrderRecommendationDisposition]: StructureDefinition-cz-order-recommendation-disposition.html
 [FTServiceRequestCz]: StructureDefinition-FTServiceRequestCz.html
 [FTOrderCategoryVS]: ValueSet-ft-category-vs.html
 [FTOrderProceduresVS]: ValueSet-ft-vzp-procedures-vs.html
@@ -67,6 +68,8 @@
 [KOrderCondition-Main]: Condition-KOrderCondition-Main.html
 [KOrderCondition-Secondary]: Condition-KOrderCondition-Secondary.html
 [KOrderCoverage-Example]: Coverage-KOrderCoverage-Example.html
+[KOrderRecommendationDispositionCS]: CodeSystem-korder-recommendation-disposition-cs.html
+[KOrderRecommendationDispositionVS]: ValueSet-korder-recommendation-disposition-vs.html
 [KOrderServiceRequest-1]: ServiceRequest-KOrderServiceRequest-1.html
 [KOrderServiceRequest-2]: ServiceRequest-KOrderServiceRequest-2.html
 [ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169]: Organization-ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169.html

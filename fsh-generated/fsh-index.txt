@@ -1,13 +1,14 @@
 Output File                                                    Name                                 Type        FSH File                                   Lines
 Bundle-BundleFTExample.json                                    BundleFTExample                      Instance    exampels\cz-ft-order-bundle.fsh            162 - 202
 Bundle-BundleKOrderExample.json                                BundleKOrderExample                  Instance    exampels\cz-k-order-bandle.fsh             110 - 153
+CodeSystem-korder-recommendation-disposition-cs.json           KOrderRecommendationDispositionCS    CodeSystem  code-systems\KOrderRecommendationCS.fsh    1 - 6
 CodeSystem-korder-type-cs.json                                 KOrderTypeCS                         CodeSystem  code-systems\KOrderTypeCS.fsh              1 - 24
 CodeSystem-korder-vzp-procedures-cs.json                       KOrderVzpProceduresCS                CodeSystem  code-systems\KOrderVzpProceduresCS.fsh     1 - 10
 CodeSystem-vzp-nahrady.json                                    VzpNahradyCS                         CodeSystem  code-systems\KOrderReplacmentSC.fsh        1 - 15
 Composition-FTCompositionExample.json                          FTCompositionExample                 Instance    exampels\cz-ft-order-bundle.fsh            7 - 31
 Composition-KOrderCompositionExample.json                      KOrderCompositionExample             Instance    exampels\cz-k-order-bandle.fsh             2 - 25
 ConceptMap-AttachmentKOrder2FHIR-cz.json                       AttachmentKOrder2FHIR-cz             Instance    maps\Attachment.fsh                        1 - 61
-ConceptMap-KOrderBody2FHIRcz-cz.json                           KOrderBody2FHIRcz-cz                 Instance    maps\Body.fsh                              1 - 82
+ConceptMap-KOrderBody2FHIRcz-cz.json                           KOrderBody2FHIRcz-cz                 Instance    maps\Body.fsh                              1 - 180
 ConceptMap-KOrderHeader2FHIRcz-cz.json                         KOrderHeader2FHIRcz-cz               Instance    maps\Header.fsh                            1 - 193
 ConceptMap-LabOrderHeader2FHIRcz-cz.json                       LabOrderHeader2FHIRcz-cz             Instance    maps\HeaderKOrder2FHIR.fsh                 2 - 404
 Condition-KOrderCondition-Main.json                            KOrderCondition-Main                 Instance    exampels\cz-k-order-bandle.fsh             30 - 37
@@ -52,6 +53,7 @@ StructureDefinition-PayerKOrderCz.json                         LogEnPayerOrderKO
 StructureDefinition-PresentedFormKOrderCz.json                 LogEnPresentedFormCz                 Logical     model\presentedFormKOrder-en.fsh           1 - 12
 StructureDefinition-RequestedPerformerKOrderCz.json            LogEnRequestedPerformerKOrderCz      Logical     model\performerKOrder-en.fsh               1 - 11
 StructureDefinition-SubjectKOrderCz.json                       LogEnSubjectKOrderCz                 Logical     model\subjectKOrder-en.fsh                 1 - 36
+StructureDefinition-cz-order-recommendation-disposition.json   CzKOrderRecommendationDisposition    Extension   profiles\serviceRequest-K-Order.fsh        121 - 131
 StructureDefinition-ftorder-composition-requestReference.json  FTOrderRequestReference              Extension   profiles\composition-FT-Order.fsh          164 - 172
 StructureDefinition-korder-composition-requestReference.json   KOrderRequestReference               Extension   profiles\composition-K-Order.fsh           215 - 223
 StructureDefinition-logAdditionalClinicalInfoKOrder.json       LogCzAdditionalClinicalInfoKOrderCz  Logical     model\additionalInfoKOrder-cz.fsh          1 - 20
@@ -64,7 +66,7 @@ StructureDefinition-logEnBodyKOrder.json                       LogEnBodyKOrder  
 StructureDefinition-logEnClinicalReasonKOrder.json             LogEnClinicalReasonKOrderCZ          Logical     model\clinicalReasonKOrder-en.fsh          1 - 9
 StructureDefinition-logEnRecommendationKOrder.json             LogEnRecommendationKOrder            Logical     model\recommendationKOrder-en.fsh          1 - 13
 StructureDefinition-logEnRequestedServiceKOrder.json           LogEnRequestedServiceKOrder          Logical     model\requestServiceKOrder-en.fsh          1 - 17
-StructureDefinition-logFTSpecificKOrder.json                   LogCzFTSpecificFTOrder               Logical     model\specificFTOrder-cz.fsh               1 - 66
+StructureDefinition-logFTSpecificOrder.json                    LogCzFTSpecificFTOrder               Logical     model\specificFTOrder-cz.fsh               1 - 66
 StructureDefinition-logHeaderKOrder.json                       LogCzHeaderKOrderCz                  Logical     model\headerKOrder-cz.fsh                  1 - 13
 StructureDefinition-logKOrderInformation.json                  LogEnKOrderInformationCz             Logical     model\informationsKOrder-en.fsh            1 - 22
 StructureDefinition-logKOrderInformationCz.json                LogCzKOrderInformationCz             Logical     model\informationsKOrder-cz.fsh            2 - 24
@@ -77,5 +79,6 @@ ValueSet-ft-vzp-procedures-vs.json                             FTOrderProcedures
 ValueSet-korder-category-vs.json                               KOrderCategoryVS                     ValueSet    value-sets\KOrderCategoryVS.fsh            1 - 7
 ValueSet-korder-priority-vs.json                               KOrderPriorityVS                     ValueSet    value-sets\KOrderPriorityVS.fsh            1 - 17
 ValueSet-korder-procedures-vs.json                             KOrderProceduresVS                   ValueSet    value-sets\KOrderProceduresVS.fsh          1 - 7
+ValueSet-korder-recommendation-disposition-vs.json             KOrderRecommendationDispositionVS    ValueSet    value-sets\KOrderRecommendationVS.fsh      1 - 4
 ValueSet-korder-type-vs.json                                   KOrderTypeVS                         ValueSet    value-sets\KOrderTypeOrderVS.fsh           1 - 7
 ValueSet-vzp-nahrady-vs.json                                   VzpNahradyVS                         ValueSet    value-sets\KorderReplacementVS.fsh         1 - 5
