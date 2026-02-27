@@ -144,8 +144,7 @@
           "coding": [
             {
               "code": "57133-1",
-              "system": "http://loinc.org",
-              "display": "Žádanka o vyšetření"
+              "system": "http://loinc.org"
             }
           ]
         },

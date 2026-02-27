@@ -3,3 +3,4 @@ Tato stránka obsahuje seznam stránek dokumentujících s grafickým znázorně
 | Logical Model          | Link                                      |
 |------------------------|-------------------------------------------|
 | Hlavička dokumentu     | [Header-map.html](Header-map.html)        |
+| Tělo dokumentu     | [Body-map.html](K-Body-map.html)        |

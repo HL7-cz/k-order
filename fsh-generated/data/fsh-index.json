@@ -1,13 +1,5 @@
 [
   {
-    "outputFile": "Bundle-BundleFTExample.json",
-    "fshName": "BundleFTExample",
-    "fshType": "Instance",
-    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
-    "startLine": 162,
-    "endLine": 202
-  },
-  {
     "outputFile": "Bundle-BundleKOrderExample.json",
     "fshName": "BundleKOrderExample",
     "fshType": "Instance",
@@ -46,14 +38,6 @@
     "fshFile": "code-systems\\KOrderReplacmentSC.fsh",
     "startLine": 1,
     "endLine": 15
-  },
-  {
-    "outputFile": "Composition-FTCompositionExample.json",
-    "fshName": "FTCompositionExample",
-    "fshType": "Instance",
-    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
-    "startLine": 7,
-    "endLine": 31
   },
   {
     "outputFile": "Composition-KOrderCompositionExample.json",
@@ -168,22 +152,6 @@
     "endLine": 201
   },
   {
-    "outputFile": "ServiceRequest-0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55.json",
-    "fshName": "FTServiceRequest-21415",
-    "fshType": "Instance",
-    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
-    "startLine": 101,
-    "endLine": 126
-  },
-  {
-    "outputFile": "ServiceRequest-2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91.json",
-    "fshName": "FTServiceRequest-21225",
-    "fshType": "Instance",
-    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
-    "startLine": 72,
-    "endLine": 97
-  },
-  {
     "outputFile": "ServiceRequest-KOrderServiceRequest-1.json",
     "fshName": "KOrderServiceRequest-1",
     "fshType": "Instance",
@@ -198,22 +166,6 @@
     "fshFile": "exampels\\cz-k-order-bandle.fsh",
     "startLine": 70,
     "endLine": 85
-  },
-  {
-    "outputFile": "ServiceRequest-b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11.json",
-    "fshName": "FTServiceRequest-21413",
-    "fshType": "Instance",
-    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
-    "startLine": 130,
-    "endLine": 155
-  },
-  {
-    "outputFile": "ServiceRequest-d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1.json",
-    "fshName": "FTServiceRequest-21113",
-    "fshType": "Instance",
-    "fshFile": "exampels\\cz-ft-order-bundle.fsh",
-    "startLine": 38,
-    "endLine": 68
   },
   {
     "outputFile": "StructureDefinition-AdditionalRecipientKOrderCz.json",
@@ -320,6 +272,294 @@
     "endLine": 118
   },
   {
+    "outputFile": "StructureDefinition-LMAdditionalRecipientCz.json",
+    "fshName": "LMCzAdditionalRecipientOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.7_additionalRecipient-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMAppointmentCz.json",
+    "fshName": "LMCzAppointmentCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.2.5_appointment-cz.fsh",
+    "startLine": 2,
+    "endLine": 17
+  },
+  {
+    "outputFile": "StructureDefinition-LMAttachmentsOrderCz.json",
+    "fshName": "LMCzAttachmentsCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.5_attachment-cz.fsh",
+    "startLine": 2,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-LMAuthorOrderCz.json",
+    "fshName": "LMCzKAuthorOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.5_authorOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMBodyKOrder.json",
+    "fshName": "LMCzBodyKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.2_A.3_bodyKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 31
+  },
+  {
+    "outputFile": "StructureDefinition-LMClinicalEventCz.json",
+    "fshName": "LMCzClinicalEventCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.2.3_clinicalEvent-cz.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-LMClinicalInformationCz.json",
+    "fshName": "LMCzOrderClinicalInformationCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.3.1_clinicalInformation-cz.fsh",
+    "startLine": 1,
+    "endLine": 36
+  },
+  {
+    "outputFile": "StructureDefinition-LMCoverageBodyCz.json",
+    "fshName": "LMCzCoverageBodyCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.2.4_coverage-cz.fsh",
+    "startLine": 1,
+    "endLine": 16
+  },
+  {
+    "outputFile": "StructureDefinition-LMCoverageOrderCz.json",
+    "fshName": "LMCzCoverageOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.4_coverageOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 17
+  },
+  {
+    "outputFile": "StructureDefinition-LMDigitalSignatureOrderCz.json",
+    "fshName": "LMCzDigitalSignatureOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.9_signatureOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 9
+  },
+  {
+    "outputFile": "StructureDefinition-LMDocumentMetadataCz.json",
+    "fshName": "LMCzDocumentMetadataOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.8_metadataOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 14
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnAdditionalRecipientCz.json",
+    "fshName": "LMEnAdditionalRecipientOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.7_additionalRecipient-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnAppointmentCz.json",
+    "fshName": "LMEnAppointmentCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.2.5_appointment-en.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnAttachmentsOrderCz.json",
+    "fshName": "LMEnAttachmentsCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.5_attachment-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnAuthorOrderCz.json",
+    "fshName": "LMEnKAuthorOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.5_authorOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnBodyKOrder.json",
+    "fshName": "LMEnBodyKOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.2_A.3_bodyKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 16
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnClinicalEventCz.json",
+    "fshName": "LMEnClinicalEventCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.2.3_clinicalEvent-en.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnClinicalInformationCz.json",
+    "fshName": "LMEnOrderClinicalInformationCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.3.1_clinicalInformation-en.fsh",
+    "startLine": 1,
+    "endLine": 20
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnCoverageBodyCz.json",
+    "fshName": "LMEnCoverageBodyCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.2.4_coverage-en.fsh",
+    "startLine": 1,
+    "endLine": 16
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnCoverageOrderCz.json",
+    "fshName": "LMEnCoverageOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.4_coverageOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnDigitalSignatureOrderCz.json",
+    "fshName": "LMEnDigitalSignatureOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.9_signatureOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 9
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnDocumentMetadataCz.json",
+    "fshName": "LMEnDocumentMetadataOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.8_metadataOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 14
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnHeaderOrder.json",
+    "fshName": "LMEnHeaderOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1_headerOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnKOrderDataElementsCz.json",
+    "fshName": "LMEnKOrderDataElementsCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.3.2_dataElementKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 17
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnOrderInformationCz.json",
+    "fshName": "LMEnOrderInformationCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.2.1_A.2.2_OrderInformation-en.fsh",
+    "startLine": 1,
+    "endLine": 22
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnPayerOrderCz.json",
+    "fshName": "LMEnPayerOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.3_payerOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnPresentedFormOrderCz.json",
+    "fshName": "LMEnPresentedFormCz",
+    "fshType": "Logical",
+    "fshFile": "model\\presentedFormKOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnRequestedPerformerOrderCz.json",
+    "fshName": "LMEnRequestedPerformerOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.6_perfomerOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnSubjectOrderCz.json",
+    "fshName": "LMEnSubjectOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.1.1_A.1.2_subjektOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 36
+  },
+  {
+    "outputFile": "StructureDefinition-LMHeaderOrder.json",
+    "fshName": "LMCzHeaderOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1_headerOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 13
+  },
+  {
+    "outputFile": "StructureDefinition-LMKOrderDataElementsCz.json",
+    "fshName": "LMCzKOrderDataElementsCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.3.2_dataElementKOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 9
+  },
+  {
+    "outputFile": "StructureDefinition-LMOrderInformationCz.json",
+    "fshName": "LMCzOrderInformationCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.2.1_A.2.2_OrderInformation-cz.fsh",
+    "startLine": 1,
+    "endLine": 26
+  },
+  {
+    "outputFile": "StructureDefinition-LMPayerOrderCz.json",
+    "fshName": "LMCzPayerOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.3_payerOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "StructureDefinition-LMPresentedFormOrderCz.json",
+    "fshName": "LMCzPresentedFormCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.4_presentedForm-cz.fsh",
+    "startLine": 1,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-LMRequestedPerformerOrderCz.json",
+    "fshName": "LMCzRequestedPerformerOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.6_perfomerOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "StructureDefinition-LMSubjectOrderCz.json",
+    "fshName": "LMCzSubjectOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.1.1_subjektOrder-cz.fsh",
+    "startLine": 2,
+    "endLine": 37
+  },
+  {
     "outputFile": "StructureDefinition-LogAdditionalRecipientKCz.json",
     "fshName": "LogCzAdditionalRecipientKOrder",
     "fshType": "Logical",
@@ -406,14 +646,6 @@
     "fshFile": "model\\payerOrder-en.fsh",
     "startLine": 1,
     "endLine": 10
-  },
-  {
-    "outputFile": "StructureDefinition-PresentedFormKOrderCz.json",
-    "fshName": "LogEnPresentedFormCz",
-    "fshType": "Logical",
-    "fshFile": "model\\presentedFormKOrder-en.fsh",
-    "startLine": 1,
-    "endLine": 12
   },
   {
     "outputFile": "StructureDefinition-RequestedPerformerKOrderCz.json",
@@ -569,6 +801,14 @@
   },
   {
     "outputFile": "StructureDefinition-logPresentedFormKOrderCz.json",
+    "fshName": "LogEnPresentedFormCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.4_presentedForm-en.fsh",
+    "startLine": 1,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-logPresentedFormOrderCz.json",
     "fshName": "LogCzPresentedFormCz",
     "fshType": "Logical",
     "fshFile": "model\\presentedFormKOrder-cz.fsh",

@@ -65,7 +65,7 @@ Usage: #definition
 
 * group[=].element[+].code = #diagnozy.vedlejsiDiagnozy
 * group[=].element[=].display = "A.2.1.2.2 – Vedlejší diagnózy"
-* group[=].element[=].target.code = #ServiceRequest.reasonCode
+* group[=].element[=].target.code = #ServiceRequest.
 * group[=].element[=].target.equivalence = #equivalent
 
 ///////////////////////////////////////////////////////////////////////////////

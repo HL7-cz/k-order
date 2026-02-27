@@ -1,5 +1,5 @@
-Logical: LogCzPresentedFormCz
-Id: logPresentedFormOrderCz
+Logical: LMCzPresentedFormOrderAltCz
+Id: LMPresentedFormOrderAltCz
 Title: "A.4 - Vizuální podoba dokumentu"
 Description: """Žádanka čitelná lidským okem,  je požadován PDF formát."""
 

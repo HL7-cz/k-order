@@ -27,8 +27,8 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * identifier.system = "urn:ietf:rfc:4122"
 
 * type 1..1 MS
-* type = $loinc#57133-1 "Žádanka o vyšetření" (exactly)
-
+* type = $loinc#57133-1 (exactly) // Žádanka o vyšetření
+//* type only from https://ncez.mzcr.cz/terminology/ValueSet/referralorder-types
 
 // --------------------------- extensions -------------------------------------
 * extension contains DocumentPresentedForm named presentedForm 1..*

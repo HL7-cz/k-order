@@ -1,5 +1,5 @@
-Logical: LMEnPresentedFormCz
-Id: LMEnPresentedFormOrderCz
+Logical: LogEnPresentedFormCz
+Id: logPresentedFormKOrderCz
 Title: "A.5 - Presented form"
 Description: """Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended."""
 
@@ -10,3 +10,5 @@ Description: """Presented form - Entire report as issued. Various formats could 
 * presentedForm.url 0..1 url "A.5.4 - URL of content" """Uri where the data can be found"""
 * presentedForm.title 1..1 string "A.5.5 - Title of content" """Label to display in place of the data"""
 * presentedForm.creation 0..1 dateTime "A.5.6 - Date of creation" """Date attachment was first created"""
+
+
