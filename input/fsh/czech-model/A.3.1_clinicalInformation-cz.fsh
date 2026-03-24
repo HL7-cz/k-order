@@ -10,7 +10,7 @@ Description:  """Informace a údaje sdělované provádějicímu pracovišti, ma
 * popis 0..* CodeableConcept "A.3.1.3 - Popis problému / diagnózy / stavu" """Diagnózy a dalších klinických informací mající vliv na průběh či výsledek vyšetření.
 - Preferované systémy: MKN-10
 - Preferované systémy: Orphacode"""
-* medikace 0..* CodeableConcept "A.3.1.4 - Medikace" """Blok medikace obsahující informace o medikaci mající vliv na průběh či výsledek vyšetření či jeho interpretaci.
+* medikace 0..* Base "A.3.1.4 - Medikace" """Blok medikace obsahující informace o medikaci mající vliv na průběh či výsledek vyšetření či jeho interpretaci.
 - Preferované systémy: DLP
 - Preferované systémy: ATC"""
 * medikace.id 0..* Identifier "A.3.1.4.1 - ID medikace" """ID medikace"""
@@ -29,7 +29,7 @@ Description:  """Informace a údaje sdělované provádějicímu pracovišti, ma
 *  implantat.model 1..1 string "A.3.1.4.3 - Konkrétní model" """Konkrétní model"""
 *  implantat.castTela 0..* CodeableConcept "A.3.1.4.4 - Část těla" """Část těla, kam je implantován"""*/
 * dalsiUdaje 0..1 Base "A.3.1.9 - Další formalizované údaje" """"""
-* dalsiUdaje.datum 0..1 dateTime "A.3.1.9.1 - Datum" """DDatum zjištění údaje, uvádí se, pokud je odlišné od data vystavení objednávky."""
+* dalsiUdaje.datum 0..1 dateTime "A.3.1.9.1 - Datum" """Datum zjištění údaje, uvádí se, pokud je odlišné od data vystavení objednávky."""
 * dalsiUdaje.kod 1..1 CodeableConcept "A.3.1.9.2 - Kód" """Kód pozorování identifikující význam údaje (výška, váha, týden gravidity a pod.)
 - Preferované systémy: NČLP
 - Preferované systémy: SNOMED CT"""

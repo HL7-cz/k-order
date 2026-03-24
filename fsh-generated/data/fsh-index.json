@@ -304,6 +304,14 @@
     "endLine": 11
   },
   {
+    "outputFile": "StructureDefinition-LMBodyFTOrder.json",
+    "fshName": "LMCzBodyFTOrderCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.2_A.3_bodyFTOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 31
+  },
+  {
     "outputFile": "StructureDefinition-LMBodyKOrder.json",
     "fshName": "LMCzBodyKOrderCz",
     "fshType": "Logical",
@@ -392,12 +400,20 @@
     "endLine": 11
   },
   {
+    "outputFile": "StructureDefinition-LMEnBodyFTOrder.json",
+    "fshName": "LMEnBodyFTOrderCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.2_A.3_bodyFTOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 31
+  },
+  {
     "outputFile": "StructureDefinition-LMEnBodyKOrder.json",
     "fshName": "LMEnBodyKOrderCz",
     "fshType": "Logical",
     "fshFile": "en-model\\A.2_A.3_bodyKOrder-en.fsh",
     "startLine": 1,
-    "endLine": 16
+    "endLine": 18
   },
   {
     "outputFile": "StructureDefinition-LMEnClinicalEventCz.json",
@@ -413,7 +429,7 @@
     "fshType": "Logical",
     "fshFile": "en-model\\A.3.1_clinicalInformation-en.fsh",
     "startLine": 1,
-    "endLine": 20
+    "endLine": 36
   },
   {
     "outputFile": "StructureDefinition-LMEnCoverageBodyCz.json",
@@ -446,6 +462,14 @@
     "fshFile": "en-model\\A.1.8_metadataOrder-en.fsh",
     "startLine": 1,
     "endLine": 14
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnFTOrderDataElementsCz.json",
+    "fshName": "LMEnFTOrderDataElementsCz",
+    "fshType": "Logical",
+    "fshFile": "en-model\\A.3.2_dataElementFTOrder-en.fsh",
+    "startLine": 1,
+    "endLine": 9
   },
   {
     "outputFile": "StructureDefinition-LMEnHeaderOrder.json",
@@ -483,6 +507,14 @@
     "outputFile": "StructureDefinition-LMEnPresentedFormOrderCz.json",
     "fshName": "LMEnPresentedFormCz",
     "fshType": "Logical",
+    "fshFile": "en-model\\A.4_presentedForm-en.fsh",
+    "startLine": 1,
+    "endLine": 12
+  },
+  {
+    "outputFile": "StructureDefinition-LMEnPresentedFormOrderCzOUT.json",
+    "fshName": "LMEnPresentedFormCzOUT",
+    "fshType": "Logical",
     "fshFile": "model\\presentedFormKOrder-en.fsh",
     "startLine": 1,
     "endLine": 12
@@ -502,6 +534,14 @@
     "fshFile": "en-model\\A.1.1_A.1.2_subjektOrder-en.fsh",
     "startLine": 1,
     "endLine": 36
+  },
+  {
+    "outputFile": "StructureDefinition-LMFTOrderDataElementsCz.json",
+    "fshName": "LMCzFTOrderDataElementsCz",
+    "fshType": "Logical",
+    "fshFile": "czech-model\\A.3.2_dataElementFTOrder-cz.fsh",
+    "startLine": 1,
+    "endLine": 9
   },
   {
     "outputFile": "StructureDefinition-LMHeaderOrder.json",
@@ -537,7 +577,7 @@
   },
   {
     "outputFile": "StructureDefinition-LMPresentedFormOrderCz.json",
-    "fshName": "LMCzPresentedFormCz",
+    "fshName": "LMCzPresentedFormOrderCz",
     "fshType": "Logical",
     "fshFile": "czech-model\\A.4_presentedForm-cz.fsh",
     "startLine": 1,
@@ -800,15 +840,7 @@
     "endLine": 24
   },
   {
-    "outputFile": "StructureDefinition-logPresentedFormKOrderCz.json",
-    "fshName": "LogEnPresentedFormCz",
-    "fshType": "Logical",
-    "fshFile": "en-model\\A.4_presentedForm-en.fsh",
-    "startLine": 1,
-    "endLine": 12
-  },
-  {
-    "outputFile": "StructureDefinition-logPresentedFormOrderCz.json",
+    "outputFile": "StructureDefinition-logPresentedFormOrderCzOUT.json",
     "fshName": "LogCzPresentedFormCz",
     "fshType": "Logical",
     "fshFile": "model\\presentedFormKOrder-cz.fsh",

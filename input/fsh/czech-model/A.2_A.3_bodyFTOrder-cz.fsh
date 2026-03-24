@@ -1,7 +1,7 @@
-Logical: LMCzBodyKOrderCz
-Id: LMBodyKOrder
+Logical: LMCzBodyFTOrderCz
+Id: LMBodyFTOrder
 Title: "A.2 - Tělo dokumentu"
-Description: """Tělo dokumentu K-žádanky obsahující informace o objednávce,
+Description: """Tělo dokumentu FT-žádanky obsahující informace o objednávce,
 klinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.""" 
 
 * infoObjednavce 0..1 LMOrderInformationCz
@@ -23,10 +23,10 @@ klinické údaje, úhradu, termín návštěvy a specifikaci požadovaných slu�
 * klinickeInformace 1..1 LMClinicalInformationCz
   "A.3.1 - Klinické informace"
   """Klinické informace vztahující se k žádance,
-např. anamnéza, ostatní diagnozy, nález, výsledky vyšetření,
+např. anamnéza, nález, výsledky vyšetření,
 diferenciální diagnostická rozvaha nebo léčba."""
 
-* datoveElementy 1..1 LMKOrderDataElementsCz
+* datoveElementy 1..1 LMFTOrderDataElementsCz
   "A.3.2 - Datové elementy objednávky"
   """Strukturovaná specifikace požadovaných zdravotních služeb,
 výkonů a doporučení dalšího postupu.

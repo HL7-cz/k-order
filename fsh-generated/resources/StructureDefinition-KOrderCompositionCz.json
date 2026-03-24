@@ -624,6 +624,12 @@
       },
       {
         "id": "Composition.section:significantMedicalHistory",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "significantMedicalHistory",
         "short": "Serious medical history",
@@ -677,6 +683,12 @@
       },
       {
         "id": "Composition.section:examinationResults",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "examinationResults",
         "short": "Relevant diagnostic tests",
@@ -730,6 +742,12 @@
       },
       {
         "id": "Composition.section:differentialDiagnosis",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "differentialDiagnosis",
         "short": "Differential diagnosis considerations",
@@ -783,6 +801,12 @@
       },
       {
         "id": "Composition.section:currentTreatment",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "currentTreatment",
         "short": "Current treatment including medication and dosage",
@@ -836,6 +860,12 @@
       },
       {
         "id": "Composition.section:referencedDocumentation",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "referencedDocumentation",
         "short": "Referenced documentation",

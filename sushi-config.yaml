@@ -270,15 +270,15 @@ groups:
       # -------------------------
       # A.4 â€“ ZobrazitelnĂˇ forma dokumentu
       # -------------------------
-      - StructureDefinition/logPresentedFormKOrderCz
+      - StructureDefinition/logPresentedFormOrderCzOUT
       # -------------------------
       # A.5 â€“ PĹ™Ă­lohy
       # -------------------------
       - StructureDefinition/logAttachmentsKOrderCz
       
-  czech-logical-model-k-order:
-    name: Czech logical model K order
-    description: Logical model resources from input/fsh/czech-model in A.1-A.5 order.
+  czech-logical-model-shared:
+    name: Sdílený logický model žádanek
+    description: Logical model resources shared by K-order and FT-order.
     resources:
       - StructureDefinition/LMHeaderOrder
       - StructureDefinition/LMSubjectOrderCz
@@ -293,16 +293,29 @@ groups:
       - StructureDefinition/LMClinicalEventCz
       - StructureDefinition/LMCoverageBodyCz
       - StructureDefinition/LMAppointmentCz
-      - StructureDefinition/LMBodyKOrder
       - StructureDefinition/LMClinicalInformationCz
-      - StructureDefinition/LMKOrderDataElementsCz
       - StructureDefinition/LMPresentedFormOrderCz
       - StructureDefinition/LMAttachmentsOrderCz
 
-  english-logical-model-k-order:
-    name: English logical model K order
-    description: Logical model resources from input/fsh/en-model in A.1-A.5 order.
+  czech-logical-model-k-order:
+    name: Logický model k žádanky
+    description: K-order specific logical model resources.
     resources:
+      - StructureDefinition/LMBodyKOrder
+      - StructureDefinition/LMKOrderDataElementsCz
+  
+  czech-logical-model-ft-order:
+    name: Logický model FT žádanky
+    description: FT-order specific logical model resources.
+    resources:
+      - StructureDefinition/LMBodyFTOrder
+      - StructureDefinition/LMFTOrderDataElementsCz
+
+  english-logical-model-shared:
+    name: Shared logical model for orders
+    description: Logical model resources shared by K-order and FT-order.
+    resources:
+      - StructureDefinition/LMEnHeaderOrder
       - StructureDefinition/LMEnSubjectOrderCz
       - StructureDefinition/LMEnPayerOrderCz
       - StructureDefinition/LMEnCoverageOrderCz
@@ -311,17 +324,27 @@ groups:
       - StructureDefinition/LMEnAdditionalRecipientCz
       - StructureDefinition/LMEnDocumentMetadataCz
       - StructureDefinition/LMEnDigitalSignatureOrderCz
-      - StructureDefinition/LMEnHeaderOrder
       - StructureDefinition/LMEnOrderInformationCz
       - StructureDefinition/LMEnClinicalEventCz
       - StructureDefinition/LMEnCoverageBodyCz
       - StructureDefinition/LMEnAppointmentCz
-      - StructureDefinition/LMEnBodyKOrder
       - StructureDefinition/LMEnClinicalInformationCz
-      - StructureDefinition/LMEnKOrderDataElementsCz
       - StructureDefinition/LMEnPresentedFormOrderCz
       - StructureDefinition/LMEnAttachmentsOrderCz
 
+  english-logical-model-k-order:
+    name: English logical model K order
+    description: K-order specific logical model resources.
+    resources:
+      - StructureDefinition/LMEnBodyKOrder
+      - StructureDefinition/LMEnKOrderDataElementsCz
+
+  english-logical-model-ft-order:
+    name: English logical model FT order
+    description: FT-order specific logical model resources.
+    resources:
+      - StructureDefinition/LMEnBodyFTOrder
+      - StructureDefinition/LMEnFTOrderDataElementsCz
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

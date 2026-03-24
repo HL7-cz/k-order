@@ -12,5 +12,7 @@ and procedures."""
 
 
 //specific elements
-* supportingInformation 1..1 LMEnClinicalInformationCz "A.3.1 - Supporting Information" """Information and data communicated by the imaging methods department that has an impact on the execution of the order or the interpretation of the examination results"""
+* supportingInformation 1..1 LMEnClinicalInformationCz "A.3.1 - Supporting clinical information" """
+Information and data provided by the performing organization that impact the execution of the examination or the interpretation of the examination results.
+"""
 * orderDataElements 1..1 LMEnKOrderDataElementsCz "A.3.2 - Order data elements" """Information about Required examinations (service request)"""
