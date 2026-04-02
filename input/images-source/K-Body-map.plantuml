@@ -1,0 +1,31 @@
+@startuml
+hide circle
+hide stereotype
+hide members
+hide methods
+skinparam linetype ortho
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+legend right
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
+endlegend
+class "Body" <<LogicalModel>> [[StructureDefinition-logBodyKOrder.html]]
+note top #PaleTurquoise [[ConceptMap-hdrHeader2FHIR-cz-hdr.html]]
+Concept Map
+endnote
+
+
+class "k-order-service-request-cz" <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
+"Body" <|. "k-order-service-request-cz"
+
+class "Bundle-K-Order-cz" <<Profile>> [[StructureDefinition-BundleKOrderCz.html]]
+"Header" <|. "Bundle-K-Order-cz"
+"K-Order-composition" -d[hidden]-> "Bundle-K-Order-cz" 
+
+class "K-Order-composition" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+"Header" <|. "K-Order-composition"
+"Bundle-K-Order-cz" -d[hidden]-> "K-Order-composition" 
+@enduml

@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
+﻿<div xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 
     <h3 id="overview">K - Order Model Map</h3>
@@ -8,7 +8,309 @@
     <p>Hereafter a browseable diagram showing how the Header model is realized by the HL7 FHIR Profiles of this guide</p>
 
     <h4 id="model">Model Overview</h4>
-<a> </a>
-<p>{% include Header-map.svg %}</p>
+    <a> </a>
+    <p>{% include Header-map.svg %}</p>
+
+
+    <!-- ======================= -->
+    <!-- Mapping table inserted -->
+    <!-- ======================= -->
+
+    <h4 id="mapping">Header Logical Model → FHIR Mapping Table</h4>
+
+    <div class="table-wrap">
+      <table summary="LogCzKOrder ↔ FHIR CZ Profiles">
+        <caption>LogCzKOrder Header ↔ FHIR CZ Profiles</caption>
+        <thead>
+          <tr>
+            <th colspan="2" class="src-head">LogCzKOrder (Logical Model)</th>
+            <th class="relhead">Relationship</th>
+            <th colspan="4" class="tgt-head">FHIR Target</th>
+          </tr>
+          <tr>
+            <th class="src-sub">Element</th>
+            <th class="src-sub">Description</th>
+            <th class="relsub">Relation</th>
+            <th class="tgt-sub">Resource</th>
+            <th class="tgt-sub">Element</th>
+            <th class="tgt-sub">Description</th>
+            <th class="tgt-sub">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+
+<tr>
+<td>A.1.1 pacient</td>
+<td>Identifikace pacienta</td>
+<td>related-to</td>
+<td>Patient</td>
+<td>.</td>
+<td>Kořen resource pacienta</td>
+<td>Vznik samostatného Patient resource</td>
+</tr>
+
+<tr>
+<td>A.1.1.1 pacient.jmeno</td>
+<td>Jméno</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>name.given</td>
+<td>Křestní jméno</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.1.2 pacient.prijmeni</td>
+<td>Příjmení</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>name.family</td>
+<td>Příjmení</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.1.3 pacient.datumNarozeni</td>
+<td>Datum narození</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>birthDate</td>
+<td>Datum narození</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.1.4 pacient.identifikatorPacienta</td>
+<td>Identifikátor pacienta</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>identifier</td>
+<td>Identifikátor osoby</td>
+<td>Více identifikátorů povoleno</td>
+</tr>
+
+<tr>
+<td>A.1.1.5 pacient.statniObcanstvi</td>
+<td>Státní občanství</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>extension:patient-citizenship</td>
+<td>Občanství</td>
+<td>FHIR extension</td>
+</tr>
+
+<tr>
+<td>A.1.1.6 pacient.uredniPohlavi</td>
+<td>Úřední pohlaví</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>gender</td>
+<td>Pohlaví</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.1.7 pacient.jazyk</td>
+<td>Komunikační jazyk</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>communication.language</td>
+<td>Preferovaný jazyk</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.2.1 pacient.kontaktniUdaje.adresa</td>
+<td>Adresa</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>address</td>
+<td>Adresa pacienta</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.2.2 pacient.kontaktniUdaje.telefon</td>
+<td>Telefon</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>telecom</td>
+<td>Telefonní kontakt</td>
+<td>system=phone</td>
+</tr>
+
+<tr>
+<td>A.1.2.3 pacient.kontaktniUdaje.email</td>
+<td>E-mail</td>
+<td>equivalent</td>
+<td>Patient</td>
+<td>telecom</td>
+<td>Email</td>
+<td>system=email</td>
+</tr>
+
+<tr>
+<td>A.1.2.4 pacient.zakonnyZastupce</td>
+<td>Zákonný zástupce</td>
+<td>related-to</td>
+<td>RelatedPerson</td>
+<td>.</td>
+<td>Kontakt / zástupce</td>
+<td>Samostatný resource</td>
+</tr>
+
+<tr>
+<td>A.1.2.4.1 pacient.zakonnyZastupce.jmeno</td>
+<td>Jméno</td>
+<td>equivalent</td>
+<td>RelatedPerson</td>
+<td>name.given</td>
+<td>Křestní jméno</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.2.4.2 pacient.zakonnyZastupce.prijmeni</td>
+<td>Příjmení</td>
+<td>equivalent</td>
+<td>RelatedPerson</td>
+<td>name.family</td>
+<td>Příjmení</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.2.4.3 pacient.zakonnyZastupce.vztahKPacientovi</td>
+<td>Vztah k pacientovi</td>
+<td>equivalent</td>
+<td>RelatedPerson</td>
+<td>relationship</td>
+<td>Typ vztahu</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.3 pojisteni</td>
+<td>Zdravotní pojištění</td>
+<td>related-to</td>
+<td>Coverage</td>
+<td>.</td>
+<td>Coverage resource</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.3.1 pojisteni.kodZP</td>
+<td>Kód pojišťovny</td>
+<td>equivalent</td>
+<td>Coverage</td>
+<td>payor.identifier</td>
+<td>Kód plátce</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.3.2 pojisteni.nazevZP</td>
+<td>Název pojišťovny</td>
+<td>related-to</td>
+<td>Coverage</td>
+<td>payor.display</td>
+<td>Název plátce</td>
+<td>Textový název</td>
+</tr>
+
+<tr>
+<td>A.1.3.3 pojisteni.cisloPojistence</td>
+<td>Číslo pojištěnce</td>
+<td>equivalent</td>
+<td>Coverage</td>
+<td>identifier</td>
+<td>Číslo pojištění</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.5 zadatel</td>
+<td>Žadatel</td>
+<td>related-to</td>
+<td>PractitionerRole</td>
+<td>.</td>
+<td>Role žadatele</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.5.1 zadatel.icp</td>
+<td>IČP</td>
+<td>equivalent</td>
+<td>PractitionerRole</td>
+<td>identifier</td>
+<td>Identifikátor role</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.5.2 zadatel.jmenoZadatele</td>
+<td>Jméno žadatele</td>
+<td>equivalent</td>
+<td>PractitionerRole</td>
+<td>practitioner.name</td>
+<td>Jméno osoby</td>
+<td>Reference na Practitioner</td>
+</tr>
+
+<tr>
+<td>A.1.6 zpracovatel</td>
+<td>Zpracovatel</td>
+<td>related-to</td>
+<td>PractitionerRole</td>
+<td>.</td>
+<td>Role zpracovatele</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.8.1 kOrder.identifikatorEZadanky</td>
+<td>Identifikátor dokumentu</td>
+<td>equivalent</td>
+<td>Composition</td>
+<td>identifier</td>
+<td>ID dokumentu</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.8.2 kOrder.datumVytvoreni</td>
+<td>Datum vytvoření</td>
+<td>equivalent</td>
+<td>Composition</td>
+<td>date</td>
+<td>Datum vytvoření</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.8.3 kOrder.stavZadanky</td>
+<td>Stav dokumentu</td>
+<td>equivalent</td>
+<td>Composition</td>
+<td>status</td>
+<td>Status dokumentu</td>
+<td></td>
+</tr>
+
+<tr>
+<td>A.1.8.4 kOrder.typZadanky</td>
+<td>Kategorie dokumentu</td>
+<td>related-to</td>
+<td>Composition</td>
+<td>category</td>
+<td>Kategorie dokumentu</td>
+<td></td>
+</tr>
+
+        </tbody>
+      </table>
+    </div>
 
 </div>

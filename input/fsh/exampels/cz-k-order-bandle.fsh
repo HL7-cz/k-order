@@ -187,16 +187,16 @@ Description: "Example of patient Petr Novak with identification by czech nationa
 
 //-----------------------------------------------------
 Instance: Practitioner-Author-detail
-InstanceOf: CZ_PractitionerRoleCore
+InstanceOf: OrderPractitionerRoleCz
 Usage: #example
 Description: "practitioner's detail"
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
-* meta.profile[0] = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+* meta.profile[0] = "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz"
 * practitioner = Reference(urn:uuid:a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a) "MUDr. Ivan Anděl"
 * organization = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Nemocnice Chrudim"
 * code = $cz-nrzp_povolani#L00 "Lékař"
-* specialty = $sct#419192003 "Internal medicine"
+* specialty[VZP_ODB].coding[vzpOdbornost] = urn:oid:1.2.203.7898.1.4#001 "Všeobecné praktické lékařství"
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Anděl, interní lékař, Nemocnice Chrudim, Václavská 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
 * text.status = #generated
 

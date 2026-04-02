@@ -46,7 +46,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
     $information-recipient-url  named informationRecipient 0..*
 * extension[informationRecipient].valueReference only Reference(
   CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
-  CZ_RelatedPersonCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+  CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 // --------------------------- lifecycle / status ------------------------------
@@ -65,7 +65,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * author 1..* MS
 * author only Reference(
     CZ_PractitionerCore
-  or CZ_PractitionerRoleCore
+  or OrderPractitionerRoleCz
   or CZ_DeviceObserver
   or CZ_OrganizationCore
 )
@@ -78,7 +78,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * attester ^slicing.rules = #open
 * attester ^slicing.ordered = false
 
-* attester.party only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
+* attester.party only Reference(CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore)
 
 * attester contains
     legalAuthenticator 0..1 and
@@ -87,12 +87,12 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * attester[legalAuthenticator]
   * mode 1..1 MS
   * mode = #legal
-  * party only Reference(CZ_PractitionerRoleCore)
+  * party only Reference(OrderPractitionerRoleCz)
 
 * attester[resultValidator]
   * mode 1..1 MS
   * mode = #professional
-  * party only Reference(CZ_PractitionerRoleCore)
+  * party only Reference(OrderPractitionerRoleCz)
 
 // --------------------------- encounter / context ----------------------------
 * encounter 0..1
@@ -155,7 +155,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 
 // --------------------------- section-level author rule -----------------------
 * section.author only Reference(
-  CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_DeviceObserver or
+  CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_DeviceObserver or
   CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore
 )
 

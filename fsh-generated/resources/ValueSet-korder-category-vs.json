@@ -10,11 +10,11 @@
   "compose": {
     "include": [
       {
-        "system": "http://snomed.info/sct",
+        "system": "http://loinc.org",
         "concept": [
           {
-            "code": "308467007",
-            "display": "Consultation"
+            "code": "57133-1",
+            "display": "Žádanky"
           }
         ]
       }

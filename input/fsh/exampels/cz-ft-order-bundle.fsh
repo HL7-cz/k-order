@@ -3,7 +3,7 @@
 // ============================================================================
 
 
-// ------------------------- Composition (FT) -------------------------
+/* ------------------------- Composition (FT) -------------------------
 Instance: FTCompositionExample
 InstanceOf: KOrderCompositionCz
 Usage: #example
@@ -200,3 +200,4 @@ Usage: #example
 
 * entry[+].fullUrl = "urn:uuid:b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
 * entry[+].resource = FTServiceRequest-21413
+*/

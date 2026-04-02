@@ -27,8 +27,8 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * identifier.system = "urn:ietf:rfc:4122"
 
 * type 1..1 MS
-* type = $loinc#57133-1 "Žádanka o vyšetření" (exactly)
-
+* type = $loinc#57133-1 (exactly) // Žádanka o vyšetření
+//* type only from https://ncez.mzcr.cz/terminology/ValueSet/referralorder-types
 
 // --------------------------- extensions -------------------------------------
 * extension contains DocumentPresentedForm named presentedForm 1..*
@@ -42,7 +42,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 
 * extension contains
     $information-recipient-url  named informationRecipient 0..*
-* extension[informationRecipient].valueReference only Reference(CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or CZ_RelatedPersonCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
+* extension[informationRecipient].valueReference only Reference(CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore)
 
 
 // --------------------------- lifecycle / status ------------------------------
@@ -62,7 +62,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * author 1..* MS
 * author only Reference(
     CZ_PractitionerCore
-  or CZ_PractitionerRoleCore
+  or OrderPractitionerRoleCz
   or CZ_DeviceObserver
   or CZ_OrganizationCore
 )
@@ -76,7 +76,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * attester ^slicing.rules = #open
 * attester ^slicing.ordered = false
 
-* attester.party only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
+* attester.party only Reference(CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore)
 
 * attester contains
     legalAuthenticator 0..1 and
@@ -85,12 +85,12 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * attester[legalAuthenticator]
   * mode 1..1 MS
   * mode = #legal
-  * party only Reference(CZ_PractitionerRoleCore)
+  * party only Reference(OrderPractitionerRoleCz)
 
 * attester[resultValidator]
   * mode 1..1 MS
   * mode = #professional
-  * party only Reference(CZ_PractitionerRoleCore)
+  * party only Reference(OrderPractitionerRoleCz)
 
 
 // --------------------------- event (optional) -------------------------------
@@ -208,7 +208,7 @@ Severity: #error
       This section includes references to other documentation relevant to the current Patient care.,
       $loinc#77599-9)
 // --------------------------- section-level author rule -----------------------
-* section.author only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_DeviceObserver or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
+* section.author only Reference(CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_DeviceObserver or CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore)
 
 
 // --------------------------- helper Extension definition ---------------------

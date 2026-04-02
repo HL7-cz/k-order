@@ -114,7 +114,7 @@
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
             ]
           }
@@ -144,8 +144,7 @@
           "coding": [
             {
               "code": "57133-1",
-              "system": "http://loinc.org",
-              "display": "Žádanka o vyšetření"
+              "system": "http://loinc.org"
             }
           ]
         },
@@ -191,7 +190,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
             ]
@@ -227,7 +226,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
             ]
           }
@@ -253,7 +252,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz"
             ]
           }
         ]
@@ -278,7 +277,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz"
             ]
           }
         ]
@@ -334,7 +333,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -376,7 +375,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -432,7 +431,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -484,7 +483,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -540,7 +539,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -594,7 +593,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -625,6 +624,12 @@
       },
       {
         "id": "Composition.section:significantMedicalHistory",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "significantMedicalHistory",
         "short": "Serious medical history",
@@ -662,7 +667,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -678,6 +683,12 @@
       },
       {
         "id": "Composition.section:examinationResults",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "examinationResults",
         "short": "Relevant diagnostic tests",
@@ -715,7 +726,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -731,6 +742,12 @@
       },
       {
         "id": "Composition.section:differentialDiagnosis",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "differentialDiagnosis",
         "short": "Differential diagnosis considerations",
@@ -768,7 +785,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -784,6 +801,12 @@
       },
       {
         "id": "Composition.section:currentTreatment",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "currentTreatment",
         "short": "Current treatment including medication and dosage",
@@ -821,7 +844,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
@@ -837,6 +860,12 @@
       },
       {
         "id": "Composition.section:referencedDocumentation",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "Section"
+          }
+        ],
         "path": "Composition.section",
         "sliceName": "referencedDocumentation",
         "short": "Referenced documentation",
@@ -874,7 +903,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
