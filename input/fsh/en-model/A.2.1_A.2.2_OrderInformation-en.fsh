@@ -13,7 +13,7 @@ Description:  """Information about order and order reason"""
 * orderDetails.orderText 0..1 string "A.2.1.1.5 - Order text" """A textual description of the order or additional requirements, specific to each type of order, if they cannot be expressed formally."""				
 * orderDetails.infoForPatient 0..1 string "A.2.1.1.6 - Information for the patient" """Patient instructions related to the order. E.g. fasting collection, etc."""	
 
-* diagnoses 1..* Base "A.2.1.2 â€“ Diagnoses" """Reason of imaging order"""				
+* diagnoses 1..* Base "A.2.1.2 - Diagnoses" """Reason of imaging order"""
 * diagnoses.primaryDiagnosis 1..1 CodeableConcept "A.2.1.2.1 - Primary diagnosis"
   """Primary diagnosis justifying the request according to ICD-10 (UZIS)."""
 * diagnoses.secondaryDiagnoses 0..* CodeableConcept "A.2.1.2.2 - Secondary diagnoses"

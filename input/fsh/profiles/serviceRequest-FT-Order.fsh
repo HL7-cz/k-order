@@ -31,7 +31,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 
 * extension[informationRecipient].valueReference only Reference(
     CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
-    CZ_RelatedPersonCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+    CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 // NOTE: zachovávám název basedOnComposition, ale opravím typ na Composition (pokud máte extension takto myšlenou)
@@ -53,13 +53,13 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * requester 1..1 MS
 * requester ^short = "Žadatel (lékař / pracoviště)"
 * requester only Reference(
-    CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+    CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 * performer 0..* MS
 * performer ^short = "Cílový příjemce (pracoviště / poskytovatel FT)"
 * performer only Reference(
-    CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+    CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 // --------------------------- clinical context --------------------------------

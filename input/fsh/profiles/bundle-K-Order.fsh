@@ -104,7 +104,7 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * entry[practitioner].resource only CZ_PractitionerCore
 
 // PractitionerRole
-* entry[practitionerRole].resource only CZ_PractitionerRoleCore
+* entry[practitionerRole].resource only OrderPractitionerRoleCz
 
 // Organization
 * entry[organization].resource only CZ_OrganizationCore

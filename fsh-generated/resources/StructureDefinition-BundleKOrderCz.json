@@ -202,7 +202,7 @@
           {
             "code": "PractitionerRole",
             "profile": [
-              "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz"
             ]
           }
         ]

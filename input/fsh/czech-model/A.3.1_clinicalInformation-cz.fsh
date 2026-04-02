@@ -1,36 +1,49 @@
 Logical: LMCzOrderClinicalInformationCz				
 Id: LMClinicalInformationCz
-Title: "A.3.1 - Klinické informace (anamnéza)"				
-Description:  """Informace a údaje sdělované provádějicímu pracovišti, mající vliv na provedení objednávky či interpretaci výsledků"""		
+Title: "A.3.1 - Klinické informace / podpůrné informace"				
+Description:  """Informace a údaje sdělované provádějícímu pracovišti, které mají vliv na provedení žádanky nebo interpretaci výsledků."""		
 
 * insert SetFmmandStatusRule( 1, draft)	
 
-* klinickeInformaceText 0..1 string "A.3.1.1 - Klinické informace volným textem" """Klinické informace nezbytné pro správné provedení objednávky či interpretaci výsledků."""
-* klinickeInformaceKod 0..1 CodeableConcept "A.3.1.2 - Klinické informace (anamnéza) formalizovaná" """Klinické informace (anamnéza) formalizovaná"""
-* popis 0..* CodeableConcept "A.3.1.3 - Popis problému / diagnózy / stavu" """Diagnózy a dalších klinických informací mající vliv na průběh či výsledek vyšetření.
-- Preferované systémy: MKN-10
-- Preferované systémy: Orphacode"""
-* medikace 0..* Base "A.3.1.4 - Medikace" """Blok medikace obsahující informace o medikaci mající vliv na průběh či výsledek vyšetření či jeho interpretaci.
-- Preferované systémy: DLP
-- Preferované systémy: ATC"""
-* medikace.id 0..* Identifier "A.3.1.4.1 - ID medikace" """ID medikace"""
-* medikace.kod 0..* code "A.3.1.4.2 - Kod medikace" """Kod medikace"""
-* medikace.mnozstvi 0..1 Ratio "A.3.1.4.3 - Mnozstvi" """Mnozstvi medikace"""
-* ockovani 0..* CodeableConcept "A.3.1.5 - Očkování" """Očkování"""
-* nalez 0..* CodeableConcept "A.3.1.6 - Fyzikální nález" """Fyzikální vyšetření pacienta (systolický a diastolický tlak, srdeční frekvence, saturace, dechová frekvence, aktuální telesná teplota)"""
-* datumHospitalizace 0..* dateTime "A.3.1.7 - Datum " """Date of patient hospitalization"""
-//* omezeniPohyblivostiPacienta 1..1 Base "A.3.1.6 - Omezení pohyblivosti pacienta" """Omezení pohyblivosti pacienta"""
-* urgentniInformace 0..1 Base "A.3.1.8 - Urgentní informace" """Blok urgentní inforace ve stejné strukruře jako v ostatních typech dokumentů (propouštěcí zpráva, pacientský souhrn)"""
-* urgentniInformace.alergie 1..* CodeableConcept "A.3.1.8.1 - Alergie a intolerance" """Alergie a intolerance, které mohou vlivnit realizaci objednávky či interpretaci výsledků"""
-* urgentniInformace.varovani 0..* string "A.3.1.8.2 - Varování" """Varování a upozornění, která mohou vlivnit realizaci objednávky či interpretaci výsledků"""
-/**  implantat 0..* Base "A.3.1.4 - Implantat" """Seznam implantátů či pomůcek majících vliv na průběh vyšetření či jeho interpretaci."""
-*  implantat.typ 1..1 CodeableConcept "A.3.1.4.1 - Druh implantátu" """Druh implantátu"""
-*  implantat.id 0..* Identifier "A.3.1.4.2 - ID implantátu" """Normalizovaný identifikátor, např. UDI, dle nařízení EU 2017/745, kód ZP dle katalogu zdravotní pojišťovny"""
-*  implantat.model 1..1 string "A.3.1.4.3 - Konkrétní model" """Konkrétní model"""
-*  implantat.castTela 0..* CodeableConcept "A.3.1.4.4 - Část těla" """Část těla, kam je implantován"""*/
-* dalsiUdaje 0..1 Base "A.3.1.9 - Další formalizované údaje" """"""
-* dalsiUdaje.datum 0..1 dateTime "A.3.1.9.1 - Datum" """Datum zjištění údaje, uvádí se, pokud je odlišné od data vystavení objednávky."""
-* dalsiUdaje.kod 1..1 CodeableConcept "A.3.1.9.2 - Kód" """Kód pozorování identifikující význam údaje (výška, váha, týden gravidity a pod.)
-- Preferované systémy: NČLP
-- Preferované systémy: SNOMED CT"""
-* dalsiUdaje.hodnota 0..1 Narrative "A.3.1.9.3 - Hodnota" """Hodnota údaje včetně jednotky měření."""
+* biometrickeUdaje 0..1 Base "A.3.1.1 - Biometrické údaje" """Biometrické údaje relevantní pro provedení žádanky."""
+* biometrickeUdaje.vaha 0..1 Base "A.3.1.1.1 - Váha" """Údaj o tělesné hmotnosti pacienta."""
+* biometrickeUdaje.vaha.hodnota 1..1 Quantity "A.3.1.1.1.1 - Hodnota váhy" """Hodnota váhy včetně jednotky."""
+* biometrickeUdaje.vaha.kod 1..1 CodeableConcept "A.3.1.1.1.2 - Kód váhy" """Kód určující význam údaje o váze."""
+* biometrickeUdaje.vaha.datumACas 0..1 dateTime "A.3.1.1.1.3 - Datum a čas váhy" """Datum a čas zjištění váhy, pokud se liší od data žádanky."""
+* biometrickeUdaje.vyska 0..1 Base "A.3.1.1.2 - Výška" """Údaj o tělesné výšce pacienta."""
+* biometrickeUdaje.vyska.hodnota 1..1 Quantity "A.3.1.1.2.1 - Hodnota výšky" """Hodnota výšky včetně jednotky."""
+* biometrickeUdaje.vyska.kod 1..1 CodeableConcept "A.3.1.1.2.2 - Kód výšky" """Kód určující význam údaje o výšce."""
+* biometrickeUdaje.vyska.datumACas 0..1 dateTime "A.3.1.1.2.3 - Datum a čas výšky" """Datum a čas zjištění výšky, pokud se liší od data žádanky."""
+
+* dalsiRelevantniKlinickeInformace 0..1 Base "A.3.1.2 - Další relevantní klinické informace" """Další klinické informace relevantní pro provedení žádanky nebo interpretaci výsledků."""
+* dalsiRelevantniKlinickeInformace.kod 0..* CodeableConcept "A.3.1.2.1 - Kód informace" """Diagnózy a jiné klinické informace důležité pro provedení žádanky nebo interpretaci výsledků."""
+* dalsiRelevantniKlinickeInformace.text 0..1 string "A.3.1.2.2 - Text informace" """Textový popis dalších relevantních klinických informací."""
+
+* medikace 0..* Base "A.3.1.3 - Medikace" """Informace o medikaci mající vliv na průběh nebo výsledek vyšetření či péče."""
+* medikace.identifikator 0..* Identifier "A.3.1.3.1 - ID medikace" """Identifikátor medikace."""
+* medikace.kod 0..* code "A.3.1.3.2 - Kód medikace" """Kód medikace."""
+* medikace.mnozstvi 0..1 Ratio "A.3.1.3.3 - Množství" """Množství nebo dávka medikace."""
+
+* implantat 0..* Base "A.3.1.4 - Implantát" """Seznam implantátů nebo pomůcek majících vliv na provedení žádanky či interpretaci výsledků."""
+* implantat.typ 1..1 CodeableConcept "A.3.1.4.1 - Druh implantátu" """Druh implantátu."""
+* implantat.identifikator 0..* Identifier "A.3.1.4.2 - ID implantátu" """Normalizovaný identifikátor implantátu, např. UDI."""
+* implantat.model 1..1 string "A.3.1.4.3 - Konkrétní model" """Konkrétní model implantátu."""
+* implantat.castTela 0..* CodeableConcept "A.3.1.4.4 - Část těla" """Část těla, kde je implantát umístěn."""
+
+* urgentniInformace 0..1 Base "A.3.1.5 - Urgentní informace" """Urgentní informace důležité pro realizaci žádanky."""
+* urgentniInformace.alergieAIntolerance 1..* CodeableConcept "A.3.1.5.1 - Alergie a intolerance" """Alergie a intolerance důležité pro realizaci žádanky nebo interpretaci výsledků."""
+* urgentniInformace.varovani 0..* string "A.3.1.5.2 - Varování" """Varování a upozornění mající vliv na realizaci žádanky nebo interpretaci výsledků."""
+
+* omezeniPohyblivostiPacienta 0..1 string "A.3.1.6 - Omezení pohyblivosti pacienta" """Popis omezení pohyblivosti pacienta."""
+
+* klinickeInformaceText 0..1 string "A.3.1.7 - Klinické informace volným textem" """Klinické informace nezbytné pro správné provedení žádanky či interpretaci výsledků."""
+* klinickeInformaceKod 0..1 CodeableConcept "A.3.1.8 - Klinické informace formalizované" """Formalizovaně vyjádřené klinické informace."""
+* popisProblemuDiagnozyStavu 0..* CodeableConcept "A.3.1.9 - Popis problému / diagnózy / stavu" """Diagnózy a další klinické informace mající vliv na průběh či výsledek vyšetření."""
+* fyzikalniNalez 0..* CodeableConcept "A.3.1.10 - Fyzikální nález" """Fyzikální nálezy relevantní pro žádanku."""
+* datumHospitalizace 0..* dateTime "A.3.1.11 - Datum hospitalizace" """Datum hospitalizace pacienta, pokud je relevantní."""
+* ockovani 0..* CodeableConcept "A.3.1.12 - Očkování" """Informace o očkování, pokud jsou relevantní."""
+
+* dalsiFormalizovaneUdaje 0..* Base "A.3.1.13 - Další formalizované údaje" """Další formalizované údaje sdělované provádějícímu pracovišti."""
+* dalsiFormalizovaneUdaje.datumACas 0..1 dateTime "A.3.1.13.1 - Datum" """Datum zjištění údaje, pokud se liší od data vystavení objednávky."""
+* dalsiFormalizovaneUdaje.kod 1..1 CodeableConcept "A.3.1.13.2 - Kód" """Kód pozorování identifikující význam údaje."""
+* dalsiFormalizovaneUdaje.hodnota 0..1 Narrative "A.3.1.13.3 - Hodnota" """Hodnota údaje včetně jednotky měření."""

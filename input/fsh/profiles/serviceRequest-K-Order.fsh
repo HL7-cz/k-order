@@ -30,7 +30,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 * extension[informationRecipient].valueReference only Reference(
     CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or 
-    CZ_RelatedPersonCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+    CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 * extension[basedOnComposition].valueReference only Reference(KOrderServiceRequestCz)
@@ -53,13 +53,13 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * requester 1..1 MS
 * requester ^short = "Žadatel (lékař / pracoviště)"
 * requester only Reference(
-    CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+    CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 * performer 0..* MS
 * performer ^short = "Cílový příjemce (laboratoř / PZS)"
 * performer only Reference(
-    CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore
+    CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
 // --------------------------- clinical context --------------------------------

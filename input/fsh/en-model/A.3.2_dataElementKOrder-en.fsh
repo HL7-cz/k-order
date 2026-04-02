@@ -1,6 +1,6 @@
 Logical: LMEnKOrderDataElementsCz
 Id: LMEnKOrderDataElementsCz
-Title: "A.2.3 â€“ Requested examinations / procedures"
+Title: "A.2.3 - Requested examinations / procedures"
 Description: """Specification of requested consultative examinations,
 treatments, or medical procedures."""
 

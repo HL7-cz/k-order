@@ -1,8 +1,8 @@
-﻿# â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€Commonly Used ImplementationGuide Propertiesâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
-# â”‚  The properties below are used to create the ImplementationGuide resource. The most commonly   â”‚
-# â”‚  used properties are included. For a list of all supported properties and their functions,     â”‚
-# â”‚  see: https://fshschool.org/docs/sushi/configuration/.                                         â”‚
-# â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•Ż
+﻿# Commonly Used ImplementationGuide Properties
+# The properties below are used to create the ImplementationGuide resource. The most commonly
+# used properties are included. For a list of all supported properties and their functions,
+# see: https://fshschool.org/docs/sushi/configuration/.
+#
 id: hl7.fhir.cz.korder
 canonical: https://hl7.cz/fhir/korder 
 name: HL7CzKOrderImplementationGuide
@@ -70,11 +70,11 @@ pages:
   logical-models.md:
     title: Logical models
   logical-models-cs.md:
-    title: DatovĂˇ sada - logickĂ© modely CZ
+    title: Datová sada - logické modely CZ
   model-map.md:
     title: Model maps
   model-map-cs.md:
-    title: MapovĂˇnĂ­ logickĂ©ho modelu
+    title: Mapování logického modelu
   artifacts.xml:
     title: Artifacts
  # === MAP ====
@@ -140,14 +140,14 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
-# â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€menu.xmlâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
-# â”‚ The menu property will be used to generate the input/menu.xml file. The menu is represented    â”‚
-# â”‚ as a simple structure where the YAML key is the menu item name and the value is the URL.       â”‚
-# â”‚ The IG publisher currently only supports one level deep on sub-menus. To provide a             â”‚
-# â”‚ custom menu.xml file, do not include this property and include a `menu.xml` file in            â”‚
-# â”‚ input/includes. To use a provided input/includes/menu.xml file, delete the "menu"              â”‚
-# â”‚ property below.                                                                                â”‚
-# â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•Ż
+# menu.xml
+# The menu property will be used to generate the input/menu.xml file. The menu is represented
+# as a simple structure where the YAML key is the menu item name and the value is the URL.
+# The IG publisher currently only supports one level deep on sub-menus. To provide a
+# custom menu.xml file, do not include this property and include a `menu.xml` file in
+# input/includes. To use a provided input/includes/menu.xml file, delete the "menu"
+# property below.
+#
 menu:
   Home: index.html
 #  Guidance:
@@ -166,10 +166,10 @@ menu:
 #    Downloads: downloads.html
   Artifacts: artifacts.html
 
-# â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€Less Common Implementation Guide Propertiesâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
-# â”‚  Uncomment the properties below to configure additional properties on the ImplementationGuide  â”‚
-# â”‚  resource. These properties are less commonly needed than those above.                         â”‚
-# â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•Ż
+# Less Common Implementation Guide Properties
+# Uncomment the properties below to configure additional properties on the ImplementationGuide
+# resource. These properties are less commonly needed than those above.
+#
 #
 # Those who need more control or want to add additional details to the contact values can use
 # contact directly and follow the format outlined in the ImplementationGuide resource and
@@ -234,48 +234,6 @@ menu:
 # URL when generating the IG JSON.
 #
 groups:
-  czech-logical-model:
-    name:  Czech logical model (Informative)
-    description: Logical model in czech language. Informative for this version of the guide.
-    resources:
-         
-      # -------------------------
-      # A.1 â€“ HlaviÄŤka dokumentu
-      # -------------------------
-      - StructureDefinition/LogAuthorKCz
-      - StructureDefinition/LogCoverageKOrderCz
-      - StructureDefinition/LogDigitalSignatureKCz
-      - StructureDefinition/LogDocumentMetadataKCz
-      - StructureDefinition/logHeaderKOrder
-      - StructureDefinition/LogPayerKOrderCz
-      - StructureDefinition/RequestedPerformerKOrderCz
-      - StructureDefinition/LogSubjectKOrderCz
-
-      # -------------------------
-      # A.2 â€“ TÄ›lo dokumentu K 
-      # -------------------------
-      - StructureDefinition/logBodyKOrder
-      - StructureDefinition/logKOrderInformationCz
-      - StructureDefinition/logClinicalReasonKOrder
-      - StructureDefinition/logRequestedServiceKOrder
-      - StructureDefinition/logRecommendationKOrder
-      - StructureDefinition/logAdditionalClinicalInfoKOrder
-      
-      # -------------------------
-      # A.3 â€“ TÄ›lo dokumentu FT
-      # -------------------------
-      - StructureDefinition/logBodyFTOrder
-      - StructureDefinition/logFTSpecificOrder
-      
-      # -------------------------
-      # A.4 â€“ ZobrazitelnĂˇ forma dokumentu
-      # -------------------------
-      - StructureDefinition/logPresentedFormOrderCzOUT
-      # -------------------------
-      # A.5 â€“ PĹ™Ă­lohy
-      # -------------------------
-      - StructureDefinition/logAttachmentsKOrderCz
-      
   czech-logical-model-shared:
     name: Sdílený logický model žádanek
     description: Logical model resources shared by K-order and FT-order.
@@ -293,7 +251,10 @@ groups:
       - StructureDefinition/LMClinicalEventCz
       - StructureDefinition/LMCoverageBodyCz
       - StructureDefinition/LMAppointmentCz
+      - StructureDefinition/LMSpecimenInformationCz
       - StructureDefinition/LMClinicalInformationCz
+      - StructureDefinition/LMPlannedCareOrdersCz
+      - StructureDefinition/LMOtherSupportingInformationCz
       - StructureDefinition/LMPresentedFormOrderCz
       - StructureDefinition/LMAttachmentsOrderCz
 
@@ -363,9 +324,9 @@ groups:
 # * packageId
 #
 #
-# â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€SUSHI flagsâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®
-# â”‚  The flags below configure aspects of how SUSHI processes FSH.                                 â”‚
-# â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•Ż
+# SUSHI flags
+# The flags below configure aspects of how SUSHI processes FSH.
+#
 # The FSHOnly flag indicates if only FSH resources should be exported.
 # If set to true, no IG related content will be generated.
 # The default value for this property is false.
