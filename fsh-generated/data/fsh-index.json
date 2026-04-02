@@ -565,7 +565,7 @@
     "fshType": "Profile",
     "fshFile": "profiles\\practitionerRole-Order.fsh",
     "startLine": 1,
-    "endLine": 29
+    "endLine": 31
   },
   {
     "outputFile": "StructureDefinition-cz-order-recommendation-disposition.json",

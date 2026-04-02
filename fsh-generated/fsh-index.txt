@@ -69,7 +69,7 @@ StructureDefinition-LMPresentedFormOrderCz.json                LMCzPresentedForm
 StructureDefinition-LMRequestedPerformerOrderCz.json           LMCzRequestedPerformerOrderCz      Logical     czech-model\A.1.6_perfomerOrder-cz.fsh               1 - 11
 StructureDefinition-LMSpecimenInformationCz.json               LMCzSpecimenInformationCz          Logical     czech-model\A.2.6_specimenInformation-cz.fsh         1 - 37
 StructureDefinition-LMSubjectOrderCz.json                      LMCzSubjectOrderCz                 Logical     czech-model\A.1.1_subjektOrder-cz.fsh                2 - 37
-StructureDefinition-OrderPractitionerRoleCz.json               OrderPractitionerRoleCz            Profile     profiles\practitionerRole-Order.fsh                  1 - 29
+StructureDefinition-OrderPractitionerRoleCz.json               OrderPractitionerRoleCz            Profile     profiles\practitionerRole-Order.fsh                  1 - 31
 StructureDefinition-cz-order-recommendation-disposition.json   CzKOrderRecommendationDisposition  Extension   profiles\serviceRequest-K-Order.fsh                  121 - 131
 StructureDefinition-ftorder-composition-requestReference.json  FTOrderRequestReference            Extension   profiles\composition-FT-Order.fsh                    164 - 172
 StructureDefinition-korder-composition-requestReference.json   KOrderRequestReference             Extension   profiles\composition-K-Order.fsh                     215 - 223
