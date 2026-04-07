@@ -22,10 +22,3 @@ Vychází z CZ_PractitionerRoleCore a doplňuje povinnou odbornost žadatele dle
 * specialty[VZP_ODB] from VzpOdbornostVS (required)
 * specialty[VZP_ODB] ^short = "Odbornost dle číselníku VZP"
 * specialty[VZP_ODB] ^definition = "Odbornost dle národního číselníku odborností VZP (urn:oid:1.2.203.7898.1.4)."
-* specialty[VZP_ODB].coding 1..*
-* specialty[VZP_ODB].coding ^slicing.discriminator[0].type = #value
-* specialty[VZP_ODB].coding ^slicing.discriminator[0].path = "system"
-* specialty[VZP_ODB].coding ^slicing.rules = #open
-* specialty[VZP_ODB].coding contains vzpOdbornost 1..1
-* specialty[VZP_ODB].coding[vzpOdbornost].system = "urn:oid:1.2.203.7898.1.4" (exactly)
-* specialty[VZP_ODB].coding[vzpOdbornost] from VzpOdbornostVS (required)

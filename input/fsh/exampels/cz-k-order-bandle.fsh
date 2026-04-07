@@ -5,23 +5,23 @@ Usage: #example
 * id = "KOrderCompositionExample"
 * status = #final
 * date = "2025-02-01T10:15:00+01:00"
-* title = "Konziliární žádost – K-order example"
+* title = "KonziliĂˇrnĂ­ ĹľĂˇdost â€“ K-order example"
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 
-// --- Section: Diagnózy ---
-// * section[diagnoses].title = "Diagnózy"
-// * section[diagnoses].code.text = "A.2 Diagnózy"
+// --- Section: DiagnĂłzy ---
+// * section[diagnoses].title = "DiagnĂłzy"
+// * section[diagnoses].code.text = "A.2 DiagnĂłzy"
 // * section[diagnoses].entry[0] = Reference(KOrderCondition-Main)
 // * section[diagnoses].entry[1] = Reference(KOrderCondition-Secondary)
 
-// --- Section: Požadovaná vyšetření ---
-// * section[requested].title = "Požadovaná vyšetření"
-// * section[requested].code.text = "A.4 Požadovaná vyšetření"
+// --- Section: PoĹľadovanĂˇ vyĹˇetĹ™enĂ­ ---
+// * section[requested].title = "PoĹľadovanĂˇ vyĹˇetĹ™enĂ­"
+// * section[requested].code.text = "A.4 PoĹľadovanĂˇ vyĹˇetĹ™enĂ­"
 * section[examinations].entry[0] = Reference(KOrderServiceRequest-1)
 //* section[examinations].entry[1] = Reference(KOrderServiceRequest-2)
 
-// identifier.system je fixed v profilu → nastavuje se jen value
+// identifier.system je fixed v profilu â†’ nastavuje se jen value
 * identifier.value = "KORD-COMP-2025-001"
 
 
@@ -58,13 +58,13 @@ Usage: #example
 * authoredOn = "2025-02-01T09:50:00+01:00"
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
-* code.text = "Konziliární vyšetření internistou"
+* code.text = "KonziliĂˇrnĂ­ vyĹˇetĹ™enĂ­ internistou"
 * code.coding[+].system = "https://vzp.cz/cis/vykony"
 * code.coding[=].code = #09513
 * reasonReference[0] = Reference(KOrderCondition-Main)
 * category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
 * category[0].coding[0].code = #CONSULT
-* category[0].coding[0].display = "Konziliární vyšetření"
+* category[0].coding[0].display = "KonziliĂˇrnĂ­ vyĹˇetĹ™enĂ­"
 
 
 Instance: KOrderServiceRequest-2
@@ -78,11 +78,11 @@ Usage: #example
 * authoredOn = "2025-02-01T09:52:00+01:00"
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
-* code.text = "EKG – kontrolní vyšetření"
+* code.text = "EKG â€“ kontrolnĂ­ vyĹˇetĹ™enĂ­"
 * code.coding[+].system = "https://vzp.cz/cis/vykony"
 * code.coding[=].code = #08911
 * category[0].coding[0].code = #DIAGNOSTIC
-* category[0].coding[0].display = "Diagnostické vyšetření"
+* category[0].coding[0].display = "DiagnostickĂ© vyĹˇetĹ™enĂ­"
 
 
 // ------------------------- Coverage ---------------------------------------
@@ -103,7 +103,7 @@ Usage: #example
 * id = "KOrderAttachment-1"
 * status = #current
 * content[0].attachment.contentType = #application/pdf
-* content[0].attachment.title = "Příloha k žádance"
+* content[0].attachment.title = "PĹ™Ă­loha k ĹľĂˇdance"
 * content[0].attachment.url = "https://example.cz/files/korder-attachment-1.pdf"
 
 // ------------------------- Bundle (K-Order) -------------------------------
@@ -163,8 +163,8 @@ Description: "Example of patient Petr Novak with identification by czech nationa
 * identifier[+]
   * system = $cz-patient-rid
   * value = "1597778923"
-* name.text = "Ing. Petr Novák, Ph.D."
-* name.family = "Novák"
+* name.text = "Ing. Petr NovĂˇk, Ph.D."
+* name.family = "NovĂˇk"
 * name.given[0] = "Petr"
 * name.given[+] = "Pavel"
 * telecom[+].system = #phone
@@ -176,11 +176,11 @@ Description: "Example of patient Petr Novak with identification by czech nationa
 * address[+]
   * use = #home
   //* type = #physical
-  * text = "Pavlovova 1424/11, 568 02 Svitavy - Předměstí"
+  * text = "Pavlovova 1424/11, 568 02 Svitavy - PĹ™edmÄ›stĂ­"
   * line[+] = "Pavlovova 1424/11"
-  * city = "Svitavy - Předměstí"
+  * city = "Svitavy - PĹ™edmÄ›stĂ­"
   * postalCode = "56802"
-  * country = "Česko"
+  * country = "ÄŚesko"
     * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
 
 
@@ -193,11 +193,11 @@ Description: "practitioner's detail"
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * meta.profile[0] = "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz"
-* practitioner = Reference(urn:uuid:a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a) "MUDr. Ivan Anděl"
+* practitioner = Reference(urn:uuid:a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a) "MUDr. Ivan AndÄ›l"
 * organization = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Nemocnice Chrudim"
-* code = $cz-nrzp_povolani#L00 "Lékař"
-* specialty[VZP_ODB].coding[vzpOdbornost] = urn:oid:1.2.203.7898.1.4#001 "Všeobecné praktické lékařství"
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Anděl, interní lékař, Nemocnice Chrudim, Václavská 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
+* code = $cz-nrzp_povolani#L00 "LĂ©kaĹ™"
+* specialty[VZP_ODB] = urn:oid:1.2.203.7898.1.4#001 "VĹˇeobecnĂ© praktickĂ© lĂ©kaĹ™stvĂ­"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan AndÄ›l, internĂ­ lĂ©kaĹ™, Nemocnice Chrudim, VĂˇclavskĂˇ 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
 * text.status = #generated
 
 Instance: Organization-1
@@ -221,16 +221,16 @@ Description: "A minimalist example of a subordinate department within a hospital
 * id = "af2b3114-e872-43b9-9875-cceb39122f7f"
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
 * identifier[=].value = "12345678"  
-* name = "CHIR - Oddělení chirurgie"
-* partOf = Reference(urn:uuid:9f7c3d74-2c71-4b92-9a59-2b6f37ecb3d1) "Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
+* name = "CHIR - OddÄ›lenĂ­ chirurgie"
+* partOf = Reference(urn:uuid:9f7c3d74-2c71-4b92-9a59-2b6f37ecb3d1) "Nemocnice PardubickĂ©ho kraje, a.s., ChrudimskĂˇ nemocnice"
 * telecom.system = #phone
 * telecom.value = "+42060385555"
 * address[+]
   * use = #work
-  * line[+] = "Václavská 570"
+  * line[+] = "VĂˇclavskĂˇ 570"
   * city = "Chrudim"
   * postalCode = "53701"
-  * country = "Česká republika"
+  * country = "ÄŚeskĂˇ republika"
     * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
 //---------------------------------------------------------------------------------------------------------------
 Instance: Organization-L1-HOSP
@@ -240,14 +240,14 @@ Description: "A minimalist example of a subordinate department within a hospital
 * id = "a4641bd0-34af-4038-a7db-872d08a54df9"
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
 * identifier[=].value = "12345678"  
-* name = "CHIR-L2 - Lůžková stanice 2"
-* partOf = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Chirurgické oddělení - Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
+* name = "CHIR-L2 - LĹŻĹľkovĂˇ stanice 2"
+* partOf = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "ChirurgickĂ© oddÄ›lenĂ­ - Nemocnice PardubickĂ©ho kraje, a.s., ChrudimskĂˇ nemocnice"
 * telecom.system = #phone
 * telecom.value = "+42060385111"
 * address[+]
   * use = #work
-  * line[+] = "Václavská 570"
+  * line[+] = "VĂˇclavskĂˇ 570"
   * city = "Chrudim"
   * postalCode = "53701"
-  * country = "Česká republika"
+  * country = "ÄŚeskĂˇ republika"
     * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
