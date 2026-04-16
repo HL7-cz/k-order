@@ -5,7 +5,7 @@
   "id": "cz-diagnosis-condition-vs",
   "title": "CZ Diagnosis Condition",
   "description": "ValueSet for diagnosis in condition in the Czech Imaging project, using MKN-10 and ORPHA codes.",
-  "url": "https://hl7.cz/fhir/korder/ValueSet/cz-diagnosis-condition-vs",
+  "url": "https://hl7.cz/fhir/order/ValueSet/cz-diagnosis-condition-vs",
   "experimental": false,
   "compose": {
     "include": [

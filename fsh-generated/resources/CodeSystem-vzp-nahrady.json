@@ -6,7 +6,7 @@
   "id": "vzp-nahrady",
   "title": "VZP – Náhrady za zdravotní péči",
   "description": "CodeSystem representing the VZP reimbursement indicator codes.",
-  "url": "https://hl7.cz/fhir/korder/CodeSystem/vzp-nahrady",
+  "url": "https://hl7.cz/fhir/order/CodeSystem/vzp-nahrady",
   "concept": [
     {
       "code": "3",

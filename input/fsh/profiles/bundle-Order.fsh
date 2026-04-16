@@ -20,14 +20,24 @@ Description: "All ServiceRequests SHALL have the same occurrence[x] (if present)
 Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(occurrence = entry.resource.ofType(ServiceRequest).first().occurrence)"
 Severity: #warning
 
+Invariant: k-composition-requires-k-servicerequest
+Description: "If the Bundle contains KOrderCompositionCz, all ServiceRequests SHALL conform to KOrderServiceRequestCz."
+Expression: "entry.resource.ofType(Composition).first().conformsTo('https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz') implies entry.resource.ofType(ServiceRequest).all(conformsTo('https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz'))"
+Severity: #error
+
+Invariant: ft-composition-requires-ft-servicerequest
+Description: "If the Bundle contains FTOrderCompositionCz, all ServiceRequests SHALL conform to FTOrderServiceRequestCz."
+Expression: "entry.resource.ofType(Composition).first().conformsTo('https://hl7.cz/fhir/order/StructureDefinition/FTOrderCompositionCz') implies entry.resource.ofType(ServiceRequest).all(conformsTo('https://hl7.cz/fhir/order/StructureDefinition/FTServiceRequestCz'))"
+Severity: #error
+
 
 ////////////////////////////////////////////////////////////
 // PROFILE
 ////////////////////////////////////////////////////////////
 
-Profile: BundleKOrderCz
+Profile: BundleOrderCz
 Parent: Bundle
-Id: BundleKOrderCz
+Id: BundleOrderCz
 Title: "Bundle: Referral Order (CZ)"
 Description: "Clinical document container for Czech referral/requests (K-order and FT-order)."
 
@@ -39,6 +49,8 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * obeys one-comp
 * obeys same-servicerequest-performer
 * obeys same-servicerequest-occurrence
+* obeys k-composition-requires-k-servicerequest
+* obeys ft-composition-requires-ft-servicerequest
 
 
 ////////////////////////////////////////////////////////////
@@ -88,17 +100,17 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 
 // Composition
 * entry[composition].resource 1..
-* entry[composition].resource only KOrderCompositionCz
+* entry[composition].resource only KOrderCompositionCz or FTOrderCompositionCz
 
 // Patient
 * entry[patient].resource 1..
 * entry[patient].resource only CZ_PatientCore
 
 // ServiceRequest (main content)
-* entry[serviceRequest].resource only KOrderServiceRequestCz
+* entry[serviceRequest].resource only KOrderServiceRequestCz or FTServiceRequestCz
 
 // Condition
-* entry[condition].resource only KOrderConditionCz
+* entry[condition].resource only OrderConditionCz
 
 // Practitioner
 * entry[practitioner].resource only CZ_PractitionerCore

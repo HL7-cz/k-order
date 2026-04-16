@@ -16,11 +16,20 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * insert SetFmmandStatusRule ( 0, draft )
 
 // --------------------------- identifiers -------------------------------------
-* identifier 1..1 MS
-* identifier ^short = "Identifikátor eŽádanky (UUID)"
-* identifier.system 1..1 MS
-* identifier.value 1..1 MS
-* identifier.system = "urn:ietf:rfc:4122" (exactly)
+* identifier 1..* MS
+* identifier ^slicing.discriminator[0].type = #value
+* identifier ^slicing.discriminator[0].path = "system"
+* identifier ^slicing.rules = #open
+* identifier ^short = "Identifikátory žádanky"
+
+* identifier contains obecnyIdentifikator 0..* and idEZadanky 1..1
+* identifier[obecnyIdentifikator] ^short = "Obecný identifikátor"
+* identifier[obecnyIdentifikator] ^definition = "Další volitelný identifikátor ServiceRequest."
+* identifier[idEZadanky] ^short = "Identifikátor eŽádanky (UUID)"
+* identifier[idEZadanky] ^definition = "Povinný identifikátor eŽádanky ve formátu UUID."
+* identifier[idEZadanky].system 1..1 MS
+* identifier[idEZadanky].value 1..1 MS
+* identifier[idEZadanky].system = "https://ncez.mzcr.cz/fhir/sid/ezadanka-id" (exactly)
 
 // --------------------------- extensions --------------------------------------
 * extension contains
@@ -67,7 +76,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * encounter only Reference(CZ_Encounter)
 
 * reasonReference 0..*
-* reasonReference only Reference(KOrderConditionCz)
+* reasonReference only Reference(OrderConditionCz)
 * reasonReference ^short = "Diagnózy odůvodňující žádanku"
 
 * reasonCode 0..*
@@ -139,7 +148,7 @@ Description: "K-order musí mít vyplněný kód vyšetření/výkonu."
 Severity: #error
 Expression: "code.coding.exists()"
 
-Invariant: subject-is-patient
+Invariant: k-subject-is-patient
 Description: "Subjekt žádanky musí být pacient."
 Severity: #error
 Expression: "subject.resolve().resourceType = 'Patient'"

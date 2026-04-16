@@ -3,15 +3,15 @@
 # used properties are included. For a list of all supported properties and their functions,
 # see: https://fshschool.org/docs/sushi/configuration/.
 #
-id: hl7.fhir.cz.korder
-canonical: https://hl7.cz/fhir/korder 
-name: HL7CzKOrderImplementationGuide
-title: HL7 Czech K-Order Implementation Guide
-description: HL7 Czech K-Order Implementation Guide
+id: hl7.fhir.cz.order
+canonical: https://hl7.cz/fhir/order 
+name: HL7CzGeneralOrderImplementationGuide
+title: HL7 Czech General Order Implementation Guide
+description: HL7 Czech General Order Implementation Guide
 status: draft # draft | active | retired | unknown
-version: 0.0.3
+version: 0.0.4
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
-copyrightYear: 2025+
+copyrightYear: 2026+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
@@ -234,6 +234,24 @@ menu:
 # URL when generating the IG JSON.
 #
 groups:
+  czech-logical-model-main-general:
+    name: Obecný logický model žádanek
+    description: Hlavní souhrnný logický model společný pro všechny typy žádanek.
+    resources:
+      - StructureDefinition/LMOrderCz
+
+  czech-logical-model-main-k-order:
+    name: Hlavní logický model K žádanky
+    description: Souhrnný logický model pro K žádanku.
+    resources:
+      - StructureDefinition/LMKOrderCz
+
+  czech-logical-model-main-ft-order:
+    name: Hlavní logický model FT žádanky
+    description: Souhrnný logický model pro FT žádanku.
+    resources:
+      - StructureDefinition/LMFTOrderCz
+
   czech-logical-model-shared:
     name: Sdílený logický model žádanek
     description: Logical model resources shared by K-order and FT-order.

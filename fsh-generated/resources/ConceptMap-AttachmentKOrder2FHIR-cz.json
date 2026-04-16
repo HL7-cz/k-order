@@ -3,29 +3,44 @@
   "id": "AttachmentKOrder2FHIR-cz",
   "url": "https://hl7.cz/fhir/korder/ConceptMap/AttachmentKOrder2FHIR-cz",
   "name": "AttachmentKOrder2FHIRcz",
-  "title": "CZ K-order Attachment Model to this guide Map",
+  "title": "CZ Attachment Model to this guide Map",
   "status": "draft",
   "experimental": true,
-  "description": "Mapping LogCzKOrder.priloha → CZ core Attachment & DocumentReference.",
+  "description": "Mapování příloh a vizuální podoby aktuálního czech-model logického modelu žádanek na profily a resource použité v tomto IG.",
   "group": [
     {
-      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
-      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-attachment",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMPresentedFormOrderCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz",
       "element": [
         {
-          "code": "priloha",
-          "display": "A.5 – Přílohy",
+          "code": "LMPresentedFormOrderCz.vizualniPodoba",
+          "display": "A.4 - VizuĂˇlnĂ­ podoba",
           "target": [
             {
-              "code": "Attachment",
-              "equivalence": "relatedto",
-              "comment": "Attachment is typically included as DocumentReference.content.attachment"
+              "code": "Composition.extension:presentedForm.valueAttachment",
+              "equivalence": "equivalent"
             }
           ]
         },
         {
-          "code": "priloha.contentType",
-          "display": "A.5.1 – Content type",
+          "code": "LMPresentedFormOrderCz.data",
+          "display": "A.4.3 - Data obsahu",
+          "target": [
+            {
+              "code": "Composition.extension:presentedForm.valueAttachment.data",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMAttachmentsOrderCz",
+      "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-attachment",
+      "element": [
+        {
+          "code": "LMAttachmentsOrderCz.typObsahu",
+          "display": "A.5.1 - Typ obsahu",
           "target": [
             {
               "code": "Attachment.contentType",
@@ -34,8 +49,8 @@
           ]
         },
         {
-          "code": "priloha.language",
-          "display": "A.5.2 – Language",
+          "code": "LMAttachmentsOrderCz.jazyk",
+          "display": "A.5.2 - Jazyk obsahu",
           "target": [
             {
               "code": "Attachment.language",
@@ -44,8 +59,8 @@
           ]
         },
         {
-          "code": "priloha.data",
-          "display": "A.5.3 – Data",
+          "code": "LMAttachmentsOrderCz.data",
+          "display": "A.5.3 - Data obsahu",
           "target": [
             {
               "code": "Attachment.data",
@@ -54,8 +69,8 @@
           ]
         },
         {
-          "code": "priloha.url",
-          "display": "A.5.4 – URL",
+          "code": "LMAttachmentsOrderCz.url",
+          "display": "A.5.4 - URL obsahu",
           "target": [
             {
               "code": "Attachment.url",
@@ -64,8 +79,8 @@
           ]
         },
         {
-          "code": "priloha.title",
-          "display": "A.5.5 – Title",
+          "code": "LMAttachmentsOrderCz.nazev",
+          "display": "A.5.5 - NĂˇzev obsahu",
           "target": [
             {
               "code": "Attachment.title",
@@ -74,8 +89,8 @@
           ]
         },
         {
-          "code": "priloha.creation",
-          "display": "A.5.6 – Creation date",
+          "code": "LMAttachmentsOrderCz.vytvoreni",
+          "display": "A.5.6 - Datum vytvoĹ™enĂ­",
           "target": [
             {
               "code": "Attachment.creation",

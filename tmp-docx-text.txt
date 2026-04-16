@@ -1,0 +1,296 @@
+﻿ELEKTRONIZACE ZDRAVOTNICTVÍ
+eŽádanka typu K (Poukaz na vyšetření/ošetření – konziliární)
+Funkční specifikace
+Projekt Národní centrum elektronického zdravotnictví (registrační číslo CZ.31.1.01/MV/22_05/0000005)
+Verze: 5.0Platnost nové verze od:14.11.2025Verze: 5.0Platnost nové verze od:14.11.2025
+Tabulka 1 Historie změn
+Historie změn
+Verze | Datum | Popis | Zpracoval
+4.0
+Tabulka 2 Krycí list
+Dokument | Funkční specifikace – eŽádanka typu K
+Status | 
+Distribuce | 
+Schválil | 
+Obsah
+Úvod a kontextuální rámec
+Účel a cíle eŽádanky K
+Elektronická žádanka typu K, formálně označovaná jako „Poukaz na vyšetření/ošetření K“ (dále jen eŽádanka K), představuje fundamentální digitální nástroj pro koordinaci a řízení specializované ambulantní péče v rámci českého systému zdravotní péče. Jejím primárním účelem je nahradit stávající papírový proces, reprezentovaný tiskopisem VZP-06k/2023, a zajistit strukturovaný, bezpečný a okamžitý přenos klinických a administrativních informací mezi požadujícím a poskytujícím zdravotnickým zařízením. Tento dokument slouží jako závazná funkční specifikace pro její implementaci.
+eŽádanka K, jakožto součást zdravotnické dokumentace pacienta dle vyhlášky č. 444/2024 Sb., není pouhým doporučením, ale formální autorizací, která je nezbytným předpokladem pro následnou úhradu poskytnuté péče z prostředků veřejného zdravotního pojištění. Vystavuje jej ošetřující lékař (dále jen OL), kterým může být registrující lékař (všeobecný praktický lékař, praktický lékař pro děti a dorost, praktický zubní lékař, gynekolog) nebo ambulantní specialista, nebo lékař poskytující zdravotní péči v zařízení poskytovatele ústavní péče a směřuje jej ke kvalifikovanému poskytovateli vyžádané péče.
+eŽádanka K je navržena pro podporu tří klíčových klinických scénářů(pro jednu žádanku platí právě jeden scénář), které definují její flexibilitu a význam v procesu poskytování zdravotních služeb:
+Vyžádání konziliárního vyšetření: Tento scénář nastává v situaci, kdy žádající lékař (např. všeobecný praktický lékař) potřebuje odborný názor specialisty na zdravotní stav pacienta, avšak nemá v úmyslu pacienta trvale předat do péče tohoto specialisty. Cílem je získat doporučení k dalšímu diagnostickému nebo léčebnému postupu, který bude následně řídit opět původní požadující lékař.
+Vyžádání vyšetření či ošetření specialistou: Jedná se o nejčastější případ užití, kdy je pacient odeslán ke specialistovi za účelem provedení konkrétních, jasně definovaných zdravotních výkonů. Může se jednat například o odeslání na specializované zobrazovací vyšetření (např. echokardiografie), endoskopický výkon (např. gastroskopie) nebo specifické ošetření, které spadá do kompetence daného odborníka.
+Doporučení převzetí doambulantní nebo ústavní péče:
+U doporučení převzetí do ambulantní péče požadující lékař indikuje, že zdravotní stav pacienta vyžaduje dlouhodobé sledování a léčbu specialistou. eŽádanka K zde slouží jako formální doporučení a předání klíčových informací pro zahájení dispenzární péče u specialisty, který pacienta přebírá do své evidence a stává se jeho ošetřujícím lékařem pro danou diagnózu.
+U doporučení převzetí do ústavní péče požadující lékař odesílá pacienta do nemocnice na základě zjištěného zdravotního stavu.
+Implementace eŽádanky K sleduje strategické cíle elektronizace zdravotnictví, kterými jsou především zvýšení bezpečnosti pacienta prostřednictvím eliminace chyb z přepisu a nečitelnosti, zajištění kontinuity péče díky dostupnosti relevantních informací pro všechny zúčastněné strany a zefektivnění administrativních procesů spojených s vykazováním a úhradou zdravotních služeb.
+Postavení v ekosystému elektronického zdravotnictví
+eŽádanka K není koncipována jako izolovaný dokument, ale jako integrální součást národního ekosystému elektronického zdravotnictví, jehož architektura je definována Zákonem č. 325/2021 Sb., o elektronizaci zdravotnictví. Její funkčnost je bytostně závislá na centrálních komponentách a službách, které zajišťují interoperabilitu a bezpečný přenos dat.
+Klíčovou komponentou je Integrované datové rozhraní (IDR), které funguje jako centrální informační a komunikační uzel. 
+Pro eŽádanku jsou nejpodstatnější následující služby IDR:
+Služby výměnné sítě: Tyto služby zajišťují bezpečné a garantované předávání zdravotnické dokumentace, tedy i eŽádanky K, mezi informačními systémy (IS) jednotlivých poskytovatelů zdravotních služeb. Výměnná síť využívá mechanismus dočasného úložiště, kde je datová zpráva bezpečně uloženadle zákona až 3 roky, nebo do doby, než si ji IS adresáta vyzvedne. Tím je zajištěna asynchronní komunikace a robustnost celého řešení.
+Kmenové zdravotnické registry: Pro zajištění jednoznačné identifikace a sémantické interoperability využívá proces eŽádanky K data z centrálně spravovaných registrů. Jedná se především o:
+Kmenový registr pacientů: Poskytuje autoritativní identifikátor pacienta a ověřené demografické údaje.
+Kmenový registr poskytovatelů zdravotních služeb: Obsahuje jednoznačné identifikátory (IČO, IČP) a další údaje o zdravotnických zařízeních.
+Kmenový registr zdravotnických pracovníků: Umožňuje jednoznačnou identifikaci konkrétního lékaře vystavujícího nebo přijímajícího žádanku.
+Využitím těchto registrů se eliminuje duplicita dat a zajišťuje, že všechny komunikující strany pracují se stejnými, ověřenými identifikátory.
+Služby vytvářející důvěru: Pro zajištění právní závaznosti a nezpochybnitelnosti eŽádanky je proces spojen se službami vytvářejícími důvěru, jako je použití kvalifikovaného elektronického podpisu nebo resortní elektronické pečetě pro autorizaci dokumentu vystavujícím lékařem.
+Poskytovatelé zdravotních služeb jsou dle zákona povinni zajistit, aby jejich informační systémy byly kompatibilní s IDR a dodržovaly vydané standardy elektronického zdravotnictví, které definují strukturu a formát datových zpráv, jako je eŽádanka K.
+Klíčoví aktéři a jejich role
+Proces spojený s poukazem K zahrnuje čtyři klíčové aktéry, jejichž role jsou jasně definované a navazují na sebe v logické posloupnosti. Systém eŽádanky musí sloužit jako digitální platforma, která tyto aktéry propojuje a zajišťuje, aby každý z nich obdržel přesné a relevantní informace v odpovídající fázi procesu.
+Ošetřující lékař (OL) / žadatel: Lékař, který péči indikuje a vystavuje eŽádanku K pro vyžádání konziliárního vyšetření, vyžádání vyšetření či ošetření specialistou, nebo k doporučení převzetí do péče.
+Poskytovatel péče / příjemce:Specialista, který žadateli poskytne odborný názor na zdravotní stav pacienta v případě konziliárního vyšetření, provede konkrétní, jasně definované zdravotní výkony, nebo převezme pacienta do dispenzární péče. Je zodpovědný za správné provedení péče a následné vykázání zdravotní pojišťovně.
+Pacient / pojištěnec: Subjekt péče, pro kterého je eŽádanka vystavena. Je nositelem poukazu a má právo (v rámci neadresného modelu) zvolit si poskytovatele péče.
+Zdravotní pojišťovna (dále jen ZP) / plátce: Definuje pravidla, podmínky a obsahové náležitosti poukazu prostřednictvím svých metodik. Působí jako regulátor a finální plátce, který na základě předložených dokladů (eŽádanky a následného vyúčtování) péči proplácí.
+Vazba na proces vykazování a úhrady
+Papírový tiskopis VZP-06, jehož je eŽádanka K elektronickým ekvivalentem, plní v současném systému duální roli, která musí být v digitálním procesu plně zachována a reflektována. Tiskopis je rozdělen na díl A a díl B, přičemž každý má specifickou funkci v životním cyklu požadavku a jeho následné úhrady, jak je popsáno v Metodice pro pořizování a předávání dokladů VZP.
+Díl A – Žádost o péči: Tento díl vyplňuje požadující lékař a předává jej pacientovi. Obsahuje všechny klinické a administrativní údaje nezbytné pro specialistu k posouzení požadavku a poskytnutí péče. V elektronickém světě je přímým ekvivalentem dílu A samotná datová zpráva eŽádanky K.
+Díl B – Vyúčtování poskytnuté péče: Tento díl vyplňuje poskytovatel specializované péče poté, co péči poskytl. Slouží jako podklad pro vyúčtování výkonů zdravotní pojišťovně. V listinné formě je fyzicky spojen s dílem A, čímž je automaticky doložena oprávněnost vyúčtování – péče byla poskytnuta na základě platného požadavku.
+V digitálním prostředí jsou proces žádosti a proces vyúčtování odděleny. eŽádanka K je datová zpráva putující od požadujícího lékaře k poskytovateli vyžádané péče. Vyúčtování je samostatná datová dávka, kterou poskytovatel zasílá zdravotní pojišťovně. Aby byla zachována nezbytná vazba a prokazatelnost oprávněnosti úhrady, Metodika VZP striktně vyžaduje, aby poskytovatel péče přenesl klíčové údaje z obdržené žádanky (ať už papírové nebo elektronické) do svého vyúčtování. 
+Jedná se o následující datové prvky:
+Kód pojišťovny
+IČP (Identifikační číslo pracoviště) požadujícího lékaře
+Odbornost požadujícího lékaře
+Datum vystavení požadavku
+Příjmení a jméno pacienta 
+Číslo pojištěnce
+Variabilní symbol
+Základní diagnóza
+Ostatní diagnózy
+Kód náhrady
+Z tohoto pohledu eŽádanka K není pouze klinickým dokumentem, ale má i povahu finančního instrumentu. Je to autorizační prvek, který podmiňuje a validuje nárok poskytovatele na úhradu jím provedených výkonů. Absence nebo nesprávné uvedení těchto přenášených údajů ve vyúčtovací dávce může vést k zamítnutí úhrady ze strany zdravotní pojišťovny. Tato funkční specifikace proto klade důraz na přesnou definici těchto klíčových atributů a mechanismů pro jejich spolehlivé přenesení v rámci celého procesního řetězce.
+Přehled procesního toku od indikace po vykázání péče
+Procesní tok eŽádanky K je zasazen do širší architektury národního systému eŽádanky, který funguje jako centrální služba s definovanými stavy a procesy. eŽádanka K bude v tomto systému existovat jako specifický typ dokumentu, jehož životní cyklus se řídí zavedenými pravidly.
+Vystavení (indikace): Ošetřující lékař (žadatel) vytvoří v klinickém informačním systému novou eŽádanku K. Vyplní všechny požadované údaje. Systém eŽádance přidělí unikátní identifikátor a uloží ji do centrálního úložiště. eŽádanka přechází do stavu nová.
+Předání pacientovi: Pacient obdrží identifikátor eŽádanky, typicky ve formě QR kódu na papírové průvodce nebo elektronicky do pacientské aplikaceEZKarta.
+Uplatnění u poskytovatele: Pacient se s identifikátorem dostaví k vybranému poskytovateli péče. Platnost žádanky formálně není stanovena, obecně platí, že by pacient měl vyšetření absolvovat co nejdříve s ohledem na aktuální zdravotní stav, ke kterému se žádanka vztahuje.
+Přijetí a aktivace: Poskytovatel vyžádané péče (příjemce) načte eŽádanku z centrálního úložiště pomocí jejího identifikátoru. Tímto aktem eŽádanku "aktivuje" a přebírá za ni odpovědnost. eŽádanka přechází do stavu přijatá.
+Poskytnutí péče:Poskytovatel poskytne péči v souladu s autorizací v eŽádance. 
+Vyřízení a příprava k vyúčtování: Po ukončení vyžádané péče poskytovatel označí eŽádanku v systému jako vyřízená. Tím je formálně uzavřena část A (požadavek).
+Vykázání péče zdravotní pojišťovně:Systém poskytovatele vygeneruje dávku pro zdravotní pojišťovnu (část B), která obsahuje vyúčtování provedených výkonů standardním způsobem.
+Architektura systému eŽádanky zdůrazňuje tzv. neadresný model, který respektuje právo pacienta na svobodnou volbu poskytovatele. To je v souladu s povahou pole Odeslán ad na papírovém poukazu, které je chápáno jako doporučení, nikoli jako striktní příkaz. Systém eŽádanky K proto musí plně podporovat oba scénáře: Adresný (lékař doporučí konkrétní pracoviště a eŽádanka je mu primárně notifikována) i neadresný (pacient si vybere libovolného smluvního poskytovatele, který si eŽádanku z centrálního úložiště vyhledá). Tato flexibilita je základním architektonickým principem, který musí být v implementaci plně zachován. 
+Regulatorní a normativní rámec
+Legislativní požadavky na obsah
+Základním právním předpisem, který definuje minimální povinný obsah eŽádanky K, jsou dva klíčové dokumenty, vyhláška č. 444/2024 Sb., o zdravotnické dokumentaci, a metodika pro pořizování a předávání dokladů VZP, konkrétně sekce 2.5.1 pro poukaz VZP-06k/2009. Zatímco vyhláška stanovuje obecný rámec pro všechny typy žádanek, metodika VZP jej doplňuje o požadavky, které jsou závazné pro účely úhrady.
+Vyhláška a metodika VZP stanovují, že žádanka musí obsahovat následující informace:
+Požadované nebo doporučenézdravotní služby:
+Požadované vyšetření:Specifikace požadované péče. Tento požadavek bude implementován jako kombinace strukturovaného pole pro zadání kódu typu vyšetření (konziliární, vyšetření, ošetření a kódů konkrétních zdravotních výkonů dle platného číselníku a doplňkového textového pole pro bližší specifikaci nebo pro případy, kdy nelze požadavek jednoznačně vyjádřit kódem.
+Doporučení převzetí do péče: Doporučení převzetí do péče na základě zdravotního stavu pacienta bude implementováno jakokombinace strukturovaného pole pro zadání kódu doporučení(ambulantní nebo ústavní)a kódů konkrétních zdravotních výkonů dle platného číselníku a doplňkového textového pole pro bližší specifikaci.
+Zdůvodnění požadavku (důvod požadavku, doporučení):Medicínské zdůvodnění požadavku. Bude realizováno jako povinné textové pole, kde požadující lékař popíše klinický kontext a důvody, které ho vedou k vyžádání péče. Toto pole je klíčové pro posouzení relevance požadavku specialistou.
+Naléhavost požadavku:Implementováno jako povinné pole s výběrem z předdefinovaného číselníku hodnot (např. „Akutní/Statim“, „Plánované“, „Urgentní“). To umožňuje adresátovi správně prioritizovat zpracování žádanky.
+Údaje o posledně zjištěném zdravotním stavu, včetně těch výsledků laboratorních a dalších pomocných vyšetření, které jsou podstatné pro poskytnutí vyžádaných zdravotních služeb(výsledky provedených vyšetření):Bude realizováno jako volné textové pole, případně umožní připojit strukturované výsledky nebo odkazy na ně.
+Údaje o dosavadní léčbě a reakci pacienta na ni(současná léčba, medikace včetně dávkování):Bude implementováno jako textové pole pro shrnutí relevantní farmakoterapie a dosavadních léčebných postupů.
+Diagnózu:Tento klíčový údaj bude implementován jako povinné strukturované pole pro zadání kódu diagnózy dle Mezinárodní klasifikace nemocí (MKN-10). Musí být umožněno zadat jednu hlavní (pracovní) diagnózu a volitelně jednu či více vedlejších diagnóz.Doplněn volným textovým polem pro možnost vyplnění diferenciální diagnostické rozvahy.
+Uvedení zásadních anamnestických údajů souvisejících s požadovanými zdravotními službami(závažná anamnestická data):Bude realizováno jako textové pole pro uvedení klíčových informací z anamnézy pacienta, které jsou relevantní pro požadované vyšetření (např. alergie, významné komorbidity, rodinná anamnéza).
+Další údaje dle metodiky VZP:
+Odeslán ad: Specifikuje obor, případně konkrétní pracoviště, pro které je poukaz určen, eventuálně požadované či dohodnuté datum provedení požadavku.V eŽádance řešeno sekcí příjemce a datum.
+Tato specifikace zajišťuje, že vyhláškai metodika VZP jsou pokryty a převedeny z obecné právní roviny do konkrétní datové struktury, která je základem pro technickou implementaci a sémantickou interoperabilitu.
+Požadavky zdravotních pojišťoven
+Pro zajištění bezproblémové úhrady poskytnuté péče je nezbytné, aby eŽádanka K a navazující procesy plně respektovaly požadavky zdravotních pojišťoven, které jsou kodifikovány v „Metodice pro pořizování a předávání dokladů“ a souvisejícím Datovém rozhraní (DR). Pro účely této specifikace jsou relevantní verze platné od 1. září 2025, konkrétně Metodika verze 6.2.52 a Datové rozhraní verze 6.2.47.
+Tyto dokumenty doplňují legislativní rámec o další, převážně administrativní a vykazovací údaje, které jsou pro pojišťovnu klíčové pro kontrolu oprávněnosti a správnosti vyúčtované péče. Datová struktura eŽádanky K musí obsahovat pole pro všechny tyto povinné atributy, které jsou následně přenášeny do vyúčtování. 
+Mezi nejdůležitější patří:
+Identifikace zúčastněných stran:
+Kód pojišťovny:číslo zdravotní pojišťovny pacienta dle číselníku
+Číslo pojištěnce: Jednoznačný identifikátor pacienta.
+IČP požadujícího poskytovatele: Identifikace pracoviště, které péči žádá.
+Odbornost požadujícího poskytovatele: Kód odbornosti dle číselníku, klíčový pro posouzení, zda byl lékař oprávněn danou péči indikovat.
+IČO poskytujícího (cílového) poskytovatele:identifikační číslo organizace (PZS)
+IČP poskytujícího (cílového) poskytovatele: Identifikace pracoviště, které má péči poskytnout.
+Odbornost poskytujícího (cílového) poskytovatele: Kód odbornosti dle číselníku.
+Specifikace požadavku:
+Datum vystavení: Datum, kdy byl požadavek vytvořen.
+Základní a vedlejší (ostatní) diagnózy: Kódy MKN-10. Výskyt ostatních diagnóz max. 4.
+Kódy požadovaných výkonů: Dle číselníku zdravotních výkonů.
+Úhradové parametry:
+Kód náhrady:PZS je povinno indikovat úrazy a jiná poškození zdraví osob, kterým poskytlo zdravotní péči, pokud má důvodné podezření, že úraz nebo jiné poškození zdraví byly způsobeny jednáním právnické nebo fyzické osoby, dle číselníku VZP „Náhrady za zdravotní péči“.
+Plná kompatibilita s platnou verzí DR je absolutní podmínkou pro akceptaci navazujícího vyúčtování.
+Ochrana osobních údajů
+Návrh eŽádanky K musí být v plném souladu s evropským Obecným nařízením o ochraně osobních údajů (GDPR) a českým Zákonem č. 110/2019 Sb., o zpracování osobních údajů. Jelikož eŽádanka obsahuje citlivé údaje o zdravotním stavu, je nutné dodržovat nejpřísnější standardy ochrany.
+Klíčové principy promítnuté do této specifikace jsou:
+Zákonnost zpracování: Zpracování osobních údajů v rámci eŽádanky je nezbytné pro účely poskytování zdravotních služeb, což je právní základ dle čl. 9 odst. 2 písm. h) GDPR. Není tedy vyžadován explicitní souhlas pacienta s vytvořením a odesláním žádanky.
+Minimalizace údajů: eŽádanka smí obsahovat pouze takové osobní údaje, které jsou nezbytně nutné pro splnění jejího účelu – tedy pro posouzení požadavku a poskytnutí navazující péče. Rozsah datových prvků definovaný v této specifikaci je v souladu s tímto principem a vychází z legislativních a smluvních požadavků.
+Integrita a důvěrnost: Technické řešení musí zajistit ochranu dat před neoprávněným přístupem, změnou nebo zničením. Tuto povinnost naplňuje architektura elektronického zdravotnictví, která pro přenos využívá zabezpečené kanály v rámci IDR a vyžaduje silnou autentizaci a autorizaci zúčastněných stran.
+Práva subjektu údajů: Pacient má právo na přístup ke svým osobním údajům. Novela zákona o elektronizaci zdravotnictví explicitně stanoví, že pacient má přístup k eŽádankám o něm vedeným v dočasném úložišti výměnné sítě. Informační systémy a Portál elektronického zdravotnictví musí toto právo technicky umožnit. Právo na výmaz ("být zapomenut") je v kontextu zdravotnické dokumentace, jejíž součástí je i eŽádanka, výrazně omezeno zákonnými archivačními lhůtami.
+Logický informační model (implementace HL7 FHIR)
+Pro zajištění interoperability, standardizace a budoucí rozšiřitelnosti bude logický informační model eŽádanky K založen na mezinárodním standardu HL7 FHIR (Fast Healthcare Interoperability Resources), verze R4. Implementace bude striktně vycházet z národní implementační příručky HL7 Czech Republic, konkrétně z profilů definovaných v CZ Core.
+Základní architektura a použité FHIR zdroje
+eŽádanka K nebude reprezentována jediným monolitickým objektem, ale jako kompozice vzájemně propojených, standardizovaných FHIR zdrojů (resources). Tento přístup zajišťuje modularitu a znovupoužitelnost dat. Centrálním zdrojem, který reprezentuje samotný požadavek, je ServiceRequest.
+Klíčové FHIR zdroje, které budou tvořit kompletní eŽádanku K:
+ServiceRequest: Hlavní zdroj, který nese podstatu žádanky. Obsahuje informace o tom, co se požaduje (code, orderDetail), proč (reasonReference), pro koho (subject), kým (requester) a kdo to má provést (performer).
+Patient: Reprezentuje pacienta, kterého se žádanka týká. Bude použit národní profil CZ_PatientCore, který zajišťuje správné kódování českých identifikátorů, jako je rodné číslo a resortní identifikátor pacienta (RID).
+Practitioner: Reprezentuje žádajícího lékaře (OL). Bude použit národní profil CZ_PractitionerCore.
+Organization: Reprezentuje žádající zdravotnické zařízení (PZS) a doporučené/provádějící pracoviště. Bude použit národní profil CZ_OrganizationCore, který zajišťuje správné kódování identifikátorů IČO a IČP.
+PractitionerRole: Spojuje konkrétního lékaře (Practitioner) s jeho rolí (odborností) v rámci konkrétního zařízení (Organization) a nese identifikátor pracoviště (IČP).
+Coverage: Obsahuje informace o zdravotním pojištění pacienta a odkazuje na plátce (Organization reprezentující zdravotní pojišťovnu).
+Condition: Slouží k přesné a strukturované reprezentaci základní diagnózy, která je důvodem pro vyžádání péče.
+Mapování na národní profily (CZ CoreImplementationGuide)
+Použití základních (core) FHIR zdrojů není pro implementaci v českém prostředí dostatečné. Je nezbytné využívat národní profily definované v implementační příručce cz-core, které rozšiřují a omezují základní zdroje tak, aby odpovídaly lokálním legislativním a procesním požadavkům.
+Identifikátory: Všechny národní identifikátory musí být reprezentovány pomocí datového typu Identifier se správně uvedenou hodnotou (value) a systémem (system), který jednoznačně definuje typ identifikátoru.
+Rodné číslo: Musí být kódováno s použitím systémového URI https://ncez.mzcr.cz/fhir/sid/rcis.
+Resortní identifikátor pacienta (RID): Musí používat systémové URI https://ncez.mzcr.cz/fhir/sid/rid.
+IČO (identifikační číslo organizace): Bude reprezentováno pomocí URI definovaného pro identifikaci organizací v ČR, např. urn:oid:1.2.203.7898.1.2.
+IČP (identifikační číslo pracoviště): Bude reprezentováno pomocí URI urn:oid:1.2.203.7898.1.3.
+Adresy a jména: Budou použity struktury a rozšíření definované v cz-core pro správné zachycení českého formátu adres (včetně napojení na registr RÚIAN) a jmen.
+Tato specifikace musí explicitně vyžadovat validaci všech vytvořených FHIR instancí eŽádanky K proti těmto národním profilům.
+Specifikace datovýchprvků eŽádanky K (část A)
+Tato kapitola definuje kompletní logický informační model eŽádanky K. Následující tabulka mapuje každou obsahovou a procesní náležitost definovanou v metodice VZP-06k/2009 a vyhlášce č. 444/2024 Sb. na konkrétní datový prvek ve standardu HL7 FHIR.Každý řádek specifikuje cestu k FHIR elementu, jeho povinnost (kardinalitu), požadovanou terminologii (číselník) a poskytuje kontextové poznámky pro vývojáře. Tato tabulka představuje normativní základ pro databázové schéma, datové struktury a API rozhraní implementovaných systémů. 
+Datové prvky jsou rozděleny mezi hlavičku a tělo zprávy a logicky seskupeny do sekcí pro lepší přehlednost.
+Tabulka 1: Detailní mapování datovýchprvků pro eŽádanku K
+Sekce | Název pole | Popis a účel | Mapování na FHIR element (cesta) | Kardinalita | Terminologie/číselník (system URI) | Poznámka / příklad
+Hlavička
+Identifikace pacienta | Křestní jméno | Křestní jméno (jména) pacienta | Patient.name.given | 1..1 | String(50) | -
+ | Příjmení | Příjmení pacienta | Patient.name.family | 1..1 | String(50) | -
+ | Datum narození | Datum narození pacienta | Patient.birthDate | 1..1 | Date (RRRR-MM-DD) | -
+ | Identifikátor pacienta | RID (nebo DRID), možné je zadání také dalších národních či mezinárodních identifikátorů (rodné číslo, číslo pasu). |  |  |  | 
+ | Státní občanství |  |  |  |  | 
+ | Úřední pohlaví |  |  |  |  | 
+ | Komunikační jazyk |  |  |  |  | 
+Kontaktní informace pacienta | Adresa |  |  |  |  | 
+ | Email, telefon |  |  |  |  | 
+Zákonný zástupce | Typ kontaktu | Typ kontaktní osoby rozlišující emergentní kontakty, zákonné zástupce a ostatní osoby se vztahem k pacientovi. |  |  |  | 
+ | Vztah k pacientovi | Vztah osoby k pacientovi (otec, syn, dcera atp.) |  |  |  | 
+ | Id osoby | Typ identifikátoru a identifikátor osoby |  |  |  | 
+ | Křestní jméno |  |  |  |  | 
+ | Příjmení |  |  |  |  | 
+ | Adresa kontaktní osoby | Poštovní, domácí a/nebo kancelářské adresa. |  |  |  | 
+ | Telekomunikační kontakt (e-mail, telefon atp.). |  |  |  |  | 
+Zdravotní pojištění | Kód ZP | Kód zdravotní pojišťovny pacienta | ServiceRequest.insurance -> Coverage.payor -> Organization.identifier | 1..1 | urn:oid:1.2.203.7898.1.1 (číselník ZP) | system:..., value: "111"
+ | Název ZP |  |  |  |  | 
+ | Číslo pojištěnce | Číslo pojištěnce pacienta (rodné číslo bez lomítka nebo náhradní identifikátor). | ServiceRequest.subject -> Patient.identifier | 1..1 | https://ncez.mzcr.cz/fhir/sid/rcis | use: official, system:..., value: "YYMMDDXXXX"
+Úhrady | Způsob úhrady |  |  |  |  | 
+ | Informace o plátci |  |  |  |  | 
+Žadatel | IČP žadatele | Identifikátor pracoviště žádajícího lékaře. | ServiceRequest.requester -> PractitionerRole.identifier | 1..1 | urn:oid:1.2.203.7898.1.3 (IČP) | system:..., value: "12345678"
+ | IČO žádajícího PZS | IČO odesílajícího PZS. | Organization.identifier | 0..1 | String(8) | Registr PZS
+ | Název žádajícího PZS | Název PZS žádajícího lékaře | Organization.name | 1..1 | String(100) | -
+ | Odbornost žadatele | Kód odbornosti pracoviště žádajícího lékaře | PractitionerRole.specialty | 1..1 | urn:oid:1.2.203.7898.1.4 (číselník odborností) | coding: [{system:..., code: "001", display: "Všeobecné praktické lékařství"}]
+ | ID žádajícího lékaře | Unikátní identifikátor žádajícího lékaře (ID ZP). | Practitioner.identifier | 1..1 | String | Registr ZP
+ | Jméno žádajícího lékaře | Jméno a příjmení žádajícího lékaře. | Practitioner.name | 1..1 | String(100) | -
+Příjemce (zpracovatel), odeslán ad | IČP zpracovatele | Identifikační číslo pracoviště cílového PZS. | ServiceRequest.performer (ref. Organization.identifier) | 0..1 | String(8) | Registr PZS
+ | IČO zpracovatele | IČO cílového PZS. | Organization.identifier | 0..1 | String(8) | Registr PZS
+ | Název zpracovatele | Název cílového PZS. | Organization.name | 0..1 | String(100) | -
+ | Odbornost zpracovatele | Kód odbornosti cílového pracoviště/lékaře. | ServiceRequest.specialty | 1..1 | String(3) | VZP Číselník Odborností
+ | ID zpracovatele | Unikátní identifikátor zpracovatele (ID ZP). |  |  |  | 
+ | Jméno zpracovatele | Jméno lékaře u cílového zpracovatele |  |  |  | 
+Příjemce nálezu (dodateční příjemci dle z. 327/2011 §54a) | ID příjemce | ID dodatečného příjemce |  |  |  | 
+ | Jméno příjemce |  |  |  |  | 
+ | ID PZS příjemce |  |  |  |  | 
+ | Název PZS příjemce |  |  |  |  | 
+Metadata dokumentu | Identifikátor eŽádanky | Unikátní, systémem generovaný identifikátor eŽádanky. Slouží k její jednoznačné identifikaci v celém ekosystému. | ServiceRequest.identifier | 1..1 | urn:ietf:rfc:3986 (UUID) | system: "https://ncez.mzcr.cz/fhir/sid/ezadanka-id", value: "urn:uuid:..."
+ | Typ eŽádanky | Kategorie EHR.Pevně daný kód pro typ "poukaz K". | ServiceRequest.category | 1..1 | Číselník typů žádanek (např. urn:oid:1.2.203.7898.1.6) | coding:
+ | Stav eŽádanky | Aktuální stav žádanky v životním cyklu (nová, přijatá atd.). | ServiceRequest.status | 1..1 | http://hl7.org/fhir/request-status | active (při vytvoření)
+ | Naléhavost požadavku | Urgentnost požadavku (standardně rutina). | ServiceRequest.priority | 0..1 | http://hl7.org/fhir/request-priority | routine
+ | Datum a čas vytvoření | Datum a čas vytvoření a autorizace žádanky. | ServiceRequest.authoredOn | 1..1 | DateTime (ISO 8601) | "2025-09-15T10:30:00+02:00"
+ | Název dokumentu | „Poukaz K“ |  | 1..1 |  | 
+ | Správce dokumentu | Název a ID subjektu, který dokument spravuje. |  | 1..1 |  | 
+ | Důvěrnost dokumentu | Stupeň důvěrnosti |  | 1..1 |  | 
+ | Jazyk dokumentu |  |  | 1..1 |  | 
+ | Verze dokumentu |  |  | 0..1 |  | 
+Elektronické podpisy | Admin.Autorizace | Elektronický podpis/pečeť odesílajícího. | Provenanceresource | 1..1 | Binární data | -
+ |  | Časové razítko |  | 0..1 |  | 
+Tělo
+Společné pro K, FT | Hlavní diagnóza | Hlavní diagnóza zdůvodňující žádost. | ServiceRequest.reasonCode | 1..1 | String(5) | MKN-10 (ÚZIS)
+ | Vedlejší diagnóza | Další relevantní diagnózy pacienta. | ServiceRequest.supportingInfo (ref. Condition) | 0..* | String(5) | MKN-10 (ÚZIS)
+ | Kód náhrady | Kód typu úhrady nebo programu. | Coverage.type | 0..1 | String(2) | VZP Číselník Náhrad
+ | Zdůvodněni | Klinické odůvodnění požadavku (anamnéza, obj. nález). | ServiceRequest.reasonReference (ref. Condition), ServiceRequest.note | 1..1 | Text | -
+Specifické údaje pro K | Typ požadovaného vyšetření | Konziliární vyšetření, vyšetření, ošetření |  |  |  | 
+ | Požadované vyšetření slovem | Slovní popis požadovaných zdravotních služeb. | ServiceRequest.code.text | 1..1 | Text | -
+ | Výkony | Seznam kódů požadovaných zdravotních výkonů. | ServiceRequest.code.coding | 0..* | String(5) | VZP Číselník Výkonů
+ | Doporučeno (kam) | Převzetí do péče, nebo hospitalizace |  |  |  | 
+ | Doporučení slovem | Slovní doplnění specifikace doporučení | ServiceRequest.orderDetail | 0..1 | Text | -
+Poznámka | Závažná anamnestická data |  |  |  |  | 
+ | Výsledky provedených vyšetření |  |  |  |  | 
+ | Diferenciálně diagnostická rozvaha |  |  |  |  | 
+ | Současná léčba, medikace včetně dávkovaní |  |  |  |  | 
+Přílohy | Zapůjčená dokumentace |  |  |  |  | 
+Identifikátory a klíčové entity
+Pro zajištění jednoznačnosti a správného párování dat napříč systémy je klíčové správné a konzistentní používání identifikátorů. eŽádanka K operuje s několika klíčovými entitami, jejichž identifikace je zásadní:
+eŽádanka: Každá instance eŽádanky musí mít přidělen globálně unikátní identifikátor (GUID/UUID), který ji jednoznačně identifikuje v celém ekosystému.
+Pacient: Primárním identifikátorem je bezvýznamový identifikátor pacienta, který bude systémově preferován.
+Poskytovatel (Pracoviště): Jednoznačná identifikace je zajištěna IČP (identifikační číslo pracoviště přidělené pojišťovnou) a doplňkově IČO.
+Zdravotnický pracovník (Lékař): Každý lékař bude mít přidělen unikátní bezvýznamový identifikátor zdravotnického pracovníka dle Zákona o elektronizaci zdravotnictví. 
+Využití externích číselníků
+Správnost a sémantická interoperabilita eŽádanky K je podmíněna striktním využíváním centrálně spravovaných a pravidelně aktualizovaných číselníků. Informační systémy poskytovatelů musí mít implementovány mechanismy pro jejich pravidelnou aktualizaci a správné verzování. Tato kapitola exaktně specifikuje klíčové číselníky, jejich správce a způsob jejich získání.
+Číselník Ústavu zdravotnických informací a statistiky ČR (ÚZIS)
+Číselník diagnóz (MKN-10)
+Oficiální název: Mezinárodní statistická klasifikace nemocí a přidružených zdravotních problémů (MKN-10).
+Správce: V České republice je za správu a distribuci české lokalizace zodpovědný Ústav zdravotnických informací a statistiky ČR (ÚZIS).
+Účel v eŽádance K: Povinné vyplnění polí Klinika.HlavniDiagnoza a volitelně Klinika.VedlejsiDiagnoza. Kód diagnózy je klíčovým údajem pro klinické zdůvodnění žádosti a pro následné vykazování pojišťovně.
+Struktura kódu: Kód je alfanumerický, typicky tří až pětimístný. Skládá se z písmene na první pozici a následných číslic. V českém prostředí se historicky často používá bez oddělovací tečky za třetím znakem (např. I10 místo I10.0).
+Zdroj a formát: ÚZIS poskytuje číselník ve strojově čitelném formátu CSV na Národním zdravotnickém informačním portálu (NZIP). 
+Aktualizace a verzování: Číselník je aktualizován zpravidla ročně, vždy k 1. lednu. 
+Číselníky Všeobecné zdravotní pojišťovny (VZP)
+VZP spravuje a publikuje sadu číselníků, které jsou de facto standardem pro celý systém veřejného zdravotního pojištění v ČR a jsou klíčové pro vykazování a úhradu péče.
+Číselník Typ žádanky
+Číselník Požadované vyšetření
+Požadované vyšetření:konziliární, vyšetření, ošetření
+Číselník Doporučení převzetí do péče
+Doporučení převzetí do péče: ambulantní nebo ústavní
+Číselník smluvních odborností pracovišť
+Oficiální název: Smluvní odbornosti pracovišť.
+Účel v eŽádance K: Vyplnění polí Odesilatel.Odbornost a Adresat.Odbornost. Kód odbornosti je zásadní pro správné směrování žádanky a pro kontrolu oprávněnosti indikace a provedení péče.
+Zdroj a formát: Číselník je dostupný na portálu VZP, typicky jako komprimovaný soubor.
+Aktualizace a verzování: Aktualizace není tak častá jako u výkonů, ale je nutné sledovat platnou verzi.
+Číselník náhrad za zdravotní péči
+Oficiální název:Náhrady za zdravotní péči
+Účel v eŽádance K: Vyplnění poleNáhrady. PZS je povinno indikovat úrazy a jiná poškození zdraví osob, kterým poskytlo zdravotní péči, pokud má důvodné podezření, že úraz nebo jiné poškození zdraví byly způsobeny jednáním právnické nebo fyzické osoby. Uvádí se kód náhrady dle číselníku „Náhrady za zdravotní péči“. Upozornění: doklad, na kterém je uvedena náhrada, musí obsahovat pouze tu zdravotní péči, která byla poskytnuta v souvislosti s indikovanou náhradou.
+Zdroj a formát:VZP publikuje číselník na svých webových stránkách pro poskytovatele, a to ve formátech PDF a CSV.
+Aktualizace a verzování: Aktualizace není tak častá jako u výkonů, ale je nutné sledovat platnou verzi.
+Kód | Název
+3 | Úraz zaviněný jinou osobou
+4 | Alkohol, omamné látky
+5 | Pracovní úraz
+6 | Sociální důvod hospitalizace
+7 | Porušení léčebného režimu
+8 | Jiný důvod
+9 | Nemoc z povolání
+Číselník zdravotních výkonů
+Oficiální název:Zdravotní výkony.
+Účel v eŽádance K:Vyplnění pole Klinika.PozadavekVykonypro přesnou specifikaci požadovaných služeb.
+Zdroj a formát:VZP publikuje číselník na svých webových stránkách pro poskytovatele, a to ve formátech PDF a CSV.
+Aktualizace a verzování:Tento číselník je vysoce dynamický, s aktualizacemi probíhajícími i několikrát ročně, často měsíčně. Implementace musí počítat s velmi častou aktualizací.
+Procesní model a životní cyklus eŽádanky K
+Scénáře a stavy
+Životní cyklus eŽádanky K je definován jako posloupnost stavů, kterými dokument prochází od svého vzniku až po archivaci. Každý přechod mezi stavy je vyvolán konkrétní událostí iniciovanou jedním z aktérů (odesílající lékař, přijímající lékař, systém). Tento model zajišťuje transparentnost a sledovatelnost celého procesu.Tabulka 2: Stavy a přechody životního cyklu eŽádanky K
+Stav | Popis | Spouštěcí událost | Aktér | Možné další stavy
+Rozpracovaná | Žádanka je vytvářena v IS odesílatele, není finálně uložena ani odeslána. | Uživatel zahájí tvorbu nové žádanky. | Odesílající lékař | Odeslaná, Zrušená
+Odeslaná | Žádanka byla autorizována el. podpisem a odeslána do výměnné sítě IDR. | Uživatel podepíše a potvrdí odeslání. | Odesílající lékař | Doručená, Chyba doručení
+Doručená | Žádanka byla úspěšně doručena do schránky adresáta v IDR a je dostupná pro jeho IS. | IS adresáta potvrdí technické převzetí zprávy. | Systém (IDR) | Přijatá, Odmítnutá
+Přijatá | Adresát (lékař/personál) žádanku akceptoval a plánuje poskytnutí péče (např. objednání pacienta). | Uživatel v IS adresáta potvrdí přijetí žádanky. | Přijímající lékař/personál | Zpracovaná
+Odmítnutá | Adresát odmítl žádanku. Odmítnutí musí být zdůvodněno (např. kapacitní důvody, odborná irelevance). | Uživatel v IS adresáta zvolí odmítnutí a vyplní důvod. | Přijímající lékař/personál | - (terminální stav)
+Zpracovaná | Požadovaná péče byla poskytnuta a byla vytvořena navazující "Zpráva o poskytnutých zdravotních službách". | Vytvoření a odeslání navázané lékařské zprávy. | Přijímající lékař | - (terminální stav)
+Stornovaná | Odesílatel zrušil žádanku předtím, než ji adresát přijal. Storno již přijaté žádanky není možné. | Odesílatel iniciuje storno v IS. | Odesílající lékař | - (terminální stav)
+Expirovaná | Žádanka nebyla adresátem zpracována (přijata/odmítnuta) v definované časové lhůtě. | Uplynutí definovaného časového intervalu. | Systém | - (terminální stav)
+Tento stavový model formalizuje business proces a poskytuje jasný základ pro implementaci stavového stroje v informačních systémech. Umožňuje také reportování a sledování průchodnosti žádostí systémem.
+Interakce aktérů
+Proces výměny eŽádanky K zahrnuje koordinovanou interakci mezi třemi hlavními aktéry: informačním systémem požadujícího lékaře (IS Odesílatele), Integrovaným datovým rozhraním (IDR) a informačním systémem poskytovatele specializované péče (IS Adresáta).
+Tok komunikace probíhá následovně:
+Vytvoření a odeslání: Odesílající lékař vytvoří v IS Odesílatele novou eŽádanku K, vyplní všechny povinné údaje a autorizuje ji svým elektronickým podpisem. IS Odesílatele zabalí data do definované datové zprávy a odešle ji do výměnné sítě IDR.
+Zpracování v IDR: IDR přijme zprávu, validuje její formální správnost a uloží ji do úložiště (schránky).V případě vyplněného Adresáta, notifikuje IS Adresáta. IDR zároveň může odeslat technické potvrzení o uložení zpět do IS Odesílatele.
+Vyzvednutí a zpracování:Pacient přijde do daného PZS, kde chce absolvovat dané vyšetření, předloží žádanku (např. QR kód na papíru nebo jej zobrazí v mobilní aplikaci), na základě kódu je žádanka vyhledána v systému eŽádanek.Nebo IS Adresáta se v pravidelných intervalech dotazuje své schránky v IDR na nové zprávy. Po detekci nové eŽádanky ji stáhne, dešifruje a zobrazí uživateli (přijímajícímu lékaři/personálu).
+Business potvrzení: Uživatel v IS Adresáta provede akci – přijme nebo odmítne žádanku. IS Adresáta na základě této akce vygeneruje stavovou zprávu (business potvrzení) a odešle ji přes IDR zpět do IS Odesílatele.
+Aktualizace stavu:IS Odesílatele přijme stavovou zprávu a aktualizuje stav původní eŽádanky, čímž je odesílající lékař informován o výsledku.
+Vyřízení žádanky
+Zpracování odpovědi
+Formální a klinickou odpovědí na eŽádanku K je dokument „Zpráva o poskytnutých zdravotních službách“, jehož obsah je rovněž definován Vyhláškou č. 444/2024 Sb. Tato zpráva, vytvořená specialistou po provedení vyšetření, musí obsahovat výsledky, diagnostický závěr a doporučení pro další postup.
+Pro zajištění kontinuity a uzavření komunikační smyčky je nezbytné, aby existovala jednoznačná elektronická vazba mezi původní eŽádankou a následnou zprávou. Datový model zprávy proto musí obsahovat pole, do kterého se uvede unikátní identifikátor (Zadanka.ID) žádanky, na kterou zpráva reaguje. Tímto mechanismem je možné v informačních systémech automaticky párovat žádosti s odpověďmi a sledovat kompletní referenční cyklus. Přechod eŽádanky do stavu Zpracovaná je podmíněn právě vytvořením a odesláním této navázané zprávy.
+Návaznost na proces vykazování (část B)
+Vztah mezi eŽádankou (autorizace) a dokladem o poskytnuté péči (vyúčtování)
+Zásadním architektonickým principem, který je nutné dodržet, je striktní oddělení procesu autorizace (část A) od procesu vyúčtování (část B). Tento princip je v souladu s požadavkem neměnit zavedené procesy systému eŽádanky a zároveň zajišťuje transparentnost a auditovatelnost celého řetězce.
+eŽádanka K (část A) je v kontextu HL7 FHIR reprezentována zdrojem ServiceRequest. Tento zdroj slouží jako předběžná autorizace (pre-authorization) péče. Definuje, jaká péče, pro koho a z jakého důvodu je schválena. Po svém vystavení a uložení v centrálním úložišti získává unikátní a neměnný identifikátor.
+Doklad o poskytnuté péči (část B), který slouží k vyúčtování zdravotní pojišťovně, bude v budoucím FHIR-nativním systému reprezentován zdrojem Claim. Tento zdroj detailně popisuje, jaká péče byla skutečně poskytnuta, kdy a kým.
+Integrita celého procesu od indikace po úhradu závisí na vytvoření nezpochybnitelného digitálního spojení mezi těmito dvěma entitami.Tento vztah se realizuje následovně:
+Při vytvoření eŽádanky K je zdroji ServiceRequest přidělen globálně unikátní identifikátor (např. ServiceRequest.id nebo ServiceRequest.identifier).
+Poté, co poskytovatel vyžádané péče poskytne péči, jeho informační systém vygeneruje zdroj Claim pro vyúčtování.
+V rámci zdroje Claim musí být povinně uveden odkaz na původní autorizující ServiceRequest. Ve FHIR se toto propojení realizuje pomocí elementu Claim.item.serviced[x] nebo Claim.supportingInfo, který bude obsahovat referenci na unikátní identifikátor původní eŽádanky.
+Tato reference umožňuje reviznímu systému zdravotní pojišťovny provést automatizovanou validaci: "Odpovídá tento požadavek na úhradu (Claim) platné a schválené autorizaci (ServiceRequest) pro daného pacienta?" Tímto mechanismem se efektivně předchází neoprávněnému vykazování péče a zajišťuje se soulad s pravidly bez nutnosti manuální kontroly každého případu.
+Datový tok pro generování vyúčtování
+Generování vyúčtovacího dokladu (Claim) z dat eŽádanky K. 
+ServiceRequest obsahuje seznam ServiceRequest.code.codings konkrétními kódy výkonů.
+Informační systém poskytovatele péče při generování Claim zdroje naplní seznam položek k úhradě (Claim.item) přímo z výkonů, které byly provedeny a které byly autorizovány v ServiceRequest.code.coding.
+Validační logika na straně zdravotní pojišťovny porovná kódy výkonů v Claim.item s kódy v ServiceRequest.code.coding původní eŽádanky. Úhrada je schválena, pokud existuje shoda.
+Implementační doporučení a závěr
+Závislosti a předpoklady
+Úspěšná implementace a celoplošné nasazení eŽádanky K závisí na splnění několika klíčových předpokladů a závislostí:
+Technologické: Všechny informační systémy poskytovatelů musí disponovat zabezpečenou konektivitou k Integrovanému datovému rozhraní (IDR). Musí mít implementovánu podporu pro práci s kvalifikovanými elektronickými podpisy a pečetěmi pro autorizaci dokumentů.
+Procesní: Poskytovatelé musí mít zavedeny procesy pro správu a pravidelnou aktualizaci externích číselníků (MKN-10, číselníky VZP). Zanedbání této oblasti povede k produkci nevalidních dat a selhání komunikace. Předpokladem je využití komponenty Centrální služby elektronického zdravotnictví (Terminologický server).
+Standardizační: Je nezbytná existence finálních a stabilních verzí českých národních FHIR profilů (CZ Core) publikovaných na oficiálním repositáři MZČR.

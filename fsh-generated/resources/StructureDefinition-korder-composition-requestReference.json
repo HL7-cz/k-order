@@ -11,7 +11,7 @@
       "valueCode": "trial-use"
     }
   ],
-  "url": "https://hl7.cz/fhir/korder/StructureDefinition/korder-composition-requestReference",
+  "url": "https://hl7.cz/fhir/order/StructureDefinition/korder-composition-requestReference",
   "name": "KOrderRequestReference",
   "title": "K-order Request Reference",
   "status": "draft",
@@ -44,7 +44,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://hl7.cz/fhir/korder/StructureDefinition/korder-composition-requestReference"
+        "fixedUri": "https://hl7.cz/fhir/order/StructureDefinition/korder-composition-requestReference"
       },
       {
         "id": "Extension.value[x]",
@@ -53,7 +53,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+              "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
             ]
           }
         ]

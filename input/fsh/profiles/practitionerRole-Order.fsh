@@ -22,3 +22,5 @@ Vychází z CZ_PractitionerRoleCore a doplňuje povinnou odbornost žadatele dle
 * specialty[VZP_ODB] from VzpOdbornostVS (required)
 * specialty[VZP_ODB] ^short = "Odbornost dle číselníku VZP"
 * specialty[VZP_ODB] ^definition = "Odbornost dle národního číselníku odborností VZP (urn:oid:1.2.203.7898.1.4)."
+
+* healthcareService only Reference(OrderHealthcareServiceCz)

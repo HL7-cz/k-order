@@ -28,7 +28,7 @@ Usage: #example
 
 // ------------------------- Conditions ------------------------------------
 Instance: KOrderCondition-Main
-InstanceOf: KOrderConditionCz
+InstanceOf: OrderConditionCz
 Usage: #example
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
@@ -37,7 +37,7 @@ Usage: #example
 * code.coding[=].display = "Hypertenze"
 
 Instance: KOrderCondition-Secondary
-InstanceOf: KOrderConditionCz
+InstanceOf: OrderConditionCz
 Usage: #example
 * id = "KOrderCondition-Secondary"
 * subject = Reference(Patient-Novak-Petr)
@@ -51,8 +51,7 @@ Instance: KOrderServiceRequest-1
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
 * id = "KOrderServiceRequest-1"
-//* identifier[+].system = "https://hl7.cz/fhir/korder/ids"
-* identifier[+].value = "KORD-SR-2025-0001"
+* identifier[idEZadanky].value = "KORD-SR-2025-0001"
 * status = #active
 * intent = #order
 * authoredOn = "2025-02-01T09:50:00+01:00"
@@ -71,8 +70,7 @@ Instance: KOrderServiceRequest-2
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
 * id = "KOrderServiceRequest-2"
-//* identifier[+].system = "https://hl7.cz/fhir/korder/ids"
-* identifier[+].value = "KORD-SR-2025-0002"
+* identifier[idEZadanky].value = "KORD-SR-2025-0002"
 * status = #active
 * intent = #order
 * authoredOn = "2025-02-01T09:52:00+01:00"
@@ -108,7 +106,7 @@ Usage: #example
 
 // ------------------------- Bundle (K-Order) -------------------------------
 Instance: BundleKOrderExample
-InstanceOf: BundleKOrderCz
+InstanceOf: BundleOrderCz
 Usage: #example
 * id = "BundleKOrderExample"
 * type = #document

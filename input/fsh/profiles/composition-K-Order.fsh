@@ -60,12 +60,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * custodian only Reference(CZ_OrganizationCore)
 
 * author 1..* MS
-* author only Reference(
-    CZ_PractitionerCore
-  or OrderPractitionerRoleCz
-  or CZ_DeviceObserver
-  or CZ_OrganizationCore
-)
+* author only Reference(OrderPractitionerRoleCz)
 * author ^short = "Who/what authored the K-order"
 
 
@@ -134,8 +129,7 @@ Severity: #error
     referencedDocumentation 0..1
 
 
-// --------------------------- section definitions ----------------------------
-
+// --------------------------- section definitions ----------------------------1
 // Insurance
 * section[insurance].code = $loinc#48768-6
 * section[insurance].title = "Insurance"
@@ -158,8 +152,8 @@ Severity: #error
 // Examinations
 * section[examinations].code = $loinc#57133-1
 * section[examinations].title = "Requested examinations"
-* section[examinations].entry 1..*
-* section[examinations].entry only Reference(KOrderServiceRequestCz or FTServiceRequestCz)
+* section[examinations].entry 1..1
+* section[examinations].entry only Reference(KOrderServiceRequestCz)
 
 // Attachments
 * section[attachments].code = $loinc#55107-7

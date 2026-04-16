@@ -11,7 +11,7 @@
       "valueCode": "draft"
     }
   ],
-  "url": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+  "url": "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz",
   "name": "KOrderServiceRequestCz",
   "title": "K-order (CZ) – ServiceRequest",
   "status": "draft",
@@ -72,7 +72,7 @@
               "https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core",
-              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
+              "https://hl7.cz/fhir/order/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
             ]
           }
@@ -117,7 +117,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+              "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
             ]
           }
         ]
@@ -133,7 +133,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/cz-order-recommendation-disposition"
+              "https://hl7.cz/fhir/order/StructureDefinition/cz-order-recommendation-disposition"
             ]
           }
         ]
@@ -141,20 +141,46 @@
       {
         "id": "ServiceRequest.identifier",
         "path": "ServiceRequest.identifier",
-        "short": "Identifikátor eŽádanky (UUID)",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Identifikátory žádanky",
         "min": 1,
-        "max": "1",
         "mustSupport": true
       },
       {
-        "id": "ServiceRequest.identifier.system",
+        "id": "ServiceRequest.identifier:obecnyIdentifikator",
+        "path": "ServiceRequest.identifier",
+        "sliceName": "obecnyIdentifikator",
+        "short": "Obecný identifikátor",
+        "definition": "Další volitelný identifikátor ServiceRequest.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "ServiceRequest.identifier:idEZadanky",
+        "path": "ServiceRequest.identifier",
+        "sliceName": "idEZadanky",
+        "short": "Identifikátor eŽádanky (UUID)",
+        "definition": "Povinný identifikátor eŽádanky ve formátu UUID.",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "ServiceRequest.identifier:idEZadanky.system",
         "path": "ServiceRequest.identifier.system",
         "min": 1,
-        "fixedUri": "urn:ietf:rfc:4122",
+        "fixedUri": "https://ncez.mzcr.cz/fhir/sid/ezadanka-id",
         "mustSupport": true
       },
       {
-        "id": "ServiceRequest.identifier.value",
+        "id": "ServiceRequest.identifier:idEZadanky.value",
         "path": "ServiceRequest.identifier.value",
         "min": 1,
         "mustSupport": true
@@ -166,7 +192,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+              "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
             ]
           }
         ]
@@ -189,7 +215,7 @@
         "mustSupport": true,
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/korder-category-vs"
+          "valueSet": "https://hl7.cz/fhir/order/ValueSet/korder-category-vs"
         }
       },
       {
@@ -205,7 +231,7 @@
         "mustSupport": true,
         "binding": {
           "strength": "extensible",
-          "valueSet": "https://hl7.cz/fhir/korder/ValueSet/korder-procedures-vs"
+          "valueSet": "https://hl7.cz/fhir/order/ValueSet/korder-procedures-vs"
         }
       },
       {
@@ -256,7 +282,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
+              "https://hl7.cz/fhir/order/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
             ]
           }
@@ -272,7 +298,7 @@
             "code": "Reference",
             "targetProfile": [
               "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
-              "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz",
+              "https://hl7.cz/fhir/order/StructureDefinition/OrderPractitionerRoleCz",
               "https://hl7.cz/fhir/core/StructureDefinition/cz-organization-core"
             ]
           }
@@ -339,7 +365,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+              "https://hl7.cz/fhir/order/StructureDefinition/OrderConditionCz"
             ]
           }
         ]

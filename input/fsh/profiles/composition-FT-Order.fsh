@@ -63,12 +63,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * custodian only Reference(CZ_OrganizationCore)
 
 * author 1..* MS
-* author only Reference(
-    CZ_PractitionerCore
-  or OrderPractitionerRoleCz
-  or CZ_DeviceObserver
-  or CZ_OrganizationCore
-)
+* author only Reference(OrderPractitionerRoleCz)
 * author ^short = "Who/what authored the FT-order"
 
 // --------------------------- attester ---------------------------------------
@@ -108,7 +103,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * section contains
     insurance 0..1 and
     reasons 0..1 and
-    examinations 1..1 and
+    examinations 1..* and
     attachments 0..* and
     signature 0..1 and
     replacement 0..1 and

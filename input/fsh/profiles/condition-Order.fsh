@@ -1,16 +1,16 @@
-Profile: KOrderConditionCz
+Profile: OrderConditionCz
 Parent: Condition
-Id: KOrderConditionCz
-Title: "Condition: K-order (CZ)"
+Id: OrderConditionCz
+Title: "Condition: General order (CZ)"
 Description: """
-Condition profil pro K-order (konziliární žádanku).
-Používá se pro diagnózy a klinické důvody žádanky.
+Condition profil pro General order (obecnou žádanku).
+Používá se pro diagnózy MKN10a klinické důvody žádanky.
 """
 
 * ^publisher = "HL7 CZ"
 * ^copyright = "HL7 CZ"
-* . ^short = "K-order Condition"
-* . ^definition = "Diagnóza nebo klinický důvod přiložený k žádance K-order."
+* . ^short = "General order Condition"
+* . ^definition = "Diagnóza nebo klinický důvod přiložený k žádance."
 
 // ----------------------------------------------------------------------------
 // Identifikace a základní atributy

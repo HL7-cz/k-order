@@ -1,19 +1,17 @@
-Profile: FTServiceRequestCz
+Profile: ServiceRequestCz
 Parent: ServiceRequest
-Id: FTServiceRequestCz
-Title: "FT (CZ) – ServiceRequest"
+Id: ServiceRequestCz
+Title: "Order (CZ) – ServiceRequest"
 Description: """
-Národní profil ServiceRequest pro eŽádanku fyzioterapie (FT).
-Zachovává strukturu KOrderServiceRequestCz, ale:
-- code je VZP výkon (1 ServiceRequest = 1 řádek poukazu)
-- quantity[x] je povinné (např. 12×)
-- category je FT kategorie (VS pro FT)
+Národní profil ServiceRequest pro General order (obecnou žádanka).
+Reprezentuje klinické/technické zadání (požadované vyšetření nebo výkony).
+Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a Condition.
 """
 * ^publisher = "HL7 CZ"
 * ^copyright = "HL7 CZ"
 
-* . ^short = "FT ServiceRequest"
-* . ^definition = "ServiceRequest reprezentuje jeden požadovaný FT výkon (1 řádek). Více výkonů = více ServiceRequest v jedné Composition."
+* . ^short = "General order ServiceRequest"
+* . ^definition = "ServiceRequest reprezentuje požadavek na vyšetření nebo výkon v rámci žádanky."
 
 * insert SetFmmandStatusRule ( 0, draft )
 
@@ -31,20 +29,22 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * identifier[idEZadanky] ^definition = "Povinný identifikátor eŽádanky ve formátu UUID."
 * identifier[idEZadanky].system 1..1 MS
 * identifier[idEZadanky].value 1..1 MS
-* identifier[idEZadanky].system = "urn:ietf:rfc:4122" (exactly)
+* identifier[idEZadanky].system = "https://ncez.mzcr.cz/fhir/sid/ezadanka-id" (exactly)
 
 // --------------------------- extensions --------------------------------------
 * extension contains
     $information-recipient-url named informationRecipient 0..*
     and CompositionBasedOnOrderOrRequisition named basedOnComposition 0..*
+    and CzKOrderRecommendationDisposition named recommendationDisposition 0..1 
 
 * extension[informationRecipient].valueReference only Reference(
-    CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
+    CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or 
     CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
 
-// NOTE: zachovávám název basedOnComposition, ale opravím typ na Composition (pokud máte extension takto myšlenou)
-* extension[basedOnComposition].valueReference only Reference(FTServiceRequestCz)
+* extension[basedOnComposition].valueReference only Reference(ServiceRequestCz)
+* extension[recommendationDisposition] ^definition =
+  "Doporučení převzetí do péče nebo hospitalizace žádanky"
 
 // --------------------------- lifecycle / status / intent ---------------------
 * status 1..1 MS
@@ -66,7 +66,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 )
 
 * performer 0..* MS
-* performer ^short = "Cílový příjemce (pracoviště / poskytovatel FT)"
+* performer ^short = "Cílový příjemce (laboratoř / PZS)"
 * performer only Reference(
     CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
@@ -77,7 +77,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 
 * reasonReference 0..*
 * reasonReference only Reference(OrderConditionCz)
-* reasonReference ^short = "Diagnózy odůvodňující žádanku (volitelné per výkon)"
+* reasonReference ^short = "Diagnózy odůvodňující žádanku"
 
 * reasonCode 0..*
 * reasonCode ^short = "Slovní/číselné zdůvodnění žádosti"
@@ -93,28 +93,22 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode.coding[reason] from $sct-condition-code (preferred)
 * reasonCode.coding[reason].system = "http://snomed.info/sct" (exactly)
 
-// --------------------------- category / type / code / priority ----------------
+// --------------------------- category / type / code / priority ----------------------
 * category 1..1 MS
-* category from FTOrderCategoryVS (extensible)  // nový VS pro FT
+* category from KOrderCategoryVS (extensible)
+
 
 * code 1..1 MS
-* code from FTOrderProceduresVS (extensible) // VZP výkony pro FT
-* code ^short = "Požadovaný FT výkon (1 řádek poukazu)"
+* code from KOrderProceduresVS (extensible)  // K Order Procedures ValueSet? 
+* code ^short = "Požadované vyšetření/výkon"
 
 * priority 0..1 MS
+// Česky překlad v lokalním VS KOrderPriorityVS
+//* priority from KOrderPriorityVS (required)
 
 // --------------------------- timing / quantity -------------------------------
-// Pro FT řádek je počet (12×) zásadní -> povinné
-* quantity[x] 1..1 MS
-* quantity[x] only Quantity
-* quantityQuantity.value 1..1 MS
-* quantityQuantity.unit 0..1
-* quantityQuantity.code 0..1
-* quantityQuantity.system 0..1
-// Doporučení: unit/code třeba "x" (pokud si zavedete jednotku)
-
-// occurrence ponechávám stejně jako K-order
 * occurrence[x] 0..1 MS
+
 
 // --------------------------- specimens ---------------------------------------
 * specimen 0..*
@@ -127,22 +121,19 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 // --------------------------- notes / attachments ------------------------------
 * note 0..*
 
+
 // --------------------------- workflow links ----------------------------------
 * basedOn 0..*
-* basedOn only Reference(ServiceRequest)
+* basedOn only Reference(ServiceRequestCz)
+
+
+
+
+
 
 // --------------------------- invariants --------------------------------------
-Invariant: ft-code-required
-Description: "FT ServiceRequest musí mít vyplněný kód výkonu."
-Severity: #error
-Expression: "code.coding.exists()"
 
-Invariant: ft-subject-is-patient
+Invariant: subject-is-patient
 Description: "Subjekt žádanky musí být pacient."
 Severity: #error
 Expression: "subject.resolve().resourceType = 'Patient'"
-
-Invariant: ft-quantity-required
-Description: "FT ServiceRequest musí mít vyplněný počet opakování (např. 12×)."
-Severity: #error
-Expression: "quantity.exists() and quantity.as(Quantity).value.exists()"

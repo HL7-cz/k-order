@@ -5,11 +5,11 @@
   "id": "vzp-nahrady-vs",
   "title": "VZP Reimbursement Indicator ValueSet",
   "description": "ValueSet for replacement codes according to VZP.",
-  "url": "https://hl7.cz/fhir/korder/ValueSet/vzp-nahrady-vs",
+  "url": "https://hl7.cz/fhir/order/ValueSet/vzp-nahrady-vs",
   "compose": {
     "include": [
       {
-        "system": "https://hl7.cz/fhir/korder/CodeSystem/vzp-nahrady"
+        "system": "https://hl7.cz/fhir/order/CodeSystem/vzp-nahrady"
       }
     ]
   }
