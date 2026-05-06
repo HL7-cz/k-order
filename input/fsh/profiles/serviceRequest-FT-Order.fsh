@@ -67,7 +67,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * encounter only Reference(CZ_Encounter)
 
 * reasonReference 0..*
-* reasonReference only Reference(KOrderConditionCz)
+* reasonReference only Reference(CZ_ConditionCore)
 * reasonReference ^short = "Diagnózy odůvodňující žádanku (volitelné per výkon)"
 
 * reasonCode 0..*
@@ -79,7 +79,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode.coding contains
     diagnosis 0..1 and
     reason 0..1
-* reasonCode.coding[diagnosis] from $mkn10 (preferred)
+* reasonCode.coding[diagnosis] from CZ_DiagnosisConditionVs (preferred)
 * reasonCode.coding[diagnosis].system = "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
 * reasonCode.coding[reason] from $sct-condition-code (preferred)
 * reasonCode.coding[reason].system = "http://snomed.info/sct" (exactly)

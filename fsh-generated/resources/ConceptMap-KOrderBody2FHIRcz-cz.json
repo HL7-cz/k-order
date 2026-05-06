@@ -6,70 +6,218 @@
   "title": "CZ K-order Body Model to this guide Map",
   "status": "draft",
   "experimental": true,
-  "description": "CZ K-order Body (A.2–A.6) → FHIR mapping (ServiceRequest, Condition, DocumentReference, Provenance, Composition sections).",
+  "description": "CZ K-order Body (A.2-A.6) -> FHIR mapping (ServiceRequest, Condition, DocumentReference, Provenance, Composition sections).",
   "group": [
     {
-      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMOrderInformationCz",
       "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
       "element": [
         {
-          "code": "diagnozy",
-          "display": "A.2 – Diagnózy",
-          "target": [
-            {
-              "code": "ServiceRequest",
-              "equivalence": "relatedto"
-            }
-          ]
-        },
-        {
-          "code": "diagnozy.hlavniDiagnoza",
-          "display": "A.2.1 – Hlavní diagnóza",
-          "target": [
-            {
-              "code": "ServiceRequest.reasonCode",
-              "equivalence": "equivalent",
-              "comment": "Hlavní diagnóza jako kódovaná indikace vyšetření/výkonu"
-            }
-          ]
-        },
-        {
-          "code": "diagnozy.vedlejsiDiagnozy",
-          "display": "A.2.2 – Vedlejší diagnózy",
+          "code": "duvodObjednavky.problem",
+          "display": "A.2.2.1 - Popis problemu / diagnozy / stavu",
           "target": [
             {
               "code": "ServiceRequest.reasonReference",
               "equivalence": "relatedto",
-              "comment": "Vedlejší diagnózy jako samostatné Condition reference"
+              "comment": "Pro kazdy problem muze vzniknout samostatny Condition a ten se referencuje z reasonReference."
             }
           ]
         }
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMOrderInformationCz",
       "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
       "element": [
         {
-          "code": "duvody",
-          "display": "A.3 – Klinické odůvodnění",
+          "code": "duvodObjednavky",
+          "display": "A.2.2 - Oduvodneni vysetreni",
           "target": [
             {
               "code": "ServiceRequest.reasonCode",
               "equivalence": "relatedto",
-              "comment": "alternativně: ServiceRequest.reasonReference → Condition"
+              "comment": "Kodovane a textove oduvodneni objednavky."
+            }
+          ]
+        },
+        {
+          "code": "duvodObjednavky.klinickaOtazkaKod",
+          "display": "A.2.2.2 - Klinicka otazka kodem",
+          "target": [
+            {
+              "code": "ServiceRequest.reasonCode.coding[reason]",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "duvodObjednavky.klinickaOtazkaText",
+          "display": "A.2.2.3 - Klinicka otazka textem",
+          "target": [
+            {
+              "code": "ServiceRequest.reasonCode.text",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "duvodObjednavky.duvodKod",
+          "display": "A.2.2.4 - Duvod objednavky kodem",
+          "target": [
+            {
+              "code": "ServiceRequest.reasonCode.coding[reason]",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "duvodObjednavky.duvodText",
+          "display": "A.2.2.5 - Duvod objednavky textem",
+          "target": [
+            {
+              "code": "ServiceRequest.reasonCode.text",
+              "equivalence": "equivalent"
             }
           ]
         }
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/cz-bodyweight",
+      "element": [
+        {
+          "code": "biometrickeUdaje.vaha",
+          "display": "A.3.1.1.1 - Vaha",
+          "target": [
+            {
+              "code": "CZ_BodyWeight",
+              "equivalence": "relatedto",
+              "comment": "Composition.section:SupportingInformation.entry.ofType(CZ_BodyWeight)"
+            }
+          ]
+        },
+        {
+          "code": "biometrickeUdaje.vaha.hodnota",
+          "display": "A.3.1.1.1.1 - Hodnota vahy",
+          "target": [
+            {
+              "code": "CZ_BodyWeight.valueQuantity",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "biometrickeUdaje.vaha.kod",
+          "display": "A.3.1.1.1.2 - Kod vahy",
+          "target": [
+            {
+              "code": "CZ_BodyWeight.code",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "biometrickeUdaje.vaha.datumACas",
+          "display": "A.3.1.1.1.3 - Datum a cas vahy",
+          "target": [
+            {
+              "code": "CZ_BodyWeight.effectiveDateTime",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/cz-bodyheight",
+      "element": [
+        {
+          "code": "biometrickeUdaje.vyska",
+          "display": "A.3.1.1.2 - Vyska",
+          "target": [
+            {
+              "code": "CZ_BodyHeight",
+              "equivalence": "relatedto",
+              "comment": "Composition.section:SupportingInformation.entry.ofType(CZ_BodyHeight)"
+            }
+          ]
+        },
+        {
+          "code": "biometrickeUdaje.vyska.hodnota",
+          "display": "A.3.1.1.2.1 - Hodnota vysky",
+          "target": [
+            {
+              "code": "CZ_BodyHeight.valueQuantity",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "biometrickeUdaje.vyska.kod",
+          "display": "A.3.1.1.2.2 - Kod vysky",
+          "target": [
+            {
+              "code": "CZ_BodyHeight.code",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "biometrickeUdaje.vyska.datumACas",
+          "display": "A.3.1.1.2.3 - Datum a cas vysky",
+          "target": [
+            {
+              "code": "CZ_BodyHeight.effectiveDateTime",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/OrderConditionCz",
+      "element": [
+        {
+          "code": "dalsiRelevantniKlinickeInformace",
+          "display": "A.3.1.2 - Dalsi klinicke informace",
+          "target": [
+            {
+              "code": "Condition",
+              "equivalence": "relatedto",
+              "comment": "Vznika samostatny Condition pro dalsi relevantni klinicke informace."
+            }
+          ]
+        },
+        {
+          "code": "dalsiRelevantniKlinickeInformace.kod",
+          "target": [
+            {
+              "code": "Condition.code.coding[reason]",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "dalsiRelevantniKlinickeInformace.text",
+          "target": [
+            {
+              "code": "Condition.code.text",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMKOrderDataElementsCz",
       "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
       "element": [
         {
-          "code": "pozadovanaVysetreni",
-          "display": "A.4 – Požadovaná vyšetření / výkony",
+          "code": "pozadovaneVysetreni",
+          "display": "A.3.2.1 - Pozadovane vysetreni",
           "target": [
             {
               "code": "ServiceRequest",
@@ -79,8 +227,8 @@
           ]
         },
         {
-          "code": "pozadovanaVysetreni.slovniPopis",
-          "display": "A.4.1 – Slovní popis požadovaného výkonu",
+          "code": "pozadovaneVysetreni.nazev",
+          "display": "A.3.2.1.2 - Nazev vysetreni",
           "target": [
             {
               "code": "ServiceRequest.code.text",
@@ -89,19 +237,19 @@
           ]
         },
         {
-          "code": "pozadovanaVysetreni.kodVykonu",
-          "display": "A.4.2 – Kód výkonu (VZP)",
+          "code": "pozadovaneVysetreni.kod",
+          "display": "A.3.2.1.1 - Kod vysetreni",
           "target": [
             {
               "code": "ServiceRequest.code",
               "equivalence": "equivalent",
-              "comment": "Používá KOrderProceduresVS (VZP výkony)."
+              "comment": "Pouziva KOrderProceduresVS (VZP vykony)."
             }
           ]
         },
         {
-          "code": "pozadovanaVysetreni.doporuceni",
-          "display": "A.4.3 – Doporučení slovem",
+          "code": "pozadovaneVysetreni.poznamka",
+          "display": "A.3.2.1.7 - Poznamka",
           "target": [
             {
               "code": "ServiceRequest.note",

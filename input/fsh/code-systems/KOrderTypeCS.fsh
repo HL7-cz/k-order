@@ -3,6 +3,8 @@ Id: korder-type-cs
 Title: "K-order Type CodeSystem (CZ)"
 Description: "Typy konziliárních žádánek K-order pro použití v českém prostředí."
 * ^content = #complete
+* ^caseSensitive = true
+* ^experimental = false
 * ^publisher = "HL7 CZ"
 
 * #consultation "Konziliární vyšetření" 

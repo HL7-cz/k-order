@@ -53,6 +53,8 @@
       "display": "Neuvedeno"
     }
   ],
+  "caseSensitive": true,
+  "experimental": false,
   "publisher": "HL7 CZ",
   "count": 9
 }

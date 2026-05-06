@@ -1,11 +1,23 @@
 {
   "resourceType": "CodeSystem",
   "status": "draft",
-  "content": "not-present",
+  "content": "fragment",
   "name": "KOrderVzpProceduresCS",
   "id": "korder-vzp-procedures-cs",
   "title": "VZP Výkony – CodeSystem",
-  "description": "Externí kódový systém pro zdravotní výkony dle VZP.\nJedná se o referenci na národní autoritu – obsah není součástí IG.",
-  "url": "urn:oid:1.2.203.439.4",
+  "description": "Externí kódový systém pro zdravotní výkony dle VZP.\nIG obsahuje pouze demonstrační podmnožinu kódů použitou v příkladech.",
+  "url": "https://vzp.cz/cis/vykony",
+  "concept": [
+    {
+      "code": "09513",
+      "display": "Konziliární vyšetření internistou"
+    },
+    {
+      "code": "08911",
+      "display": "EKG - kontrolní vyšetření"
+    }
+  ],
+  "caseSensitive": true,
+  "experimental": false,
   "publisher": "VZP / MZČR"
 }

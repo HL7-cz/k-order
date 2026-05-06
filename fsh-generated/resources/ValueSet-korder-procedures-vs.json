@@ -6,11 +6,12 @@
   "title": "K-order Procedures ValueSet (CZ)",
   "description": "Kódy zdravotních výkonů dle VZP číselníku pro použití v K-order.",
   "url": "https://hl7.cz/fhir/korder/ValueSet/korder-procedures-vs",
+  "experimental": false,
   "publisher": "HL7 CZ",
   "compose": {
     "include": [
       {
-        "system": "urn:oid:1.2.203.439.4"
+        "system": "https://vzp.cz/cis/vykony"
       }
     ]
   }

@@ -6,6 +6,7 @@
   "title": "K-order Type ValueSet (CZ)",
   "description": "Typy konziliárních žádostí pro profil KOrderServiceRequestCz.",
   "url": "https://hl7.cz/fhir/korder/ValueSet/korder-type-vs",
+  "experimental": false,
   "publisher": "HL7 CZ",
   "compose": {
     "include": [

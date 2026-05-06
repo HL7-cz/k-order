@@ -27,7 +27,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 * identifier.system = "urn:ietf:rfc:4122"
 
 * type 1..1 MS
-* type = $loinc#57133-1 "Žádanka o vyšetření" (exactly)
+* type = $loinc#57133-1 (exactly)
 
 
 // --------------------------- extensions -------------------------------------
@@ -125,8 +125,7 @@ Severity: #error
     reasons 0..1 and
     examinations 1..1 and
     attachments 0..* and
-    signature 0..1 and
-    replacement 0..1
+    signature 0..1
 
 
 // --------------------------- section definitions ----------------------------
@@ -142,7 +141,7 @@ Severity: #error
 * section[diagnoses].code = $loinc#11450-4
 * section[diagnoses].title = "Diagnoses"
 * section[diagnoses].entry 1..*
-* section[diagnoses].entry only Reference(KOrderConditionCz)
+* section[diagnoses].entry only Reference(CZ_ConditionCore)
 */
 // Reasons
 * section[reasons].code = $loinc#29299-5

@@ -29,7 +29,7 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
 // --------------------------- document type (LOINC) ----------------------------
 // FT poukaz / referral note pro fyzioterapii
 * type 1..1 MS
-* type = $loinc#57154-7 "Žádanka o fyzioterapii"  (exactly)
+* type = $loinc#57154-7 (exactly)
 
 
 // --------------------------- extensions -------------------------------------
@@ -110,37 +110,36 @@ Pole section.text by mělo obsahovat textovou reprezentaci všech uvedených ent
     reasons 0..1 and
     examinations 1..1 and
     attachments 0..* and
-    signature 0..1 and
-    replacement 0..1
+    signature 0..1
 
 // --------------------------- section definitions ----------------------------
 
 // Insurance
-* section[insurance].code = $loinc#48768-6 "Insurance"
+* section[insurance].code = $loinc#48768-6
 * section[insurance].title = "Insurance"
 * section[insurance].entry 1..1
 * section[insurance].entry only Reference(CZ_Coverage)
 
 // Reasons (stav/cíl/rizika – klidně v textu)
-* section[reasons].code = $loinc#29299-5 "Reason for visit"
+* section[reasons].code = $loinc#29299-5
 * section[reasons].title = "Clinical justification"
 * section[reasons].text 0..1 MS
 * section[reasons].entry 0..0
 
 // Examinations / requested procedures (FT)
-* section[examinations].code = $loinc#57154-7 "Physical therapy Referral note"
+* section[examinations].code = $loinc#57154-7
 * section[examinations].title = "Requested physiotherapy procedures"
 * section[examinations].entry 1..*
 * section[examinations].entry only Reference(FTServiceRequestCz)
 
 // Attachments
-* section[attachments].code = $loinc#55107-7 "Addendum document"
+* section[attachments].code = $loinc#55107-7
 * section[attachments].title = "Attachments"
 * section[attachments].entry 0..*
 * section[attachments].entry only Reference(CZ_Attachment)
 
 // Signature
-* section[signature].code = $loinc#64292-6 "Signature"
+* section[signature].code = $loinc#64292-6
 * section[signature].title = "Signature"
 * section[signature].entry 0..1
 * section[signature].entry only Reference(CZ_Provenance)

@@ -3,11 +3,11 @@
   "id": "BundleKOrderCz",
   "url": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz",
   "name": "BundleKOrderCz",
-  "title": "Bundle: K-Order (CZ)",
+  "title": "Bundle: Referral Order (CZ)",
   "status": "draft",
   "publisher": "HL7 CZ",
-  "description": "Clinical document container for Czech K-Order consultation request.",
-  "purpose": "A structured Czech consultation request bundle containing Composition + related resources.",
+  "description": "Clinical document container for Czech referral/requests (K-order and FT-order).",
+  "purpose": "A structured Czech request bundle containing Composition + related resources.",
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
@@ -19,28 +19,14 @@
       {
         "id": "Bundle",
         "path": "Bundle",
-        "short": "K-Order consultation request Bundle",
-        "definition": "The document Bundle for a K-Order. It SHALL contain exactly one Composition and all referenced resources.",
+        "short": "Referral order document Bundle (CZ)",
+        "definition": "The document Bundle for CZ requests. It SHALL contain exactly one Composition and all referenced resources.",
         "constraint": [
           {
             "key": "one-comp",
             "severity": "error",
-            "human": "A K-Order Bundle SHALL include one and only one Composition.",
+            "human": "The document Bundle SHALL include one and only one Composition.",
             "expression": "entry.resource.ofType(Composition).count() = 1",
-            "source": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
-          },
-          {
-            "key": "same-servicerequest-performer",
-            "severity": "warning",
-            "human": "All ServiceRequests SHALL have the same performer.",
-            "expression": "entry.resource.ofType(ServiceRequest).performer.all($this = %context.entry.resource.ofType(ServiceRequest).performer)",
-            "source": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
-          },
-          {
-            "key": "same-servicerequest-occurrence",
-            "severity": "warning",
-            "human": "All ServiceRequests SHALL have the same occurrence (dateTime or period).",
-            "expression": "entry.resource.ofType(ServiceRequest).occurrence.all($this = %context.entry.resource.ofType(ServiceRequest).occurrence)",
             "source": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
           }
         ]
@@ -48,7 +34,7 @@
       {
         "id": "Bundle.identifier",
         "path": "Bundle.identifier",
-        "short": "Business identifier of this K-Order document",
+        "short": "Business identifier of this document",
         "min": 1
       },
       {
@@ -89,13 +75,13 @@
           ],
           "rules": "open"
         },
-        "min": 3
+        "min": 2
       },
       {
         "id": "Bundle.entry:composition",
         "path": "Bundle.entry",
         "sliceName": "composition",
-        "min": 1,
+        "min": 0,
         "max": "1"
       },
       {
@@ -107,6 +93,26 @@
             "code": "Composition",
             "profile": [
               "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Bundle.entry:compositionFt",
+        "path": "Bundle.entry",
+        "sliceName": "compositionFt",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Bundle.entry:compositionFt.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Composition",
+            "profile": [
+              "https://hl7.cz/fhir/korder/StructureDefinition/FTOrderCompositionCz"
             ]
           }
         ]
@@ -145,7 +151,8 @@
           {
             "code": "ServiceRequest",
             "profile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+              "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
             ]
           }
         ]
@@ -164,7 +171,7 @@
           {
             "code": "Condition",
             "profile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderConditionCz"
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-condition-core"
             ]
           }
         ]
@@ -267,7 +274,7 @@
       {
         "id": "Bundle.signature",
         "path": "Bundle.signature",
-        "short": "Digital signature of the K-Order",
+        "short": "Digital signature of the document",
         "type": [
           {
             "code": "Signature",

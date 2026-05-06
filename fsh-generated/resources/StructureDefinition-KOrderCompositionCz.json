@@ -138,6 +138,19 @@
         "mustSupport": true
       },
       {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "fixedCodeableConcept": {
+          "coding": [
+            {
+              "code": "57133-1",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
         "id": "Composition.subject",
         "path": "Composition.subject",
         "min": 1,
@@ -487,7 +500,8 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+              "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz",
+              "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
             ]
           }
         ]
@@ -600,13 +614,6 @@
             ]
           }
         ]
-      },
-      {
-        "id": "Composition.section:replacement",
-        "path": "Composition.section",
-        "sliceName": "replacement",
-        "min": 0,
-        "max": "1"
       }
     ]
   }

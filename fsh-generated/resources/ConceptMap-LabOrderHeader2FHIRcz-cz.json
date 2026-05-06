@@ -1,20 +1,20 @@
 {
   "resourceType": "ConceptMap",
   "id": "LabOrderHeader2FHIRcz-cz",
-  "url": "https://hl7.cz/fhir/k-order/ConceptMap/KOrderHeader2FHIRcz-cz",
+  "url": "https://hl7.cz/fhir/korder/ConceptMap/LabOrderHeader2FHIRcz-cz",
   "name": "KOrderHeader2FHIRcz",
-  "title": "CZ Header Model to this guide Map",
+  "title": "Mapa hlavičky CZ modelu do této implementační příručky",
   "status": "draft",
   "experimental": true,
-  "description": "CZ Laboratory Order Header Model to this guide mapping",
+  "description": "Mapování hlavičky českého laboratorního objednávkového modelu do této implementační příručky",
   "group": [
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core",
       "element": [
         {
-          "code": "Subject.identification",
-          "display": "A.1.1 Identification of the patient/subject",
+          "code": "identifikace",
+          "display": "A.1.1 Identifikace pacienta/subjektu",
           "target": [
             {
               "code": "Patient",
@@ -24,8 +24,8 @@
           ]
         },
         {
-          "code": "Subject.identification.givenName",
-          "display": "A.1.1.1 Given name",
+          "code": "identifikace.jmeno",
+          "display": "A.1.1.1 Jméno",
           "target": [
             {
               "code": "Patient.name.given",
@@ -35,8 +35,8 @@
           ]
         },
         {
-          "code": "Subject.identification.familyName",
-          "display": "A.1.1.2 Familyname/surname",
+          "code": "identifikace.prijmeni",
+          "display": "A.1.1.2 Příjmení",
           "target": [
             {
               "code": "Patient.name.family",
@@ -46,8 +46,8 @@
           ]
         },
         {
-          "code": "Subject.identification.dateOfBirth",
-          "display": "A.1.1.3 Date of birth",
+          "code": "identifikace.datumNarozeni",
+          "display": "A.1.1.3 Datum narození",
           "target": [
             {
               "code": "Patient.birthDate",
@@ -57,8 +57,8 @@
           ]
         },
         {
-          "code": "Subject.identification.dateOfDeath",
-          "display": "A.1.1.4 Date of death",
+          "code": "identifikace.datumUmrti",
+          "display": "A.1.1.4 Datum úmrtí",
           "target": [
             {
               "code": "Patient.deceased[x].deceasedDateTime",
@@ -68,8 +68,8 @@
           ]
         },
         {
-          "code": "Subject.identification.identifier",
-          "display": "A.1.1.5 Patient identifier",
+          "code": "identifikace.identifikator",
+          "display": "A.1.1.5 Identifikátor",
           "target": [
             {
               "code": "Patient.identifier",
@@ -79,8 +79,8 @@
           ]
         },
         {
-          "code": "Subject.identification.citizenship",
-          "display": "A.1.1.6 Citizenship",
+          "code": "identifikace.statniObcanstvi",
+          "display": "A.1.1.6 Státní občanství",
           "target": [
             {
               "code": "Patient.patient-citizenship",
@@ -90,8 +90,8 @@
           ]
         },
         {
-          "code": "Subject.identification.gender",
-          "display": "A.1.1.7 Gender",
+          "code": "identifikace.pohlavi",
+          "display": "A.1.1.7 Pohlaví",
           "target": [
             {
               "code": "Patient.gender",
@@ -101,8 +101,8 @@
           ]
         },
         {
-          "code": "Subject.identification.genderForClinicalUse",
-          "display": "A.1.1.8 Gender",
+          "code": "identifikace.pohlaviProKlinickeUcely",
+          "display": "A.1.1.8 Pohlaví pro klinické použití",
           "target": [
             {
               "code": "Patient.extension:sex-for-clinical-use",
@@ -112,8 +112,8 @@
           ]
         },
         {
-          "code": "Subject.identification.languageOfCommunication",
-          "display": "A.1.1.9 Language of communication",
+          "code": "identifikace.komunikacniJazyk",
+          "display": "A.1.1.9 Komunikační jazyk",
           "target": [
             {
               "code": "Patient.communication.language",
@@ -123,7 +123,7 @@
           ]
         },
         {
-          "code": "Subject.identification.handicap",
+          "code": "identifikace.handicap",
           "display": "A.1.1.10 Handicap",
           "target": [
             {
@@ -134,8 +134,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo",
-          "display": "A.1.2 Patient/subject related contact information",
+          "code": "kontakt",
+          "display": "A.1.2 Kontaktní informace pacienta/subjektu",
           "target": [
             {
               "code": "Patient",
@@ -145,8 +145,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.address",
-          "display": "A.1.2.1 Address",
+          "code": "kontakt.adresa",
+          "display": "A.1.2.1 Adresa",
           "target": [
             {
               "code": "Patient.address",
@@ -156,8 +156,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.telecom",
-          "display": "A.1.2.2 Telecom",
+          "code": "kontakt.telekom",
+          "display": "A.1.2.2 Telekom",
           "target": [
             {
               "code": "Patient.telecom",
@@ -167,8 +167,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician",
-          "display": "A.1.2.3 Prefered physician",
+          "code": "kontakt.preferovanyLekar",
+          "display": "A.1.2.3 Preferovaný lékař",
           "target": [
             {
               "code": "Patient.generalPractitioner",
@@ -178,8 +178,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent",
-          "display": "A.1.2.4 Legal representatives and other contact persons",
+          "code": "kontakt.kontaktniOsoba",
+          "display": "A.1.2.4 Zákonní zástupci a další kontaktní osoby",
           "target": [
             {
               "code": "Patient.contact",
@@ -189,8 +189,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.type",
-          "display": "A.1.2.4.1 Contact type",
+          "code": "kontakt.kontaktniOsoba.typ",
+          "display": "A.1.2.4.1 Typ kontaktu",
           "target": [
             {
               "code": "Patient.contact.relationship",
@@ -200,8 +200,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.relationToSubject",
-          "display": "A.1.2.4.2 Relationship to the patient",
+          "code": "kontakt.kontaktniOsoba.vztah",
+          "display": "A.1.2.4.2 Vztah k pacientovi",
           "target": [
             {
               "code": "Patient.contact.relationship",
@@ -211,8 +211,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.identifier",
-          "display": "A.1.2.4.3 Person identifier",
+          "code": "kontakt.kontaktniOsoba.identifikator",
+          "display": "A.1.2.4.3 Identifikátor osoby",
           "target": [
             {
               "code": "Patient.contact",
@@ -222,8 +222,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.givenName",
-          "display": "A.1.2.4.4 Given name",
+          "code": "kontakt.kontaktniOsoba.jmeno",
+          "display": "A.1.2.4.4 Jméno osoby",
           "target": [
             {
               "code": "Patient.contact.name.given",
@@ -233,8 +233,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.familyName",
-          "display": "A.1.2.4.5 Family name/surname",
+          "code": "kontakt.kontaktniOsoba.prijmeni",
+          "display": "A.1.2.4.5 Příjmení osoby",
           "target": [
             {
               "code": "Patient.contact.name.family",
@@ -244,8 +244,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.address",
-          "display": "A.1.2.4.6 Contact person address",
+          "code": "kontakt.kontaktniOsoba.adresa",
+          "display": "A.1.2.4.6 Adresa",
           "target": [
             {
               "code": "Patient.contact.address",
@@ -255,8 +255,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.legalRepresent.telecom",
-          "display": "A.1.2.4.7 Telecom",
+          "code": "kontakt.kontaktniOsoba.telekom",
+          "display": "A.1.2.4.7 Telekom",
           "target": [
             {
               "code": "Patient.contact.telecom",
@@ -268,12 +268,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core",
       "element": [
         {
-          "code": "Subject.contactInfo.preferedPhysician",
-          "display": "A.1.2.3 Prefered physician",
+          "code": "kontakt.preferovanyLekar",
+          "display": "A.1.2.3 Preferovaný lékař",
           "target": [
             {
               "code": "Practitioner",
@@ -283,8 +283,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.Identifier",
-          "display": "A.1.2.3.1 Identification of the prefered physician",
+          "code": "kontakt.preferovanyLekar.identifikator",
+          "display": "A.1.2.3.1 Identifikátor preferovaného lékaře",
           "target": [
             {
               "code": "Practitioner.identifier",
@@ -294,8 +294,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.Name",
-          "display": "A.1.2.3.2 Name of the prefered physician",
+          "code": "kontakt.preferovanyLekar.jmeno",
+          "display": "A.1.2.3.2 Jméno preferovaného lékaře",
           "target": [
             {
               "code": "Practitioner.name",
@@ -305,8 +305,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.telecom",
-          "display": "A.1.2.3.6 Telecom",
+          "code": "kontakt.preferovanyLekar.telekom",
+          "display": "A.1.2.3.6 Telekom preferovaného lékaře",
           "target": [
             {
               "code": "Practitioner.telecom",
@@ -318,12 +318,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core",
       "element": [
         {
-          "code": "Subject.contactInfo.preferedPhysician",
-          "display": "A.1.2.3 Prefered physician",
+          "code": "kontakt.preferovanyLekar",
+          "display": "A.1.2.3 Preferovaný lékař",
           "target": [
             {
               "code": "PractitionerRole",
@@ -333,8 +333,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.Identifier",
-          "display": "A.1.2.3.1 Identification of the prefered physician",
+          "code": "kontakt.preferovanyLekar.identifikator",
+          "display": "A.1.2.3.1 Identifikátor preferovaného lékaře",
           "target": [
             {
               "code": "PractitionerRole.identifier",
@@ -344,8 +344,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.Name",
-          "display": "A.1.2.3.2 Name of the prefered physician",
+          "code": "kontakt.preferovanyLekar.jmeno",
+          "display": "A.1.2.3.2 Jméno preferovaného lékaře",
           "target": [
             {
               "code": "PractitionerRole.practiotioner.name",
@@ -355,8 +355,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.Specialization",
-          "display": "A.1.2.3.3 Specialization of the prefered physician",
+          "code": "kontakt.preferovanyLekar.specializace",
+          "display": "A.1.2.3.3 Specializace preferovaného lékaře",
           "target": [
             {
               "code": "PractitionerRole.speciality",
@@ -366,8 +366,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.providerIdentifierName",
-          "display": "A.1.2.3.4 Identification and name of the provider the doctor represents",
+          "code": "kontakt.preferovanyLekar.organizace",
+          "display": "A.1.2.3.4 Organizace preferovaného lékaře",
           "target": [
             {
               "code": "PractitionerRole.organization.name",
@@ -377,8 +377,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.providerAddress",
-          "display": "A.1.2.3.5 Provider address",
+          "code": "kontakt.preferovanyLekar.adresa",
+          "display": "A.1.2.3.5 Adresa preferovaného lékaře",
           "target": [
             {
               "code": "PractitionerRole.organization.address",
@@ -388,8 +388,8 @@
           ]
         },
         {
-          "code": "Subject.contactInfo.preferedPhysician.telecom",
-          "display": "A.1.2.3.6 Telecom",
+          "code": "kontakt.preferovanyLekar.telekom",
+          "display": "A.1.2.3.6 Telekom preferovaného lékaře",
           "target": [
             {
               "code": "PractitionerRole.telecom",
@@ -401,12 +401,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/PayerKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMPayerOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage",
       "element": [
         {
-          "code": "Header.payer",
-          "display": "A.1.3 - Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+          "code": "zdravotniPojisteni",
+          "display": "A.1.3 Zdravotní pojištění",
           "target": [
             {
               "code": "Composition.section:order.insurance",
@@ -417,8 +417,8 @@
           ]
         },
         {
-          "code": "Header.payer.insuranceCode",
-          "display": "A.1.3.1 - Health insurance code",
+          "code": "kod",
+          "display": "A.1.3.1 Kód zdravotní pojišťovny",
           "target": [
             {
               "code": "CZ_Coverage.payor.identifier",
@@ -428,8 +428,8 @@
           ]
         },
         {
-          "code": "Header.payer.insuranceName",
-          "display": "A.1.3.2 - Health insurance name",
+          "code": "nazev",
+          "display": "A.1.3.2 Název zdravotní pojišťovny",
           "target": [
             {
               "code": "CZ_Coverage.payor.name",
@@ -439,8 +439,8 @@
           ]
         },
         {
-          "code": "Header.payer.insuranceNumber",
-          "display": "A.1.3.3 - Health insurance number",
+          "code": "cisloPojistence",
+          "display": "A.1.3.3 Číslo zdravotního pojištění",
           "target": [
             {
               "code": "CZ_Coverage.identifier",
@@ -452,12 +452,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/CoverageKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMCoverageOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage",
       "element": [
         {
-          "code": "Header.coverage",
-          "display": "A.1.4 - Information about coverage",
+          "code": "uhrada",
+          "display": "A.1.4 Úhrada",
           "target": [
             {
               "code": "Composition.section:Coverage",
@@ -468,8 +468,8 @@
           ]
         },
         {
-          "code": "Header.coverage.method",
-          "display": "A.1.4.1 - Coverage method",
+          "code": "method",
+          "display": "A.1.4.1 Způsob úhrady",
           "target": [
             {
               "code": "CZ_Coverage.type",
@@ -479,8 +479,8 @@
           ]
         },
         {
-          "code": "Header.coverage.informationPayor",
-          "display": "A.1.4.2 - Information about Payor",
+          "code": "infoOPlatci",
+          "display": "A.1.4.2 Informace o plátci",
           "target": [
             {
               "code": "CZ_Coverage.payor",
@@ -492,12 +492,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMAuthorOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core",
       "element": [
         {
-          "code": "Header.author",
-          "display": "A.1.5 - Author (by whom the Imaging Order was/were authored)",
+          "code": "objednatel",
+          "display": "A.1.5 Objednatel",
           "target": [
             {
               "code": "Composition.author",
@@ -508,8 +508,8 @@
           ]
         },
         {
-          "code": "Header.author.identifier",
-          "display": "A.1.5.1 - Author identifier",
+          "code": "identifikator",
+          "display": "A.1.5.1 Identifikátor zadavatele objednávky",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practictioner.identifier",
@@ -519,8 +519,8 @@
           ]
         },
         {
-          "code": "Header.author.name",
-          "display": "A.1.5.2 - Author name",
+          "code": "jmeno",
+          "display": "A.1.5.2 Jméno zadavatele objednávky",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practictioner.name",
@@ -530,20 +530,20 @@
           ]
         },
         {
-          "code": "Header.author.address",
-          "display": "A.1.5.3 - Author address",
+          "code": "adresa",
+          "display": "A.1.5.3 Kontaktní údaje zadavatele objednávky",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practictioner.address",
               "display": "",
               "equivalence": "equivalent",
-              "comment": "ID Organization"
+              "comment": "ID organizace"
             }
           ]
         },
         {
-          "code": "Header.author.organization",
-          "display": "A.1.5.4 - Author organisation",
+          "code": "organizace",
+          "display": "A.1.5.4 Organizace zadavatele objednávky",
           "target": [
             {
               "code": "Z_PractitionerRoleCore.organization.name",
@@ -555,12 +555,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMAuthorOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-encounter",
       "element": [
         {
-          "code": "AuthorCz.organization",
-          "display": "A.1.5.4 - Author organisation",
+          "code": "organizace",
+          "display": "A.1.5.4 Organizace zadavatele objednávky",
           "target": [
             {
               "code": "CZ_Encounter.serviceProvider",
@@ -572,12 +572,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/RequestedPerformerKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMRequestedPerformerOrderCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core",
       "element": [
         {
-          "code": "Header.requestedPerformer",
-          "display": "A.1.6 - Requested Performer",
+          "code": "zpracovatel",
+          "display": "A.1.6 Zpracovatel",
           "target": [
             {
               "code": "CZ_ImagingInformationAboutOrder.performer",
@@ -587,8 +587,8 @@
           ]
         },
         {
-          "code": "Header.requestedPerformer.identifier",
-          "display": "A.1.6.1 - Requested Performer identifier",
+          "code": "id",
+          "display": "A.1.6.1 ID zpracovatele",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practictioner.identifier",
@@ -598,8 +598,8 @@
           ]
         },
         {
-          "code": "Header.requestedPerformer.name",
-          "display": "A.1.6.2 - Requested Performer name",
+          "code": "jmeno",
+          "display": "A.1.6.2 Jméno zpracovatele",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practictioner.name",
@@ -609,8 +609,8 @@
           ]
         },
         {
-          "code": "Header.requestedPerformer.organizationID",
-          "display": "A.1.6.3 - Requested Performer organisation ID",
+          "code": "idOrganizace",
+          "display": "A.1.6.3 ID organizace zpracovatele",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.organization.identifier",
@@ -620,8 +620,8 @@
           ]
         },
         {
-          "code": "Header.requestedPerformer.organization",
-          "display": "A.1.6.4 - Requested Performer organisation",
+          "code": "organizace",
+          "display": "A.1.6.4 Organizace zpracovatele",
           "target": [
             {
               "code": "CZ_PractitionerCore.organization.name",
@@ -633,12 +633,12 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/AdditionalRecipientKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMAdditionalRecipientCz",
       "target": "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core",
       "element": [
         {
-          "code": "Header.additionalRecipient",
-          "display": "A.1.7 - Additional Recipient",
+          "code": "dodatecniPrijemci",
+          "display": "A.1.7 Příjemce nálezu",
           "target": [
             {
               "code": "Composition.extension:informationRecipient",
@@ -648,8 +648,8 @@
           ]
         },
         {
-          "code": "Header.additionalRecipient.identifier",
-          "display": "A.1.7.1 - Additional Recipient identifier",
+          "code": "identifikator",
+          "display": "A.1.7.1 Identifikátor příjemce",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practitioner.identifier",
@@ -659,8 +659,8 @@
           ]
         },
         {
-          "code": "Header.additionalRecipient.name",
-          "display": "A.1.7.2 - Additional Recipient name",
+          "code": "jmeno",
+          "display": "A.1.7.2 Jméno příjemce",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.practictioner.name",
@@ -670,8 +670,8 @@
           ]
         },
         {
-          "code": "Header.additionalRecipient.organizationID",
-          "display": "A.1.7.3 - Additional Recipient organisation ID",
+          "code": "idOrganizace",
+          "display": "A.1.7.3 ID organizace příjemce",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.organization.identifier",
@@ -681,8 +681,8 @@
           ]
         },
         {
-          "code": "Header.additionalRecipient.organization",
-          "display": "A.1.7.4 - Additional Recipient organisation",
+          "code": "organizace",
+          "display": "A.1.7.4 Organizace příjemce",
           "target": [
             {
               "code": "CZ_PractitionerRoleCore.organization.name",
@@ -694,42 +694,42 @@
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/DocumentMetadataKOrderCz",
-      "target": "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMDocumentMetadataCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz",
       "element": [
         {
-          "code": "Header.documentMetadata.identifier",
-          "display": "A.1.8.1 - Document ID",
+          "code": "idDokumentu",
+          "display": "A.1.8.1 ID dokumentu",
           "target": [
             {
               "code": "Bundle.identifier",
               "display": "",
               "equivalence": "equivalent",
-              "comment": "If it is the identifier of a particular order instance"
+              "comment": "Pokud jde o identifikátor konkrétní instance objednávky"
             }
           ]
         },
         {
-          "code": "Header.documentMetadata.dateTime",
-          "display": "A.1.8.4 - Order date and time",
+          "code": "datumACas",
+          "display": "A.1.8.4 Datum a čas vytvoření",
           "target": [
             {
               "code": "Bundle.timeStamp",
               "display": "",
               "equivalence": "equivalent",
-              "comment": "If it is when this particular version of  this order has been assembled into a Bundle."
+              "comment": "Pokud jde o čas, kdy byla tato konkrétní verze objednávky sestavena do Bundle."
             }
           ]
         }
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/KOrderHeaderCz",
-      "target": "https://hl7.cz/fhir/k-order/StructureDefinition/KOrderCompositionCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMHeaderOrder",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz",
       "element": [
         {
-          "code": "Header.subject",
-          "display": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
+          "code": "subjekt",
+          "display": "A.1.1 Identifikace a A.1.2 kontaktní informace pacienta/subjektu",
           "target": [
             {
               "code": "Composition.subject",
@@ -739,19 +739,8 @@
           ]
         },
         {
-          "code": "Header.author.dateTime",
-          "display": "A.1.5.5 - Date Time",
-          "target": [
-            {
-              "code": "Composition.date",
-              "display": "",
-              "equivalence": "equivalent"
-            }
-          ]
-        },
-        {
-          "code": "Header.documentMetadata",
-          "display": "A.1.8 - Document metadata",
+          "code": "metadataDokumentu",
+          "display": "A.1.8 Metadata dokumentu",
           "target": [
             {
               "code": "Composition",
@@ -761,8 +750,8 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.category",
-          "display": "A.1.8.2 - Document category",
+          "code": "metadataDokumentu.kategorie",
+          "display": "A.1.8.2 Kategorie",
           "target": [
             {
               "code": "Composition.category",
@@ -772,8 +761,8 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.status",
-          "display": "A.1.8.3 - Document status",
+          "code": "metadataDokumentu.stav",
+          "display": "A.1.8.3 Stav",
           "target": [
             {
               "code": "Composition.status",
@@ -783,20 +772,20 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.dateTime",
-          "display": "A.1.8.4 - Order date and time",
+          "code": "metadataDokumentu.datumACas",
+          "display": "A.1.8.4 Datum a čas vytvoření",
           "target": [
             {
               "code": "Composition.date",
               "display": "",
               "equivalence": "equivalent",
-              "comment": "If it is when this document has been created (indipendently by its version)"
+              "comment": "Pokud jde o čas vytvoření tohoto dokumentu nezávisle na jeho verzi"
             }
           ]
         },
         {
-          "code": "Header.documentMetadata.title",
-          "display": "A.1.8.5 - Document title",
+          "code": "metadataDokumentu.nazev",
+          "display": "A.1.8.5 Název dokumentu",
           "target": [
             {
               "code": "Composition.title",
@@ -806,8 +795,8 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.custodian",
-          "display": "A.1.8.6 - Order custodian",
+          "code": "metadataDokumentu.spravce",
+          "display": "A.1.8.6 Správce dokumentu",
           "target": [
             {
               "code": "Composition.custodian",
@@ -817,8 +806,8 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.confidentiality",
-          "display": "A.1.8.7 - Confidentiality",
+          "code": "metadataDokumentu.duvernost",
+          "display": "A.1.8.7 Důvěrnost",
           "target": [
             {
               "code": "Composition.confidentiality",
@@ -828,8 +817,8 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.language",
-          "display": "A.1.8.8 - Language",
+          "code": "metadataDokumentu.jazyk",
+          "display": "A.1.8.8 Jazyk",
           "target": [
             {
               "code": "Composition.language",
@@ -839,26 +828,26 @@
           ]
         },
         {
-          "code": "Header.documentMetadata.version",
-          "display": "A.1.8.9 - Version",
+          "code": "metadataDokumentu.verze",
+          "display": "A.1.8.9 Verze",
           "target": [
             {
               "code": "Composition.extension:versionNumber.valueString",
               "display": "",
               "equivalence": "equivalent",
-              "comment": "As business version, not as resource version"
+              "comment": "Jako business verze, nikoli jako verze resource"
             }
           ]
         }
       ]
     },
     {
-      "source": "https://hl7.cz/fhir/k-order/StructureDefinition/digitalSignatureKOrderCz",
-      "target": "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz",
+      "source": "https://hl7.cz/fhir/korder/StructureDefinition/LMDigitalSignatureOrderCz",
+      "target": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz",
       "element": [
         {
-          "code": "Header.digitalSignatureCz.digitalSignature",
-          "display": "A.1.9.1 - Electronic signature or document seal",
+          "code": "elektronickyPodpis",
+          "display": "A.1.9.1 Elektronický podpis nebo pečeť dokumentu",
           "target": [
             {
               "code": "Bundle.signature.data",
@@ -868,8 +857,8 @@
           ]
         },
         {
-          "code": "Header.digitalSignatureCz.timestamp",
-          "display": "A.1.9.2 - Electronic time stamp",
+          "code": "casoveRazitko",
+          "display": "A.1.9.2 Elektronické časové razítko",
           "target": [
             {
               "code": "Bundle.signature.when",

@@ -6,6 +6,7 @@
   "title": "K-order Priority ValueSet (CZ)",
   "description": "Prioritizace pro konziliární žádanky K-order, s českými názvy.",
   "url": "https://hl7.cz/fhir/korder/ValueSet/korder-priority-vs",
+  "experimental": false,
   "publisher": "HL7 CZ",
   "compose": {
     "include": [
@@ -23,10 +24,6 @@
           {
             "code": "asap",
             "display": "Statim"
-          },
-          {
-            "code": "immediate",
-            "display": "Okamžitě"
           }
         ]
       }

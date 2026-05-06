@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "hl7.fhir.cz.korder",
   "url": "https://hl7.cz/fhir/korder/ImplementationGuide/hl7.fhir.cz.korder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "name": "HL7CzKOrderImplementationGuide",
   "title": "HL7 Czech K-Order Implementation Guide",
   "status": "draft",
@@ -48,14 +48,14 @@
       "id": "hl7_fhir_eu_base"
     },
     {
-      "packageId": "hl7.fhir.eu.extensions",
-      "version": "0.1.1-ballot",
+      "packageId": "hl7.fhir.eu.extensions.r4",
+      "version": "1.3.0",
       "uri": "http://hl7.eu/fhir/extensions/ImplementationGuide/hl7.fhir.eu.extensions",
-      "id": "hl7_fhir_eu_extensions"
+      "id": "hl7_fhir_eu_extensions_r4"
     },
     {
       "packageId": "hl7.fhir.cz.core",
-      "version": "current",
+      "version": "0.3.0",
       "uri": "https://hl7.cz/fhir/core/ImplementationGuide/hl7.fhir.cz.core",
       "id": "hl7_fhir_cz_core"
     }
@@ -71,12 +71,52 @@
     "resource": [
       {
         "reference": {
+          "reference": "StructureDefinition/LMFTOrderCz"
+        },
+        "name": "A - Souhrnný logický model FT žádanky",
+        "description": "Souhrnný logický model FT žádanky složený z hlavičky, těla FT žádanky, vizuální podoby a příloh.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMKOrderCz"
+        },
+        "name": "A - Souhrnný logický model K žádanky",
+        "description": "Souhrnný logický model K žádanky složený z hlavičky, těla K žádanky, vizuální podoby a příloh.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMOrderCz"
+        },
+        "name": "A - Souhrnný logický model obecné žádanky",
+        "description": "Souhrnný logický model žádanky složený z hlavičky, těla dokumentu, vizuální podoby a příloh.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMHeaderOrder"
+        },
+        "name": "A.1 - Hlavička dokumentu",
+        "description": "Záhlaví dokumentu s administrativními údaji",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logHeaderKOrder"
         },
         "name": "A.1 - Hlavička dokumentu",
         "description": "Záhlaví dokumentu s administrativními údaji",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnHeaderOrder"
+        },
+        "name": "A.1 Order header data elements",
+        "description": "Order header data elements",
+        "exampleBoolean": false
       },
       {
         "reference": {
@@ -88,10 +128,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnSubjectOrderCz"
+        },
+        "name": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
+        "description": "Order - Order subject data element - A.1.1 and A.1.2",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/SubjectKOrderCz"
         },
         "name": "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject",
         "description": "Order - Order subject data element - A.1.1 and A.1.2",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMSubjectOrderCz"
+        },
+        "name": "A.1.1 - Identifikace a A.1.2 - Kontaktní informace Pacienta/subjektu",
+        "description": "Identifikace pacienta a kontaktní informace pacienta",
         "exampleBoolean": false
       },
       {
@@ -105,10 +161,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnPayerOrderCz"
+        },
+        "name": "A.1.3 - Health insurance and payment information",
+        "description": "Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/PayerKOrderCz"
         },
         "name": "A.1.3 - Health insurance and payment information",
         "description": "Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMPayerOrderCz"
+        },
+        "name": "A.1.3 - Zdravotní pojištění",
+        "description": "Informace o zdravotním pojištění.",
         "exampleBoolean": false
       },
       {
@@ -122,10 +194,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnCoverageOrderCz"
+        },
+        "name": "A.1.4 - Information about coverage",
+        "description": "Coverage information - Information about method of coverage, payer identification data and additional information",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/CoverageKOrderCz"
         },
         "name": "A.1.4 - Information about coverage",
         "description": "Coverage information - Information about method of coverage, payer identification data and additional information",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMCoverageOrderCz"
+        },
+        "name": "A.1.4 - Úhrada",
+        "description": "Informace o způsobu úhrady objednávky vyšetření",
         "exampleBoolean": false
       },
       {
@@ -139,10 +227,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnAuthorOrderCz"
+        },
+        "name": "A.1.5 - Author",
+        "description": "Author (by whom the Lab order was/were authored). Multiple authors could be provided.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/AuthorKOrderCz"
         },
         "name": "A.1.5 - Author",
         "description": "Author (by whom the Lab order was/were authored). Multiple authors could be provided.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMAuthorOrderCz"
+        },
+        "name": "A.1.5 - Objednatel",
+        "description": "Objednatel (Objednatel provedení zdravotní služby).",
         "exampleBoolean": false
       },
       {
@@ -156,6 +260,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnRequestedPerformerOrderCz"
+        },
+        "name": "A.1.6 - Requested Performer (processing person)",
+        "description": "Person who is requested to process document.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/RequestedPerformerKOrderCz"
         },
         "name": "A.1.6 - Requested Performer (processing person)",
@@ -165,10 +277,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMRequestedPerformerOrderCz"
+        },
+        "name": "A.1.6 - Zpracovatel",
+        "description": "Předpokládaný zpracovatel žádanky (u neadresné žádanky nebude zpracovatel uveden).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/LogRequestedPerformerKCz"
         },
         "name": "A.1.6 - Zpracovatel",
         "description": "Předpokládaný zpracovatel žádanky (u neadresné žádanky nebude zpracovatel uveden).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnAdditionalRecipientCz"
+        },
+        "name": "A.1.7 - Additional Recipient",
+        "description": "Additional Recipient (Additional recipients of the finding in addition to the author)",
         "exampleBoolean": false
       },
       {
@@ -181,6 +309,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMAdditionalRecipientCz"
+        },
+        "name": "A.1.7 - Příjemce nálezu",
+        "description": "Příjemce nálezu (Dodateční příjemci nálezu kromě objednatele)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/LogAdditionalRecipientKCz"
         },
         "name": "A.1.7 - Příjemce nálezu",
@@ -189,10 +325,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnDocumentMetadataCz"
+        },
+        "name": "A.1.8 - Document metadata",
+        "description": "Document metadata",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/DocumentMetadataKOrderCz"
         },
         "name": "A.1.8 - Document metadata",
         "description": "Document metadata",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMDocumentMetadataCz"
+        },
+        "name": "A.1.8 - Metadata dokumentu",
+        "description": "Metadata dokumentu",
         "exampleBoolean": false
       },
       {
@@ -206,10 +358,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnDigitalSignatureOrderCz"
+        },
+        "name": "A.1.9 - Digital signature",
+        "description": "Digital signature - Electronic signature or seal of a document according to Act 327/2011 Â§54a",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/DigitalSignatureKOrderCz"
         },
         "name": "A.1.9 - Digital signature",
         "description": "Digital signature - Electronic signature or seal of a document according to Act 327/2011 §54a",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMDigitalSignatureOrderCz"
+        },
+        "name": "A.1.9 - Elektronické podpisy",
+        "description": "Elektronické podpisy - Elektronické podpisy nebo pečetě dle zákona 327/2011 §54a",
         "exampleBoolean": false
       },
       {
@@ -223,12 +391,52 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnBodyFTOrder"
+        },
+        "name": "A.2 - Document Body",
+        "description": "Body of the FT-order document containing order information,\nclinical data, coverage, appointment details, and specification of requested services.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMBodyFTOrder"
+        },
+        "name": "A.2 - Tělo dokumentu",
+        "description": "Tělo dokumentu FT-žádanky obsahující informace o objednávce,\nklinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMBodyKOrder"
+        },
+        "name": "A.2 - Tělo dokumentu",
+        "description": "Tělo dokumentu K-žádanky obsahující informace o objednávce,\nklinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logBodyKOrder"
         },
         "name": "A.2 - Tělo dokumentu",
         "description": "Tělo dokumentu K-žádanky obsahující klinické údaje, diagnózy,\nzdůvodnění žádosti a specifikaci požadovaných vyšetření a výkonů.",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMBodyOrder"
+        },
+        "name": "A.2 - Tělo dokumentu",
+        "description": "Tělo dokumentu FT-žádanky obsahující informace o objednávce,\nklinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnBodyKOrder"
+        },
+        "name": "A.2 A.3“ Document Body",
+        "description": "Body of the K-order document containing clinical data, diagnoses,\nclinical reasons for the request, and specification of requested examinations\nand procedures.",
+        "exampleBoolean": false
       },
       {
         "reference": {
@@ -240,12 +448,28 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMOrderInformationCz"
+        },
+        "name": "A.2.1 - Informace o objednávce and A.2.2 - Odůvodnění vyšetření (důvod objednávky)",
+        "description": "Informace o objednávce a Odůvodnění vyšetření (důvod objednávky)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logKOrderInformationCz"
         },
         "name": "A.2.1 - Informace o objednávce and A.2.2 - Odůvodnění vyšetření (důvod objednávky)",
         "description": "Informace o objednávce a Odůvodnění vyšetření (důvod objednávky)",
         "exampleBoolean": false,
         "groupingId": "czech-logical-model"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnOrderInformationCz"
+        },
+        "name": "A.2.1 - Order information and A.2.2 - Order reason",
+        "description": "Information about order and order reason",
+        "exampleBoolean": false
       },
       {
         "reference": {
@@ -274,6 +498,22 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnClinicalEventCz"
+        },
+        "name": "A.2.3 - Clinical event (encounter)",
+        "description": "Information about the clinical event to which the order relates (encounter reference).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMClinicalEventCz"
+        },
+        "name": "A.2.3 - Klinická událost (encounter)",
+        "description": "Informace o klinické události, ke které se objednávka vztahuje (odkaz na návštěvu)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logRequestedServiceKOrder"
         },
         "name": "A.2.3 - Požadované vyšetření / výkony",
@@ -283,10 +523,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnKOrderDataElementsCz"
+        },
+        "name": "A.2.3 - Requested examinations / procedures",
+        "description": "Specification of requested consultative examinations,\ntreatments, or medical procedures.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logEnRequestedServiceKOrder"
         },
         "name": "A.2.3 – Requested examinations / procedures",
         "description": "Specification of requested consultative examinations,\ntreatments, or medical procedures.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnCoverageBodyCz"
+        },
+        "name": "A.2.4 - Coverage",
+        "description": "Information about the payment method for the requested examination.",
         "exampleBoolean": false
       },
       {
@@ -300,10 +556,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMCoverageBodyCz"
+        },
+        "name": "A.2.4 - Úhrada",
+        "description": "Informace o způsobu úhrady objednávky vyšetření",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logEnRecommendationKOrder"
         },
         "name": "A.2.4 – Recommendation",
         "description": "Recommendation of further management, transfer of care,\nor hospitalization.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnAppointmentCz"
+        },
+        "name": "A.2.5 - Appointment",
+        "description": "Information about the booked examination appointment (if reserved).",
         "exampleBoolean": false
       },
       {
@@ -317,10 +589,26 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMAppointmentCz"
+        },
+        "name": "A.2.5 - Termín návštěvy",
+        "description": "Informace o objednaném termínu vyšetření (pokud byl termín rezervován)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/logAdditionalClinicalInfoKOrderCz"
         },
         "name": "A.2.5 – Additional Clinical Information",
         "description": "Additional clinical information and notes\nrelated to the consultation request (K-order).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMSpecimenInformationCz"
+        },
+        "name": "A.2.6 - Informace o vzorku",
+        "description": "Informace o vzorku souvisejícím s žádankou.",
         "exampleBoolean": false
       },
       {
@@ -342,6 +630,70 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMEnClinicalInformationCz"
+        },
+        "name": "A.3.1 - Clinical Information (Medical History)",
+        "description": "Information and data communicated to the performing site that may affect execution of the order or interpretation of the results.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMClinicalInformationCz"
+        },
+        "name": "A.3.1 - Klinické informace / podpůrné informace",
+        "description": "Informace a údaje sdělované provádějícímu pracovišti, které mají vliv na provedení žádanky nebo interpretaci výsledků.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMFTOrderDataElementsCz"
+        },
+        "name": "A.3.2 - Datové elementy objednávky / vyšetření",
+        "description": "Datové elementy objednávky / vyšetření",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMKOrderDataElementsCz"
+        },
+        "name": "A.3.2 - Datové elementy objednávky / vyšetření",
+        "description": "Datové elementy objednávky / vyšetření",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMOrderDataElementsCz"
+        },
+        "name": "A.3.2 - Datové elementy objednávky / vyšetření",
+        "description": "Datové elementy objednávky / vyšetření",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnFTOrderDataElementsCz"
+        },
+        "name": "A.3.2 - Order / examination data elements",
+        "description": "Data elements of the order / examination.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMPlannedCareOrdersCz"
+        },
+        "name": "A.3.3 - Odkazy na objednávky plánované péče navazující na tuto žádanku",
+        "description": "Odkazy na související objednávky plánované péče navazující na tuto žádanku.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMOtherSupportingInformationCz"
+        },
+        "name": "A.3.4 - Ostatní podpůrné informace",
+        "description": "Odkazy na další podpůrné informace související s touto žádankou.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/AttachmentsKOrderCz"
         },
         "name": "A.4 - Additional attachments",
@@ -359,10 +711,80 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/LMPresentedFormOrderCz"
+        },
+        "name": "A.4 - Vizuální podoba dokumentu",
+        "description": "Žádanka čitelná lidským okem,  je požadován PDF formát.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnAttachmentsOrderCz"
+        },
+        "name": "A.5 - Additional attachments",
+        "description": "K-Order additional attachments - A.4",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMAttachmentsOrderCz"
+        },
+        "name": "A.5 - Ostatní přílohy",
+        "description": "Ostatní přílohy zprávy z obrazového vyšetření",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/LMEnPresentedFormOrderCz"
+        },
+        "name": "A.5 - Presented form",
+        "description": "Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cz-bodyheight"
+        },
+        "name": "Body Height: Order (CZ)",
+        "description": "Profile of body height for the scope of the Czech national interoperability project.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cz-bodyweight"
+        },
+        "name": "Body Weight: Order (CZ)",
+        "description": "Profile of body weight for the scope of the Czech national interoperability project.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/BundleKOrderCz"
         },
-        "name": "Bundle: K-Order (CZ)",
-        "description": "Clinical document container for Czech K-Order consultation request.",
+        "name": "Bundle: Referral Order (CZ)",
+        "description": "Clinical document container for Czech referral/requests (K-order and FT-order).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Bundle/BundleFTExample"
+        },
+        "name": "BundleFTExample",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+      },
+      {
+        "reference": {
+          "reference": "Bundle/BundleKOrderExample"
+        },
+        "name": "BundleKOrderExample",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/FTOrderCompositionCz"
+        },
+        "name": "Composition: FT-order (Žádanka fyzioterapie) (CZ)",
+        "description": "FT-order Composition (žádanka fyzioterapie) pro národní IG (CZ).\nKompozice slouží jako dokumentový kontejner nad ServiceRequest (FTServiceRequestCz),\nPatient, Coverage (pojištění), Condition (diagnózy) a DocumentReference (přílohy).\nSekce poskytují čitelný přehled a odkazují na příslušné resources obsažené v Bundle.",
         "exampleBoolean": false
       },
       {
@@ -375,9 +797,9 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/KOrderConditionCz"
+          "reference": "StructureDefinition/OrderConditionCz"
         },
-        "name": "Condition: K-order (CZ)",
+        "name": "Condition: General order (CZ)",
         "description": "Condition profil pro K-order (konziliární žádanku).\nPoužívá se pro diagnózy a klinické důvody žádanky.",
         "exampleBoolean": false
       },
@@ -386,15 +808,7 @@
           "reference": "ValueSet/cz-diagnosis-condition-vs"
         },
         "name": "CZ Diagnosis Condition",
-        "description": "ValueSet for diagnosis in condition in the Czech Imaging project, using MKN-10 and ORPHA codes.",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "ConceptMap/LabOrderHeader2FHIRcz-cz"
-        },
-        "name": "CZ Header Model to this guide Map",
-        "description": "CZ Laboratory Order Header Model to this guide mapping",
+        "description": "ValueSet for diagnosis in condition in the Czech general ordel project, using MKN-10 and ORPHA codes.",
         "exampleBoolean": false
       },
       {
@@ -410,7 +824,7 @@
           "reference": "ConceptMap/KOrderBody2FHIRcz-cz"
         },
         "name": "CZ K-order Body Model to this guide Map",
-        "description": "CZ K-order Body (A.2–A.6) → FHIR mapping (ServiceRequest, Condition, DocumentReference, Provenance, Composition sections).",
+        "description": "CZ K-order Body (A.2-A.6) -> FHIR mapping (ServiceRequest, Condition, DocumentReference, Provenance, Composition sections).",
         "exampleBoolean": false
       },
       {
@@ -420,6 +834,90 @@
         "name": "CZ K-order Header Model to this guide Map",
         "description": "CZ K-order Header Model → K-order FHIR profiles mapping (Composition, Patient, Coverage, Practitioner, Organization).",
         "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/cz-observation-units-height-vs"
+        },
+        "name": "CZ Observation Units Height ValueSet",
+        "description": "Allowed UCUM units for body height observations in the Czech K-Order project.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/cz-observation-units-weight-vs"
+        },
+        "name": "CZ Observation Units Weight ValueSet",
+        "description": "Allowed UCUM units for body weight observations in the Czech K-Order project.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/FTServiceRequestCz"
+        },
+        "name": "FT (CZ) – ServiceRequest",
+        "description": "Národní profil ServiceRequest pro eŽádanku fyzioterapie (FT).\nZachovává strukturu KOrderServiceRequestCz, ale:\n- code je VZP výkon (1 ServiceRequest = 1 řádek poukazu)\n- quantity[x] je povinné (např. 12×)\n- category je FT kategorie (VS pro FT)",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ft-category-vs"
+        },
+        "name": "FT Category ValueSet (CZ)",
+        "description": "Kategorie žádanky fyzioterapie (FT).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ft-vzp-procedures-vs"
+        },
+        "name": "FT Procedures ValueSet (CZ)",
+        "description": "Kódy zdravotních výkonů VZP pro fyzioterapii (FT).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/ft-vzp-procedures-cs"
+        },
+        "name": "FT VZP Procedures CodeSystem",
+        "description": "Externí kódový systém pro výkony fyzioterapie dle VZP.\nIG obsahuje pouze demonstrační podmnožinu kódů použitou v příkladech.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ftorder-composition-requestReference"
+        },
+        "name": "FT-order Request Reference",
+        "description": "Reference to the FT ServiceRequest instance(s) that the Composition documents.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
+        },
+        "name": "FTServiceRequest-21113",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
+        },
+        "name": "FTServiceRequest-21225",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
+        },
+        "name": "FTServiceRequest-21413",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
+        },
+        "name": "FTServiceRequest-21415",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTServiceRequestCz"
       },
       {
         "reference": {
@@ -495,6 +993,126 @@
       },
       {
         "reference": {
+          "reference": "Composition/KOrderCompositionExample"
+        },
+        "name": "Konziliární žádost – K-order example",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/KOrderAttachment-1"
+        },
+        "name": "KOrderAttachment-1",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Condition/KOrderCondition-Main"
+        },
+        "name": "KOrderCondition-Main",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Condition/KOrderCondition-Secondary"
+        },
+        "name": "KOrderCondition-Secondary",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Coverage/KOrderCoverage-Example"
+        },
+        "name": "KOrderCoverage-Example",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/KOrderServiceRequest-1"
+        },
+        "name": "KOrderServiceRequest-1",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ServiceRequest/KOrderServiceRequest-2"
+        },
+        "name": "KOrderServiceRequest-2",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/LabOrderHeader2FHIRcz-cz"
+        },
+        "name": "Mapa hlavičky CZ modelu do této implementační příručky",
+        "description": "Mapování hlavičky českého laboratorního objednávkového modelu do této implementační příručky",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/mkn10-5-cs"
+        },
+        "name": "MKN-10 CodeSystem",
+        "description": "Externí referenční kódový systém MKN-10 používaný v českém prostředí.\nJedná se o referenci na národní autoritu – obsah není součástí IG.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+        },
+        "name": "Organization-1",
+        "description": "An example of the organization of a provider",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/a4641bd0-34af-4038-a7db-872d08a54df9"
+        },
+        "name": "Organization-L1-HOSP",
+        "description": "A minimalist example of a subordinate department within a hospital hierarchy for the purposes of the L1 HDR document. ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
+        },
+        "name": "Organization-L1-Odd",
+        "description": "A minimalist example of a subordinate department within a hospital hierarchy for the purposes of the L1 HDR document. ",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
+        },
+        "name": "Patient-Novak-Petr",
+        "description": "Example of patient Petr Novak with identification by czech national identifiers (RID, RCIS), registrating healthcare provider and contact information",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Composition/FTCompositionExample"
+        },
+        "name": "Poukaz FT – eŽádanka (example)",
+        "exampleCanonical": "https://hl7.cz/fhir/korder/StructureDefinition/FTOrderCompositionCz"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
+        },
+        "name": "Practitioner-Author",
+        "description": "Author practitioner",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/2b7e9637-5018-4542-9faf-d5abdee7b849"
+        },
+        "name": "Practitioner-Author-detail",
+        "description": "practitioner's detail",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
           "reference": "ValueSet/vzp-nahrady-vs"
         },
         "name": "VZP Reimbursement Indicator ValueSet",
@@ -506,7 +1124,7 @@
           "reference": "CodeSystem/korder-vzp-procedures-cs"
         },
         "name": "VZP Výkony – CodeSystem",
-        "description": "Externí kódový systém pro zdravotní výkony dle VZP.\nJedná se o referenci na národní autoritu – obsah není součástí IG.",
+        "description": "Externí kódový systém pro zdravotní výkony dle VZP.\nIG obsahuje pouze demonstrační podmnožinu kódů použitou v příkladech.",
         "exampleBoolean": false
       },
       {
@@ -543,6 +1161,18 @@
       {
         "code": "releaselabel",
         "value": "ci-build"
+      },
+      {
+        "code": "special-url",
+        "value": "https://vzp.cz/cis/vykony"
+      },
+      {
+        "code": "special-url",
+        "value": "urn:oid:1.2.203.7898.1.5"
+      },
+      {
+        "code": "special-url",
+        "value": "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
       },
       {
         "code": "apply-contact",

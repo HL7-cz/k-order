@@ -9,6 +9,10 @@ Alias: $orpha = https://www.orphadata.com/
 Alias: $mime = urn:ietf:bcp:13
 Alias: $hl7-condition-category = http://hl7.org/fhir/ValueSet/condition-category
 Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code
+Alias: $nclp = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
+Alias: $nclp_new = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
+
+
 
 //CZ Alias
 Alias: $cz-patient-rcis = https://ncez.mzcr.cz/fhir/sid/rcis

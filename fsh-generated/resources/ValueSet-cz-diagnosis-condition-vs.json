@@ -4,13 +4,23 @@
   "name": "CZ_DiagnosisConditionVs",
   "id": "cz-diagnosis-condition-vs",
   "title": "CZ Diagnosis Condition",
-  "description": "ValueSet for diagnosis in condition in the Czech Imaging project, using MKN-10 and ORPHA codes.",
+  "description": "ValueSet for diagnosis in condition in the Czech general ordel project, using MKN-10 and ORPHA codes.",
   "url": "https://hl7.cz/fhir/korder/ValueSet/cz-diagnosis-condition-vs",
   "experimental": false,
   "compose": {
     "include": [
       {
-        "system": "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
+        "system": "https://terminology.uzis.cz/CodeSystem/Mkn10_5",
+        "concept": [
+          {
+            "code": "I10",
+            "display": "Esenciální (primární) hypertenze"
+          },
+          {
+            "code": "E11",
+            "display": "Diabetes mellitus 2. typu"
+          }
+        ]
       },
       {
         "system": "https://www.orphadata.com/"

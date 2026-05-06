@@ -1,404 +1,409 @@
-
 Instance: LabOrderHeader2FHIRcz-cz
 InstanceOf: ConceptMap
 Usage: #definition
-* url = "https://hl7.cz/fhir/k-order/ConceptMap/KOrderHeader2FHIRcz-cz"
+* url = "https://hl7.cz/fhir/korder/ConceptMap/LabOrderHeader2FHIRcz-cz"
 * name = "KOrderHeader2FHIRcz"
-* title = "CZ Header Model to this guide Map"
+* title = "Mapa hlavičky CZ modelu do této implementační příručky"
 * status = #draft
 * experimental = true
-* description = """CZ Laboratory Order Header Model to this guide mapping"""
-				
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz"
+* description = """Mapování hlavičky českého laboratorního objednávkového modelu do této implementační příručky"""
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
-* group[=].element[+].code = #Subject.identification					
-* group[=].element[=].display = "A.1.1 Identification of the patient/subject"					
-* group[=].element[=].target.code = #Patient					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto	
-* group[=].element[+].code = #Subject.identification.givenName					
-* group[=].element[=].display = "A.1.1.1 Given name"					
-* group[=].element[=].target.code = #Patient.name.given					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent				
-* group[=].element[+].code = #Subject.identification.familyName					
-* group[=].element[=].display = "A.1.1.2 Familyname/surname"					
-* group[=].element[=].target.code = #Patient.name.family					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Subject.identification.dateOfBirth					
-* group[=].element[=].display = "A.1.1.3 Date of birth"					
-* group[=].element[=].target.code = #Patient.birthDate					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Subject.identification.dateOfDeath					
-* group[=].element[=].display = "A.1.1.4 Date of death"					
-* group[=].element[=].target.code = #Patient.deceased[x].deceasedDateTime					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent			
-* group[=].element[+].code = #Subject.identification.identifier					
-* group[=].element[=].display = "A.1.1.5 Patient identifier"					
-* group[=].element[=].target.code = #Patient.identifier					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.identification.citizenship					
-* group[=].element[=].display = "A.1.1.6 Citizenship"					
-* group[=].element[=].target.code = #Patient.patient-citizenship					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.identification.gender					
-* group[=].element[=].display = "A.1.1.7 Gender"					
-* group[=].element[=].target.code = #Patient.gender					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.identification.genderForClinicalUse					
-* group[=].element[=].display = "A.1.1.8 Gender"					
-* group[=].element[=].target.code = #Patient.extension:sex-for-clinical-use					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.identification.languageOfCommunication					
-* group[=].element[=].display = "A.1.1.9 Language of communication"					
-* group[=].element[=].target.code = #Patient.communication.language					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent
-* group[=].element[+].code = #Subject.identification.handicap					
-* group[=].element[=].display = "A.1.1.10 Handicap"					
-* group[=].element[=].target.code = #Patient.text					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent
-* group[=].element[+].code = #Subject.contactInfo					
-* group[=].element[=].display = "A.1.2 Patient/subject related contact information"					
-* group[=].element[=].target.code = #Patient					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[+].code = #Subject.contactInfo.address					
-* group[=].element[=].display = "A.1.2.1 Address"					
-* group[=].element[=].target.code = #Patient.address					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Subject.contactInfo.telecom					
-* group[=].element[=].display = "A.1.2.2 Telecom"					
-* group[=].element[=].target.code = #Patient.telecom					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician					
-* group[=].element[=].display = "A.1.2.3 Prefered physician"					
-* group[=].element[=].target.code = #Patient.generalPractitioner					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent					
-* group[=].element[=].display = "A.1.2.4 Legal representatives and other contact persons"					
-* group[=].element[=].target.code = #Patient.contact				
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.type					
-* group[=].element[=].display = "A.1.2.4.1 Contact type"					
-* group[=].element[=].target.code = #Patient.contact.relationship					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.relationToSubject					
-* group[=].element[=].display = "A.1.2.4.2 Relationship to the patient"					
-* group[=].element[=].target.code = #Patient.contact.relationship					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.identifier					
-* group[=].element[=].display = "A.1.2.4.3 Person identifier"					
-* group[=].element[=].target.code = #Patient.contact				
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.givenName					
-* group[=].element[=].display = "A.1.2.4.4 Given name"					
-* group[=].element[=].target.code = #Patient.contact.name.given					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.familyName					
-* group[=].element[=].display = "A.1.2.4.5 Family name/surname"					
-* group[=].element[=].target.code = #Patient.contact.name.family					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.address					
-* group[=].element[=].display = "A.1.2.4.6 Contact person address"					
-* group[=].element[=].target.code = #Patient.contact.address				
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.legalRepresent.telecom					
-* group[=].element[=].display = "A.1.2.4.7 Telecom"					
-* group[=].element[=].target.code = #Patient.contact.telecom					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz"					
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core"	
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician					
-* group[=].element[=].display = "A.1.2.3 Prefered physician"					
-* group[=].element[=].target.code = #Practitioner					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.Identifier		
-* group[=].element[=].display = "A.1.2.3.1 Identification of the prefered physician"					
-* group[=].element[=].target.code = #Practitioner.identifier					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.Name		
-* group[=].element[=].display = "A.1.2.3.2 Name of the prefered physician"					
-* group[=].element[=].target.code = #Practitioner.name					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.telecom		
-* group[=].element[=].display = "A.1.2.3.6 Telecom"					
-* group[=].element[=].target.code = #Practitioner.telecom					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/SubjectKOrderCz"					
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"	
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician					
-* group[=].element[=].display = "A.1.2.3 Prefered physician"					
-* group[=].element[=].target.code = #PractitionerRole					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.Identifier		
-* group[=].element[=].display = "A.1.2.3.1 Identification of the prefered physician"					
-* group[=].element[=].target.code = #PractitionerRole.identifier					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.Name		
-* group[=].element[=].display = "A.1.2.3.2 Name of the prefered physician"					
-* group[=].element[=].target.code = #PractitionerRole.practiotioner.name					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.Specialization		
-* group[=].element[=].display = "A.1.2.3.3 Specialization of the prefered physician"					
-* group[=].element[=].target.code = #PractitionerRole.speciality					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.providerIdentifierName		
-* group[=].element[=].display = "A.1.2.3.4 Identification and name of the provider the doctor represents"					
-* group[=].element[=].target.code = #PractitionerRole.organization.name					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.providerAddress		
-* group[=].element[=].display = "A.1.2.3.5 Provider address"					
-* group[=].element[=].target.code = #PractitionerRole.organization.address					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent	
-* group[=].element[+].code = #Subject.contactInfo.preferedPhysician.telecom		
-* group[=].element[=].display = "A.1.2.3.6 Telecom"					
-* group[=].element[=].target.code = #PractitionerRole.telecom					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/PayerKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
-* group[=].element[+].code = #Header.payer
-* group[=].element[=].display = "A.1.3 - Health insurance and payment information - Health insurance information is not always required, however, in some jurisdictions, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care."
-* group[=].element[=].target.code = #Composition.section:order.insurance		
+* group[=].element[+].code = #identifikace
+* group[=].element[=].display = "A.1.1 Identifikace pacienta/subjektu"
+* group[=].element[=].target.code = #Patient
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto					
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[+].code = #identifikace.jmeno
+* group[=].element[=].display = "A.1.1.1 Jméno"
+* group[=].element[=].target.code = #Patient.name.given
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.prijmeni
+* group[=].element[=].display = "A.1.1.2 Příjmení"
+* group[=].element[=].target.code = #Patient.name.family
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.datumNarozeni
+* group[=].element[=].display = "A.1.1.3 Datum narození"
+* group[=].element[=].target.code = #Patient.birthDate
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.datumUmrti
+* group[=].element[=].display = "A.1.1.4 Datum úmrtí"
+* group[=].element[=].target.code = #Patient.deceased[x].deceasedDateTime
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.identifikator
+* group[=].element[=].display = "A.1.1.5 Identifikátor"
+* group[=].element[=].target.code = #Patient.identifier
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.statniObcanstvi
+* group[=].element[=].display = "A.1.1.6 Státní občanství"
+* group[=].element[=].target.code = #Patient.patient-citizenship
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.pohlavi
+* group[=].element[=].display = "A.1.1.7 Pohlaví"
+* group[=].element[=].target.code = #Patient.gender
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.pohlaviProKlinickeUcely
+* group[=].element[=].display = "A.1.1.8 Pohlaví pro klinické použití"
+* group[=].element[=].target.code = #Patient.extension:sex-for-clinical-use
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.komunikacniJazyk
+* group[=].element[=].display = "A.1.1.9 Komunikační jazyk"
+* group[=].element[=].target.code = #Patient.communication.language
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikace.handicap
+* group[=].element[=].display = "A.1.1.10 Handicap"
+* group[=].element[=].target.code = #Patient.text
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt
+* group[=].element[=].display = "A.1.2 Kontaktní informace pacienta/subjektu"
+* group[=].element[=].target.code = #Patient
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[+].code = #kontakt.adresa
+* group[=].element[=].display = "A.1.2.1 Adresa"
+* group[=].element[=].target.code = #Patient.address
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.telekom
+* group[=].element[=].display = "A.1.2.2 Telekom"
+* group[=].element[=].target.code = #Patient.telecom
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar
+* group[=].element[=].display = "A.1.2.3 Preferovaný lékař"
+* group[=].element[=].target.code = #Patient.generalPractitioner
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.kontaktniOsoba
+* group[=].element[=].display = "A.1.2.4 Zákonní zástupci a další kontaktní osoby"
+* group[=].element[=].target.code = #Patient.contact
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.kontaktniOsoba.typ
+* group[=].element[=].display = "A.1.2.4.1 Typ kontaktu"
+* group[=].element[=].target.code = #Patient.contact.relationship
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[+].code = #kontakt.kontaktniOsoba.vztah
+* group[=].element[=].display = "A.1.2.4.2 Vztah k pacientovi"
+* group[=].element[=].target.code = #Patient.contact.relationship
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.kontaktniOsoba.identifikator
+* group[=].element[=].display = "A.1.2.4.3 Identifikátor osoby"
+* group[=].element[=].target.code = #Patient.contact
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[+].code = #kontakt.kontaktniOsoba.jmeno
+* group[=].element[=].display = "A.1.2.4.4 Jméno osoby"
+* group[=].element[=].target.code = #Patient.contact.name.given
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.kontaktniOsoba.prijmeni
+* group[=].element[=].display = "A.1.2.4.5 Příjmení osoby"
+* group[=].element[=].target.code = #Patient.contact.name.family
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.kontaktniOsoba.adresa
+* group[=].element[=].display = "A.1.2.4.6 Adresa"
+* group[=].element[=].target.code = #Patient.contact.address
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.kontaktniOsoba.telekom
+* group[=].element[=].display = "A.1.2.4.7 Telekom"
+* group[=].element[=].target.code = #Patient.contact.telecom
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core"
+* group[=].element[+].code = #kontakt.preferovanyLekar
+* group[=].element[=].display = "A.1.2.3 Preferovaný lékař"
+* group[=].element[=].target.code = #Practitioner
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.identifikator
+* group[=].element[=].display = "A.1.2.3.1 Identifikátor preferovaného lékaře"
+* group[=].element[=].target.code = #Practitioner.identifier
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.jmeno
+* group[=].element[=].display = "A.1.2.3.2 Jméno preferovaného lékaře"
+* group[=].element[=].target.code = #Practitioner.name
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.telekom
+* group[=].element[=].display = "A.1.2.3.6 Telekom preferovaného lékaře"
+* group[=].element[=].target.code = #Practitioner.telecom
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
+* group[=].element[+].code = #kontakt.preferovanyLekar
+* group[=].element[=].display = "A.1.2.3 Preferovaný lékař"
+* group[=].element[=].target.code = #PractitionerRole
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.identifikator
+* group[=].element[=].display = "A.1.2.3.1 Identifikátor preferovaného lékaře"
+* group[=].element[=].target.code = #PractitionerRole.identifier
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.jmeno
+* group[=].element[=].display = "A.1.2.3.2 Jméno preferovaného lékaře"
+* group[=].element[=].target.code = #PractitionerRole.practiotioner.name
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.specializace
+* group[=].element[=].display = "A.1.2.3.3 Specializace preferovaného lékaře"
+* group[=].element[=].target.code = #PractitionerRole.speciality
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.organizace
+* group[=].element[=].display = "A.1.2.3.4 Organizace preferovaného lékaře"
+* group[=].element[=].target.code = #PractitionerRole.organization.name
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.adresa
+* group[=].element[=].display = "A.1.2.3.5 Adresa preferovaného lékaře"
+* group[=].element[=].target.code = #PractitionerRole.organization.address
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #kontakt.preferovanyLekar.telekom
+* group[=].element[=].display = "A.1.2.3.6 Telekom preferovaného lékaře"
+* group[=].element[=].target.code = #PractitionerRole.telecom
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMPayerOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
+* group[=].element[+].code = #zdravotniPojisteni
+* group[=].element[=].display = "A.1.3 Zdravotní pojištění"
+* group[=].element[=].target.code = #Composition.section:order.insurance
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #relatedto
 * group[=].element[=].target.comment = "Composition.section:order.entry.ofType(CZ_ImagingInformationAboutOrder).insurance.ofType(CZ_Coverage)"
-* group[=].element[+].code = #Header.payer.insuranceCode
-* group[=].element[=].display = "A.1.3.1 - Health insurance code"
+* group[=].element[+].code = #kod
+* group[=].element[=].display = "A.1.3.1 Kód zdravotní pojišťovny"
 * group[=].element[=].target.code = #CZ_Coverage.payor.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.payer.insuranceName
-* group[=].element[=].display = "A.1.3.2 - Health insurance name"
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #nazev
+* group[=].element[=].display = "A.1.3.2 Název zdravotní pojišťovny"
 * group[=].element[=].target.code = #CZ_Coverage.payor.name
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
-* group[=].element[+].code = #Header.payer.insuranceNumber
-* group[=].element[=].display = "A.1.3.3 - Health insurance number"
+* group[=].element[+].code = #cisloPojistence
+* group[=].element[=].display = "A.1.3.3 Číslo zdravotního pojištění"
 * group[=].element[=].target.code = #CZ_Coverage.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent		
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/CoverageKOrderCz"
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMCoverageOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
-* group[=].element[+].code = #Header.coverage
-* group[=].element[=].display = "A.1.4 - Information about coverage"
-* group[=].element[=].target.code = #Composition.section:Coverage					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "Composition.section:Coverage.entry.ofType(CZ_Coverage)"
-* group[=].element[+].code = #Header.coverage.method
-* group[=].element[=].display = "A.1.4.1 - Coverage method"
-* group[=].element[=].target.code = #CZ_Coverage.type					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.coverage.informationPayor
-* group[=].element[=].display = "A.1.4.2 - Information about Payor"
-* group[=].element[=].target.code = #CZ_Coverage.payor					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
-* group[=].element[+].code = #Header.author
-* group[=].element[=].display = "A.1.5 - Author (by whom the Imaging Order was/were authored)"
-* group[=].element[=].target.code = #Composition.author
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "Composition.author.resolve().ofType(CZ_PractitionerRoleCore)"
-* group[=].element[+].code = #Header.author.identifier
-* group[=].element[=].display = "A.1.5.1 - Author identifier"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.identifier					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.author.name
-* group[=].element[=].display = "A.1.5.2 - Author name"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.name					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.author.address
-* group[=].element[=].display = "A.1.5.3 - Author address"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.address					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "ID Organization"
-* group[=].element[+].code = #Header.author.organization
-* group[=].element[=].display = "A.1.5.4 - Author organisation"
-* group[=].element[=].target.code = #Z_PractitionerRoleCore.organization.name					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent		
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-encounter"					
-* group[=].element[+].code = #AuthorCz.organization
-* group[=].element[=].display = "A.1.5.4 - Author organisation"
-* group[=].element[=].target.code = #CZ_Encounter.serviceProvider					
+* group[=].element[+].code = #uhrada
+* group[=].element[=].display = "A.1.4 Úhrada"
+* group[=].element[=].target.code = #Composition.section:Coverage
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/RequestedPerformerKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"					
-* group[=].element[+].code = #Header.requestedPerformer
-* group[=].element[=].display = "A.1.6 - Requested Performer"
+* group[=].element[=].target.comment = "Composition.section:Coverage.entry.ofType(CZ_Coverage)"
+* group[=].element[+].code = #method
+* group[=].element[=].display = "A.1.4.1 Způsob úhrady"
+* group[=].element[=].target.code = #CZ_Coverage.type
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #infoOPlatci
+* group[=].element[=].display = "A.1.4.2 Informace o plátci"
+* group[=].element[=].target.code = #CZ_Coverage.payor
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAuthorOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
+* group[=].element[+].code = #objednatel
+* group[=].element[=].display = "A.1.5 Objednatel"
+* group[=].element[=].target.code = #Composition.author
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition.author.resolve().ofType(CZ_PractitionerRoleCore)"
+* group[=].element[+].code = #identifikator
+* group[=].element[=].display = "A.1.5.1 Identifikátor zadavatele objednávky"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.identifier
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #jmeno
+* group[=].element[=].display = "A.1.5.2 Jméno zadavatele objednávky"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.name
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #adresa
+* group[=].element[=].display = "A.1.5.3 Kontaktní údaje zadavatele objednávky"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.address
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "ID organizace"
+* group[=].element[+].code = #organizace
+* group[=].element[=].display = "A.1.5.4 Organizace zadavatele objednávky"
+* group[=].element[=].target.code = #Z_PractitionerRoleCore.organization.name
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAuthorOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-encounter"
+* group[=].element[+].code = #organizace
+* group[=].element[=].display = "A.1.5.4 Organizace zadavatele objednávky"
+* group[=].element[=].target.code = #CZ_Encounter.serviceProvider
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #relatedto
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMRequestedPerformerOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
+* group[=].element[+].code = #zpracovatel
+* group[=].element[=].display = "A.1.6 Zpracovatel"
 * group[=].element[=].target.code = #CZ_ImagingInformationAboutOrder.performer
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.requestedPerformer.identifier
-* group[=].element[=].display = "A.1.6.1 - Requested Performer identifier"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.identifier				
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #id
+* group[=].element[=].display = "A.1.6.1 ID zpracovatele"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.requestedPerformer.name
-* group[=].element[=].display = "A.1.6.2 - Requested Performer name"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.name					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #jmeno
+* group[=].element[=].display = "A.1.6.2 Jméno zpracovatele"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.name
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.requestedPerformer.organizationID
-* group[=].element[=].display = "A.1.6.3 - Requested Performer organisation ID"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.identifier					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #idOrganizace
+* group[=].element[=].display = "A.1.6.3 ID organizace zpracovatele"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.requestedPerformer.organization
-* group[=].element[=].display = "A.1.6.4 - Requested Performer organisation"
-* group[=].element[=].target.code = #CZ_PractitionerCore.organization.name					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #organizace
+* group[=].element[=].display = "A.1.6.4 Organizace zpracovatele"
+* group[=].element[=].target.code = #CZ_PractitionerCore.organization.name
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent	
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/AdditionalRecipientKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"				
-* group[=].element[+].code = #Header.additionalRecipient
-* group[=].element[=].display = "A.1.7 - Additional Recipient"
-* group[=].element[=].target.code = #Composition.extension:informationRecipient					
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAdditionalRecipientCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
+* group[=].element[+].code = #dodatecniPrijemci
+* group[=].element[=].display = "A.1.7 Příjemce nálezu"
+* group[=].element[=].target.code = #Composition.extension:informationRecipient
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.additionalRecipient.identifier
-* group[=].element[=].display = "A.1.7.1 - Additional Recipient identifier"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practitioner.identifier					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #identifikator
+* group[=].element[=].display = "A.1.7.1 Identifikátor příjemce"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practitioner.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.additionalRecipient.name
-* group[=].element[=].display = "A.1.7.2 - Additional Recipient name"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.name					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #jmeno
+* group[=].element[=].display = "A.1.7.2 Jméno příjemce"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.practictioner.name
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.additionalRecipient.organizationID
-* group[=].element[=].display = "A.1.7.3 - Additional Recipient organisation ID"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.identifier					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #idOrganizace
+* group[=].element[=].display = "A.1.7.3 ID organizace příjemce"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.additionalRecipient.organization
-* group[=].element[=].display = "A.1.7.4 - Additional Recipient organisation"
-* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.name					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #organizace
+* group[=].element[=].display = "A.1.7.4 Organizace příjemce"
+* group[=].element[=].target.code = #CZ_PractitionerRoleCore.organization.name
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/DocumentMetadataKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz"
-* group[=].element[+].code = #Header.documentMetadata.identifier
-* group[=].element[=].display = "A.1.8.1 - Document ID"
-* group[=].element[=].target.code = #Bundle.identifier					
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMDocumentMetadataCz"
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+* group[=].element[+].code = #idDokumentu
+* group[=].element[=].display = "A.1.8.1 ID dokumentu"
+* group[=].element[=].target.code = #Bundle.identifier
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "If it is the identifier of a particular order instance"
-* group[=].element[+].code = #Header.documentMetadata.dateTime
-* group[=].element[=].display = "A.1.8.4 - Order date and time"
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Pokud jde o identifikátor konkrétní instance objednávky"
+* group[=].element[+].code = #datumACas
+* group[=].element[=].display = "A.1.8.4 Datum a čas vytvoření"
 * group[=].element[=].target.code = #Bundle.timeStamp
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "If it is when this particular version of  this order has been assembled into a Bundle."
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/KOrderHeaderCz"
-* group[=].target = "https://hl7.cz/fhir/k-order/StructureDefinition/KOrderCompositionCz"
-* group[=].element[+].code = #Header.subject
-* group[=].element[=].display = "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject"
-* group[=].element[=].target.code = #Composition.subject		
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Pokud jde o čas, kdy byla tato konkrétní verze objednávky sestavena do Bundle."
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMHeaderOrder"
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #subjekt
+* group[=].element[=].display = "A.1.1 Identifikace a A.1.2 kontaktní informace pacienta/subjektu"
+* group[=].element[=].target.code = #Composition.subject
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent		
-* group[=].element[+].code = #Header.author.dateTime
-* group[=].element[=].display = "A.1.5.5 - Date Time"
-* group[=].element[=].target.code = #Composition.date					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #metadataDokumentu
+* group[=].element[=].display = "A.1.8 Metadata dokumentu"
+* group[=].element[=].target.code = #Composition
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent													
-* group[=].element[+].code = #Header.documentMetadata
-* group[=].element[=].display = "A.1.8 - Document metadata"
-* group[=].element[=].target.code = #Composition					
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[+].code = #metadataDokumentu.kategorie
+* group[=].element[=].display = "A.1.8.2 Kategorie"
+* group[=].element[=].target.code = #Composition.category
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[+].code = #Header.documentMetadata.category
-* group[=].element[=].display = "A.1.8.2 - Document category"
-* group[=].element[=].target.code = #Composition.category					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #metadataDokumentu.stav
+* group[=].element[=].display = "A.1.8.3 Stav"
+* group[=].element[=].target.code = #Composition.status
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.documentMetadata.status
-* group[=].element[=].display = "A.1.8.3 - Document status"
-* group[=].element[=].target.code = #Composition.status					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #metadataDokumentu.datumACas
+* group[=].element[=].display = "A.1.8.4 Datum a čas vytvoření"
+* group[=].element[=].target.code = #Composition.date
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.documentMetadata.dateTime
-* group[=].element[=].display = "A.1.8.4 - Order date and time"
-* group[=].element[=].target.code = #Composition.date					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Pokud jde o čas vytvoření tohoto dokumentu nezávisle na jeho verzi"
+* group[=].element[+].code = #metadataDokumentu.nazev
+* group[=].element[=].display = "A.1.8.5 Název dokumentu"
+* group[=].element[=].target.code = #Composition.title
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "If it is when this document has been created (indipendently by its version)"
-* group[=].element[+].code = #Header.documentMetadata.title
-* group[=].element[=].display = "A.1.8.5 - Document title"
-* group[=].element[=].target.code = #Composition.title					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #metadataDokumentu.spravce
+* group[=].element[=].display = "A.1.8.6 Správce dokumentu"
+* group[=].element[=].target.code = #Composition.custodian
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.documentMetadata.custodian
-* group[=].element[=].display = "A.1.8.6 - Order custodian"
-* group[=].element[=].target.code = #Composition.custodian					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #metadataDokumentu.duvernost
+* group[=].element[=].display = "A.1.8.7 Důvěrnost"
+* group[=].element[=].target.code = #Composition.confidentiality
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.documentMetadata.confidentiality
-* group[=].element[=].display = "A.1.8.7 - Confidentiality"
-* group[=].element[=].target.code = #Composition.confidentiality					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #metadataDokumentu.jazyk
+* group[=].element[=].display = "A.1.8.8 Jazyk"
+* group[=].element[=].target.code = #Composition.language
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.documentMetadata.language
-* group[=].element[=].display = "A.1.8.8 - Language"
-* group[=].element[=].target.code = #Composition.language		
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[+].code = #metadataDokumentu.verze
+* group[=].element[=].display = "A.1.8.9 Verze"
+* group[=].element[=].target.code = #Composition.extension:versionNumber.valueString
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[+].code = #Header.documentMetadata.version
-* group[=].element[=].display = "A.1.8.9 - Version"
-* group[=].element[=].target.code = #Composition.extension:versionNumber.valueString					
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Jako business verze, nikoli jako verze resource"
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMDigitalSignatureOrderCz"
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/BundleKOrderCz"
+* group[=].element[+].code = #elektronickyPodpis
+* group[=].element[=].display = "A.1.9.1 Elektronický podpis nebo pečeť dokumentu"
+* group[=].element[=].target.code = #Bundle.signature.data
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "As business version, not as resource version"
-* group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/digitalSignatureKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz"
-* group[=].element[+].code = #Header.digitalSignatureCz.digitalSignature
-* group[=].element[=].display = "A.1.9.1 - Electronic signature or document seal"
-* group[=].element[=].target.code = #Bundle.signature.data		
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[+].code = #casoveRazitko
+* group[=].element[=].display = "A.1.9.2 Elektronické časové razítko"
+* group[=].element[=].target.code = #Bundle.signature.when
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[+].code = #Header.digitalSignatureCz.timestamp
-* group[=].element[=].display = "A.1.9.2 - Electronic time stamp"
-* group[=].element[=].target.code = #Bundle.signature.when					
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #equivalent					
+* group[=].element[=].target.equivalence = #equivalent
 * group[=].element[=].target.comment = ""

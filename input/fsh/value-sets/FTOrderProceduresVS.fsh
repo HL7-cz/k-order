@@ -2,6 +2,7 @@ ValueSet: FTOrderProceduresVS
 Id: ft-vzp-procedures-vs
 Title: "FT Procedures ValueSet (CZ)"
 Description: "Kódy zdravotních výkonů VZP pro fyzioterapii (FT)."
+* ^experimental = false
 * ^publisher = "HL7 CZ"
 
-* include codes from system urn:oid:1.2.203.7898.1.5
+* include codes from system FTVzpProceduresCS

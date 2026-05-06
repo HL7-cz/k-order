@@ -8,6 +8,8 @@ Usage: #example
 * title = "Konziliární žádost – K-order example"
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
+* extension[presentedForm].valueAttachment.contentType = #application/pdf
+* extension[presentedForm].valueAttachment.url = "https://example.cz/files/korder-document.pdf"
 
 // --- Section: Diagnózy ---
 // * section[diagnoses].title = "Diagnózy"
@@ -20,6 +22,7 @@ Usage: #example
 // * section[requested].code.text = "A.4 Požadovaná vyšetření"
 * section[examinations].entry[0] = Reference(KOrderServiceRequest-1)
 //* section[examinations].entry[1] = Reference(KOrderServiceRequest-2)
+* section[attachments].entry[0] = Reference(KOrderAttachment-1)
 
 // identifier.system je fixed v profilu → nastavuje se jen value
 * identifier.value = "KORD-COMP-2025-001"
@@ -28,22 +31,20 @@ Usage: #example
 
 // ------------------------- Conditions ------------------------------------
 Instance: KOrderCondition-Main
-InstanceOf: KOrderConditionCz
+InstanceOf: CZ_ConditionCore
 Usage: #example
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[+].system = "http://hl7.org/fhir/sid/icd-10"
 * code.coding[=].code = #I10
-* code.coding[=].display = "Hypertenze"
 
 Instance: KOrderCondition-Secondary
-InstanceOf: KOrderConditionCz
+InstanceOf: CZ_ConditionCore
 Usage: #example
 * id = "KOrderCondition-Secondary"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[+].system = "http://hl7.org/fhir/sid/icd-10"
 * code.coding[=].code = #E11
-* code.coding[=].display = "Diabetes mellitus 2. typu"
 
 
 // ------------------------- ServiceRequests --------------------------------
@@ -116,41 +117,44 @@ Usage: #example
 * identifier.system = "https://hospital.example.cz/korder"
 * identifier.value = "KORD-2025-000123"
 
-* entry[0].fullUrl = "urn:uuid:KOrderCompositionExample"
+* entry[0].fullUrl = "https://example.cz/fhir/Composition/KOrderCompositionExample"
 * entry[0].resource = KOrderCompositionExample
 
-* entry[+].fullUrl = "urn:uuid:Patient-Novak-Petr"
-* entry[+].resource = Patient-Novak-Petr
+* entry[+].fullUrl = "https://example.cz/fhir/Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
+* entry[=].resource = Patient-Novak-Petr
 
-* entry[+].fullUrl = "urn:uuid:Practitioner-Author-detail"
-* entry[+].resource = Practitioner-Author-detail
+* entry[+].fullUrl = "https://example.cz/fhir/Practitioner/a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
+* entry[=].resource = Practitioner-Author
 
-* entry[+].fullUrl = "urn:uuid:ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
-* entry[+].resource = Organization-1
+* entry[+].fullUrl = "https://example.cz/fhir/PractitionerRole/2b7e9637-5018-4542-9faf-d5abdee7b849"
+* entry[=].resource = Practitioner-Author-detail
 
-* entry[+].fullUrl = "urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f"
-* entry[+].resource = Organization-L1-Odd
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+* entry[=].resource = Organization-1
 
-* entry[+].fullUrl = "urn:uuid:a4641bd0-34af-4038-a7db-872d08a54df9"
-* entry[+].resource = Organization-L1-HOSP
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
+* entry[=].resource = Organization-L1-Odd
 
-* entry[+].fullUrl = "urn:uuid:KOrderCondition-Main"
-* entry[+].resource = KOrderCondition-Main
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/a4641bd0-34af-4038-a7db-872d08a54df9"
+* entry[=].resource = Organization-L1-HOSP
 
-* entry[+].fullUrl = "urn:uuid:KOrderCondition-Secondary"
-* entry[+].resource = KOrderCondition-Secondary
+* entry[+].fullUrl = "https://example.cz/fhir/Condition/KOrderCondition-Main"
+* entry[=].resource = KOrderCondition-Main
 
-* entry[+].fullUrl = "urn:uuid:KOrderServiceRequest-1"
-* entry[+].resource = KOrderServiceRequest-1
+* entry[+].fullUrl = "https://example.cz/fhir/Condition/KOrderCondition-Secondary"
+* entry[=].resource = KOrderCondition-Secondary
 
-* entry[+].fullUrl = "urn:uuid:KOrderServiceRequest-2"
-* entry[+].resource = KOrderServiceRequest-2
+* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/KOrderServiceRequest-1"
+* entry[=].resource = KOrderServiceRequest-1
 
-* entry[+].fullUrl = "urn:uuid:KOrderCoverage-Example"
-* entry[+].resource = KOrderCoverage-Example
+* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/KOrderServiceRequest-2"
+* entry[=].resource = KOrderServiceRequest-2
 
-* entry[+].fullUrl = "urn:uuid:KOrderAttachment-1"
-* entry[+].resource = KOrderAttachment-1
+* entry[+].fullUrl = "https://example.cz/fhir/Coverage/KOrderCoverage-Example"
+* entry[=].resource = KOrderCoverage-Example
+
+* entry[+].fullUrl = "https://example.cz/fhir/DocumentReference/KOrderAttachment-1"
+* entry[=].resource = KOrderAttachment-1
 
 
 Instance: Patient-Novak-Petr
@@ -193,12 +197,22 @@ Description: "practitioner's detail"
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * meta.profile[0] = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
-* practitioner = Reference(urn:uuid:a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a) "MUDr. Ivan Anděl"
-* organization = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Nemocnice Chrudim"
+* practitioner = Reference(Practitioner-Author) "MUDr. Ivan Anděl"
+* organization = Reference(Organization-L1-Odd) "Nemocnice Chrudim"
 * code = $cz-nrzp_povolani#L00 "Lékař"
 * specialty = $sct#419192003 "Internal medicine"
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Anděl, interní lékař, Nemocnice Chrudim, Václavská 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
 * text.status = #generated
+
+Instance: Practitioner-Author
+InstanceOf: CZ_PractitionerCore
+Usage: #example
+Description: "Author practitioner"
+
+* id = "a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
+* name.text = "MUDr. Ivan Anděl"
+* name.family = "Anděl"
+* name.given[0] = "Ivan"
 
 Instance: Organization-1
 InstanceOf: CZ_OrganizationCore
@@ -222,7 +236,7 @@ Description: "A minimalist example of a subordinate department within a hospital
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
 * identifier[=].value = "12345678"  
 * name = "CHIR - Oddělení chirurgie"
-* partOf = Reference(urn:uuid:9f7c3d74-2c71-4b92-9a59-2b6f37ecb3d1) "Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
+* partOf = Reference(Organization-1) "Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
 * telecom.system = #phone
 * telecom.value = "+42060385555"
 * address[+]
@@ -241,7 +255,7 @@ Description: "A minimalist example of a subordinate department within a hospital
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
 * identifier[=].value = "12345678"  
 * name = "CHIR-L2 - Lůžková stanice 2"
-* partOf = Reference(urn:uuid:af2b3114-e872-43b9-9875-cceb39122f7f) "Chirurgické oddělení - Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
+* partOf = Reference(Organization-L1-Odd) "Chirurgické oddělení - Nemocnice Pardubického kraje, a.s., Chrudimská nemocnice"
 * telecom.system = #phone
 * telecom.value = "+42060385111"
 * address[+]

@@ -37,8 +37,6 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * . ^definition = "The document Bundle for CZ requests. It SHALL contain exactly one Composition and all referenced resources."
 
 * obeys one-comp
-* obeys same-servicerequest-performer
-* obeys same-servicerequest-occurrence
 
 
 ////////////////////////////////////////////////////////////
@@ -71,7 +69,8 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * entry ^slicing.rules = #open
 
 * entry contains
-    composition 1..1 and
+    composition 0..1 and
+    compositionFt 0..1 and
     patient 1..1 and
     serviceRequest 1..* and
     condition 0..* and
@@ -90,15 +89,18 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * entry[composition].resource 1..
 * entry[composition].resource only KOrderCompositionCz
 
+* entry[compositionFt].resource 1..
+* entry[compositionFt].resource only FTOrderCompositionCz
+
 // Patient
 * entry[patient].resource 1..
 * entry[patient].resource only CZ_PatientCore
 
 // ServiceRequest (main content)
-* entry[serviceRequest].resource only KOrderServiceRequestCz
+* entry[serviceRequest].resource only KOrderServiceRequestCz or FTServiceRequestCz
 
 // Condition
-* entry[condition].resource only KOrderConditionCz
+* entry[condition].resource only CZ_ConditionCore
 
 // Practitioner
 * entry[practitioner].resource only CZ_PractitionerCore
