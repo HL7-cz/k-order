@@ -33,6 +33,8 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
     CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
     CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore
 )
+* extension contains $bodySite-reference named bodySite 0..1
+* extension[bodySite].valueReference only Reference(BodyStructureCz)
 
 // NOTE: zachovávám název basedOnComposition, ale opravím typ na Composition (pokud máte extension takto myšlenou)
 * extension[basedOnComposition].valueReference only Reference(FTServiceRequestCz)
@@ -67,7 +69,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * encounter only Reference(CZ_Encounter)
 
 * reasonReference 0..*
-* reasonReference only Reference(KOrderConditionCz)
+* reasonReference only Reference(CZ_ConditionCore)
 * reasonReference ^short = "Diagnózy odůvodňující žádanku (volitelné per výkon)"
 
 * reasonCode 0..*
@@ -79,7 +81,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode.coding contains
     diagnosis 0..1 and
     reason 0..1
-* reasonCode.coding[diagnosis] from $mkn10 (preferred)
+* reasonCode.coding[diagnosis] from CZ_DiagnosisConditionVs (preferred)
 * reasonCode.coding[diagnosis].system = "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
 * reasonCode.coding[reason] from $sct-condition-code (preferred)
 * reasonCode.coding[reason].system = "http://snomed.info/sct" (exactly)
@@ -111,7 +113,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * specimen 0..*
 * specimen only Reference(CZ_Specimen)
 
-// --------------------------- insurance ---------------------------------------
+// --------------------------- coverage ---------------------------------------
 * insurance 0..1
 * insurance only Reference(CZ_Coverage)
 
@@ -122,6 +124,9 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * basedOn 0..*
 * basedOn only Reference(ServiceRequest)
 
+// --------------------------- body site --------------------------------
+* bodySite 0..1
+* bodySite from http://hl7.org/fhir/ValueSet/body-site (preferred)
 // --------------------------- invariants --------------------------------------
 Invariant: ft-code-required
 Description: "FT ServiceRequest musí mít vyplněný kód výkonu."

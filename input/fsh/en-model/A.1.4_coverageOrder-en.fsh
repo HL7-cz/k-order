@@ -5,8 +5,8 @@ Description: """Coverage information - Information about method of coverage, pay
 
 * insert SetFmmandStatusRule ( 1, draft )
 
-* method 1..1 CodeableConcept "A.1.4.1 - Method of coverage" """Method of payment for the order (health insurance, paid by the patient, other)"""
-* informationPayor 0..1 Base "A.1.4.2 - Information about payor" """Payer identification data and additional information regarding reimbursement other than from health insurance. Identification data includes the identifier, name of the organization or name of the payer, address of the payer and telecommunications connection."""
+* method 1..1 CodeableConcept "A.1.4.1 - Method of coverage" """Method of payment for the order (health coverage, paid by the patient, other)"""
+* informationPayor 0..1 Base "A.1.4.2 - Information about payor" """Payer identification data and additional information regarding reimbursement other than from health coverage. Identification data includes the identifier, name of the organization or name of the payer, address of the payer and telecommunications connection."""
 * informationPayor.name 0..1 HumanName "A.1.4.2.1 - Payor name" """Person name [the structure of the name will be the same as for the patient (given name, family name / surname)]."""
 * informationPayor.organizationID 0..* Identifier "A.1.4.2.2 - Payor organisation ID" """The healthcare provider organisation identifier. Identifier that is unique within a defined scope. Example: National healthcare provider ID. Multiple identifiers could be provided."""
 * informationPayor.organization 0..1 Base "A.1.4.2.3 - Payor organisation" """The healthcare provider organisation information."""

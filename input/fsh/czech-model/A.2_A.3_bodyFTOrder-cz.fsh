@@ -1,6 +1,6 @@
 Logical: LMCzBodyFTOrderCz
 Id: LMBodyFTOrder
-Title: "A.2 - Tělo dokumentu"
+Title: "A.2 - Tělo dokumentu FT-žádanky"
 Description: """Tělo dokumentu FT-žádanky obsahující informace o objednávce,
 klinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.""" 
 

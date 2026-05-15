@@ -2,6 +2,7 @@ ValueSet: KOrderPriorityVS
 Id: korder-priority-vs
 Title: "K-order Priority ValueSet (CZ)"
 Description: "Prioritizace pro konziliární žádanky K-order, s českými názvy."
+* ^experimental = false
 * ^publisher = "HL7 CZ"
 
 // routine — běžně
@@ -13,5 +14,3 @@ Description: "Prioritizace pro konziliární žádanky K-order, s českými náz
 // asap — statim
 * include http://hl7.org/fhir/request-priority#asap "Statim"
 
-// immediate — okamžitě (pouze výjimečně)
-* include http://hl7.org/fhir/request-priority#immediate "Okamžitě"

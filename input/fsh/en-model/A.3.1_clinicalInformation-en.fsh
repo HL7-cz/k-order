@@ -25,7 +25,7 @@ Description: """Information and data communicated to the performing site that ma
 * urgentInformation.warnings 0..* string "A.3.1.8.2 - Warnings" """Warnings and alerts that may affect execution of the order or interpretation of the results."""
 /**  implant 0..* Base "A.3.1.4 - Implant" """List of implants or aids affecting the course of the examination or its interpretation."""
 *  implant.type 1..1 CodeableConcept "A.3.1.4.1 - Implant type" """Type of implant."""
-*  implant.id 0..* Identifier "A.3.1.4.2 - Implant ID" """Normalized identifier, e.g. UDI according to EU Regulation 2017/745, medical device code according to the health insurance catalogue."""
+*  implant.id 0..* Identifier "A.3.1.4.2 - Implant ID" """Normalized identifier, e.g. UDI according to EU Regulation 2017/745, medical device code according to the health coverage catalogue."""
 *  implant.model 1..1 string "A.3.1.4.3 - Specific model" """Specific model."""
 *  implant.bodyPart 0..* CodeableConcept "A.3.1.4.4 - Body part" """Body part where the implant is located."""*/
 * additionalData 0..1 Base "A.3.1.9 - Additional formalized data" """"""

@@ -4,6 +4,7 @@ Title: "VZP – Náhrady za zdravotní péči"
 Description: "CodeSystem representing the VZP reimbursement indicator codes."
 * ^content = #complete
 * ^caseSensitive = true
+* ^experimental = false
 * ^version = "1.0.0"
 
 * #3 "Úraz zaviněný jinou osobou"

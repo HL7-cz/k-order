@@ -1,7 +1,7 @@
-Profile: KOrderConditionCz
+Profile: OrderConditionCz
 Parent: Condition
-Id: KOrderConditionCz
-Title: "Condition: K-order (CZ)"
+Id: OrderConditionCz
+Title: "Condition: General order (CZ)"
 Description: """
 Condition profil pro K-order (konziliární žádanku).
 Používá se pro diagnózy a klinické důvody žádanky.
@@ -9,8 +9,8 @@ Používá se pro diagnózy a klinické důvody žádanky.
 
 * ^publisher = "HL7 CZ"
 * ^copyright = "HL7 CZ"
-* . ^short = "K-order Condition"
-* . ^definition = "Diagnóza nebo klinický důvod přiložený k žádance K-order."
+* . ^short = "General order Condition"
+* . ^definition = "Diagnóza nebo klinický důvod přiložený k žádance."
 
 // ----------------------------------------------------------------------------
 // Identifikace a základní atributy
@@ -33,11 +33,11 @@ Používá se pro diagnózy a klinické důvody žádanky.
 * code.coding ^slicing.rules = #open
 
 * code.coding contains 
-    diagnosis 1..1 and  //TODO potvrdit kardinalitu
+    diagnosis 1..1 and
     reason 0..1
 
 // ----------------------------------------------------------------------------
-// Diagnóza – národní VS (ICD-10, případně ORPHA)
+// Diagnóza – národní VS (MKN-10, případně ORPHA)
 // ----------------------------------------------------------------------------
 * code.coding[diagnosis] from CZ_DiagnosisConditionVs (extensible)
 

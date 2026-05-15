@@ -1,0 +1,25 @@
+@startmindmap
+skinparam topurl StructureDefinition-
+
+*[#EEEEAE] [[LMHeaderOrder.html Hlavička obrazové žádanky]]
+**[#TECHNOLOGY] [[LMSubjectOrderCz.html Identifikace pacienta]]
+**[#TECHNOLOGY] [[LMPayerOrderCz.html Zdravotní pojištění]]
+**[#TECHNOLOGY] [[LMCoverageOrderCz.html Úhrada]]
+**[#TECHNOLOGY] [[LMDocumentMetadataCz.html Metadata dokumentu]]
+***_ ID dokumentu
+***_ Kategorie dokumentu
+***_ Stav žádanky
+***_ Datum a čas vytvoření
+***_ Název dokumentu
+***_ Správce dokumentu
+***_ Důvěrnost dokumentu
+***_ Jazyk dokumentu
+***_ Verze dokumentu
+**[#TECHNOLOGY] [[LMAuthorOrderCz.html Objednatel]]
+**[#TECHNOLOGY] [[LMRequestedPerformerCz.html Provádějící]]
+**[#TECHNOLOGY] [[LMAdditionalRecipientCz.html Příjemce nálezu]]
+**[#TECHNOLOGY] [[LMDigitalSignatureCz.html Elektronické podpisy]]
+***_ Elektronický podpis nebo pečeť dokumentu
+***_ Časové razítko
+
+@endmindmap

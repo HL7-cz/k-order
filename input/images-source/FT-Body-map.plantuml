@@ -1,0 +1,57 @@
+@startuml
+
+hide circle
+hide stereotype
+hide members
+hide methods
+
+skinparam linetype ortho
+
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+
+legend right
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
+endlegend
+
+class "LMCzBodyFTOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyFTOrder.html]]
+
+class "FTOrderServiceRequestCz" <<Profile>> [[StructureDefinition-FTOrderServiceRequestCz.html]]
+"LMCzBodyFTOrderCz" <|. "FTOrderServiceRequestCz"
+
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter-core.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Encounter"
+"FTOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
+
+class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Coverage"
+"CZ_Encounter" -d[hidden]-> "CZ_Coverage"
+
+class "CZ_AppointmentOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-appointmentOrder.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_AppointmentOrder"
+"CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
+
+class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_ConditionCore"
+"CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
+
+class "CZ_DocumentReference" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-documentreference.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_DocumentReference"
+"CZ_ConditionCore" -d[hidden]-> "CZ_DocumentReference"
+
+class "CZ_Provenance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Provenance"
+"CZ_DocumentReference" -d[hidden]-> "CZ_Provenance"
+
+class "FTOrderCompositionCz" <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
+"LMCzBodyFTOrderCz" <|. "FTOrderCompositionCz"
+"CZ_Provenance" -d[hidden]-> "FTOrderCompositionCz"
+
+class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+"LMCzBodyFTOrderCz" <|. "BundleOrderCz"
+"FTOrderCompositionCz" -d[hidden]-> "BundleOrderCz"
+
+@enduml

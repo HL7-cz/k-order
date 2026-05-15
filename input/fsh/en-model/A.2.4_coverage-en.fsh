@@ -5,8 +5,8 @@ Description: """Information about the payment method for the requested examinati
 
 * insert SetFmmandStatusRule ( 1, draft )
 
-* paymentMethod 1..1 CodeableConcept "A.2.4.1 - Payment method" """Method of payment for the order (health insurance, paid by the patient, other)."""
-* payerInformation 0..1 Base "A.2.4.2 - Payer information" """Payer identification data and additional information when reimbursement is not covered by health insurance."""
+* paymentMethod 1..1 CodeableConcept "A.2.4.1 - Payment method" """Method of payment for the order (health coverage, paid by the patient, other)."""
+* payerInformation 0..1 Base "A.2.4.2 - Payer information" """Payer identification data and additional information when reimbursement is not covered by health coverage."""
 * payerInformation.name 0..1 HumanName "A.2.4.2.1 - Payer name" """Given name and family name of the payer."""
 * payerInformation.organizationID 0..* Identifier "A.2.4.2.2 - Payer organization ID" """Identifier of the payer organization."""
 * payerInformation.organization 0..1 Base "A.2.4.2.3 - Payer organization" """Payer organization."""

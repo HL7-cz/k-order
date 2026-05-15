@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Tělo -&gt; FHIR profily (CZ FT-ORDER)</title>
+
+    <style type="text/css">
+
+      .model-map-block { margin: 0 0 1rem 0; }
+
+      .callout-wrapper {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f2f4f7;
+        padding: 10px 12px;
+      }
+
+      .callout-box { color: #222; }
+
+      .table-wrap {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f7f8fa;
+        padding: 10px;
+        margin: 0 0 1rem 0;
+      }
+
+      .table-wrap table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        background: #fff;
+      }
+
+      .table-wrap th,
+      .table-wrap td {
+        border: 1px solid #bfc5cc;
+        padding: 6px 8px;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+
+      .table-wrap caption {
+        text-align: left;
+        font-weight: bold;
+        margin: 0 0 6px 0;
+      }
+
+      .src-head { background: #2f63b7; color: #fff; }
+      .relhead { background: #7b389f; color: #fff; }
+      .tgt-head { background: #cf003e; color: #fff; }
+
+      .src-sub { background: #97abd7; }
+      .relsub { background: #c9bed1; }
+      .tgt-sub { background: #cf8398; }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="model-map-block">
+      <div class="callout-wrapper">
+        <div class="callout-box">
+          <strong>Probíhající sladění:</strong>
+          Logické modely Xt-EHR jsou průběžně revidovány a dále zpřesňovány. Aktualizace z Xt-EHR budou postupně promítány do této implementační příručky, aby byla zachována návaznost na vyvíjející se specifikace EHDS.
+        </div>
+      </div>
+    </div>
+
+    <h3>Tělo -&gt; FHIR profily (CZ FT-ORDER)</h3>
+
+    <p>
+      Tato stránka vysvětluje, jak jsou konceptuální prvky logického modelu těla vyjádřeny v odpovídajících FHIR profilech použitých v této implementační příručce.
+    </p>
+
+    <h4 id="model">Přehled modelu</h4>
+
+    <p>{% include K-Body-map.svg %}</p>
+    <div class="table-wrap">
+
+      <table summary="Body logical model to CZ ORDER profiles">
+
+        <caption>Body -&gt; FHIR Profiles (CZ FT-ORDER)</caption>
+
+        <thead>
+
+          <tr>
+            <th colspan="2" class="src-head">Body (Logical Model)</th>
+            <th class="relhead">Relationship</th>
+            <th colspan="4" class="tgt-head">FHIR Target</th>
+          </tr>
+
+          <tr>
+            <th class="src-sub">Element</th>
+            <th class="src-sub">Description</th>
+            <th class="relsub">Relation</th>
+            <th class="tgt-sub">Resource/Profile</th>
+            <th class="tgt-sub">Element</th>
+            <th class="tgt-sub">Description</th>
+            <th class="tgt-sub">Notes</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+        <tr>
+          <td colspan="7"><b>FTOrderServiceRequestCz - Detail objednávky</b></td>
+        </tr>
+
+          <tr>
+            <td>detailyObjednavky</td>
+            <td>A.2.1 - Detail objednávky</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>detailyObjednavky.identifikator</td>
+            <td>A.2.1.1 - Identifikátor detailu objednávky</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>detailyObjednavky.datumCasVytvoreni</td>
+            <td>A.2.1.2 - Datum a čas vytvoření objednávky</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.authoredOn</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>detailyObjednavky.pozadovanyTermin</td>
+            <td>A.2.1.3 - Datum a čas požadovaného provedení</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.occurrenceDateTime</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>detailyObjednavky.urgence</td>
+            <td>A.2.1.4 - Urgence objednávky</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.priority</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>detailyObjednavky.textObjednavky</td>
+            <td>A.2.1.5 - Text objednávky</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.note.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>detailyObjednavky.informaceProPacienta</td>
+            <td>A.2.1.6 - Informace pro pacienta</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.patientInstruction</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>Odůvodnění vyšetření</b></td>
+          </tr>
+
+          <tr>
+            <td>duvodObjednavky</td>
+            <td>A.2.2 - Odůvodnění vyšetření (důvod objednávky)</td>
+            <td>související</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.reasonCode</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>duvodObjednavky.problem</td>
+            <td>A.2.2.1 - Popis problému / diagnózy / stavu – indikační diagnóza (Hlavní)</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.reasonCode.coding[diagnosis]</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>duvodObjednavky.klinickaOtazkaKod</td>
+            <td>A.2.2.2 - Klinická otázka kódem</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.reasonCode.coding[reason]</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>duvodObjednavky.klinickaOtazkaText</td>
+            <td>A.2.2.3 - Klinická otázka textem</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.reasonCode.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_Encounter</b></td>
+          </tr>
+
+          <tr>
+            <td>klinickaUdalost</td>
+            <td>A.2.3 - Klinická událost (encounter)</td>
+            <td>související</td>
+            <td>Encounter (CZ_Encounter)</td>
+            <td>ServiceRequest.encounter</td>
+            <td></td>
+            <td>ServiceRequest.encounter.ofType(CZ_Encounter)</td>
+          </tr>
+
+          <tr>
+            <td>identifikator</td>
+            <td>A.2.3.1 - ID klinické události</td>
+            <td>ekvivalentní</td>
+            <td>Encounter (CZ_Encounter)</td>
+            <td>CZ_Encounter.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>typ</td>
+            <td>A.2.3.2 - Typ klinické události</td>
+            <td>ekvivalentní</td>
+            <td>Encounter (CZ_Encounter)</td>
+            <td>CZ_Encounter.type</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>dalsiInformace</td>
+            <td>A.2.3.3 - Další informace o klinické události</td>
+            <td>ekvivalentní</td>
+            <td>Encounter (CZ_Encounter)</td>
+            <td>CZ_Encounter.type.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_Coverage</b></td>
+          </tr>
+
+          <tr>
+            <td>uhrada</td>
+            <td>A.2.4 - Úhrada</td>
+            <td>související</td>
+            <td>Coverage (CZ_Coverage)</td>
+            <td>ServiceRequest.insurance</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>zpusob</td>
+            <td>A.2.4.1 - Způsob úhrady</td>
+            <td>ekvivalentní</td>
+            <td>Coverage (CZ_Coverage)</td>
+            <td>Coverage.type</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci</td>
+            <td>A.2.4.2 - Informace o plátci</td>
+            <td>související</td>
+            <td>Coverage (CZ_Coverage)</td>
+            <td>Coverage.payor</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci.jmeno</td>
+            <td>A.2.4.2.1 - Jméno plátce</td>
+            <td>ekvivalentní</td>
+            <td>RelatedPerson</td>
+            <td>RelatedPerson.name</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci.identifikatorOrganizace</td>
+            <td>A.2.4.2.2 - ID organizace plátce</td>
+            <td>ekvivalentní</td>
+            <td>Organization</td>
+            <td>Organization.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci.organizace</td>
+            <td>A.2.4.2.3 - Organizace plátce</td>
+            <td>ekvivalentní</td>
+            <td>Organization</td>
+            <td>Organization</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci.adresa</td>
+            <td>A.2.4.2.4 - Adresa</td>
+            <td>ekvivalentní</td>
+            <td>Organization</td>
+            <td>Organization.address</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci.zeme</td>
+            <td>A.2.4.2.5 - Země</td>
+            <td>ekvivalentní</td>
+            <td>Organization</td>
+            <td>Organization.address.country</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>informaceOPlatci.telekom</td>
+            <td>A.2.4.2.6 - Telekom</td>
+            <td>ekvivalentní</td>
+            <td>Organization</td>
+            <td>Organization.telecom</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>komentar</td>
+            <td>A.2.4.3 - Komentář</td>
+            <td>ekvivalentní</td>
+            <td>Coverage (CZ_Coverage)</td>
+            <td>Coverage.extension:comment</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_AppointmentOrder</b></td>
+          </tr>
+
+          <tr>
+            <td>terminNavstevy</td>
+            <td>A.2.5 - Termín návštěvy</td>
+            <td>související</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>ServiceRequest.supportingInfo</td>
+            <td></td>
+            <td>ServiceRequest.supportingInfo.ofType(CZ_AppointmentOrder)</td>
+          </tr>
+
+          <tr>
+            <td>id</td>
+            <td>A.2.5.1 - Termín ID</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>stav</td>
+            <td>A.2.5.2 - Stav termínu</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.status</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>popis</td>
+            <td>A.2.5.3 - Popis</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.description</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>datumACas</td>
+            <td>A.2.5.4 - Plánovaný čas</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.created</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>delkaVysetreni</td>
+            <td>A.2.5.5 - Délka vyšetření</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.minutesDuration</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>komentar</td>
+            <td>A.2.5.6 - Komentář</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.comment</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>instrukceProPacienta</td>
+            <td>A.2.5.7 - Instrukce pro pacienta</td>
+            <td>ekvivalentní</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.patientInstruction</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>misto</td>
+            <td>A.2.5.8 - Místo objednání</td>
+            <td>související</td>
+            <td>Appointment (CZ_AppointmentOrder)</td>
+            <td>CZ_AppointmentOrder.participant.actor</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>LMClinicalInformationCz - Biometrické údaje</b></td>
+          </tr>
+
+          <tr>
+            <td>biometrickeUdaje.vaha</td>
+            <td>A.3.1.1 - Biometrické údaje - váha</td>
+            <td>související</td>
+            <td>Observation (CZ_BodyWeight)</td>
+            <td>CZ_BodyWeight</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>biometrickeUdaje.vaha.hodnota</td>
+            <td>Hodnota váhy</td>
+            <td>ekvivalentní</td>
+            <td>Observation (CZ_BodyWeight)</td>
+            <td>CZ_BodyWeight.valueQuantity</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>biometrickeUdaje.vyska</td>
+            <td>A.3.1.1 - Biometrické údaje - výška</td>
+            <td>související</td>
+            <td>Observation (CZ_BodyHeight)</td>
+            <td>CZ_BodyHeight</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>biometrickeUdaje.vyska.hodnota</td>
+            <td>Hodnota výšky</td>
+            <td>ekvivalentní</td>
+            <td>Observation (CZ_BodyHeight)</td>
+            <td>CZ_BodyHeight.valueQuantity</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_ConditionCore</b></td>
+          </tr>
+
+          <tr>
+            <td>dalsiRelevantniKlinickeInformace</td>
+            <td>A.3.1.2 - Další relevantní klinické informace</td>
+            <td>související</td>
+            <td>Condition (CZ_ConditionCore)</td>
+            <td>ServiceRequest.reasonReference</td>
+            <td></td>
+            <td>Zde patří vedlejší diagnozy a další klinické informace</td>
+          </tr>
+
+          <tr>
+            <td>dalsiRelevantniKlinickeInformace.kod</td>
+            <td>A.3.1.2.1 - Kód další klinické informace</td>
+            <td>ekvivalentní</td>
+            <td>Condition (CZ_ConditionCore)</td>
+            <td>Condition.code.coding</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>dalsiRelevantniKlinickeInformace.text</td>
+            <td>A.3.1.2.2 - Text další klinické informace</td>
+            <td>ekvivalentní</td>
+            <td>Condition (CZ_ConditionCore)</td>
+            <td>Condition.code.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_MedicationStatement</b></td>
+          </tr>
+
+          <tr>
+            <td>mozneKontraindikaceVLecbe</td>
+            <td>A.3.1.3 - Možné kontraindikace v medikaci</td>
+            <td>související</td>
+            <td>MedicationStatement (CZ_MedicationStatement)</td>
+            <td>ServiceRequest.supportingInfo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>mozneKontraindikaceVLecbe.identifikator</td>
+            <td>A.3.1.3.1 - Identifikátor medikace</td>
+            <td>ekvivalentní</td>
+            <td>MedicationStatement (CZ_MedicationStatement)</td>
+            <td>MedicationStatement.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>mozneKontraindikaceVLecbe.kod</td>
+            <td>A.3.1.3.2 - Kód medikace</td>
+            <td>ekvivalentní</td>
+            <td>MedicationStatement (CZ_MedicationStatement)</td>
+            <td>MedicationStatement.medicationCodeableConcept</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>mozneKontraindikaceVLecbe.mnozstvi</td>
+            <td>A.3.1.3.3 - Množství medikace</td>
+            <td>ekvivalentní</td>
+            <td>MedicationStatement (CZ_MedicationStatement)</td>
+            <td>MedicationStatement.dosage.doseAndRate.doseQuantity</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_DeviceUseStatement</b></td>
+          </tr>
+
+          <tr>
+            <td>implantat</td>
+            <td>A.3.1.4 - Implantát</td>
+            <td>související</td>
+            <td>DeviceUseStatement (CZ_DeviceUseStatement)</td>
+            <td>ServiceRequest.supportingInfo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>implantat.typ</td>
+            <td>A.3.1.4.1 - Typ implantátu</td>
+            <td>ekvivalentní</td>
+            <td>DeviceUseStatement (CZ_DeviceUseStatement)</td>
+            <td>DeviceUseStatement.device</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>implantat.identifikator</td>
+            <td>A.3.1.4.2 - Identifikátor implantátu</td>
+            <td>ekvivalentní</td>
+            <td>Device</td>
+            <td>Device.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>implantat.model</td>
+            <td>A.3.1.4.3 - Model implantátu</td>
+            <td>ekvivalentní</td>
+            <td>Device</td>
+            <td>Device.modelNumber</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>implantat.castTela</td>
+            <td>A.3.1.4.4 - Část těla</td>
+            <td>ekvivalentní</td>
+            <td>DeviceUseStatement (CZ_DeviceUseStatement)</td>
+            <td>DeviceUseStatement.bodySite</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_AllergyIntolerance</b></td>
+          </tr>
+
+          <tr>
+            <td>alergie</td>
+            <td>A.3.1.5.1 - Alergie a intolerance</td>
+            <td>související</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>ServiceRequest.supportingInfo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>alergie.identifikator</td>
+            <td>A.3.1.5.1.1 - Identifikátor alergie</td>
+            <td>ekvivalentní</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>AllergyIntolerance.identifier</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>alergie.klinickyStav</td>
+            <td>A.3.1.5.1.2 - Klinický stav alergie</td>
+            <td>ekvivalentní</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>AllergyIntolerance.clinicalStatus</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>alergie.typ</td>
+            <td>A.3.1.5.1.3 - Typ alergie</td>
+            <td>ekvivalentní</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>AllergyIntolerance.type</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>alergie.kategorie</td>
+            <td>A.3.1.5.1.4 - Kategorie alergie</td>
+            <td>ekvivalentní</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>AllergyIntolerance.category</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>alergie.kod</td>
+            <td>A.3.1.5.1.5 - Kód alergie</td>
+            <td>ekvivalentní</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>AllergyIntolerance.code</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>alergie.poznamka</td>
+            <td>A.3.1.5.1.6 - Poznámka k alergii</td>
+            <td>ekvivalentní</td>
+            <td>AllergyIntolerance (CZ_AllergyIntolerance)</td>
+            <td>AllergyIntolerance.note</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>CZ_Flag</b></td>
+          </tr>
+
+          <tr>
+            <td>varovani</td>
+            <td>A.3.1.5.2 - Varování</td>
+            <td>související</td>
+            <td>Flag (CZ_Flag)</td>
+            <td>ServiceRequest.supportingInfo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>varovani.text</td>
+            <td>A.3.1.5.2.1 - Text varování</td>
+            <td>ekvivalentní</td>
+            <td>Flag (CZ_Flag)</td>
+            <td>Flag.code.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="7"><b>LMFTOrderDataElementsCz</b></td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni</td>
+            <td>A.3.2.1 - Požadované vyšetření</td>
+            <td>související</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni.kod</td>
+            <td>A.3.2.1.1 - Kód vyšetření</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.code</td>
+            <td></td>
+            <td>V budoucnu přechod na SNOMED CZ</td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni.nazev</td>
+            <td>A.3.2.1.2 - Název vyšetření</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>ServiceRequest.code.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni.castTela</td>
+            <td>A.3.2.1.3 - Část těla</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.extension:bodySite.location</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni.lateralita</td>
+            <td>A.3.2.1.4 - Lateralita</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.extension:bodySite.extension:laterality</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni.frekvence</td>
+            <td>A.3.2.1.5 - Frekvence</td>
+            <td>související</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.quantityQuantity</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>pozadovaneVysetreni.poznamka</td>
+            <td>A.3.2.1.6 - Poznámka</td>
+            <td>ekvivalentní</td>
+            <td>ServiceRequest (FTOrderServiceRequestCz)</td>
+            <td>FTOrderServiceRequestCz.note.text</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </tbody>
+
+
+      </table>
+
+    </div>
+
+  </body>
+    
+</div>

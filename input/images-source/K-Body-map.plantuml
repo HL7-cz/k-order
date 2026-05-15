@@ -1,31 +1,73 @@
 @startuml
+
 hide circle
 hide stereotype
 hide members
 hide methods
+
 skinparam linetype ortho
+
 skinparam class {
 BackgroundColor<<LogicalModel>> #APPLICATION
 BackgroundColor<<Profile>> #TECHNOLOGY
 }
+
 legend right
 | <#APPLICATION>  Logical Model |
 | <#TECHNOLOGY>  Profile |
 endlegend
-class "Body" <<LogicalModel>> [[StructureDefinition-logBodyKOrder.html]]
-note top #PaleTurquoise [[ConceptMap-hdrHeader2FHIR-cz-hdr.html]]
-Concept Map
-endnote
 
+class "LMCzBodyKOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyKOrder.html]]
 
-class "k-order-service-request-cz" <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
-"Body" <|. "k-order-service-request-cz"
+class "KOrderServiceRequestCz" <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
+"LMCzBodyKOrderCz" <|. "KOrderServiceRequestCz"
 
-class "Bundle-K-Order-cz" <<Profile>> [[StructureDefinition-BundleKOrderCz.html]]
-"Header" <|. "Bundle-K-Order-cz"
-"K-Order-composition" -d[hidden]-> "Bundle-K-Order-cz" 
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_Encounter"
+"KOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
-class "K-Order-composition" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
-"Header" <|. "K-Order-composition"
-"Bundle-K-Order-cz" -d[hidden]-> "K-Order-composition" 
+class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
+"LMCzBodyKOrderCz" <|. "CZ_Coverage"
+"CZ_Encounter" -d[hidden]-> "CZ_Coverage"
+
+class "CZ_AppointmentOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-appointmentOrder.html]]
+"LMCzBodyKOrderCz" <|. "CZ_AppointmentOrder"
+"CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
+
+class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_ConditionCore"
+"CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
+
+class "CZ_MedicationStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-medicationstatement.html]]
+"LMCzBodyKOrderCz" <|. "CZ_MedicationStatement"
+"CZ_ConditionCore" -d[hidden]-> "CZ_MedicationStatement"
+
+class "CZ_DeviceUseStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-deviceusestatement.html]]
+"LMCzBodyKOrderCz" <|. "CZ_DeviceUseStatement"
+"CZ_MedicationStatement" -d[hidden]-> "CZ_DeviceUseStatement"
+
+class "CZ_AllergyIntolerance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html]]
+"LMCzBodyKOrderCz" <|. "CZ_AllergyIntolerance"
+"CZ_DeviceUseStatement" -d[hidden]-> "CZ_AllergyIntolerance"
+
+class "CZ_Flag" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-flag.html]]
+"LMCzBodyKOrderCz" <|. "CZ_Flag"
+"CZ_AllergyIntolerance" -d[hidden]-> "CZ_Flag"
+
+class "CZ_BodyWeight" <<Profile>> [[StructureDefinition-cz-bodyweight.html]]
+"LMCzBodyKOrderCz" <|. "CZ_BodyWeight"
+"CZ_Flag" -d[hidden]-> "CZ_BodyWeight"
+
+class "CZ_BodyHeight" <<Profile>> [[StructureDefinition-cz-bodyheight.html]]
+"LMCzBodyKOrderCz" <|. "CZ_BodyHeight"
+"CZ_BodyWeight" -d[hidden]-> "CZ_BodyHeight"
+
+class "KOrderCompositionCz" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+"LMCzBodyKOrderCz" <|. "KOrderCompositionCz"
+"CZ_BodyHeight" -d[hidden]-> "KOrderCompositionCz"
+
+class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+"LMCzBodyKOrderCz" <|. "BundleOrderCz"
+"KOrderCompositionCz" -d[hidden]-> "BundleOrderCz"
+
 @enduml

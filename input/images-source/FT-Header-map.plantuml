@@ -1,0 +1,61 @@
+@startuml
+
+hide circle
+hide stereotype
+hide members
+hide methods
+
+skinparam linetype ortho
+
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+
+legend right
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
+endlegend
+
+class "LMHeaderOrder" <<LogicalModel>> [[StructureDefinition-LMHeaderOrder.html]]
+
+class "CZ_PatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html]]
+"LMHeaderOrder" <|. "CZ_PatientCore"
+
+class "CZ_PractitionerRoleCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-practitionerrole-core.html]]
+"LMHeaderOrder" <|. "CZ_PractitionerRoleCore"
+"CZ_PatientCore" -d[hidden]-> "CZ_PractitionerRoleCore"
+
+class "CZ_PractitionerCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html]]
+"LMHeaderOrder" <|. "CZ_PractitionerCore"
+"CZ_PractitionerRoleCore" -d[hidden]-> "CZ_PractitionerCore"
+
+class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
+"LMHeaderOrder" <|. "CZ_Coverage"
+"CZ_PractitionerCore" -d[hidden]-> "CZ_Coverage"
+
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter-core.html]]
+"LMHeaderOrder" <|. "CZ_Encounter"
+"CZ_Coverage" -d[hidden]-> "CZ_Encounter"
+
+class "CZ_OrganizationCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html]]
+"LMHeaderOrder" <|. "CZ_OrganizationCore"
+"CZ_Encounter" -d[hidden]-> "CZ_OrganizationCore"
+
+class "CZ_Provenance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]
+"LMHeaderOrder" <|. "CZ_Provenance"
+"CZ_OrganizationCore" -d[hidden]-> "CZ_Provenance"
+
+class "FTOrderServiceRequestCz" <<Profile>> [[StructureDefinition-FTOrderServiceRequestCz.html]]
+"LMHeaderOrder" <|. "FTOrderServiceRequestCz"
+"CZ_Provenance" -d[hidden]-> "FTOrderServiceRequestCz"
+    
+class "FTOrderCompositionCz" <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
+"LMHeaderOrder" <|. "FTOrderCompositionCz"
+"FTOrderServiceRequestCz" -d[hidden]-> "FTOrderCompositionCz"
+
+class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+"LMHeaderOrder" <|. "BundleOrderCz"
+"FTOrderCompositionCz" -d[hidden]-> "BundleOrderCz"
+
+@enduml

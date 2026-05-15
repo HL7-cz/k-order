@@ -1,6 +1,6 @@
 Logical: LMCzBodyKOrderCz
 Id: LMBodyKOrder
-Title: "A.2 - Tělo dokumentu"
+Title: "A.2 - Tělo dokumentu K-žádanky"
 Description: """Tělo dokumentu K-žádanky obsahující informace o objednávce,
 klinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.""" 
 

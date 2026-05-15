@@ -1,12 +1,10 @@
-@startmindmap korderDiagram
+@startmindmap 
 skinparam topurl StructureDefinition-
 
-* Konziliární žádanka
-** [[StructureDefinition-logHeaderKOrder.html Hlavička dokumentu]]
-** Tělo dokumentu
-** Vizuální podoba dokumentu
-** Přílohy
-'** Link to Related Report
-'** Media
-'** Dicom Metadata
+* Žádanka
+**[#EEEEAE] [[LMHeaderOrder.html Hlavička žádanky]]
+**[#EEEEAE] [[LMBodyOrder.html Tělo žádanky]]
+** [[LMPresentedFormOrderCz.html Vizuální podoba dokumentu]]
+** [[LMPresentedFormOrderCz.html Přílohy]]
+
 @endmindmap

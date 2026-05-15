@@ -1,0 +1,54 @@
+@startmindmap
+<style>
+
+legend {
+  Padding 20
+}
+
+</style>
+
+skinparam topurl StructureDefinition-
+
+legend left
+<b>Legenda:</b>
+
+- Barva podkladu: <b><color:#EEEEAE>žlutá</color></b> - <b>Klíčové</b>: Kořenové prvky obrazové žádanky (CZ).
+- Barva podkladu: <b><color:#TECHNOLOGY>zelená</color></b> - <b>Základní</b>: Společné prvky objednávky (CZ).
+
+end legend
+
+*[#EEEEAE] [[LMBodyOrder.html Tělo Obecné žádanky]]
+**[#TECHNOLOGY] [[LMOrderInformationCz.html Informace o žádance]]
+**[#TECHNOLOGY] [[LMClinicalInformationCz.html Klinická událost]]
+**[#TECHNOLOGY] [[LMCoverageBodyCz.html Úhrada]]
+**[#TECHNOLOGY] [[LMAppointmentCz.html Termín vyšetření]]
+**[#TECHNOLOGY] [[LMSpecimenInformationCz.html Informace o vzorku]]
+**[#TECHNOLOGY] [[LMClinicalInformationCz.html Klinické informace]]
+***_ Biometrické údaje
+***_ Váha
+***_ Výška
+***_ Urgentní informace
+****_ Alergie a intolerance
+****_ Varování
+***_ Medikace
+***_ Implantáty
+***_ Omezení pohyblivosti pacienta
+***_ Další relevantní klinické informace
+***_ Očkování
+***_ Datum hospitalizace
+***_ Další formalizované údaje
+**[#TECHNOLOGY] [[LMOrderDataElementsCz.html Datové elementy objednávky vyšetření]]
+***_ Kod vyšetření
+***_ Název vyšetření
+***_ FT-Frekvence
+***_ FT-Část těla
+***_ FT-Lateralita
+***_ Poznámka
+***_ K-Závažná anamnestická data (text)
+***_ K-Výsledky vyšetření (text)
+***_ K-Diagnostická rozvaha (text)
+***_ K-Současná léčba (text)
+***_ K-Zapůjčená dokumentace (text)  
+**[#TECHNOLOGY] [[LMPlannedCareOrdersCz.html Odkazy na objednávky plánované péče navazující na tuto žádanku ]]
+**[#TECHNOLOGY] [[LMOtherSupportingInformationCz.html Ostatní podpůrné informace ]]
+@endmindmap

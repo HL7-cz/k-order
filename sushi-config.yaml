@@ -39,8 +39,8 @@ dependencies:
   hl7.fhir.eu.base: current 
   hl7.fhir.extensions.r4: 4.0.1
   hl7.fhir.extensions.r5: 4.0.1
-  hl7.fhir.eu.extensions: 0.1.1-ballot
-  hl7.fhir.cz.core: current
+  hl7.fhir.eu.extensions.r4: 1.3.0
+  hl7.fhir.cz.core: 0.3.0
   hl7.fhir.cz.terminology: 0.2.0
 #
 #
@@ -67,19 +67,27 @@ dependencies:
 pages:
   index.md:
     title: Home
-  logical-models.md:
-    title: Logical models
   logical-models-cs.md:
     title: Datová sada - logické modely CZ
-  model-map.md:
-    title: Model maps
+  scope-and-content-cs.md:
+    title: Oblasti a obsah
+  background-cs.md:
+    title: Background
   model-map-cs.md:
     title: Mapování logického modelu
   artifacts.xml:
     title: Artifacts
+  downloads.md:
+    title: Downloads
  # === MAP ====
-  Header-map.html:
-    title: Header Relationships
+  K-Header-map.html:
+    title: Hlavička dokumentu K-žádanky
+  K-Body-map.html:
+    title: Tělo dokumentu K-žádanky
+  FT-Header-map.html:
+    title: Hlavička dokumentu FT-žádanky
+  FT-Body-map.html:
+    title: Tělo dokumentu FT-žádanky
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -89,20 +97,10 @@ pages:
 # https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 #
 parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
-#  special-url:
-#    - https://ncez.mzcr.cz/fhir/ValueSet/cz-administrative-gender-vs
-#    - https://ncez.mzcr.cz/fhir/ValueSet/cz-contact-person-relation-vs
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/cz-drzar
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/nrzp-povolani
-#    - https://ncez.mzcr.cz/fhir/ValueSet/cz-drzar-vs
-#    - https://ncez.mzcr.cz/fhir/ValueSet/nrzp-povolani-vs
-#    - https://ncez.mzcr.cz/fhir/ValueSet/PassportNS-vs
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/cz-tab-ta
-#    - https://ncez.mzcr.cz/fhir/ValueSet/typ-registrujiciho-lekare-vs
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/role-code-supplement
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/contact-role-supplement
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/snomed-supplement-service-type
-#    - http://ncez.mzcr.cz/fhir/StructureDefinition/address-point-cz
+  special-url:
+    - https://vzp.cz/cis/vykony
+    - urn:oid:1.2.203.7898.1.5
+    - https://terminology.uzis.cz/CodeSystem/Mkn10_5
 # path-resource:
 #    - input/resources
 #    - fsh-generated/resources
@@ -154,16 +152,15 @@ menu:
 #    General guidance: general-guidance.html
 #    Identifiers: identifiers.html
   Functional:
-    Logical models (en): logical-models.html
+#   Logical models (en): logical-models.html
     Logical models (cs): logical-models-cs.html
   Implementation:
-    Mapping to profiles (en): model-map.html
+#   Mapping to profiles (en): model-map.html
     Mapping to profiles (cs): model-map-cs.html
 #  Artifacts: 
 #    Czech artifacts: artifacts.html
 #    Profiles and extensions: profiles-and-extensions.html
-#  About:
-#    Downloads: downloads.html
+  About: downloads.html
   Artifacts: artifacts.html
 
 # Less Common Implementation Guide Properties
@@ -236,76 +233,56 @@ menu:
 groups:
   czech-logical-model-shared:
     name: Sdílený logický model žádanek
-    description: Logical model resources shared by K-order and FT-order.
+    description: Logický model obecné žádanky, který je využit pro ostatní typy žádanek definovaných .
     resources:
-      - StructureDefinition/LMHeaderOrder
-      - StructureDefinition/LMSubjectOrderCz
-      - StructureDefinition/LMPayerOrderCz
-      - StructureDefinition/LMCoverageOrderCz
-      - StructureDefinition/LMAuthorOrderCz
-      - StructureDefinition/LMRequestedPerformerOrderCz
-      - StructureDefinition/LMAdditionalRecipientCz
-      - StructureDefinition/LMDocumentMetadataCz
-      - StructureDefinition/LMDigitalSignatureOrderCz
-      - StructureDefinition/LMOrderInformationCz
-      - StructureDefinition/LMClinicalEventCz
-      - StructureDefinition/LMCoverageBodyCz
-      - StructureDefinition/LMAppointmentCz
-      - StructureDefinition/LMSpecimenInformationCz
-      - StructureDefinition/LMClinicalInformationCz
-      - StructureDefinition/LMPlannedCareOrdersCz
-      - StructureDefinition/LMOtherSupportingInformationCz
-      - StructureDefinition/LMPresentedFormOrderCz
-      - StructureDefinition/LMAttachmentsOrderCz
+      - StructureDefinition/LMGeneralOrderCz
 
   czech-logical-model-k-order:
-    name: Logický model k žádanky
-    description: K-order specific logical model resources.
+    name: Logický model konziliární žádanky (K-order)
+    description: K-žádanka specifické logické modely.
     resources:
-      - StructureDefinition/LMBodyKOrder
-      - StructureDefinition/LMKOrderDataElementsCz
+      - StructureDefinition/LMKOrderCz
   
   czech-logical-model-ft-order:
     name: Logický model FT žádanky
-    description: FT-order specific logical model resources.
+    description: FT-žádanka specifické logické modely.
     resources:
-      - StructureDefinition/LMBodyFTOrder
-      - StructureDefinition/LMFTOrderDataElementsCz
-
-  english-logical-model-shared:
-    name: Shared logical model for orders
-    description: Logical model resources shared by K-order and FT-order.
-    resources:
-      - StructureDefinition/LMEnHeaderOrder
-      - StructureDefinition/LMEnSubjectOrderCz
-      - StructureDefinition/LMEnPayerOrderCz
-      - StructureDefinition/LMEnCoverageOrderCz
-      - StructureDefinition/LMEnAuthorOrderCz
-      - StructureDefinition/LMEnRequestedPerformerOrderCz
-      - StructureDefinition/LMEnAdditionalRecipientCz
-      - StructureDefinition/LMEnDocumentMetadataCz
-      - StructureDefinition/LMEnDigitalSignatureOrderCz
-      - StructureDefinition/LMEnOrderInformationCz
-      - StructureDefinition/LMEnClinicalEventCz
-      - StructureDefinition/LMEnCoverageBodyCz
-      - StructureDefinition/LMEnAppointmentCz
-      - StructureDefinition/LMEnClinicalInformationCz
-      - StructureDefinition/LMEnPresentedFormOrderCz
-      - StructureDefinition/LMEnAttachmentsOrderCz
-
-  english-logical-model-k-order:
-    name: English logical model K order
-    description: K-order specific logical model resources.
-    resources:
-      - StructureDefinition/LMEnBodyKOrder
-      - StructureDefinition/LMEnKOrderDataElementsCz
-
-  english-logical-model-ft-order:
-    name: English logical model FT order
-    description: FT-order specific logical model resources.
-    resources:
-      - StructureDefinition/LMEnBodyFTOrder
-      - StructureDefinition/LMEnFTOrderDataElementsCz
+      - StructureDefinition/LMFTOrderCz
+#   english-logical-model-shared:
+#     name: Shared logical model for orders
+#     description: Logical model resources shared by K-order and FT-order.
+#     resources:
+#       - StructureDefinition/LMEnHeaderOrder
+#       - StructureDefinition/LMEnSubjectOrderCz
+#       - StructureDefinition/LMEnPayerOrderCz
+#       - StructureDefinition/LMEnCoverageOrderCz
+#       - StructureDefinition/LMEnAuthorOrderCz
+#       - StructureDefinition/LMEnRequestedPerformerOrderCz
+#       - StructureDefinition/LMEnAdditionalRecipientCz
+#       - StructureDefinition/LMEnDocumentMetadataCz
+#       - StructureDefinition/LMEnDigitalSignatureOrderCz
+#       - StructureDefinition/LMEnOrderInformationCz
+#       - StructureDefinition/LMEnClinicalEventCz
+#       - StructureDefinition/LMEnCoverageBodyCz
+#       - StructureDefinition/LMEnAppointmentCz
+#       - StructureDefinition/LMEnClinicalInformationCz
+#       - StructureDefinition/LMEnPresentedFormOrderCz
+#       - StructureDefinition/LMEnAttachmentsOrderCz
+#
+#   english-logical-model-k-order:
+#     name: English logical model K order
+#     description: K-order specific logical model resources.
+#     resources:
+#       - StructureDefinition/LMEnBodyKOrder
+#       - StructureDefinition/LMEnKOrderDataElementsCz
+#       
+#   english-logical-model-ft-order:
+#     name: English logical model FT order
+#     description: FT-order specific logical model resources.
+#     resources:
+#       - StructureDefinition/LMEnBodyFTOrder
+#       - StructureDefinition/LMEnFTOrderDataElementsCz
+#        
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

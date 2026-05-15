@@ -7,8 +7,12 @@ Alias: $composition-version = http://hl7.org/fhir/StructureDefinition/compositio
 Alias: $mkn10 = https://terminology.uzis.cz/CodeSystem/Mkn10_5
 Alias: $orpha = https://www.orphadata.com/
 Alias: $mime = urn:ietf:bcp:13
-Alias: $hl7-condition-category = http://hl7.org/fhir/ValueSet/condition-category
+Alias: $hl7-condition-category = http://hl7.org/fhir/ValueSet/condition-category        
 Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code
+Alias: $nclp = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
+Alias: $nclp_new = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
+Alias: $hl7AppointmentStatus = http://hl7.org/fhir/ValueSet/appointmentstatus
+Alias: $bodySite-reference = http://hl7.org/fhir/StructureDefinition/bodySite|5.2.0
 
 //CZ Alias
 Alias: $cz-patient-rcis = https://ncez.mzcr.cz/fhir/sid/rcis
@@ -44,3 +48,5 @@ Alias: $cz-medication-DLP-cs = https://hl7.cz/fhir/core/CodeSystem/cz-dlplecivep
 Alias: $cz-medication-DLPForma-cs =  https://hl7.cz/fhir/core/CodeSystem/cz-dlpformy-cs
 Alias: $cz-medicationDLPLecive-latky-cs = https://hl7.cz/fhir/core/CodeSystem/cz-dlplecivelatky-cs
 Alias: $cz-medication-DLPATC-cs = https://hl7.cz/fhir/core/CodeSystem/cz-dlpatc-cs
+Alias: $DocumentCategory = https://ncez.mzcr.cz/terminology/ValueSet/document-category
+Alias: $OrderTypes = https://ncez.mzcr.cz/terminology/ValueSet/referralorder-types
