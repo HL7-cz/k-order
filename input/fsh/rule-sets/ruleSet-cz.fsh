@@ -27,7 +27,7 @@ RuleSet: SectionComRules (short, def, code)
 * code from $loinc
 * code = {code}
 * text only Narrative
-* text 1..1
+
 
 
 
