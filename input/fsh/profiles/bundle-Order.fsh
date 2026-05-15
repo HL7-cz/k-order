@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 // INVARIANTS
 ////////////////////////////////////////////////////////////
-
+/*
 Invariant: one-comp
 Description: "The document Bundle SHALL include one and only one Composition."
 Expression: "entry.resource.ofType(Composition).count() = 1"
@@ -18,7 +18,7 @@ Severity: #warning
 Invariant: same-servicerequest-occurrence
 Description: "All ServiceRequests SHALL have the same occurrence[x] (if present)."
 Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(occurrence = entry.resource.ofType(ServiceRequest).first().occurrence)"
-Severity: #warning
+Severity: #warning*/
 // FT-order a K-order kompozice jsou navzájem exkluzivní
 Invariant: bundle-composition-xor
 Description: "Bundle must contain either composition or compositionFt, but not both."

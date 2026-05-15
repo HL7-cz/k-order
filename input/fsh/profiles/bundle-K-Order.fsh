@@ -98,7 +98,7 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * entry[serviceRequest].resource only KOrderServiceRequestCz
 
 // Condition
-* entry[condition].resource only KOrderConditionCz
+* entry[condition].resource only CZ_ConditionCore
 
 // Practitioner
 * entry[practitioner].resource only CZ_PractitionerCore
