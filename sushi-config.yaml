@@ -3,11 +3,11 @@
 # used properties are included. For a list of all supported properties and their functions,
 # see: https://fshschool.org/docs/sushi/configuration/.
 #
-id: hl7.fhir.cz.korder
-canonical: https://hl7.cz/fhir/korder 
-name: HL7CzKOrderImplementationGuide
-title: HL7 Czech K-Order Implementation Guide
-description: HL7 Czech K-Order Implementation Guide
+id: hl7.fhir.cz.order
+canonical: https://hl7.cz/fhir/order 
+name: HL7CzOrderImplementationGuide
+title: HL7 Czech Order Implementation Guide
+description: HL7 Czech Order Implementation Guide
 status: draft # draft | active | retired | unknown
 version: 0.0.3
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
@@ -156,7 +156,7 @@ menu:
     Logické modely: logical-models-cs.html
   Implementation:
 #   Mapping to profiles (en): model-map.html
-  Mapování: model-map-cs.html
+    Mapování: model-map-cs.html
 #  Artifacts: 
 #    Czech artifacts: artifacts.html
 #    Profiles and extensions: profiles-and-extensions.html
