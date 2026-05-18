@@ -12,20 +12,9 @@ Vychází z CZ_PractitionerRoleCore a doplňuje povinnou odbornost žadatele dle
 * . ^short = "Order PractitionerRole"
 * . ^definition = "Role žadatele nebo jiného zdravotnického pracovníka použitého v rámci české žádanky."
 
-* specialty ^slicing.discriminator[0].type = #pattern
-* specialty ^slicing.discriminator[0].path = "coding.system"
-* specialty ^slicing.rules = #open
-
-* specialty contains specialty 0..* and VZP_ODB 1..1
-* specialty[specialty] ^short = "Obecná odbornost"
-* specialty[specialty] ^definition = "Původní obecný slice pro specialty převzatý z nadřazeného profilu."
-* specialty[VZP_ODB] from VzpOdbornostVS (required)
-* specialty[VZP_ODB] ^short = "Odbornost dle číselníku VZP"
-* specialty[VZP_ODB] ^definition = "Odbornost dle národního číselníku odborností VZP (urn:oid:1.2.203.7898.1.4)."
-* specialty[VZP_ODB].coding 1..*
-* specialty[VZP_ODB].coding ^slicing.discriminator[0].type = #value
-* specialty[VZP_ODB].coding ^slicing.discriminator[0].path = "system"
-* specialty[VZP_ODB].coding ^slicing.rules = #open
-* specialty[VZP_ODB].coding contains vzpOdbornost 1..1
-* specialty[VZP_ODB].coding[vzpOdbornost].system = "urn:oid:1.2.203.7898.1.4" (exactly)
-* specialty[VZP_ODB].coding[vzpOdbornost] from VzpOdbornostVS (required)
+* specialty.coding ^slicing.discriminator[0].type = #value
+* specialty.coding ^slicing.discriminator[0].path = "system"
+* specialty.coding ^slicing.rules = #open
+* specialty.coding contains vzpOdbornost 1..1
+* specialty.coding[vzpOdbornost].system = "urn:oid:1.2.203.7898.1.4" (exactly)
+* specialty.coding[vzpOdbornost] from VzpOdbornostVS (required)

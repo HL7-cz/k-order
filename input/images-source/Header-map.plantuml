@@ -23,13 +23,13 @@ class "practitioner-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDef
 "Header" <|. "practitioner-cz-core"
 "patient-cz-core" -d[hidden]-> "practitioner-cz-core"
 
-class "practitionerRole-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core.html]]
-"Header" <|. "practitionerRole-cz-core"
-"practitioner-cz-core" -d[hidden]-> "practitionerRole-cz-core"
+class "OrderPractitionerRoleCz" <<Profile>> [[StructureDefinition-OrderPractitionerRoleCz.html]]
+"Header" <|. "OrderPractitionerRoleCz   "
+"practitioner-cz-core" -d[hidden]-> "OrderPractitionerRoleCz"
 
 class "Coverage-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/StructureDefinition-cz-coverage.html]]
 "Header" <|. "Coverage-cz"
-"practitionerRole-cz-core" -d[hidden]-> "Coverage-cz"
+"OrderPractitionerRoleCz" -d[hidden]-> "Coverage-cz"
 
 class "Encounter-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/StructureDefinition-cz-encounter.html]]
 "Header" <|. "Encounter-cz"
