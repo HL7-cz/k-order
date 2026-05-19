@@ -15,7 +15,7 @@ Usage: #example
 * author[0] = Reference(Practitioner-Author-detail)
 * extension[presentedForm].valueAttachment.contentType = #application/pdf
 * extension[presentedForm].valueAttachment.url = "https://example.cz/files/ft-document.pdf"
-* type = $loinc#57154-7 "Requisition note"
+* type = $loinc#57154-7 "Physical therapy Referral note"
 // coverage sekce – recyklujeme existující Coverage
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 

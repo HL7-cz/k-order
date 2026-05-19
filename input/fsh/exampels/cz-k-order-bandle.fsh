@@ -66,6 +66,7 @@ Usage: #example
 * code.text = "EKG - kontrolní vyšetření"
 * code.coding[+].system = "https://vzp.cz/cis/vykony"
 * code.coding[=].code = #08911
+* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
 * category[0].coding[0].code = #DIAGNOSTIC
 * category[0].coding[0].display = "Diagnostické vyšetření"
 
@@ -174,11 +175,13 @@ Usage: #example
 Description: "practitioner's detail"
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
-* meta.profile[0] = "https://hl7.cz/fhir/korder/StructureDefinition/OrderPractitionerRoleCz"
+* meta.profile[0] = "https://hl7.cz/fhir/order/StructureDefinition/OrderPractitionerRoleCz"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Nemocnice Chrudim"
 * code = $cz-nrzp_povolani#L00 "Lekar"
-* specialty[VZP_ODB].coding[vzpOdbornost] = urn:oid:1.2.203.7898.1.4#001 "Vseobecne prakticke lekarstvi"
+// VZP odbornost lékaře – bez použití named slice,
+// protože OrderPractitionerRoleCz zde nedefinuje specialty[VZP_ODB].coding[vzpOdbornost]
+* specialty[+].coding[+] = urn:oid:1.2.203.7898.1.4#001 "Vseobecne prakticke lekarstvi"
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, interni lekar, Nemocnice Chrudim, Vaclavska 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
 * text.status = #generated
 

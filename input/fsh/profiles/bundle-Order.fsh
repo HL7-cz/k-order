@@ -21,8 +21,8 @@ Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resourc
 Severity: #warning*/
 // FT-order a K-order kompozice jsou navzájem exkluzivní
 Invariant: bundle-composition-xor
-Description: "Bundle must contain either composition or compositionFt, but not both."
-Expression: "(entry.where(resource is KOrderCompositionCz).exists() xor entry.where(resource is FTOrderCompositionCz).exists())"
+Description: "Bundle must contain exactly one Composition of type K or FT."
+Expression: "entry.resource.ofType(Composition).where(type.coding.where(system = 'http://loinc.org' and (code = '57133-1' or code = '57154-7')).exists()).count() = 1"
 Severity: #error
 
 ////////////////////////////////////////////////////////////
