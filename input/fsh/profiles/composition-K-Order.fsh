@@ -108,30 +108,40 @@ Condition a DocumentReference.
       Serious medical history,
       This section includes significant past medical history that may impact the current hospital stay.,
       $loinc#11348-0)
+  * section[significantMedicalHistory].entry 0..*
+  * entry only Reference(CZ_ConditionCore)
 
 * section[examinationResults]
   * insert SectionComRules(
       Relevant diagnostic tests,
       This section includes relevant diagnostic tests that may impact the current patient care.,
       $loinc#30954-2)
+  * section[examinationResults].entry 0..*
+  * entry only Reference(CZ_DiagnosticReportLab or CZ_DiagnosticReport)
 
 * section[differentialDiagnosis]
   * insert SectionComRules(
       Differential diagnosis considerations,
       This section includes differential diagnosis considerations relevant to the current patient care.,
       $loinc#51848-0)
+  * section[differentialDiagnosis].entry 0..*
+  * entry only Reference(CZ_ConditionCore)  
 
 * section[currentTreatment]
   * insert SectionComRules(
       Current treatment including medication and dosage,
       This section includes current treatment information including medication and dosage relevant to the current patient care.,
       $loinc#11506-3)
+  * section[currentTreatment].entry 0..*
+  * entry only Reference(CZ_MedicationStatment)
 
 * section[referencedDocumentation]
   * insert SectionComRules(
       Referenced documentation,
       This section includes references to other documentation relevant to the current patient care.,
       $loinc#77599-9)
+  * section[referencedDocumentation].entry 0..*
+  * entry only Reference(CZ_Logo or DocumentReference)
 
 * section.author only Reference(
   CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_DeviceObserver or
