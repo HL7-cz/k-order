@@ -16,5 +16,5 @@ Vychází z CZ_PractitionerRoleCore a doplňuje povinnou odbornost žadatele dle
 * specialty.coding ^slicing.discriminator[0].path = "system"
 * specialty.coding ^slicing.rules = #open
 * specialty.coding contains vzpOdbornost 1..1
-* specialty.coding[vzpOdbornost].system = "urn:oid:1.2.203.7898.1.4" (exactly)
+* specialty.coding[vzpOdbornost].system = "https://uzis.cz/terminology/CodeSystem/OdbornostVZP" (exactly)
 * specialty.coding[vzpOdbornost] from VzpOdbornostVS (required)

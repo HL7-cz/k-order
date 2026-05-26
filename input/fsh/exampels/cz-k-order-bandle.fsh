@@ -179,9 +179,7 @@ Description: "practitioner's detail"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Nemocnice Chrudim"
 * code = $cz-nrzp_povolani#L00 "Lekar"
-// VZP odbornost lékaře – bez použití named slice,
-// protože OrderPractitionerRoleCz zde nedefinuje specialty[VZP_ODB].coding[vzpOdbornost]
-* specialty[+].coding[+] = urn:oid:1.2.203.7898.1.4#001 "Vseobecne prakticke lekarstvi"
+* specialty[+].coding[vzpOdbornost] = https://uzis.cz/terminology/CodeSystem/OdbornostVZP#001 "Vseobecne prakticke lekarstvi"
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, interni lekar, Nemocnice Chrudim, Vaclavska 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
 * text.status = #generated
 

@@ -12,7 +12,7 @@ Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code
 Alias: $nclp = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
 Alias: $nclp_new = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
 Alias: $hl7AppointmentStatus = http://hl7.org/fhir/ValueSet/appointmentstatus
-Alias: $bodySite-reference = http://hl7.org/fhir/StructureDefinition/bodySite|5.2.0
+Alias: $bodySite-reference = http://hl7.org/fhir/StructureDefinition/bodySite
 
 //CZ Alias
 Alias: $cz-patient-rcis = https://ncez.mzcr.cz/fhir/sid/rcis
