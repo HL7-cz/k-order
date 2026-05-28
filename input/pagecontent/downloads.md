@@ -1,34 +1,34 @@
-### Celkové implementační příručka
+### Full IG
 
-Implementační příručka lze nahrát [zde](../full-ig.zip).
+Download the entire implementation guide [here](../full-ig.zip).
 
-### NPM Archiv a definice
+### NPM Package and Definitions
 
-Následující soubor obsahuje všechny valuesety, profily, extenze, stránky a url apod. definované části této Implementační příručky:
+The following file contains all the value sets, profiles, extensions, list of pages and urls in the IG, etc. defined as part of this Implementation Guide:
 
 - [NPM Package](../package.tgz)
 
-Kromě toho existují definiční soubory specifické pro daný formát:
+In addition there are format specific definition files:
 
 - [XML](../definitions.xml.zip)
 - [JSON](../definitions.json.zip)
 - [TTL](../definitions.ttl.zip)
 
-Tyto soubory by měly být první volbou při generování jakýchkoli implementačních artefaktů, protože obsahují všechna pravidla o tom, proč jsou tyto profily platné.
+These files should be the first choice whenever generating any implementation artifacts since they contain all of the rules about what makes these profiles valid. 
 
-Existují také balíčky pro specifikace R4 a R4B FHIR:
+There are also packages for the R4 and R4B FHIR specifications:
 
-#### R4 NPM archiv a definice
+#### R4-specific NPM Package and Definitions
 
-- [R4 NPM Archiv](../package.r4.tgz)
+- [R4 NPM Package](../package.r4.tgz)
 
-#### R4B NPM archiv a definice
+#### R4B-specific NPM Package and Definitions
 
-- [R4B NPM Archiv](../package.r4b.tgz)
+- [R4B NPM Package](../package.r4b.tgz)
 
-### Příklady
+### Examples
 
-Všechny příklady použité v této Implementační příručce jsou k dispozici ke stažení:
+All of the examples that are used in this Implementation Guide are available for download:
 
 - [XML](../examples.xml.zip)
 - [JSON](../examples.json.zip)

@@ -1,55 +1,39 @@
-### Úvod
+### Introduction
+This implementation guide is based on [FHIR version R4](https://hl7.org/fhir/R4/). It specifies a common framework for electronic request documents (request forms) in the Czech national context, in accordance with the European eHN guidelines and Xt-EHR concepts.
+The main objective of this implementation guide is to define common content components, logical models, and design principles used for the construction of electronic requests in the Czech Republic. This specification provides a common foundation for various types of request documents and ensures a unified approach to representing the administrative, identification, and workflow aspects of requests.
+The currently defined K-Request and FT-Request document types are based on a common logical model for requests. Individual request types differ primarily in the “body” section, specifically in the data elements representing the actual requested content and the professional context of the specific request type.
+In the future, this common base is expected to be expanded to include other types of request documents, such as laboratory requests or requests for imaging studies.
+The purpose of this standard is to define an interoperable structure for the electronic request form as a healthcare document intended for the electronic exchange of health information between individual healthcare providers, information systems, and the national e-health infrastructure in the Czech Republic.
+This guide does not describe the method of transport or exchange of these documents.
 
-Tato implementační příručka je založena na [FHIR version R4](https://hl7.org/fhir/R4/). Specifikuje společnou bázi pro elektronické požadavkové dokumenty (žádanky) v českém národním kontextu v souladu s evropskými směrnicemi eHN a koncepty Xt-EHR.
-
-Hlavním cílem této implementační příručky je definovat společné obsahové komponenty, logické modely a návrhové principy používané pro konstrukci elektronických žádanek v České republice. Tato specifikace představuje společný základ pro různé typy požadavkových dokumentů a zajišťuje jednotný přístup k reprezentaci administrativních, identifikačních a workflow aspektů žádanek.
-
-Aktuálně definované dokumenty typu K-Žádanka a FT-Žádanka vycházejí ze společné báze logického modelu žádanek. Jednotlivé typy žádanek se liší především v části „body“, konkrétně v datových elementech reprezentujících vlastní požadovaný obsah a odborný kontext konkrétního typu žádanky.
-
-Do budoucna se předpokládá rozšíření této společné báze také o další typy požadavkových dokumentů, například laboratorní žádanku nebo žádanku na zobrazovací komplement.
-
-Účelem tohoto standardu je definovat interoperabilní strukturu elektronické žádanky jako zdravotnického dokumentu určeného pro elektronickou výměnu zdravotních informací mezi jednotlivými poskytovateli zdravotních služeb, informačními systémy a národní infrastrukturou elektronického zdravotnictví v České republice.
-
-Tato příručka nepopisuje způsob transportu nebo výměny těchto dokumentů.
-
-### Stručný rozsah
-
-Tato příručka je rozdělena na několik stránek, které jsou uvedeny v horní části každé stránky na liště nabídek.
-
-- [Home - Domovská stránka](index-cs.html): Tato stránka poskytuje úvodní informace, stručný rozsah použití, reference, závislosti, rozdílovou analýzu verzí a prohlášení o duševním vlastnictví.
+### Brief Overview
+This guide is divided into several pages, which are listed at the top of each page in the menu bar.
+- [Home](index.html): This page provides introductory information, a brief overview, references, dependencies, a version comparison, and an intellectual property statement.
 - Introduction:
-  - [Rozsah použití a obsah](scope-and-content-cs.html): Tento segment obsahuje úvodní obecné informace o společné bázi žádanek.
-  - [Background](background-cs.html): Tento segment obsahuje obecné informace o původu definice společného modelu žádanek.
+  - [Scope and Content](scope-and-content.html): This section contains introductory general information about the Common Request Model.
+  - [Background](background.html): This section contains general information about the origins of the common request model definition.
 - Functional:
-  - [Logické modely](logical-models-cs.html): Tento segment obsahuje informace o logických modelech.
+  - [Logical Models](logical-models.html): This section contains information about logical models.
 - Implementation:
-  - [Mapování logického modelu](model-map-cs.html): Tento segment obsahuje informace o mapování logického modelu na FHIR profily.
+  - [Logical Model Mapping](model-map.html): This section contains information about mapping the logical model to FHIR profiles.
 - About:
-  - [Downloads](downloads-cs.html): Tento segment obsahuje informace o možnostech stahování obsahu implementační specifikace.
-- [Artifacts](artifacts.html): Tato stránka poskytuje seznam FHIR artefaktů definovaných jako součást této implementační příručky.
+  - [Downloads](downloads.html): This section contains information about options for downloading the implementation specification content.
+- [Artifacts](artifacts.html): This page provides a list of FHIR artifacts defined as part of this implementation guide.
 
-### Reference
-
-Papírovými předlohami pro elektronické žádanky jsou příslušné typy zdravotnických formulářů definovaných českou legislativou a souvisejícími národními standardy zdravotnické dokumentace.
-
-* Související specifikace:
+### References
+The paper templates for electronic request forms are the relevant types of medical forms defined by Czech legislation and related national standards for medical documentation.
+* Related specifications:
   * {{hl7XtEHR}}
-    * Tato specifikace inspirovala mnoho návrhových vzorů definovaných v tomto IG.
+    * This specification inspired many of the design patterns defined in this IG.
   * {{czLabOrder}}
-    * Tato specifikace sdílí společné návrhové principy pro elektronické žádanky.
+    * This specification shares common design principles for electronic requisition forms.
   * {{czImg}}
-    * Tato specifikace sdílí společné návrhové principy pro elektronické žádanky.
+    * This specification shares common design principles for electronic requisition forms.
   * {{czCore}}
-    * Kde to bylo možné, byly poděděny specifikace z definic CZ Core.
-
-### Závislosti
-
+    * Where possible, specifications were inherited from the CZ Core definitions.
+### Dependencies
 {% include dependency-table.xhtml %}
-
-### Rozdílová analýza verzí
-
+### Cross-Version Analysis
 {% include cross-version-analysis.xhtml %}
-
-### Prohlášení o duševním vlastnictví
-
+### Intellectual Property Statements
 {% include ip-statements.xhtml %}
