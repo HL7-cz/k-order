@@ -24,7 +24,6 @@ RuleSet: SectionComRules (short, def, code)
 * ^definition = "{def}"
 * title 1..
 * code 1..
-* code from $loinc
 * code = {code}
 * text only Narrative
 
