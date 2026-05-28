@@ -9,16 +9,16 @@ Severity: #error
 
 // performer sjednocený přes performer.first() (protože performer je 0..*)
 // a zároveň safe pro 0 nebo 1 ServiceRequest
-Invariant: same-servicerequest-performer
-Description: "All ServiceRequests SHALL have the same performer[0] (if present)."
-Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(performer.first() = entry.resource.ofType(ServiceRequest).first().performer.first())"
-Severity: #warning
+//Invariant: same-servicerequest-performer
+//Description: "All ServiceRequests SHALL have the same performer[0] (if present)."
+//Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(performer.first() = entry.resource.ofType(ServiceRequest).first().performer.first())"
+//Severity: #warning
 
 // occurrence sjednocený (if present) – safe pro 0 nebo 1 SR
-Invariant: same-servicerequest-occurrence
-Description: "All ServiceRequests SHALL have the same occurrence[x] (if present)."
-Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(occurrence = entry.resource.ofType(ServiceRequest).first().occurrence)"
-Severity: #warning
+//Invariant: same-servicerequest-occurrence
+//Description: "All ServiceRequests SHALL have the same occurrence[x] (if present)."
+//Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(occurrence = entry.resource.ofType(ServiceRequest).first().occurrence)"
+//Severity: #warning
 
 
 ////////////////////////////////////////////////////////////
