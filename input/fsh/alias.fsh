@@ -50,3 +50,7 @@ Alias: $cz-medicationDLPLecive-latky-cs = https://hl7.cz/fhir/core/CodeSystem/cz
 Alias: $cz-medication-DLPATC-cs = https://hl7.cz/fhir/core/CodeSystem/cz-dlpatc-cs
 Alias: $DocumentCategory = https://ncez.mzcr.cz/terminology/ValueSet/document-category
 Alias: $OrderTypes = https://ncez.mzcr.cz/terminology/ValueSet/referralorder-types
+Alias: $flag-detail = http://hl7.org/fhir/StructureDefinition/flag-detail
+Alias: $flag-priority = http://hl7.org/fhir/StructureDefinition/flag-priority
+Alias: $data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason|4.0.1
+Alias: $sctBodySite = http://hl7.org/fhir/ValueSet/body-site

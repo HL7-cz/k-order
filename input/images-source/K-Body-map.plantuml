@@ -30,7 +30,7 @@ class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-c
 "LMCzBodyKOrderCz" <|. "CZ_Coverage"
 "CZ_Encounter" -d[hidden]-> "CZ_Coverage"
 
-class "CZ_AppointmentOrder" <<Profile>> [[StructureDefinition-CZ_AppointmentOrder.html]]
+class "CZ_AppointmentOrder" <<Profile>> [[StructureDefinition-cz-appointmentOrder.html]]
 "LMCzBodyKOrderCz" <|. "CZ_AppointmentOrder"
 "CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
 
@@ -38,19 +38,19 @@ class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinit
 "LMCzBodyKOrderCz" <|. "CZ_ConditionCore"
 "CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
 
-class "CZ_MedicationStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-MedicationStatement.html]]
+class "CZ_MedicationStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_MedicationStatement"
 "CZ_ConditionCore" -d[hidden]-> "CZ_MedicationStatement"
 
-class "CZ_DeviceUseStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-deviceusestatement.html]]
+class "CZ_DeviceUseStatement" <<Profile>> [[StructureDefinition-cz-deviceUseStatement.html]]
 "LMCzBodyKOrderCz" <|. "CZ_DeviceUseStatement"
 "CZ_MedicationStatement" -d[hidden]-> "CZ_DeviceUseStatement"
 
-class "CZ_AllergyIntolerance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-allergyIntolerance.html]]
+class "CZ_AllergyIntolerance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_AllergyIntolerance"
 "CZ_DeviceUseStatement" -d[hidden]-> "CZ_AllergyIntolerance"
 
-class "CZ_Flag" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-flag.html]]
+class "CZ_Flag" <<Profile>> [[StructureDefinition-cz-flag.html]]
 "LMCzBodyKOrderCz" <|. "CZ_Flag"
 "CZ_AllergyIntolerance" -d[hidden]-> "CZ_Flag"
 
