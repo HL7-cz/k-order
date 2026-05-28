@@ -30,7 +30,7 @@ class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-c
 "LMCzBodyFTOrderCz" <|. "CZ_Coverage"
 "CZ_Encounter" -d[hidden]-> "CZ_Coverage"
 
-class "CZ_AppointmentOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-appointmentOrder.html]]
+class "CZ_AppointmentOrder" <<Profile>> [[StructureDefinition-CZ_AppointmentOrder.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_AppointmentOrder"
 "CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
 

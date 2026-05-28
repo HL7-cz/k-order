@@ -1,6 +1,6 @@
 Logical: LMCzKOrderDataElementsCz
 Id: LMKOrderDataElementsCz
-Title: "A.3.2 - Datové elementy objednávky / vyšetření"
+Title: "A.3.2 - Datové elementy objednávky / vyšetření (K žádanky)"
 Description: """Datové elementy objednávky / vyšetření"""
 
 * pozadovaneVysetreni 1..* Base "A.3.2.1 - Požadované vyšetření" """Požadované vyšetření nebo služba."""
