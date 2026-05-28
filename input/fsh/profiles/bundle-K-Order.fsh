@@ -37,8 +37,8 @@ Description: "Clinical document container for Czech referral/requests (K-order a
 * . ^definition = "The document Bundle for CZ requests. It SHALL contain exactly one Composition and all referenced resources."
 
 * obeys one-comp
-* obeys same-servicerequest-performer
-* obeys same-servicerequest-occurrence
+//* obeys same-servicerequest-performer
+//* obeys same-servicerequest-occurrence
 
 
 ////////////////////////////////////////////////////////////
