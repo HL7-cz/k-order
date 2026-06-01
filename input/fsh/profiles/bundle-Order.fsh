@@ -83,6 +83,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
     practitionerRole 0..* and
     organization 0..* and
     coverage 0..* and
+    goal 0..* and
     attachment 0..*
 
 
@@ -118,6 +119,9 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 
 // Coverage
 * entry[coverage].resource only CZ_Coverage
+
+// Goal
+* entry[goal].resource only Goal
 
 // Attachments
 * entry[attachment].resource only CZ_Attachment

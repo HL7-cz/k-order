@@ -127,6 +127,11 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 // --------------------------- body site --------------------------------
 * bodySite 0..1
 * bodySite from http://hl7.org/fhir/ValueSet/body-site (preferred)
+
+// --------------------------- other resources --------------------------------
+* supportingInfo 0..*
+* supportingInfo only Reference(Goal)
+* supportingInfo ^short = "Clinical goal expected from the requested intervention"
 // --------------------------- invariants --------------------------------------
 Invariant: ft-code-required
 Description: "FT ServiceRequest musí mít vyplněný kód výkonu."
