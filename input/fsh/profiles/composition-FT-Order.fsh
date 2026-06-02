@@ -74,7 +74,7 @@ Condition a DocumentReference.
     signature 0..1 and
     risks 0..1
 
-* section[coverage].code = $loinc#48768-6
+* section[coverage].code = $loinc#87520-3
 * section[coverage].title = "coverage"
 * section[coverage].entry 1..1
 * section[coverage].entry only Reference(CZ_Coverage)
