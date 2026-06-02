@@ -18,4 +18,3 @@ Vychází z CZ_PractitionerRoleCore a doplňuje povinnou odbornost žadatele dle
 * specialty.coding contains vzpOdbornost 1..1
 * specialty.coding[vzpOdbornost].system = "https://uzis.cz/terminology/CodeSystem/OdbornostVZP" (exactly)
 * specialty.coding[vzpOdbornost] from VzpOdbornostVS (required)
-y
