@@ -133,7 +133,7 @@ Condition a DocumentReference.
       This section includes current treatment information including medication and dosage relevant to the current patient care.,
       $loinc#11506-3)
   * entry 0..*
-  * entry only Reference(CZ_MedicationStatement)
+  * entry only Reference(CZ_MedicationStatementCore)
 
 * section[referencedDocumentation]
   * insert SectionComRules(

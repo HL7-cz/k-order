@@ -34,7 +34,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
     CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
 )
 * extension contains $bodySite-reference named bodySite 0..1
-* extension[bodySite].valueReference only Reference(BodyStructureCz)
+* extension[bodySite].valueReference only Reference(BodyStructureCzCore)
 
 // NOTE: zachovávám název basedOnComposition, ale opravím typ na Composition (pokud máte extension takto myšlenou)
 * extension[basedOnComposition].valueReference only Reference(FTServiceRequestCz)
