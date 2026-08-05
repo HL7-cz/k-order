@@ -112,7 +112,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 * entry[practitioner].resource only CZ_PractitionerCore
 
 // PractitionerRole
-* entry[practitionerRole].resource only OrderPractitionerRoleCz
+* entry[practitionerRole].resource only CZ_PractitionerRoleOrder
 
 // Organization
 * entry[organization].resource only CZ_OrganizationCore

@@ -346,14 +346,14 @@
             <td>Composition (cz-practitionerRole-core)</td>
             <td>Composition.author</td>
             <td></td>
-            <td>Composition.author.resolve().ofType(CZ_PractitionerRoleCore)</td>
+            <td>Composition.author.resolve().ofType(CZ_PractitionerRoleOrder)</td>
           </tr>
           <tr>
             <td>identifikator</td>
             <td>A.1.5.1 Identifikátor zadavatele objednávky</td>
             <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerRole-core)</td>
-            <td>CZ_PractitionerRoleCore.practictioner.identifier</td>
+            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
+            <td>CZ_PractitionerRoleOrder.practictioner.identifier</td>
             <td></td>
             <td></td>
           </tr>
@@ -361,8 +361,8 @@
             <td>jmeno</td>
             <td>A.1.5.2 Jméno zadavatele objednávky</td>
             <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerRole-core)</td>
-            <td>CZ_PractitionerRoleCore.practictioner.name</td>
+            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
+            <td>CZ_PractitionerRoleOrder.practictioner.name</td>
             <td></td>
             <td></td>
           </tr>
@@ -370,8 +370,8 @@
             <td>adresa</td>
             <td>A.1.5.3 Kontaktní údaje zadavatele objednávky</td>
             <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerRole-core)</td>
-            <td>CZ_PractitionerRoleCore.practictioner.address</td>
+            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
+            <td>CZ_PractitionerRoleOrder.practictioner.address</td>
             <td></td>
             <td>ID organizace</td>
           </tr>
@@ -379,8 +379,8 @@
             <td>organizace</td>
             <td>A.1.5.4 Organizace zadavatele objednávky</td>
             <td>ekvivalentní</td>
-            <td>Z_PractitionerRoleCore (cz-practitionerRole-core)</td>
-            <td>Z_PractitionerRoleCore.organization.name</td>
+            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
+            <td>CZ_PractitionerRoleOrder.organization.name</td>
             <td></td>
             <td></td>
           </tr>
@@ -391,8 +391,8 @@
             <td>Provádějící</td>
             <td>A.1.6 Provádějící</td>
             <td>ekvivalentní</td>
-            <td>CZ_ImagingInformationAboutOrder (cz-practitionerRole-core)</td>
-            <td>CZ_ImagingInformationAboutOrder.performer</td>
+            <td>FTServiceRequestCz (cz-practitionerRole-core)</td>
+            <td>FTServiceRequestCz.performer</td>
             <td></td>
             <td></td>
           </tr>

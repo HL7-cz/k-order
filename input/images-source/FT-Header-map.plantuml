@@ -22,13 +22,13 @@ class "LMHeaderOrder" <<LogicalModel>> [[StructureDefinition-LMHeaderOrder.html]
 class "CZ_PatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html]]
 "LMHeaderOrder" <|. "CZ_PatientCore"
 
-class "OrderPractitionerRoleCz" <<Profile>> [[StructureDefinition-OrderPractitionerRoleCz.html]]
-"LMHeaderOrder" <|. "OrderPractitionerRoleCz"
-"CZ_PatientCore" -d[hidden]-> "OrderPractitionerRoleCz"
+class "CZ_PractitionerRoleOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-CZ_PractitionerRoleOrder.html]]
+"LMHeaderOrder" <|. "CZ_PractitionerRoleOrder"
+"CZ_PatientCore" -d[hidden]-> "CZ_PractitionerRoleOrder"
 
 class "CZ_PractitionerCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html]]
 "LMHeaderOrder" <|. "CZ_PractitionerCore"
-"OrderPractitionerRoleCz" -d[hidden]-> "CZ_PractitionerCore"
+"CZ_PractitionerRoleOrder" -d[hidden]-> "CZ_PractitionerCore"
 
 class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
 "LMHeaderOrder" <|. "CZ_Coverage"

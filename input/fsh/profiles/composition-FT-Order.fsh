@@ -38,7 +38,7 @@ Condition a DocumentReference.
     $information-recipient-url named informationRecipient 0..*
 * extension[informationRecipient].valueReference only Reference(
   CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
-  CZ_RelatedPersonCore or OrderPractitionerRoleCz or CZ_OrganizationCore
+  CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
 )
 
 * status 1..1 MS
@@ -54,7 +54,7 @@ Condition a DocumentReference.
 
 * author 1..* MS
 * author only Reference(
-  CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_DeviceObserver or CZ_OrganizationCore
+  CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or CZ_OrganizationCore
 )
 
 * encounter 0..1
@@ -106,7 +106,7 @@ Condition a DocumentReference.
       $loinc#51848-0)
 
 * section.author only Reference(
-  CZ_PractitionerCore or OrderPractitionerRoleCz or CZ_DeviceObserver or
+  CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or
   CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore
 )
 

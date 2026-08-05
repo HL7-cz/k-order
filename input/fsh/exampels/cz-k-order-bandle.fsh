@@ -170,12 +170,12 @@ Description: "Example of patient Petr Novak with identification by Czech nationa
 
 //-----------------------------------------------------
 Instance: Practitioner-Author-detail
-InstanceOf: OrderPractitionerRoleCz
+InstanceOf: CZ_PractitionerRoleOrder
 Usage: #example
 Description: "practitioner's detail"
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
-* meta.profile[0] = "https://hl7.cz/fhir/order/StructureDefinition/OrderPractitionerRoleCz"
+* meta.profile[0] = "https://hl7.cz/fhir/order/StructureDefinition/CZ_PractitionerRoleOrder"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Nemocnice Chrudim"
 * code = $cz-nrzp_povolani#L00 "Lekar"
