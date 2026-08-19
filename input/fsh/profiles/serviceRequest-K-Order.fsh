@@ -90,7 +90,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 
 * code 1..1 MS
-* code from KOrderProceduresVS (extensible)  // K Order Procedures ValueSet? 
+* code.coding from KOrderProceduresVS (preferred)
 * code ^short = "Požadované vyšetření/výkon"
 
 * priority 0..1 MS

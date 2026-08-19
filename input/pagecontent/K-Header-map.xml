@@ -1,629 +1,751 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <div xmlns="http://www.w3.org/1999/xhtml">
 
-  <head>
-    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-    <title>Hlavička -&gt; FHIR profily (CZ K-ORDER)</title>
+  <style type="text/css">
+    .model-map-block { margin: 0 0 1rem 0; }
+    .callout-wrapper {
+      border: 1px solid #c9cdd3;
+      border-radius: 10px;
+      background: #f2f4f7;
+      padding: 10px 12px;
+    }
+    .callout-box { color: #222; }
+    .table-wrap {
+      border: 1px solid #c9cdd3;
+      border-radius: 10px;
+      background: #f7f8fa;
+      padding: 10px;
+      margin: 0 0 1rem 0;
+    }
+    .table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #fff;
+    }
+    .table-wrap th,
+    .table-wrap td {
+      border: 1px solid #bfc5cc;
+      padding: 6px 8px;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    .table-wrap caption {
+      text-align: left;
+      font-weight: bold;
+      margin: 0 0 6px 0;
+    }
+    .src-head { background: #2f63b7; color: #fff; }
+    .relhead { background: #7b389f; color: #fff; }
+    .tgt-head { background: #cf003e; color: #fff; }
+    .src-sub { background: #97abd7; }
+    .relsub { background: #c9bed1; }
+    .tgt-sub { background: #cf8398; }
+  </style>
 
-    <style type="text/css">
-
-      .model-map-block { margin: 0 0 1rem 0; }
-
-      .callout-wrapper {
-        border: 1px solid #c9cdd3;
-        border-radius: 10px;
-        background: #f2f4f7;
-        padding: 10px 12px;
-      }
-
-      .callout-box { color: #222; }
-
-      .table-wrap {
-        border: 1px solid #c9cdd3;
-        border-radius: 10px;
-        background: #f7f8fa;
-        padding: 10px;
-        margin: 0 0 1rem 0;
-      }
-
-      .table-wrap table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
-        background: #fff;
-      }
-
-      .table-wrap th,
-      .table-wrap td {
-        border: 1px solid #bfc5cc;
-        padding: 6px 8px;
-        vertical-align: top;
-        word-wrap: break-word;
-      }
-
-      .table-wrap caption {
-        text-align: left;
-        font-weight: bold;
-        margin: 0 0 6px 0;
-      }
-
-      .src-head { background: #2f63b7; color: #fff; }
-      .relhead { background: #7b389f; color: #fff; }
-      .tgt-head { background: #cf003e; color: #fff; }
-
-      .src-sub { background: #97abd7; }
-      .relsub { background: #c9bed1; }
-      .tgt-sub { background: #cf8398; }
-
-    </style>
-  </head>
-
-  <body>
-
-    <div class="model-map-block">
-      <div class="callout-wrapper">
-        <div class="callout-box">
-          <strong>Probíhající sladění:</strong>
-          Logické modely Xt-EHR jsou průběžně revidovány a dále zpřesňovány. Aktualizace z Xt-EHR budou postupně promítány do této implementační příručky, aby byla zachována návaznost na vyvíjející se specifikace EHDS.
-        </div>
+  <div class="model-map-block">
+    <div class="callout-wrapper">
+      <div class="callout-box">
+        <strong>Probíhající sladění:</strong>
+        Logické modely Xt-EHR jsou průběžně revidovány a dále zpřesňovány. Aktualizace z Xt-EHR budou postupně promítány do této implementační příručky, aby byla zachována návaznost na vyvíjející se specifikace EHDS.
       </div>
     </div>
+  </div>
 
-    <h3>Hlavička -&gt; FHIR profily (CZ K-ORDER)</h3>
+  <!-- <h3>Hlavička -&gt; FHIR profily (CZ K-ORDER)</h3> -->
 
-    <p>
-      Tato stránka vysvětluje, jak jsou konceptuální prvky logického modelu hlavičky vyjádřeny v odpovídajících FHIR profilech použitých v této implementační příručce.
-    </p>
+  <p>
+    Tato stránka vysvětluje, jak jsou konceptuální prvky logického modelu hlavičky vyjádřeny v odpovídajících FHIR profilech použitých v této implementační příručce.
+  </p>
 
-    <h4 id="model">Přehled modelu</h4>
+  <h3>Přehled modelu</h3>
 
-    <p>{% include K-Header-map.svg %}</p>
-    <div class="table-wrap">
+  <p>{% include K-Header-map.svg %}</p>
 
-      <table summary="Header logical model to CZ K-ORDER profiles">
+  <div class="table-wrap">
+    <strong>Kontext mapování</strong>
+    <ul>
+      <li><strong>Zdrojový logický model:</strong> <a href="StructureDefinition-LMHeaderOrder.html">LMHeaderOrder</a></li>
+      <li><strong>Zdrojový mapovací soubor:</strong> <code>HeaderKOrder2FHIR.fsh</code></li>
+      <li><strong>Rozsah mapování:</strong> A.1 Hlavička dokumentu K-žádanky</li>
+    </ul>
+  </div>
 
-        <caption>Header -&gt; FHIR Profiles (CZ K-ORDER)</caption>
+  <div class="table-wrap">
+    <table summary="Mapování logického modelu hlavičky na profily CZ K-ORDER">
+      <caption>Mapování hlavičky na FHIR profily (CZ K-ORDER)</caption>
+      <thead>
+        <tr>
+          <th colspan="2" class="src-head">Hlavička (logický model)</th>
+          <th class="relhead">Vztah</th>
+          <th colspan="4" class="tgt-head">FHIR cíl</th>
+        </tr>
+        <tr>
+          <th class="src-sub">Prvek</th>
+          <th class="src-sub">Popis</th>
+          <th class="relsub">Vztah</th>
+          <th class="tgt-sub">Zdroj/Profil</th>
+          <th class="tgt-sub">Prvek</th>
+          <th class="tgt-sub">Reference</th>
+          <th class="tgt-sub">Poznámky</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace</a></td>
+          <td>A.1.1 Identifikace pacienta/subjektu</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.jmeno</a></td>
+          <td>A.1.1.1 Jméno</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>name.given</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.prijmeni</a></td>
+          <td>A.1.1.2 Příjmení</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>name.family</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.datumNarozeni</a></td>
+          <td>A.1.1.3 Datum narození</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>birthDate</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.datumUmrti</a></td>
+          <td>A.1.1.4 Datum úmrtí</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>deceasedDateTime</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.identifikator</a></td>
+          <td>A.1.1.5 Identifikátor</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td>Hlavní identifikátor se doporučuje RID.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.statniObcanstvi</a></td>
+          <td>A.1.1.6 Státní občanství</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>extension:patient-citizenship</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.pohlavi</a></td>
+          <td>A.1.1.7 Pohlaví</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>gender</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.pohlaviProKlinickeUcely</a></td>
+          <td>A.1.1.8 Pohlaví pro klinické použití</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>extension:sex-for-clinical-use</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.komunikacniJazyk</a></td>
+          <td>A.1.1.9 Komunikační jazyk</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>communication.language</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.handicap</a></td>
+          <td>A.1.1.10 Handicap</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>text</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt</a></td>
+          <td>A.1.2 Kontaktní informace pacienta</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.adresa</a></td>
+          <td>A.1.2.1 Adresa</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>address</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.telekom</a></td>
+          <td>A.1.2.2 Telekom</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>telecom</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
 
-        <thead>
+        <tr>
+          <td colspan="7"><b>Preferovaný lékař</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar</a></td>
+          <td>A.1.2.3 Preferovaný lékař</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitionerrole-core.html">PractitionerRole (cz-practitionerrole-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.identifikator</a></td>
+          <td>A.1.2.3.1 Identifikátor preferovaného lékaře</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).practitioner</td>
+          <td>ConceptMap starší verze současně uvádí i `PractitionerRole.identifier`.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.jmeno</a></td>
+          <td>A.1.2.3.2 Jméno preferovaného lékaře</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.specializace</a></td>
+          <td>A.1.2.3.3 Specializace preferovaného lékaře</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitionerrole-core.html">PractitionerRole (cz-practitionerrole-core)</a></td>
+          <td>specialty</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner</td>
+          <td>ConceptMap používá starší zápis `speciality`.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.organizace</a></td>
+          <td>A.1.2.3.4 Organizace preferovaného lékaře</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.adresa</a></td>
+          <td>A.1.2.3.5 Adresa preferovaného lékaře</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>address</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.telekom</a></td>
+          <td>A.1.2.3.6 Telekom preferovaného lékaře</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>telecom</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).practitioner</td>
+          <td>ConceptMap uvádí jak větev Practitioner, tak PractitionerRole.</td>
+        </tr>
 
-          <tr>
-            <th colspan="2" class="src-head">Header (Logical Model)</th>
-            <th class="relhead">Relationship</th>
-            <th colspan="4" class="tgt-head">FHIR Target</th>
-          </tr>
+        <tr>
+          <td colspan="7"><b>Kontaktní osoba</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba</a></td>
+          <td>A.1.2.4 Zákonní zástupci a další kontaktní osoby</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.typ</a></td>
+          <td>A.1.2.4.1 Typ kontaktu</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.relationship</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.vztah</a></td>
+          <td>A.1.2.4.2 Vztah k pacientovi</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.relationship</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.identifikator</a></td>
+          <td>A.1.2.4.3 Identifikátor osoby</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td>ConceptMap nemapuje konkrétní podprvek identifikátoru v rámci `Patient.contact`.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.jmeno</a></td>
+          <td>A.1.2.4.4 Jméno osoby</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.name.given</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.prijmeni</a></td>
+          <td>A.1.2.4.5 Příjmení osoby</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.name.family</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.adresa</a></td>
+          <td>A.1.2.4.6 Adresa</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.address</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.telekom</a></td>
+          <td>A.1.2.4.7 Telekom</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.telecom</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
 
-          <tr>
-            <th class="src-sub">Element</th>
-            <th class="src-sub">Description</th>
-            <th class="relsub">Relation</th>
-            <th class="tgt-sub">Resource/Profile</th>
-            <th class="tgt-sub">Element</th>
-            <th class="tgt-sub">Description</th>
-            <th class="tgt-sub">Notes</th>
-          </tr>
+        <tr>
+          <td colspan="7"><b>Zdravotní pojištění</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">zdravotniPojisteni</a></td>
+          <td>A.1.3 Zdravotní pojištění</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">kod</a></td>
+          <td>A.1.3.1 Kód zdravotní pojišťovny</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance
+  →Coverage (cz-coverage).payor</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">nazev</a></td>
+          <td>A.1.3.2 Název zdravotní pojišťovny</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance
+  →Coverage (cz-coverage).payor</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">cisloPojistence</a></td>
+          <td>A.1.3.3 Číslo zdravotního pojištění</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance</td>
+          <td></td>
+        </tr>
 
-        </thead>
+        <tr>
+          <td><a href="StructureDefinition-LMCoverageOrderCz.html">uhrada</a></td>
+          <td>A.1.4 Úhrada</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[coverage].entry</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMCoverageOrderCz.html">method</a></td>
+          <td>A.1.4.1 Způsob úhrady</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td>type</td>
+          <td>Composition (KOrderCompositionCz).section[coverage].entry</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMCoverageOrderCz.html">infoOPlatci</a></td>
+          <td>A.1.4.2 Informace o plátci</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[coverage].entry
+  →Coverage (cz-coverage).payor</td>
+          <td></td>
+        </tr>
 
-        <tbody>
-          <tr>
-            <td>identifikace</td>
-            <td>A.1.1 Identifikace pacienta/subjektu</td>
-            <td>související</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.jmeno</td>
-            <td>A.1.1.1 Jméno</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.name.given</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.prijmeni</td>
-            <td>A.1.1.2 Příjmení</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.name.family</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.datumNarozeni</td>
-            <td>A.1.1.3 Datum narození</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.birthDate</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.datumUmrti</td>
-            <td>A.1.1.4 Datum úmrtí</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.deceased[x].deceasedDateTime</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.identifikator</td>
-            <td>A.1.1.5 Identifikátor</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.identifier</td>
-            <td></td>
-            <td>Hlavní identifikátor se doporučuje RID</td>
-          </tr>
-          <tr>
-            <td>identifikace.statniObcanstvi</td>
-            <td>A.1.1.6 Státní občanství</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.patient-citizenship</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.pohlavi</td>
-            <td>A.1.1.7 Pohlaví</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.gender</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.pohlaviProKlinickeUcely</td>
-            <td>A.1.1.8 Pohlaví pro klinické použití</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.extension:sex-for-clinical-use</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.komunikacniJazyk</td>
-            <td>A.1.1.9 Komunikační jazyk</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.communication.language</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikace.handicap</td>
-            <td>A.1.1.10 Handicap</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.text</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>kontakt</td>
-            <td>A.1.2 Kontaktní informace pacienta/subjektu</td>
-            <td>související</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>kontakt.adresa</td>
-            <td>A.1.2.1 Adresa</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.address</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>kontakt.telekom</td>
-            <td>A.1.2.2 Telekom</td>
-            <td>ekvivalentní</td>
-            <td>Patient (cz-patient-core)</td>
-            <td>Patient.telecom</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="7"><b>cz-practitionerrole-core</b></td>
-          </tr>
-          <tr>
-            <td>kontakt.preferovanyLekar</td>
-            <td>A.1.2.3 Preferovaný lékař</td>
-            <td>ekvivalentní</td>
-            <td>PractitionerRole (cz-practitionerrole-core)</td>
-            <td>PractitionerRole</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>kontakt.preferovanyLekar.identifikator</td>
-            <td>A.1.2.3.1 Identifikátor preferovaného lékaře</td>
-            <td>ekvivalentní</td>
-            <td>PractitionerRole (cz-practitionerrole-core)</td>
-            <td>PractitionerRole.identifier</td>
-            <td></td>
-            <td>Identifikátor z KRZP</td>
-          </tr>
-          <tr>
-            <td>kontakt.preferovanyLekar.jmeno</td>
-            <td>A.1.2.3.2 Jméno preferovaného lékaře</td>
-            <td>ekvivalentní</td>
-            <td>PractitionerRole (cz-practitionerrole-core)</td>
-            <td>PractitionerRole.practiotioner.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>kontakt.preferovanyLekar.specializace</td>
-            <td>A.1.2.3.3 Specializace preferovaného lékaře</td>
-            <td>ekvivalentní</td>
-            <td>PractitionerRole (cz-practitionerrole-core)</td>
-            <td>PractitionerRole.speciality</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="7"><b>CZ-Coverage</b></td>
-          </tr>
-          <tr>
-            <td>zdravotniPojisteni</td>
-            <td>A.1.3 Zdravotní pojištění</td>
-            <td>související</td>
-            <td>Composition (cz-coverage)</td>
-            <td>Composition.section:orderInformation.insurance</td>
-            <td></td>
-            <td>Composition.section:orderInformation.entry.ofType(KOrderServiceRequestCz).insurance.ofType(CZ_Coverage)</td>
-          </tr>
-          <tr>
-            <td>kod</td>
-            <td>A.1.3.1 Kód zdravotní pojišťovny</td>
-            <td>ekvivalentní</td>
-            <td>CZ_Coverage (cz-coverage)</td>
-            <td>CZ_Coverage.payor.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>nazev</td>
-            <td>A.1.3.2 Název zdravotní pojišťovny</td>
-            <td>ekvivalentní</td>
-            <td>CZ_Coverage (cz-coverage)</td>
-            <td>CZ_Coverage.payor.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>cisloPojistence</td>
-            <td>A.1.3.3 Číslo zdravotního pojištění</td>
-            <td>ekvivalentní</td>
-            <td>CZ_Coverage (cz-coverage)</td>
-            <td>CZ_Coverage.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>uhrada</td>
-            <td>A.1.4 Úhrada</td>
-            <td>související</td>
-            <td>Composition (cz-coverage)</td>
-            <td>Composition.section:Coverage</td>
-            <td></td>
-            <td>Composition.section:Coverage.entry.ofType(CZ_Coverage)</td>
-          </tr>
-          <tr>
-            <td>method</td>
-            <td>A.1.4.1 Způsob úhrady</td>
-            <td>ekvivalentní</td>
-            <td>CZ_Coverage (cz-coverage)</td>
-            <td>CZ_Coverage.type</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>infoOPlatci</td>
-            <td>A.1.4.2 Informace o plátci</td>
-            <td>ekvivalentní</td>
-            <td>CZ_Coverage (cz-coverage)</td>
-            <td>CZ_Coverage.payor</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="7"><b>cz-practitionerrole-core (Žadatel)</b></td>
-          </tr>
-          <tr>
-            <td>zadatel</td>
-            <td>A.1.5 Žadatel</td>
-            <td>ekvivalentní</td>
-            <td>Composition (cz-practitionerRole-core)</td>
-            <td>Composition.author</td>
-            <td></td>
-            <td>Composition.author.resolve().ofType(CZ_PractitionerRoleOrder)</td>
-          </tr>
-          <tr>
-            <td>identifikator</td>
-            <td>A.1.5.1 Identifikátor zadavatele objednávky</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
-            <td>CZ_PractitionerRoleOrder.practictioner.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>jmeno</td>
-            <td>A.1.5.2 Jméno zadavatele objednávky</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
-            <td>CZ_PractitionerRoleOrder.practictioner.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>adresa</td>
-            <td>A.1.5.3 Kontaktní údaje zadavatele objednávky</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
-            <td>CZ_PractitionerRoleOrder.practictioner.address</td>
-            <td></td>
-            <td>ID organizace</td>
-          </tr>
-          <tr>
-            <td>organizace</td>
-            <td>A.1.5.4 Organizace zadavatele objednávky</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleOrder (practitionerrole-cz-order)</td>
-            <td>CZ_PractitionerRoleOrder.organization.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="7"><b>cz-practitionerrole-core (Provádějící)</b></td>
-          </tr>
-          <tr>
-            <td>Provádějící</td>
-            <td>A.1.6 Provádějící</td>
-            <td>ekvivalentní</td>
-            <td>CZ_ImagingInformationAboutOrder (cz-practitionerRole-core)</td>
-            <td>CZ_ImagingInformationAboutOrder.performer</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>id</td>
-            <td>A.1.6.1 ID Provádějícíe</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerRole-core)</td>
-            <td>CZ_PractitionerRoleCore.practictioner.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>jmeno</td>
-            <td>A.1.6.2 Jméno Provádějícíe</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerRoleCore.practictioner.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>idOrganizace</td>
-            <td>A.1.6.3 ID organizace Provádějícíe</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerRoleCore.organization.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>organizace</td>
-            <td>A.1.6.4 Organizace Provádějícíe</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerCore.organization.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>dodatecniPrijemci</td>
-            <td>A.1.7 Příjemce nálezu</td>
-            <td>ekvivalentní</td>
-            <td>Composition (cz-practitionerrole-core)</td>
-            <td>Composition.extension:informationRecipient</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>identifikator</td>
-            <td>A.1.7.1 Identifikátor příjemce</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerRoleCore.practitioner.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>jmeno</td>
-            <td>A.1.7.2 Jméno příjemce</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerRoleCore.practictioner.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>idOrganizace</td>
-            <td>A.1.7.3 ID organizace příjemce</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerRoleCore.organization.identifier</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>organizace</td>
-            <td>A.1.7.4 Organizace příjemce</td>
-            <td>ekvivalentní</td>
-            <td>CZ_PractitionerRoleCore (cz-practitionerrole-core)</td>
-            <td>CZ_PractitionerRoleCore.organization.name</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="7"><b>Data objednávky</b></td>
-          </tr>
-          <tr>
-            <td>idDokumentu</td>
-            <td>A.1.8.1 ID dokumentu</td>
-            <td>ekvivalentní</td>
-            <td>Bundle (BundleOrderCz)</td>
-            <td>Bundle.identifier</td>
-            <td></td>
-            <td>Pokud jde o identifikátor konkrétní instance objednávky</td>
-          </tr>
-          <tr>
-            <td>datumACas</td>
-            <td>A.1.8.4 Datum a čas vytvoření</td>
-            <td>ekvivalentní</td>
-            <td>Bundle (BundleOrderCz)</td>
-            <td>Bundle.timeStamp</td>
-            <td></td>
-            <td>Pokud jde o čas, kdy byla tato konkrétní verze objednávky sestavena do Bundle.</td>
-          </tr>
-          <tr>
-            <td>subjekt</td>
-            <td>A.1.1 Identifikace a A.1.2 kontaktní informace pacienta/subjektu</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.subject</td>
+        <tr>
+          <td colspan="7"><b>Žadatel</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">zadatel</a></td>
+          <td>A.1.5 Žadatel</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html">PractitionerRole (practitionerrole-cz-order)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).author</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">identifikator</a></td>
+          <td>A.1.5.1 Identifikátor zadavatele objednávky</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">jmeno</a></td>
+          <td>A.1.5.2 Jméno zadavatele objednávky</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">adresa</a></td>
+          <td>A.1.5.3 Kontaktní údaje zadavatele objednávky</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>address</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td>ID organizace.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">organizace</a></td>
+          <td>A.1.5.4 Organizace zadavatele objednávky</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Provádějící</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">Provádějící</a></td>
+          <td>A.1.6 Provádějící</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html">PractitionerRole (practitionerrole-cz-order)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">id</a></td>
+          <td>A.1.6.1 ID provádějícího</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">jmeno</a></td>
+          <td>A.1.6.2 Jméno provádějícího</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">idOrganizace</a></td>
+          <td>A.1.6.3 ID organizace provádějícího</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">organizace</a></td>
+          <td>A.1.6.4 Organizace provádějícího</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Příjemce nálezu</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">dodatecniPrijemci</a></td>
+          <td>A.1.7 Příjemce nálezu</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html">PractitionerRole (practitionerrole-cz-order)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">identifikator</a></td>
+          <td>A.1.7.1 Identifikátor příjemce</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">jmeno</a></td>
+          <td>A.1.7.2 Jméno příjemce</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">idOrganizace</a></td>
+          <td>A.1.7.3 ID organizace příjemce</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">organizace</a></td>
+          <td>A.1.7.4 Organizace příjemce</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Metadata dokumentu</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">idDokumentu</a></td>
+          <td>A.1.8.1 ID dokumentu</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>identifier</td>
+          <td></td>
+          <td>Pokud jde o identifikátor konkrétní instance objednávky.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMHeaderOrder.html">subjekt</a></td>
+          <td>A.1.1 Identifikace a A.1.2 kontaktní informace pacienta/subjektu</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu</a></td>
+          <td>A.1.8 Metadata dokumentu</td>
+          <td>související</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
           <td></td>
           <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu</td>
-            <td>A.1.8 Metadata dokumentu</td>
-            <td>související</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.kategorie</td>
-            <td>A.1.8.2 Kategorie</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.category</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.stav</td>
-            <td>A.1.8.3 Stav</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.status</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.datumACas</td>
-            <td>A.1.8.4 Datum a čas vytvoření</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.date</td>
-            <td></td>
-            <td>Pokud jde o čas vytvoření tohoto dokumentu nezávisle na jeho verzi</td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.nazev</td>
-            <td>A.1.8.5 Název dokumentu</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.title</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.spravce</td>
-            <td>A.1.8.6 Správce dokumentu</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.custodian</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.duvernost</td>
-            <td>A.1.8.7 Důvěrnost</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.confidentiality</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.jazyk</td>
-            <td>A.1.8.8 Jazyk</td>
-            <td>související</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.language</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>metadataDokumentu.verze</td>
-            <td>A.1.8.9 Verze</td>
-            <td>ekvivalentní</td>
-            <td>Composition (KOrderCompositionCz)</td>
-            <td>Composition.extension:versionNumber.valueString</td>
-            <td></td>
-            <td>Jako business verze, nikoli jako verze resource</td>
-          </tr>
-          <tr>
-            <td colspan="7"><b>Podpis</b></td>
-          </tr>
-          <tr>
-            <td>podpis</td>
-            <td></td>
-            <td>související</td>
-            <td>Provenance (CZ_Provenance)</td>
-            <td>Provenance.signature</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>podpis.autor</td>
-            <td></td>
-            <td>ekvivalentní</td>
-            <td>Provenance (CZ_Provenance)</td>
-            <td>Provenance.agent.who</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>podpis.casoveRazitko</td>
-            <td></td>
-            <td>ekvivalentní</td>
-            <td>Provenance (CZ_Provenance)</td>
-            <td>Provenance.signature.when</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.kategorie</a></td>
+          <td>A.1.8.2 Kategorie</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>category</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.stav</a></td>
+          <td>A.1.8.3 Stav</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>status</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.datumACas</a></td>
+          <td>A.1.8.4 Datum a čas vytvoření</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>date</td>
+          <td></td>
+          <td>Čas vytvoření dokumentu nezávisle na jeho verzi.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.datumACas</a></td>
+          <td>A.1.8.4 Datum a čas sestavení dokumentu</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>timestamp</td>
+          <td></td>
+          <td>Čas, kdy byla konkrétní verze objednávky sestavena do Bundle.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.nazev</a></td>
+          <td>A.1.8.5 Název dokumentu</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>title</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.spravce</a></td>
+          <td>A.1.8.6 Správce dokumentu</td>
+          <td>ekvivalentní</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).custodian</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.duvernost</a></td>
+          <td>A.1.8.7 Důvěrnost</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>confidentiality</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.jazyk</a></td>
+          <td>A.1.8.8 Jazyk</td>
+          <td>související</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>language</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.verze</a></td>
+          <td>A.1.8.9 Verze</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>extension:versionNumber.valueString</td>
+          <td></td>
+          <td>Business verze, nikoli verze resource.</td>
+        </tr>
 
-      </table>
-
-    </div>
-
-  </body>
-    
+        <tr>
+          <td colspan="7"><b>Podpis</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDigitalSignatureOrderCz.html">podpis</a></td>
+          <td>A.1.9.1 Elektronický podpis nebo pečeť dokumentu</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>signature.data</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDigitalSignatureOrderCz.html">podpis.casoveRazitko</a></td>
+          <td>A.1.9.2 Elektronické časové razítko</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>signature.when</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -91,7 +91,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * category from FTOrderCategoryVS (extensible)  // nový VS pro FT
 
 * code 1..1 MS
-* code from FTOrderProceduresVS (extensible) // VZP výkony pro FT
+* code.coding from FTOrderProceduresVS (preferred)
 * code ^short = "Požadovaný FT výkon (1 řádek poukazu)"
 
 * priority 0..1 MS
