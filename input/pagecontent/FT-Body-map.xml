@@ -493,7 +493,7 @@
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html">Condition (CZ_ConditionCore)</a></td>
           <td></td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).reasonReference</td>
+  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
           <td></td>
         </tr>
         <tr>
@@ -503,7 +503,7 @@
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html">Condition (CZ_ConditionCore)</a></td>
           <td>code.coding</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).reasonReference</td>
+  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
           <td></td>
         </tr>
         <tr>
@@ -513,7 +513,7 @@
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html">Condition (CZ_ConditionCore)</a></td>
           <td>code.text</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).reasonReference</td>
+  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
           <td></td>
         </tr>
         <tr>

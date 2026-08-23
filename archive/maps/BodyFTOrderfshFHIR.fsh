@@ -354,7 +354,7 @@ Usage: #definition
 
 * group[=].element[+].code = #dalsiRelevantniKlinickeInformace
 * group[=].element[=].display = "A.3.1.2 - Další relevantní klinické informace"
-* group[=].element[=].target[0].code = #ServiceRequest.reasonReference
+* group[=].element[=].target[0].code = #ServiceRequest.supportingInfo
 * group[=].element[=].target[0].equivalence = #relatedto
 
 * group[=].element[+].code = #dalsiRelevantniKlinickeInformace.kod
