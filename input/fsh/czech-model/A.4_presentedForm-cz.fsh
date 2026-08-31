@@ -3,7 +3,7 @@ Id: LMPresentedFormOrderCz
 Title: "A.4 - Vizuální podoba dokumentu"
 Description: """Žádanka čitelná lidským okem,  je požadován PDF formát."""
 
-* vizualniPodoba 1..* Base "A.4 - Vizuální podoba" """Vizuální podoba dokumentu"""
+* vizualniPodoba 0..1 Base "A.4 - Vizuální podoba" """Vizuální podoba dokumentu"""
 * typObsahu 0..1 CodeableConcept "A.4.1 - Typ obsahu" """Typ obsahu - je  požadován MIME typ"""
 * jazyk 0..1 CodeableConcept "A.4.2 - Jazyk obsahu" """Jazyk obsahu - je požadována hodnata z HL7 valueset Languages"""
 * data 1..1 base64Binary "A.4.3 - Data obsahu" """Data v base64"""

@@ -52,9 +52,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 // --------------------------- requester / performer ---------------------------
 * requester 1..1 MS
 * requester ^short = "Žadatel (lékař / pracoviště)"
-* requester only Reference(
-    CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
-)
+* requester only Reference(CZ_PractitionerRoleOrder)
 
 * performer 0..* MS
 * performer ^short = "Cílový příjemce (laboratoř / PZS)"

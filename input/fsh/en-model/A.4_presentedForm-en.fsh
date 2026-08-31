@@ -3,7 +3,7 @@ Id: LMEnPresentedFormOrderCz
 Title: "A.5 - Presented form"
 Description: """Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended."""
 
-* presentedForm 1..* Base "A.5 - Presented form" """Presented form of document"""
+* presentedForm 0..1 Base "A.5 - Presented form" """Presented form of document"""
 * presentedForm.contentType 0..1 CodeableConcept "A.5.1 - Type of content" """Type of content - MIME type is required"""
 * presentedForm.language 0..1 CodeableConcept "A.5.2 - Language of content" """Language of content - HL7 valueset of languages is required"""
 * presentedForm.data 1..1 base64Binary "A.5.3 - Data of content" """Data inline, base64ed"""

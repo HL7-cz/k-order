@@ -1,38 +1,32 @@
 // ------------------------- Composition (K-order) -------------------------
 Instance: KOrderCompositionExample
 InstanceOf: KOrderCompositionCz
+Title: "Composition: Kardiologické konzilium pro námahovou dušnost"
+Description: "Dokumentová Composition neadresné K-žádanky se dvěma požadovanými kardiologickými službami a pneumologem jako dodatečným příjemcem výsledku."
 Usage: #example
 * id = "KOrderCompositionExample"
 * status = #final
 * date = "2025-02-01T10:15:00+01:00"
-* title = "Konziliární žádost - K-order example"
+* title = "Kardiologicke konzilium pro namahovou dusnost"
 * type = $loinc#57133-1
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
-* extension[presentedForm].valueAttachment.contentType = #application/pdf
-* extension[presentedForm].valueAttachment.url = "https://example.cz/files/korder-document.pdf"
+* extension[informationRecipient][0].valueReference = Reference(PractitionerRole-Pulmonologist)
 
+* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[orderInformation].entry[0] = Reference(KOrderServiceRequest-1)
-* section[attachments].entry[0] = Reference(KOrderAttachment-1)
+* section[orderInformation].entry[1] = Reference(KOrderServiceRequest-2)
 
 * identifier.value = "KORD-COMP-2025-001"
 
-// ------------------------- Conditions ------------------------------------
+// ------------------------- Condition -------------------------------------
 Instance: KOrderCondition-Main
 InstanceOf: CZ_ConditionCore
 Usage: #example
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
-* code.coding[+].system = "http://hl7.org/fhir/sid/icd-10"
-* code.coding[=].code = #I10
-
-Instance: KOrderCondition-Secondary
-InstanceOf: CZ_ConditionCore
-Usage: #example
-* id = "KOrderCondition-Secondary"
-* subject = Reference(Patient-Novak-Petr)
-* code.coding[+].system = "http://hl7.org/fhir/sid/icd-10"
-* code.coding[=].code = #E11
+* code.coding[+] = $sctCZ#267036007
+// * code.coding[=].display = "Dusnost"
 
 // ------------------------- ServiceRequests --------------------------------
 Instance: KOrderServiceRequest-1
@@ -45,9 +39,10 @@ Usage: #example
 * authoredOn = "2025-02-01T09:50:00+01:00"
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
-* code.text = "Konziliární vyšetření internistou"
-* code.coding[+].system = "https://vzp.cz/cis/vykony"
-* code.coding[=].code = #09513
+// Neadresna zadanka: performer is intentionally omitted.
+* code.text = "Kardiologicke konziliarni vysetreni"
+* code.coding[+] = $sctCZ#185387006
+// * code.coding[=].display = "New patient consultation"
 * reasonReference[0] = Reference(KOrderCondition-Main)
 * category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
 * category[0].coding[0].code = #CONSULT
@@ -63,9 +58,11 @@ Usage: #example
 * authoredOn = "2025-02-01T09:52:00+01:00"
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
-* code.text = "EKG - kontrolní vyšetření"
-* code.coding[+].system = "https://vzp.cz/cis/vykony"
-* code.coding[=].code = #08911
+// Neadresna zadanka: performer is intentionally omitted.
+* code.text = "Echokardiograficke vysetreni"
+* code.coding[+] = $sctCZ#40701008
+// * code.coding[=].display = "Echocardiography"
+* reasonReference[0] = Reference(KOrderCondition-Main)
 * category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
 * category[0].coding[0].code = #DIAGNOSTIC
 * category[0].coding[0].display = "Diagnostické vyšetření"
@@ -81,19 +78,11 @@ Usage: #example
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/pojistovna"
 * identifier[=].value = "111"
 
-// ------------------------- Attachment (DocumentReference) ------------------
-Instance: KOrderAttachment-1
-InstanceOf: DocumentReference
-Usage: #example
-* id = "KOrderAttachment-1"
-* status = #current
-* content[0].attachment.contentType = #application/pdf
-* content[0].attachment.title = "Příloha k žádance"
-* content[0].attachment.url = "https://example.cz/files/korder-attachment-1.pdf"
-
 // ------------------------- Bundle (K-Order) -------------------------------
 Instance: BundleKOrderExample
 InstanceOf: BundleOrderCz
+Title: "Příklad 1: Kardiologické konzilium pro námahovou dušnost"
+Description: "Neadresná K-žádanka praktického lékaře pro námahovou dušnost se SNOMED CT procedurami, kardiologickým konziliem, echokardiografií a pneumologem jako dodatečným příjemcem výsledku."
 Usage: #example
 * id = "BundleKOrderExample"
 * type = #document
@@ -119,14 +108,8 @@ Usage: #example
 * entry[+].fullUrl = "https://example.cz/fhir/Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
 * entry[=].resource = Organization-L1-Odd
 
-* entry[+].fullUrl = "https://example.cz/fhir/Organization/a4641bd0-34af-4038-a7db-872d08a54df9"
-* entry[=].resource = Organization-L1-HOSP
-
 * entry[+].fullUrl = "https://example.cz/fhir/Condition/KOrderCondition-Main"
 * entry[=].resource = KOrderCondition-Main
-
-* entry[+].fullUrl = "https://example.cz/fhir/Condition/KOrderCondition-Secondary"
-* entry[=].resource = KOrderCondition-Secondary
 
 * entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/KOrderServiceRequest-1"
 * entry[=].resource = KOrderServiceRequest-1
@@ -137,8 +120,14 @@ Usage: #example
 * entry[+].fullUrl = "https://example.cz/fhir/Coverage/KOrderCoverage-Example"
 * entry[=].resource = KOrderCoverage-Example
 
-* entry[+].fullUrl = "https://example.cz/fhir/DocumentReference/KOrderAttachment-1"
-* entry[=].resource = KOrderAttachment-1
+* entry[+].fullUrl = "https://example.cz/fhir/Practitioner/Practitioner-Pulmonologist"
+* entry[=].resource = Practitioner-Pulmonologist
+
+* entry[+].fullUrl = "https://example.cz/fhir/PractitionerRole/PractitionerRole-Pulmonologist"
+* entry[=].resource = PractitionerRole-Pulmonologist
+
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-PulmonologyClinic"
+* entry[=].resource = Organization-PulmonologyClinic
 
 Instance: Patient-Novak-Petr
 InstanceOf: CZ_PatientCore
@@ -177,10 +166,10 @@ Description: "practitioner's detail"
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * meta.profile[0] = "https://hl7.cz/fhir/order/StructureDefinition/CZ_PractitionerRoleOrder"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
-* organization = Reference(Organization-L1-Odd) "Nemocnice Chrudim"
+* organization = Reference(Organization-L1-Odd) "Ordinace praktickeho lekare"
 * code = $cz-nrzp_povolani#L00 "Lekar"
-* specialty[0] = https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost#L00 "Interní lékař"
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, interni lekar, Nemocnice Chrudim, Vaclavska 570, 537 01 Chrudim, tel: +420 603 777 227</div>"
+* specialty[0].text = "Vseobecne prakticke lekarstvi"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, vseobecny prakticky lekar</div>"
 * text.status = #generated
 
 Instance: Practitioner-Author
@@ -200,7 +189,7 @@ Description: "An example of the organization of a provider"
 * id = "ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/krpzs"
 * identifier[=].value = "27520536"
-* name = "Nemocnice Chrudim"
+* name = "Ambulance praktickeho lekare"
 * telecom.system = #phone
 * telecom.value = "+420603853227"
 * telecom.use = #work
@@ -213,8 +202,8 @@ Description: "A minimalist example of a subordinate department within a hospital
 * id = "af2b3114-e872-43b9-9875-cceb39122f7f"
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
 * identifier[=].value = "12345678"
-* name = "CHIR - Oddeleni chirurgie"
-* partOf = Reference(Organization-1) "Nemocnice Pardubickeho kraje, a.s., Chrudimska nemocnice"
+* name = "Ordinace praktickeho lekare"
+* partOf = Reference(Organization-1) "Ambulance praktickeho lekare"
 * telecom.system = #phone
 * telecom.value = "+42060385555"
 * address[+]
@@ -225,22 +214,31 @@ Description: "A minimalist example of a subordinate department within a hospital
   * country = "Ceska republika"
     * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
 
-//---------------------------------------------------------------------------------------------------------------
-Instance: Organization-L1-HOSP
+// ------------------------- Additional recipient --------------------------
+Instance: Practitioner-Pulmonologist
+InstanceOf: CZ_PractitionerCore
+Usage: #example
+Description: "Pulmonologist who also receives the result of the K-order."
+* id = "Practitioner-Pulmonologist"
+* name.text = "MUDr. Jana Novakova"
+* name.family = "Novakova"
+* name.given[0] = "Jana"
+
+Instance: PractitionerRole-Pulmonologist
+InstanceOf: CZ_PractitionerRoleOrder
+Usage: #example
+Description: "Additional recipient of the result."
+* id = "PractitionerRole-Pulmonologist"
+* practitioner = Reference(Practitioner-Pulmonologist)
+* organization = Reference(Organization-PulmonologyClinic)
+* code = $cz-nrzp_povolani#L00 "Lekar"
+* specialty[0].text = "Pneumologie a ftizeologie"
+
+Instance: Organization-PulmonologyClinic
 InstanceOf: CZ_OrganizationCore
 Usage: #example
-Description: "A minimalist example of a subordinate department within a hospital hierarchy."
-* id = "a4641bd0-34af-4038-a7db-872d08a54df9"
-* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
-* identifier[=].value = "12345678"
-* name = "CHIR-L2 - Luzkova stanice 2"
-* partOf = Reference(Organization-L1-Odd) "Chirurgicke oddeleni - Nemocnice Pardubickeho kraje, a.s., Chrudimska nemocnice"
-* telecom.system = #phone
-* telecom.value = "+42060385111"
-* address[+]
-  * use = #work
-  * line[+] = "Vaclavska 570"
-  * city = "Chrudim"
-  * postalCode = "53701"
-  * country = "Ceska republika"
-    * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
+Description: "Pulmonology clinic of the additional recipient."
+* id = "Organization-PulmonologyClinic"
+* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/ico"
+* identifier[=].value = "12345679"
+* name = "Pneumologicka ambulance"

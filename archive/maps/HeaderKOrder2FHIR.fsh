@@ -317,7 +317,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/DocumentMetadataKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/BundleOrderCz"
 * group[=].element[+].code = #Header.documentMetadata.identifier
 * group[=].element[=].display = "A.1.8.1 - Document ID"
 * group[=].element[=].target.code = #Bundle.identifier					
@@ -390,7 +390,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[=].target.comment = "As business version, not as resource version"
 * group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/digitalSignatureKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/k-order/StructureDefinition/BundleKOrderCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/BundleOrderCz"
 * group[=].element[+].code = #Header.digitalSignatureCz.digitalSignature
 * group[=].element[=].display = "A.1.9.1 - Electronic signature or document seal"
 * group[=].element[=].target.code = #Bundle.signature.data		

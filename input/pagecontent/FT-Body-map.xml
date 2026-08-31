@@ -748,22 +748,41 @@
           <td>ConceptMap používá starší zápis `extension:bodySite.extension:laterality`.</td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.frekvence</a></td>
-          <td>A.3.2.1.5 - Frekvence</td>
-          <td>související</td>
+          <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.pocet</a></td>
+          <td>A.3.2.1.5 - Počet</td>
+          <td>ekvivalentní</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
-          <td>quantityQuantity</td>
+          <td>quantityQuantity.value</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
-          <td></td>
+          <td>Celkový počet požadovaných provedení FT výkonu.</td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.poznamka</a></td>
-          <td>A.3.2.1.6 - Poznámka</td>
+          <td>A.3.2.1.7 - Poznámka</td>
           <td>ekvivalentní</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>note.text</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
           <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.mistoPoskytnutiPece</a></td>
+          <td>A.3.2.1.8 - Místo poskytnutí péče</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
+          <td>locationCode</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Například domácí prostředí pacienta.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">cilVysetreni</a></td>
+          <td>A.3.2.2 - Cíl vyšetření</td>
+          <td>související</td>
+          <td><a href="https://hl7.cz/fhir/R4/goal.html">Goal</a></td>
+          <td></td>
+          <td>ServiceRequest (FTServiceRequestCz).supportingInfo<br/>
+            Composition (FTOrderCompositionCz).section[goals].entry</td>
+          <td>Cíl je reprezentován zdrojem Goal, na který odkazuje požadovaný výkon i sekce Composition.</td>
         </tr>
       </tbody>
     </table>

@@ -21,6 +21,7 @@ Condition a DocumentReference.
 
 * type 1..1 MS
 * type from $OrderTypes (required)
+  * coding 1..1
   * coding = $loinc#57154-7
 
 
@@ -28,7 +29,7 @@ Condition a DocumentReference.
   * coding = $loinc#57133-1 
 
 
-* extension contains DocumentPresentedForm named presentedForm 1..*
+* extension contains DocumentPresentedForm named presentedForm 0..1
 * extension[presentedForm].valueAttachment
   * contentType
   * data ^short = "B64 in-line data"
@@ -53,9 +54,7 @@ Condition a DocumentReference.
 * custodian only Reference(CZ_OrganizationCore)
 
 * author 1..* MS
-* author only Reference(
-  CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or CZ_OrganizationCore
-)
+* author only Reference(CZ_PractitionerRoleOrder)
 
 * encounter 0..1
 * encounter only Reference(CZ_Encounter)
@@ -68,15 +67,15 @@ Condition a DocumentReference.
 
 * section contains
     orderInformation 1..1 and
-    coverage 0..1 and
+    coverage 1..1 and
     reasons 0..1 and
     attachments 0..* and
     signature 0..1 and
-    risks 0..1
+    goals 0..1
 
 * section[coverage].code = $loinc#87520-3
 * section[coverage].title = "coverage"
-* section[coverage].entry 1..1
+* section[coverage].entry 1..*
 * section[coverage].entry only Reference(CZ_Coverage)
 
 * section[reasons].code = $loinc#29299-5
@@ -99,11 +98,13 @@ Condition a DocumentReference.
 * section[signature].entry 0..1
 * section[signature].entry only Reference(CZ_Provenance)
 
-* section[risks]
+* section[goals]
   * insert SectionComRules(
-      Patient Risks,
-      This section contains patient-specific risks contraindications and safety warnings relevant to the planned FT therapy including implants medical restrictions and required precautions.,
-      $loinc#51848-0)
+      Therapy goals,
+      This section contains patient-specific clinical and functional outcomes expected from the requested physiotherapy.,
+      $loinc#61146-7)
+  * entry 0..*
+  * entry only Reference(Goal)
 
 * section.author only Reference(
   CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or

@@ -1,6 +1,11 @@
 ////////////////////////////////////////////////////////////
 // INVARIANTS
 ////////////////////////////////////////////////////////////
+Invariant: one-comp
+Description: "The document Bundle SHALL include one and only one Composition."
+Expression: "entry.resource.ofType(Composition).count() = 1"
+Severity: #error
+
 /*
 Invariant: one-comp
 Description: "The document Bundle SHALL include one and only one Composition."
@@ -82,7 +87,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
     practitioner 0..* and
     practitionerRole 0..* and
     organization 0..* and
-    coverage 0..* and
+    coverage 1..* and
     goal 0..* and
     attachment 0..*
 

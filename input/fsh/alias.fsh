@@ -1,4 +1,5 @@
 Alias: $sct = http://snomed.info/sct
+Alias: $sctCZ = http://snomed.info/sct|http://snomed.info/sct/11000279109
 Alias: $loinc = http://loinc.org
 Alias: $vzp = urn:oid:1.2.203.439.4
 Alias: $request-priority = http://hl7.org/fhir/request-priority

@@ -40,7 +40,9 @@ end legend
 **[#TECHNOLOGY] [[LMOrderDataElementsCz.html Datové elementy objednávky vyšetření]]
 ***_ Kod vyšetření
 ***_ Název vyšetření
+***_ FT-Počet
 ***_ FT-Frekvence
+***_ FT-Místo poskytnutí péče
 ***_ FT-Část těla
 ***_ FT-Lateralita
 ***_ Poznámka

@@ -35,11 +35,11 @@ class "Encounter-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/Stru
 "Header" <|. "Encounter-cz"
 "Coverage-cz" -d[hidden]-> "Encounter-cz"
 
-class "Bundle-K-Order-cz" <<Profile>> [[StructureDefinition-BundleKOrderCz.html]]
-"Header" <|. "Bundle-K-Order-cz"
-"Encounter-cz" -d[hidden]-> "Bundle-K-Order-cz" 
+class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+"Header" <|. "BundleOrderCz"
+"Encounter-cz" -d[hidden]-> "BundleOrderCz" 
 
 class "K-Order-composition" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
 "Header" <|. "K-Order-composition"
-"Bundle-K-Order-cz" -d[hidden]-> "K-Order-composition" 
+"BundleOrderCz" -d[hidden]-> "K-Order-composition" 
 @enduml

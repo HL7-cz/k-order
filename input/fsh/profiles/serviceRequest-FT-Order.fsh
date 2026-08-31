@@ -54,15 +54,16 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 // --------------------------- requester / performer ---------------------------
 * requester 1..1 MS
 * requester ^short = "Žadatel (lékař / pracoviště)"
-* requester only Reference(
-    CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
-)
+* requester only Reference(CZ_PractitionerRoleOrder)
 
 * performer 0..* MS
 * performer ^short = "Cílový příjemce (pracoviště / poskytovatel FT)"
 * performer only Reference(
     CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
 )
+
+* locationCode 0..1 MS
+* locationCode ^short = "Požadované místo poskytnutí FT, například domácí prostředí pacienta"
 
 // --------------------------- clinical context --------------------------------
 * encounter 0..1
@@ -87,8 +88,8 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode.coding[reason].system = "http://snomed.info/sct" (exactly)
 
 // --------------------------- category / type / code / priority ----------------
-* category 1..1 MS
-* category from FTOrderCategoryVS (extensible)  // nový VS pro FT
+* category 0..* 
+* category from FTCategoryServiceRequest (extensible)  // nový VS pro FT
 
 * code 1..1 MS
 * code.coding from FTOrderProceduresVS (preferred)
@@ -97,8 +98,8 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * priority 0..1 MS
 
 // --------------------------- timing / quantity -------------------------------
-// Pro FT řádek je počet (12×) zásadní -> povinné
-* quantity[x] 1..1 MS
+// Počet FT výkonů je volitelný; pokud je uveden, musí obsahovat hodnotu.
+* quantity[x] 0..1 MS
 * quantity[x] only Quantity
 * quantityQuantity.value 1..1 MS
 * quantityQuantity.unit 0..1

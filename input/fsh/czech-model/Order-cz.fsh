@@ -15,7 +15,7 @@ tělo žádanky, prezentovanou formu a přílohy."""
   """Tělo dokumentu obecné žádanky obsahující informace o objednávce,
 klinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb."""
 
-* prezentovanaForma 0..* LMPresentedFormOrderCz
+* prezentovanaForma 0..1 LMPresentedFormOrderCz
   "A.4 - Prezentovaná forma"
   """Lidsky čitelná reprezentace dokumentu."""
 

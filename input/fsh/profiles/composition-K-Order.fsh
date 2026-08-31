@@ -22,6 +22,7 @@ Condition a DocumentReference.
 
 * type 1..1 MS
 * type from $OrderTypes (required)
+  * coding 1..1
   * coding = $loinc#57133-1
 
 
@@ -29,7 +30,7 @@ Condition a DocumentReference.
   * coding = $loinc#57133-1 
 
 
-* extension contains DocumentPresentedForm named presentedForm 1..*
+* extension contains DocumentPresentedForm named presentedForm 0..1
 * extension[presentedForm].valueAttachment
   * contentType
   * data ^short = "B64 in-line data"
@@ -54,9 +55,7 @@ Condition a DocumentReference.
 * custodian only Reference(CZ_OrganizationCore)
 
 * author 1..* MS
-* author only Reference(
-  CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or CZ_OrganizationCore
-)
+* author only Reference(CZ_PractitionerRoleOrder)
 
 * encounter 0..1
 * encounter only Reference(CZ_Encounter)
@@ -69,7 +68,7 @@ Condition a DocumentReference.
 
 * section contains
     orderInformation 1..1 and
-    coverage 0..1 and
+    coverage 1..1 and
     significantMedicalHistory 0..1 and
     examinationResults 0..1 and
     differentialDiagnosis 0..1 and
@@ -80,7 +79,7 @@ Condition a DocumentReference.
 
 * section[coverage].code = $loinc#87520-3 
 * section[coverage].title = "coverage"
-* section[coverage].entry 1..1
+* section[coverage].entry 1..*
 * section[coverage].entry only Reference(CZ_Coverage)
 /*
 * section[reasons].code = $loinc#29299-5

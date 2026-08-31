@@ -541,21 +541,31 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent
 
 ///////////////////////////////////////////////////////////////////////////////
-// A.3.2.1.5 - Frekvence
+// A.3.2.1.5 - Počet
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[=].element[+].code = #pozadovaneVysetreni.frekvence
-* group[=].element[=].display = "A.3.2.1.5 - Frekvence"
-* group[=].element[=].target.code = #FTOrderServiceRequestCz.quantityQuantity
+* group[=].element[+].code = #pozadovaneVysetreni.pocet
+* group[=].element[=].display = "A.3.2.1.5 - Počet"
+* group[=].element[=].target.code = #FTOrderServiceRequestCz.quantityQuantity.value
 * group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.equivalence = #equivalent
 
 ///////////////////////////////////////////////////////////////////////////////
-// A.3.2.1.6 - Poznámka
+// A.3.2.1.7 - Poznámka
 ///////////////////////////////////////////////////////////////////////////////
 
 * group[=].element[+].code = #pozadovaneVysetreni.poznamka
-* group[=].element[=].display = "A.3.2.1.6 - Poznámka"
+* group[=].element[=].display = "A.3.2.1.7 - Poznámka"
 * group[=].element[=].target.code = #FTOrderServiceRequestCz.note.text
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+///////////////////////////////////////////////////////////////////////////////
+// A.3.2.1.8 - Místo poskytnutí péče
+///////////////////////////////////////////////////////////////////////////////
+
+* group[=].element[+].code = #pozadovaneVysetreni.mistoPoskytnutiPece
+* group[=].element[=].display = "A.3.2.1.8 - Místo poskytnutí péče"
+* group[=].element[=].target.code = #FTOrderServiceRequestCz.locationCode
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
