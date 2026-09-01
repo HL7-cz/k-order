@@ -58,13 +58,7 @@ Condition a DocumentReference.
 * custodian 0..1 MS
 * custodian only Reference(CZ_OrganizationCore)
 
-* author
-  * insert SliceElement( #profile, [[$this.resolve()]] )
-* author contains
-    authorOrder 0..* and
-    authorCore 0..*
-* author[authorOrder] only Reference(CZ_PractitionerRoleOrder)
-* author[authorCore] only Reference(CZ_PractitionerRoleCore)
+* author only Reference(CZ_PractitionerRoleOrder or CZ_PractitionerRoleCore)
 
 * encounter 0..1
 * encounter only Reference(CZ_Encounter)

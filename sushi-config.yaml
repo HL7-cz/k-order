@@ -126,6 +126,8 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
     - https://vzp.cz/cis/vykony
     - urn:oid:1.2.203.7898.1.5
     - https://terminology.uzis.cz/CodeSystem/Mkn10_5
+    - https://ncez.mzcr.cz/terminology/ValueSet/ft-category-service-request
+    - https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs
 # path-resource:
 #    - input/resources
 #    - fsh-generated/resources

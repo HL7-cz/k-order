@@ -164,10 +164,11 @@ Usage: #example
 Description: "practitioner's detail"
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
-* meta.profile[0] = "https://hl7.cz/fhir/order/StructureDefinition/CZ_PractitionerRoleOrder"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Ordinace praktickeho lekare"
 * code = $cz-nrzp_povolani#L00 "Lekar"
+* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
+* specialty[0].coding[0].code = #001
 * specialty[0].text = "Vseobecne prakticke lekarstvi"
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, vseobecny prakticky lekar</div>"
 * text.status = #generated
@@ -232,6 +233,8 @@ Description: "Additional recipient of the result."
 * practitioner = Reference(Practitioner-Pulmonologist)
 * organization = Reference(Organization-PulmonologyClinic)
 * code = $cz-nrzp_povolani#L00 "Lekar"
+* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
+* specialty[0].coding[0].code = #205
 * specialty[0].text = "Pneumologie a ftizeologie"
 
 Instance: Organization-PulmonologyClinic
