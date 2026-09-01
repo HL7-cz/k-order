@@ -34,7 +34,10 @@ Description:  """Informace a údaje sdělované provádějícímu pracovišti, k
 * urgentniInformace.alergieAIntolerance 1..* CodeableConcept "A.3.1.5.1 - Alergie a intolerance" """Alergie a intolerance důležité pro realizaci žádanky nebo interpretaci výsledků."""
 * urgentniInformace.varovani 0..* string "A.3.1.5.2 - Varování" """Varování a upozornění mající vliv na realizaci žádanky nebo interpretaci výsledků."""
 
-* omezeniPohyblivostiPacienta 0..1 string "A.3.1.6 - Omezení pohyblivosti pacienta" """Popis omezení pohyblivosti pacienta."""
+* omezeniPohyblivostiPacienta 0..1 Base "A.3.1.6 - Omezení pohyblivosti pacienta" """Strukturovaná informace o omezení pohyblivosti pacienta."""
+* omezeniPohyblivostiPacienta.datumACas 1..1 dateTime "A.3.1.6.1 - Datum a čas informace" """Datum a čas zjištění informace o pohyblivosti."""
+* omezeniPohyblivostiPacienta.kod 1..1 CodeableConcept "A.3.1.6.2 - Kód informace" """Kód typu hodnocené pohyblivosti."""
+* omezeniPohyblivostiPacienta.hodnota 1..1 CodeableConcept "A.3.1.6.3 - Hodnota informace" """Hodnota hodnocení pohyblivosti pacienta."""
 * fyzikalniNalez 0..* CodeableConcept "A.3.1.10 - Fyzikální nález" """Fyzikální nálezy relevantní pro žádanku."""
 * datumHospitalizace 0..* dateTime "A.3.1.11 - Datum hospitalizace" """Datum hospitalizace pacienta, pokud je relevantní."""
 * ockovani 0..* CodeableConcept "A.3.1.12 - Očkování" """Informace o očkování, pokud jsou relevantní."""

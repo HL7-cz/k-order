@@ -80,13 +80,15 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode.coding ^slicing.discriminator[0].path = "system"
 * reasonCode.coding ^slicing.rules = #open
 * reasonCode.coding contains
-    diagnosis 0..1 and
-    reason 0..1
-* reasonCode.coding[diagnosis] from CZ_DiagnosisConditionVs (preferred)
-* reasonCode.coding[diagnosis].system = "https://terminology.uzis.cz/CodeSystem/Mkn10_5"
-* reasonCode.coding[reason] from $sct-condition-code (preferred)
-* reasonCode.coding[reason].system = "http://snomed.info/sct" (exactly)
-
+    mkn-10 0..1 and
+    snomed 0..1 and
+    orphacode 0..1
+* reasonCode.coding[mkn-10] from $mkn10vs (preferred)
+* reasonCode.coding[mkn-10].system = "https://uzis.cz/terminology/CodeSystem/mkn-10"
+* reasonCode.coding[snomed] from $sct-condition-code (preferred)
+* reasonCode.coding[snomed].system = "http://snomed.info/sct" (exactly)
+* reasonCode.coding[orphacode] from $orphanet-vs (preferred)
+* reasonCode.coding[orphacode].system = "https://www.orpha.net" (exactly)
 // --------------------------- category / type / code / priority ----------------
 * category 0..* 
 * category from FTCategoryServiceRequest (extensible)  // nový VS pro FT

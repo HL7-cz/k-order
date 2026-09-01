@@ -486,6 +486,33 @@ Usage: #definition
 * group[=].element[=].target[0].code = #Flag.code.text
 * group[=].element[=].target[0].equivalence = #equivalent
 
+///////////////////////////////////////////////////////////////////////////////
+// A.3.1.6 - Omezení pohyblivosti pacienta -> CZ_PatientMobility
+///////////////////////////////////////////////////////////////////////////////
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility"
+
+* group[=].element[+].code = #omezeniPohyblivostiPacienta
+* group[=].element[=].display = "A.3.1.6 - Omezení pohyblivosti pacienta"
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_PatientMobility)"
+
+* group[=].element[+].code = #omezeniPohyblivostiPacienta.datumACas
+* group[=].element[=].display = "A.3.1.6.1 - Datum a čas informace"
+* group[=].element[=].target[0].code = #CZ_PatientMobility.effectiveDateTime
+* group[=].element[=].target[0].equivalence = #equivalent
+
+* group[=].element[+].code = #omezeniPohyblivostiPacienta.kod
+* group[=].element[=].display = "A.3.1.6.2 - Kód informace"
+* group[=].element[=].target[0].code = #CZ_PatientMobility.code
+* group[=].element[=].target[0].equivalence = #equivalent
+
+* group[=].element[+].code = #omezeniPohyblivostiPacienta.hodnota
+* group[=].element[=].display = "A.3.1.6.3 - Hodnota informace"
+* group[=].element[=].target[0].code = #CZ_PatientMobility.valueCodeableConcept
+* group[=].element[=].target[0].equivalence = #equivalent
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // A.3.2 - Datové elementy objednávky / vyšetření

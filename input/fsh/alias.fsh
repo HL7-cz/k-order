@@ -55,3 +55,6 @@ Alias: $flag-detail = http://hl7.org/fhir/StructureDefinition/flag-detail
 Alias: $flag-priority = http://hl7.org/fhir/StructureDefinition/flag-priority
 Alias: $data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason|4.0.1
 Alias: $sctBodySite = http://hl7.org/fhir/ValueSet/body-site
+Alias: $orphanet-vs = https://ncez.mzcr.cz/terminology/ValueSet/orphanet-rare-diseases
+Alias: $mkn10vs = https://uzis.cz/terminology/ValueSet/mkn-10
+Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code

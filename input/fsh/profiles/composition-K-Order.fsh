@@ -25,14 +25,18 @@ Condition a DocumentReference.
   * coding 1..1
   * coding = $loinc#57133-1
 
+* category
+  * insert SliceElement( #value, $this )
+* category contains documentCategory 1..1
+* category[documentCategory] from $DocumentCategory (required)
+* category[documentCategory] = $loinc#57133-1
 
-* category from $DocumentCategory (required)
-  * coding = $loinc#57133-1 
-
-
-* extension contains DocumentPresentedForm named presentedForm 0..1
+* extension contains DocumentPresentedForm named presentedForm 0..*
+* extension[presentedForm] ^short = "Presented form"
 * extension[presentedForm].valueAttachment
   * contentType
+    * ^example[0].label = "pdf"
+    * ^example[0].valueCode  = $mime#application/pdf
   * data ^short = "B64 in-line data"
   * url ^short = "URL of the document"
 
@@ -54,8 +58,13 @@ Condition a DocumentReference.
 * custodian 0..1 MS
 * custodian only Reference(CZ_OrganizationCore)
 
-* author 1..* MS
-* author only Reference(CZ_PractitionerRoleOrder)
+* author
+  * insert SliceElement( #profile, [[$this.resolve()]] )
+* author contains
+    authorOrder 0..* and
+    authorCore 0..*
+* author[authorOrder] only Reference(CZ_PractitionerRoleOrder)
+* author[authorCore] only Reference(CZ_PractitionerRoleCore)
 
 * encounter 0..1
 * encounter only Reference(CZ_Encounter)
@@ -73,6 +82,7 @@ Condition a DocumentReference.
     examinationResults 0..1 and
     differentialDiagnosis 0..1 and
     currentTreatment 0..1 and
+    supportingInformation 0..1 and
     referencedDocumentation 0..1 and
     attachments 0..* and
     signature 0..1
@@ -133,6 +143,24 @@ Condition a DocumentReference.
       $loinc#11506-3)
   * entry 0..*
   * entry only Reference(CZ_MedicationStatementCore)
+
+* section[supportingInformation]
+  * ^short = "Supporting information"
+  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+  * ^extension[0].valueString = "Section"
+  * code = $loinc#55752-0
+  * entry 0..
+  * entry only Reference(CZ_MedicationStatementCore or CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_MedicalDevice or CZ_CarePlanCore)
+  * entry ^slicing.discriminator[0].type = #profile
+  * entry ^slicing.discriminator[0].path = "resolve()"
+  * entry ^slicing.rules = #open
+  * entry contains
+      bodyHeight 0..1 and
+      bodyWeight 0..1 and
+      mobility 0..1
+  * entry[bodyHeight] only Reference(CZ_BodyHeight)
+  * entry[bodyWeight] only Reference(CZ_BodyWeight)
+  * entry[mobility] only Reference(CZ_PatientMobility)
 
 * section[referencedDocumentation]
   * insert SectionComRules(

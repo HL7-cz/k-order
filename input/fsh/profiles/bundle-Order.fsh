@@ -89,6 +89,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
     organization 0..* and
     coverage 1..* and
     goal 0..* and
+    observation 0..* and
     attachment 0..*
 
 
@@ -127,6 +128,9 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 
 // Goal
 * entry[goal].resource only Goal
+
+// Supporting observations, including body measurements and patient mobility.
+* entry[observation].resource only CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_PatientMobility
 
 // Attachments
 * entry[attachment].resource only CZ_Attachment
