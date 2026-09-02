@@ -74,7 +74,7 @@ Usage: #example
 * id = "KOrderCoverage-Example"
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)
-* payor[0] = Reference(Organization-1)
+* payor[0] = Reference(Organization-Insurance111)
 * identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/pojistovna"
 * identifier[=].value = "111"
 
@@ -104,6 +104,9 @@ Usage: #example
 
 * entry[+].fullUrl = "https://example.cz/fhir/Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
 * entry[=].resource = Organization-1
+
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-Insurance111"
+* entry[=].resource = Organization-Insurance111
 
 * entry[+].fullUrl = "https://example.cz/fhir/Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
 * entry[=].resource = Organization-L1-Odd
@@ -188,12 +191,28 @@ InstanceOf: CZ_OrganizationCore
 Usage: #example
 Description: "An example of the organization of a provider"
 * id = "ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
-* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/krpzs"
-* identifier[=].value = "27520536"
-* name = "Ambulance praktickeho lekare"
-* telecom.system = #phone
-* telecom.value = "+420603853227"
-* telecom.use = #work
+* identifier[0].system = $cz-organization-ico
+* identifier[0].value = "12345679"
+* type[0].coding[0] = $cz-drzar#102 "Nemocnice"
+* name = "Nemocnice Demo, a.s."
+* telecom[0].system = #phone
+* telecom[0].value = "+420800123456"
+* telecom[0].use = #work
+* address[0].use = #work
+* address[0].type = #both
+* address[0].line[0] = "Ukazkova 1"
+* address[0].city = "Praha"
+* address[0].postalCode = "10000"
+* address[0].country = "CZ"
+
+Instance: Organization-Insurance111
+InstanceOf: CZ_OrganizationCore
+Usage: #example
+Description: "Healthcare insurer of the patient."
+* id = "Organization-Insurance111"
+* identifier[0].system = $cz-organization-ico
+* identifier[0].value = "12345687"
+* name = "Zdravotni pojistovna Demo"
 
 //---------------------------------------------------------------------------------------------------------------
 Instance: Organization-L1-Odd
@@ -201,19 +220,20 @@ InstanceOf: CZ_OrganizationCore
 Usage: #example
 Description: "A minimalist example of a subordinate department within a hospital hierarchy."
 * id = "af2b3114-e872-43b9-9875-cceb39122f7f"
-* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/icp"
-* identifier[=].value = "12345678"
-* name = "Ordinace praktickeho lekare"
-* partOf = Reference(Organization-1) "Ambulance praktickeho lekare"
-* telecom.system = #phone
-* telecom.value = "+42060385555"
-* address[+]
+* identifier[0].system = $cz-organization-ico
+* identifier[0].value = "12345679"
+* name = "Nemocnice Demo, a.s. - ambulance praktickeho lekare"
+* partOf = Reference(Organization-1) "Nemocnice Demo, a.s."
+* telecom[0].system = #phone
+* telecom[0].value = "+420800123457"
+* telecom[0].use = #work
+* address[0]
   * use = #work
-  * line[+] = "Vaclavska 570"
-  * city = "Chrudim"
-  * postalCode = "53701"
-  * country = "Ceska republika"
-    * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
+  * type = #both
+  * line[0] = "Ukazkova 1"
+  * city = "Praha"
+  * postalCode = "10000"
+  * country = "CZ"
 
 // ------------------------- Additional recipient --------------------------
 Instance: Practitioner-Pulmonologist
@@ -242,6 +262,7 @@ InstanceOf: CZ_OrganizationCore
 Usage: #example
 Description: "Pulmonology clinic of the additional recipient."
 * id = "Organization-PulmonologyClinic"
-* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/ico"
-* identifier[=].value = "12345679"
-* name = "Pneumologicka ambulance"
+* identifier[0].system = $cz-organization-ico
+* identifier[0].value = "12345679"
+* name = "Nemocnice Demo, a.s. - pneumologicka ambulance"
+* partOf = Reference(Organization-1) "Nemocnice Demo, a.s."
