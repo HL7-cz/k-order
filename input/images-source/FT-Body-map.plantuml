@@ -19,10 +19,10 @@ endlegend
 
 class "LMCzBodyFTOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyFTOrder.html]]
 
-class "FTOrderServiceRequestCz" <<Profile>> [[StructureDefinition-FTOrderServiceRequestCz.html]]
+class "FTOrderServiceRequestCz" <<Profile>> [[StructureDefinition-FTServiceRequestCz.html]]
 "LMCzBodyFTOrderCz" <|. "FTOrderServiceRequestCz"
 
-class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter-core.html]]
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-encounter-cz-core.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_Encounter"
 "FTOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
@@ -34,7 +34,7 @@ class "CZ_AppointmentOrder" <<Profile>> [[StructureDefinition-cz-appointmentOrde
 "LMCzBodyFTOrderCz" <|. "CZ_AppointmentOrder"
 "CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
 
-class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html]]
+class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_ConditionCore"
 "CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
 

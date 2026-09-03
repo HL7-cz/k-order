@@ -2,7 +2,10 @@
 Instance: KOrderCompositionExample
 InstanceOf: KOrderCompositionCz
 Title: "Composition: Kardiologické konzilium pro námahovou dušnost"
-Description: "Dokumentová Composition neadresné K-žádanky se dvěma požadovanými kardiologickými službami a pneumologem jako dodatečným příjemcem výsledku."
+Description: """
+CZ: Dokumentová Composition neadresné K-žádanky se dvěma požadovanými kardiologickými službami a pneumologem jako dodatečným příjemcem výsledku.
+EN: Document Composition of an unaddressed K-order with two requested cardiology services and a pulmonologist as an additional recipient of the result.
+"""
 Usage: #example
 * id = "KOrderCompositionExample"
 * status = #final
@@ -23,6 +26,10 @@ Usage: #example
 Instance: KOrderCondition-Main
 InstanceOf: CZ_ConditionCore
 Usage: #example
+Description: """
+CZ: Klinický stav odůvodňující kardiologickou žádanku.
+EN: Clinical condition justifying the cardiology order.
+"""
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[+] = $sctCZ#267036007
@@ -32,6 +39,10 @@ Usage: #example
 Instance: KOrderServiceRequest-1
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na kardiologické konziliární vyšetření.
+EN: Request for a cardiology consultation.
+"""
 * id = "KOrderServiceRequest-1"
 * identifier[+].value = "KORD-SR-2025-0001"
 * status = #active
@@ -51,6 +62,10 @@ Usage: #example
 Instance: KOrderServiceRequest-2
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na echokardiografické vyšetření.
+EN: Request for echocardiography.
+"""
 * id = "KOrderServiceRequest-2"
 * identifier[+].value = "KORD-SR-2025-0002"
 * status = #active
@@ -71,6 +86,10 @@ Usage: #example
 Instance: KOrderCoverage-Example
 InstanceOf: CZ_Coverage
 Usage: #example
+Description: """
+CZ: Údaj o zdravotním pojištění pacienta.
+EN: Patient health insurance coverage.
+"""
 * id = "KOrderCoverage-Example"
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)
@@ -82,7 +101,10 @@ Usage: #example
 Instance: BundleKOrderExample
 InstanceOf: BundleOrderCz
 Title: "Příklad 1: Kardiologické konzilium pro námahovou dušnost"
-Description: "Neadresná K-žádanka praktického lékaře pro námahovou dušnost se SNOMED CT procedurami, kardiologickým konziliem, echokardiografií a pneumologem jako dodatečným příjemcem výsledku."
+Description: """
+CZ: Neadresná K-žádanka praktického lékaře pro námahovou dušnost se SNOMED CT procedurami, kardiologickým konziliem, echokardiografií a pneumologem jako dodatečným příjemcem výsledku.
+EN: Unaddressed K-order from a general practitioner for exertional dyspnea, with SNOMED CT procedures, a cardiology consultation, echocardiography, and a pulmonologist as an additional recipient of the result.
+"""
 Usage: #example
 * id = "BundleKOrderExample"
 * type = #document
@@ -111,6 +133,9 @@ Usage: #example
 * entry[+].fullUrl = "https://example.cz/fhir/Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
 * entry[=].resource = Organization-L1-Odd
 
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-PulmonologyProvider"
+* entry[=].resource = Organization-PulmonologyProvider
+
 * entry[+].fullUrl = "https://example.cz/fhir/Condition/KOrderCondition-Main"
 * entry[=].resource = KOrderCondition-Main
 
@@ -135,12 +160,15 @@ Usage: #example
 Instance: Patient-Novak-Petr
 InstanceOf: CZ_PatientCore
 Usage: #example
-Description: "Example of patient Petr Novak with identification by Czech national identifiers."
+Description: """
+CZ: Příklad pacienta Petra Nováka s identifikací pomocí českých národních identifikátorů.
+EN: Example of patient Petr Novak with identification by Czech national identifiers.
+"""
 
 * id = "48a9d440-4194-42c1-87ad-b5a39020a4d0"
-* identifier[+]
-  * system = $cz-patient-rid
-  * value = "1597778923"
+* identifier[RID].use = #official
+* identifier[RID].system = $cz-patient-rid
+* identifier[RID].value = "1597778923"
 * name.text = "Ing. Petr Novak, Ph.D."
 * name.family = "Novak"
 * name.given[0] = "Petr"
@@ -164,7 +192,10 @@ Description: "Example of patient Petr Novak with identification by Czech nationa
 Instance: Practitioner-Author-detail
 InstanceOf: CZ_PractitionerRoleOrder
 Usage: #example
-Description: "practitioner's detail"
+Description: """
+CZ: Detail role zdravotnického pracovníka.
+EN: Healthcare practitioner role detail.
+"""
 
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
@@ -179,9 +210,14 @@ Description: "practitioner's detail"
 Instance: Practitioner-Author
 InstanceOf: CZ_PractitionerCore
 Usage: #example
-Description: "Author practitioner"
+Description: """
+CZ: Zdravotnický pracovník autora žádanky.
+EN: Healthcare practitioner authoring the order.
+"""
 
 * id = "a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
+* identifier[KRZP].system = $cz-practitioner-krzp
+* identifier[KRZP].value = "100000001"
 * name.text = "MUDr. Ivan Andel"
 * name.family = "Andel"
 * name.given[0] = "Ivan"
@@ -189,12 +225,17 @@ Description: "Author practitioner"
 Instance: Organization-1
 InstanceOf: CZ_OrganizationCore
 Usage: #example
-Description: "An example of the organization of a provider"
+Description: """
+CZ: Příklad organizace poskytovatele zdravotních služeb.
+EN: Example of a healthcare service provider organization.
+"""
 * id = "ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
-* identifier[0].system = $cz-organization-ico
-* identifier[0].value = "12345679"
+* identifier[KRPZS].system = $cz-organization-krpzs
+* identifier[KRPZS].value = "100000001"
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345679"
 * type[0].coding[0] = $cz-drzar#102 "Nemocnice"
-* name = "Nemocnice Demo, a.s."
+* name = "Nemocnice Pod Lipou, a.s."
 * telecom[0].system = #phone
 * telecom[0].value = "+420800123456"
 * telecom[0].use = #work
@@ -208,22 +249,30 @@ Description: "An example of the organization of a provider"
 Instance: Organization-Insurance111
 InstanceOf: CZ_OrganizationCore
 Usage: #example
-Description: "Healthcare insurer of the patient."
+Description: """
+CZ: Zdravotní pojišťovna pacienta.
+EN: Patient's health insurer.
+"""
 * id = "Organization-Insurance111"
-* identifier[0].system = $cz-organization-ico
-* identifier[0].value = "12345687"
-* name = "Zdravotni pojistovna Demo"
+* identifier[KP].system = $cz-organization-kp
+* identifier[KP].value = "111"
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345687"
+* name = "Zdravotni pojistovna Modra reka"
 
 //---------------------------------------------------------------------------------------------------------------
 Instance: Organization-L1-Odd
 InstanceOf: CZ_OrganizationCore
 Usage: #example
-Description: "A minimalist example of a subordinate department within a hospital hierarchy."
+Description: """
+CZ: Příklad podřízeného pracoviště v hierarchii nemocnice.
+EN: Example of a subordinate department within a hospital hierarchy.
+"""
 * id = "af2b3114-e872-43b9-9875-cceb39122f7f"
-* identifier[0].system = $cz-organization-ico
-* identifier[0].value = "12345679"
-* name = "Nemocnice Demo, a.s. - ambulance praktickeho lekare"
-* partOf = Reference(Organization-1) "Nemocnice Demo, a.s."
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345679"
+* name = "Nemocnice Pod Lipou, a.s. - ambulance praktickeho lekare"
+* partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."
 * telecom[0].system = #phone
 * telecom[0].value = "+420800123457"
 * telecom[0].use = #work
@@ -236,11 +285,31 @@ Description: "A minimalist example of a subordinate department within a hospital
   * country = "CZ"
 
 // ------------------------- Additional recipient --------------------------
+Instance: Organization-PulmonologyProvider
+InstanceOf: CZ_OrganizationCore
+Usage: #example
+Description: """
+CZ: Samostatny poskytovatel zdravotnich sluzeb pneumologickeho dodatecneho prijemce vysledku.
+EN: Separate healthcare service provider of the pulmonology additional result recipient.
+"""
+* id = "Organization-PulmonologyProvider"
+* identifier[KRPZS].system = $cz-organization-krpzs
+* identifier[KRPZS].value = "100000002"
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345695"
+* type[0].coding[0] = $cz-drzar#102 "Nemocnice"
+* name = "Nemocnice U Javoru, a.s."
+
 Instance: Practitioner-Pulmonologist
 InstanceOf: CZ_PractitionerCore
 Usage: #example
-Description: "Pulmonologist who also receives the result of the K-order."
+Description: """
+CZ: Pneumolog, který obdrží výsledek K-žádanky jako dodatečný příjemce.
+EN: Pulmonologist who also receives the K-order result as an additional recipient.
+"""
 * id = "Practitioner-Pulmonologist"
+* identifier[KRZP].system = $cz-practitioner-krzp
+* identifier[KRZP].value = "100000002"
 * name.text = "MUDr. Jana Novakova"
 * name.family = "Novakova"
 * name.given[0] = "Jana"
@@ -248,7 +317,10 @@ Description: "Pulmonologist who also receives the result of the K-order."
 Instance: PractitionerRole-Pulmonologist
 InstanceOf: CZ_PractitionerRoleOrder
 Usage: #example
-Description: "Additional recipient of the result."
+Description: """
+CZ: Role dodatečného příjemce výsledku.
+EN: Role of the additional result recipient.
+"""
 * id = "PractitionerRole-Pulmonologist"
 * practitioner = Reference(Practitioner-Pulmonologist)
 * organization = Reference(Organization-PulmonologyClinic)
@@ -260,9 +332,12 @@ Description: "Additional recipient of the result."
 Instance: Organization-PulmonologyClinic
 InstanceOf: CZ_OrganizationCore
 Usage: #example
-Description: "Pulmonology clinic of the additional recipient."
+Description: """
+CZ: Pneumologická ambulance dodatečného příjemce výsledku.
+EN: Pulmonology clinic of the additional result recipient.
+"""
 * id = "Organization-PulmonologyClinic"
-* identifier[0].system = $cz-organization-ico
-* identifier[0].value = "12345679"
-* name = "Nemocnice Demo, a.s. - pneumologicka ambulance"
-* partOf = Reference(Organization-1) "Nemocnice Demo, a.s."
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345695"
+* name = "Nemocnice U Javoru, a.s. - pneumologicka ambulance"
+* partOf = Reference(Organization-PulmonologyProvider) "Nemocnice U Javoru, a.s."

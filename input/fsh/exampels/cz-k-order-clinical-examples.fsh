@@ -5,6 +5,10 @@
 Instance: DermatologyCondition-PigmentedLesion
 InstanceOf: CZ_ConditionCore
 Usage: #example
+Description: """
+CZ: Rychle se měnící pigmentový útvar na zádech.
+EN: Rapidly changing pigmented lesion on the back.
+"""
 * id = "DermatologyCondition-PigmentedLesion"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[0] = $mkn10#D48.5
@@ -13,7 +17,13 @@ Usage: #example
 Instance: Practitioner-Dermatologist
 InstanceOf: CZ_PractitionerCore
 Usage: #example
+Description: """
+CZ: Dermatoložka cílového pracoviště.
+EN: Dermatologist at the receiving clinic.
+"""
 * id = "Practitioner-Dermatologist"
+* identifier[KRZP].system = $cz-practitioner-krzp
+* identifier[KRZP].value = "100000003"
 * name.text = "MUDr. Eva Cerná"
 * name.family = "Cerna"
 * name.given[0] = "Eva"
@@ -21,15 +31,23 @@ Usage: #example
 Instance: Organization-DermatologyClinic
 InstanceOf: CZ_OrganizationCore
 Usage: #example
+Description: """
+CZ: Pigmentová poradna cílového poskytovatele.
+EN: Pigmented lesion clinic of the receiving provider.
+"""
 * id = "Organization-DermatologyClinic"
-* identifier[0].system = $cz-organization-ico
-* identifier[0].value = "12345679"
-* name = "Nemocnice Demo, a.s. - pigmentova poradna"
-* partOf = Reference(Organization-1) "Nemocnice Demo, a.s."
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345679"
+* name = "Nemocnice Pod Lipou, a.s. - pigmentova poradna"
+* partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."
 
 Instance: PractitionerRole-Dermatologist
 InstanceOf: CZ_PractitionerRoleOrder
 Usage: #example
+Description: """
+CZ: Role dermatoložky v pigmentové poradně.
+EN: Dermatologist role in the pigmented lesion clinic.
+"""
 * id = "PractitionerRole-Dermatologist"
 * practitioner = Reference(Practitioner-Dermatologist)
 * organization = Reference(Organization-DermatologyClinic)
@@ -41,6 +59,10 @@ Usage: #example
 Instance: DermatologyServiceRequest-Urgent
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
+Description: """
+CZ: Urgentní adresný požadavek na dermatologické konzilium.
+EN: Urgent addressed request for a dermatology consultation.
+"""
 * id = "DermatologyServiceRequest-Urgent"
 * identifier[0].value = "KORD-DERM-2026-0001"
 * status = #active
@@ -62,6 +84,10 @@ Usage: #example
 Instance: DermatologyLesionPhoto
 InstanceOf: CZ_Attachment
 Usage: #example
+Description: """
+CZ: Klinická fotodokumentace pigmentového útvaru.
+EN: Clinical photo documentation of the pigmented lesion.
+"""
 * id = "DermatologyLesionPhoto"
 * status = #current
 * subject = Reference(Patient-Novak-Petr)
@@ -75,6 +101,10 @@ Usage: #example
 Instance: DermatologyCompositionExample
 InstanceOf: KOrderCompositionCz
 Usage: #example
+Description: """
+CZ: Urgentní adresná K-žádanka do pigmentové poradny pro rychle se měnící pigmentový útvar s přiloženou fotodokumentací.
+EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing pigmented lesion with attached photo documentation.
+"""
 * id = "DermatologyCompositionExample"
 * status = #final
 * date = "2026-09-02T09:15:00+02:00"
@@ -85,12 +115,17 @@ Usage: #example
 * identifier.value = "KORD-DERM-COMP-2026-0001"
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[orderInformation].entry[0] = Reference(DermatologyServiceRequest-Urgent)
+* section[differentialDiagnosis].title = "Differential diagnosis considerations"
 * section[differentialDiagnosis].entry[0] = Reference(DermatologyCondition-PigmentedLesion)
 * section[attachments].entry[0] = Reference(DermatologyLesionPhoto)
 
 Instance: BundleDermatologyUrgentExample
 InstanceOf: BundleOrderCz
 Usage: #example
+Description: """
+CZ: Dokumentový Bundle urgentní dermatologické K-žádanky s klinickou fotodokumentací.
+EN: Document Bundle for an urgent dermatology K-order with clinical photo documentation.
+"""
 * id = "BundleDermatologyUrgentExample"
 * type = #document
 * timestamp = "2026-09-02T09:15:00+02:00"
@@ -129,6 +164,10 @@ Usage: #example
 Instance: NephrologyCondition-CKDStage4
 InstanceOf: CZ_ConditionCore
 Usage: #example
+Description: """
+CZ: Chronické onemocnění ledvin ve stadiu 4.
+EN: Stage 4 chronic kidney disease.
+"""
 * id = "NephrologyCondition-CKDStage4"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[0] = $mkn10#N18.4
@@ -137,7 +176,13 @@ Usage: #example
 Instance: Practitioner-Nephrologist
 InstanceOf: CZ_PractitionerCore
 Usage: #example
+Description: """
+CZ: Nefrolog cílového pracoviště.
+EN: Nephrologist at the receiving clinic.
+"""
 * id = "Practitioner-Nephrologist"
+* identifier[KRZP].system = $cz-practitioner-krzp
+* identifier[KRZP].value = "100000004"
 * name.text = "MUDr. Jan Svoboda"
 * name.family = "Svoboda"
 * name.given[0] = "Jan"
@@ -145,15 +190,23 @@ Usage: #example
 Instance: Organization-NephrologyClinic
 InstanceOf: CZ_OrganizationCore
 Usage: #example
+Description: """
+CZ: Nefrologická ambulance cílového poskytovatele.
+EN: Nephrology clinic of the receiving provider.
+"""
 * id = "Organization-NephrologyClinic"
-* identifier[0].system = $cz-organization-ico
-* identifier[0].value = "12345679"
-* name = "Nemocnice Demo, a.s. - nefrologicka ambulance"
-* partOf = Reference(Organization-1) "Nemocnice Demo, a.s."
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345679"
+* name = "Nemocnice Pod Lipou, a.s. - nefrologicka ambulance"
+* partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."
 
 Instance: PractitionerRole-Nephrologist
 InstanceOf: CZ_PractitionerRoleOrder
 Usage: #example
+Description: """
+CZ: Role nefrologa v nefrologické ambulanci.
+EN: Nephrologist role in the nephrology clinic.
+"""
 * id = "PractitionerRole-Nephrologist"
 * practitioner = Reference(Practitioner-Nephrologist)
 * organization = Reference(Organization-NephrologyClinic)
@@ -165,6 +218,10 @@ Usage: #example
 Instance: Observation-eGFRExample
 InstanceOf: CZ_ObservationOrder
 Usage: #example
+Description: """
+CZ: Laboratorní výsledek eGFR.
+EN: eGFR laboratory result.
+"""
 * id = "Observation-eGFRExample"
 * status = #final
 * subject = Reference(Patient-Novak-Petr)
@@ -181,6 +238,10 @@ Usage: #example
 Instance: Observation-CreatinineExample
 InstanceOf: CZ_ObservationOrder
 Usage: #example
+Description: """
+CZ: Laboratorní výsledek kreatininu v séru.
+EN: Serum creatinine laboratory result.
+"""
 * id = "Observation-CreatinineExample"
 * status = #final
 * subject = Reference(Patient-Novak-Petr)
@@ -197,6 +258,10 @@ Usage: #example
 Instance: NephrologyServiceRequest-Handover
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na převzetí pacienta do nefrologické péče.
+EN: Request to transfer the patient to nephrology care.
+"""
 * id = "NephrologyServiceRequest-Handover"
 * identifier[0].value = "KORD-NEPH-2026-0001"
 * status = #active
@@ -218,6 +283,10 @@ Usage: #example
 Instance: NephrologyCompositionExample
 InstanceOf: KOrderCompositionCz
 Usage: #example
+Description: """
+CZ: K-žádanka pro převzetí pacienta s chronickým onemocněním ledvin ve stadiu 4 do nefrologické péče.
+EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease to nephrology care.
+"""
 * id = "NephrologyCompositionExample"
 * status = #final
 * date = "2026-09-02T10:05:00+02:00"
@@ -236,6 +305,10 @@ Usage: #example
 Instance: BundleNephrologyHandoverExample
 InstanceOf: BundleOrderCz
 Usage: #example
+Description: """
+CZ: Dokumentový Bundle nefrologické K-žádanky pro převzetí pacienta do péče včetně laboratorních výsledků.
+EN: Document Bundle for a nephrology K-order requesting transfer of care, including laboratory results.
+"""
 * id = "BundleNephrologyHandoverExample"
 * type = #document
 * timestamp = "2026-09-02T10:05:00+02:00"

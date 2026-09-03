@@ -276,7 +276,7 @@
           <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.jmeno</a></td>
           <td>A.2.4.2.1 - Jméno plátce</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-relatedperson-core.html">RelatedPerson (cz-relatedperson-core)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-relatedPerson-core.html">RelatedPerson (cz-relatedperson-core)</a></td>
           <td>name</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).insurance
@@ -490,7 +490,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace</a></td>
           <td>A.3.1.2 - Další relevantní klinické informace</td>
           <td>související</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html">Condition (CZ_ConditionCore)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td>
           <td></td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -500,7 +500,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.kod</a></td>
           <td>A.3.1.2.1 - Kód další klinické informace</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html">Condition (CZ_ConditionCore)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td>
           <td>code.coding</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -510,7 +510,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.text</a></td>
           <td>A.3.1.2.2 - Text další klinické informace</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html">Condition (CZ_ConditionCore)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td>
           <td>code.text</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -520,7 +520,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">mozneKontraindikaceVLecbe</a></td>
           <td>A.3.1.3 - Možné kontraindikace v medikaci</td>
           <td>související</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medicationstatement-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
           <td></td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -530,7 +530,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">mozneKontraindikaceVLecbe.identifikator</a></td>
           <td>A.3.1.3.1 - Identifikátor medikace</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medicationstatement-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
           <td>identifier</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -540,7 +540,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">mozneKontraindikaceVLecbe.kod</a></td>
           <td>A.3.1.3.2 - Kód medikace</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medicationstatement-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
           <td>medicationCodeableConcept</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -550,7 +550,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">mozneKontraindikaceVLecbe.mnozstvi</a></td>
           <td>A.3.1.3.3 - Množství medikace</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medicationstatement-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatement)</a></td>
           <td>dosage.doseAndRate.doseQuantity</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -612,7 +612,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie</a></td>
           <td>A.3.1.5.1 - Alergie a intolerance</td>
           <td>související</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td></td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -622,7 +622,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie.identifikator</a></td>
           <td>A.3.1.5.1.1 - Identifikátor alergie</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td>identifier</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -632,7 +632,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie.klinickyStav</a></td>
           <td>A.3.1.5.1.2 - Klinický stav alergie</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td>clinicalStatus</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -642,7 +642,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie.typ</a></td>
           <td>A.3.1.5.1.3 - Typ alergie</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td>type</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -652,7 +652,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie.kategorie</a></td>
           <td>A.3.1.5.1.4 - Kategorie alergie</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td>category</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -662,7 +662,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie.kod</a></td>
           <td>A.3.1.5.1.5 - Kód alergie</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td>code</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -672,7 +672,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">alergie.poznamka</a></td>
           <td>A.3.1.5.1.6 - Poznámka k alergii</td>
           <td>ekvivalentní</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-allergyintolerance.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td>
           <td>note</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>

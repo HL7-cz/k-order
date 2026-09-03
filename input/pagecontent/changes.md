@@ -1,0 +1,3 @@
+This page summarizes the main changes applied to this version of the guide.
+
+### From 0.0.3 to ...

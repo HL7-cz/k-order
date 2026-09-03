@@ -22,7 +22,7 @@ class "LMCzBodyKOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyKOrder.htm
 class "KOrderServiceRequestCz" <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
 "LMCzBodyKOrderCz" <|. "KOrderServiceRequestCz"
 
-class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter-core.html]]
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-encounter-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_Encounter"
 "KOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
@@ -34,7 +34,7 @@ class "CZ_AppointmentOrder" <<Profile>> [[StructureDefinition-cz-appointmentOrde
 "LMCzBodyKOrderCz" <|. "CZ_AppointmentOrder"
 "CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
 
-class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-condition-core.html]]
+class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_ConditionCore"
 "CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
 

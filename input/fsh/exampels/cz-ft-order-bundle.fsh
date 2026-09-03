@@ -7,6 +7,10 @@
 Instance: FTCompositionExample
 InstanceOf: FTOrderCompositionCz
 Usage: #example
+Description: """
+CZ: Composition fyzioterapeutické eŽádanky se čtyřmi požadovanými výkony.
+EN: Physiotherapy order Composition with four requested procedures.
+"""
 * id = "FTCompositionExample"
 * status = #final
 * date = "2025-10-29T10:15:00+01:00"
@@ -40,6 +44,10 @@ Usage: #example
 Instance: FTServiceRequest-21113
 InstanceOf: FTServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na fyzioterapeutický výkon MGT, elektro.
+EN: Request for the MGT electrotherapy procedure.
+"""
 * id = "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
@@ -74,6 +82,10 @@ Usage: #example
 Instance: FTServiceRequest-21225
 InstanceOf: FTServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na léčebnou tělesnou výchovu.
+EN: Request for therapeutic exercise.
+"""
 * id = "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
@@ -103,6 +115,10 @@ Usage: #example
 Instance: FTServiceRequest-21415
 InstanceOf: FTServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na mobilizační fyzioterapeutický výkon.
+EN: Request for a mobilization physiotherapy procedure.
+"""
 * id = "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
@@ -132,6 +148,10 @@ Usage: #example
 Instance: FTServiceRequest-21413
 InstanceOf: FTServiceRequestCz
 Usage: #example
+Description: """
+CZ: Požadavek na manuální terapii.
+EN: Request for manual therapy.
+"""
 * id = "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
@@ -164,6 +184,10 @@ Usage: #example
 Instance: BundleFTExample
 InstanceOf: BundleOrderCz
 Usage: #example
+Description: """
+CZ: Dokumentový Bundle fyzioterapeutické eŽádanky.
+EN: Document Bundle for the physiotherapy order.
+"""
 * id = "BundleFTExample"
 * type = #document
 * timestamp = "2025-10-29T10:15:00+01:00"

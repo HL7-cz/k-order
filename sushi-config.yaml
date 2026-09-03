@@ -86,6 +86,14 @@ pages:
     title: Model maps
   model-map-cs.md:
     title: Mapování logického modelu
+  examples.md:
+    title: Examples
+  examples-cs.md:
+    title: Příklady
+  changes.md:
+    title: Changes
+  changes-cs.md:
+    title: Záznam změn
   artifacts.xml:
     title: Artifacts
   downloads.md:
@@ -194,13 +202,15 @@ menu:
   Implementation:
     Mapping to profiles (en): model-map.html
     Mapping to profiles (cs): model-map-cs.html
-#    Examples (en): examples.html
-#    Examples (cs): examples-cs.html
+    Examples (en): examples.html
+    Examples (cs): examples-cs.html
 #    Obligations (en): obligations.html
 #    Obligations (cs): obligations-cs.html
 #    Implementation notes (en): implementation-notes.html
 #    Implementation notes (cs): implementation-notes-cs.html
   About:
+    Changes (en): changes.html
+    Changes (cs): changes-cs.html
     Authors (en): authors.html
     Authors (cs): authors-cs.html
     Downloads (en): downloads.html
