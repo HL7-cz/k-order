@@ -7,7 +7,7 @@ Národní profil ServiceRequest pro eŽádanku fyzioterapie (FT).
 Zachovává strukturu KOrderServiceRequestCz, ale:
 - code je VZP výkon (1 ServiceRequest = 1 řádek poukazu)
 - quantity[x] je povinné (např. 12×)
-- category je FT kategorie (VS pro FT)
+- typ FT dokumentu je určen v Composition.type
 """
 * ^publisher = "HL7 CZ"
 * ^copyright = "HL7 CZ"
@@ -89,9 +89,9 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * reasonCode.coding[snomed].system = "http://snomed.info/sct" (exactly)
 * reasonCode.coding[orphacode] from $orphanet-vs (preferred)
 * reasonCode.coding[orphacode].system = "https://www.orpha.net" (exactly)
-// --------------------------- category / type / code / priority ----------------
-* category 0..* 
-* category from FTCategoryServiceRequest (extensible)  // nový VS pro FT
+// --------------------------- type / code / priority --------------------------
+// Typ dokumentu určuje Composition; ServiceRequest.category se pro FT žádanku nepoužívá.
+* category 0..0
 
 * code 1..1 MS
 * code.coding from FTOrderProceduresVS (preferred)

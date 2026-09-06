@@ -60,12 +60,7 @@ EN: Request for the MGT electrotherapy procedure.
 // performer recykluj dle potřeby – dávám Organization-1 jako placeholder
 * performer[0] = Reference(Organization-1)
 
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/ft/category"
-* category[0].coding[0].code = #FT
-* category[0].coding[0].display = "Fyzioterapie"
-
-* code.coding[0].system = "urn:oid:1.2.203.7898.1.5"
-* code.coding[0].code = #21113
+* code.coding[0] = $sctCZ#62868009
 * code.text = "MGT, elektro"
 
 * quantityQuantity.value = 12
@@ -96,12 +91,7 @@ EN: Request for therapeutic exercise.
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(Organization-1)
 
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/ft/category"
-* category[0].coding[0].code = #FT
-* category[0].coding[0].display = "Fyzioterapie"
-
-* code.coding[0].system = "urn:oid:1.2.203.7898.1.5"
-* code.coding[0].code = #21225
+* code.coding[0] = $sctCZ#229065009
 * code.text = "LTV"
 
 * quantityQuantity.value = 12
@@ -129,12 +119,7 @@ EN: Request for a mobilization physiotherapy procedure.
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(Organization-1)
 
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/ft/category"
-* category[0].coding[0].code = #FT
-* category[0].coding[0].display = "Fyzioterapie"
-
-* code.coding[0].system = "urn:oid:1.2.203.7898.1.5"
-* code.coding[0].code = #21415
+* code.coding[0] = $sctCZ#62868009
 * code.text = "Mobilizace"
 
 * quantityQuantity.value = 12
@@ -162,12 +147,7 @@ EN: Request for manual therapy.
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(Organization-1)
 
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/ft/category"
-* category[0].coding[0].code = #FT
-* category[0].coding[0].display = "Fyzioterapie"
-
-* code.coding[0].system = "urn:oid:1.2.203.7898.1.5"
-* code.coding[0].code = #21413
+* code.coding[0] = $sctCZ#62868009
 * code.text = "MT"
 
 * quantityQuantity.value = 12

@@ -70,7 +70,7 @@ Condition a DocumentReference.
 * section ^slicing.ordered = false
 
 * section contains
-    orderInformation 1..1 and
+    orderInformation 0..1 and
     coverage 1..1 and
     reasons 0..1 and
     supportingInformation 0..1 and
@@ -123,7 +123,7 @@ Condition a DocumentReference.
 
 * section[goals]
   * insert SectionComRules(
-      Therapy goals,
+      Cíle terapie,
       This section contains patient-specific clinical and functional outcomes expected from the requested physiotherapy.,
       $loinc#61146-7)
   * entry 0..*

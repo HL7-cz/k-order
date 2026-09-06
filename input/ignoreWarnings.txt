@@ -1,44 +1,168 @@
 == Suppressed Messages ==
-# Concept Maps Groups Source and Target  are not Code Systems
-%not fully defined and populated, and no sourceScope is specified, so the source code checking will not be performed%
-%not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed%
 
-# Duplicated anchor ids
-The html source has duplicate anchor Ids: 1
+# Ignore actor OID assignment information
+%could usefully have an OID assigned (OIDs are easy to assign%
 
-# A definition for CodeSystem 'url' could not be found
-A definition for CodeSystem 'http://snomed.info/sct'%
-A definition for CodeSystem 'https://ncez.mzcr.cz/nclp/CodeSystem/nclppol'%
-A definition for CodeSystem 'https://terminology.uzis.cz/CodeSystem/Mkn10_5'%
-A definition for CodeSystem 'https://ncez.mzcr.cz/fhir/CodeSystem/drzar'%
-A definition for CodeSystem 'null' could not be found, so the code cannot be validated
-A definition could not be found for Canonical URL 'https://terminology.uzis.cz/ValueSet/Mkn10_5'
+# Expected ambiguity in hl7.fhir.uv.xver-r5.r4#0.1.0:
+# the cross-version R5 Composition profile derives from the R4 Composition profile.
+%among choices: http://hl7.org/fhir/5.0/StructureDefinition/profile-Composition|0.1.0, http://hl7.org/fhir/StructureDefinition/Composition|4.0.1%
+
+# valueString is permitted by the open type slicing of Observation.value[x].
+%This element does not match any known slice defined in the profile https://hl7.cz/fhir/img/StructureDefinition/cz-observation-result-imaging|1.0.0%
+
+# The same expected open-slicing information inherited from CZ Core.
+%This element does not match any known slice defined in the profile https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core|1.0.0%
+
+# Notices are expected with the current author slicing.
+%This element does not match any known slice defined in the profile https://hl7.cz/fhir/img/StructureDefinition/cz-composition-imaging|1.0.0%
+
+# Czech implementations use the national MKN-10 code system.
+# The inherited eHDSI ICD-10 additional binding applies only to cross-border exchange.
+%None of the codings provided are in the value set 'eHDSI Illness and Disorder' (http://terminology.ehdsi.eu/ValueSet/eHDSIIllnessandDisorder|0.2.0) specified in an additional binding, and a coding is recommended to come from this value set%
+
+# A definition for CodeSystem or ValueSet 'url' could not be found
+# A definition for CodeSystem 'http://snomed.info/sct' could not be found, so the code cannot be validated
+# A definition for CodeSystem 'https://www.dastacr.cz/dasta/hypertext/DSBFV.htm' could not be found, so the code cannot be validated
+# A definition could not be found for Canonical URL 'https://terminology.ncez.mzcr.cz/ValueSet/mkn-10'
+A definition could not be found for Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx'
+A definition for CodeSystem 'http://dicom.nema.org/resources/ontology/DCM' version '2022.4.20221006' could not be found, so the code cannot be validated. Valid versions: 01 or 2025.3.20250714
+%A definition for CodeSystem 'https://www.orpha.net' could not be found, so the value set cannot be expanded%
+
 
 # URL does not resolve
-URL value 'https://ncez.mzcr.cz/nclp/CodeSystem/nclppol' does not resolve
-URL value 'https://hl7europe.org/example-identifier' does not resolve
+# URL value 'https://hl7europe.org/example-identifier' does not resolve
 URL value 'https://ncez.mzcr.cz/fhir/sid/krzp' does not resolve
-URL value 'https://mkn10.uzis.cz' does not resolve
 URL value 'https://ncez.mzcr.cz/fhir/sid/cpoj' does not resolve
 URL value 'https://ncez.mzcr.cz/fhir/sid/rid' does not resolve
 URL value 'https://ncez.mzcr.cz/fhir/sid/rcis' does not resolve
 URL value 'https://ncez.mzcr.cz/fhir/sid/kp' does not resolve
-URL value 'https://hl7europe.org/example-identifier' does not resolve 
-
-# No definition
-No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/icp'
 No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/ico'
 No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/kp'
-No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/rid'
 No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/rcis'
-No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/cpoj'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/rid'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/pojistovna'
 No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/krzp'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/ruian'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/cpoj'
+No definition could be found for URL value 'https://hl7.cz/fhir/sid/idcard-CZE'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/krpzs'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/icz'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/icp'
+No definition could be found for URL value 'urn:ietf:rfc:4122'
 No definition could be found for URL value 'http://hospital.org/ris-order'
-No definition could be found for URL value 'https://terminology.uzis.cz/CodeSystem/Mkn10_5'
-No definition could be found for URL value 'https://www.orpha.net'
 
-# Terminology not found
-Error from https://tx.fhir.org/r4: Error: A definition for CodeSystem 'https://terminology.uzis.cz/CodeSystem/Mkn10_5'%
+# Reference to draft CodeSystem
+%Reference to draft CodeSystem http://hl7.eu/fhir/health-data-api/CodeSystem/eehrxf-document-priority-category-cs%
+%Reference to draft CodeSystem http://hl7.eu/fhir/imaging/CodeSystem/codesystem-missing-dicom-terminology|1.0.0%
 
-# Duplicate anchor
-The html source has duplicate anchor Ids: dd800c46-f71a-4628-b457-6ccaa27dd6bc,hcdd800c46-f71a-4628-b457-6ccaa27dd6bc
+# Terminology problem - will be resolved after implementation of the new parameter languages in the tx ecosystem
+%There are no valid display names found for the code http://loinc.org#%
+
+# Suppress information on deprecated extensions - this comes from cz-core profile
+%The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated%
+%The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated%
+
+# Additional Bindings with no key (comes from eu base profile)
+%Constraint failed: ext-ab-1: 'Additional Bindings SHOULD have a key to allow a binding to be constrained.%
+
+# Suppress warning on over-constraining
+%For the complex type CodeableConcept, consider using a pattern rather than a fixed value to avoid over-constraining the instance%
+
+# Suppress warning on missing OID
+%should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)%
+
+# Expected multiple matching profiles
+Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/img/StructureDefinition/cz-observation-result-imaging, https://hl7.cz/fhir/img/StructureDefinition/cz-observationImage
+The entry resource matched more than one of the allowed profiles (https://hl7.cz/fhir/img/StructureDefinition/cz-observation-result-imaging, https://hl7.cz/fhir/img/StructureDefinition/cz-observationImage)
+
+# Slice is open, so it is ok
+%This element does not match any known slice defined in the profile https://hl7.cz/fhir/img/StructureDefinition/cz-observationImage|1.0.0%
+
+# this is an external url
+%Can't find 'http://example.org/viewer/KOS.dcm' in the bundle%
+
+# IG depends on unpublished version of the xver package, will be resolved later by updating HL7 Imaging profile
+The packageId hl7.fhir.uv.xver-r5.r4 points to the canonical http://hl7.org/fhir/uv/xver which is inconsistent with the stated canonical of http://hl7.org/fhir/5.0/ImplementationGuide/hl7.fhir.uv.xver-r5.r4
+
+# experimental valueset binding
+The definition for the element 'Basic.extension.extension.extension.value[x]' binds to the value set 'http://hl7.org/fhir/ValueSet/series-performer-function|4.0.1' which is experimental, but this structure is not labeled as experimental
+
+# Composition.type is constrained by the national required OrderTypes
+# ValueSet, which intentionally contains SNOMED CT order-document codes.
+%None of the codings provided are in the value set 'FHIR Document Type Codes'%
+
+# Due to time constraints, examples could not generated for all resources
+%The Implementation Guide contains no examples for this profile
+%The Implementation Guide contains no examples for this data type profile
+%The Implementation Guide contains no examples for this extension
+
+# Information about no valid translation to Czechia
+There are no valid display names found for the code urn:iso:std:iso:3166#CZ for language(s) 'cs'. The display is 'Czechia' which is the default language display
+
+#Information about obligation
+This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/obligation|5.3.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# DICOM valuesets do not resolve - that is expected.
+%Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part%
+%The link '#DCM%
+The link '??' for "Modality%
+The link '??' for "Laterality%
+The link '??' for "KeyObjectSelectionDocumentTitle%
+
+# DICOM ValueSets are not available using download
+ValueSet 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04%
+Canonical URL 'https://dicom.nema.org/medical/dicom/current/output/chtml/part16%
+
+# No code system exists for DICOM SOPclass
+%in the CodeSystem 'urn:ietf:rfc:3986' version 'null'
+
+# There are no valid display names found for the code for language(s) 'cs-CS'.
+# NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK
+
+# Reference to deprecated ValueSet and extensions
+MSG_DEPRECATED
+MSG_DEPENDS_ON_DEPRECATED
+
+# The display in the ValueSet does not match with any known display
+VALUESET_CODE_CONCEPT_HINT
+
+# Tooling Errors
+# ERROR: ImplementationGuide/hl7.fhir.cz.core: ImplementationGuide.definition.extension[35].url: No definition could be found for URL value 'http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters'
+WARNING: 5: The HTML fragment 'expansion-params.xhtml' is not included anywhere in the produced implementation guide
+
+# Missing ISO3166 Czech designations of the country codes on tx servers
+%There are no valid display names found for the code urn:iso:std:iso:3166%
+
+# Suppress pinning information
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.bodyStructure to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.triggeredBy to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.value to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.eu/fhir/StructureDefinition/information-recipient to 1.3.0 from choices of 1.2.0 (hl7.fhir.eu.extensions.r4#1.2.0), 1.3.0 (hl7.fhir.eu.extensions.r4#1.3.0)%
+%Pinned the version of http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference to 1.3.0 from choices of 1.2.0 (hl7.fhir.eu.extensions.r4#1.2.0), 1.3.0 (hl7.fhir.eu.extensions.r4#1.3.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/event-basedOn to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/condition-eu-core to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.composition to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.note to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/artifact-version to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/artifact-description to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/artifact-title to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/bodySite to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-ServiceRequest.reason to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-ServiceRequest.supportingInfo to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/note to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/documentreference-thumbnail to 5.3.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.eu/fhir/StructureDefinition/medication-package-type to 1.3.0 from choices of 1.2.0 (hl7.fhir.eu.extensions.r4#1.2.0), 1.3.0 (hl7.fhir.eu.extensions.r4#1.3.0)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/organization-eu-core to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/organization-eu to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/patient-eu-core to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/practitioner-eu-core to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/practitionerRole-eu-core to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.org/fhir/5.0/StructureDefinition/extension-Specimen.container.device to 0.1.0 from choices of 0.0.1-snapshot-2 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.1.0)%
+%Pinned the version of http://terminology.hl7.org/CodeSystem/list-empty-reason to 1.0.1 from choices of 0.1.0 (hl7.fhir.uv.xver-r5.r4#0.0.1-snapshot-2), 1.0.1 (hl7.terminology.r4#7.2.0)%
+%Pinned the version of http://hl7.eu/fhir/base/StructureDefinition/practitioner-eu to 2.0.0 from choices of 2.0.0 (hl7.fhir.eu.base#2.0.0), 2.0.0-ballot (hl7.fhir.eu.base#2.0.0-ballot)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/flag-detail to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://terminology.hl7.org/ValueSet/v2-0276 to 3.0.0 from choices of 2.0.0 (hl7.terminology.r4#6.3.0), 3.0.0 (hl7.terminology.r4#7.1.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/flag-priority to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+%Pinned the version of http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%

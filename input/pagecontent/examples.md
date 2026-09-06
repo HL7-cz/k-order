@@ -10,4 +10,6 @@ This page collects document Bundle examples for the order profiles.
 
 ## FT-order examples
 
-FT-order examples will be added in a subsequent iteration.
+1. [Rehabilitation after total hip arthroplasty](Bundle-BundleFTHipRehabilitation.html) - An unaddressed referral for physiotherapy after hip replacement, including the date of surgery, permitted load, implant information, and reduced mobility.
+2. [Respiratory physiotherapy for a patient with COPD](Bundle-BundleFTCopdHomeCare.html) - A completed home-care referral for an immobile patient receiving long-term oxygen therapy, with the requested procedures, ten sessions, and a frequency of twice weekly.
+3. [Paediatric physiotherapy for poor posture](Bundle-BundleFTPediatricPosture.html) - A partially completed referral for a child with poor posture and early scoliosis, where the physiotherapist proposes the procedures and scope of care.

@@ -85,9 +85,9 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * reasonCode.coding[orphacode] from $orphanet-vs (preferred)
 * reasonCode.coding[orphacode].system = "https://www.orpha.net" (exactly)
 
-// --------------------------- category / type / code / priority ----------------------
-* category 1..1 MS
-* category from KOrderCategoryVS (extensible)
+// --------------------------- type / code / priority ---------------------------------
+// Typ dokumentu určuje Composition; ServiceRequest.category se pro K žádanku nepoužívá.
+* category 0..0
 
 
 * code 1..1 MS

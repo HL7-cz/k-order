@@ -11,7 +11,7 @@ EN: Rapidly changing pigmented lesion on the back.
 """
 * id = "DermatologyCondition-PigmentedLesion"
 * subject = Reference(Patient-Novak-Petr)
-* code.coding[0] = $mkn10#D48.5
+* code.coding[0] = $mkn10#D485
 * code.text = "Rychle se menici pigmentovy utvar na zadech"
 
 Instance: Practitioner-Dermatologist
@@ -38,6 +38,10 @@ EN: Pigmented lesion clinic of the receiving provider.
 * id = "Organization-DermatologyClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42001000"
+* identifier[ICP].system = $cz-organization-icp
+* identifier[ICP].value = "42001353"
 * name = "Nemocnice Pod Lipou, a.s. - pigmentova poradna"
 * partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."
 
@@ -51,7 +55,7 @@ EN: Dermatologist role in the pigmented lesion clinic.
 * id = "PractitionerRole-Dermatologist"
 * practitioner = Reference(Practitioner-Dermatologist)
 * organization = Reference(Organization-DermatologyClinic)
-* code = $cz-nrzp_povolani#L00 "Lekar"
+* code = $cz-nrzp_povolani#L1
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #404
 * specialty[0].text = "Dermatovenerologie"
@@ -72,8 +76,6 @@ EN: Urgent addressed request for a dermatology consultation.
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(PractitionerRole-Dermatologist)
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
-* category[0].coding[0].code = #CONSULT
 * code.coding[0] = $sctCZ#185387006
 * code.text = "Urgentni dermatologicke konziliarni vysetreni"
 * reasonReference[0] = Reference(DermatologyCondition-PigmentedLesion)
@@ -170,7 +172,7 @@ EN: Stage 4 chronic kidney disease.
 """
 * id = "NephrologyCondition-CKDStage4"
 * subject = Reference(Patient-Novak-Petr)
-* code.coding[0] = $mkn10#N18.4
+* code.coding[0] = $mkn10#N184
 * code.text = "Chronicke onemocneni ledvin, stadium 4"
 
 Instance: Practitioner-Nephrologist
@@ -197,6 +199,10 @@ EN: Nephrology clinic of the receiving provider.
 * id = "Organization-NephrologyClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42001000"
+* identifier[ICP].system = $cz-organization-icp
+* identifier[ICP].value = "42001354"
 * name = "Nemocnice Pod Lipou, a.s. - nefrologicka ambulance"
 * partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."
 
@@ -210,7 +216,7 @@ EN: Nephrologist role in the nephrology clinic.
 * id = "PractitionerRole-Nephrologist"
 * practitioner = Reference(Practitioner-Nephrologist)
 * organization = Reference(Organization-NephrologyClinic)
-* code = $cz-nrzp_povolani#L00 "Lekar"
+* code = $cz-nrzp_povolani#L1
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #108
 * specialty[0].text = "Nefrologie"
@@ -225,6 +231,7 @@ EN: eGFR laboratory result.
 * id = "Observation-eGFRExample"
 * status = #final
 * subject = Reference(Patient-Novak-Petr)
+* performer[0] = Reference(Organization-OrderLaboratory) "Laboratoř Nemocnice Pod Lipou"
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #laboratory
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
@@ -245,6 +252,7 @@ EN: Serum creatinine laboratory result.
 * id = "Observation-CreatinineExample"
 * status = #final
 * subject = Reference(Patient-Novak-Petr)
+* performer[0] = Reference(Organization-OrderLaboratory) "Laboratoř Nemocnice Pod Lipou"
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #laboratory
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
@@ -270,8 +278,6 @@ EN: Request to transfer the patient to nephrology care.
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(PractitionerRole-Nephrologist)
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
-* category[0].coding[0].code = #CONSULT
 * code.coding[0] = $sctCZ#185387006
 * code.text = "Nefrologicke konziliarni vysetreni a prevzeti do pece"
 * reasonReference[0] = Reference(NephrologyCondition-CKDStage4)
@@ -338,9 +344,28 @@ EN: Document Bundle for a nephrology K-order requesting transfer of care, includ
 * entry[=].resource = PractitionerRole-Nephrologist
 * entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-NephrologyClinic"
 * entry[=].resource = Organization-NephrologyClinic
+* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-OrderLaboratory"
+* entry[=].resource = Organization-OrderLaboratory
 * entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/NephrologyServiceRequest-Handover"
 * entry[=].resource = NephrologyServiceRequest-Handover
 * entry[+].fullUrl = "https://example.cz/fhir/Observation/Observation-eGFRExample"
 * entry[=].resource = Observation-eGFRExample
 * entry[+].fullUrl = "https://example.cz/fhir/Observation/Observation-CreatinineExample"
 * entry[=].resource = Observation-CreatinineExample
+
+Instance: Organization-OrderLaboratory
+InstanceOf: CZ_OrganizationCore
+Usage: #example
+Description: """
+CZ: Laboratorní pracoviště provádějící vyšetření v nefrologickém příkladu.
+EN: Laboratory department performing tests in the nephrology example.
+"""
+* id = "Organization-OrderLaboratory"
+* identifier[ICO].system = $cz-organization-ico
+* identifier[ICO].value = "12345679"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42001000"
+* identifier[ICP].system = $cz-organization-icp
+* identifier[ICP].value = "42001355"
+* name = "Laboratoř Nemocnice Pod Lipou"
+* partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."

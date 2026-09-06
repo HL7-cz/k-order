@@ -6,6 +6,11 @@ Description: "The document Bundle SHALL include one and only one Composition."
 Expression: "entry.resource.ofType(Composition).count() = 1"
 Severity: #error
 
+Invariant: coverage-author-specialty
+Description: "For insurance coverage, the Composition author SHALL be a PractitionerRole with specialty and an organization identified by ICP."
+Expression: "entry.resource.ofType(Coverage).payor.resolve().ofType(Organization).identifier.where(system = 'https://ncez.mzcr.cz/fhir/sid/kp').exists() implies (entry.resource.ofType(Composition).author.resolve().ofType(PractitionerRole).specialty.exists() and entry.resource.ofType(Composition).author.resolve().ofType(PractitionerRole).organization.resolve().ofType(Organization).identifier.where(system = 'https://ncez.mzcr.cz/fhir/sid/icp').exists())"
+Severity: #error
+
 /*
 Invariant: one-comp
 Description: "The document Bundle SHALL include one and only one Composition."
@@ -47,6 +52,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 
 * obeys one-comp
 * obeys bundle-composition-xor
+* obeys coverage-author-specialty
 
 
 ////////////////////////////////////////////////////////////
@@ -82,7 +88,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
     composition 0..1 and
     compositionFt 0..1 and
     patient 1..1 and
-    serviceRequest 1..* and
+    serviceRequest 0..* and
     condition 0..* and
     practitioner 0..* and
     practitionerRole 0..* and

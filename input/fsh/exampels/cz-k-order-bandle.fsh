@@ -55,10 +55,6 @@ EN: Request for a cardiology consultation.
 * code.coding[+] = $sctCZ#185387006
 // * code.coding[=].display = "New patient consultation"
 * reasonReference[0] = Reference(KOrderCondition-Main)
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
-* category[0].coding[0].code = #CONSULT
-* category[0].coding[0].display = "Konziliární vyšetření"
-
 Instance: KOrderServiceRequest-2
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
@@ -78,10 +74,6 @@ EN: Request for echocardiography.
 * code.coding[+] = $sctCZ#40701008
 // * code.coding[=].display = "Echocardiography"
 * reasonReference[0] = Reference(KOrderCondition-Main)
-* category[0].coding[0].system = "https://ncez.mzcr.cz/fhir/korder/category"
-* category[0].coding[0].code = #DIAGNOSTIC
-* category[0].coding[0].display = "Diagnostické vyšetření"
-
 // ------------------------- Coverage ---------------------------------------
 Instance: KOrderCoverage-Example
 InstanceOf: CZ_Coverage
@@ -169,6 +161,10 @@ EN: Example of patient Petr Novak with identification by Czech national identifi
 * identifier[RID].use = #official
 * identifier[RID].system = $cz-patient-rid
 * identifier[RID].value = "1597778923"
+* identifier[RC].system = $cz-patient-rcis
+* identifier[RC].value = "8506151234"
+* identifier[CPOJ].system = "https://ncez.mzcr.cz/fhir/sid/cpoj"
+* identifier[CPOJ].value = "1118506151234"
 * name.text = "Ing. Petr Novak, Ph.D."
 * name.family = "Novak"
 * name.given[0] = "Petr"
@@ -185,8 +181,10 @@ EN: Example of patient Petr Novak with identification by Czech national identifi
   * line[+] = "Pavlovova 1424/11"
   * city = "Svitavy - Predmesti"
   * postalCode = "56802"
-  * country = "Cesko"
-    * extension[countryCode].valueCoding = urn:iso:std:iso:3166#CZ "Czechia"
+  * country = "CZ"
+  * country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
+  * country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
+  * country.extension[0].valueCoding.code = #CZ
 
 //-----------------------------------------------------
 Instance: Practitioner-Author-detail
@@ -200,7 +198,7 @@ EN: Healthcare practitioner role detail.
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Ordinace praktickeho lekare"
-* code = $cz-nrzp_povolani#L00 "Lekar"
+* code = $cz-nrzp_povolani#L1
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #001
 * specialty[0].text = "Vseobecne prakticke lekarstvi"
@@ -234,6 +232,8 @@ EN: Example of a healthcare service provider organization.
 * identifier[KRPZS].value = "100000001"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42001000"
 * type[0].coding[0] = $cz-drzar#102 "Nemocnice"
 * name = "Nemocnice Pod Lipou, a.s."
 * telecom[0].system = #phone
@@ -245,6 +245,9 @@ EN: Example of a healthcare service provider organization.
 * address[0].city = "Praha"
 * address[0].postalCode = "10000"
 * address[0].country = "CZ"
+* address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
+* address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
+* address[0].country.extension[0].valueCoding.code = #CZ
 
 Instance: Organization-Insurance111
 InstanceOf: CZ_OrganizationCore
@@ -271,6 +274,10 @@ EN: Example of a subordinate department within a hospital hierarchy.
 * id = "af2b3114-e872-43b9-9875-cceb39122f7f"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42001000"
+* identifier[ICP].system = $cz-organization-icp
+* identifier[ICP].value = "42001352"
 * name = "Nemocnice Pod Lipou, a.s. - ambulance praktickeho lekare"
 * partOf = Reference(Organization-1) "Nemocnice Pod Lipou, a.s."
 * telecom[0].system = #phone
@@ -283,6 +290,9 @@ EN: Example of a subordinate department within a hospital hierarchy.
   * city = "Praha"
   * postalCode = "10000"
   * country = "CZ"
+  * country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
+  * country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
+  * country.extension[0].valueCoding.code = #CZ
 
 // ------------------------- Additional recipient --------------------------
 Instance: Organization-PulmonologyProvider
@@ -297,6 +307,8 @@ EN: Separate healthcare service provider of the pulmonology additional result re
 * identifier[KRPZS].value = "100000002"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345695"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42002000"
 * type[0].coding[0] = $cz-drzar#102 "Nemocnice"
 * name = "Nemocnice U Javoru, a.s."
 
@@ -324,7 +336,7 @@ EN: Role of the additional result recipient.
 * id = "PractitionerRole-Pulmonologist"
 * practitioner = Reference(Practitioner-Pulmonologist)
 * organization = Reference(Organization-PulmonologyClinic)
-* code = $cz-nrzp_povolani#L00 "Lekar"
+* code = $cz-nrzp_povolani#L1
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #205
 * specialty[0].text = "Pneumologie a ftizeologie"
@@ -339,5 +351,9 @@ EN: Pulmonology clinic of the additional result recipient.
 * id = "Organization-PulmonologyClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345695"
+* identifier[ICZ].system = $cz-organization-icz
+* identifier[ICZ].value = "42002000"
+* identifier[ICP].system = $cz-organization-icp
+* identifier[ICP].value = "42002352"
 * name = "Nemocnice U Javoru, a.s. - pneumologicka ambulance"
 * partOf = Reference(Organization-PulmonologyProvider) "Nemocnice U Javoru, a.s."

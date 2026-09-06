@@ -38,13 +38,13 @@ class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinit
 "LMCzBodyFTOrderCz" <|. "CZ_ConditionCore"
 "CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
 
-class "CZ_DocumentReference" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-documentreference.html]]
-"LMCzBodyFTOrderCz" <|. "CZ_DocumentReference"
-"CZ_ConditionCore" -d[hidden]-> "CZ_DocumentReference"
+class "CZ_Attachment" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Attachment"
+"CZ_ConditionCore" -d[hidden]-> "CZ_Attachment"
 
 class "CZ_Provenance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_Provenance"
-"CZ_DocumentReference" -d[hidden]-> "CZ_Provenance"
+"CZ_Attachment" -d[hidden]-> "CZ_Provenance"
 
 class "FTOrderCompositionCz" <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
 "LMCzBodyFTOrderCz" <|. "FTOrderCompositionCz"
