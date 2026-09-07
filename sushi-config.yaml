@@ -121,6 +121,14 @@ pages:
     title: Hlavička dokumentu FT-žádanky
   FT-Body-map.html:
     title: Tělo dokumentu FT-žádanky
+  K-Header-map-en.html:
+    title: K-request document header
+  K-Body-map-en.html:
+    title: K-request document body
+  FT-Header-map-en.html:
+    title: FT-request document header
+  FT-Body-map-en.html:
+    title: FT-request document body
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide

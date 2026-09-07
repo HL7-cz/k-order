@@ -97,7 +97,7 @@ EN: Reduced patient mobility after hip surgery.
 * id = "Observation-FTHipMobility"
 * status = #final
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
-* category[0].coding[0].code = #exam
+* category[0].coding[0].code = #activity
 * subject = Reference(Patient-FTHipRehabilitation)
 * performer[0] = Reference(PractitionerRole-Orthopedist)
 * effectiveDateTime = "2026-09-04T08:30:00+02:00"
@@ -116,6 +116,20 @@ EN: Total hip prosthesis of the left hip joint.
 * type.text = "Totální endoprotéza levého kyčelního kloubu"
 * deviceName[0].name = "Kyčelní endoprotéza"
 * deviceName[0].type = #user-friendly-name
+
+Instance: DeviceUseStatement-FTHipImplant
+InstanceOf: CZ_DeviceUseStatement
+Usage: #example
+Description: """
+CZ: Informace o implantované totální endoprotéze levého kyčelního kloubu.
+EN: Statement about the implanted total left hip prosthesis.
+"""
+* id = "DeviceUseStatement-FTHipImplant"
+* status = #active
+* subject = Reference(Patient-FTHipRehabilitation)
+* timingDateTime = "2026-08-20"
+* device = Reference(Device-FTHipImplant)
+* reasonReference[0] = Reference(Condition-FTHipArthroplasty)
 
 Instance: Goal-FTHipRehabilitation
 InstanceOf: Goal
@@ -208,6 +222,7 @@ EN: Unaddressed request for mobilization and exercise physiotherapy after hip ar
 * code.text = "Mobilizační a cvičebná fyzioterapie"
 * reasonReference[0] = Reference(Condition-FTHipArthroplasty)
 * supportingInfo[0] = Reference(Goal-FTHipRehabilitation)
+* supportingInfo[implant] = Reference(DeviceUseStatement-FTHipImplant)
 * insurance = Reference(Coverage-FTHipRehabilitation)
 * note[0].text = "Operace levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Pracoviště fyzioterapie volí pacient podle bydliště."
 
@@ -231,7 +246,7 @@ EN: Unaddressed FT order after total hip arthroplasty.
 * section[reasons].text.status = #generated
 * section[reasons].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
 * section[supportingInformation].entry[mobility] = Reference(Observation-FTHipMobility)
-* section[supportingInformation].entry[+] = Reference(Device-FTHipImplant)
+* section[medicalDevices].entry[0] = Reference(DeviceUseStatement-FTHipImplant)
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTHipRehabilitation)
 
@@ -278,6 +293,8 @@ EN: Unaddressed FT order after hip arthroplasty with reduced mobility and an imp
 * entry[=].resource = Observation-FTHipMobility
 * entry[+].fullUrl = "https://example.cz/fhir/Device/Device-FTHipImplant"
 * entry[=].resource = Device-FTHipImplant
+* entry[+].fullUrl = "https://example.cz/fhir/DeviceUseStatement/DeviceUseStatement-FTHipImplant"
+* entry[=].resource = DeviceUseStatement-FTHipImplant
 * entry[+].fullUrl = "https://example.cz/fhir/Goal/Goal-FTHipRehabilitation"
 * entry[=].resource = Goal-FTHipRehabilitation
 
@@ -362,7 +379,7 @@ EN: Limited mobility of the patient with COPD.
 * id = "Observation-FTCopdMobility"
 * status = #final
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
-* category[0].coding[0].code = #exam
+* category[0].coding[0].code = #activity
 * subject = Reference(Patient-FTCopdHomeCare)
 * performer[0] = Reference(PractitionerRole-Pulmonologist)
 * effectiveDateTime = "2026-09-04T10:00:00+02:00"
@@ -640,12 +657,32 @@ EN: Health insurance coverage for the pediatric patient.
 * identifier[0].system = "https://ncez.mzcr.cz/fhir/sid/pojistovna"
 * identifier[0].value = "111"
 
+Instance: FTServiceRequest-PediatricGeneralPhysiotherapy
+InstanceOf: FTServiceRequestCz
+Usage: #example
+Description: """
+CZ: Obecná žádanka na fyzioterapii bez určení konkrétních výkonů a jejich počtu.
+EN: General physiotherapy order without specifying individual procedures or their count.
+"""
+* id = "FTServiceRequest-PediatricGeneralPhysiotherapy"
+* identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840301"
+* status = #active
+* intent = #order
+* authoredOn = "2026-09-04T11:00:00+02:00"
+* subject = Reference(Patient-FTPediatricPosture)
+* requester = Reference(PractitionerRole-Pediatrician)
+* code = $sctCZ#91251008 "Physical therapy procedure"
+* reasonReference[0] = Reference(Condition-FTPediatricScoliosis)
+* supportingInfo[0] = Reference(Goal-FTPediatricPosture)
+* insurance = Reference(Coverage-FTPediatricPosture)
+* note[0].text = "Konkrétní fyzioterapeutické výkony a rozsah péče navrhne fyzioterapeut."
+
 Instance: FTCompositionPediatricPosture
 InstanceOf: FTOrderCompositionCz
 Usage: #example
 Description: """
-CZ: Částečně vyplněný FT poukaz pro dětského pacienta bez určení výkonů.
-EN: Partially completed FT order for a pediatric patient without specified procedures.
+CZ: Obecná FT žádanka pro dětského pacienta bez určení konkrétních výkonů.
+EN: General FT order for a pediatric patient without specified individual procedures.
 """
 * id = "FTCompositionPediatricPosture"
 * status = #final
@@ -654,8 +691,9 @@ EN: Partially completed FT order for a pediatric patient without specified proce
 * type = $loinc#57154-7
 * subject = Reference(Patient-FTPediatricPosture)
 * author[0] = Reference(PractitionerRole-Pediatrician)
-* identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840301"
+* identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840302"
 * section[coverage].entry[0] = Reference(Coverage-FTPediatricPosture)
+* section[orderInformation].entry[0] = Reference(FTServiceRequest-PediatricGeneralPhysiotherapy)
 * section[reasons].text.status = #generated
 * section[reasons].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
 * section[supportingInformation].entry[0] = Reference(Condition-FTPediatricScoliosis)
@@ -667,8 +705,8 @@ InstanceOf: BundleOrderCz
 Usage: #example
 Title: "Příklad FT 3: Fyzioterapie u dětského pacienta s vadným držením těla"
 Description: """
-CZ: Částečně vyplněný FT poukaz pro dětského pacienta včetně zákonného zástupce.
-EN: Partially completed FT order for a pediatric patient including a legal guardian.
+CZ: Obecná FT žádanka pro dětského pacienta včetně zákonného zástupce; konkrétní výkony určí fyzioterapeut.
+EN: General FT order for a pediatric patient including a legal guardian; individual procedures are to be determined by the physiotherapist.
 """
 * id = "BundleFTPediatricPosture"
 * type = #document
@@ -693,5 +731,7 @@ EN: Partially completed FT order for a pediatric patient including a legal guard
 * entry[=].resource = Coverage-FTPediatricPosture
 * entry[+].fullUrl = "https://example.cz/fhir/Condition/Condition-FTPediatricScoliosis"
 * entry[=].resource = Condition-FTPediatricScoliosis
+* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/FTServiceRequest-PediatricGeneralPhysiotherapy"
+* entry[=].resource = FTServiceRequest-PediatricGeneralPhysiotherapy
 * entry[+].fullUrl = "https://example.cz/fhir/Goal/Goal-FTPediatricPosture"
 * entry[=].resource = Goal-FTPediatricPosture

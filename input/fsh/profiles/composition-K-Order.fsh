@@ -77,6 +77,7 @@ Condition a DocumentReference.
     differentialDiagnosis 0..1 and
     currentTreatment 0..1 and
     supportingInformation 0..1 and
+    medicalDevices 0..* and
     referencedDocumentation 0..1 and
     attachments 0..* and
     signature 0..1
@@ -138,23 +139,47 @@ Condition a DocumentReference.
   * entry 0..*
   * entry only Reference(CZ_MedicationStatementCore)
 
+* section[medicalDevices]
+  * ^short = "Medical devices and implants"
+  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+  * ^extension[0].valueString = "Section"
+  * code = $loinc#97813-0
+  * entry 1..*
+  * entry only Reference(CZ_DeviceUseStatement)
+
 * section[supportingInformation]
   * ^short = "Supporting information"
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
   * entry 0..
-  * entry only Reference(CZ_MedicationStatementCore or CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_MedicalDevice or CZ_CarePlanCore)
+  * entry only Reference(CZ_MedicationStatementCore or CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_Flag or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_AdditionalObservationOrder or CZ_Encounter or CZ_ImmunizationCore or CZ_CarePlanCore)
   * entry ^slicing.discriminator[0].type = #profile
   * entry ^slicing.discriminator[0].path = "resolve()"
   * entry ^slicing.rules = #open
   * entry contains
       bodyHeight 0..1 and
       bodyWeight 0..1 and
-      mobility 0..1
+      relevantCondition 0..* and
+      medication 0..* and
+      allergyIntolerance 0..* and
+      warning 0..* and
+      mobility 0..1 and
+      physicalFinding 0..* and
+      hospitalization 0..* and
+      immunization 0..* and
+      additionalObservation 0..*
   * entry[bodyHeight] only Reference(CZ_BodyHeight)
   * entry[bodyWeight] only Reference(CZ_BodyWeight)
+  * entry[relevantCondition] only Reference(CZ_ConditionCore)
+  * entry[medication] only Reference(CZ_MedicationStatementCore)
+  * entry[allergyIntolerance] only Reference(CZ_AllergyIntolerance)
+  * entry[warning] only Reference(CZ_Flag)
   * entry[mobility] only Reference(CZ_PatientMobility)
+  * entry[physicalFinding] only Reference(CZ_PhysicalFindingOrder)
+  * entry[hospitalization] only Reference(CZ_Encounter)
+  * entry[immunization] only Reference(CZ_ImmunizationCore)
+  * entry[additionalObservation] only Reference(CZ_AdditionalObservationOrder)
 
 * section[referencedDocumentation]
   * insert SectionComRules(

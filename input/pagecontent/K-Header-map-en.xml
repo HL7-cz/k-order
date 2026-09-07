@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+  <style type="text/css">
+    .model-map-block { margin: 0 0 1rem 0; }
+    .callout-wrapper {
+      border: 1px solid #c9cdd3;
+      border-radius: 10px;
+      background: #f2f4f7;
+      padding: 10px 12px;
+    }
+    .callout-box { color: #222; }
+    .table-wrap {
+      border: 1px solid #c9cdd3;
+      border-radius: 10px;
+      background: #f7f8fa;
+      padding: 10px;
+      margin: 0 0 1rem 0;
+    }
+    .table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #fff;
+    }
+    .table-wrap th,
+    .table-wrap td {
+      border: 1px solid #bfc5cc;
+      padding: 6px 8px;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    .table-wrap caption {
+      text-align: left;
+      font-weight: bold;
+      margin: 0 0 6px 0;
+    }
+    .src-head { background: #2f63b7; color: #fff; }
+    .relhead { background: #7b389f; color: #fff; }
+    .tgt-head { background: #cf003e; color: #fff; }
+    .src-sub { background: #97abd7; }
+    .relsub { background: #c9bed1; }
+    .tgt-sub { background: #cf8398; }
+  </style>
+
+  <div class="model-map-block">
+    <div class="callout-wrapper">
+      <div class="callout-box">
+        <strong>Ongoing alignment:</strong>
+        The Xt-EHR logical models are continuously reviewed and refined. Updates from Xt-EHR will be progressively incorporated into this implementation guide to maintain alignment with evolving EHDS specifications.
+      </div>
+    </div>
+  </div>
+
+  <!-- Document header to FHIR profiles (CZ K-ORDER) -->
+
+  <p>
+    This page explains how the conceptual elements of the document header logical model are represented by the corresponding FHIR profiles used in this implementation guide.
+  </p>
+
+  <h3>Model overview</h3>
+
+  <p>{% include K-Header-map.svg %}</p>
+
+  <div class="table-wrap">
+    <strong>Mapping context</strong>
+    <ul>
+      <li><strong>Source logical model:</strong> <a href="StructureDefinition-LMHeaderOrder.html">LMHeaderOrder</a></li>
+      <li><strong>Source mapping file:</strong> <code>HeaderKOrder2FHIR.fsh</code></li>
+      <li><strong>Mapping scope:</strong> A.1 K-request document header</li>
+    </ul>
+  </div>
+
+  <div class="table-wrap">
+    <table summary="Mapping of the header logical model to CZ K-ORDER">
+      <caption>Header-to-FHIR profile mapping (CZ K-ORDER)</caption>
+      <thead>
+        <tr>
+          <th colspan="2" class="src-head">Document header (logical model)</th>
+          <th class="relhead">Relationship</th>
+          <th colspan="4" class="tgt-head">FHIR target</th>
+        </tr>
+        <tr>
+          <th class="src-sub">Element</th>
+          <th class="src-sub">Description</th>
+          <th class="relsub">Relationship</th>
+          <th class="tgt-sub">Resource/Profile</th>
+          <th class="tgt-sub">Element</th>
+          <th class="tgt-sub">Reference path</th>
+          <th class="tgt-sub">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace</a></td>
+          <td>A.1.1 Patient/subject identification</td>
+          <td>related</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.jmeno</a></td>
+          <td>A.1.1.1 Given name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>name.given</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.prijmeni</a></td>
+          <td>A.1.1.2 Family name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>name.family</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.datumNarozeni</a></td>
+          <td>A.1.1.3 Date of birth</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>birthDate</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.datumUmrti</a></td>
+          <td>A.1.1.4 Date of death</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>deceasedDateTime</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.identifikator</a></td>
+          <td>A.1.1.5 Identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td>RID is the recommended primary identifier.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.statniObcanstvi</a></td>
+          <td>A.1.1.6 Citizenship</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>extension:patient-citizenship</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.pohlavi</a></td>
+          <td>A.1.1.7 Administrative gender</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>gender</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.pohlaviProKlinickeUcely</a></td>
+          <td>A.1.1.8 Sex for clinical use</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>extension:sex-for-clinical-use</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.komunikacniJazyk</a></td>
+          <td>A.1.1.9 Communication language</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>communication.language</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">identifikace.handicap</a></td>
+          <td>A.1.1.10 Disability</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>text</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt</a></td>
+          <td>A.1.2 Patient contact information</td>
+          <td>related</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.adresa</a></td>
+          <td>A.1.2.1 Address</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>address</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.telekom</a></td>
+          <td>A.1.2.2 Telecommunications</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>telecom</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Preferred practitioner</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar</a></td>
+          <td>A.1.2.3 Preferred practitioner</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitionerrole-core.html">PractitionerRole (cz-practitionerrole-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.identifikator</a></td>
+          <td>A.1.2.3.1 Preferred practitioner identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).practitioner</td>
+          <td>The older ConceptMap version also lists `PractitionerRole.identifier`.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.jmeno</a></td>
+          <td>A.1.2.3.2 Preferred practitioner name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.specializace</a></td>
+          <td>A.1.2.3.3 Preferred practitioner specialty</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitionerrole-core.html">PractitionerRole (cz-practitionerrole-core)</a></td>
+          <td>specialty</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner</td>
+          <td>The ConceptMap uses the legacy spelling `speciality`.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.organizace</a></td>
+          <td>A.1.2.3.4 Preferred practitioner organization</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.adresa</a></td>
+          <td>A.1.2.3.5 Preferred practitioner address</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>address</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.preferovanyLekar.telekom</a></td>
+          <td>A.1.2.3.6 Preferred practitioner telecommunications</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>telecom</td>
+          <td>Composition (KOrderCompositionCz).subject
+  →Patient (cz-patient-core).generalPractitioner
+  →PractitionerRole (cz-practitionerrole-core).practitioner</td>
+          <td>The ConceptMap lists both Practitioner and PractitionerRole branches.</td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Contact person</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba</a></td>
+          <td>A.1.2.4 Legal representatives and other contact persons</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.typ</a></td>
+          <td>A.1.2.4.1 Contact type</td>
+          <td>related</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.relationship</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.vztah</a></td>
+          <td>A.1.2.4.2 Relationship k pacientovi</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.relationship</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.identifikator</a></td>
+          <td>A.1.2.4.3 Person identifier</td>
+          <td>related</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td>The ConceptMap does not map a specific identifier sub-element within `Patient.contact`.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.jmeno</a></td>
+          <td>A.1.2.4.4 Given name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.name.given</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.prijmeni</a></td>
+          <td>A.1.2.4.5 Family name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.name.family</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.adresa</a></td>
+          <td>A.1.2.4.6 Address</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.address</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMSubjectOrderCz.html">kontakt.kontaktniOsoba.telekom</a></td>
+          <td>A.1.2.4.7 Telecommunications</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td>contact.telecom</td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Health insurance</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">zdravotniPojisteni</a></td>
+          <td>A.1.3 Health insurance</td>
+          <td>related</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">kod</a></td>
+          <td>A.1.3.1 Health insurer code</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance
+  →Coverage (cz-coverage).payor</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">nazev</a></td>
+          <td>A.1.3.2 Health insurer name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance
+  →Coverage (cz-coverage).payor</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMPayerOrderCz.html">cisloPojistence</a></td>
+          <td>A.1.3.3 Health insurance number</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).insurance</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMCoverageOrderCz.html">uhrada</a></td>
+          <td>A.1.4 Coverage</td>
+          <td>related</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[coverage].entry</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMCoverageOrderCz.html">method</a></td>
+          <td>A.1.4.1 Coverage type</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td>type</td>
+          <td>Composition (KOrderCompositionCz).section[coverage].entry</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMCoverageOrderCz.html">infoOPlatci</a></td>
+          <td>A.1.4.2 Payer information</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[coverage].entry
+  →Coverage (cz-coverage).payor</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Author</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">zadatel</a></td>
+          <td>A.1.5 Author</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html">PractitionerRole (practitionerrole-cz-order)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).author</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">identifikator</a></td>
+          <td>A.1.5.1 Request author identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">jmeno</a></td>
+          <td>A.1.5.2 Request author name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">adresa</a></td>
+          <td>A.1.5.3 Request author contact details</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>address</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td>Organization identifier.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAuthorOrderCz.html">organizace</a></td>
+          <td>A.1.5.4 Request author organization</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).author
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Requested performer</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">Requested performer</a></td>
+          <td>A.1.6 Requested performer</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html">PractitionerRole (practitionerrole-cz-order)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">id</a></td>
+          <td>A.1.6.1 Requested performer identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">jmeno</a></td>
+          <td>A.1.6.2 Requested performer name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">idOrganizace</a></td>
+          <td>A.1.6.3 Requested performer organization identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMRequestedPerformerOrderCz.html">organizace</a></td>
+          <td>A.1.6.4 Requested performer organization</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (KOrderServiceRequestCz).performer
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Information recipient</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">dodatecniPrijemci</a></td>
+          <td>A.1.7 Information recipient</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html">PractitionerRole (practitionerrole-cz-order)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">identifikator</a></td>
+          <td>A.1.7.1 Information recipient identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">jmeno</a></td>
+          <td>A.1.7.2 Information recipient name</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html">Practitioner (cz-practitioner-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).practitioner</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">idOrganizace</a></td>
+          <td>A.1.7.3 Information recipient organization identifier</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>identifier</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMAdditionalRecipientCz.html">organizace</a></td>
+          <td>A.1.7.4 Information recipient organization</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td>name</td>
+          <td>Composition (KOrderCompositionCz).extension[informationRecipient]
+  →PractitionerRole (practitionerrole-cz-order).organization</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Document metadata</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">idDokumentu</a></td>
+          <td>A.1.8.1 Document identifier</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>identifier</td>
+          <td></td>
+          <td>When identifying a specific request instance.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMHeaderOrder.html">subjekt</a></td>
+          <td>A.1.1 Identification and A.1.2 patient/subject contact information</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html">Patient (cz-patient-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).subject</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu</a></td>
+          <td>A.1.8 Document metadata</td>
+          <td>related</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.kategorie</a></td>
+          <td>A.1.8.2 Document type</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>category</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.stav</a></td>
+          <td>A.1.8.3 Document status</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>status</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.datumACas</a></td>
+          <td>A.1.8.4 Date and time of authoring/issuing</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>date</td>
+          <td></td>
+          <td>Time at which the document was authored or issued, independent of its version.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.datumACas</a></td>
+          <td>A.1.8.4 Date and time of document assembly</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>timestamp</td>
+          <td></td>
+          <td>Time at which this version of the request was assembled into the Bundle.</td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.nazev</a></td>
+          <td>A.1.8.5 Document title</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>title</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.spravce</a></td>
+          <td>A.1.8.6 Custodian</td>
+          <td>equivalent</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
+          <td></td>
+          <td>Composition (KOrderCompositionCz).custodian</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.duvernost</a></td>
+          <td>A.1.8.7 Confidentiality</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>confidentiality</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.jazyk</a></td>
+          <td>A.1.8.8 Language</td>
+          <td>related</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>language</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDocumentMetadataCz.html">metadataDokumentu.verze</a></td>
+          <td>A.1.8.9 Business version</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-KOrderCompositionCz.html">Composition (KOrderCompositionCz)</a></td>
+          <td>extension:versionNumber.valueString</td>
+          <td></td>
+          <td>Business version, not the resource version.</td>
+        </tr>
+
+        <tr>
+          <td colspan="7"><b>Signature</b></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDigitalSignatureOrderCz.html">podpis</a></td>
+          <td>A.1.9.1 Electronic signature or seal</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>signature.data</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="StructureDefinition-LMDigitalSignatureOrderCz.html">podpis.casoveRazitko</a></td>
+          <td>A.1.9.2 Electronic timestamp</td>
+          <td>equivalent</td>
+          <td><a href="StructureDefinition-BundleOrderCz.html">Bundle (BundleOrderCz)</a></td>
+          <td>signature.when</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
