@@ -70,27 +70,35 @@ Condition a DocumentReference.
 * section ^slicing.ordered = false
 
 * section contains
-    orderInformation 1..1 and
-    coverage 1..1 and
-    reasons 0..1 and
-    supportingInformation 0..1 and
-    medicalDevices 0..* and
-    attachments 0..* and
-    signature 0..1 and
-    goals 0..1
+    orderInformation 1..1 MS and
+    coverage 1..1 MS and
+    appointment 0..1 MS and
+    reasons 0..1 MS and
+    supportingInformation 0..1 MS and
+    medicalDevices 0..* MS and
+    attachments 0..* MS and
+    signature 0..1 MS and
+    goals 0..1 MS
 
-* section[coverage].code = $loinc#87520-3
-* section[coverage].title = "coverage"
-* section[coverage].entry 1..*
-* section[coverage].entry only Reference(CZ_Coverage)
+* section[coverage]
+  * ^short = "Coverage for the requested services"
+  * ^definition = "References to Coverage resources applicable to payment or reimbursement of the requested healthcare services."
+  * code = $loinc#87520-3
+  * title = "coverage"
+  * entry 1..*
+  * entry only Reference(CZ_Coverage)
 
-* section[reasons].code = $loinc#29299-5
-* section[reasons].title = "Clinical justification"
-* section[reasons].text 0..1 MS
-* section[reasons].entry 0..0
+* section[reasons]
+  * ^short = "Clinical indication for physiotherapy"
+  * ^definition = "Narrative description of the clinical indication and justification for the requested physiotherapy. Structured diagnoses and clinical findings are referenced from the supporting information section."
+  * code = $loinc#29299-5
+  * title = "Clinical justification"
+  * text 0..1 MS
+  * entry 0..0
 
 * section[medicalDevices]
-  * ^short = "Medical devices and implants"
+  * ^short = "Relevant medical devices and implants"
+  * ^definition = "References to DeviceUseStatement resources describing implants or other medical devices relevant to the requested care. Device identification and properties are recorded in the referenced Device resource."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#97813-0
@@ -98,7 +106,8 @@ Condition a DocumentReference.
   * entry only Reference(CZ_DeviceUseStatement)
 
 * section[supportingInformation]
-  * ^short = "Supporting information"
+  * ^short = "Clinical information supporting the order"
+  * ^definition = "References to clinical information relevant to assessing planning or providing the requested care including measurements conditions medication allergies warnings mobility physical findings encounters immunizations and additional observations."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
@@ -131,25 +140,43 @@ Condition a DocumentReference.
   * entry[immunization] only Reference(CZ_ImmunizationCore)
   * entry[additionalObservation] only Reference(CZ_AdditionalObservationOrder)
 
-* section[orderInformation].code = $loinc#57154-7
-* section[orderInformation].title = "Requested physiotherapy procedures"
-* section[orderInformation].entry 1..*
-* section[orderInformation].entry only Reference(FTServiceRequestCz)
+* section[orderInformation]
+  * ^short = "Requested physiotherapy services"
+  * ^definition = "References to FT ServiceRequest resources specifying the requested physiotherapy. A general request may use the general SNOMED CT physical therapy procedure when individual procedures are to be selected by the physiotherapist."
+  * code = $loinc#57154-7
+  * title = "Requested physiotherapy procedures"
+  * entry 1..*
+  * entry only Reference(FTServiceRequestCz)
 
-* section[attachments].code = $loinc#55107-7
-* section[attachments].title = "Attachments"
-* section[attachments].entry 0..*
-* section[attachments].entry only Reference(CZ_Attachment)
+* section[appointment]
+  * ^short = "Scheduled appointment"
+  * ^definition = "References the appointment associated with the requested physiotherapy service when a date has already been scheduled."
+  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+  * ^extension[0].valueString = "Section"
+  * code = $loinc#56446-8
+  * entry 0..
+  * entry only Reference(CZ_AppointmentCore)
 
-* section[signature].code = $loinc#64292-6
-* section[signature].title = "Signature"
-* section[signature].entry 0..1
-* section[signature].entry only Reference(CZ_Provenance)
+* section[attachments]
+  * ^short = "Documents attached to the order"
+  * ^definition = "References to DocumentReference resources containing reports images or other documents supplied with the order."
+  * code = $loinc#55107-7
+  * title = "Attachments"
+  * entry 0..*
+  * entry only Reference(CZ_Attachment)
+
+* section[signature]
+  * ^short = "Document signature and provenance"
+  * ^definition = "Reference to a Provenance resource containing the electronic signature and provenance information for the order document."
+  * code = $loinc#64292-6
+  * title = "Signature"
+  * entry 0..1
+  * entry only Reference(CZ_Provenance)
 
 * section[goals]
   * insert SectionComRules(
-      Cíle terapie,
-      This section contains patient-specific clinical and functional outcomes expected from the requested physiotherapy.,
+      Expected goals of physiotherapy,
+      References to Goal resources describing the patient-specific functional or clinical outcomes expected from the requested physiotherapy.,
       $loinc#61146-7)
   * entry 0..*
   * entry only Reference(Goal)

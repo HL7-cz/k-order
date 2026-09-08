@@ -162,6 +162,8 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
   apply-jurisdiction: true
   apply-publisher: true
   apply-version: true
+  pin-canonicals: pin-multiples
+  path-expansion-params: '../../expansion-params.json'
   show-inherited-invariants: true
   usage-stats-opt-out: true
   # excludexml: false

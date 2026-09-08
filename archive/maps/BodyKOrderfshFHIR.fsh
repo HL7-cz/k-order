@@ -235,14 +235,14 @@ Usage: #definition
 ///////////////////////////////////////////////////////////////////////////////
 
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAppointmentCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-appointmentOrder"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/appointment-cz-core"
 
 * group[=].element[+].code = #terminNavstevy
 * group[=].element[=].display = "A.2.5 - Termín návštěvy"
-* group[=].element[=].target.code = #ServiceRequest.supportingInfo
+* group[=].element[=].target.code = #Composition.section[appointment].entry
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
-* group[=].element[=].target.comment = "ServiceRequest.supportingInfo.ofType(CZ_AppointmentOrder)"
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[appointment].entry.ofType(CZ_AppointmentCore)"
 
 ///////////////////////////////////////////////////////////////////////////////
 // A.2.5.1 - Termín ID
@@ -250,7 +250,7 @@ Usage: #definition
 
 * group[=].element[+].code = #id
 * group[=].element[=].display = "A.2.5.1 - Termín ID"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.identifier
+* group[=].element[=].target.code = #CZ_AppointmentCore.identifier
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -260,7 +260,7 @@ Usage: #definition
 
 * group[=].element[+].code = #stav
 * group[=].element[=].display = "A.2.5.2 - Stav termínu"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.status
+* group[=].element[=].target.code = #CZ_AppointmentCore.status
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -270,7 +270,7 @@ Usage: #definition
 
 * group[=].element[+].code = #popis
 * group[=].element[=].display = "A.2.5.3 - Popis"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.description
+* group[=].element[=].target.code = #CZ_AppointmentCore.description
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -280,7 +280,7 @@ Usage: #definition
 
 * group[=].element[+].code = #datumACas
 * group[=].element[=].display = "A.2.5.4 - Plánovaný čas"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.created
+* group[=].element[=].target.code = #CZ_AppointmentCore.created
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -290,7 +290,7 @@ Usage: #definition
 
 * group[=].element[+].code = #delkaVysetreni
 * group[=].element[=].display = "A.2.5.5 - Délka vyšetření"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.minutesDuration
+* group[=].element[=].target.code = #CZ_AppointmentCore.minutesDuration
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -300,7 +300,7 @@ Usage: #definition
 
 * group[=].element[+].code = #komentar
 * group[=].element[=].display = "A.2.5.6 - Komentář"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.comment
+* group[=].element[=].target.code = #CZ_AppointmentCore.comment
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -310,7 +310,7 @@ Usage: #definition
 
 * group[=].element[+].code = #instrukceProPacienta
 * group[=].element[=].display = "A.2.5.7 - Instrukce pro pacienta"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.patientInstruction
+* group[=].element[=].target.code = #CZ_AppointmentCore.patientInstruction
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -320,7 +320,7 @@ Usage: #definition
 
 * group[=].element[+].code = #misto
 * group[=].element[=].display = "A.2.5.8 - Místo obědnání"
-* group[=].element[=].target.code = #CZ_AppointmentOrder.participant.actor
+* group[=].element[=].target.code = #CZ_AppointmentCore.participant.actor
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
 

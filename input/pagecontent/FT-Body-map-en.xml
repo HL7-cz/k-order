@@ -194,6 +194,7 @@
           <td></td>
         </tr>
 
+        {% include order-reason-map-en.xml composition="FTOrderCompositionCz" serviceRequest="FTServiceRequestCz" %}
         <tr>
           <td colspan="7"><b>Clinical event</b></td>
         </tr>
@@ -265,8 +266,8 @@
           <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci</a></td>
           <td>A.2.4.2 - Payer information</td>
           <td>related</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
-          <td></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td>payor</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).insurance
   →Coverage (cz-coverage).payor</td>
@@ -356,93 +357,85 @@
           <td><a href="StructureDefinition-LMAppointmentCz.html">terminNavstevy</a></td>
           <td>A.2.5 - Appointment</td>
           <td>related</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
-          <td>The ConceptMap expects the `supportingInfo` branch to point to Appointment.</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
+          <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">id</a></td>
           <td>A.2.5.1 - Appointment identifier</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>identifier</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">stav</a></td>
           <td>A.2.5.2 - Appointment status</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>status</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">popis</a></td>
           <td>A.2.5.3 - Description</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>description</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">datumACas</a></td>
           <td>A.2.5.4 - Planned time</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>created</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">delkaVysetreni</a></td>
           <td>A.2.5.5 - Examination duration</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>minutesDuration</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">komentar</a></td>
           <td>A.2.5.6 - Comment</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>comment</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">instrukceProPacienta</a></td>
           <td>A.2.5.7 - Patient instructions</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>patientInstruction</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMAppointmentCz.html">misto</a></td>
           <td>A.2.5.8 - Appointment location</td>
           <td>related</td>
-          <td><a href="StructureDefinition-cz-appointmentOrder.html">Appointment (cz-appointmentOrder)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
           <td>participant.actor</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
+          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
 
+        {% include specimen-selector-map-en.xml composition="FTOrderCompositionCz" serviceRequest="FTServiceRequestCz" %}
         <tr>
           <td colspan="7"><b>Clinical information</b></td>
         </tr>
@@ -784,6 +777,7 @@
             Composition (FTOrderCompositionCz).section[goals].entry</td>
           <td>The goal is represented by a Goal resource referenced by both the requested service and the Composition section.</td>
         </tr>
+        {% include follow-up-orders-map-en.xml composition="FTOrderCompositionCz" %}
       </tbody>
     </table>
   </div>

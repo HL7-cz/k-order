@@ -7,4 +7,6 @@ Description: "CodeSystem for recommendation disposition codes according to K-Ord
 * ^caseSensitive = true
 
 * #ambulatory-care "Převzetí do péče"
+    "Doporučení k převzetí pacienta do ambulantní péče."
 * #hospitalization "Hospitalizace"
+    "Doporučení k přijetí pacienta k hospitalizaci."

@@ -334,12 +334,12 @@
           <td><a href="StructureDefinition-LMCoverageOrderCz.html">infoOPlatci</a></td>
           <td>A.1.4.2 Payer information</td>
           <td>equivalent</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
-          <td></td>
-          <td>Composition (FTOrderCompositionCz).section:coverage.entry
-  →Coverage (cz-coverage).payor</td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td>payor</td>
+          <td>Composition (FTOrderCompositionCz).section:coverage.entry</td>
           <td></td>
         </tr>
+        {% include coverage-payor-header-map-en.xml composition="FTOrderCompositionCz" %}
         <tr>
           <td colspan="7"><b>practitionerrole-cz-order (Author)</b></td>
         </tr>

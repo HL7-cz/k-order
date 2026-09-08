@@ -30,13 +30,13 @@ class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-c
 "LMCzBodyKOrderCz" <|. "CZ_Coverage"
 "CZ_Encounter" -d[hidden]-> "CZ_Coverage"
 
-class "CZ_AppointmentOrder" <<Profile>> [[StructureDefinition-cz-appointmentOrder.html]]
-"LMCzBodyKOrderCz" <|. "CZ_AppointmentOrder"
-"CZ_Coverage" -d[hidden]-> "CZ_AppointmentOrder"
+class "CZ_AppointmentCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_AppointmentCore"
+"CZ_Coverage" -d[hidden]-> "CZ_AppointmentCore"
 
 class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_ConditionCore"
-"CZ_AppointmentOrder" -d[hidden]-> "CZ_ConditionCore"
+"CZ_AppointmentCore" -d[hidden]-> "CZ_ConditionCore"
 
 class "CZ_MedicationStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_MedicationStatement"

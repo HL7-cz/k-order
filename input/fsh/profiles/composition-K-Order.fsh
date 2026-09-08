@@ -70,47 +70,69 @@ Condition a DocumentReference.
 * section ^slicing.ordered = false
 
 * section contains
-    orderInformation 1..1 and
-    coverage 1..1 and
-    significantMedicalHistory 0..1 and
-    examinationResults 0..1 and
-    differentialDiagnosis 0..1 and
-    currentTreatment 0..1 and
-    supportingInformation 0..1 and
-    medicalDevices 0..* and
-    referencedDocumentation 0..1 and
-    attachments 0..* and
-    signature 0..1
+    orderInformation 1..1 MS and
+    coverage 1..1 MS and
+    appointment 0..1 MS and
+    significantMedicalHistory 0..1 MS and
+    examinationResults 0..1 MS and
+    differentialDiagnosis 0..1 MS and
+    currentTreatment 0..1 MS and
+    supportingInformation 0..1 MS and
+    medicalDevices 0..* MS and
+    referencedDocumentation 0..1 MS and
+    attachments 0..* MS and
+    signature 0..1 MS
 
-* section[coverage].code = $loinc#87520-3 
-* section[coverage].title = "coverage"
-* section[coverage].entry 1..*
-* section[coverage].entry only Reference(CZ_Coverage)
+* section[coverage]
+  * ^short = "Coverage for the requested services"
+  * ^definition = "References to Coverage resources applicable to payment or reimbursement of the requested healthcare services."
+  * code = $loinc#87520-3
+  * title = "coverage"
+  * entry 1..*
+  * entry only Reference(CZ_Coverage)
 /*
 * section[reasons].code = $loinc#29299-5
 * section[reasons].title = "Clinical justification"
 * section[reasons].text 0..1 MS
 * section[reasons].entry 0..0
 */
-* section[orderInformation].code = $loinc#57133-1
-* section[orderInformation].title = "Requested orderInformation"
-* section[orderInformation].entry 1..*
-* section[orderInformation].entry only Reference(KOrderServiceRequestCz)
+* section[orderInformation]
+  * ^short = "Requested consultation services"
+  * ^definition = "References to K ServiceRequest resources representing the consultation or other healthcare services requested by this order."
+  * code = $loinc#57133-1
+  * title = "Requested orderInformation"
+  * entry 1..*
+  * entry only Reference(KOrderServiceRequestCz)
 
-* section[attachments].code = $loinc#55107-7
-* section[attachments].title = "Attachments"
-* section[attachments].entry 0..*
-* section[attachments].entry only Reference(CZ_Attachment)
+* section[appointment]
+  * ^short = "Scheduled appointment"
+  * ^definition = "References the appointment associated with the requested healthcare service when a date has already been scheduled."
+  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+  * ^extension[0].valueString = "Section"
+  * code = $loinc#56446-8
+  * entry 0..
+  * entry only Reference(CZ_AppointmentCore)
 
-* section[signature].code = $loinc#64292-6
-* section[signature].title = "Signature"
-* section[signature].entry 0..1
-* section[signature].entry only Reference(CZ_Provenance)
+* section[attachments]
+  * ^short = "Documents attached to the order"
+  * ^definition = "References to DocumentReference resources containing reports images or other documents supplied with the order."
+  * code = $loinc#55107-7
+  * title = "Attachments"
+  * entry 0..*
+  * entry only Reference(CZ_Attachment)
+
+* section[signature]
+  * ^short = "Document signature and provenance"
+  * ^definition = "Reference to a Provenance resource containing the electronic signature and provenance information for the order document."
+  * code = $loinc#64292-6
+  * title = "Signature"
+  * entry 0..1
+  * entry only Reference(CZ_Provenance)
 
 * section[significantMedicalHistory]
   * insert SectionComRules(
-      Serious medical history,
-      This section includes significant past medical history that may impact the current hospital stay.,
+      Relevant medical history,
+      References to established past or long-term conditions that may affect assessment or provision of the requested care.,
       $loinc#11348-0)
   * entry 0..*
   * entry only Reference(CZ_ConditionCore)
@@ -118,29 +140,30 @@ Condition a DocumentReference.
 * section[examinationResults]
   * insert SectionComRules(
       Relevant diagnostic tests,
-      This section includes relevant diagnostic tests that may impact the current patient care.,
+      References to DiagnosticReport resources containing completed examinations or diagnostic results relevant to the request.,
       $loinc#30954-2)
   * entry 0..*
   * entry only Reference(diagnosticReport-cz-core)
 
 * section[differentialDiagnosis]
   * insert SectionComRules(
-      Differential diagnosis considerations,
-      This section includes differential diagnosis considerations relevant to the current patient care.,
+      Suspected or differential diagnoses,
+      References to Condition resources representing suspected diagnoses or diagnostic alternatives to be considered by the requested consultation.,
       $loinc#51848-0)
   * entry 0..*
   * entry only Reference(CZ_ConditionCore)  
 
 * section[currentTreatment]
   * insert SectionComRules(
-      Current treatment including medication and dosage,
-      This section includes current treatment information including medication and dosage relevant to the current patient care.,
+      Current medication and treatment,
+      References to MedicationStatement resources describing medication currently taken by the patient and relevant to the requested consultation.,
       $loinc#11506-3)
   * entry 0..*
   * entry only Reference(CZ_MedicationStatementCore)
 
 * section[medicalDevices]
-  * ^short = "Medical devices and implants"
+  * ^short = "Relevant medical devices and implants"
+  * ^definition = "References to DeviceUseStatement resources describing implants or other medical devices relevant to the requested care. Device identification and properties are recorded in the referenced Device resource."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#97813-0
@@ -148,7 +171,8 @@ Condition a DocumentReference.
   * entry only Reference(CZ_DeviceUseStatement)
 
 * section[supportingInformation]
-  * ^short = "Supporting information"
+  * ^short = "Clinical information supporting the order"
+  * ^definition = "References to other clinical information relevant to assessing planning or providing the requested care including measurements current conditions medication allergies warnings mobility physical findings encounters immunizations and additional observations. Established medical history suspected diagnoses and current treatment should preferably be placed in their dedicated sections."
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
@@ -183,8 +207,8 @@ Condition a DocumentReference.
 
 * section[referencedDocumentation]
   * insert SectionComRules(
-      Referenced documentation,
-      This section includes references to other documentation relevant to the current patient care.,
+      Referenced clinical documentation,
+      References to existing clinical documents relevant to the request that are not transmitted as direct attachments.,
       $loinc#77599-9)
   * entry 0..*
   * entry only Reference(CZ_Logo or DocumentReference)

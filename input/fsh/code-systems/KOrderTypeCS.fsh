@@ -24,3 +24,4 @@ Description: "Typy konziliárních žádánek K-order pro použití v českém p
 * #other "Jiné"
     "Typ žádanky nezařazený do výše uvedených kategorií."
 * #unspecified "Neuvedeno"
+    "Typ žádanky nebyl uveden."
