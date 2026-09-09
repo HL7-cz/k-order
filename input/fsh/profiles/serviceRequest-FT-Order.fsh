@@ -131,7 +131,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 
 // --------------------------- other resources --------------------------------
 * supportingInfo 0..*
-* supportingInfo only Reference(Goal or CZ_MedicationStatementCore or CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_Flag or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_AdditionalObservationOrder or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
+* supportingInfo only Reference(Goal or CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
 * supportingInfo ^short = "Clinical information supporting the requested intervention"
 * supportingInfo ^slicing.discriminator[0].type = #profile
 * supportingInfo ^slicing.discriminator[0].path = "resolve()"
@@ -148,7 +148,6 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
     physicalFinding 0..* and
     hospitalization 0..* and
     immunization 0..* and
-    additionalObservation 0..* and
     implant 0..*
 * supportingInfo[goal] only Reference(Goal)
 * supportingInfo[bodyHeight] only Reference(CZ_BodyHeight)
@@ -156,13 +155,15 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * supportingInfo[relevantCondition] only Reference(CZ_ConditionCore)
 * supportingInfo[medication] only Reference(CZ_MedicationStatementCore)
 * supportingInfo[allergyIntolerance] only Reference(CZ_AllergyIntolerance)
-* supportingInfo[warning] only Reference(CZ_Flag)
+* supportingInfo[warning] only Reference(CZ_FlagPatientCore)
 * supportingInfo[mobility] only Reference(CZ_PatientMobility)
 * supportingInfo[physicalFinding] only Reference(CZ_PhysicalFindingOrder)
 * supportingInfo[hospitalization] only Reference(CZ_Encounter)
 * supportingInfo[immunization] only Reference(CZ_ImmunizationCore)
-* supportingInfo[additionalObservation] only Reference(CZ_AdditionalObservationOrder)
 * supportingInfo[implant] only Reference(CZ_DeviceUseStatement)
+* insert OrderServiceRequestSupportingInformation
+* supportingInfo[goal] ^short = "Expected outcome of this physiotherapy service"
+* supportingInfo[goal] ^definition = "Reference to a Goal describing an expected functional or clinical outcome of this requested intervention. Reuse the Goal listed in Composition.section[goals] when it applies to this service. Record the patient's current state in an Observation, for example in supportingInfo[mobility]."
 // --------------------------- invariants --------------------------------------
 Invariant: ft-code-required
 Description: "FT ServiceRequest musí mít vyplněný kód výkonu."

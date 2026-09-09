@@ -177,7 +177,7 @@ Condition a DocumentReference.
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
   * entry 0..
-  * entry only Reference(CZ_MedicationStatementCore or CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_Flag or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_AdditionalObservationOrder or CZ_Encounter or CZ_ImmunizationCore or CZ_CarePlanCore)
+  * entry only Reference(CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_CarePlanCore)
   * entry ^slicing.discriminator[0].type = #profile
   * entry ^slicing.discriminator[0].path = "resolve()"
   * entry ^slicing.rules = #open
@@ -191,19 +191,17 @@ Condition a DocumentReference.
       mobility 0..1 and
       physicalFinding 0..* and
       hospitalization 0..* and
-      immunization 0..* and
-      additionalObservation 0..*
+      immunization 0..*
   * entry[bodyHeight] only Reference(CZ_BodyHeight)
   * entry[bodyWeight] only Reference(CZ_BodyWeight)
   * entry[relevantCondition] only Reference(CZ_ConditionCore)
   * entry[medication] only Reference(CZ_MedicationStatementCore)
   * entry[allergyIntolerance] only Reference(CZ_AllergyIntolerance)
-  * entry[warning] only Reference(CZ_Flag)
+  * entry[warning] only Reference(CZ_FlagPatientCore)
   * entry[mobility] only Reference(CZ_PatientMobility)
   * entry[physicalFinding] only Reference(CZ_PhysicalFindingOrder)
   * entry[hospitalization] only Reference(CZ_Encounter)
   * entry[immunization] only Reference(CZ_ImmunizationCore)
-  * entry[additionalObservation] only Reference(CZ_AdditionalObservationOrder)
 
 * section[referencedDocumentation]
   * insert SectionComRules(
@@ -217,6 +215,13 @@ Condition a DocumentReference.
   CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or
   CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore
 )
+
+* insert OrderCompositionSupportingInformation
+* section[supportingInformation] ^definition = "Clinical context supporting the K-order as a whole, including measurements, conditions, medication, allergies, alerts, mobility, examination findings, encounters, immunizations and care plans. Prefer significantMedicalHistory for established history, differentialDiagnosis for diagnostic alternatives, currentTreatment for medication, examinationResults for DiagnosticReport resources and medicalDevices for device use. Use this section for other relevant context and link resources to individual services through ServiceRequest.supportingInfo where appropriate."
+* section[significantMedicalHistory] ^comment = "Use this section for established historical or long-term conditions. If such a condition also affects a specific service, reference the same Condition from that ServiceRequest.supportingInfo[relevantCondition]. If it is the direct indication, use ServiceRequest.reasonReference."
+* section[differentialDiagnosis] ^comment = "Use this section for suspected diagnoses or diagnostic alternatives and preserve their verification status in Condition. Distinguish them from established medical history. Link the Condition through ServiceRequest.reasonReference when it directly motivates the requested assessment."
+* section[currentTreatment] ^comment = "Prefer this section for medication in the document presentation. The same MedicationStatement may be referenced from ServiceRequest.supportingInfo[medication] when relevant to an individual service."
+* section[examinationResults] ^comment = "This section accepts DiagnosticReport resources. Reference individual laboratory measurements through the declared general Observation profile in supportingInformation and, where relevant, ServiceRequest.supportingInfo. DiagnosticReport itself is not an allowed supportingInfo target in these ServiceRequest profiles."
 
 Extension: KOrderRequestReference
 Id: korder-composition-requestReference

@@ -50,13 +50,13 @@ class "CZ_AllergyIntolerance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDe
 "LMCzBodyKOrderCz" <|. "CZ_AllergyIntolerance"
 "CZ_DeviceUseStatement" -d[hidden]-> "CZ_AllergyIntolerance"
 
-class "CZ_Flag" <<Profile>> [[StructureDefinition-cz-flag.html]]
-"LMCzBodyKOrderCz" <|. "CZ_Flag"
-"CZ_AllergyIntolerance" -d[hidden]-> "CZ_Flag"
+class "CZ_FlagPatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_FlagPatientCore"
+"CZ_AllergyIntolerance" -d[hidden]-> "CZ_FlagPatientCore"
 
 class "CZ_BodyWeight" <<Profile>> [[StructureDefinition-cz-bodyweight.html]]
 "LMCzBodyKOrderCz" <|. "CZ_BodyWeight"
-"CZ_Flag" -d[hidden]-> "CZ_BodyWeight"
+"CZ_FlagPatientCore" -d[hidden]-> "CZ_BodyWeight"
 
 class "CZ_BodyHeight" <<Profile>> [[StructureDefinition-cz-bodyheight.html]]
 "LMCzBodyKOrderCz" <|. "CZ_BodyHeight"

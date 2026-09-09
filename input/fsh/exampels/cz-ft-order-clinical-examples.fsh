@@ -10,6 +10,20 @@ CZ: Pacient po totální endoprotéze kyčle.
 EN: Patient after total hip arthroplasty.
 """
 * id = "Patient-FTHipRehabilitation"
+// The document renderer includes this narrative both as the document subject
+// and as a Bundle entry. Keep it free of anchors so both copies remain valid HTML.
+* text.status = #generated
+* text.div = """
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p><b>Karel Dvorak</b> — muž / male, 1958-04-22.</p>
+  <p>RID: 1000000101 (official); RČ / birth number: 5804221234; číslo pojištěnce / insurance number: 1115804221234.</p>
+  <p>Bydliště / home: Lipová 24, 500 02 Hradec Králové, CZ. Pracoviště / work: Průmyslová 18, 500 03 Hradec Králové, CZ.</p>
+  <p>Mobil / mobile: <a href="tel:+420777111222">+420777111222</a>; email: <a href="mailto:karel.dvorak@example.cz">karel.dvorak@example.cz</a>.</p>
+  <p>Místo narození / birthplace: Hradec Králové, CZ. Preferovaný jazyk / preferred language: čeština (cs).</p>
+  <p>Praktický lékař a registrující poskytovatel / general practitioner and registering provider: <a href="PractitionerRole-PractitionerRole-FTGeneralPractitioner.html">PractitionerRole-FTGeneralPractitioner</a>; všeobecné lékařství / general medical service (SNOMED CT 700232004).</p>
+  <p>Spravující organizace / managing organization: <a href="Organization-af2b3114-e872-43b9-9875-cceb39122f7f.html">Nemocnice Pod Lipou, a.s. - ambulance praktickeho lekare</a>.</p>
+</div>
+"""
 * identifier[RID].use = #official
 * identifier[RID].system = $cz-patient-rid
 * identifier[RID].value = "1000000101"

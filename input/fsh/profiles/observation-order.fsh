@@ -74,12 +74,3 @@ Description: "Physical examination finding used as supporting clinical informati
 * code 1..1 MS
 * valueCodeableConcept 0..1 MS
 * valueQuantity 0..0
-
-Profile: CZ_AdditionalObservationOrder
-Parent: CZ_ObservationOrder
-Id: cz-additional-observation-order
-Title: "Additional observation: General Order (CZ)"
-Description: "Additional formalized observation used as supporting clinical information in Czech general orders."
-
-* category 1..1
-* category = http://terminology.hl7.org/CodeSystem/observation-category#survey

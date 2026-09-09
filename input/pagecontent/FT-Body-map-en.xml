@@ -675,7 +675,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">varovani</a></td>
           <td>A.3.1.5.2 - Alert</td>
           <td>related</td>
-          <td><a href="StructureDefinition-cz-flag.html">Flag (cz-flag)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html">Flag (CZ_FlagPatientCore)</a></td>
           <td></td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>
@@ -685,7 +685,7 @@
           <td><a href="StructureDefinition-LMClinicalInformationCz.html">varovani.text</a></td>
           <td>A.3.1.5.2.1 - Alert text</td>
           <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-flag.html">Flag (cz-flag)</a></td>
+          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html">Flag (CZ_FlagPatientCore)</a></td>
           <td>code.text</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
   →ServiceRequest (FTServiceRequestCz).supportingInfo</td>

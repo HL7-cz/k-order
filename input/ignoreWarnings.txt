@@ -26,7 +26,12 @@
 # A definition could not be found for Canonical URL 'https://terminology.ncez.mzcr.cz/ValueSet/mkn-10'
 A definition could not be found for Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx'
 A definition for CodeSystem 'http://dicom.nema.org/resources/ontology/DCM' version '2022.4.20221006' could not be found, so the code cannot be validated. Valid versions: 01 or 2025.3.20250714
-%A definition for CodeSystem 'https://www.orpha.net' could not be found, so the value set cannot be expanded%
+
+# ORPHA uses the official canonical URI, but the Czech terminology dependency
+# provides metadata only (content = not-present) and tx.fhir.org lacks the codes.
+# Suppress this unavailable expansion until ORPHA content is available there.
+# Keep other terminology errors visible; this does not validate ORPHA codes.
+%A definition for CodeSystem 'https://www.orpha.net' could not be found, so the value set cannot be expanded
 
 
 # URL does not resolve
@@ -72,6 +77,17 @@ No definition could be found for URL value 'http://hospital.org/ris-order'
 %should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)%
 
 # Expected multiple matching profiles
+# Order examples intentionally satisfy these overlapping alternatives (19 warnings
+# in the 2026-09-09 QA report). PractitionerRole Order/Core and Observation
+# Order/Mobility share constraints; FT and K ServiceRequests can both accept the
+# example procedures. Multiple matches do not invalidate these examples.
+# Suppress only these specific profile pairs; keep other ambiguities visible.
+%among choices: https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core|1.0.0, https://hl7.cz/fhir/core/StructureDefinition/practitionerrole-cz-order|1.0.0
+%among choices: https://hl7.cz/fhir/order/StructureDefinition/cz-observation-order|0.0.3, https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility|0.0.3
+Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/order/StructureDefinition/cz-observation-order, https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility
+Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/order/StructureDefinition/FTServiceRequestCz, https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz
+
+# Existing imaging profile overlaps.
 Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/img/StructureDefinition/cz-observation-result-imaging, https://hl7.cz/fhir/img/StructureDefinition/cz-observationImage
 The entry resource matched more than one of the allowed profiles (https://hl7.cz/fhir/img/StructureDefinition/cz-observation-result-imaging, https://hl7.cz/fhir/img/StructureDefinition/cz-observationImage)
 

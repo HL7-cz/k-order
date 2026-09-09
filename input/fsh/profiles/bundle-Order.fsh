@@ -136,7 +136,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 * entry[goal].resource only Goal
 
 // Supporting observations, including body measurements and patient mobility.
-* entry[observation].resource only CZ_ObservationOrder or CZ_BodyHeight or CZ_BodyWeight or CZ_PatientMobility
+* entry[observation].resource only CZ_MedicalTestResultCore or CZ_BodyHeight or CZ_BodyWeight or CZ_PatientMobility
 
 // Attachments
 * entry[attachment].resource only CZ_Attachment

@@ -240,7 +240,10 @@ EN: eGFR laboratory result.
 * valueQuantity.value = 24
 * valueQuantity.unit = "mL/min/1.73 m2"
 * valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code = #mL/min/{1.73_m2}
+// Encode the 1.73 m2 normalization as a UCUM factor (173 * 10^-2 m2),
+// not an annotation that unit conversions ignore. The value remains 24.
+// Listed in https://hl7.org/fhir/R4/valueset-ucum-common.xml.html.
+* valueQuantity.code = #mL/min/(173.10*-2.m2)
 
 Instance: Observation-CreatinineExample
 InstanceOf: CZ_ObservationOrder
