@@ -12,4 +12,4 @@ Description: "Condition expressing the clinical problem addressed by a question 
 * code.coding from $sct-condition-code (required)
 * recorder only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_PatientCore or CZ_RelatedPersonCore)
 * asserter only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_PatientCore or CZ_RelatedPersonCore)
-* ^purpose = "Provides an optional structured entry for Composition.section[clinicalIndication]. Preserve the clinical and verification status of the condition; the presence of a question does not establish a diagnosis. A question that does not describe a condition can be recorded in the section narrative without creating a Condition."
+* ^purpose = "Provides an optional structured entry for Composition.section[clinicalQuestion]. Preserve the clinical and verification status of the condition; the presence of a question does not establish a diagnosis. A question that does not describe a condition can be recorded in the section narrative without creating a Condition."

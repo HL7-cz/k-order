@@ -68,21 +68,16 @@ Condition a DocumentReference.
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
 * section ^slicing.ordered = false
-* section ^comment = "Recommended document presentation order follows the declared slices, with specialized clinical sections after the clinical question and attachments last. Common sections retain the IMG-Order sequence. As in IMG-Order, slicing does not enforce instance order."
+* section ^comment = "Recommended document presentation order follows the declared slices, with attachments last. Common sections retain the IMG-Order sequence. As in IMG-Order, slicing does not enforce instance order."
 
 * section contains
     orderInformation 1..1 MS and
-    clinicalIndication 0..1 MS and
-    differentialDiagnosis 0..1 MS and
-    examinationResults 0..1 MS and
-    currentTreatment 0..1 MS and
-    significantMedicalHistory 0..1 MS and
+    clinicalQuestion 0..1 MS and
     coverage 1..1 MS and
     appointment 0..1 MS and
     carePlan 0..1 MS and
     medicalDevices 0..* MS and
     supportingInformation 0..1 MS and
-    referencedDocumentation 0..1 MS and
     attachments 0..* MS
 
 * section[orderInformation]
@@ -93,39 +88,7 @@ Condition a DocumentReference.
   * entry 1..*
   * entry only Reference(KOrderServiceRequestCz)
 
-* insert OrderClinicalIndicationSection
-
-* section[differentialDiagnosis]
-  * insert SectionComRules(
-      Suspected or differential diagnoses,
-      References to Condition resources representing suspected diagnoses or diagnostic alternatives to be considered by the requested consultation.,
-      $loinc#51848-0)
-  * entry 0..*
-  * entry only Reference(CZ_ConditionCore)
-
-* section[examinationResults]
-  * insert SectionComRules(
-      Relevant diagnostic tests,
-      References to DiagnosticReport resources containing completed examinations or diagnostic results relevant to the request.,
-      $loinc#30954-2)
-  * entry 0..*
-  * entry only Reference(diagnosticReport-cz-core)
-
-* section[currentTreatment]
-  * insert SectionComRules(
-      Current medication and treatment,
-      References to MedicationStatement resources describing medication currently taken by the patient and relevant to the requested consultation.,
-      $loinc#11506-3)
-  * entry 0..*
-  * entry only Reference(CZ_MedicationStatementCore)
-
-* section[significantMedicalHistory]
-  * insert SectionComRules(
-      Relevant medical history,
-      References to established past or long-term conditions that may affect assessment or provision of the requested care.,
-      $loinc#11348-0)
-  * entry 0..*
-  * entry only Reference(CZ_ConditionCore)
+* insert OrderclinicalQuestionSection
 
 * section[coverage]
   * ^short = "Coverage for the requested services"
@@ -140,7 +103,7 @@ Condition a DocumentReference.
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#56446-8
-  * entry 0..
+  * entry 0..*
   * entry only Reference(CZ_AppointmentCore)
 
 * insert OrderCarePlanSection
@@ -160,44 +123,12 @@ Condition a DocumentReference.
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
-  * entry 0..
-  * entry only Reference(CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
-  * entry ^slicing.discriminator[0].type = #profile
-  * entry ^slicing.discriminator[0].path = "resolve()"
-  * entry ^slicing.rules = #open
-  * entry contains
-      bodyHeight 0..1 and
-      bodyWeight 0..1 and
-      relevantCondition 0..* and
-      medication 0..* and
-      allergyIntolerance 0..* and
-      warning 0..* and
-      mobility 0..1 and
-      physicalFinding 0..* and
-      hospitalization 0..* and
-      immunization 0..*
-  * entry[bodyHeight] only Reference(CZ_BodyHeight)
-  * entry[bodyWeight] only Reference(CZ_BodyWeight)
-  * entry[relevantCondition] only Reference(CZ_ConditionCore)
-  * entry[medication] only Reference(CZ_MedicationStatementCore)
-  * entry[allergyIntolerance] only Reference(CZ_AllergyIntolerance)
-  * entry[warning] only Reference(CZ_FlagPatientCore)
-  * entry[mobility] only Reference(CZ_PatientMobility)
-  * entry[physicalFinding] only Reference(CZ_PhysicalFindingOrder)
-  * entry[hospitalization] only Reference(CZ_Encounter)
-  * entry[immunization] only Reference(CZ_ImmunizationCore)
-
-* section[referencedDocumentation]
-  * insert SectionComRules(
-      Referenced clinical documentation,
-      References to existing clinical documents relevant to the request that are not transmitted as direct attachments.,
-      $loinc#77599-9)
   * entry 0..*
-  * entry only Reference(CZ_Logo or DocumentReference)
+  * entry only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
 
 * section[attachments]
   * ^short = "Documents attached to the order"
-  * ^definition = "References to DocumentReference resources containing reports images or other documents supplied with the order."
+  * ^definition = "References to CZ_Attachment DocumentReference resources containing reports, images or other supporting documents, whether supplied inline or linked by URL."
   * code = $loinc#55107-7
   * title = "Attachments"
   * entry 0..*
@@ -209,11 +140,7 @@ Condition a DocumentReference.
 )
 
 * insert OrderCompositionSupportingInformation
-* section[supportingInformation] ^definition = "Shared structured clinical context in A.3.1 and additional supporting information in A.3.4, including measurements, conditions, medication, allergies, alerts, mobility, findings, encounters and immunizations. Use clinicalIndication for the reason and clinical question, carePlan for planned care and medicalDevices for device use. Link the same resources to individual ServiceRequest instances where relevant."
-* section[significantMedicalHistory] ^comment = "Use this section for established historical or long-term conditions. If such a condition also affects a specific service, reference the same Condition from that ServiceRequest.supportingInfo[relevantCondition]. If it is the direct indication, use ServiceRequest.reasonReference."
-* section[differentialDiagnosis] ^comment = "Use this section for suspected diagnoses or diagnostic alternatives and preserve their verification status in Condition. Distinguish them from established medical history. Link the Condition through ServiceRequest.reasonReference when it directly motivates the requested assessment."
-* section[currentTreatment] ^comment = "Use this section for the consultation-specific treatment overview in A.3.2.5. Shared structured medication in A.3.1.3 belongs in supportingInformation. If entries are needed here, reuse the same MedicationStatement instances; do not require a duplicate list."
-* section[examinationResults] ^comment = "This section accepts DiagnosticReport resources. Reference individual laboratory measurements through the declared general Observation profile in supportingInformation and, where relevant, ServiceRequest.supportingInfo. DiagnosticReport itself is not an allowed supportingInfo target in these ServiceRequest profiles."
+* section[supportingInformation] ^definition = "Shared structured clinical context in A.3.1 and additional supporting information in A.3.4, including measurements, conditions, medication, allergies, alerts, mobility, findings, encounters and immunizations. Use clinicalQuestion for the reason and clinical question, carePlan for planned care and medicalDevices for device use. Link the same resources to individual ServiceRequest instances where relevant."
 
 Extension: KOrderRequestReference
 Id: korder-composition-requestReference

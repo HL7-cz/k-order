@@ -243,7 +243,7 @@ EN: Unaddressed request for mobilization and exercise physiotherapy after hip ar
 * code.text = "Mobilizační a cvičebná fyzioterapie"
 * reasonReference[0] = Reference(Condition-FTHipArthroplasty)
 * supportingInfo[0] = Reference(Goal-FTHipRehabilitation)
-* supportingInfo[implant] = Reference(DeviceUseStatement-FTHipImplant)
+* supportingInfo[1] = Reference(DeviceUseStatement-FTHipImplant)
 * insurance = Reference(Coverage-FTHipRehabilitation)
 * note[0].text = "Operace levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Pracoviště fyzioterapie volí pacient podle bydliště."
 
@@ -263,14 +263,14 @@ EN: Unaddressed FT order after total hip arthroplasty.
 * author[0] = Reference(PractitionerRole-Orthopedist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840102"
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-HipRehabilitation)
-* section[clinicalIndication].text.status = #generated
-* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
-* section[clinicalIndication].entry[0] = Reference(Condition-FTClinicalQuestion)
+* section[clinicalQuestion].text.status = #generated
+* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
+* section[clinicalQuestion].entry[0] = Reference(Condition-FTClinicalQuestion)
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTHipRehabilitation)
 * section[coverage].entry[0] = Reference(Coverage-FTHipRehabilitation)
 * section[medicalDevices].entry[0] = Reference(DeviceUseStatement-FTHipImplant)
-* section[supportingInformation].entry[mobility] = Reference(Observation-FTHipMobility)
+* section[supportingInformation].entry[0] = Reference(Observation-FTHipMobility)
 
 Instance: BundleFTHipRehabilitation
 InstanceOf: BundleOrderCz
@@ -481,12 +481,12 @@ EN: Fully completed FT order for respiratory physiotherapy in the patient's home
 * author[0] = Reference(PractitionerRole-Pulmonologist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840202"
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-CopdChestPhysiotherapy)
-* section[clinicalIndication].text.status = #generated
-* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.</div>"
+* section[clinicalQuestion].text.status = #generated
+* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.</div>"
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTCopdRespiratory)
 * section[coverage].entry[0] = Reference(Coverage-FTCopdHomeCare)
-* section[supportingInformation].entry[mobility] = Reference(Observation-FTCopdMobility)
+* section[supportingInformation].entry[0] = Reference(Observation-FTCopdMobility)
 
 Instance: BundleFTCopdHomeCare
 InstanceOf: BundleOrderCz
@@ -717,8 +717,8 @@ EN: General FT order for a pediatric patient without specified individual proced
 * author[0] = Reference(PractitionerRole-Pediatrician)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840302"
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-PediatricGeneralPhysiotherapy)
-* section[clinicalIndication].text.status = #generated
-* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
+* section[clinicalQuestion].text.status = #generated
+* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTPediatricPosture)
 * section[coverage].entry[0] = Reference(Coverage-FTPediatricPosture)

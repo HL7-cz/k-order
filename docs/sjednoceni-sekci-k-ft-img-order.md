@@ -4,7 +4,7 @@ Výchozí analýza k 10. 9. 2026. Tabulky níže zachycují stav před implement
 
 První realizovaný krok: sekce `signature` byla odstraněna z K i FT Composition. Bundle nyní výslovně deklaruje volitelné položky `provenance` s profilem CZ_Provenance; podpis celého dokumentu zůstává v Bundle.signature. Mapování FT vede na Provenance v Bundle a podepsané zdroje identifikuje Provenance.target.
 
-Aktualizace 11. 9. 2026: K/FT nyní sdílejí `clinicalIndication 0..1` (LOINC 104720-8, text 1..1, volitelné ConditionCore) a `carePlan 0..1` (LOINC 18776-5, CarePlanCore). FT `reasons` je nahrazeno klinickou indikací. CarePlan byl přesunut ze supportingInformation do carePlan v profilech i mapování A.3.3. Příklady a česká i anglická dokumentace obsahují nový model a převodní pravidla. Společná strukturovaná medikace zůstává v supportingInformation; currentTreatment K rozpracovává A.3.2.5. Změna kódů příloh a změny samotného IMG-Order dosud implementovány nejsou. Následující tabulky zachycují původní stav a návrh.
+Aktualizace 11. 9. 2026: K/FT nyní sdílejí `clinicalQuestion 0..1` (LOINC 104720-8, text 1..1, volitelné ConditionCore) a `carePlan 0..1` (LOINC 18776-5, CarePlanCore). FT `reasons` je nahrazeno klinickou indikací. CarePlan byl přesunut ze supportingInformation do carePlan v profilech i mapování A.3.3. Příklady a česká i anglická dokumentace obsahují nový model a převodní pravidla. Společná strukturovaná medikace zůstává v supportingInformation; supportingInformation K rozpracovává A.3.2.5. Změna kódů příloh a změny samotného IMG-Order dosud implementovány nejsou. Následující tabulky zachycují původní stav a návrh.
 
 **Doporučení:** sjednotit význam a názvy společných sekcí K/FT, jejich vazbu na jednotlivé ServiceRequest a používané profily CZ Core. Z IMG-Order převzít zejména explicitní klinickou indikaci a plán péče. Zachovat odborné sekce K a cíle FT. Mapování IMG-Order nejprve opravit, protože některé jeho cesty neodpovídají skutečným profilům.
 
@@ -34,12 +34,7 @@ Kardinality v tabulce patří sekcím, nikoli jejich `entry`.
 | `supportingInformation` | 0..1 | 0..1 | 0..1 | Společný kód 55752-0, ale odlišné povolené reference. |
 | `medicalDevices` | 0..* | 0..* | 0..* | Společný kód 97813-0; K/FT vyžadují entry, RTG nikoli. |
 | `attachments` | 0..*; 55107-7 | 0..*; 55107-7 | 0..*; 77599-9 | Rozdílná sémantika kódu. |
-| `referencedDocumentation` | 0..1; 77599-9 | — | — | Při sjednocení příloh na 77599-9 se musí řešit kolize sekcí K. |
 | `signature` | 0..1; Provenance | 0..1; Provenance | — | RTG mapuje podpis do Bundle.signature; jde o odlišnou reprezentaci. |
-| `significantMedicalHistory` | 0..1; ConditionCore | — | — | Specializovaná anamnéza K. |
-| `examinationResults` | 0..1; DiagnosticReport | — | — | Není ekvivalent jednotlivých Observation. |
-| `differentialDiagnosis` | 0..1; ConditionCore | — | — | Diagnostické alternativy K. |
-| `currentTreatment` | 0..1; MedicationStatementCore | — | — | Samostatná prezentace léčby K. |
 | `goals` | — | 0..1; Goal | — | Očekávané výsledky FT, nikoli aktuální nálezy. |
 
 ## ServiceRequest a supportingInfo
@@ -51,9 +46,9 @@ ServiceRequest nemá dokumentové sekce. `Composition.section.entry` organizuje 
 | Základní podklady | 10 společných pojmenovaných slices v Composition a ServiceRequest: výška, váha, mobilita, diagnóza, medikace, alergie, Flag, fyzikální nález, encounter, očkování | Jen výška, váha a mobilita jako pojmenované slices | Zachovat společné K/FT členění; RTG případně rozšířit podle klinické potřeby. |
 | Ostatní měření | CZ_MedicalTestResultCore v otevřeném seznamu referencí | Lokální CZ_ObservationImage odvozený z Core | Preferovat Core; specializované profily používat jen pro skutečná dodatečná omezení. |
 | Upozornění | CZ_FlagPatientCore v obou úrovních | Mapování odkazuje CZ_Flag, ale targetProfile Flag nepovoluje | Při úpravě RTG výslovně povolit CZ_FlagPatientCore; samotné open slicing nestačí. |
-| Implantát / použití přístroje | Composition.medicalDevices a ServiceRequest.supportingInfo[implant] → DeviceUseStatement | Dokumentová sekce používá DeviceUseStatement, supportingInfo dovoluje Device | Sjednotit význam na použití přístroje; samotný Device popisuje přístroj. |
+| Implantát / použití přístroje | Composition.medicalDevices a ServiceRequest.supportingInfo → DeviceUseStatement | Dokumentová sekce používá DeviceUseStatement, supportingInfo dovoluje Device | Sjednotit význam na použití přístroje; samotný Device popisuje přístroj. |
 | CarePlan | Composition jej dovoluje; K/FT ServiceRequest.supportingInfo nikoli | Dovolen v sekci carePlan i supportingInfo | Oddělit plán dokumentu, podklad výkonu a plán, který výkon naplňuje. |
-| Goal | FT sekce goals a supportingInfo[goal] | Bez specializace | Zachovat FT rozšíření. |
+| Goal | FT sekce goals a supportingInfo | Bez specializace | Zachovat FT rozšíření. |
 | Diagnóza jako důvod | reasonReference → ConditionCore | reasonReference bez místního zúžení; klinická otázka má lokální Condition profil v Composition | Sdílet pravidla pro indikaci, ne automaticky převádět každou otázku na Condition. |
 
 Stejný zdroj má být uložen jednou a podle potřeby odkazován z dokumentu i konkrétního výkonu. Přítomnost v Composition neznamená, že se vztahuje ke všem ServiceRequest. Například hmotnost může být podkladem jednoho výkonu; cíl zlepšit chůzi je Goal, současná omezená mobilita Observation.
@@ -73,9 +68,9 @@ Následující zápis je logická navigace, nikoli doslovný FHIRPath. `section[
 | A.2.5 — termín | section[appointment].entry → Appointment | Vazbu na objednávku popsat přes příslušné reference Appointment. |
 | A.2.6 — vzorek | ServiceRequest.specimen → Specimen | Nepřidávat kvůli tomu obecnou dokumentovou sekci. |
 | A.3.1.1 — biometrie | supportingInformation → Observation | supportingInfo[bodyHeight/bodyWeight]. |
-| A.3.1.2 — zdravotní problémy | K podle role anamnéza / diferenciální diagnóza; jinak supportingInformation | reasonReference pro přímou indikaci, supportingInfo pro kontext. |
-| A.3.1.3 — medikace | K currentTreatment; FT supportingInformation | supportingInfo[medication]. |
-| A.3.1.4 — implantáty | medicalDevices → DeviceUseStatement → Device | supportingInfo[implant]. |
+| A.3.1.2 — zdravotní problémy | supportingInformation; historické stavy lze uvést v anamnéze K. Diferenciální diagnózy se předávají jako CZ_ConditionCore s vyplněným verificationStatus. | reasonReference pro přímou indikaci, supportingInfo pro kontext. |
+| A.3.1.3 — medikace | K i FT supportingInformation | supportingInfo (CZ_MedicationStatementCore nebo CZ_MedicationAdministrationCore). |
+| A.3.1.4 — implantáty | medicalDevices → DeviceUseStatement → Device | supportingInfo. |
 | A.3.1.5 — alergie, upozornění, mobilita | supportingInformation → příslušný zdroj | supportingInfo[allergyIntolerance/warning/mobility]. |
 | A.3.1.7 a A.3.4 — další informace | supportingInformation → odpovídající Observation/Core profil | supportingInfo, pokud podklad náleží výkonu; nevytvářet duplicitní Observation. |
 | A.3.3 — plánovaná péče | Nová section[carePlan].entry → CZ_CarePlanCore | basedOn, pokud výkon plán naplňuje; supportingInfo jen pokud jde o podklad. |
@@ -105,7 +100,7 @@ Composition.section.where(
 
 ## Navržený cílový stav a postup
 
-1. **Společná klinická sekce K/FT:** zavést `clinicalIndication 0..1`, text při přítomnosti sekce `1..1`, entry `0..*` ConditionCore. Do textu patří důvod žádanky i otázka pro příjemce; do Condition pouze skutečný nebo suspektní zdravotní stav se správným stavem ověření. FT `reasons` migrovat na tuto sekci. Pro obecnou indikaci je kandidát LOINC [104720-8 — Clinical indication Narrative](https://loinc.org/104720-8). RTG dnes používá radiologický [18785-6](https://loinc.org/18785-6); převod RTG by byl samostatnou změnou jeho IG, včetně rozhodnutí o povinnosti a počtu sekcí.
+1. **Společná klinická sekce K/FT:** zavést `clinicalQuestion 0..1`, text při přítomnosti sekce `1..1`, entry `0..*` ConditionCore. Do textu patří důvod žádanky i otázka pro příjemce; do Condition pouze skutečný nebo suspektní zdravotní stav se správným stavem ověření. FT `reasons` migrovat na tuto sekci. Pro obecnou indikaci je kandidát LOINC [104720-8 — Clinical indication Narrative](https://loinc.org/104720-8). RTG dnes používá radiologický [18785-6](https://loinc.org/18785-6); převod RTG by byl samostatnou změnou jeho IG, včetně rozhodnutí o povinnosti a počtu sekcí.
 2. **Plán péče:** přidat do obou Composition `carePlan 0..1`, kód 18776-5, entry CarePlanCore. Přemapovat A.3.3 z supportingInformation. Nevynucovat dvojí uvedení plánu v dokumentu. Ostatní podpůrná data nechat v supportingInformation; specializované sekce K a goals FT zachovat.
 3. **Přílohy:** sjednotit K/FT na jednu sekci pro doplňující dokumenty bez rozdělení podle toho, zda jsou vložené nebo odkazované. Kód [55107-7 znamená Addendum Document](https://loinc.org/55107-7), tedy dodatek, nikoli obecnou přílohu. Kandidát IMG [77599-9 — Additional documentation](https://loinc.org/77599-9/) lépe odpovídá účelu, ale v LOINC je ve stavu TRIAL; finální volbu zahrnout do terminologického rozhodnutí. Při jeho použití sloučit K referencedDocumentation s attachments, jinak dva slices sdílejí stejný diskriminační kód. DocumentReference podporuje odkaz i vložený obsah; zachovat potřebná omezení CZ_Attachment a rozhodnout, kam patří logo organizace.
 4. **Společná pravidla podpůrných dat:** sdílet FSH RuleSets pro K/FT typy referencí, názvy slices a popisy. Rozdíly, například FT Goal, přidávat explicitně. Nezavádět obecný pojmenovaný slice Observation překrývající výšku, váhu a další specializace. RTG rozšířit o Core Flag a další typy až v jeho vlastní změně. Ke kompatibilitě slicing viz [FHIR R4 profiling](https://hl7.org/fhir/R4/profiling.html#discriminator).

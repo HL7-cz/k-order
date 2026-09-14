@@ -72,7 +72,7 @@ Condition a DocumentReference.
 
 * section contains
     orderInformation 1..1 MS and
-    clinicalIndication 0..1 MS and
+    clinicalQuestion 0..1 MS and
     goals 0..1 MS and
     coverage 1..1 MS and
     appointment 0..1 MS and
@@ -89,7 +89,7 @@ Condition a DocumentReference.
   * entry 1..*
   * entry only Reference(FTServiceRequestCz)
 
-* insert OrderClinicalIndicationSection
+* insert OrderclinicalQuestionSection
 
 * section[goals]
   * insert SectionComRules(
@@ -114,7 +114,7 @@ Condition a DocumentReference.
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#56446-8
-  * entry 0..
+  * entry 0..*
   * entry only Reference(CZ_AppointmentCore)
 
 * insert OrderCarePlanSection
@@ -134,32 +134,8 @@ Condition a DocumentReference.
   * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
-  * entry 0..
-  * entry only Reference(CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
-  * entry ^slicing.discriminator[0].type = #profile
-  * entry ^slicing.discriminator[0].path = "resolve()"
-  * entry ^slicing.rules = #open
-  * entry contains
-      bodyHeight 0..1 and
-      bodyWeight 0..1 and
-      relevantCondition 0..* and
-      medication 0..* and
-      allergyIntolerance 0..* and
-      warning 0..* and
-      mobility 0..1 and
-      physicalFinding 0..* and
-      hospitalization 0..* and
-      immunization 0..*
-  * entry[bodyHeight] only Reference(CZ_BodyHeight)
-  * entry[bodyWeight] only Reference(CZ_BodyWeight)
-  * entry[relevantCondition] only Reference(CZ_ConditionCore)
-  * entry[medication] only Reference(CZ_MedicationStatementCore)
-  * entry[allergyIntolerance] only Reference(CZ_AllergyIntolerance)
-  * entry[warning] only Reference(CZ_FlagPatientCore)
-  * entry[mobility] only Reference(CZ_PatientMobility)
-  * entry[physicalFinding] only Reference(CZ_PhysicalFindingOrder)
-  * entry[hospitalization] only Reference(CZ_Encounter)
-  * entry[immunization] only Reference(CZ_ImmunizationCore)
+  * entry 0..*
+  * entry only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
 
 * section[attachments]
   * ^short = "Documents attached to the order"
@@ -175,8 +151,8 @@ Condition a DocumentReference.
 )
 
 * insert OrderCompositionSupportingInformation
-* section[supportingInformation] ^definition = "Shared structured clinical context in A.3.1 and additional supporting information in A.3.4, including measurements, conditions, medication, allergies, alerts, mobility, findings, encounters and immunizations. Use clinicalIndication for the reason and clinical question, carePlan for planned care and medicalDevices for device use. Link the same resources to individual ServiceRequest instances where relevant."
-* section[goals] ^comment = "Describe intended outcomes, such as improved walking ability, in Goal resources here. Link each applicable Goal from FTServiceRequest.supportingInfo[goal]. Describe current mobility in supportingInformation.entry[mobility], keeping the observed state distinct from the intended outcome."
+* section[supportingInformation] ^definition = "Shared structured clinical context in A.3.1 and additional supporting information in A.3.4, including measurements, conditions, medication, allergies, alerts, mobility, findings, encounters and immunizations. Use clinicalQuestion for the reason and clinical question, carePlan for planned care and medicalDevices for device use. Link the same resources to individual ServiceRequest instances where relevant."
+* section[goals] ^comment = "Describe intended outcomes, such as improved walking ability, in Goal resources here. Link each applicable Goal from FTServiceRequest.supportingInfo. Describe current mobility in supportingInformation.entry, keeping the observed state distinct from the intended outcome."
 
 Extension: FTOrderRequestReference
 Id: ftorder-composition-requestReference

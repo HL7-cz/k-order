@@ -111,33 +111,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- supporting clinical information -----------------
 * supportingInfo 0..*
-* supportingInfo only Reference(CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
-* supportingInfo ^slicing.discriminator[0].type = #profile
-* supportingInfo ^slicing.discriminator[0].path = "resolve()"
-* supportingInfo ^slicing.rules = #open
-* supportingInfo contains
-    bodyHeight 0..1 and
-    bodyWeight 0..1 and
-    relevantCondition 0..* and
-    medication 0..* and
-    allergyIntolerance 0..* and
-    warning 0..* and
-    mobility 0..1 and
-    physicalFinding 0..* and
-    hospitalization 0..* and
-    immunization 0..* and
-    implant 0..*
-* supportingInfo[bodyHeight] only Reference(CZ_BodyHeight)
-* supportingInfo[bodyWeight] only Reference(CZ_BodyWeight)
-* supportingInfo[relevantCondition] only Reference(CZ_ConditionCore)
-* supportingInfo[medication] only Reference(CZ_MedicationStatementCore)
-* supportingInfo[allergyIntolerance] only Reference(CZ_AllergyIntolerance)
-* supportingInfo[warning] only Reference(CZ_FlagPatientCore)
-* supportingInfo[mobility] only Reference(CZ_PatientMobility)
-* supportingInfo[physicalFinding] only Reference(CZ_PhysicalFindingOrder)
-* supportingInfo[hospitalization] only Reference(CZ_Encounter)
-* supportingInfo[immunization] only Reference(CZ_ImmunizationCore)
-* supportingInfo[implant] only Reference(CZ_DeviceUseStatement)
+* supportingInfo only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
 * insert OrderServiceRequestSupportingInformation
 
 

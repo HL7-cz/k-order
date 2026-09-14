@@ -27,9 +27,9 @@ EN: Physiotherapy order Composition with four requested procedures.
 * section[orderInformation].entry[2] = Reference(FTServiceRequest-21415)
 * section[orderInformation].entry[3] = Reference(FTServiceRequest-21413)
 // Clinical indication shared by the requested services.
-* section[clinicalIndication].text.status = #generated
+* section[clinicalQuestion].text.status = #generated
 
-* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D</div>"
+* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D</div>"
 // Reuse the existing Coverage.
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[carePlan].text.status = #generated

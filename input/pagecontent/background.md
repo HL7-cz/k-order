@@ -30,19 +30,25 @@ This implementation guide translates the aforementioned legislative requirements
 
 ### Order section sequence
 
-Common sections retain the IMG-Order sequence: `orderInformation`, `clinicalIndication` (the counterpart of IMG `clinicalQuestion`), `coverage`, `appointment`, `carePlan`, `medicalDevices`, `supportingInformation`, `attachments`. The requested service and the question it should answer come first. Attachments come last.
+Common sections retain the IMG-Order sequence: `orderInformation`, `clinicalQuestion` (the counterpart of IMG `clinicalQuestion`), `coverage`, `appointment`, `carePlan`, `medicalDevices`, `supportingInformation`, `attachments`. The requested service and the question it should answer come first. Attachments come last.
 
 Specialized sections without a separate IMG-Order counterpart are inserted according to their relevance to assessing the request:
 
 | Profile | Position and sequence | Rationale |
 | --- | --- | --- |
-| K | After `clinicalIndication`: `differentialDiagnosis`, `examinationResults`, `currentTreatment`, `significantMedicalHistory` | Present suspected diagnoses to assess, available results, current treatment and historical context in that order. Include information relevant to the requested care. |
-| FT | After `clinicalIndication`: `goals` | The expected functional outcome directly clarifies the purpose of the requested therapy. |
-| K | Before `attachments`: `referencedDocumentation` | Links to further documentation follow the clinical content; transmitted attachments close the document. |
+| FT | After `clinicalQuestion`: `goals` | The expected functional outcome directly clarifies the purpose of the requested therapy. |
 
 This recommended presentation order is reflected in profile declarations and examples. As in IMG-Order, `section.slicing.ordered = false`, so a different incoming section order alone is not a validation error. Priority does not change section cardinalities or population requirements. User interfaces should highlight significant alerts from `supportingInformation` even with this section sequence.
 
 ### Supporting information
+
+Relevant medical history belongs in the `supportingInformation` narrative; structured conditions reference `CZ_ConditionCore` through `entry`. Loaned and other supporting documentation belongs in `attachments`, referencing `CZ_Attachment` for both inline documents and documents available by URL.
+
+Current medication is referenced from `Composition.section[supportingInformation].entry` and, for the applicable request, `ServiceRequest.supportingInfo`. Use `CZ_MedicationStatementCore` for medication use and `CZ_MedicationAdministrationCore` for an administration event. Reuse resource instances rather than copying them. A free-text treatment summary may appear in the section narrative; reported use alone does not establish an administration event.
+
+Examination results conforming to `CZ_MedicalTestResultCore` are referenced from `Composition.section[supportingInformation].entry` and also `ServiceRequest.supportingInfo` when they support that request. Both references point to the same Observation; the result is not copied. Record the test in `code`, the result in `value[x]` or `component` and comments in `note`.
+
+Differential diagnoses are represented as `CZ_ConditionCore` resources in `supportingInformation.entry`. A differential diagnosis should have `Condition.verificationStatus` populated, for example `differential`; record the rationale in `Condition.note`. For a particular service, reference the same resource from `ServiceRequest.supportingInfo`, or from `reasonReference` when it is the direct indication. A separate differential diagnosis section is not used.
 
 **Recommendation for hospital admission or transfer of care.** Represent each such service by a separate `ServiceRequest` with its own identifier, `code`, patient and requester. Use `intent = proposal` for a recommendation and `intent = order` for an actual order. Reference the new request from `Composition.section[orderInformation].entry` and include it in the document Bundle. If no service code has been agreed, use `code.text`. Do not place the recommendation in a disposition extension on a request for another examination. Use `basedOn` only when the new request actually fulfils the referenced proposal or order; chronological sequence alone is insufficient. See the standard element definitions in [FHIR R4 ServiceRequest](https://hl7.org/fhir/R4/servicerequest-definitions.html) and the [hospital admission recommendation example](Bundle-BundleHospitalAdmissionRecommendationExample.html).
 
@@ -56,34 +62,21 @@ Supporting information helps the recipient assess and plan care. An order repres
 
 Listing a resource in a Composition section does not automatically associate it with every ServiceRequest. If a mobility observation affects two services, both requests can reference that same Observation. Include one instance in the document Bundle and reuse its reference in the Composition and the relevant requests.
 
-**Choosing a document section.** K and FT share `clinicalIndication` for the reason and clinical question (required narrative when present, optional CZ_ClinicalQuestion entries), `carePlan` for A.3.3 planned care, and `supportingInformation` for shared A.3.1 clinical data and A.3.4 additional information. Keep structured medication and conditions in the common clinical section. K-specific sections describe A.3.2 consultation content; reuse existing resources if references are also needed there. Both document types use `medicalDevices` for device use; FT uses `goals` for intended outcomes. The indication for each individual service remains in ServiceRequest.reasonCode or reasonReference.
+**Choosing a document section.** K and FT share `clinicalQuestion` for the reason and clinical question (required narrative when present, optional CZ_ClinicalQuestion entries), `carePlan` for A.3.3 planned care, and `supportingInformation` for shared A.3.1 clinical data and A.3.4 additional information. Keep structured medication and conditions in the common clinical section. K-specific sections describe A.3.2 consultation content; reuse existing resources if references are also needed there. Both document types use `medicalDevices` for device use; FT uses `goals` for intended outcomes. The indication for each individual service remains in ServiceRequest.reasonCode or reasonReference.
 
-**Migration.** Replace FT `reasons` (LOINC 29299-5) with `clinicalIndication` (LOINC 104720-8), retaining the indication narrative. Move planned CarePlan references from `supportingInformation` to `carePlan` (LOINC 18776-5). Both new sections are optional and occur at most once. These sections adapt the clinical-question and care-plan sections of IMG-Order to K/FT using CZ Core target profiles; the IMG-Order profile itself is maintained separately.
+**Migration.** Replace FT `reasons` (LOINC 29299-5) with `clinicalQuestion` (LOINC 104720-8), retaining the indication narrative. Move planned CarePlan references from `supportingInformation` to `carePlan` (LOINC 18776-5). Both new sections are optional and occur at most once. These sections adapt the clinical-question and care-plan sections of IMG-Order to K/FT using CZ Core target profiles; the IMG-Order profile itself is maintained separately.
 
-**Choosing a slice.** The following names apply to both `supportingInfo` and `supportingInformation.entry`:
+**Supporting references.** `Composition.section[supportingInformation].entry` and `ServiceRequest.supportingInfo` each use one unsliced reference list. There are no per-type cardinalities; all references must conform to the allowed target profiles.
 
-| Slice | Intended use |
-|---|---|
-| `bodyHeight`, `bodyWeight` | Measurements relevant to care, with the observation date and unit recorded in the Observation. |
-| `relevantCondition` | A condition affecting care. Also use `reasonReference` when the condition is represented as the direct structured indication. |
-| `medication` | Relevant medication use represented by MedicationStatement. |
-| `allergyIntolerance` | A structured allergy or intolerance record. |
-| `warning` | A clinical alert represented by Flag, including its validity. |
-| `mobility` | Observed mobility and assistance needs; use Goal for an intended future state. |
-| `physicalFinding` | A physical-examination finding conforming to CZ_PhysicalFindingOrder. |
-| `hospitalization` | A relevant hospital stay or other Encounter. The slice name does not constrain the Encounter class to inpatient care. |
-| `immunization` | A relevant vaccination record. |
-| `additionalObservation` | A formalized observation conforming to CZ_AdditionalObservationOrder with category `survey`; this is not a generic slot for laboratory results. |
+Use Observation for results and measurements, Condition for clinical conditions, AllergyIntolerance for allergies, Flag for alerts and Immunization for vaccinations. MedicationStatement records medication use; MedicationAdministration records an administration event. Preserve status, timing and units. Direct indications belong in `reasonReference`; differential diagnoses should have `Condition.verificationStatus` populated.
 
-An individual laboratory result conforming to CZ_ObservationOrder uses the open part of the list, outside the named specialized slices. Open slicing still respects the declared target profiles. Composition permits CZ_CarePlanCore in `carePlan`, while neither ServiceRequest profile permits it in `supportingInfo`. A DiagnosticReport belongs in the K-order `examinationResults` section rather than directly in `supportingInfo`.
-
-ServiceRequest additionally provides `supportingInfo[implant]`, referencing DeviceUseStatement, which in turn references Device. FT ServiceRequest also provides `supportingInfo[goal]` for Goal. In Composition these resources belong in `medicalDevices` and `goals`.
+A supporting Encounter may be referenced from the list; the encounter in which the request was made belongs in `ServiceRequest.encounter`. DeviceUseStatement records device use. FT also permits Goal for expected outcomes, while Observation records current mobility. Composition places device use in `medicalDevices` and goals in `goals`. CarePlan belongs in the `carePlan` section and is not permitted in ServiceRequest.supportingInfo.
 
 **FT example after hip arthroplasty.** In the [hip rehabilitation example](Bundle-BundleFTHipRehabilitation.html), the diagnosis is the indication in `reasonReference`; current mobility is in `supportingInformation`, device use in `medicalDevices` and the intended outcome in `goals`. The ServiceRequest links the relevant device use and goal. Where an explicit association between mobility and this service is also needed, reuse the existing Observation:
 
 ```fsh
 // Addition to the existing FTServiceRequest-HipRehabilitation:
-* supportingInfo[mobility] = Reference(Observation-FTHipMobility)
+* supportingInfo[2] = Reference(Observation-FTHipMobility)
 ```
 
 This is usage guidance for the existing profiles and adds no mandatory cardinalities. Select relevant information, retain dates and status, and keep the narrative consistent with the structured data. An omitted entry does not assert the absence of a finding, such as an allergy. A BundleOrderCz document also includes the referenced resources.

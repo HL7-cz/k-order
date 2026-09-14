@@ -18,9 +18,9 @@ Usage: #example
 
 * section[orderInformation].entry[0] = Reference(KOrderServiceRequest-1)
 * section[orderInformation].entry[1] = Reference(KOrderServiceRequest-2)
-* section[clinicalIndication].text.status = #generated
-* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Objasnění příčiny námahové dušnosti.</div>"
-* section[clinicalIndication].entry[0] = Reference(KOrderCondition-Main)
+* section[clinicalQuestion].text.status = #generated
+* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Objasnění příčiny námahové dušnosti.</div>"
+* section[clinicalQuestion].entry[0] = Reference(KOrderCondition-Main)
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[carePlan].text.status = #generated
 * section[carePlan].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola u odesílajícího lékaře po dokončení vyšetření.</div>"

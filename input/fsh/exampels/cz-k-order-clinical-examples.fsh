@@ -10,6 +10,7 @@ CZ: Rychle se měnící pigmentový útvar na zádech.
 EN: Rapidly changing pigmented lesion on the back.
 """
 * id = "DermatologyCondition-PigmentedLesion"
+* verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#differential
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[0] = $mkn10#D485
 * code.text = "Rychle se menici pigmentovy utvar na zadech"
@@ -116,8 +117,7 @@ EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-DERM-COMP-2026-0001"
 * section[orderInformation].entry[0] = Reference(DermatologyServiceRequest-Urgent)
-* section[differentialDiagnosis].title = "Differential diagnosis considerations"
-* section[differentialDiagnosis].entry[0] = Reference(DermatologyCondition-PigmentedLesion)
+* section[supportingInformation].entry[0] = Reference(DermatologyCondition-PigmentedLesion)
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[attachments].entry[0] = Reference(DermatologyLesionPhoto)
 
@@ -222,7 +222,7 @@ EN: Nephrologist role in the nephrology clinic.
 * specialty[0].text = "Nefrologie"
 
 Instance: Observation-eGFRExample
-InstanceOf: CZ_ObservationOrder
+InstanceOf: CZ_MedicalTestResultCore
 Usage: #example
 Description: """
 CZ: Laboratorní výsledek eGFR.
@@ -235,7 +235,7 @@ EN: eGFR laboratory result.
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #laboratory
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
-* code.coding[LOINC] = $loinc#62238-1
+* code.coding[0] = $loinc#62238-1
 * code.text = "eGFR"
 * valueQuantity.value = 24
 * valueQuantity.unit = "mL/min/1.73 m2"
@@ -246,7 +246,7 @@ EN: eGFR laboratory result.
 * valueQuantity.code = #mL/min/(173.10*-2.m2)
 
 Instance: Observation-CreatinineExample
-InstanceOf: CZ_ObservationOrder
+InstanceOf: CZ_MedicalTestResultCore
 Usage: #example
 Description: """
 CZ: Laboratorní výsledek kreatininu v séru.
@@ -259,7 +259,7 @@ EN: Serum creatinine laboratory result.
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #laboratory
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
-* code.coding[LOINC] = $loinc#2160-0
+* code.coding[0] = $loinc#2160-0
 * code.text = "Kreatinin v seru"
 * valueQuantity.value = 245
 * valueQuantity.unit = "umol/L"
@@ -304,11 +304,10 @@ EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-NEPH-COMP-2026-0001"
 * section[orderInformation].entry[0] = Reference(NephrologyServiceRequest-Handover)
-* section[significantMedicalHistory].title = "Relevant medical history"
-* section[significantMedicalHistory].entry[0] = Reference(NephrologyCondition-CKDStage4)
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
+* section[supportingInformation].entry[2] = Reference(NephrologyCondition-CKDStage4)
 
 Instance: BundleNephrologyHandoverExample
 InstanceOf: BundleOrderCz

@@ -35,12 +35,12 @@ EN: K document with a recommendation for hospital admission represented by its o
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "8d16bc92-afdc-4198-b14c-6aef6a8c8b15"
 * section[orderInformation].entry[0] = Reference(HospitalAdmissionServiceRequest-Example)
-* section[clinicalIndication].text.status = #generated
-* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Doporučeno přijetí k hospitalizaci za účelem došetření zhoršení renálních funkcí.</div>"
+* section[clinicalQuestion].text.status = #generated
+* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Doporučeno přijetí k hospitalizaci za účelem došetření zhoršení renálních funkcí.</div>"
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
-* section[supportingInformation].entry[relevantCondition] = Reference(NephrologyCondition-CKDStage4)
+* section[supportingInformation].entry[2] = Reference(NephrologyCondition-CKDStage4)
 
 Instance: BundleHospitalAdmissionRecommendationExample
 InstanceOf: BundleOrderCz

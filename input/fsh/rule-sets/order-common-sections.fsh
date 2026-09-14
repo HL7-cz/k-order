@@ -1,7 +1,7 @@
 // Shared clinical indication and care plan sections, adapted from IMG-Order.
-RuleSet: OrderClinicalIndicationSection
+RuleSet: OrderclinicalQuestionSection
 // Slices are declared in each Composition to preserve its presentation order.
-* section[clinicalIndication]
+* section[clinicalQuestion]
   * ^short = "Clinical indication and question"
   * ^definition = "Reason for issuing the order and the clinical question to be addressed by the recipient. Entries may identify actual or suspected conditions supporting the indication."
   * code = $loinc#104720-8

@@ -12,7 +12,7 @@ Stav k 10. 9. 2026, po odstranění podpisové sekce Composition. Analýza a dop
 - [Logický model klinických informací](../input/fsh/czech-model/A.3.1_clinicalInformation-cz.fsh), [klinická událost](../input/fsh/czech-model/A.2.3_clinicalEvent-cz.fsh), [mapování klinických informací](../input/includes/clinical-information-map-cs.xml).
 - CZ_Encounter z lokálně instalovaného CZ Core 1.0.0 a vygenerované příklady ve fsh-generated/resources.
 
-ServiceRequest nemá dokumentové sekce ani `supportingInfo.entry`. Obsahuje jedno pole referencí `supportingInfo`; hospitalization, medication apod. jsou pojmenované slices tohoto pole. V instanci JSON neexistuje klíč `hospitalization`. Zápis `supportingInfo[hospitalization]` je označení slice v profilu/FSH.
+ServiceRequest nemá dokumentové sekce ani `supportingInfo.entry`. Obsahuje jedno pole referencí `supportingInfo`; hospitalization, medication apod. jsou pojmenované slices tohoto pole. V instanci JSON neexistuje klíč `hospitalization`. Zápis `supportingInfo` je označení slice v profilu/FSH.
 
 K deklaruje 11 slices, FT stejných 11 a navíc goal. Všechny jsou nepovinné. Výška, váha a mobilita mají maximum 1, ostatní maximum *. Diskriminátor je profil cíle reference přes `resolve()`, nikoli klinický účel reference. Otevřený slicing neruší seznam povolených targetProfile. Princip slicing popisuje [FHIR R4 profiling](https://hl7.org/fhir/R4/profiling.html#discriminator).
 
@@ -23,7 +23,7 @@ V obou ServiceRequest platí:
 ```fsh
 * encounter 0..1
 * encounter only Reference(CZ_Encounter)
-* supportingInfo[hospitalization] only Reference(CZ_Encounter)
+* supportingInfo only Reference(CZ_Encounter)
 ```
 
 Stejný profil určuje podobu odkazovaného Encounter. Neurčuje, že obě reference vedou na stejnou instanci nebo mají stejný účel. `ServiceRequest.encounter` zachycuje zdravotnický kontext vzniku požadavku; supportingInfo slouží pro další klinické podklady. Viz [definice FHIR R4](https://hl7.org/fhir/R4/servicerequest-definitions.html#ServiceRequest.encounter).
@@ -51,10 +51,10 @@ Tabulka je návrh použití v tomto IG. „Nemá přímou alternativu“ se vzta
 | bodyWeight 0..1 | Composition supportingInformation | Ponechat. Nezaměňovat hmotnost pacienta s quantity požadovaného výkonu. |
 | mobility 0..1 | Composition supportingInformation, FT goals, locationCode | Aktuální stav mobility není budoucí cíl ani místo výkonu. Ponechat, je-li pro výkon relevantní. |
 | relevantCondition 0..* | reasonReference; K anamnéza a diferenciální diagnóza | Přímá indikace → reasonReference. Další ovlivňující stav → supportingInfo. Nepřidávat automaticky všechny reasonReference znovu. Samostatný název slice není nezbytný. |
-| medication 0..* | K currentTreatment, Composition supportingInformation | Léčba pacienta jako podklad nemá přímou alternativu v ServiceRequest. V K ji dokumentově prezentovat přednostně v currentTreatment. Reference pro konkrétní výkon může zůstat v supportingInfo. |
+| medikace bez slice v ServiceRequest | Composition supportingInformation.entry | CZ_MedicationStatementCore pro užívání a CZ_MedicationAdministrationCore pro konkrétní podání. Stejný zdroj se odkazuje přímo ze ServiceRequest.supportingInfo. |
 | allergyIntolerance 0..* | Composition supportingInformation; warning | Alergie zůstává AllergyIntolerance. Nezakládat navíc Flag se stejným obsahem jen kvůli dalšímu políčku. Samostatný klinický alert může mít vlastní účel a životní cyklus. |
 | warning 0..* | Composition supportingInformation; alergie nebo jiné klinické záznamy | CZ_FlagPatientCore zachovat jako povolený typ. Flag nepoužívat jako obecnou kopii všech rizikových nálezů. |
-| physicalFinding 0..* | obecná Observation; K examinationResults | Fyzikální nález patří do Observation. K examinationResults obsahuje DiagnosticReport, tedy jiný druh zdroje. Pojmenovaný slice je volitelná kategorizace; specializovaný cílový profil může zůstat povolen. |
+| physicalFinding 0..* | obecná Observation v supportingInformation | Fyzikální nález patří do Observation. Výsledky vyšetření používají obecný CZ_MedicalTestResultCore v Composition i ServiceRequest. Pojmenovaný slice je volitelná kategorizace; specializovaný cílový profil může zůstat povolen. |
 | hospitalization 0..* | ServiceRequest.encounter, Composition.encounter a podpůrná sekce | Největší riziko záměny role; viz výše. Zrušit název nebo použít relevantEncounter. Neodstraňovat možnost dalšího relevantního Encounter. |
 | immunization 0..* | Composition supportingInformation | Podklad o provedeném očkování nemá přímou alternativu. Ponechat typ, samostatný slice není nutný. |
 | implant 0..* | Composition medicalDevices; bodySite | Použití přístroje je DeviceUseStatement; bodySite označuje místo požadovaného výkonu. Nejde o náhradu implantátu. Název implant je užší než povolené použití přístroje; volitelně relevantDeviceUse. |
@@ -80,7 +80,7 @@ Tyto role odpovídají [definicím elementů ServiceRequest R4](https://hl7.org/
 
 **Příliš úzké reasonReference:** oba profily povolují pouze ConditionCore. Obecný R4 připouští také Observation, DiagnosticReport a DocumentReference. Pokud je přímým důvodem výkonu již existující nález, nelze na něj v současném K/FT reasonReference odkázat. Doporučuji projednat alespoň přidání odpovídajícího Core Observation. Další typy přidávat podle konkrétních scénářů; nevytvářet umělou Condition jen kvůli omezení reference.
 
-**Chybějící dokumentové podklady výkonu:** K má examinationResults → DiagnosticReport a dokumentové přílohy, ale ServiceRequest.supportingInfo tyto typy nepovoluje. Pouhé odstranění slices tuto mezeru nevyřeší. Pokud má být celá zpráva podkladem konkrétního výkonu, je potřeba rozšířit seznam povolených referencí. Není nutné ji rozkládat na nové Observation jen kvůli validaci.
+**Výsledky a dokumentové podklady výkonu:** Výsledky vyšetření se předávají jako CZ_MedicalTestResultCore v Composition.section[supportingInformation].entry i ServiceRequest.supportingInfo, vždy odkazy na stejný zdroj. Dokumentové přílohy zůstávají samostatné. ServiceRequest.supportingInfo nepovoluje celou zprávu jako DiagnosticReport; celá zpráva se nemá mechanicky převádět na Observation jen kvůli validaci.
 
 **CarePlan:** Composition.supportingInformation jej povoluje, oba ServiceRequest.supportingInfo nikoli a basedOn jej místně také nepovoluje. Souvisí to s dosud nevyjasněnou sémantikou A.3.3 „navazující žádanky“. CarePlan nyní automaticky nepřidávat ani jej nepovažovat za synonymum navazujícího ServiceRequest.
 
@@ -90,9 +90,9 @@ Tyto role odpovídají [definicím elementů ServiceRequest R4](https://hl7.org/
 
 Composition organizuje obsah celého dokumentu a jeho prezentaci. Reference z její sekce a reference z jednotlivého ServiceRequest mají různý rozsah. Tento rozdíl je v souladu s [Composition.section.entry](https://hl7.org/fhir/R4/composition-definitions.html#Composition.section.entry).
 
-Příklad v K: jedna MedicationStatement je v currentTreatment, protože patří do přehledu léčby. První ServiceRequest na ni odkazuje jako na relevantní podklad; druhý ji nepotřebuje. V Bundle je jedna MedicationStatement, dvě reference vyjadřují dvě potřebné vazby. Převod všech podkladů výhradně do Composition by odstranil informaci, ke kterému výkonu patří.
+Příklad v K: jedna MedicationStatement je v supportingInformation.entry. První ServiceRequest na ni odkazuje přes supportingInfo jako na relevantní podklad; druhý ji nepotřebuje. V Bundle je jedna MedicationStatement, dvě reference vyjadřují dvě potřebné vazby. Stejný princip platí pro MedicationAdministration. Převod všech podkladů výhradně do Composition by odstranil informaci, ke kterému výkonu patří.
 
-Skutečný prostor pro redukci je **uvnitř Composition**: K currentTreatment versus supportingInformation.medication; anamnéza/diferenciální diagnóza versus supportingInformation.relevantCondition. Preferovat jednu dokumentovou sekci podle role. Stejný údaj nezobrazovat několikrát jen proto, že profil několik umístění dovoluje. Současné popisy už tuto přednost uvádějí, není ale vynucena strukturou.
+Medikace a diferenciální diagnózy nyní patří do supportingInformation. Stejný údaj nezobrazovat několikrát jen proto, že je odkazovaný z Composition i z konkrétního ServiceRequest. Anamnéza zůstává samostatnou prezentací historického kontextu.
 
 Composition.encounter a ServiceRequest.encounter mohou oprávněně odkazovat na stejnou instanci: kontext dokumentu a kontext požadavku mohou být totožné. Nezavádět globální zákaz stejné reference napříč zdroji. Ani dokument s jedním ServiceRequest automaticky neruší rozdíl jejich rolí; důležitý je způsob výměny a samostatného zpracování požadavku.
 
