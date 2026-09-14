@@ -26,7 +26,6 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * extension contains
     $information-recipient-url named informationRecipient 0..*
     and CompositionBasedOnOrderOrRequisition named basedOnComposition 0..*
-    and CzKOrderRecommendationDisposition named recommendationDisposition 0..1 
 
 * extension[informationRecipient].valueReference only Reference(
     CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or 
@@ -34,12 +33,11 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 )
 
 * extension[basedOnComposition].valueReference only Reference(KOrderServiceRequestCz)
-* extension[recommendationDisposition] ^definition =
-  "Doporučení převzetí do péče nebo hospitalizace z K-žádanky"
 
 // --------------------------- lifecycle / status / intent ---------------------
 * status 1..1 MS
 * intent 1..1 MS
+* intent ^comment = "Use proposal for a recommendation, including a recommendation for hospital admission. Use order for an actual order. Represent each distinct requested service by a separate ServiceRequest."
 
 * authoredOn 1..1 MS
 * authoredOn ^short = "Datum a čas vystavení žádanky"
@@ -90,6 +88,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * code 1..1 MS
 * code.coding from KOrderProceduresVS (preferred)
 * code ^short = "Požadované vyšetření/výkon"
+* code ^comment = "A hospital admission or transfer of care is a separate requested service, recorded in its own ServiceRequest.code. If no agreed code is available, use code.text; do not introduce a disposition extension or a local code list to represent the request."
 
 * priority 0..1 MS
 // Česky překlad v lokalním VS KOrderPriorityVS
@@ -145,22 +144,6 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 // --------------------------- workflow links ----------------------------------
 * basedOn 0..*
 * basedOn only Reference(KOrderServiceRequestCz)
-
-// ---------------------------Extension ----------------------------------
-Extension: CzKOrderRecommendationDisposition
-Id: cz-order-recommendation-disposition
-Title: "CZ order Recommendation Disposition"
-Description: "Recommended follow-up disposition from K-order"
-
-* ^context.type = #element
-* ^context.expression = "ServiceRequest"
-
-* value[x] only CodeableConcept
-* valueCodeableConcept 1..1
-* valueCodeableConcept from KOrderRecommendationDispositionVS (required)
-
-
-
 
 // --------------------------- invariants --------------------------------------
 Invariant: code-required

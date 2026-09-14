@@ -96,7 +96,8 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
     coverage 1..* and
     goal 0..* and
     observation 0..* and
-    attachment 0..*
+    attachment 0..* and
+    provenance 0..*
 
 
 ////////////////////////////////////////////////////////////
@@ -141,6 +142,12 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 // Attachments
 * entry[attachment].resource only CZ_Attachment
 
+// Provenance is document metadata, not a Composition section.
+* entry[provenance].resource 1..1
+* entry[provenance].resource only CZ_Provenance
+* entry[provenance] ^short = "Provenance and signatures for resources in the document"
+* entry[provenance] ^definition = "Provenance resources recording the origin and signatures of document resources. Provenance.target identifies the signed resources; the Composition does not reference Provenance through a signature section."
+
 
 ////////////////////////////////////////////////////////////
 // SIGNATURE
@@ -149,3 +156,4 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 * signature 0..1
 * signature only CZ_Signature
 * signature ^short = "Digital signature of the document"
+* signature ^definition = "Digital signature of the document Bundle. Signatures for individual document resources may be recorded in Provenance.signature, with Provenance.target identifying the signed resources."

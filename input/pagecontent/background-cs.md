@@ -28,7 +28,23 @@ K 19. 2. 2025 obsahuje vyžádání dalších zdravotních služeb zejména:
 
 Tato implementační příručka převádí uvedené legislativní požadavky do interoperabilní elektronické podoby založené na standardu HL7 FHIR R4.
 
+### Pořadí sekcí žádanky
+
+Společné sekce zachovávají pořadí IMG-Order: `orderInformation`, `clinicalIndication` (protějšek IMG `clinicalQuestion`), `coverage`, `appointment`, `carePlan`, `medicalDevices`, `supportingInformation`, `attachments`. Nejdříve má být zřejmé, co se požaduje a na jakou otázku má péče odpovědět. Přílohy jsou vždy poslední.
+
+Specializované sekce bez samostatného protějšku v IMG-Order doplňují tento sled podle významu pro posouzení žádanky:
+
+| Profil | Umístění a pořadí | Odůvodnění |
+| --- | --- | --- |
+| K | Za `clinicalIndication`: `differentialDiagnosis`, `examinationResults`, `currentTreatment`, `significantMedicalHistory` | Nejprve podezření, která má konzilium posoudit, poté dostupné výsledky, současná léčba a historický kontext. Uvádějí se pouze údaje relevantní pro požadovanou péči. |
+| FT | Za `clinicalIndication`: `goals` | Očekávaný funkční výsledek přímo upřesňuje účel požadované terapie. |
+| K | Před `attachments`: `referencedDocumentation` | Odkazy na další dokumentaci navazují na klinický obsah; předávané přílohy uzavírají dokument. |
+
+Jde o doporučené pořadí prezentace, promítnuté do deklarace profilů a příkladů. Stejně jako IMG-Order ponecháváme `section.slicing.ordered = false`; samotné odlišné pořadí ve vstupním dokumentu proto není validační chybou. Priorita sekce nemění její kardinalitu ani povinnost vyplnění. Závažná upozornění z `supportingInformation` má uživatelské rozhraní zvýraznit i při tomto pořadí sekcí.
+
 ### Podpůrné klinické informace {#supporting-information}
+
+**Doporučení k hospitalizaci nebo převzetí do péče.** Každou takovou službu vyjádřete samostatným `ServiceRequest` s vlastním identifikátorem, `code`, pacientem a žadatelem. Pro doporučení použijte `intent = proposal`, pro skutečnou objednávku `intent = order`. Nový požadavek zařaďte do `Composition.section[orderInformation].entry` a jeho zdroj do dokumentového Bundle. Pokud není dohodnutý kód služby, použijte `code.text`. Doporučení se nepředává jako disposition extension na požadavku na jiné vyšetření. `basedOn` použijte pouze tehdy, když nový požadavek skutečně naplňuje odkazovaný návrh nebo objednávku; samotná časová návaznost nestačí. Podrobnosti standardních elementů uvádí [FHIR R4 ServiceRequest](https://hl7.org/fhir/R4/servicerequest-definitions.html). Viz [příklad doporučení k hospitalizaci](Bundle-BundleHospitalAdmissionRecommendationExample.html).
 
 Podpůrné informace pomáhají příjemci posoudit a naplánovat péči. V žádance mají dvě úrovně:
 
@@ -40,7 +56,9 @@ Podpůrné informace pomáhají příjemci posoudit a naplánovat péči. V žá
 
 Zařazení údaje do sekce Composition samo o sobě nevytváří vazbu na každý ServiceRequest. Pokud například omezená mobilita ovlivňuje dva požadované výkony, oba mohou odkazovat na tutéž Observation. V dokumentovém Bundlu se tato instance předá jednou; odkazy na ni se mohou opakovat v Composition i v jednotlivých požadavcích.
 
-**Volba sekce dokumentu.** U K-žádanky patří známá anamnéza přednostně do `significantMedicalHistory`, diagnostické alternativy do `differentialDiagnosis`, medikace do `currentTreatment` a zprávy DiagnosticReport do `examinationResults`. Sekce `supportingInformation` doplňuje další relevantní kontext. U FT-žádanky je `reasons` pouze textová sekce bez `entry`; strukturované diagnózy lze uvést v `supportingInformation` a indikaci konkrétního výkonu v jeho `reasonReference`. Implantáty a pomůcky mají u obou dokumentů sekci `medicalDevices`; očekávané výsledky FT péče mají sekci `goals`.
+**Volba sekce dokumentu.** K a FT sdílejí sekci `clinicalIndication` pro důvod žádanky a klinickou otázku (povinný text při přítomnosti sekce, volitelné odkazy na CZ_ClinicalQuestion), `carePlan` pro plánovanou péči A.3.3 a `supportingInformation` pro společné klinické údaje A.3.1 a další informace A.3.4. Strukturovaná medikace a zdravotní problémy mají společné umístění v `supportingInformation`. Specializované sekce K rozpracovávají konziliární obsah A.3.2; případné reference znovu využívají stejné zdroje. Implantáty a pomůcky mají sekci `medicalDevices`; očekávané výsledky FT sekci `goals`. Indikace jednotlivého výkonu zůstává v ServiceRequest.reasonCode nebo reasonReference.
+
+**Převod dokumentů.** FT sekci `reasons` (LOINC 29299-5) nahrazuje `clinicalIndication` (LOINC 104720-8) se zachováním textu indikace. Odkazy na plánovanou péči CarePlan se přesouvají ze `supportingInformation` do `carePlan` (LOINC 18776-5). Obě nové sekce jsou nepovinné a nejvýše jednou. Přebírají význam klinické otázky a plánu péče z IMG-Order s použitím cílových profilů CZ Core pro K/FT; samotný profil IMG-Order je spravován samostatně.
 
 **Výběr položky (slice).** Následující názvy se používají jak v `supportingInfo`, tak v `supportingInformation.entry`:
 
@@ -57,7 +75,7 @@ Zařazení údaje do sekce Composition samo o sobě nevytváří vazbu na každ�
 | `immunization` | Relevantní záznam očkování. |
 | `additionalObservation` | Formalizované pozorování podle CZ_AdditionalObservationOrder s kategorií `survey`. Nejde o obecnou položku pro všechny laboratorní výsledky. |
 
-Jednotlivý laboratorní výsledek podle CZ_ObservationOrder patří do otevřené části seznamu, mimo pojmenované specializované položky. Otevřený slicing ale stále respektuje povolené cílové profily. Composition navíc dovoluje CZ_CarePlanCore; oba ServiceRequest profily jej v `supportingInfo` nepovolují. DiagnosticReport patří do K sekce `examinationResults`, nikoli přímo do `supportingInfo`.
+Jednotlivý laboratorní výsledek podle CZ_ObservationOrder patří do otevřené části seznamu, mimo pojmenované specializované položky. Otevřený slicing ale stále respektuje povolené cílové profily. Composition dovoluje CZ_CarePlanCore v sekci `carePlan`; oba ServiceRequest profily jej v `supportingInfo` nepovolují. DiagnosticReport patří do K sekce `examinationResults`, nikoli přímo do `supportingInfo`.
 
 ServiceRequest má navíc `supportingInfo[implant]` odkazující na DeviceUseStatement, který následně odkazuje na Device. FT ServiceRequest má také `supportingInfo[goal]` pro Goal. V Composition se tyto zdroje řadí do sekcí `medicalDevices` a `goals`.
 

@@ -77,14 +77,18 @@ No definition could be found for URL value 'http://hospital.org/ris-order'
 %should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)%
 
 # Expected multiple matching profiles
-# Order examples intentionally satisfy these overlapping alternatives (19 warnings
-# in the 2026-09-09 QA report). PractitionerRole Order/Core and Observation
-# Order/Mobility share constraints; FT and K ServiceRequests can both accept the
-# example procedures. Multiple matches do not invalidate these examples.
+# Order examples intentionally satisfy these overlapping alternatives.
+# PractitionerRole Order/Core share constraints; FT and K ServiceRequests can
+# both accept the example procedures. The mobility Observation derives from
+# CZ_MedicalTestResultCore through CZ_ObservationOrder, so it also satisfies Core.
+# After switching the general Observation references to CZ Core, the same
+# expected overlap produces four warnings in the COPD and hip-rehabilitation
+# Bundles (Composition reference and Bundle entry for each mobility resource).
+# Multiple matches do not invalidate these examples.
 # Suppress only these specific profile pairs; keep other ambiguities visible.
 %among choices: https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core|1.0.0, https://hl7.cz/fhir/core/StructureDefinition/practitionerrole-cz-order|1.0.0
-%among choices: https://hl7.cz/fhir/order/StructureDefinition/cz-observation-order|0.0.3, https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility|0.0.3
-Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/order/StructureDefinition/cz-observation-order, https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility
+%among choices: https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core|1.0.0, https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility|0.0.3
+Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core, https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility
 Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/order/StructureDefinition/FTServiceRequestCz, https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz
 
 # Existing imaging profile overlaps.

@@ -74,6 +74,13 @@ EN: Patient after total hip arthroplasty.
 * extension[registeringProvider].extension[value].valueReference = Reference(PractitionerRole-FTGeneralPractitioner)
 * extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004
 
+Instance: Condition-FTClinicalQuestion
+InstanceOf: CZ_ClinicalQuestion
+Usage: #example
+Description: "Clinical problem addressed by the physiotherapy question after hip replacement. The example uses the required text without an optional coded diagnosis."
+* subject = Reference(Patient-FTHipRehabilitation)
+* code.text = "Omezená pohyblivost po náhradě kyčelního kloubu – posouzení možností rehabilitace."
+
 Instance: Condition-FTHipArthroplasty
 InstanceOf: CZ_ConditionCore
 Usage: #example
@@ -255,14 +262,15 @@ EN: Unaddressed FT order after total hip arthroplasty.
 * subject = Reference(Patient-FTHipRehabilitation)
 * author[0] = Reference(PractitionerRole-Orthopedist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840102"
-* section[coverage].entry[0] = Reference(Coverage-FTHipRehabilitation)
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-HipRehabilitation)
-* section[reasons].text.status = #generated
-* section[reasons].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
-* section[supportingInformation].entry[mobility] = Reference(Observation-FTHipMobility)
-* section[medicalDevices].entry[0] = Reference(DeviceUseStatement-FTHipImplant)
+* section[clinicalIndication].text.status = #generated
+* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
+* section[clinicalIndication].entry[0] = Reference(Condition-FTClinicalQuestion)
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTHipRehabilitation)
+* section[coverage].entry[0] = Reference(Coverage-FTHipRehabilitation)
+* section[medicalDevices].entry[0] = Reference(DeviceUseStatement-FTHipImplant)
+* section[supportingInformation].entry[mobility] = Reference(Observation-FTHipMobility)
 
 Instance: BundleFTHipRehabilitation
 InstanceOf: BundleOrderCz
@@ -301,6 +309,8 @@ EN: Unaddressed FT order after hip arthroplasty with reduced mobility and an imp
 * entry[=].resource = Coverage-FTHipRehabilitation
 * entry[+].fullUrl = "https://example.cz/fhir/Condition/Condition-FTHipArthroplasty"
 * entry[=].resource = Condition-FTHipArthroplasty
+* entry[+].fullUrl = "https://example.cz/fhir/Condition/Condition-FTClinicalQuestion"
+* entry[=].resource = Condition-FTClinicalQuestion
 * entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/FTServiceRequest-HipRehabilitation"
 * entry[=].resource = FTServiceRequest-HipRehabilitation
 * entry[+].fullUrl = "https://example.cz/fhir/Observation/Observation-FTHipMobility"
@@ -470,13 +480,13 @@ EN: Fully completed FT order for respiratory physiotherapy in the patient's home
 * subject = Reference(Patient-FTCopdHomeCare)
 * author[0] = Reference(PractitionerRole-Pulmonologist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840202"
-* section[coverage].entry[0] = Reference(Coverage-FTCopdHomeCare)
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-CopdChestPhysiotherapy)
-* section[reasons].text.status = #generated
-* section[reasons].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.</div>"
-* section[supportingInformation].entry[mobility] = Reference(Observation-FTCopdMobility)
+* section[clinicalIndication].text.status = #generated
+* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.</div>"
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTCopdRespiratory)
+* section[coverage].entry[0] = Reference(Coverage-FTCopdHomeCare)
+* section[supportingInformation].entry[mobility] = Reference(Observation-FTCopdMobility)
 
 Instance: BundleFTCopdHomeCare
 InstanceOf: BundleOrderCz
@@ -706,13 +716,13 @@ EN: General FT order for a pediatric patient without specified individual proced
 * subject = Reference(Patient-FTPediatricPosture)
 * author[0] = Reference(PractitionerRole-Pediatrician)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840302"
-* section[coverage].entry[0] = Reference(Coverage-FTPediatricPosture)
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-PediatricGeneralPhysiotherapy)
-* section[reasons].text.status = #generated
-* section[reasons].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
-* section[supportingInformation].entry[0] = Reference(Condition-FTPediatricScoliosis)
+* section[clinicalIndication].text.status = #generated
+* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTPediatricPosture)
+* section[coverage].entry[0] = Reference(Coverage-FTPediatricPosture)
+* section[supportingInformation].entry[0] = Reference(Condition-FTPediatricScoliosis)
 
 Instance: BundleFTPediatricPosture
 InstanceOf: BundleOrderCz

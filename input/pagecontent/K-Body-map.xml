@@ -157,42 +157,10 @@
           <td>Composition (KOrderCompositionCz).section[orderInformation].entry</td>
           <td></td>
         </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">duvodObjednavky</a></td>
-          <td>A.2.2 - Odůvodnění vyšetření (důvod objednávky)</td>
-          <td>související</td>
-          <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
-          <td>reasonCode</td>
-          <td>Composition (KOrderCompositionCz).section[orderInformation].entry</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">duvodObjednavky.problem</a></td>
-          <td>A.2.2.1 - Popis problému / diagnózy / stavu - indikační diagnóza (hlavní)</td>
-          <td>ekvivalentní</td>
-          <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
-          <td>reasonCode.coding[diagnosis]</td>
-          <td>Composition (KOrderCompositionCz).section[orderInformation].entry</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">duvodObjednavky.klinickaOtazkaKod</a></td>
-          <td>A.2.2.2 - Klinická otázka kódem</td>
-          <td>ekvivalentní</td>
-          <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
-          <td>reasonCode.coding[reason]</td>
-          <td>Composition (KOrderCompositionCz).section[orderInformation].entry</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">duvodObjednavky.klinickaOtazkaText</a></td>
-          <td>A.2.2.3 - Klinická otázka textem</td>
-          <td>ekvivalentní</td>
-          <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
-          <td>reasonCode.text</td>
-          <td>Composition (KOrderCompositionCz).section[orderInformation].entry</td>
-          <td></td>
-        </tr>
+
+
+
+
 
         {% include order-reason-map-cs.xml composition="KOrderCompositionCz" serviceRequest="KOrderServiceRequestCz" %}
         <tr>

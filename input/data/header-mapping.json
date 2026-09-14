@@ -1,0 +1,1192 @@
+[
+  {
+    "code": "A.1.1",
+    "source": "identifikace",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1 Identifikace pacienta/subjektu",
+      "en": "A.1.1 Patient/subject identification"
+    },
+    "relationship": "related",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.1",
+    "source": "identifikace.jmeno",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.1 Jméno",
+      "en": "A.1.1.1 Given name"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "name.given",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.2",
+    "source": "identifikace.prijmeni",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.2 Příjmení",
+      "en": "A.1.1.2 Family name"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "name.family",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.3",
+    "source": "identifikace.datumNarozeni",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.3 Datum narození",
+      "en": "A.1.1.3 Date of birth"
+    },
+    "relationship": "related",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "birthDate",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "Datum narození; případný čas se předává standardním rozšířením birthTime.",
+      "en": "Date of birth; an available birth time is conveyed using the standard birthTime extension."
+    }
+  },
+  {
+    "code": "A.1.1.4",
+    "source": "identifikace.datumUmrti",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.4 Datum úmrtí",
+      "en": "A.1.1.4 Date of death"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "deceasedDateTime",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.5",
+    "source": "identifikace.identifikator",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.5 Identifikátor",
+      "en": "A.1.1.5 Identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "identifier",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "Hlavní identifikátor se doporučuje RID.",
+      "en": "RID is the recommended primary identifier."
+    }
+  },
+  {
+    "code": "A.1.1.6",
+    "source": "identifikace.statniObcanstvi",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.6 Státní občanství",
+      "en": "A.1.1.6 Citizenship"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "extension[patient-citizenship].extension[code].valueCodeableConcept",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.7",
+    "source": "identifikace.pohlavi",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.7 Pohlaví",
+      "en": "A.1.1.7 Administrative gender"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "gender",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.8",
+    "source": "identifikace.pohlaviProKlinickeUcely",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.8 Pohlaví pro klinické použití",
+      "en": "A.1.1.8 Sex for clinical use"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "extension[sex-for-clinical-use].extension[value].valueCodeableConcept",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.9",
+    "source": "identifikace.komunikacniJazyk",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.9 Komunikační jazyk",
+      "en": "A.1.1.9 Communication language"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "communication.language",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.1.10",
+    "source": "identifikace.handicap",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.1.10 Handicap",
+      "en": "A.1.1.10 Disability"
+    },
+    "relationship": "related",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "text",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "Textový popis v narativu pacienta; nejde o samostatný strukturovaný element pro handicap.",
+      "en": "Narrative description in the patient resource; this is not a dedicated structured disability element."
+    }
+  },
+  {
+    "code": "A.1.2",
+    "source": "kontakt",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2 Kontaktní informace pacienta",
+      "en": "A.1.2 Patient contact information"
+    },
+    "relationship": "related",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.1",
+    "source": "kontakt.adresa",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.1 Adresa",
+      "en": "A.1.2.1 Address"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "address",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.2",
+    "source": "kontakt.telekom",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.2 Telekom",
+      "en": "A.1.2.2 Telecommunications"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "telecom",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.3",
+    "source": "kontakt.preferovanyLekar",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3 Preferovaný lékař",
+      "en": "A.1.2.3 Preferred practitioner"
+    },
+    "relationship": "equivalent",
+    "profile": "PractitionerRole (CZ_PractitionerRoleCore)",
+    "element": "",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve()",
+    "note": {
+      "cs": "Zobrazená cesta používá PractitionerRole. Přímý odkaz na Practitioner je také povolen; pak se vynechá průchod rolí.",
+      "en": "The displayed path uses PractitionerRole. A direct Practitioner reference is also allowed; in that case omit the role traversal."
+    }
+  },
+  {
+    "code": "A.1.2.3.1",
+    "source": "kontakt.preferovanyLekar.identifikator",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3.1 Identifikátor preferovaného lékaře",
+      "en": "A.1.2.3.1 Preferred practitioner identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "identifier",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "Identifikátor zdravotníka (např. KRZP) patří na Practitioner.identifier. PractitionerRole.identifier identifikuje roli.",
+      "en": "The professional identifier (e.g. KRZP) belongs to Practitioner.identifier. PractitionerRole.identifier identifies the role."
+    }
+  },
+  {
+    "code": "A.1.2.3.2",
+    "source": "kontakt.preferovanyLekar.jmeno",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3.2 Jméno preferovaného lékaře",
+      "en": "A.1.2.3.2 Preferred practitioner name"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "name",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.3.3",
+    "source": "kontakt.preferovanyLekar.specializace",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3.3 Specializace preferovaného lékaře",
+      "en": "A.1.2.3.3 Preferred practitioner specialty"
+    },
+    "relationship": "equivalent",
+    "profile": "PractitionerRole (CZ_PractitionerRoleCore)",
+    "element": "specialty",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve()",
+    "note": {
+      "cs": "Odbornost lékaře v dané roli.",
+      "en": "Specialty of the professional in this role."
+    }
+  },
+  {
+    "code": "A.1.2.3.4",
+    "source": "kontakt.preferovanyLekar.organizace",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3.4 Organizace preferovaného lékaře",
+      "en": "A.1.2.3.4 Preferred practitioner organization"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier; name",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.3.5",
+    "source": "kontakt.preferovanyLekar.adresa",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3.5 Adresa preferovaného lékaře",
+      "en": "A.1.2.3.5 Preferred practitioner address"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "address",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.3.6",
+    "source": "kontakt.preferovanyLekar.telekom",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.3.6 Telekom preferovaného lékaře",
+      "en": "A.1.2.3.6 Preferred practitioner telecommunications"
+    },
+    "relationship": "equivalent",
+    "profile": "PractitionerRole (CZ_PractitionerRoleCore)",
+    "element": "telecom",
+    "navigation": "Composition.subject.resolve().generalPractitioner.resolve()",
+    "note": {
+      "cs": "Kontakt v dané roli; osobní kontakt lze uvést na odkazovaném Practitioner.telecom.",
+      "en": "Contact in this role; personal contact may be recorded on the referenced Practitioner.telecom."
+    }
+  },
+  {
+    "code": "A.1.2.4",
+    "source": "kontakt.kontaktniOsoba",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4 Zákonní zástupci a další kontaktní osoby",
+      "en": "A.1.2.4 Legal representatives and other contact persons"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.4.1",
+    "source": "kontakt.kontaktniOsoba.typ",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.1 Typ kontaktu",
+      "en": "A.1.2.4.1 Contact type"
+    },
+    "relationship": "related",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact.relationship",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.4.2",
+    "source": "kontakt.kontaktniOsoba.vztah",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.2 Vztah k pacientovi",
+      "en": "A.1.2.4.2 Relationship k pacientovi"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact.relationship",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.4.3",
+    "source": "kontakt.kontaktniOsoba.identifikator",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.3 Identifikátor osoby",
+      "en": "A.1.2.4.3 Person identifier"
+    },
+    "relationship": "unmatched",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "",
+    "navigation": "",
+    "note": {
+      "cs": "Patient.contact nemá identifier. Tento údaj nemá přímé mapování; pro strukturované předání je nutné dohodnout rozšíření nebo vazbu na RelatedPerson.",
+      "en": "Patient.contact has no identifier. There is no direct mapping; structured exchange requires an agreed extension or a RelatedPerson relationship."
+    }
+  },
+  {
+    "code": "A.1.2.4.4",
+    "source": "kontakt.kontaktniOsoba.jmeno",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.4 Jméno osoby",
+      "en": "A.1.2.4.4 Given name"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact.name.given",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.4.5",
+    "source": "kontakt.kontaktniOsoba.prijmeni",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.5 Příjmení osoby",
+      "en": "A.1.2.4.5 Family name"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact.name.family",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.4.6",
+    "source": "kontakt.kontaktniOsoba.adresa",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.6 Adresa",
+      "en": "A.1.2.4.6 Address"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact.address",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.2.4.7",
+    "source": "kontakt.kontaktniOsoba.telekom",
+    "model": "subject",
+    "label": {
+      "cs": "A.1.2.4.7 Telekom",
+      "en": "A.1.2.4.7 Telecommunications"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore)",
+    "element": "contact.telecom",
+    "navigation": "Composition.subject.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.3",
+    "source": "zdravotniPojisteni",
+    "model": "header",
+    "label": {
+      "cs": "A.1.3 Zdravotní pojištění",
+      "en": "A.1.3 Health insurance"
+    },
+    "relationship": "related",
+    "profile": "Coverage (CZ_Coverage)",
+    "element": "",
+    "navigation": "Composition.section[orderInformation].entry.resolve().insurance.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.3.1",
+    "source": "kod",
+    "model": "payer",
+    "label": {
+      "cs": "A.1.3.1 Kód zdravotní pojišťovny",
+      "en": "A.1.3.1 Health insurer code"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier",
+    "navigation": "Composition.section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.3.2",
+    "source": "nazev",
+    "model": "payer",
+    "label": {
+      "cs": "A.1.3.2 Název zdravotní pojišťovny",
+      "en": "A.1.3.2 Health insurer name"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "name",
+    "navigation": "Composition.section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.3.3",
+    "source": "cisloPojistence",
+    "model": "payer",
+    "label": {
+      "cs": "A.1.3.3 Číslo zdravotního pojištění",
+      "en": "A.1.3.3 Health insurance number"
+    },
+    "relationship": "related",
+    "profile": "Coverage (CZ_Coverage)",
+    "element": "subscriberId",
+    "navigation": "Composition.section[orderInformation].entry.resolve().insurance.resolve()",
+    "note": {
+      "cs": "CZ Core určuje subscriberId pro číslo pojištěnce. Coverage.identifier identifikuje pojistné krytí nebo smlouvu. Ze zdrojového Identifier se přenáší value.",
+      "en": "CZ Core uses subscriberId for the insured person number. Coverage.identifier identifies coverage or the insurance contract. Transfer the source Identifier.value."
+    }
+  },
+  {
+    "code": "A.1.4",
+    "source": "uhrada",
+    "model": "header",
+    "label": {
+      "cs": "A.1.4 Úhrada",
+      "en": "A.1.4 Coverage"
+    },
+    "relationship": "related",
+    "profile": "Coverage (CZ_Coverage)",
+    "element": "",
+    "navigation": "Composition.section[coverage].entry.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.4.1",
+    "source": "method",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.1 Způsob úhrady",
+      "en": "A.1.4.1 Coverage type"
+    },
+    "relationship": "equivalent",
+    "profile": "Coverage (CZ_Coverage)",
+    "element": "type",
+    "navigation": "Composition.section[coverage].entry.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.4.2",
+    "source": "infoOPlatci",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2 Informace o plátci",
+      "en": "A.1.4.2 Payer information"
+    },
+    "relationship": "equivalent",
+    "profile": "Coverage (CZ_Coverage)",
+    "element": "payor",
+    "navigation": "Composition.section[coverage].entry.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.4.2.1",
+    "source": "infoOPlatci.jmeno",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2.1 - Jméno plátce",
+      "en": "A.1.4.2.1 - Payer name"
+    },
+    "relationship": "equivalent",
+    "profile": "Patient (CZ_PatientCore) / RelatedPerson (CZ_RelatedPersonCore)",
+    "element": "name",
+    "navigation": "Composition.section[coverage].entry.resolve().payor.resolve()",
+    "note": {
+      "cs": "Použije se pro plátce, který je fyzickou osobou.",
+      "en": "Used when the payer is an individual."
+    }
+  },
+  {
+    "code": "A.1.4.2.2",
+    "source": "infoOPlatci.idOrganizace",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2.2 - ID organizace",
+      "en": "A.1.4.2.2 - Payer organization ID"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier",
+    "navigation": "Composition.section[coverage].entry.resolve().payor.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.4.2.3",
+    "source": "infoOPlatci.organizace",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2.3 - Organizace plátce",
+      "en": "A.1.4.2.3 - Payer organization"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "",
+    "navigation": "Composition.section[coverage].entry.resolve().payor.resolve()",
+    "note": {
+      "cs": "Údaje organizace jsou obsahem resource odkazovaného z Coverage.payor.",
+      "en": "The organization details are carried by the resource referenced from Coverage.payor."
+    }
+  },
+  {
+    "code": "A.1.4.2.4",
+    "source": "infoOPlatci.adresa",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2.4 - Adresa",
+      "en": "A.1.4.2.4 - Address"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore) / Patient (CZ_PatientCore) / RelatedPerson (CZ_RelatedPersonCore)",
+    "element": "address",
+    "navigation": "Composition.section[coverage].entry.resolve().payor.resolve()",
+    "note": {
+      "cs": "Konkrétní typ resource závisí na typu plátce.",
+      "en": "The concrete resource type depends on the payer type."
+    }
+  },
+  {
+    "code": "A.1.4.2.5",
+    "source": "infoOPlatci.zeme",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2.5 - Země",
+      "en": "A.1.4.2.5 - Country"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore) / Patient (CZ_PatientCore) / RelatedPerson (CZ_RelatedPersonCore)",
+    "element": "address.country",
+    "navigation": "Composition.section[coverage].entry.resolve().payor.resolve()",
+    "note": {
+      "cs": "Do address.country se převádí kód země; nejde o přímé kopírování CodeableConcept.",
+      "en": "Convert the country code to address.country; do not copy a CodeableConcept directly."
+    }
+  },
+  {
+    "code": "A.1.4.2.6",
+    "source": "infoOPlatci.telekom",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.2.6 - Telekom",
+      "en": "A.1.4.2.6 - Telecom"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore) / Patient (CZ_PatientCore) / RelatedPerson (CZ_RelatedPersonCore)",
+    "element": "telecom",
+    "navigation": "Composition.section[coverage].entry.resolve().payor.resolve()",
+    "note": {
+      "cs": "Konkrétní typ resource závisí na typu plátce.",
+      "en": "The concrete resource type depends on the payer type."
+    }
+  },
+  {
+    "code": "A.1.5",
+    "source": "objednatel",
+    "model": "header",
+    "label": {
+      "cs": "A.1.5 Žadatel",
+      "en": "A.1.5 Author"
+    },
+    "relationship": "equivalent",
+    "profile": "PractitionerRole (CZ_PractitionerRoleCore)",
+    "element": "",
+    "navigation": "Composition.author.resolve()",
+    "note": {
+      "cs": "Autor dokumentu v roli zdravotníka. CZ_PractitionerRoleOrder je specializace CZ_PractitionerRoleCore ze stejného balíčku CZ Core. Objednatele jednotlivé služby určuje ServiceRequest.requester.",
+      "en": "Document author acting as a professional. CZ_PractitionerRoleOrder specializes CZ_PractitionerRoleCore in the same CZ Core package. ServiceRequest.requester identifies the requester of each service."
+    }
+  },
+  {
+    "code": "A.1.5.1",
+    "source": "identifikator",
+    "model": "author",
+    "label": {
+      "cs": "A.1.5.1 Identifikátor zadavatele objednávky",
+      "en": "A.1.5.1 Request author identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "identifier",
+    "navigation": "Composition.author.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.5.2",
+    "source": "jmeno",
+    "model": "author",
+    "label": {
+      "cs": "A.1.5.2 Jméno zadavatele objednávky",
+      "en": "A.1.5.2 Request author name"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "name",
+    "navigation": "Composition.author.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.5.3",
+    "source": "adresa",
+    "model": "author",
+    "label": {
+      "cs": "A.1.5.3 Kontaktní údaje zadavatele objednávky",
+      "en": "A.1.5.3 Request author contact details"
+    },
+    "relationship": "related",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "address; telecom",
+    "navigation": "Composition.author.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "Osobní adresa a telekomunikační kontakt; podle kontextu také kontakty role nebo organizace.",
+      "en": "Personal address and telecom; role or organization contact information may also apply."
+    }
+  },
+  {
+    "code": "A.1.5.4",
+    "source": "organizace",
+    "model": "author",
+    "label": {
+      "cs": "A.1.5.4 Organizace zadavatele objednávky",
+      "en": "A.1.5.4 Request author organization"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier; name; address; telecom",
+    "navigation": "Composition.author.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.6",
+    "source": "{{ include.performer_element }}",
+    "model": "header",
+    "label": {
+      "cs": "A.1.6 Provádějící",
+      "en": "A.1.6 Requested performer"
+    },
+    "relationship": "equivalent",
+    "profile": "PractitionerRole (CZ_PractitionerRoleCore)",
+    "element": "",
+    "navigation": "Composition.section[orderInformation].entry.resolve().performer.resolve()",
+    "note": {
+      "cs": "Zobrazená cesta je pro osobu v roli. Je-li performer přímo Organization, použijí se její identifikační a kontaktní údaje bez průchodu PractitionerRole. Neadresná žádanka performer nevyplňuje.",
+      "en": "The displayed path is for a person in a role. If performer directly references Organization, use its identification and contact fields without traversing PractitionerRole. An unaddressed request omits performer."
+    }
+  },
+  {
+    "code": "A.1.6.1",
+    "source": "id",
+    "model": "performer",
+    "label": {
+      "cs": "A.1.6.1 ID provádějícího",
+      "en": "A.1.6.1 Requested performer identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "identifier",
+    "navigation": "Composition.section[orderInformation].entry.resolve().performer.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.6.2",
+    "source": "jmeno",
+    "model": "performer",
+    "label": {
+      "cs": "A.1.6.2 Jméno provádějícího",
+      "en": "A.1.6.2 Requested performer name"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "name",
+    "navigation": "Composition.section[orderInformation].entry.resolve().performer.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.6.3",
+    "source": "idOrganizace",
+    "model": "performer",
+    "label": {
+      "cs": "A.1.6.3 ID organizace provádějícího",
+      "en": "A.1.6.3 Requested performer organization identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier",
+    "navigation": "Composition.section[orderInformation].entry.resolve().performer.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.6.4",
+    "source": "organizace",
+    "model": "performer",
+    "label": {
+      "cs": "A.1.6.4 Organizace provádějícího",
+      "en": "A.1.6.4 Requested performer organization"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier; name; address; telecom",
+    "navigation": "Composition.section[orderInformation].entry.resolve().performer.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.7",
+    "source": "dodatecniPrijemci",
+    "model": "header",
+    "label": {
+      "cs": "A.1.7 Příjemce nálezu",
+      "en": "A.1.7 Information recipient"
+    },
+    "relationship": "equivalent",
+    "profile": "PractitionerRole (CZ_PractitionerRoleCore)",
+    "element": "",
+    "navigation": "Composition.extension[informationRecipient].valueReference.resolve()",
+    "note": {
+      "cs": "Zobrazená cesta je pro PractitionerRole. Přímé odkazy na osobu nebo organizaci se zpracují podle skutečného typu reference.",
+      "en": "The displayed path is for PractitionerRole. Handle direct person or organization references according to the actual target type."
+    }
+  },
+  {
+    "code": "A.1.7.1",
+    "source": "identifikator",
+    "model": "recipient",
+    "label": {
+      "cs": "A.1.7.1 Identifikátor příjemce",
+      "en": "A.1.7.1 Information recipient identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "identifier",
+    "navigation": "Composition.extension[informationRecipient].valueReference.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.7.2",
+    "source": "jmeno",
+    "model": "recipient",
+    "label": {
+      "cs": "A.1.7.2 Jméno příjemce",
+      "en": "A.1.7.2 Information recipient name"
+    },
+    "relationship": "equivalent",
+    "profile": "Practitioner (CZ_PractitionerCore)",
+    "element": "name",
+    "navigation": "Composition.extension[informationRecipient].valueReference.resolve().practitioner.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.7.3",
+    "source": "idOrganizace",
+    "model": "recipient",
+    "label": {
+      "cs": "A.1.7.3 ID organizace příjemce",
+      "en": "A.1.7.3 Information recipient organization identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier",
+    "navigation": "Composition.extension[informationRecipient].valueReference.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.7.4",
+    "source": "organizace",
+    "model": "recipient",
+    "label": {
+      "cs": "A.1.7.4 Organizace příjemce",
+      "en": "A.1.7.4 Information recipient organization"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier; name; address; telecom",
+    "navigation": "Composition.extension[informationRecipient].valueReference.resolve().organization.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.1",
+    "source": "idDokumentu",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.1 ID dokumentu",
+      "en": "A.1.8.1 Document identifier"
+    },
+    "relationship": "equivalent",
+    "profile": "Bundle ({{ include.bundle }})",
+    "element": "identifier",
+    "navigation": "",
+    "note": {
+      "cs": "Pokud jde o identifikátor konkrétní instance objednávky.",
+      "en": "When identifying a specific request instance."
+    }
+  },
+  {
+    "code": "A.1.8",
+    "source": "metadataDokumentu",
+    "model": "header",
+    "label": {
+      "cs": "A.1.8 Metadata dokumentu",
+      "en": "A.1.8 Document metadata"
+    },
+    "relationship": "related",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "",
+    "navigation": "",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.2",
+    "source": "kategorie",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.2 Kategorie",
+      "en": "A.1.8.2 Document type"
+    },
+    "relationship": "equivalent",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "category",
+    "navigation": "",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.3",
+    "source": "stav",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.3 Stav",
+      "en": "A.1.8.3 Document status"
+    },
+    "relationship": "equivalent",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "status",
+    "navigation": "",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.4",
+    "source": "datumACas",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.4 Datum a čas vytvoření",
+      "en": "A.1.8.4 Date and time of authoring/issuing"
+    },
+    "relationship": "equivalent",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "date",
+    "navigation": "",
+    "note": {
+      "cs": "Čas vytvoření dokumentu nezávisle na jeho verzi.",
+      "en": "Time at which the document was authored or issued, independent of its version."
+    }
+  },
+  {
+    "code": "A.1.8.4",
+    "source": "datumACas",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.4 Datum a čas sestavení dokumentu",
+      "en": "A.1.8.4 Date and time of document assembly"
+    },
+    "relationship": "related",
+    "profile": "Bundle ({{ include.bundle }})",
+    "element": "timestamp",
+    "navigation": "",
+    "note": {
+      "cs": "Čas sestavení Bundle; může se lišit od času vytvoření dokumentu v Composition.date.",
+      "en": "Bundle assembly time; it may differ from document creation time in Composition.date."
+    }
+  },
+  {
+    "code": "A.1.8.5",
+    "source": "nazev",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.5 Název dokumentu",
+      "en": "A.1.8.5 Document title"
+    },
+    "relationship": "equivalent",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "title",
+    "navigation": "",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.6",
+    "source": "spravce",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.6 Správce dokumentu",
+      "en": "A.1.8.6 Custodian"
+    },
+    "relationship": "related",
+    "profile": "Organization (CZ_OrganizationCore)",
+    "element": "identifier; name",
+    "navigation": "Composition.custodian.resolve()",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.7",
+    "source": "duvernost",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.7 Důvěrnost",
+      "en": "A.1.8.7 Confidentiality"
+    },
+    "relationship": "equivalent",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "confidentiality",
+    "navigation": "",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.8",
+    "source": "jazyk",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.8 Jazyk",
+      "en": "A.1.8.8 Language"
+    },
+    "relationship": "related",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "language",
+    "navigation": "",
+    "note": {
+      "cs": "",
+      "en": ""
+    }
+  },
+  {
+    "code": "A.1.8.9",
+    "source": "verze",
+    "model": "metadata",
+    "label": {
+      "cs": "A.1.8.9 Verze",
+      "en": "A.1.8.9 Business version"
+    },
+    "relationship": "equivalent",
+    "profile": "Composition ({{ include.composition }})",
+    "element": "extension.where(url = 'http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber').valueString",
+    "navigation": "",
+    "note": {
+      "cs": "Business verze dokumentu ve standardním rozšíření composition-clinicaldocument-versionNumber, nikoli meta.versionId.",
+      "en": "Business document version in the standard composition-clinicaldocument-versionNumber extension, not meta.versionId."
+    }
+  },
+  {
+    "code": "A.1.9.1",
+    "source": "elektronickyPodpis",
+    "model": "signature",
+    "label": {
+      "cs": "A.1.9.1 Elektronický podpis nebo pečeť dokumentu",
+      "en": "A.1.9.1 Electronic signature or seal"
+    },
+    "relationship": "equivalent",
+    "profile": "Bundle ({{ include.bundle }})",
+    "element": "signature",
+    "navigation": "",
+    "note": {
+      "cs": "Podpis celého dokumentového Bundle. Obsah podpisu je v signature.data; celý zdrojový Signature se mapuje na signature. Podpisy jednotlivých zdrojů lze předat odděleně pomocí CZ_Provenance.signature a target.",
+      "en": "Signature of the complete document Bundle. Signature content is in signature.data; map the complete source Signature to signature. Signatures of individual resources can be conveyed separately using CZ_Provenance.signature and target."
+    }
+  },
+  {
+    "code": "A.1.9.2",
+    "source": "casoveRazitko",
+    "model": "signature",
+    "label": {
+      "cs": "A.1.9.2 Elektronické časové razítko",
+      "en": "A.1.9.2 Electronic timestamp"
+    },
+    "relationship": "related",
+    "profile": "Bundle ({{ include.bundle }})",
+    "element": "signature.when",
+    "navigation": "",
+    "note": {
+      "cs": "signature.when je čas podpisu, nikoli samostatný kryptografický token časového razítka.",
+      "en": "signature.when is the signing time, not a standalone cryptographic timestamp token."
+    }
+  }
+]

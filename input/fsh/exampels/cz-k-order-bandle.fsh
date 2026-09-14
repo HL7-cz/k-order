@@ -16,15 +16,20 @@ Usage: #example
 * author[0] = Reference(Practitioner-Author-detail)
 * extension[informationRecipient][0].valueReference = Reference(PractitionerRole-Pulmonologist)
 
-* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[orderInformation].entry[0] = Reference(KOrderServiceRequest-1)
 * section[orderInformation].entry[1] = Reference(KOrderServiceRequest-2)
+* section[clinicalIndication].text.status = #generated
+* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Objasnění příčiny námahové dušnosti.</div>"
+* section[clinicalIndication].entry[0] = Reference(KOrderCondition-Main)
+* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
+* section[carePlan].text.status = #generated
+* section[carePlan].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola u odesílajícího lékaře po dokončení vyšetření.</div>"
 
 * identifier.value = "KORD-COMP-2025-001"
 
 // ------------------------- Condition -------------------------------------
 Instance: KOrderCondition-Main
-InstanceOf: CZ_ConditionCore
+InstanceOf: CZ_ClinicalQuestion
 Usage: #example
 Description: """
 CZ: Klinický stav odůvodňující kardiologickou žádanku.
@@ -33,6 +38,7 @@ EN: Clinical condition justifying the cardiology order.
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[+] = $sctCZ#267036007
+* code.text = "Námahová dušnost k objasnění příčiny"
 // * code.coding[=].display = "Dusnost"
 
 // ------------------------- ServiceRequests --------------------------------

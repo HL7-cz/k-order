@@ -68,17 +68,36 @@ Condition a DocumentReference.
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
 * section ^slicing.ordered = false
+* section ^comment = "Recommended document presentation order follows the declared slices, with specialized clinical sections after the clinical question and attachments last. Common sections retain the IMG-Order sequence. As in IMG-Order, slicing does not enforce instance order."
 
 * section contains
     orderInformation 1..1 MS and
+    clinicalIndication 0..1 MS and
+    goals 0..1 MS and
     coverage 1..1 MS and
     appointment 0..1 MS and
-    reasons 0..1 MS and
-    supportingInformation 0..1 MS and
+    carePlan 0..1 MS and
     medicalDevices 0..* MS and
-    attachments 0..* MS and
-    signature 0..1 MS and
-    goals 0..1 MS
+    supportingInformation 0..1 MS and
+    attachments 0..* MS
+
+* section[orderInformation]
+  * ^short = "Requested physiotherapy services"
+  * ^definition = "References to FT ServiceRequest resources specifying the requested physiotherapy. A general request may use the general SNOMED CT physical therapy procedure when individual procedures are to be selected by the physiotherapist."
+  * code = $loinc#57154-7
+  * title = "Requested physiotherapy procedures"
+  * entry 1..*
+  * entry only Reference(FTServiceRequestCz)
+
+* insert OrderClinicalIndicationSection
+
+* section[goals]
+  * insert SectionComRules(
+      Expected goals of physiotherapy,
+      References to Goal resources describing the patient-specific functional or clinical outcomes expected from the requested physiotherapy.,
+      $loinc#61146-7)
+  * entry 0..*
+  * entry only Reference(Goal)
 
 * section[coverage]
   * ^short = "Coverage for the requested services"
@@ -88,13 +107,17 @@ Condition a DocumentReference.
   * entry 1..*
   * entry only Reference(CZ_Coverage)
 
-* section[reasons]
-  * ^short = "Clinical indication for physiotherapy"
-  * ^definition = "Narrative description of the clinical indication and justification for the requested physiotherapy. Structured diagnoses and clinical findings are referenced from the supporting information section."
-  * code = $loinc#29299-5
-  * title = "Clinical justification"
-  * text 0..1 MS
-  * entry 0..0
+
+* section[appointment]
+  * ^short = "Scheduled appointment"
+  * ^definition = "References the appointment associated with the requested physiotherapy service when a date has already been scheduled."
+  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+  * ^extension[0].valueString = "Section"
+  * code = $loinc#56446-8
+  * entry 0..
+  * entry only Reference(CZ_AppointmentCore)
+
+* insert OrderCarePlanSection
 
 * section[medicalDevices]
   * ^short = "Relevant medical devices and implants"
@@ -112,7 +135,7 @@ Condition a DocumentReference.
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
   * entry 0..
-  * entry only Reference(CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_CarePlanCore)
+  * entry only Reference(CZ_MedicationStatementCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
   * entry ^slicing.discriminator[0].type = #profile
   * entry ^slicing.discriminator[0].path = "resolve()"
   * entry ^slicing.rules = #open
@@ -138,23 +161,6 @@ Condition a DocumentReference.
   * entry[hospitalization] only Reference(CZ_Encounter)
   * entry[immunization] only Reference(CZ_ImmunizationCore)
 
-* section[orderInformation]
-  * ^short = "Requested physiotherapy services"
-  * ^definition = "References to FT ServiceRequest resources specifying the requested physiotherapy. A general request may use the general SNOMED CT physical therapy procedure when individual procedures are to be selected by the physiotherapist."
-  * code = $loinc#57154-7
-  * title = "Requested physiotherapy procedures"
-  * entry 1..*
-  * entry only Reference(FTServiceRequestCz)
-
-* section[appointment]
-  * ^short = "Scheduled appointment"
-  * ^definition = "References the appointment associated with the requested physiotherapy service when a date has already been scheduled."
-  * ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-  * ^extension[0].valueString = "Section"
-  * code = $loinc#56446-8
-  * entry 0..
-  * entry only Reference(CZ_AppointmentCore)
-
 * section[attachments]
   * ^short = "Documents attached to the order"
   * ^definition = "References to DocumentReference resources containing reports images or other documents supplied with the order."
@@ -163,30 +169,13 @@ Condition a DocumentReference.
   * entry 0..*
   * entry only Reference(CZ_Attachment)
 
-* section[signature]
-  * ^short = "Document signature and provenance"
-  * ^definition = "Reference to a Provenance resource containing the electronic signature and provenance information for the order document."
-  * code = $loinc#64292-6
-  * title = "Signature"
-  * entry 0..1
-  * entry only Reference(CZ_Provenance)
-
-* section[goals]
-  * insert SectionComRules(
-      Expected goals of physiotherapy,
-      References to Goal resources describing the patient-specific functional or clinical outcomes expected from the requested physiotherapy.,
-      $loinc#61146-7)
-  * entry 0..*
-  * entry only Reference(Goal)
-
 * section.author only Reference(
   CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_DeviceObserver or
   CZ_PatientCore or CZ_RelatedPersonCore or CZ_OrganizationCore
 )
 
 * insert OrderCompositionSupportingInformation
-* section[supportingInformation] ^definition = "Structured clinical context for the physiotherapy document, including conditions, current mobility, examination findings, measurements, medication, allergies, alerts, relevant encounters, immunizations and care plans. Use section[reasons].text for the narrative indication, section[goals] for intended outcomes and section[medicalDevices] for implants or device use. Reference relevant supporting resources from each individual FT ServiceRequest as needed."
-* section[reasons] ^comment = "This section is narrative-only: entry is prohibited. Record the structured indication for an individual intervention in ServiceRequest.reasonCode or reasonReference. A corresponding Condition may also be listed in supportingInformation so that it is part of the structured document context."
+* section[supportingInformation] ^definition = "Shared structured clinical context in A.3.1 and additional supporting information in A.3.4, including measurements, conditions, medication, allergies, alerts, mobility, findings, encounters and immunizations. Use clinicalIndication for the reason and clinical question, carePlan for planned care and medicalDevices for device use. Link the same resources to individual ServiceRequest instances where relevant."
 * section[goals] ^comment = "Describe intended outcomes, such as improved walking ability, in Goal resources here. Link each applicable Goal from FTServiceRequest.supportingInfo[goal]. Describe current mobility in supportingInformation.entry[mobility], keeping the observed state distinct from the intended outcome."
 
 Extension: FTOrderRequestReference

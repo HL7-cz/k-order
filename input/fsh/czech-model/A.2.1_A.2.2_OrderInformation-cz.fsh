@@ -20,7 +20,7 @@ Description:  """Informace o objednávce a Odůvodnění vyšetření (důvod ob
 - Preferovaný systém: Orphacode"""	
 * duvodObjednavky.klinickaOtazkaKod 0..* CodeableConcept "A.2.2.2 - Klinická otázka kódem" """kódovaná informace z 2.2.3, pokud je zadána
 - Preferovaný systém: SNOMED CT"""
-* duvodObjednavky.klinickaOtazkaText 1..1 string "A.2.2.3 - Klinická otázka textem" """Klinická otázka, na kterou má provedení zobrazovací metody odpovědět. Příklad: \"Nemá pacient nádor plic?\"."""
+* duvodObjednavky.klinickaOtazkaText 1..1 string "A.2.2.3 - Klinická otázka textem" """Klinická otázka, na kterou má požadované vyšetření nebo péče odpovědět. Mapuje se na text klinické sekce; pokud popisuje klinický problém reprezentovaný jako Condition, také na CZ_ClinicalQuestion.code.text."""
 * duvodObjednavky.duvodKod 0..* CodeableConcept "A.2.2.4 - Důvod objednávky kódem" """kódovaná informace z 2.2.5, pokud je zadána
 - Preferovaný systém: SNOMED CT ReasonCodelist 243796009"""
 * duvodObjednavky.duvodText 0..1 string "A.2.2.5 - Důvod objednávky textem" """Důvod vystavení objednávky k vyšetření vyjádřený volným textem (např. \"3 týdny neustupující kašel\")"""

@@ -7,6 +7,7 @@ Tato stránka sdružuje příklady dokumentových Bundle pro profily žádanek.
 1. [Kardiologické konzilium pro námahovou dušnost](Bundle-BundleKOrderExample.html) - Neadresná žádanka praktického lékaře pro kardiologické konzilium a echokardiografii s pneumologem jako dodatečným příjemcem výsledku.
 2. [Urgentní dermatologické konzilium pro suspektní pigmentový útvar](Bundle-BundleDermatologyUrgentExample.html) - Adresná urgentní žádanka do pigmentové poradny s přiloženou klinickou fotodokumentací.
 3. [Nefrologické konzilium a převzetí pacienta do péče](Bundle-BundleNephrologyHandoverExample.html) - Žádanka pro převzetí pacienta s chronickým onemocněním ledvin ve stadiu 4 do nefrologické péče včetně relevantních laboratorních výsledků.
+4. [Doporučení k hospitalizaci](Bundle-BundleHospitalAdmissionRecommendationExample.html) - Samostatný ServiceRequest s intent `proposal`, vlastním identifikátorem, důvodem a podpůrnými výsledky. Přijetí k hospitalizaci je vlastní navrženou službou.
 
 ## Příklady FT-žádanek
 

@@ -20,18 +20,20 @@ EN: Physiotherapy order Composition with four requested procedures.
 * extension[presentedForm].valueAttachment.contentType = #application/pdf
 * extension[presentedForm].valueAttachment.url = "https://example.cz/files/ft-document.pdf"
 * type = $loinc#57154-7 "Physical therapy Referral note"
-// coverage sekce – recyklujeme existující Coverage
-* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
-
-// reasons – společné pro celý poukaz (stav/cíl/rizika)
-* section[reasons].text.status = #generated
-* section[reasons].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D</div>"
-
-// orderInformation – více FT ServiceRequestů
+// Requested physiotherapy services.
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-21113)
+
 * section[orderInformation].entry[1] = Reference(FTServiceRequest-21225)
 * section[orderInformation].entry[2] = Reference(FTServiceRequest-21415)
 * section[orderInformation].entry[3] = Reference(FTServiceRequest-21413)
+// Clinical indication shared by the requested services.
+* section[clinicalIndication].text.status = #generated
+
+* section[clinicalIndication].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D</div>"
+// Reuse the existing Coverage.
+* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
+* section[carePlan].text.status = #generated
+* section[carePlan].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola po dokončení předepsané fyzioterapie.</div>"
 
 // identifier.system je fixed v profilu → nastavuje se jen value
 * identifier.value = "FT-COMP-2025-001"

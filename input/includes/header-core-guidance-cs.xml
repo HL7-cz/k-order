@@ -1,0 +1,5 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>Hlavička A.1 používá společné mapování IMG, K a FT na CZ Core 1.0.0. Liší se pouze doménový profil Composition, ServiceRequest a Bundle a názvy zdrojových modelů. Obě jazykové tabulky odkazují na české logické modely; jazyk mění popisky, nikoli FHIR cíle.</p>
+  <p>Sloupec Reference uvádí navigaci ke zdroji, sloupec Prvek jeho relativní element. Zápis section[název] označuje slice profilu, nikoli doslovný FHIRPath; resolve() znamená průchod referencí. Ve skutečném FHIRPath se sekce vybírá podle jejího kódu. Doménový ServiceRequest je v section[orderInformation].entry. Stejné reference se znovu používají pro dokument a příslušný požadavek.</p>
+  <p>CZ_PractitionerRoleOrder je specializace z balíčku CZ Core. Tabulka zobrazuje společný základ CZ_PractitionerRoleCore; omezení konkrétního profilu žádanky zůstávají závazná. Chybějící přímé mapování identifikátoru kontaktní osoby je uvedeno výslovně. Čas podpisu není samostatný kryptografický token časového razítka.</p>
+</div>

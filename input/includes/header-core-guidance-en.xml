@@ -1,0 +1,5 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>Header A.1 uses the same CZ Core 1.0.0 mapping for IMG, K and FT. Only the domain Composition, ServiceRequest and Bundle profiles and source model names differ. Both language tables reference the Czech logical models; language changes labels, not FHIR targets.</p>
+  <p>The Reference column navigates to the resource; Element is relative to that resource. section[name] denotes a profile slice, not literal FHIRPath; resolve() traverses a reference. Executable FHIRPath selects sections by their codes. The domain ServiceRequest is in section[orderInformation].entry. Reuse the same resources for document and applicable request references.</p>
+  <p>CZ_PractitionerRoleOrder is a specialization from the CZ Core package. The table shows the common CZ_PractitionerRoleCore base; constraints of each order profile still apply. The lack of a direct mapping for a contact person's identifier is stated explicitly. Signing time is not a standalone cryptographic timestamp token.</p>
+</div>

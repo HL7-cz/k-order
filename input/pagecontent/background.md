@@ -28,7 +28,23 @@ As of February 19, 2025, requests for additional healthcare services include, in
 
 This implementation guide translates the aforementioned legislative requirements into an interoperable electronic format based on the HL7 FHIR R4 standard.
 
+### Order section sequence
+
+Common sections retain the IMG-Order sequence: `orderInformation`, `clinicalIndication` (the counterpart of IMG `clinicalQuestion`), `coverage`, `appointment`, `carePlan`, `medicalDevices`, `supportingInformation`, `attachments`. The requested service and the question it should answer come first. Attachments come last.
+
+Specialized sections without a separate IMG-Order counterpart are inserted according to their relevance to assessing the request:
+
+| Profile | Position and sequence | Rationale |
+| --- | --- | --- |
+| K | After `clinicalIndication`: `differentialDiagnosis`, `examinationResults`, `currentTreatment`, `significantMedicalHistory` | Present suspected diagnoses to assess, available results, current treatment and historical context in that order. Include information relevant to the requested care. |
+| FT | After `clinicalIndication`: `goals` | The expected functional outcome directly clarifies the purpose of the requested therapy. |
+| K | Before `attachments`: `referencedDocumentation` | Links to further documentation follow the clinical content; transmitted attachments close the document. |
+
+This recommended presentation order is reflected in profile declarations and examples. As in IMG-Order, `section.slicing.ordered = false`, so a different incoming section order alone is not a validation error. Priority does not change section cardinalities or population requirements. User interfaces should highlight significant alerts from `supportingInformation` even with this section sequence.
+
 ### Supporting information
+
+**Recommendation for hospital admission or transfer of care.** Represent each such service by a separate `ServiceRequest` with its own identifier, `code`, patient and requester. Use `intent = proposal` for a recommendation and `intent = order` for an actual order. Reference the new request from `Composition.section[orderInformation].entry` and include it in the document Bundle. If no service code has been agreed, use `code.text`. Do not place the recommendation in a disposition extension on a request for another examination. Use `basedOn` only when the new request actually fulfils the referenced proposal or order; chronological sequence alone is insufficient. See the standard element definitions in [FHIR R4 ServiceRequest](https://hl7.org/fhir/R4/servicerequest-definitions.html) and the [hospital admission recommendation example](Bundle-BundleHospitalAdmissionRecommendationExample.html).
 
 Supporting information helps the recipient assess and plan care. An order represents it at two levels:
 
@@ -40,7 +56,9 @@ Supporting information helps the recipient assess and plan care. An order repres
 
 Listing a resource in a Composition section does not automatically associate it with every ServiceRequest. If a mobility observation affects two services, both requests can reference that same Observation. Include one instance in the document Bundle and reuse its reference in the Composition and the relevant requests.
 
-**Choosing a document section.** In a K-order, prefer `significantMedicalHistory` for established history, `differentialDiagnosis` for diagnostic alternatives, `currentTreatment` for medication and `examinationResults` for DiagnosticReport resources. Use `supportingInformation` for the remaining relevant context. In an FT-order, `reasons` is narrative-only and prohibits `entry`; structured conditions can be listed in `supportingInformation`, with the indication for an individual service linked through its `reasonReference`. Both document types use `medicalDevices` for device use; FT uses `goals` for intended outcomes.
+**Choosing a document section.** K and FT share `clinicalIndication` for the reason and clinical question (required narrative when present, optional CZ_ClinicalQuestion entries), `carePlan` for A.3.3 planned care, and `supportingInformation` for shared A.3.1 clinical data and A.3.4 additional information. Keep structured medication and conditions in the common clinical section. K-specific sections describe A.3.2 consultation content; reuse existing resources if references are also needed there. Both document types use `medicalDevices` for device use; FT uses `goals` for intended outcomes. The indication for each individual service remains in ServiceRequest.reasonCode or reasonReference.
+
+**Migration.** Replace FT `reasons` (LOINC 29299-5) with `clinicalIndication` (LOINC 104720-8), retaining the indication narrative. Move planned CarePlan references from `supportingInformation` to `carePlan` (LOINC 18776-5). Both new sections are optional and occur at most once. These sections adapt the clinical-question and care-plan sections of IMG-Order to K/FT using CZ Core target profiles; the IMG-Order profile itself is maintained separately.
 
 **Choosing a slice.** The following names apply to both `supportingInfo` and `supportingInformation.entry`:
 
@@ -57,7 +75,7 @@ Listing a resource in a Composition section does not automatically associate it 
 | `immunization` | A relevant vaccination record. |
 | `additionalObservation` | A formalized observation conforming to CZ_AdditionalObservationOrder with category `survey`; this is not a generic slot for laboratory results. |
 
-An individual laboratory result conforming to CZ_ObservationOrder uses the open part of the list, outside the named specialized slices. Open slicing still respects the declared target profiles. Composition also permits CZ_CarePlanCore, while neither ServiceRequest profile permits it in `supportingInfo`. A DiagnosticReport belongs in the K-order `examinationResults` section rather than directly in `supportingInfo`.
+An individual laboratory result conforming to CZ_ObservationOrder uses the open part of the list, outside the named specialized slices. Open slicing still respects the declared target profiles. Composition permits CZ_CarePlanCore in `carePlan`, while neither ServiceRequest profile permits it in `supportingInfo`. A DiagnosticReport belongs in the K-order `examinationResults` section rather than directly in `supportingInfo`.
 
 ServiceRequest additionally provides `supportingInfo[implant]`, referencing DeviceUseStatement, which in turn references Device. FT ServiceRequest also provides `supportingInfo[goal]` for Goal. In Composition these resources belong in `medicalDevices` and `goals`.
 

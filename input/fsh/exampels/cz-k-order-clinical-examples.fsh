@@ -115,10 +115,10 @@ EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-DERM-COMP-2026-0001"
-* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[orderInformation].entry[0] = Reference(DermatologyServiceRequest-Urgent)
 * section[differentialDiagnosis].title = "Differential diagnosis considerations"
 * section[differentialDiagnosis].entry[0] = Reference(DermatologyCondition-PigmentedLesion)
+* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[attachments].entry[0] = Reference(DermatologyLesionPhoto)
 
 Instance: BundleDermatologyUrgentExample
@@ -286,7 +286,6 @@ EN: Request to transfer the patient to nephrology care.
 * reasonReference[0] = Reference(NephrologyCondition-CKDStage4)
 * supportingInfo[0] = Reference(Observation-eGFRExample)
 * supportingInfo[1] = Reference(Observation-CreatinineExample)
-* extension[recommendationDisposition].valueCodeableConcept = KOrderRecommendationDispositionCS#ambulatory-care
 * note[0].text = "Progrese chronickeho onemocneni ledvin; zadost o prevzeti pacienta do nefrologicke ambulantni pece."
 
 Instance: NephrologyCompositionExample
@@ -304,10 +303,10 @@ EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-NEPH-COMP-2026-0001"
-* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[orderInformation].entry[0] = Reference(NephrologyServiceRequest-Handover)
 * section[significantMedicalHistory].title = "Relevant medical history"
 * section[significantMedicalHistory].entry[0] = Reference(NephrologyCondition-CKDStage4)
+* section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
 
