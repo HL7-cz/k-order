@@ -17,7 +17,7 @@ Description: """Information and data communicated to the performing site that ma
 * medication.code 0..* code "A.3.1.4.2 - Medication code" """Medication code."""
 * medication.quantity 0..1 Ratio "A.3.1.4.3 - Quantity" """Medication quantity."""
 * vaccination 0..* CodeableConcept "A.3.1.5 - Vaccination" """Vaccination."""
-/
+
 * additionalData 0..1 Base "A.3.1.6 - Additional formalized data" """"""
 * additionalData.date 0..1 dateTime "A.3.1.6.1 - Date" """Date when the data was determined; provided if different from the order issue date."""
 * additionalData.code 1..1 CodeableConcept "A.3.1.6.2 - Code" """Observation code identifying the meaning of the data item (height, weight, week of pregnancy, etc.).
