@@ -61,7 +61,7 @@ Condition a DocumentReference.
 * author only Reference(CZ_PractitionerRoleOrder or CZ_PractitionerRoleCore)
 
 * encounter 0..1
-* encounter only Reference(CZ_Encounter)
+* encounter only Reference(CZ_EncounterCore)
 
 * section 1..* MS
 * section ^slicing.discriminator.type = #pattern
@@ -77,9 +77,9 @@ Condition a DocumentReference.
     coverage 1..1 MS and
     appointment 0..1 MS and
     carePlan 0..1 MS and
-    medicalDevices 0..* MS and
+    medicalDevices 0..1 MS and
     supportingInformation 0..1 MS and
-    attachments 0..* MS
+    attachments 0..1 MS
 
 * section[orderInformation]
   * ^short = "Requested physiotherapy services"

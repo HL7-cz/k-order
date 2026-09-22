@@ -1,0 +1,938 @@
+[
+  {
+    "system": "http://loinc.org",
+    "code": "2160-0",
+    "display": "Kreatinin [Hmotnost/objem], systém: Sérum/plazma",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=http%3A%2F%2Floinc.org&code=2160-0&display=Kreatinin+%5BHmotnost%2Fobjem%5D%2C+syst%C3%A9m%3A+S%C3%A9rum%2Fplazma&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://loinc.org"
+        },
+        {
+          "name": "code",
+          "valueCode": "2160-0"
+        },
+        {
+          "name": "version",
+          "valueString": "2.82"
+        },
+        {
+          "name": "display",
+          "valueString": "Kreatinin [Hmotnost/objem], systém: Sérum/plazma"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://loinc.org",
+    "code": "57133-1",
+    "display": "Referral note",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=http%3A%2F%2Floinc.org&code=57133-1&display=Referral+note&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://loinc.org"
+        },
+        {
+          "name": "code",
+          "valueCode": "57133-1"
+        },
+        {
+          "name": "version",
+          "valueString": "2.82"
+        },
+        {
+          "name": "display",
+          "valueString": "Referral note"
+        },
+        {
+          "name": "message",
+          "valueString": "There are no valid display names found for the code http://loinc.org#57133-1 for language(s) 'cs'. The display is 'Referral note' which is a valid display for the default language"
+        },
+        {
+          "name": "issues",
+          "resource": {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "information",
+                "code": "invalid",
+                "details": {
+                  "text": "There are no valid display names found for the code http://loinc.org#57133-1 for language(s) 'cs'. The display is 'Referral note' which is a valid display for the default language",
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+                      "code": "invalid-display"
+                    }
+                  ]
+                },
+                "expression": [
+                  "display"
+                ],
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+                    "valueString": "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://loinc.org",
+    "code": "57154-7",
+    "display": "Physical therapy Referral note",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=http%3A%2F%2Floinc.org&code=57154-7&display=Physical+therapy+Referral+note&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://loinc.org"
+        },
+        {
+          "name": "code",
+          "valueCode": "57154-7"
+        },
+        {
+          "name": "version",
+          "valueString": "2.82"
+        },
+        {
+          "name": "display",
+          "valueString": "Physical therapy Referral note"
+        },
+        {
+          "name": "message",
+          "valueString": "There are no valid display names found for the code http://loinc.org#57154-7 for language(s) 'cs'. The display is 'Physical therapy Referral note' which is a valid display for the default language"
+        },
+        {
+          "name": "issues",
+          "resource": {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "information",
+                "code": "invalid",
+                "details": {
+                  "text": "There are no valid display names found for the code http://loinc.org#57154-7 for language(s) 'cs'. The display is 'Physical therapy Referral note' which is a valid display for the default language",
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+                      "code": "invalid-display"
+                    }
+                  ]
+                },
+                "expression": [
+                  "display"
+                ],
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+                    "valueString": "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://loinc.org",
+    "code": "62238-1",
+    "display": "Glomerulární filtrace odhad [Objemový tok/plocha], systém: Sérum/plazma/krev, metoda: Vzorec založený na kreatininu a cystatinu C (CKD-EPI)",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=http%3A%2F%2Floinc.org&code=62238-1&display=Glomerul%C3%A1rn%C3%AD+filtrace+odhad+%5BObjemov%C3%BD+tok%2Fplocha%5D%2C+syst%C3%A9m%3A+S%C3%A9rum%2Fplazma%2Fkrev%2C+metoda%3A+Vzorec+zalo%C5%BEen%C3%BD+na+kreatininu+a+cystatinu+C+%28CKD-EPI%29&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://loinc.org"
+        },
+        {
+          "name": "code",
+          "valueCode": "62238-1"
+        },
+        {
+          "name": "version",
+          "valueString": "2.82"
+        },
+        {
+          "name": "display",
+          "valueString": "Glomerulární filtrace odhad [Objemový tok/plocha], systém: Sérum/plazma/krev, metoda: Vzorec založený na kreatininu a cystatinu C (CKD-EPI)"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "77568009",
+    "display": "Structure of back of trunk",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=77568009&display=Structure+of+back+of+trunk&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "77568009"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/900000000000207008/version/20250201"
+        },
+        {
+          "name": "display",
+          "valueString": "Structure of back of trunk"
+        },
+        {
+          "name": "message",
+          "valueString": "There are no valid display names found for the code http://snomed.info/sct#77568009 for language(s) 'cs'. The display is 'Structure of back of trunk' which is a valid display for the default language"
+        },
+        {
+          "name": "issues",
+          "resource": {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "information",
+                "code": "invalid",
+                "details": {
+                  "text": "There are no valid display names found for the code http://snomed.info/sct#77568009 for language(s) 'cs'. The display is 'Structure of back of trunk' which is a valid display for the default language",
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+                      "code": "invalid-display"
+                    }
+                  ]
+                },
+                "expression": [
+                  "display"
+                ],
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+                    "valueString": "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "185387006",
+    "display": "konzultace s novým pacientem",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=185387006&display=konzultace+s+nov%C3%BDm+pacientem&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "185387006"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "konzultace s novým pacientem"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "229065009",
+    "display": "terapie cvičením",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=229065009&display=terapie+cvi%C4%8Den%C3%ADm&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "229065009"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "terapie cvičením"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "229286000",
+    "display": "dýchací cvičení na rozvoj hrudníku",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=229286000&display=d%C3%BDchac%C3%AD+cvi%C4%8Den%C3%AD+na+rozvoj+hrudn%C3%ADku&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "229286000"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "dýchací cvičení na rozvoj hrudníku"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "267036007",
+    "display": "dyspnoe",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=267036007&display=dyspnoe&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "267036007"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "dyspnoe"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "282870005",
+    "display": "Ability to stand up",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=282870005&display=Ability+to+stand+up&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "282870005"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "Ability to stand up"
+        },
+        {
+          "name": "message",
+          "valueString": "There are no valid display names found for the code http://snomed.info/sct#282870005 for language(s) 'cs'. The display is 'Ability to stand up' which is a valid display for the default language"
+        },
+        {
+          "name": "issues",
+          "resource": {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "information",
+                "code": "invalid",
+                "details": {
+                  "text": "There are no valid display names found for the code http://snomed.info/sct#282870005 for language(s) 'cs'. The display is 'Ability to stand up' which is a valid display for the default language",
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+                      "code": "invalid-display"
+                    }
+                  ]
+                },
+                "expression": [
+                  "display"
+                ],
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+                    "valueString": "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "282873007",
+    "display": "dokáže vstát",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=282873007&display=dok%C3%A1%C5%BEe+vst%C3%A1t&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "282873007"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "dokáže vstát"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "34431008",
+    "display": "fyzioterapie hrudníku",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=34431008&display=fyzioterapie+hrudn%C3%ADku&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "34431008"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "fyzioterapie hrudníku"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "40701008",
+    "display": "echokardiografie",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=40701008&display=echokardiografie&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "40701008"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "echokardiografie"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "62868009",
+    "display": "mobilizační cvičení",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=62868009&display=mobiliza%C4%8Dn%C3%AD+cvi%C4%8Den%C3%AD&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "62868009"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "mobilizační cvičení"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "700232004",
+    "display": "služba - všeobecná lékařská péče",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=700232004&display=slu%C5%BEba+-+v%C5%A1eobecn%C3%A1+l%C3%A9ka%C5%99sk%C3%A1+p%C3%A9%C4%8De&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "700232004"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "služba - všeobecná lékařská péče"
+        }
+      ]
+    }
+  },
+  {
+    "system": "http://snomed.info/sct",
+    "code": "91251008",
+    "display": "fyzioterapeutický zákrok",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=http%3A%2F%2Fsnomed.info%2Fsct&code=91251008&display=fyzioterapeutick%C3%BD+z%C3%A1krok&displayLanguage=cs&_format=json&version=http%3A%2F%2Fsnomed.info%2Fsct%2F11000279109",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "http://snomed.info/sct"
+        },
+        {
+          "name": "code",
+          "valueCode": "91251008"
+        },
+        {
+          "name": "version",
+          "valueString": "http://snomed.info/sct/11000279109/version/20260618"
+        },
+        {
+          "name": "display",
+          "valueString": "fyzioterapeutický zákrok"
+        }
+      ]
+    }
+  },
+  {
+    "system": "https://uzis.cz/terminology/CodeSystem/mkn-10",
+    "code": "D485",
+    "display": "Novotvar NNCH - kůže",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=https%3A%2F%2Fuzis.cz%2Fterminology%2FCodeSystem%2Fmkn-10&code=D485&display=Novotvar+NNCH+-+k%C5%AF%C5%BEe&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "https://uzis.cz/terminology/CodeSystem/mkn-10"
+        },
+        {
+          "name": "code",
+          "valueCode": "D485"
+        },
+        {
+          "name": "version",
+          "valueString": "2025-01"
+        },
+        {
+          "name": "display",
+          "valueString": "Novotvar NNCH - kůže"
+        }
+      ]
+    }
+  },
+  {
+    "system": "https://uzis.cz/terminology/CodeSystem/mkn-10",
+    "code": "J449",
+    "display": "Chronická obstrukční plicní nemoc NS",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=https%3A%2F%2Fuzis.cz%2Fterminology%2FCodeSystem%2Fmkn-10&code=J449&display=Chronick%C3%A1+obstruk%C4%8Dn%C3%AD+plicn%C3%AD+nemoc+NS&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "https://uzis.cz/terminology/CodeSystem/mkn-10"
+        },
+        {
+          "name": "code",
+          "valueCode": "J449"
+        },
+        {
+          "name": "version",
+          "valueString": "2025-01"
+        },
+        {
+          "name": "display",
+          "valueString": "Chronická obstrukční plicní nemoc NS"
+        }
+      ]
+    }
+  },
+  {
+    "system": "https://uzis.cz/terminology/CodeSystem/mkn-10",
+    "code": "M419",
+    "display": "Skolióza NS",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=https%3A%2F%2Fuzis.cz%2Fterminology%2FCodeSystem%2Fmkn-10&code=M419&display=Skoli%C3%B3za+NS&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "https://uzis.cz/terminology/CodeSystem/mkn-10"
+        },
+        {
+          "name": "code",
+          "valueCode": "M419"
+        },
+        {
+          "name": "version",
+          "valueString": "2025-01"
+        },
+        {
+          "name": "display",
+          "valueString": "Skolióza NS"
+        }
+      ]
+    }
+  },
+  {
+    "system": "https://uzis.cz/terminology/CodeSystem/mkn-10",
+    "code": "N184",
+    "display": "Chronické onemocnění ledvin, stadium 4",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=https%3A%2F%2Fuzis.cz%2Fterminology%2FCodeSystem%2Fmkn-10&code=N184&display=Chronick%C3%A9+onemocn%C4%9Bn%C3%AD+ledvin%2C+stadium+4&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "https://uzis.cz/terminology/CodeSystem/mkn-10"
+        },
+        {
+          "name": "code",
+          "valueCode": "N184"
+        },
+        {
+          "name": "version",
+          "valueString": "2025-01"
+        },
+        {
+          "name": "display",
+          "valueString": "Chronické onemocnění ledvin, stadium 4"
+        }
+      ]
+    }
+  },
+  {
+    "system": "https://uzis.cz/terminology/CodeSystem/mkn-10",
+    "code": "Z47",
+    "display": "Jiná ortopedická následná péče",
+    "result": true,
+    "source": "https://tx.hl7.cz/r4/CodeSystem/$validate-code?url=https%3A%2F%2Fuzis.cz%2Fterminology%2FCodeSystem%2Fmkn-10&code=Z47&display=Jin%C3%A1+ortopedick%C3%A1+n%C3%A1sledn%C3%A1+p%C3%A9%C4%8De&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "https://uzis.cz/terminology/CodeSystem/mkn-10"
+        },
+        {
+          "name": "code",
+          "valueCode": "Z47"
+        },
+        {
+          "name": "version",
+          "valueString": "2025-01"
+        },
+        {
+          "name": "display",
+          "valueString": "Jiná ortopedická následná péče"
+        }
+      ]
+    }
+  },
+  {
+    "system": "urn:ietf:bcp:47",
+    "code": "cs",
+    "display": "Czech",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=urn%3Aietf%3Abcp%3A47&code=cs&display=Czech&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "urn:ietf:bcp:47"
+        },
+        {
+          "name": "code",
+          "valueCode": "cs"
+        },
+        {
+          "name": "display",
+          "valueString": "Czech"
+        },
+        {
+          "name": "message",
+          "valueString": "There are no valid display names found for the code urn:ietf:bcp:47#cs for language(s) 'cs'. The display is 'Czech' which is a valid display for the default language"
+        },
+        {
+          "name": "issues",
+          "resource": {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "information",
+                "code": "invalid",
+                "details": {
+                  "text": "There are no valid display names found for the code urn:ietf:bcp:47#cs for language(s) 'cs'. The display is 'Czech' which is a valid display for the default language",
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+                      "code": "invalid-display"
+                    }
+                  ]
+                },
+                "expression": [
+                  "display"
+                ],
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+                    "valueString": "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "system": "urn:iso:std:iso:3166",
+    "code": "CZ",
+    "display": "Czechia",
+    "result": true,
+    "source": "https://tx.fhir.org/r4/CodeSystem/$validate-code?url=urn%3Aiso%3Astd%3Aiso%3A3166&code=CZ&display=Czechia&displayLanguage=cs&_format=json",
+    "response": {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "result",
+          "valueBoolean": true
+        },
+        {
+          "name": "system",
+          "valueUri": "urn:iso:std:iso:3166"
+        },
+        {
+          "name": "code",
+          "valueCode": "CZ"
+        },
+        {
+          "name": "version",
+          "valueString": "2018"
+        },
+        {
+          "name": "display",
+          "valueString": "Czechia"
+        },
+        {
+          "name": "message",
+          "valueString": "There are no valid display names found for the code urn:iso:std:iso:3166#CZ for language(s) 'cs'. The display is 'Czechia' which is a valid display for the default language"
+        },
+        {
+          "name": "issues",
+          "resource": {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "information",
+                "code": "invalid",
+                "details": {
+                  "text": "There are no valid display names found for the code urn:iso:std:iso:3166#CZ for language(s) 'cs'. The display is 'Czechia' which is a valid display for the default language",
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+                      "code": "invalid-display"
+                    }
+                  ]
+                },
+                "expression": [
+                  "display"
+                ],
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+                    "valueString": "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

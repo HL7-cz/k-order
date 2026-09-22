@@ -1,0 +1,5 @@
+{% comment %}
+Keep the standard sectioned IG artifact summary. The current base template
+defaults to an interactive table; both views use Publisher-generated resources.
+{% endcomment %}
+{% include fragment-artifacts.html %}

@@ -52,6 +52,8 @@ Differential diagnoses are represented as `CZ_ConditionCore` resources in `suppo
 
 **Recommendation for hospital admission or transfer of care.** Represent each such service by a separate `ServiceRequest` with its own identifier, `code`, patient and requester. Use `intent = proposal` for a recommendation and `intent = order` for an actual order. Reference the new request from `Composition.section[orderInformation].entry` and include it in the document Bundle. If no service code has been agreed, use `code.text`. Do not place the recommendation in a disposition extension on a request for another examination. Use `basedOn` only when the new request actually fulfils the referenced proposal or order; chronological sequence alone is insufficient. See the standard element definitions in [FHIR R4 ServiceRequest](https://hl7.org/fhir/R4/servicerequest-definitions.html) and the [hospital admission recommendation example](Bundle-BundleHospitalAdmissionRecommendationExample.html).
 
+A K-order must reference at least one `ServiceRequest` with `intent = order` from `Composition.section[orderInformation].entry`. A recommendation alone, or a set of requests containing only `intent = proposal`, is not a valid K-order. The `k-order-requires-order` invariant on `KOrderCompositionCz` enforces this rule. Referenced requests must be available during validation, normally in the document Bundle.
+
 Supporting information helps the recipient assess and plan care. An order represents it at two levels:
 
 | Location | Purpose |

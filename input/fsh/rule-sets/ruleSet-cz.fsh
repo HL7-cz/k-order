@@ -27,7 +27,13 @@ RuleSet: SectionComRules (short, def, code)
 * code = {code}
 * text only Narrative
 
+// Adds a language-specific XHTML wrapper to Narrative content.
+// Use [[...]] for content so commas and closing parentheses do not need escaping.
+RuleSet: CzechNarrative(content)
+* text.div = """<div xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">{content}</div>"""
 
+RuleSet: EnglishNarrative(content)
+* text.div = """<div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">{content}</div>"""
 
 
 RuleSet: SliceElement( type, path )

@@ -9,10 +9,11 @@ Description: """
 CZ: Rychle se měnící pigmentový útvar na zádech.
 EN: Rapidly changing pigmented lesion on the back.
 """
+* language = #cs
 * id = "DermatologyCondition-PigmentedLesion"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#differential
 * subject = Reference(Patient-Novak-Petr)
-* code.coding[0] = $mkn10#D485
+* code.coding[0] = $mkn10#D485 "Novotvar NNCH - kůže"
 * code.text = "Rychle se menici pigmentovy utvar na zadech"
 
 Instance: Practitioner-Dermatologist
@@ -22,6 +23,7 @@ Description: """
 CZ: Dermatoložka cílového pracoviště.
 EN: Dermatologist at the receiving clinic.
 """
+* language = #cs
 * id = "Practitioner-Dermatologist"
 * identifier[KRZP].system = $cz-practitioner-krzp
 * identifier[KRZP].value = "100000003"
@@ -36,6 +38,7 @@ Description: """
 CZ: Pigmentová poradna cílového poskytovatele.
 EN: Pigmented lesion clinic of the receiving provider.
 """
+* language = #cs
 * id = "Organization-DermatologyClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
@@ -53,12 +56,14 @@ Description: """
 CZ: Role dermatoložky v pigmentové poradně.
 EN: Dermatologist role in the pigmented lesion clinic.
 """
+* language = #cs
 * id = "PractitionerRole-Dermatologist"
 * practitioner = Reference(Practitioner-Dermatologist)
 * organization = Reference(Organization-DermatologyClinic)
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #404
+* specialty[0].coding[0].display = "Pracoviště dermatovenerologie"
 * specialty[0].text = "Dermatovenerologie"
 
 Instance: DermatologyServiceRequest-Urgent
@@ -68,6 +73,7 @@ Description: """
 CZ: Urgentní adresný požadavek na dermatologické konzilium.
 EN: Urgent addressed request for a dermatology consultation.
 """
+* language = #cs
 * id = "DermatologyServiceRequest-Urgent"
 * identifier[0].value = "KORD-DERM-2026-0001"
 * status = #active
@@ -77,10 +83,11 @@ EN: Urgent addressed request for a dermatology consultation.
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(PractitionerRole-Dermatologist)
-* code.coding[0] = $sctCZ#185387006
+* code.coding[0] = $sctCZ#185387006 "konzultace s novým pacientem"
 * code.text = "Urgentni dermatologicke konziliarni vysetreni"
 * reasonReference[0] = Reference(DermatologyCondition-PigmentedLesion)
 * bodySite[0].coding[0] = $sct#77568009
+* bodySite[0].text = "zadní část trupu"
 * bodySite[0].text = "Kuže zad"
 * note[0].text = "Rychla zmena velikosti a pigmentace; prilozena fotodokumentace s oznacenim lokalizace."
 
@@ -91,6 +98,7 @@ Description: """
 CZ: Klinická fotodokumentace pigmentového útvaru.
 EN: Clinical photo documentation of the pigmented lesion.
 """
+* language = #cs
 * id = "DermatologyLesionPhoto"
 * status = #current
 * subject = Reference(Patient-Novak-Petr)
@@ -108,11 +116,13 @@ Description: """
 CZ: Urgentní adresná K-žádanka do pigmentové poradny pro rychle se měnící pigmentový útvar s přiloženou fotodokumentací.
 EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing pigmented lesion with attached photo documentation.
 """
+* language = #cs
 * id = "DermatologyCompositionExample"
 * status = #final
 * date = "2026-09-02T09:15:00+02:00"
 * title = "Urgentni dermatologicka zadanka pro pigmentovy utvar"
 * type = $loinc#57133-1
+* type.text = "žádanka o vyšetření"
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-DERM-COMP-2026-0001"
@@ -128,6 +138,7 @@ Description: """
 CZ: Dokumentový Bundle urgentní dermatologické K-žádanky s klinickou fotodokumentací.
 EN: Document Bundle for an urgent dermatology K-order with clinical photo documentation.
 """
+* language = #cs
 * id = "BundleDermatologyUrgentExample"
 * type = #document
 * timestamp = "2026-09-02T09:15:00+02:00"
@@ -170,9 +181,10 @@ Description: """
 CZ: Chronické onemocnění ledvin ve stadiu 4.
 EN: Stage 4 chronic kidney disease.
 """
+* language = #cs
 * id = "NephrologyCondition-CKDStage4"
 * subject = Reference(Patient-Novak-Petr)
-* code.coding[0] = $mkn10#N184
+* code.coding[0] = $mkn10#N184 "Chronické onemocnění ledvin, stadium 4"
 * code.text = "Chronicke onemocneni ledvin, stadium 4"
 
 Instance: Practitioner-Nephrologist
@@ -182,6 +194,7 @@ Description: """
 CZ: Nefrolog cílového pracoviště.
 EN: Nephrologist at the receiving clinic.
 """
+* language = #cs
 * id = "Practitioner-Nephrologist"
 * identifier[KRZP].system = $cz-practitioner-krzp
 * identifier[KRZP].value = "100000004"
@@ -196,6 +209,7 @@ Description: """
 CZ: Nefrologická ambulance cílového poskytovatele.
 EN: Nephrology clinic of the receiving provider.
 """
+* language = #cs
 * id = "Organization-NephrologyClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
@@ -213,12 +227,14 @@ Description: """
 CZ: Role nefrologa v nefrologické ambulanci.
 EN: Nephrologist role in the nephrology clinic.
 """
+* language = #cs
 * id = "PractitionerRole-Nephrologist"
 * practitioner = Reference(Practitioner-Nephrologist)
 * organization = Reference(Organization-NephrologyClinic)
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #108
+* specialty[0].coding[0].display = "Pracoviště nefrologie"
 * specialty[0].text = "Nefrologie"
 
 Instance: Observation-eGFRExample
@@ -228,14 +244,16 @@ Description: """
 CZ: Laboratorní výsledek eGFR.
 EN: eGFR laboratory result.
 """
+* language = #cs
 * id = "Observation-eGFRExample"
 * status = #final
 * subject = Reference(Patient-Novak-Petr)
 * performer[0] = Reference(Organization-OrderLaboratory) "Laboratoř Nemocnice Pod Lipou"
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #laboratory
+* category[0].coding[0].display = "Laboratory"
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
-* code.coding[0] = $loinc#62238-1
+* code.coding[0] = $loinc#62238-1 "Glomerulární filtrace odhad [Objemový tok/plocha], systém: Sérum/plazma/krev, metoda: Vzorec založený na kreatininu a cystatinu C (CKD-EPI)"
 * code.text = "eGFR"
 * valueQuantity.value = 24
 * valueQuantity.unit = "mL/min/1.73 m2"
@@ -252,37 +270,61 @@ Description: """
 CZ: Laboratorní výsledek kreatininu v séru.
 EN: Serum creatinine laboratory result.
 """
+* language = #cs
 * id = "Observation-CreatinineExample"
 * status = #final
 * subject = Reference(Patient-Novak-Petr)
 * performer[0] = Reference(Organization-OrderLaboratory) "Laboratoř Nemocnice Pod Lipou"
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #laboratory
+* category[0].coding[0].display = "Laboratory"
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
-* code.coding[0] = $loinc#2160-0
+* code.coding[0] = $loinc#2160-0 "Kreatinin [Hmotnost/objem], systém: Sérum/plazma"
 * code.text = "Kreatinin v seru"
 * valueQuantity.value = 245
 * valueQuantity.unit = "umol/L"
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.code = #umol/L
 
-Instance: NephrologyServiceRequest-Handover
+Instance: NephrologyServiceRequest-Consultation
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
 Description: """
-CZ: Požadavek na převzetí pacienta do nefrologické péče.
-EN: Request to transfer the patient to nephrology care.
+CZ: Objednávka nefrologického konzilia při progresi chronického onemocnění ledvin.
+EN: Order for a nephrology consultation for progressive chronic kidney disease.
 """
-* id = "NephrologyServiceRequest-Handover"
-* identifier[0].value = "KORD-NEPH-2026-0001"
+* language = #cs
+* identifier[0].value = "KORD-NEPH-2026-0002"
 * status = #active
 * intent = #order
 * authoredOn = "2026-09-02T10:00:00+02:00"
 * subject = Reference(Patient-Novak-Petr)
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(PractitionerRole-Nephrologist)
-* code.coding[0] = $sctCZ#185387006
-* code.text = "Nefrologicke konziliarni vysetreni a prevzeti do pece"
+* code.coding[0] = $sctCZ#185387006 "konzultace s novým pacientem"
+* code.text = "Nefrologické konziliární vyšetření"
+* reasonReference[0] = Reference(NephrologyCondition-CKDStage4)
+* supportingInfo[0] = Reference(Observation-eGFRExample)
+* supportingInfo[1] = Reference(Observation-CreatinineExample)
+
+Instance: NephrologyServiceRequest-Handover
+InstanceOf: KOrderServiceRequestCz
+Usage: #example
+Description: """
+CZ: Doporučení k převzetí pacienta do nefrologické péče doprovázející objednávku konzilia.
+EN: Recommendation for transfer to nephrology care accompanying the consultation order.
+"""
+* language = #cs
+* id = "NephrologyServiceRequest-Handover"
+* identifier[0].value = "KORD-NEPH-2026-0001"
+* status = #active
+* intent = #proposal
+* authoredOn = "2026-09-02T10:00:00+02:00"
+* subject = Reference(Patient-Novak-Petr)
+* requester = Reference(Practitioner-Author-detail)
+* performer[0] = Reference(PractitionerRole-Nephrologist)
+* code.coding[0] = $sctCZ#183444007 "doporučení k další péči"
+* code.text = "Doporučení k převzetí do nefrologické péče"
 * reasonReference[0] = Reference(NephrologyCondition-CKDStage4)
 * supportingInfo[0] = Reference(Observation-eGFRExample)
 * supportingInfo[1] = Reference(Observation-CreatinineExample)
@@ -295,15 +337,20 @@ Description: """
 CZ: K-žádanka pro převzetí pacienta s chronickým onemocněním ledvin ve stadiu 4 do nefrologické péče.
 EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease to nephrology care.
 """
+* language = #cs
 * id = "NephrologyCompositionExample"
 * status = #final
 * date = "2026-09-02T10:05:00+02:00"
 * title = "Nefrologicka zadanka pri progresi chronickeho onemocneni ledvin"
 * type = $loinc#57133-1
+* type.text = "žádanka o vyšetření"
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-NEPH-COMP-2026-0001"
-* section[orderInformation].entry[0] = Reference(NephrologyServiceRequest-Handover)
+* section[orderInformation].entry[0] = Reference(NephrologyServiceRequest-Consultation)
+* section[orderInformation].entry[1] = Reference(NephrologyServiceRequest-Handover)
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[Objednáno nefrologické konziliární vyšetření při progresi chronického onemocnění ledvin. Současně je doporučeno převzetí pacienta do dlouhodobé nefrologické péče.]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
@@ -316,6 +363,7 @@ Description: """
 CZ: Dokumentový Bundle nefrologické K-žádanky pro převzetí pacienta do péče včetně laboratorních výsledků.
 EN: Document Bundle for a nephrology K-order requesting transfer of care, including laboratory results.
 """
+* language = #cs
 * id = "BundleNephrologyHandoverExample"
 * type = #document
 * timestamp = "2026-09-02T10:05:00+02:00"
@@ -349,6 +397,8 @@ EN: Document Bundle for a nephrology K-order requesting transfer of care, includ
 * entry[=].resource = Organization-OrderLaboratory
 * entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/NephrologyServiceRequest-Handover"
 * entry[=].resource = NephrologyServiceRequest-Handover
+* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/NephrologyServiceRequest-Consultation"
+* entry[=].resource = NephrologyServiceRequest-Consultation
 * entry[+].fullUrl = "https://example.cz/fhir/Observation/Observation-eGFRExample"
 * entry[=].resource = Observation-eGFRExample
 * entry[+].fullUrl = "https://example.cz/fhir/Observation/Observation-CreatinineExample"
@@ -361,6 +411,7 @@ Description: """
 CZ: Laboratorní pracoviště provádějící vyšetření v nefrologickém příkladu.
 EN: Laboratory department performing tests in the nephrology example.
 """
+* language = #cs
 * id = "Organization-OrderLaboratory"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"

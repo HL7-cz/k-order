@@ -1,0 +1,438 @@
+[
+  {
+    "instance": "FTCompositionExample",
+    "id": "FTCompositionExample",
+    "file": "input\\fsh\\exampels\\cz-ft-order-bundle.fsh",
+    "narratives": [
+      {
+        "path": "section[clinicalQuestion].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D</div>"
+      },
+      {
+        "path": "section[carePlan].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola po dokončení předepsané fyzioterapie.</div>"
+      }
+    ]
+  },
+  {
+    "instance": "FTServiceRequest-21113",
+    "id": "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1",
+    "file": "input\\fsh\\exampels\\cz-ft-order-bundle.fsh"
+  },
+  {
+    "instance": "FTServiceRequest-21225",
+    "id": "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91",
+    "file": "input\\fsh\\exampels\\cz-ft-order-bundle.fsh"
+  },
+  {
+    "instance": "FTServiceRequest-21415",
+    "id": "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55",
+    "file": "input\\fsh\\exampels\\cz-ft-order-bundle.fsh"
+  },
+  {
+    "instance": "FTServiceRequest-21413",
+    "id": "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11",
+    "file": "input\\fsh\\exampels\\cz-ft-order-bundle.fsh"
+  },
+  {
+    "instance": "BundleFTExample",
+    "id": "BundleFTExample",
+    "file": "input\\fsh\\exampels\\cz-ft-order-bundle.fsh"
+  },
+  {
+    "instance": "Patient-FTHipRehabilitation",
+    "id": "Patient-FTHipRehabilitation",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh",
+    "narratives": [
+      {
+        "path": "text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p><b>Karel Dvorak</b> — muž / male, 1958-04-22.</p>\n  <p>RID: 1000000101 (official); RČ / birth number: 5804221234; číslo pojištěnce / insurance number: 1115804221234.</p>\n  <p>Bydliště / home: Lipová 24, 500 02 Hradec Králové, CZ. Pracoviště / work: Průmyslová 18, 500 03 Hradec Králové, CZ.</p>\n  <p>Mobil / mobile: <a href=\"tel:+420777111222\">+420777111222</a>; email: <a href=\"mailto:karel.dvorak@example.cz\">karel.dvorak@example.cz</a>.</p>\n  <p>Místo narození / birthplace: Hradec Králové, CZ. Preferovaný jazyk / preferred language: čeština (cs).</p>\n  <p>Praktický lékař a registrující poskytovatel / general practitioner and registering provider: <a href=\"PractitionerRole-PractitionerRole-FTGeneralPractitioner.html\">PractitionerRole-FTGeneralPractitioner</a>; všeobecné lékařství / general medical service (SNOMED CT 700232004).</p>\n  <p>Spravující organizace / managing organization: <a href=\"Organization-af2b3114-e872-43b9-9875-cceb39122f7f.html\">Nemocnice Pod Lipou, a.s. - ambulance praktickeho lekare</a>.</p>\n</div>"
+      }
+    ]
+  },
+  {
+    "instance": "Condition-FTClinicalQuestion",
+    "id": "Condition-FTClinicalQuestion",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Condition-FTHipArthroplasty",
+    "id": "Condition-FTHipArthroplasty",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "PractitionerRole-FTGeneralPractitioner",
+    "id": "PractitionerRole-FTGeneralPractitioner",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Observation-FTHipMobility",
+    "id": "Observation-FTHipMobility",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Device-FTHipImplant",
+    "id": "Device-FTHipImplant",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "DeviceUseStatement-FTHipImplant",
+    "id": "DeviceUseStatement-FTHipImplant",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Goal-FTHipRehabilitation",
+    "id": "Goal-FTHipRehabilitation",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Organization-OrthopedicsClinic",
+    "id": "Organization-OrthopedicsClinic",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Practitioner-Orthopedist",
+    "id": "Practitioner-Orthopedist",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "PractitionerRole-Orthopedist",
+    "id": "PractitionerRole-Orthopedist",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Coverage-FTHipRehabilitation",
+    "id": "Coverage-FTHipRehabilitation",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "FTServiceRequest-HipRehabilitation",
+    "id": "FTServiceRequest-HipRehabilitation",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "FTCompositionHipRehabilitation",
+    "id": "FTCompositionHipRehabilitation",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh",
+    "narratives": [
+      {
+        "path": "section[clinicalQuestion].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
+      }
+    ]
+  },
+  {
+    "instance": "BundleFTHipRehabilitation",
+    "id": "BundleFTHipRehabilitation",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Patient-FTCopdHomeCare",
+    "id": "Patient-FTCopdHomeCare",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Condition-FTCopd",
+    "id": "Condition-FTCopd",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Observation-FTCopdMobility",
+    "id": "Observation-FTCopdMobility",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Goal-FTCopdRespiratory",
+    "id": "Goal-FTCopdRespiratory",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Coverage-FTCopdHomeCare",
+    "id": "Coverage-FTCopdHomeCare",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "FTServiceRequest-CopdChestPhysiotherapy",
+    "id": "FTServiceRequest-CopdChestPhysiotherapy",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "FTCompositionCopdHomeCare",
+    "id": "FTCompositionCopdHomeCare",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh",
+    "narratives": [
+      {
+        "path": "section[clinicalQuestion].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.</div>"
+      }
+    ]
+  },
+  {
+    "instance": "BundleFTCopdHomeCare",
+    "id": "BundleFTCopdHomeCare",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Patient-FTPediatricPosture",
+    "id": "Patient-FTPediatricPosture",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Condition-FTPediatricScoliosis",
+    "id": "Condition-FTPediatricScoliosis",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Goal-FTPediatricPosture",
+    "id": "Goal-FTPediatricPosture",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Organization-PediatricsClinic",
+    "id": "Organization-PediatricsClinic",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Practitioner-Pediatrician",
+    "id": "Practitioner-Pediatrician",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "PractitionerRole-Pediatrician",
+    "id": "PractitionerRole-Pediatrician",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Coverage-FTPediatricPosture",
+    "id": "Coverage-FTPediatricPosture",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "FTServiceRequest-PediatricGeneralPhysiotherapy",
+    "id": "FTServiceRequest-PediatricGeneralPhysiotherapy",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "FTCompositionPediatricPosture",
+    "id": "FTCompositionPediatricPosture",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh",
+    "narratives": [
+      {
+        "path": "section[clinicalQuestion].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
+      }
+    ]
+  },
+  {
+    "instance": "BundleFTPediatricPosture",
+    "id": "BundleFTPediatricPosture",
+    "file": "input\\fsh\\exampels\\cz-ft-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "KOrderCompositionExample",
+    "id": "KOrderCompositionExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh",
+    "narratives": [
+      {
+        "path": "section[clinicalQuestion].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Objasnění příčiny námahové dušnosti.</div>"
+      },
+      {
+        "path": "section[carePlan].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola u odesílajícího lékaře po dokončení vyšetření.</div>"
+      }
+    ]
+  },
+  {
+    "instance": "KOrderCondition-Main",
+    "id": "KOrderCondition-Main",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "KOrderServiceRequest-1",
+    "id": "KOrderServiceRequest-1",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "KOrderServiceRequest-2",
+    "id": "KOrderServiceRequest-2",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "KOrderCoverage-Example",
+    "id": "KOrderCoverage-Example",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "BundleKOrderExample",
+    "id": "BundleKOrderExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Patient-Novak-Petr",
+    "id": "48a9d440-4194-42c1-87ad-b5a39020a4d0",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Practitioner-Author-detail",
+    "id": "2b7e9637-5018-4542-9faf-d5abdee7b849",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh",
+    "narratives": [
+      {
+        "path": "text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, vseobecny prakticky lekar</div>"
+      }
+    ]
+  },
+  {
+    "instance": "Practitioner-Author",
+    "id": "a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Organization-1",
+    "id": "ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Organization-Insurance111",
+    "id": "Organization-Insurance111",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Organization-L1-Odd",
+    "id": "af2b3114-e872-43b9-9875-cceb39122f7f",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Organization-PulmonologyProvider",
+    "id": "Organization-PulmonologyProvider",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Practitioner-Pulmonologist",
+    "id": "Practitioner-Pulmonologist",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "PractitionerRole-Pulmonologist",
+    "id": "PractitionerRole-Pulmonologist",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "Organization-PulmonologyClinic",
+    "id": "Organization-PulmonologyClinic",
+    "file": "input\\fsh\\exampels\\cz-k-order-bandle.fsh"
+  },
+  {
+    "instance": "DermatologyCondition-PigmentedLesion",
+    "id": "DermatologyCondition-PigmentedLesion",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Practitioner-Dermatologist",
+    "id": "Practitioner-Dermatologist",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Organization-DermatologyClinic",
+    "id": "Organization-DermatologyClinic",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "PractitionerRole-Dermatologist",
+    "id": "PractitionerRole-Dermatologist",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "DermatologyServiceRequest-Urgent",
+    "id": "DermatologyServiceRequest-Urgent",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "DermatologyLesionPhoto",
+    "id": "DermatologyLesionPhoto",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "DermatologyCompositionExample",
+    "id": "DermatologyCompositionExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "BundleDermatologyUrgentExample",
+    "id": "BundleDermatologyUrgentExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "NephrologyCondition-CKDStage4",
+    "id": "NephrologyCondition-CKDStage4",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Practitioner-Nephrologist",
+    "id": "Practitioner-Nephrologist",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Organization-NephrologyClinic",
+    "id": "Organization-NephrologyClinic",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "PractitionerRole-Nephrologist",
+    "id": "PractitionerRole-Nephrologist",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Observation-eGFRExample",
+    "id": "Observation-eGFRExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Observation-CreatinineExample",
+    "id": "Observation-CreatinineExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "NephrologyServiceRequest-Handover",
+    "id": "NephrologyServiceRequest-Handover",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "NephrologyCompositionExample",
+    "id": "NephrologyCompositionExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "BundleNephrologyHandoverExample",
+    "id": "BundleNephrologyHandoverExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "Organization-OrderLaboratory",
+    "id": "Organization-OrderLaboratory",
+    "file": "input\\fsh\\exampels\\cz-k-order-clinical-examples.fsh"
+  },
+  {
+    "instance": "HospitalAdmissionServiceRequest-Example",
+    "id": "HospitalAdmissionServiceRequest-Example",
+    "file": "input\\fsh\\exampels\\cz-k-order-hospital-admission.fsh"
+  },
+  {
+    "instance": "HospitalAdmissionCompositionExample",
+    "id": "HospitalAdmissionCompositionExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-hospital-admission.fsh",
+    "narratives": [
+      {
+        "path": "section[clinicalQuestion].text",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Doporučeno přijetí k hospitalizaci za účelem došetření zhoršení renálních funkcí.</div>"
+      }
+    ]
+  },
+  {
+    "instance": "BundleHospitalAdmissionRecommendationExample",
+    "id": "BundleHospitalAdmissionRecommendationExample",
+    "file": "input\\fsh\\exampels\\cz-k-order-hospital-admission.fsh"
+  }
+]

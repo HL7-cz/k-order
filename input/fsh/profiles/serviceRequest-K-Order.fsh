@@ -16,8 +16,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * insert SetFmmandStatusRule ( 0, draft )
 
 // --------------------------- identifiers -------------------------------------
-* identifier 1..1 MS
-* identifier ^short = "Identifikátor eŽádanky (UUID)"
+* identifier 1..* MS
 * identifier.system 1..1 MS
 * identifier.value 1..1 MS
 * identifier.system = "urn:ietf:rfc:4122" (exactly)
@@ -37,7 +36,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 // --------------------------- lifecycle / status / intent ---------------------
 * status 1..1 MS
 * intent 1..1 MS
-* intent ^comment = "Use proposal for a recommendation, including a recommendation for hospital admission. Use order for an actual order. Represent each distinct requested service by a separate ServiceRequest."
+* intent ^comment = "Use proposal for a recommendation, including a recommendation for hospital admission. Use order for an actual order. Represent each distinct requested service by a separate ServiceRequest. The containing K-order Composition must reference at least one ServiceRequest with intent order in its orderInformation section (k-order-requires-order); a document containing only proposals is not permitted."
 
 * authoredOn 1..1 MS
 * authoredOn ^short = "Datum a čas vystavení žádanky"

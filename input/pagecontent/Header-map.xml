@@ -270,10 +270,10 @@
 </tr>
 
 <tr>
-<td>A.1.8.1 kOrder.identifikatorEZadanky</td>
-<td>Identifikátor dokumentu</td>
+<td>A.1.8.1 kOrder.identifikator</td>
+<td>Identifikátor žádanky</td>
 <td>equivalent</td>
-<td>Composition</td>
+<td>Bundle</td>
 <td>identifier</td>
 <td>ID dokumentu</td>
 <td></td>

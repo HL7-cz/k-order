@@ -124,7 +124,7 @@ Usage: #definition
 
 * group[=].element[+].code = #typ
 * group[=].element[=].display = "A.2.3.2 - Typ klinické události"
-* group[=].element[=].target.code = #CZ_Encounter.type
+* group[=].element[=].target.code = #CZ_Encounter.class
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -134,7 +134,7 @@ Usage: #definition
 
 * group[=].element[+].code = #dalsiInformace
 * group[=].element[=].display = "A.2.3.3 - Další informace o klinické události"
-* group[=].element[=].target.code = #CZ_Encounter.type.text
+* group[=].element[=].target.code = #CZ_Encounter.class.text
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 ///////////////////////////////////////////////////////////////////////////////

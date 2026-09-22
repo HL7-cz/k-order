@@ -9,12 +9,12 @@ Description: """
 CZ: Pacient po totální endoprotéze kyčle.
 EN: Patient after total hip arthroplasty.
 """
+* language = #cs
 * id = "Patient-FTHipRehabilitation"
 // The document renderer includes this narrative both as the document subject
 // and as a Bundle entry. Keep it free of anchors so both copies remain valid HTML.
 * text.status = #generated
-* text.div = """
-<div xmlns="http://www.w3.org/1999/xhtml">
+* insert CzechNarrative([[
   <p><b>Karel Dvorak</b> — muž / male, 1958-04-22.</p>
   <p>RID: 1000000101 (official); RČ / birth number: 5804221234; číslo pojištěnce / insurance number: 1115804221234.</p>
   <p>Bydliště / home: Lipová 24, 500 02 Hradec Králové, CZ. Pracoviště / work: Průmyslová 18, 500 03 Hradec Králové, CZ.</p>
@@ -22,8 +22,7 @@ EN: Patient after total hip arthroplasty.
   <p>Místo narození / birthplace: Hradec Králové, CZ. Preferovaný jazyk / preferred language: čeština (cs).</p>
   <p>Praktický lékař a registrující poskytovatel / general practitioner and registering provider: <a href="PractitionerRole-PractitionerRole-FTGeneralPractitioner.html">PractitionerRole-FTGeneralPractitioner</a>; všeobecné lékařství / general medical service (SNOMED CT 700232004).</p>
   <p>Spravující organizace / managing organization: <a href="Organization-af2b3114-e872-43b9-9875-cceb39122f7f.html">Nemocnice Pod Lipou, a.s. - ambulance praktickeho lekare</a>.</p>
-</div>
-"""
+]])
 * identifier[RID].use = #official
 * identifier[RID].system = $cz-patient-rid
 * identifier[RID].value = "1000000101"
@@ -40,6 +39,7 @@ EN: Patient after total hip arthroplasty.
 * extension[birthPlace].valueAddress.country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * extension[birthPlace].valueAddress.country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * extension[birthPlace].valueAddress.country.extension[0].valueCoding.code = #CZ
+* extension[birthPlace].valueAddress.country.extension[0].valueCoding.display = "Czechia"
 * address[0].use = #home
 * address[0].type = #physical
 * address[0].text = "Lipová 24, 500 02 Hradec Králové"
@@ -50,6 +50,7 @@ EN: Patient after total hip arthroplasty.
 * address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * address[0].country.extension[0].valueCoding.code = #CZ
+* address[0].country.extension[0].valueCoding.display = "Czechia"
 * address[1].use = #work
 * address[1].type = #physical
 * address[1].text = "Průmyslová 18, 500 03 Hradec Králové"
@@ -60,6 +61,7 @@ EN: Patient after total hip arthroplasty.
 * address[1].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * address[1].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * address[1].country.extension[0].valueCoding.code = #CZ
+* address[1].country.extension[0].valueCoding.display = "Czechia"
 * telecom[0].system = #phone
 * telecom[0].value = "+420777111222"
 * telecom[0].use = #mobile
@@ -67,17 +69,19 @@ EN: Patient after total hip arthroplasty.
 * telecom[1].value = "karel.dvorak@example.cz"
 * communication[0].language.coding[0].system = "urn:ietf:bcp:47"
 * communication[0].language.coding[0].code = #cs
+* communication[0].language.coding[0].display = "Czech"
 * communication[0].language.text = "čeština"
 * communication[0].preferred = true
 * generalPractitioner[0] = Reference(PractitionerRole-FTGeneralPractitioner)
 * managingOrganization = Reference(Organization-L1-Odd)
 * extension[registeringProvider].extension[value].valueReference = Reference(PractitionerRole-FTGeneralPractitioner)
-* extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004
+* extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004 "služba - všeobecná lékařská péče"
 
 Instance: Condition-FTClinicalQuestion
 InstanceOf: CZ_ClinicalQuestion
 Usage: #example
 Description: "Clinical problem addressed by the physiotherapy question after hip replacement. The example uses the required text without an optional coded diagnosis."
+* language = #cs
 * subject = Reference(Patient-FTHipRehabilitation)
 * code.text = "Omezená pohyblivost po náhradě kyčelního kloubu – posouzení možností rehabilitace."
 
@@ -88,9 +92,10 @@ Description: """
 CZ: Stav po náhradě kyčelního kloubu.
 EN: Status after hip joint replacement.
 """
+* language = #cs
 * id = "Condition-FTHipArthroplasty"
 * subject = Reference(Patient-FTHipRehabilitation)
-* code.coding[0] = $mkn10#Z47 //Z471 není v terminologii MKN10, proto je použita kódová skupina Z47
+* code.coding[0] = $mkn10#Z47 "Jiná ortopedická následná péče" //Z471 není v terminologii MKN10, proto je použita kódová skupina Z47
 * code.text = "Následná péče po náhradě kloubu"
 
 Instance: PractitionerRole-FTGeneralPractitioner
@@ -100,12 +105,14 @@ Description: """
 CZ: Role registrujícího všeobecného praktického lékaře pacienta.
 EN: Role of the patient's registering general practitioner.
 """
+* language = #cs
 * id = "PractitionerRole-FTGeneralPractitioner"
 * practitioner = Reference(Practitioner-Author)
 * organization = Reference(Organization-L1-Odd)
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #001
+* specialty[0].coding[0].display = "Pracoviště praktického lékaře pro dospělé"
 * specialty[0].text = "Všeobecné praktické lékařství"
 
 Instance: Observation-FTHipMobility
@@ -115,15 +122,17 @@ Description: """
 CZ: Snížená mobilita pacienta po operaci kyčle.
 EN: Reduced patient mobility after hip surgery.
 """
+* language = #cs
 * id = "Observation-FTHipMobility"
 * status = #final
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #activity
+* category[0].coding[0].display = "Activity"
 * subject = Reference(Patient-FTHipRehabilitation)
 * performer[0] = Reference(PractitionerRole-Orthopedist)
 * effectiveDateTime = "2026-09-04T08:30:00+02:00"
-* code.coding[SNOMEDCT] = $sctCZ#282870005
-* valueCodeableConcept.coding[0] = $sctCZ#282873007
+* code.coding[SNOMEDCT] = $sctCZ#282870005 "Ability to stand up"
+* valueCodeableConcept.coding[0] = $sctCZ#282873007 "dokáže vstát"
 
 Instance: Device-FTHipImplant
 InstanceOf: CZ_MedicalDevice
@@ -132,6 +141,7 @@ Description: """
 CZ: Totální endoprotéza levého kyčelního kloubu.
 EN: Total hip prosthesis of the left hip joint.
 """
+* language = #cs
 * id = "Device-FTHipImplant"
 * patient = Reference(Patient-FTHipRehabilitation)
 * type.text = "Totální endoprotéza levého kyčelního kloubu"
@@ -145,6 +155,7 @@ Description: """
 CZ: Informace o implantované totální endoprotéze levého kyčelního kloubu.
 EN: Statement about the implanted total left hip prosthesis.
 """
+* language = #cs
 * id = "DeviceUseStatement-FTHipImplant"
 * status = #active
 * subject = Reference(Patient-FTHipRehabilitation)
@@ -159,6 +170,7 @@ Description: """
 CZ: Cíl rehabilitace po náhradě kyčelního kloubu.
 EN: Rehabilitation goal after hip joint replacement.
 """
+* language = #cs
 * id = "Goal-FTHipRehabilitation"
 * lifecycleStatus = #active
 * description.text = "Obnovení bezpečné chůze s postupným zatěžováním levé dolní končetiny"
@@ -171,6 +183,7 @@ Description: """
 CZ: Ortopedická ambulance poskytovatele zdravotních služeb.
 EN: Orthopedic clinic of the healthcare service provider.
 """
+* language = #cs
 * id = "Organization-OrthopedicsClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
@@ -188,6 +201,7 @@ Description: """
 CZ: Ortoped vystavující FT žádanku.
 EN: Orthopedist authoring the FT order.
 """
+* language = #cs
 * id = "Practitioner-Orthopedist"
 * identifier[KRZP].system = $cz-practitioner-krzp
 * identifier[KRZP].value = "100000010"
@@ -202,12 +216,14 @@ Description: """
 CZ: Role ortopeda v ortopedické ambulanci.
 EN: Orthopedist role at the orthopedic clinic.
 """
+* language = #cs
 * id = "PractitionerRole-Orthopedist"
 * practitioner = Reference(Practitioner-Orthopedist)
 * organization = Reference(Organization-OrthopedicsClinic)
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
-* specialty[0].coding[0].code = #106
+* specialty[0].coding[0].code = #606
+* specialty[0].coding[0].display = "Pracoviště ortopedie"
 * specialty[0].text = "Ortopedie"
 
 Instance: Coverage-FTHipRehabilitation
@@ -217,6 +233,7 @@ Description: """
 CZ: Zdravotní pojištění pacienta po náhradě kyčelního kloubu.
 EN: Health insurance coverage for the patient after hip joint replacement.
 """
+* language = #cs
 * id = "Coverage-FTHipRehabilitation"
 * status = #active
 * beneficiary = Reference(Patient-FTHipRehabilitation)
@@ -231,6 +248,7 @@ Description: """
 CZ: Neadresný požadavek na mobilizační a cvičebnou fyzioterapii po TEP kyčle.
 EN: Unaddressed request for mobilization and exercise physiotherapy after hip arthroplasty.
 """
+* language = #cs
 * id = "FTServiceRequest-HipRehabilitation"
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840101"
 * status = #active
@@ -238,8 +256,8 @@ EN: Unaddressed request for mobilization and exercise physiotherapy after hip ar
 * authoredOn = "2026-09-04T09:00:00+02:00"
 * subject = Reference(Patient-FTHipRehabilitation)
 * requester = Reference(PractitionerRole-Orthopedist)
-* code.coding[0] = $sctCZ#62868009
-* code.coding[+] = $sctCZ#229065009
+* code.coding[0] = $sctCZ#62868009 "mobilizační cvičení"
+* code.coding[+] = $sctCZ#229065009 "terapie cvičením"
 * code.text = "Mobilizační a cvičebná fyzioterapie"
 * reasonReference[0] = Reference(Condition-FTHipArthroplasty)
 * supportingInfo[0] = Reference(Goal-FTHipRehabilitation)
@@ -254,17 +272,19 @@ Description: """
 CZ: Neadresná FT žádanka po totální endoprotéze kyčle.
 EN: Unaddressed FT order after total hip arthroplasty.
 """
+* language = #cs
 * id = "FTCompositionHipRehabilitation"
 * status = #final
 * date = "2026-09-04T09:05:00+02:00"
 * title = "Fyzioterapie po totální endoprotéze kyčle"
 * type = $loinc#57154-7
+* type.text = "žádanka o fyzioterapii"
 * subject = Reference(Patient-FTHipRehabilitation)
 * author[0] = Reference(PractitionerRole-Orthopedist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840102"
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-HipRehabilitation)
 * section[clinicalQuestion].text.status = #generated
-* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.</div>"
+* section[clinicalQuestion] insert CzechNarrative([[Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.]])
 * section[clinicalQuestion].entry[0] = Reference(Condition-FTClinicalQuestion)
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTHipRehabilitation)
@@ -280,6 +300,7 @@ Description: """
 CZ: Neadresná FT žádanka po TEP kyčle se sníženou mobilitou a implantátem.
 EN: Unaddressed FT order after hip arthroplasty with reduced mobility and an implant.
 """
+* language = #cs
 * id = "BundleFTHipRehabilitation"
 * type = #document
 * timestamp = "2026-09-04T09:05:00+02:00"
@@ -330,6 +351,7 @@ Description: """
 CZ: Imobilní pacient s CHOPN na domácí oxygenoterapii.
 EN: Immobile patient with COPD receiving home oxygen therapy.
 """
+* language = #cs
 * id = "Patient-FTCopdHomeCare"
 * identifier[RID].use = #official
 * identifier[RID].system = $cz-patient-rid
@@ -347,6 +369,7 @@ EN: Immobile patient with COPD receiving home oxygen therapy.
 * extension[birthPlace].valueAddress.country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * extension[birthPlace].valueAddress.country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * extension[birthPlace].valueAddress.country.extension[0].valueCoding.code = #CZ
+* extension[birthPlace].valueAddress.country.extension[0].valueCoding.display = "Czechia"
 * address[0].use = #home
 * address[0].type = #physical
 * address[0].text = "Javorová 12, 100 00 Praha 10"
@@ -357,6 +380,7 @@ EN: Immobile patient with COPD receiving home oxygen therapy.
 * address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * address[0].country.extension[0].valueCoding.code = #CZ
+* address[0].country.extension[0].valueCoding.display = "Czechia"
 * address[1].use = #work
 * address[1].type = #physical
 * address[1].text = "U Parku 6, 100 00 Praha 10"
@@ -367,6 +391,7 @@ EN: Immobile patient with COPD receiving home oxygen therapy.
 * address[1].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * address[1].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * address[1].country.extension[0].valueCoding.code = #CZ
+* address[1].country.extension[0].valueCoding.display = "Czechia"
 * telecom[0].system = #phone
 * telecom[0].value = "+420777222333"
 * telecom[0].use = #mobile
@@ -374,12 +399,13 @@ EN: Immobile patient with COPD receiving home oxygen therapy.
 * telecom[1].value = "josef.kratochvil@example.cz"
 * communication[0].language.coding[0].system = "urn:ietf:bcp:47"
 * communication[0].language.coding[0].code = #cs
+* communication[0].language.coding[0].display = "Czech"
 * communication[0].language.text = "čeština"
 * communication[0].preferred = true
 * generalPractitioner[0] = Reference(PractitionerRole-FTGeneralPractitioner)
 * managingOrganization = Reference(Organization-L1-Odd)
 * extension[registeringProvider].extension[value].valueReference = Reference(PractitionerRole-FTGeneralPractitioner)
-* extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004
+* extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004 "služba - všeobecná lékařská péče"
 
 Instance: Condition-FTCopd
 InstanceOf: CZ_ConditionCore
@@ -388,9 +414,10 @@ Description: """
 CZ: Chronická obstrukční plicní nemoc.
 EN: Chronic obstructive pulmonary disease.
 """
+* language = #cs
 * id = "Condition-FTCopd"
 * subject = Reference(Patient-FTCopdHomeCare)
-* code.coding[0] = $mkn10#J449
+* code.coding[0] = $mkn10#J449 "Chronická obstrukční plicní nemoc NS"
 * code.text = "Chronická obstrukční plicní nemoc, NS"
 
 Instance: Observation-FTCopdMobility
@@ -400,15 +427,17 @@ Description: """
 CZ: Omezená mobilita pacienta s CHOPN.
 EN: Limited mobility of the patient with COPD.
 """
+* language = #cs
 * id = "Observation-FTCopdMobility"
 * status = #final
 * category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
 * category[0].coding[0].code = #activity
+* category[0].coding[0].display = "Activity"
 * subject = Reference(Patient-FTCopdHomeCare)
 * performer[0] = Reference(PractitionerRole-Pulmonologist)
 * effectiveDateTime = "2026-09-04T10:00:00+02:00"
-* code.coding[SNOMEDCT] = $sctCZ#282870005
-* valueCodeableConcept.coding[0] = $sctCZ#282873007
+* code.coding[SNOMEDCT] = $sctCZ#282870005 "Ability to stand up"
+* valueCodeableConcept.coding[0] = $sctCZ#282873007 "dokáže vstát"
 
 Instance: Goal-FTCopdRespiratory
 InstanceOf: Goal
@@ -417,6 +446,7 @@ Description: """
 CZ: Cíl respirační fyzioterapie u CHOPN.
 EN: Respiratory physiotherapy goal for COPD.
 """
+* language = #cs
 * id = "Goal-FTCopdRespiratory"
 * lifecycleStatus = #active
 * description.text = "Zlepšení odkašlávání a nácvik dechových technik v domácím prostředí"
@@ -429,6 +459,7 @@ Description: """
 CZ: Zdravotní pojištění pacienta s CHOPN.
 EN: Health insurance coverage for the patient with COPD.
 """
+* language = #cs
 * id = "Coverage-FTCopdHomeCare"
 * status = #active
 * beneficiary = Reference(Patient-FTCopdHomeCare)
@@ -443,6 +474,7 @@ Description: """
 CZ: Požadavek na fyzioterapii hrudníku a dechová cvičení u pacienta s CHOPN.
 EN: Request for chest physiotherapy and breathing exercises for a patient with COPD.
 """
+* language = #cs
 * id = "FTServiceRequest-CopdChestPhysiotherapy"
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840201"
 * status = #active
@@ -450,15 +482,15 @@ EN: Request for chest physiotherapy and breathing exercises for a patient with C
 * authoredOn = "2026-09-04T10:15:00+02:00"
 * subject = Reference(Patient-FTCopdHomeCare)
 * requester = Reference(PractitionerRole-Pulmonologist)
-* code.coding[0] = $sctCZ#34431008
-* code.coding[+] = $sctCZ#229286000
+* code.coding[0] = $sctCZ#34431008 "fyzioterapie hrudníku"
+* code.coding[+] = $sctCZ#229286000 "dýchací cvičení na rozvoj hrudníku"
 * code.text = "Fyzioterapie hrudníku a respirační expanzní cvičení"
 * quantityQuantity.value = 10
 * quantityQuantity.unit = "procedur"
 * occurrenceTiming.repeat.frequency = 2
 * occurrenceTiming.repeat.period = 1
 * occurrenceTiming.repeat.periodUnit = #wk
-* locationCode.coding[0] = $cz-patient-relationship#PTRES "Patient's residence"
+* locationCode.coding[0] = $cz-patient-relationship#PTRES "Patient's Residence"
 * locationCode.text = "Domácí prostředí pacienta"
 * reasonReference[0] = Reference(Condition-FTCopd)
 * supportingInfo[0] = Reference(Goal-FTCopdRespiratory)
@@ -472,17 +504,19 @@ Description: """
 CZ: Kompletně vyplněný FT poukaz pro respirační fyzioterapii v domácím prostředí.
 EN: Fully completed FT order for respiratory physiotherapy in the patient's home.
 """
+* language = #cs
 * id = "FTCompositionCopdHomeCare"
 * status = #final
 * date = "2026-09-04T10:20:00+02:00"
 * title = "Respirační fyzioterapie u pacienta s CHOPN"
 * type = $loinc#57154-7
+* type.text = "žádanka o fyzioterapii"
 * subject = Reference(Patient-FTCopdHomeCare)
 * author[0] = Reference(PractitionerRole-Pulmonologist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840202"
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-CopdChestPhysiotherapy)
 * section[clinicalQuestion].text.status = #generated
-* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.</div>"
+* section[clinicalQuestion] insert CzechNarrative([[CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.]])
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTCopdRespiratory)
 * section[coverage].entry[0] = Reference(Coverage-FTCopdHomeCare)
@@ -496,6 +530,7 @@ Description: """
 CZ: Kompletně vyplněný FT poukaz na respirační fyzioterapii v domácím prostředí.
 EN: Fully completed FT order for respiratory physiotherapy at home.
 """
+* language = #cs
 * id = "BundleFTCopdHomeCare"
 * type = #document
 * timestamp = "2026-09-04T10:20:00+02:00"
@@ -540,6 +575,7 @@ Description: """
 CZ: Desetileté dítě s vadným držením těla a začínající skoliózou.
 EN: Ten-year-old child with poor posture and early scoliosis.
 """
+* language = #cs
 * id = "Patient-FTPediatricPosture"
 * identifier[RID].use = #official
 * identifier[RID].system = $cz-patient-rid
@@ -557,6 +593,7 @@ EN: Ten-year-old child with poor posture and early scoliosis.
 * extension[birthPlace].valueAddress.country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * extension[birthPlace].valueAddress.country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * extension[birthPlace].valueAddress.country.extension[0].valueCoding.code = #CZ
+* extension[birthPlace].valueAddress.country.extension[0].valueCoding.display = "Czechia"
 * address[0].use = #home
 * address[0].type = #physical
 * address[0].text = "Školní 8, 602 00 Brno"
@@ -567,18 +604,21 @@ EN: Ten-year-old child with poor posture and early scoliosis.
 * address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * address[0].country.extension[0].valueCoding.code = #CZ
+* address[0].country.extension[0].valueCoding.display = "Czechia"
 * telecom[0].system = #phone
 * telecom[0].value = "+420777333445"
 * telecom[0].use = #mobile
 * communication[0].language.coding[0].system = "urn:ietf:bcp:47"
 * communication[0].language.coding[0].code = #cs
+* communication[0].language.coding[0].display = "Czech"
 * communication[0].language.text = "čeština"
 * communication[0].preferred = true
 * generalPractitioner[0] = Reference(PractitionerRole-Pediatrician)
 * managingOrganization = Reference(Organization-PediatricsClinic)
 * extension[registeringProvider].extension[value].valueReference = Reference(PractitionerRole-Pediatrician)
-* extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004
-* contact[0].relationship[0].coding[0] = $cz-patient-relationship#MTH "Mother"
+* extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004 "služba - všeobecná lékařská péče"
+* contact[0].relationship[0].coding[0] = $cz-patient-relationship#MTH
+* contact[0].relationship[0].text = "matka"
 * contact[0].name.family = "Svobodova"
 * contact[0].name.given[0] = "Lucie"
 * contact[0].telecom[0].system = #phone
@@ -596,6 +636,7 @@ EN: Ten-year-old child with poor posture and early scoliosis.
 * contact[0].address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * contact[0].address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * contact[0].address[0].country.extension[0].valueCoding.code = #CZ
+* contact[0].address[0].country.extension[0].valueCoding.display = "Czechia"
 
 Instance: Condition-FTPediatricScoliosis
 InstanceOf: CZ_ConditionCore
@@ -604,9 +645,10 @@ Description: """
 CZ: Skolióza u dětského pacienta.
 EN: Scoliosis in a pediatric patient.
 """
+* language = #cs
 * id = "Condition-FTPediatricScoliosis"
 * subject = Reference(Patient-FTPediatricPosture)
-* code.coding[0] = $mkn10#M419
+* code.coding[0] = $mkn10#M419 "Skolióza NS"
 * code.text = "Skolióza, NS; vadné držení těla"
 
 Instance: Goal-FTPediatricPosture
@@ -616,6 +658,7 @@ Description: """
 CZ: Cíl fyzioterapie při vadném držení těla.
 EN: Physiotherapy goal for poor posture.
 """
+* language = #cs
 * id = "Goal-FTPediatricPosture"
 * lifecycleStatus = #active
 * description.text = "Nácvik správného držení těla a stabilizačních cvičení"
@@ -628,6 +671,7 @@ Description: """
 CZ: Dětská ambulance poskytovatele zdravotních služeb.
 EN: Pediatric clinic of the healthcare service provider.
 """
+* language = #cs
 * id = "Organization-PediatricsClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
@@ -645,6 +689,7 @@ Description: """
 CZ: Pediatr vystavující FT žádanku.
 EN: Pediatrician authoring the FT order.
 """
+* language = #cs
 * id = "Practitioner-Pediatrician"
 * identifier[KRZP].system = $cz-practitioner-krzp
 * identifier[KRZP].value = "100000011"
@@ -659,12 +704,14 @@ Description: """
 CZ: Role pediatra v dětské ambulanci.
 EN: Pediatrician role at the pediatric clinic.
 """
+* language = #cs
 * id = "PractitionerRole-Pediatrician"
 * practitioner = Reference(Practitioner-Pediatrician)
 * organization = Reference(Organization-PediatricsClinic)
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #002
+* specialty[0].coding[0].display = "Pracoviště praktického lékaře pro děti a dorost"
 * specialty[0].text = "Praktické lékařství pro děti a dorost"
 
 Instance: Coverage-FTPediatricPosture
@@ -674,6 +721,7 @@ Description: """
 CZ: Zdravotní pojištění dětského pacienta.
 EN: Health insurance coverage for the pediatric patient.
 """
+* language = #cs
 * id = "Coverage-FTPediatricPosture"
 * status = #active
 * beneficiary = Reference(Patient-FTPediatricPosture)
@@ -688,6 +736,7 @@ Description: """
 CZ: Obecná žádanka na fyzioterapii bez určení konkrétních výkonů a jejich počtu.
 EN: General physiotherapy order without specifying individual procedures or their count.
 """
+* language = #cs
 * id = "FTServiceRequest-PediatricGeneralPhysiotherapy"
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840301"
 * status = #active
@@ -695,7 +744,7 @@ EN: General physiotherapy order without specifying individual procedures or thei
 * authoredOn = "2026-09-04T11:00:00+02:00"
 * subject = Reference(Patient-FTPediatricPosture)
 * requester = Reference(PractitionerRole-Pediatrician)
-* code = $sctCZ#91251008 "Physical therapy procedure"
+* code = $sctCZ#91251008 "fyzioterapeutický zákrok"
 * reasonReference[0] = Reference(Condition-FTPediatricScoliosis)
 * supportingInfo[0] = Reference(Goal-FTPediatricPosture)
 * insurance = Reference(Coverage-FTPediatricPosture)
@@ -708,17 +757,19 @@ Description: """
 CZ: Obecná FT žádanka pro dětského pacienta bez určení konkrétních výkonů.
 EN: General FT order for a pediatric patient without specified individual procedures.
 """
+* language = #cs
 * id = "FTCompositionPediatricPosture"
 * status = #final
 * date = "2026-09-04T11:05:00+02:00"
 * title = "Fyzioterapie při vadném držení těla"
 * type = $loinc#57154-7
+* type.text = "žádanka o fyzioterapii"
 * subject = Reference(Patient-FTPediatricPosture)
 * author[0] = Reference(PractitionerRole-Pediatrician)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840302"
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-PediatricGeneralPhysiotherapy)
 * section[clinicalQuestion].text.status = #generated
-* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</div>"
+* section[clinicalQuestion] insert CzechNarrative([[Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.]])
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTPediatricPosture)
 * section[coverage].entry[0] = Reference(Coverage-FTPediatricPosture)
@@ -732,6 +783,7 @@ Description: """
 CZ: Obecná FT žádanka pro dětského pacienta včetně zákonného zástupce; konkrétní výkony určí fyzioterapeut.
 EN: General FT order for a pediatric patient including a legal guardian; individual procedures are to be determined by the physiotherapist.
 """
+* language = #cs
 * id = "BundleFTPediatricPosture"
 * type = #document
 * timestamp = "2026-09-04T11:05:00+02:00"

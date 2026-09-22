@@ -310,12 +310,14 @@ groups:
     description: K-žádanka specifické logické modely.
     resources:
       - StructureDefinition/LMKOrderCz
+      - StructureDefinition/LMKOrderCompleteCz
   
   czech-logical-model-ft-order:
     name: Logický model FT žádanky
     description: FT-žádanka specifické logické modely.
     resources:
       - StructureDefinition/LMFTOrderCz
+      - StructureDefinition/LMFTOrderCompleteCz
 #   english-logical-model-shared:
 #     name: Shared logical model for orders
 #     description: Logical model resources shared by K-order and FT-order.

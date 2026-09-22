@@ -1,3 +1,8 @@
+Invariant: k-order-requires-order
+Description: "The K-order orderInformation section must reference at least one ServiceRequest with intent order. Recommendations with intent proposal cannot constitute a K-order on their own."
+Severity: #error
+Expression: "entry.resolve().ofType(ServiceRequest).where(intent = 'order').exists()"
+
 Profile: KOrderCompositionCz
 Parent: Composition
 Id: KOrderCompositionCz
@@ -16,11 +21,11 @@ Condition a DocumentReference.
 * meta
   * security 0..* MS
 
-* identifier 1..1 MS
+* identifier 1..1 
 * identifier.system = "urn:ietf:rfc:4122"
 
 
-* type 1..1 MS
+* type 1..1 
 * type from $OrderTypes (required)
   * coding 1..1
   * coding = $loinc#57133-1
@@ -61,7 +66,7 @@ Condition a DocumentReference.
 * author only Reference(CZ_PractitionerRoleOrder or CZ_PractitionerRoleCore)
 
 * encounter 0..1
-* encounter only Reference(CZ_Encounter)
+* encounter only Reference(CZ_EncounterCore)
 
 * section 1..* MS
 * section ^slicing.discriminator.type = #pattern
@@ -76,11 +81,12 @@ Condition a DocumentReference.
     coverage 1..1 MS and
     appointment 0..1 MS and
     carePlan 0..1 MS and
-    medicalDevices 0..* MS and
+    medicalDevices 0..1 MS and
     supportingInformation 0..1 MS and
-    attachments 0..* MS
+    attachments 0..1 MS
 
 * section[orderInformation]
+  * obeys k-order-requires-order
   * ^short = "Requested consultation services"
   * ^definition = "References to K ServiceRequest resources representing the consultation or other healthcare services requested by this order."
   * code = $loinc#57133-1

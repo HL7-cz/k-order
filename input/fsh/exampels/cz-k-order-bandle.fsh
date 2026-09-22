@@ -7,11 +7,13 @@ CZ: Dokumentová Composition neadresné K-žádanky se dvěma požadovanými kar
 EN: Document Composition of an unaddressed K-order with two requested cardiology services and a pulmonologist as an additional recipient of the result.
 """
 Usage: #example
+* language = #cs
 * id = "KOrderCompositionExample"
 * status = #final
 * date = "2025-02-01T10:15:00+01:00"
 * title = "Kardiologicke konzilium pro namahovou dusnost"
 * type = $loinc#57133-1
+* type.text = "žádanka o vyšetření"
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * extension[informationRecipient][0].valueReference = Reference(PractitionerRole-Pulmonologist)
@@ -19,11 +21,11 @@ Usage: #example
 * section[orderInformation].entry[0] = Reference(KOrderServiceRequest-1)
 * section[orderInformation].entry[1] = Reference(KOrderServiceRequest-2)
 * section[clinicalQuestion].text.status = #generated
-* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Objasnění příčiny námahové dušnosti.</div>"
+* section[clinicalQuestion] insert CzechNarrative([[Objasnění příčiny námahové dušnosti.]])
 * section[clinicalQuestion].entry[0] = Reference(KOrderCondition-Main)
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[carePlan].text.status = #generated
-* section[carePlan].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola u odesílajícího lékaře po dokončení vyšetření.</div>"
+* section[carePlan] insert CzechNarrative([[Kontrola u odesílajícího lékaře po dokončení vyšetření.]])
 
 * identifier.value = "KORD-COMP-2025-001"
 
@@ -35,11 +37,11 @@ Description: """
 CZ: Klinický stav odůvodňující kardiologickou žádanku.
 EN: Clinical condition justifying the cardiology order.
 """
+* language = #cs
 * id = "KOrderCondition-Main"
 * subject = Reference(Patient-Novak-Petr)
-* code.coding[+] = $sctCZ#267036007
+* code.coding[+] = $sctCZ#267036007 "dyspnoe"
 * code.text = "Námahová dušnost k objasnění příčiny"
-// * code.coding[=].display = "Dusnost"
 
 // ------------------------- ServiceRequests --------------------------------
 Instance: KOrderServiceRequest-1
@@ -49,6 +51,7 @@ Description: """
 CZ: Požadavek na kardiologické konziliární vyšetření.
 EN: Request for a cardiology consultation.
 """
+* language = #cs
 * id = "KOrderServiceRequest-1"
 * identifier[+].value = "KORD-SR-2025-0001"
 * status = #active
@@ -58,8 +61,7 @@ EN: Request for a cardiology consultation.
 * requester = Reference(Practitioner-Author-detail)
 // Neadresna zadanka: performer is intentionally omitted.
 * code.text = "Kardiologicke konziliarni vysetreni"
-* code.coding[+] = $sctCZ#185387006
-// * code.coding[=].display = "New patient consultation"
+* code.coding[+] = $sctCZ#185387006 "konzultace s novým pacientem"
 * reasonReference[0] = Reference(KOrderCondition-Main)
 Instance: KOrderServiceRequest-2
 InstanceOf: KOrderServiceRequestCz
@@ -68,6 +70,7 @@ Description: """
 CZ: Požadavek na echokardiografické vyšetření.
 EN: Request for echocardiography.
 """
+* language = #cs
 * id = "KOrderServiceRequest-2"
 * identifier[+].value = "KORD-SR-2025-0002"
 * status = #active
@@ -77,8 +80,7 @@ EN: Request for echocardiography.
 * requester = Reference(Practitioner-Author-detail)
 // Neadresna zadanka: performer is intentionally omitted.
 * code.text = "Echokardiograficke vysetreni"
-* code.coding[+] = $sctCZ#40701008
-// * code.coding[=].display = "Echocardiography"
+* code.coding[+] = $sctCZ#40701008 "echokardiografie"
 * reasonReference[0] = Reference(KOrderCondition-Main)
 // ------------------------- Coverage ---------------------------------------
 Instance: KOrderCoverage-Example
@@ -88,6 +90,7 @@ Description: """
 CZ: Údaj o zdravotním pojištění pacienta.
 EN: Patient health insurance coverage.
 """
+* language = #cs
 * id = "KOrderCoverage-Example"
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)
@@ -104,6 +107,7 @@ CZ: Neadresná K-žádanka praktického lékaře pro námahovou dušnost se SNOM
 EN: Unaddressed K-order from a general practitioner for exertional dyspnea, with SNOMED CT procedures, a cardiology consultation, echocardiography, and a pulmonologist as an additional recipient of the result.
 """
 Usage: #example
+* language = #cs
 * id = "BundleKOrderExample"
 * type = #document
 * timestamp = "2025-02-01T10:15:00+01:00"
@@ -163,6 +167,7 @@ CZ: Příklad pacienta Petra Nováka s identifikací pomocí českých národní
 EN: Example of patient Petr Novak with identification by Czech national identifiers.
 """
 
+* language = #cs
 * id = "48a9d440-4194-42c1-87ad-b5a39020a4d0"
 * identifier[RID].use = #official
 * identifier[RID].system = $cz-patient-rid
@@ -201,14 +206,16 @@ CZ: Detail role zdravotnického pracovníka.
 EN: Healthcare practitioner role detail.
 """
 
+* language = #cs
 * id = "2b7e9637-5018-4542-9faf-d5abdee7b849"
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Ordinace praktickeho lekare"
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #001
+* specialty[0].coding[0].display = "Pracoviště praktického lékaře pro dospělé"
 * specialty[0].text = "Vseobecne prakticke lekarstvi"
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">MUDr. Ivan Andel, vseobecny prakticky lekar</div>"
+* insert CzechNarrative([[MUDr. Ivan Andel, vseobecny prakticky lekar]])
 * text.status = #generated
 
 Instance: Practitioner-Author
@@ -219,6 +226,7 @@ CZ: Zdravotnický pracovník autora žádanky.
 EN: Healthcare practitioner authoring the order.
 """
 
+* language = #cs
 * id = "a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
 * identifier[KRZP].system = $cz-practitioner-krzp
 * identifier[KRZP].value = "100000001"
@@ -233,6 +241,7 @@ Description: """
 CZ: Příklad organizace poskytovatele zdravotních služeb.
 EN: Example of a healthcare service provider organization.
 """
+* language = #cs
 * id = "ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
 * identifier[KRPZS].system = $cz-organization-krpzs
 * identifier[KRPZS].value = "100000001"
@@ -254,6 +263,7 @@ EN: Example of a healthcare service provider organization.
 * address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
 * address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * address[0].country.extension[0].valueCoding.code = #CZ
+* address[0].country.extension[0].valueCoding.display = "Czechia"
 
 Instance: Organization-Insurance111
 InstanceOf: CZ_OrganizationCore
@@ -262,6 +272,7 @@ Description: """
 CZ: Zdravotní pojišťovna pacienta.
 EN: Patient's health insurer.
 """
+* language = #cs
 * id = "Organization-Insurance111"
 * identifier[KP].system = $cz-organization-kp
 * identifier[KP].value = "111"
@@ -277,6 +288,7 @@ Description: """
 CZ: Příklad podřízeného pracoviště v hierarchii nemocnice.
 EN: Example of a subordinate department within a hospital hierarchy.
 """
+* language = #cs
 * id = "af2b3114-e872-43b9-9875-cceb39122f7f"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345679"
@@ -308,6 +320,7 @@ Description: """
 CZ: Samostatny poskytovatel zdravotnich sluzeb pneumologickeho dodatecneho prijemce vysledku.
 EN: Separate healthcare service provider of the pulmonology additional result recipient.
 """
+* language = #cs
 * id = "Organization-PulmonologyProvider"
 * identifier[KRPZS].system = $cz-organization-krpzs
 * identifier[KRPZS].value = "100000002"
@@ -325,6 +338,7 @@ Description: """
 CZ: Pneumolog, který obdrží výsledek K-žádanky jako dodatečný příjemce.
 EN: Pulmonologist who also receives the K-order result as an additional recipient.
 """
+* language = #cs
 * id = "Practitioner-Pulmonologist"
 * identifier[KRZP].system = $cz-practitioner-krzp
 * identifier[KRZP].value = "100000002"
@@ -339,12 +353,14 @@ Description: """
 CZ: Role dodatečného příjemce výsledku.
 EN: Role of the additional result recipient.
 """
+* language = #cs
 * id = "PractitionerRole-Pulmonologist"
 * practitioner = Reference(Practitioner-Pulmonologist)
 * organization = Reference(Organization-PulmonologyClinic)
-* code = $cz-nrzp_povolani#L1
+* code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
 * specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
 * specialty[0].coding[0].code = #205
+* specialty[0].coding[0].display = "Pracoviště tuberkulózy a respiračních nemocí"
 * specialty[0].text = "Pneumologie a ftizeologie"
 
 Instance: Organization-PulmonologyClinic
@@ -354,6 +370,7 @@ Description: """
 CZ: Pneumologická ambulance dodatečného příjemce výsledku.
 EN: Pulmonology clinic of the additional result recipient.
 """
+* language = #cs
 * id = "Organization-PulmonologyClinic"
 * identifier[ICO].system = $cz-organization-ico
 * identifier[ICO].value = "12345695"

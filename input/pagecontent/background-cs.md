@@ -52,6 +52,8 @@ Diferenciální diagnózy se předávají jako `CZ_ConditionCore` v `supportingI
 
 **Doporučení k hospitalizaci nebo převzetí do péče.** Každou takovou službu vyjádřete samostatným `ServiceRequest` s vlastním identifikátorem, `code`, pacientem a žadatelem. Pro doporučení použijte `intent = proposal`, pro skutečnou objednávku `intent = order`. Nový požadavek zařaďte do `Composition.section[orderInformation].entry` a jeho zdroj do dokumentového Bundle. Pokud není dohodnutý kód služby, použijte `code.text`. Doporučení se nepředává jako disposition extension na požadavku na jiné vyšetření. `basedOn` použijte pouze tehdy, když nový požadavek skutečně naplňuje odkazovaný návrh nebo objednávku; samotná časová návaznost nestačí. Podrobnosti standardních elementů uvádí [FHIR R4 ServiceRequest](https://hl7.org/fhir/R4/servicerequest-definitions.html). Viz [příklad doporučení k hospitalizaci](Bundle-BundleHospitalAdmissionRecommendationExample.html).
 
+K-žádanka musí v `Composition.section[orderInformation].entry` odkazovat alespoň na jeden `ServiceRequest` s `intent = order`. Samotné doporučení ani soubor požadavků pouze s `intent = proposal` netvoří platnou K-žádanku. Toto pravidlo vynucuje invariant `k-order-requires-order` na profilu `KOrderCompositionCz`. Při validaci musí být odkazované požadavky dostupné, typicky v dokumentovém Bundle.
+
 Podpůrné informace pomáhají příjemci posoudit a naplánovat péči. V žádance mají dvě úrovně:
 
 | Umístění | Účel |

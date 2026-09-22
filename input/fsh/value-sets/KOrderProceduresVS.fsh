@@ -8,6 +8,7 @@ Description: "SNOMED CT procedury pro požadované konziliární služby a konzu
 * insert SNOMEDCopyrightForVS
 
 * include codes from system $sctCZ where concept is-a #11429006
+* include $sctCZ#183444007 "doporučení k další péči"
 * exclude $sctCZ#11429006 "Consultation"
 * exclude $sctCZ#726007 "Pathology consultation, comprehensive, records and specimen with report"
 * exclude $sctCZ#28191001 "Consultation and report by radiologist"

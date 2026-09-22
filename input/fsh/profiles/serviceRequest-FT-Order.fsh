@@ -18,8 +18,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * insert SetFmmandStatusRule ( 0, draft )
 
 // --------------------------- identifiers -------------------------------------
-* identifier 1..1 MS
-* identifier ^short = "Identifikátor eŽádanky (UUID)"
+* identifier 1..* MS
 * identifier.system 1..1 MS
 * identifier.value 1..1 MS
 * identifier.system = "urn:ietf:rfc:4122" (exactly)

@@ -1,5 +1,24 @@
 // Hospital admission is a distinct proposed service, not a disposition extension.
 // Shared patient, provider and clinical resources are defined in the K examples.
+Instance: HospitalAdmissionConsultation-Example
+InstanceOf: KOrderServiceRequestCz
+Usage: #example
+Description: "Objednávka konzilia při zhoršení renálních funkcí, doprovázená doporučením k hospitalizaci."
+* language = #cs
+* identifier.value = "726785fc-1274-44db-a9e8-a460ad4f6376"
+* status = #active
+* intent = #order
+* authoredOn = "2026-09-03T10:00:00+02:00"
+* subject = Reference(Patient-Novak-Petr)
+* requester = Reference(Practitioner-Author-detail)
+* performer[0] = Reference(Organization-1)
+* code.coding[0] = $sctCZ#185387006 "konzultace s novým pacientem"
+* code.text = "Konziliární vyšetření při zhoršení renálních funkcí"
+* reasonReference[0] = Reference(NephrologyCondition-CKDStage4)
+* supportingInfo[0] = Reference(Observation-eGFRExample)
+* supportingInfo[1] = Reference(Observation-CreatinineExample)
+* insurance = Reference(KOrderCoverage-Example)
+
 Instance: HospitalAdmissionServiceRequest-Example
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
@@ -7,6 +26,7 @@ Description: """
 CZ: Samostatné doporučení k přijetí pacienta do nemocnice za účelem došetření zhoršení renálních funkcí.
 EN: A separate recommendation for hospital admission to investigate worsening renal function.
 """
+* language = #cs
 * identifier.value = "b58b90d6-6354-4aa1-b57a-814e74dc2a59"
 * status = #active
 * intent = #proposal
@@ -28,6 +48,7 @@ Description: """
 CZ: K dokument s doporučením k hospitalizaci jako samostatným ServiceRequest.
 EN: K document with a recommendation for hospital admission represented by its own ServiceRequest.
 """
+* language = #cs
 * status = #final
 * date = "2026-09-03T10:05:00+02:00"
 * title = "Doporučení k hospitalizaci"
@@ -35,8 +56,9 @@ EN: K document with a recommendation for hospital admission represented by its o
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "8d16bc92-afdc-4198-b14c-6aef6a8c8b15"
 * section[orderInformation].entry[0] = Reference(HospitalAdmissionServiceRequest-Example)
+* section[orderInformation].entry[1] = Reference(HospitalAdmissionConsultation-Example)
 * section[clinicalQuestion].text.status = #generated
-* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Doporučeno přijetí k hospitalizaci za účelem došetření zhoršení renálních funkcí.</div>"
+* section[clinicalQuestion] insert CzechNarrative([[Žádáno konziliární vyšetření při zhoršení renálních funkcí. Současně doporučeno přijetí k hospitalizaci za účelem došetření.]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
@@ -49,6 +71,7 @@ Description: """
 CZ: Dokumentový Bundle K doporučení k hospitalizaci. Navržené přijetí má vlastní ServiceRequest s intent proposal, nikoli extension na jiném požadavku.
 EN: Document Bundle for a K hospital admission recommendation. The proposed admission has its own ServiceRequest with intent proposal, rather than an extension on another request.
 """
+* language = #cs
 * type = #document
 * timestamp = "2026-09-03T10:05:00+02:00"
 * identifier.system = "urn:ietf:rfc:4122"
@@ -57,6 +80,8 @@ EN: Document Bundle for a K hospital admission recommendation. The proposed admi
 * entry[0].resource = HospitalAdmissionCompositionExample
 * entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/HospitalAdmissionServiceRequest-Example"
 * entry[=].resource = HospitalAdmissionServiceRequest-Example
+* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/HospitalAdmissionConsultation-Example"
+* entry[=].resource = HospitalAdmissionConsultation-Example
 * entry[+].fullUrl = "https://example.cz/fhir/Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
 * entry[=].resource = Patient-Novak-Petr
 * entry[+].fullUrl = "https://example.cz/fhir/Practitioner/a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"

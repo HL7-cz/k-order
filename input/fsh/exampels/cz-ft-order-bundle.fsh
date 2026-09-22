@@ -11,6 +11,7 @@ Description: """
 CZ: Composition fyzioterapeutické eŽádanky se čtyřmi požadovanými výkony.
 EN: Physiotherapy order Composition with four requested procedures.
 """
+* language = #cs
 * id = "FTCompositionExample"
 * status = #final
 * date = "2025-10-29T10:15:00+01:00"
@@ -19,7 +20,8 @@ EN: Physiotherapy order Composition with four requested procedures.
 * author[0] = Reference(Practitioner-Author-detail)
 * extension[presentedForm].valueAttachment.contentType = #application/pdf
 * extension[presentedForm].valueAttachment.url = "https://example.cz/files/ft-document.pdf"
-* type = $loinc#57154-7 "Physical therapy Referral note"
+* type = $loinc#57154-7
+* type.text = "žádanka o fyzioterapii"
 // Requested physiotherapy services.
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-21113)
 
@@ -29,11 +31,11 @@ EN: Physiotherapy order Composition with four requested procedures.
 // Clinical indication shared by the requested services.
 * section[clinicalQuestion].text.status = #generated
 
-* section[clinicalQuestion].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D</div>"
+* section[clinicalQuestion] insert CzechNarrative([[Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D]])
 // Reuse the existing Coverage.
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[carePlan].text.status = #generated
-* section[carePlan].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Kontrola po dokončení předepsané fyzioterapie.</div>"
+* section[carePlan] insert CzechNarrative([[Kontrola po dokončení předepsané fyzioterapie.]])
 
 // identifier.system je fixed v profilu → nastavuje se jen value
 * identifier.value = "FT-COMP-2025-001"
@@ -50,6 +52,7 @@ Description: """
 CZ: Požadavek na fyzioterapeutický výkon MGT, elektro.
 EN: Request for the MGT electrotherapy procedure.
 """
+* language = #cs
 * id = "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "d9f2a8b0-1b9b-4f66-9c53-2f1e5b62d6a1"
@@ -62,7 +65,7 @@ EN: Request for the MGT electrotherapy procedure.
 // performer recykluj dle potřeby – dávám Organization-1 jako placeholder
 * performer[0] = Reference(Organization-1)
 
-* code.coding[0] = $sctCZ#62868009
+* code.coding[0] = $sctCZ#62868009 "mobilizační cvičení"
 * code.text = "MGT, elektro"
 
 * quantityQuantity.value = 12
@@ -83,6 +86,7 @@ Description: """
 CZ: Požadavek na léčebnou tělesnou výchovu.
 EN: Request for therapeutic exercise.
 """
+* language = #cs
 * id = "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "2b7a3e62-3a40-4c65-9c1d-0e4b7b9c2e91"
@@ -93,7 +97,7 @@ EN: Request for therapeutic exercise.
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(Organization-1)
 
-* code.coding[0] = $sctCZ#229065009
+* code.coding[0] = $sctCZ#229065009 "terapie cvičením"
 * code.text = "LTV"
 
 * quantityQuantity.value = 12
@@ -111,6 +115,7 @@ Description: """
 CZ: Požadavek na mobilizační fyzioterapeutický výkon.
 EN: Request for a mobilization physiotherapy procedure.
 """
+* language = #cs
 * id = "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "0a6f4d9a-9e7e-4c23-95d3-2f7f7b5b3d55"
@@ -121,7 +126,7 @@ EN: Request for a mobilization physiotherapy procedure.
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(Organization-1)
 
-* code.coding[0] = $sctCZ#62868009
+* code.coding[0] = $sctCZ#62868009 "mobilizační cvičení"
 * code.text = "Mobilizace"
 
 * quantityQuantity.value = 12
@@ -139,6 +144,7 @@ Description: """
 CZ: Požadavek na manuální terapii.
 EN: Request for manual therapy.
 """
+* language = #cs
 * id = "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
 * identifier.system = "urn:ietf:rfc:4122"
 * identifier.value = "b2e9d1d2-6f3e-4a0b-a4c0-6e2f0f3d9b11"
@@ -149,7 +155,7 @@ EN: Request for manual therapy.
 * requester = Reference(Practitioner-Author-detail)
 * performer[0] = Reference(Organization-1)
 
-* code.coding[0] = $sctCZ#62868009
+* code.coding[0] = $sctCZ#62868009 "mobilizační cvičení"
 * code.text = "MT"
 
 * quantityQuantity.value = 12
@@ -170,6 +176,7 @@ Description: """
 CZ: Dokumentový Bundle fyzioterapeutické eŽádanky.
 EN: Document Bundle for the physiotherapy order.
 """
+* language = #cs
 * id = "BundleFTExample"
 * type = #document
 * timestamp = "2025-10-29T10:15:00+01:00"
