@@ -1,4 +1,5 @@
 Alias: $sct = http://snomed.info/sct
+// The Czech edition belongs in Coding.version; Coding.system remains SNOMED CT.
 Alias: $sctCZ = http://snomed.info/sct|http://snomed.info/sct/11000279109
 Alias: $loinc = http://loinc.org
 Alias: $vzp = urn:oid:1.2.203.439.4

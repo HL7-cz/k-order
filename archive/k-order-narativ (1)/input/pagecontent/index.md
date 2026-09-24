@@ -58,10 +58,14 @@ This guide is divided into several pages, which are listed at the top of each pa
   - [Scope and Content](scope-and-content.html): This section defines what the guide covers and what it does not, and states the skeleton of the logical model of the document.
   - [Background](background.html): This section contains information about the origins of the definition of the consultation order and the physiotherapy order.
 - Functional:
+  - [Use cases](use-cases.html): This section refers to the clinical scenarios and to the instances that realise them.
+  - [Workflow](workflow.html): This section defines what is and what is not a state of an eReferral.
   - [Logical Models](logical-models.html): This section contains the list of logical models with the numbers and names of the elements.
+  - [Terminology considerations](terminology-considerations.html): This section contains information about the code systems and value sets used.
 - Implementation:
   - [Logical Model Mapping](model-map.html): This section contains the mapping of the logical model to the profiles.
   - [Examples](examples.html): This section contains examples of instances.
+  - [Implementation notes](implementation-notes.html): This section contains information for implementation.
 - About:
   - [Changes](changes.html): This section contains an overview of the changes in the individual versions of the guide.
   - [Authors](authors.html): This section contains information about the authors.

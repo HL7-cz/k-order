@@ -390,15 +390,15 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[=].target.comment = "As business version, not as resource version"
 * group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/digitalSignatureKOrderCz"
-* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/BundleOrderCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-provenance"
 * group[=].element[+].code = #Header.digitalSignatureCz.digitalSignature
 * group[=].element[=].display = "A.1.9.1 - Electronic signature or document seal"
-* group[=].element[=].target.code = #Bundle.signature.data		
+* group[=].element[=].target.code = #Provenance.signature.data
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[+].code = #Header.digitalSignatureCz.timestamp
 * group[=].element[=].display = "A.1.9.2 - Electronic time stamp"
-* group[=].element[=].target.code = #Bundle.signature.when					
+* group[=].element[=].target.code = #Provenance.signature.when
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[=].target.comment = ""

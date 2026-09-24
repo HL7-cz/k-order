@@ -10,6 +10,7 @@ title: HL7 Czech Order Implementation Guide
 description: HL7 Czech Order Implementation Guide
 status: draft # draft | active | retired | unknown
 version: 0.0.3
+language: cs
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -138,6 +139,8 @@ pages:
 # https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 #
 parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
+  # Keep Czech section narratives when rendering document Bundles.
+  i18n-default-lang: cs
   special-url:
     - https://vzp.cz/cis/vykony
     - urn:oid:1.2.203.7898.1.5

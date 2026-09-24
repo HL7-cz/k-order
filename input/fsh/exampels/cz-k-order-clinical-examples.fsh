@@ -356,6 +356,24 @@ EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
 * section[supportingInformation].entry[2] = Reference(NephrologyCondition-CKDStage4)
 
+Instance: RelatedPerson-NephrologyWife
+InstanceOf: CZ_RelatedPersonCore
+Usage: #example
+Title: "Manželka pacienta Petra Nováka"
+Description: "Manželka a kontaktní osoba pacienta v příkladu nefrologické žádanky."
+* language = #cs
+* active = true
+* patient = Reference(Patient-Novak-Petr)
+* relationship = $cz-patient-relationship#WIFE
+* relationship.text = "manželka"
+* name.use = #official
+* name.family = "Nováková"
+* name.given[0] = "Marie"
+* name.text = "Marie Nováková"
+* gender = #female
+* text.status = #generated
+* insert CzechNarrative([[<p>Marie Nováková, manželka pacienta Petra Nováka, kontaktní osoba pro nefrologickou žádanku.</p>]])
+
 Instance: BundleNephrologyHandoverExample
 InstanceOf: BundleOrderCz
 Usage: #example
@@ -373,6 +391,14 @@ EN: Document Bundle for a nephrology K-order requesting transfer of care, includ
 * entry[0].resource = NephrologyCompositionExample
 * entry[+].fullUrl = "https://example.cz/fhir/Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
 * entry[=].resource = Patient-Novak-Petr
+* entry[=].resource.contact[0].relationship[0] = $cz-patient-relationship#WIFE
+* entry[=].resource.contact[0].relationship[0].text = "manželka"
+* entry[=].resource.contact[0].name.family = "Nováková"
+* entry[=].resource.contact[0].name.given[0] = "Marie"
+* entry[=].resource.contact[0].extension[0].url = "http://hl7.org/fhir/StructureDefinition/patient-relatedPerson"
+* entry[=].resource.contact[0].extension[0].valueReference = Reference(RelatedPerson-NephrologyWife)
+* entry[+].fullUrl = "https://example.cz/fhir/RelatedPerson/RelatedPerson-NephrologyWife"
+* entry[=].resource = RelatedPerson-NephrologyWife
 * entry[+].fullUrl = "https://example.cz/fhir/Practitioner/a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
 * entry[=].resource = Practitioner-Author
 * entry[+].fullUrl = "https://example.cz/fhir/PractitionerRole/2b7e9637-5018-4542-9faf-d5abdee7b849"

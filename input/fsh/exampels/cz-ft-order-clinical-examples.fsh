@@ -621,6 +621,8 @@ EN: Ten-year-old child with poor posture and early scoliosis.
 * contact[0].relationship[0].text = "matka"
 * contact[0].name.family = "Svobodova"
 * contact[0].name.given[0] = "Lucie"
+* contact[0].extension[0].url = "http://hl7.org/fhir/StructureDefinition/patient-relatedPerson"
+* contact[0].extension[0].valueReference = Reference(RelatedPerson-FTPediatricMother)
 * contact[0].telecom[0].system = #phone
 * contact[0].telecom[0].value = "+420777333444"
 * contact[0].telecom[0].use = #mobile
@@ -637,6 +639,39 @@ EN: Ten-year-old child with poor posture and early scoliosis.
 * contact[0].address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
 * contact[0].address[0].country.extension[0].valueCoding.code = #CZ
 * contact[0].address[0].country.extension[0].valueCoding.display = "Czechia"
+
+Instance: RelatedPerson-FTPediatricMother
+InstanceOf: CZ_RelatedPersonCore
+Usage: #example
+Title: "Matka nezletilé pacientky Anny Svobodové"
+Description: "Lucie Svobodová, matka a kontaktní osoba nezletilé pacientky v příkladu FT 3."
+* language = #cs
+* active = true
+* patient = Reference(Patient-FTPediatricPosture)
+* relationship = $cz-patient-relationship#MTH
+* relationship.text = "matka"
+* name.use = #official
+* name.family = "Svobodova"
+* name.given[0] = "Lucie"
+* gender = #female
+* telecom[0].system = #phone
+* telecom[0].value = "+420777333444"
+* telecom[0].use = #mobile
+* telecom[1].system = #email
+* telecom[1].value = "lucie.svobodova@example.cz"
+* address[0].use = #home
+* address[0].type = #physical
+* address[0].text = "Školní 8, 602 00 Brno"
+* address[0].line[0] = "Školní 8"
+* address[0].city = "Brno"
+* address[0].postalCode = "60200"
+* address[0].country = "CZ"
+* address[0].country.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-codedString"
+* address[0].country.extension[0].valueCoding.system = "urn:iso:std:iso:3166"
+* address[0].country.extension[0].valueCoding.code = #CZ
+* address[0].country.extension[0].valueCoding.display = "Czechia"
+* text.status = #generated
+* insert CzechNarrative([[<p>Lucie Svobodová, matka nezletilé pacientky Anny Svobodové a kontaktní osoba pro fyzioterapii. Telefon: +420777333444, e-mail: lucie.svobodova@example.cz.</p>]])
 
 Instance: Condition-FTPediatricScoliosis
 InstanceOf: CZ_ConditionCore
@@ -793,6 +828,8 @@ EN: General FT order for a pediatric patient including a legal guardian; individ
 * entry[0].resource = FTCompositionPediatricPosture
 * entry[+].fullUrl = "https://example.cz/fhir/Patient/Patient-FTPediatricPosture"
 * entry[=].resource = Patient-FTPediatricPosture
+* entry[+].fullUrl = "https://example.cz/fhir/RelatedPerson/RelatedPerson-FTPediatricMother"
+* entry[=].resource = RelatedPerson-FTPediatricMother
 * entry[+].fullUrl = "https://example.cz/fhir/Practitioner/Practitioner-Pediatrician"
 * entry[=].resource = Practitioner-Pediatrician
 * entry[+].fullUrl = "https://example.cz/fhir/PractitionerRole/PractitionerRole-Pediatrician"

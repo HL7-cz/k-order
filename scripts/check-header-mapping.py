@@ -4,6 +4,7 @@ Also checks generated tables, source model elements, bilingual target parity,
 and standalone copies of the mapping in IMG-Order.
 """
 import importlib.util
+import argparse
 import json
 import re
 import subprocess
@@ -13,12 +14,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.dont_write_bytecode = True
-IMG = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT.parent / 'RTG'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('img_root', nargs='?', type=Path, default=ROOT.parent / 'RTG')
+parser.add_argument('--order-only', action='store_true')
+args = parser.parse_args()
+IMG = args.img_root.resolve()
 PACKAGES = Path.home() / '.fhir/packages'
 spec = importlib.util.spec_from_file_location('sync_header', ROOT / 'scripts/sync-header-mapping.py')
 sync = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sync)
-subprocess.run([sys.executable, str(ROOT / 'scripts/sync-header-mapping.py'), '--check', '--img-root', str(IMG)], check=True)
+subprocess.run([sys.executable, str(ROOT / 'scripts/sync-header-mapping.py'), '--check', '--img-root', str(IMG)] +
+               (['--order-only'] if args.order_only else []), check=True)
 
 definitions = {}
 for package in ('hl7.fhir.r4.core#4.0.1', 'hl7.fhir.uv.extensions.r4#5.3.0', 'hl7.fhir.cz.core#1.0.0'):
@@ -75,6 +81,8 @@ for row in rows:
 
 for root, files in ((ROOT, ['K-Header-map.xml', 'K-Header-map-en.xml', 'FT-Header-map.xml', 'FT-Header-map-en.xml']),
                     (IMG, ['Header-map-cs.xml', 'Header-map.xml'])):
+    if args.order_only and root == IMG:
+        continue
     models = {}
     for path in (root / 'input/fsh/czech-model').glob('*.fsh'):
         text = path.read_text(encoding='utf-8')
@@ -102,4 +110,5 @@ for root, files in ((ROOT, ['K-Header-map.xml', 'K-Header-map-en.xml', 'FT-Heade
         # Normalize the two document-specific target labels before comparing.
         signatures.append(str(signature).replace(params['composition'], 'COMPOSITION').replace(params['bundle'], 'BUNDLE'))
     assert len(set(signatures)) == 1, 'Bilingual/domain mapping divergence in ' + str(root)
-print(f'PASS: {len(rows)} CZ Core/FHIR target paths, source elements and six consistent header tables')
+page_count = 4 if args.order_only else 6
+print(f'PASS: {len(rows)} CZ Core/FHIR target paths, source elements and {page_count} consistent header tables')

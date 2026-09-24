@@ -1164,12 +1164,12 @@
       "en": "A.1.9.1 Electronic signature or seal"
     },
     "relationship": "equivalent",
-    "profile": "Bundle ({{ include.bundle }})",
-    "element": "signature",
-    "navigation": "",
+    "profile": "Provenance (CZ_Provenance)",
+    "element": "signature.data",
+    "navigation": "Bundle.entry[provenance].resource",
     "note": {
-      "cs": "Podpis celého dokumentového Bundle. Obsah podpisu je v signature.data; celý zdrojový Signature se mapuje na signature. Podpisy jednotlivých zdrojů lze předat odděleně pomocí CZ_Provenance.signature a target.",
-      "en": "Signature of the complete document Bundle. Signature content is in signature.data; map the complete source Signature to signature. Signatures of individual resources can be conveyed separately using CZ_Provenance.signature and target."
+      "cs": "Obsah podpisu nebo pečeti je v Provenance.signature.data; celý zdrojový Signature se mapuje na Provenance.signature. Provenance.target odkazuje na podepsané zdroje dokumentu.",
+      "en": "The signature or seal content is in Provenance.signature.data; map the complete source Signature to Provenance.signature. Provenance.target references the signed document resources."
     }
   },
   {
@@ -1181,12 +1181,12 @@
       "en": "A.1.9.2 Electronic timestamp"
     },
     "relationship": "related",
-    "profile": "Bundle ({{ include.bundle }})",
+    "profile": "Provenance (CZ_Provenance)",
     "element": "signature.when",
-    "navigation": "",
+    "navigation": "Bundle.entry[provenance].resource",
     "note": {
-      "cs": "signature.when je čas podpisu, nikoli samostatný kryptografický token časového razítka.",
-      "en": "signature.when is the signing time, not a standalone cryptographic timestamp token."
+      "cs": "Provenance.signature.when je čas podpisu, nikoli samostatný kryptografický token časového razítka.",
+      "en": "Provenance.signature.when is the signing time, not a standalone cryptographic timestamp token."
     }
   }
 ]

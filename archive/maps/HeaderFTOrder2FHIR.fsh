@@ -373,7 +373,7 @@ Usage: #definition
 * group[=].element[=].target.comment = "Jako business verze, nikoli jako verze resource"
 
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMDigitalSignatureOrderCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/CZ_Provenance"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-provenance"
 * group[=].element[+].code = #podpis
 * group[=].element[=].target.code = #Provenance.signature
 * group[=].element[=].target.equivalence = #relatedto

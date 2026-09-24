@@ -58,10 +58,14 @@ Tato příručka je rozdělena na několik stránek, které jsou uvedeny v horn�
   - [Rozsah použití a obsah](scope-and-content-cs.html): Tento segment vymezuje, co příručka pokrývá a co ne, a uvádí kostru logického modelu dokumentu.
   - [Background](background-cs.html): Tento segment obsahuje informace o původu definice konziliární žádanky a žádanky o fyzioterapii.
 - Functional:
+  - [Případy užití](use-cases-cs.html): Tento segment odkazuje na klinické scénáře a na instance, které je realizují.
+  - [Workflow](workflow-cs.html): Tento segment vymezuje, co je a co není stavem eŽádanky.
   - [Logické modely](logical-models-cs.html): Tento segment obsahuje seznam logických modelů s čísly a názvy prvků.
+  - [Terminologické aspekty](terminology-considerations-cs.html): Tento segment obsahuje informace o použitých code systémech a oborech hodnot.
 - Implementation:
   - [Mapování logického modelu](model-map-cs.html): Tento segment obsahuje mapování logického modelu na profily.
   - [Příklady](examples-cs.html): Tento segment obsahuje příklady instancí.
+  - [Poznámky k implementaci](implementation-notes-cs.html): Tento segment obsahuje informace pro implementaci.
 - About:
   - [Záznam změn](changes-cs.html): Tento segment obsahuje přehled změn v jednotlivých verzích příručky.
   - [Autoři](authors-cs.html): Tento segment obsahuje informace o autorech.

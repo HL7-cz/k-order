@@ -1,0 +1,5 @@
+Tato příručka specifikuje dokument, ne proces. Životní cyklus eŽádanky je vlastností systému, kterým se dokument vyměňuje — v českém prostředí jej nese systémová hlavička a jeho stavy, přechody a operace popisuje Standard systému eŽádanka. FHIR Bundle je sestaven a podepsán při vystavení a dál se nemění, viz [Poznámky k implementaci](implementation-notes-cs.html). Je-li dokument vyměňován v jiném kontextu než systémem eŽádanka, platí procesní pravidla toho kontextu.
+
+Zdroje v bundlu mají vlastní prvky `status`, například `Composition.status` nebo `ServiceRequest.status`, a vyjadřují stav dokumentu a požadavku v okamžiku vystavení.
+
+Obor hodnot [RequestStatus](https://hl7.org/fhir/R4/valueset-request-status.html) není stavovým modelem eŽádanky a nelze jej za něj vydávat, protože jeho hodnoty a stavy, které systém eŽádanka rozlišuje, se nekryjí ani v jednom směru. Stav eŽádanky nese systémová hlavička, viz [Domovská stránka](index-cs.html), oddíl Dvě části eŽádanky. Totéž platí pro prvek `A.1.8.3 Stav dokumentu`.
