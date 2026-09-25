@@ -8,6 +8,7 @@ Alias: $information-recipient-url = http://hl7.eu/fhir/StructureDefinition/infor
 Alias: $composition-version = http://hl7.org/fhir/StructureDefinition/composition-version
 Alias: $mkn10 = https://uzis.cz/terminology/CodeSystem/mkn-10
 Alias: $orpha = https://www.orpha.net
+Alias: $UCUM = http://unitsofmeasure.org
 Alias: $mime = urn:ietf:bcp:13
 Alias: $hl7-condition-category = http://hl7.org/fhir/ValueSet/condition-category        
 Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code

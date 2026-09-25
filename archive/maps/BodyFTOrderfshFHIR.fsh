@@ -325,24 +325,70 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #relatedto
 
 ///////////////////////////////////////////////////////////////////////////////
-// A.3.1.1 - Biometricke udaje -> BodyWeight + BodyHeight
+// A.3.1.1 - Biometrické údaje
 ///////////////////////////////////////////////////////////////////////////////
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-bodyweight"
-* group[=].element[+].code = #biometrickeUdaje.vaha
-* group[=].element[=].target.code = #CZ_BodyWeight
-* group[=].element[=].target.equivalence = #relatedto
-* group[=].element[+].code = #biometrickeUdaje.vaha.hodnota
-* group[=].element[=].target.code = #CZ_BodyWeight.valueQuantity
-* group[=].element[=].target.equivalence = #equivalent
+
+///////////////////////////////////////////////////////////////////////////////
+// A.3.1.1.1 - Váha
+///////////////////////////////////////////////////////////////////////////////
 
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-bodyheight"
-* group[=].element[+].code = #biometrickeUdaje.vyska
-* group[=].element[=].target.code = #CZ_BodyHeight
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-anthropometric-test-result"
+
+* group[=].element[+].code = #biometrickeUdaje.vaha
+* group[=].element[=].display = "A.3.1.1.1 - Váha"
+* group[=].element[=].target.code = #ServiceRequest.supportingInfo.ofType(CZ_Anthropometric_Test_Result)
+* group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
+
+* group[=].element[+].code = #biometrickeUdaje.vaha.hodnota
+* group[=].element[=].display = "A.3.1.1.1.1 - Hodnota"
+* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.valueQuantity
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #biometrickeUdaje.vaha.kod
+* group[=].element[=].display = "A.3.1.1.1.2 - Kód"
+* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.code
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #biometrickeUdaje.vaha.datumCas
+* group[=].element[=].display = "A.3.1.1.1.3 - Datum a čas"
+* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.effectiveDateTime
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+
+///////////////////////////////////////////////////////////////////////////////
+// A.3.1.1.2 - Výška
+///////////////////////////////////////////////////////////////////////////////
+
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-anthropometric-test-result"
+
+* group[=].element[+].code = #biometrickeUdaje.vyska
+* group[=].element[=].display = "A.3.1.1.2 - Výška"
+* group[=].element[=].target.code = #ServiceRequest.supportingInfo.ofType(CZ_Anthropometric_Test_Result)
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #relatedto
+
 * group[=].element[+].code = #biometrickeUdaje.vyska.hodnota
-* group[=].element[=].target.code = #CZ_BodyHeight.valueQuantity
+* group[=].element[=].display = "A.3.1.1.2.1 - Hodnota"
+* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.valueQuantity
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #biometrickeUdaje.vyska.kod
+* group[=].element[=].display = "A.3.1.1.2.2 - Kód"
+* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.code
+* group[=].element[=].target.display = ""
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #biometrickeUdaje.vyska.datumCas
+* group[=].element[=].display = "A.3.1.1.2.3 - Datum a čas"
+* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.effectiveDateTime
+* group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -489,8 +535,8 @@ Usage: #definition
 ///////////////////////////////////////////////////////////////////////////////
 // A.3.1.6 - Omezení pohyblivosti pacienta -> CZ_PatientMobility
 ///////////////////////////////////////////////////////////////////////////////
-* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
-* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility"
+* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-patient-mobility"
 
 * group[=].element[+].code = #omezeniPohyblivostiPacienta
 * group[=].element[=].display = "A.3.1.6 - Omezení pohyblivosti pacienta"

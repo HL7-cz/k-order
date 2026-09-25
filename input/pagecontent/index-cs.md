@@ -13,7 +13,7 @@ Oba typy jsou součástí zdravotnické dokumentace pacienta a autorizují vyž�
 
 Příručka vymezuje obsahové komponenty dokumentu a strukturu, ve které se sestavuje: logický model, jeho mapování na FHIR profily a resources, strukturu FHIR Bundle, obory hodnot a příklady instancí. Cílem je, aby byla eŽádanka elektronicky vyměnitelná mezi poskytovateli zdravotních služeb, jejich informačními systémy a národní infrastrukturou elektronického zdravotnictví.
 
-Do budoucna se předpokládá rozšíření společné báze o další typy požadavkových dokumentů, například o laboratorní žádanku.
+Do budoucna se předpokládá rozšíření společné báze o další typy požadavkových dokumentů.
 
 #### Společná kostra a typové odlišnosti
 

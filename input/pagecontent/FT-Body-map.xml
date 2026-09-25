@@ -398,15 +398,105 @@
           <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
-
-        {% include specimen-selector-map-cs.xml composition="FTOrderCompositionCz" serviceRequest="FTServiceRequestCz" %}
         <tr>
-          <td colspan="7"><b>Klinické informace</b></td>
+          <td colspan="7"><b>Biometrické údaje</b></td>
         </tr>
-        <!-- Zastaralé mapování A.3.1 ponecháno ve zdroji do ověření nové tabulky.
-        {% include clinical-information-map-cs.xml composition="FTOrderCompositionCz" serviceRequest="FTServiceRequestCz" %}
 
-        -->
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha</a></td>
+          <td>A.3.1.1.1 - Váha</td>
+          <td>související</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td></td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.hodnota</a></td>
+          <td>A.3.1.1.1.1 - Hodnota hmotnosti</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td>valueQuantity</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.kod</a></td>
+          <td>A.3.1.1.1.2 - Kód</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td>code</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.datumCas</a></td>
+          <td>A.3.1.1.1.3 - Datum a čas</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td>effectiveDateTime</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska</a></td>
+          <td>A.3.1.1.2 - Výška</td>
+          <td>související</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td></td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.hodnota</a></td>
+          <td>A.3.1.1.2.1 - Hodnota výšky</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td>valueQuantity</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.kod</a></td>
+          <td>A.3.1.1.2.2 - Kód</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td>code</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.datumCas</a></td>
+          <td>A.3.1.1.2.3 - Datum a čas</td>
+          <td>ekvivalentní</td>
+          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
+          <td>effectiveDateTime</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).supportingInfo
+  →Observation (CZ_Anthropometric_Test_Result)</td>
+          <td></td>
+        </tr>
         <tr>
           <td colspan="7"><b>Datové elementy objednávky / vyšetření</b></td>
         </tr>
