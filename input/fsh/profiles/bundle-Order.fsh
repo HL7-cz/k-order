@@ -5,11 +5,64 @@ Invariant: one-comp
 Description: "The document Bundle SHALL include one and only one Composition."
 Expression: "entry.resource.ofType(Composition).count() = 1"
 Severity: #error
-
+/*
 Invariant: coverage-author-specialty
 Description: "For insurance coverage, the Composition author SHALL be a PractitionerRole with specialty and an organization identified by ICP."
 Expression: "entry.resource.ofType(Coverage).payor.resolve().ofType(Organization).identifier.where(system = 'https://ncez.mzcr.cz/fhir/sid/kp').exists() implies (entry.resource.ofType(Composition).author.resolve().ofType(PractitionerRole).specialty.exists() and entry.resource.ofType(Composition).author.resolve().ofType(PractitionerRole).organization.resolve().ofType(Organization).identifier.where(system = 'https://ncez.mzcr.cz/fhir/sid/icp').exists())"
 Severity: #error
+*/
+Invariant: insurance-requester
+Description: "For every general order covered by public health insurance, the ServiceRequest requester, or the Composition author when requester is absent, SHALL have an ICP organization identifier and a contractual specialty."
+Severity: #error
+Expression: "
+  entry.resource.ofType(ServiceRequest).all(
+    insurance.resolve().ofType(Coverage)
+      .type.coding.where(
+        system = 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
+        and code = 'HIP'
+      ).exists()
+    implies
+    (
+      (
+        requester.exists()
+        and
+        requester.resolve().ofType(PractitionerRole)
+          .where(
+            organization.resolve().ofType(Organization)
+              .identifier.where(
+                system = 'https://ncez.mzcr.cz/fhir/sid/icp'
+                and value.exists()
+              ).exists()
+            and
+            specialty.coding.where(
+              system = 'https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost'
+              and code.exists()
+            ).exists()
+          ).exists()
+      )
+      or
+      (
+        requester.empty()
+        and
+        %resource.entry.resource.ofType(Composition)
+          .author.resolve().ofType(PractitionerRole)
+          .where(
+            organization.resolve().ofType(Organization)
+              .identifier.where(
+                system = 'https://ncez.mzcr.cz/fhir/sid/icp'
+                and value.exists()
+              ).exists()
+            and
+            specialty.coding.where(
+              system = 'https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost'
+              and code.exists()
+            ).exists()
+          ).exists()
+      )
+    )
+  )
+"
+
 
 /*
 Invariant: one-comp
@@ -52,7 +105,8 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 
 * obeys one-comp
 * obeys bundle-composition-xor
-* obeys coverage-author-specialty
+//* obeys coverage-author-specialty
+* obeys insurance-requester
 
 
 ////////////////////////////////////////////////////////////
@@ -131,7 +185,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 * entry[organization].resource only CZ_OrganizationCore
 
 // Coverage
-* entry[coverage].resource only CZ_Coverage
+* entry[coverage].resource only CZ_CoverageOrder
 
 // Goal
 * entry[goal].resource only Goal

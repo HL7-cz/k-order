@@ -115,7 +115,7 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 
 // --------------------------- coverage ---------------------------------------
 * insurance 0..1
-* insurance only Reference(CZ_Coverage)
+* insurance only Reference(CZ_CoverageOrder)
 
 // --------------------------- notes / attachments ------------------------------
 * note 0..*

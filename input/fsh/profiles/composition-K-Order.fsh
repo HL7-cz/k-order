@@ -102,7 +102,7 @@ Condition a DocumentReference.
   * code = $loinc#87520-3
   * title = "coverage"
   * entry 1..*
-  * entry only Reference(CZ_Coverage)
+  * entry only Reference(CZ_CoverageOrder)
 * section[appointment]
   * ^short = "Scheduled appointment"
   * ^definition = "References the appointment associated with the requested healthcare service when a date has already been scheduled."

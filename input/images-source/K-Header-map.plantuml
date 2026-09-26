@@ -28,7 +28,7 @@ Target2 -d[hidden]-> Target3
 class "CZ_RelatedPersonCore" as Target4 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-relatedPerson-core.html]]
 Header <|. Target4
 Target3 -d[hidden]-> Target4
-class "CZ_Coverage" as Target5 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
+class "CZ_CoverageOrder" as Target5 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
 Header <|. Target5
 Target4 -d[hidden]-> Target5
 class "CZ_Provenance" as Target6 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]

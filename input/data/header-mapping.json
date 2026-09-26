@@ -501,7 +501,7 @@
       "en": "A.1.3 Health insurance"
     },
     "relationship": "related",
-    "profile": "Coverage (CZ_Coverage)",
+    "profile": "Coverage (CZ_CoverageOrder)",
     "element": "",
     "navigation": "Composition.section[orderInformation].entry.resolve().insurance.resolve()",
     "note": {
@@ -552,7 +552,7 @@
       "en": "A.1.3.3 Health insurance number"
     },
     "relationship": "related",
-    "profile": "Coverage (CZ_Coverage)",
+    "profile": "Coverage (CZ_CoverageOrder)",
     "element": "subscriberId",
     "navigation": "Composition.section[orderInformation].entry.resolve().insurance.resolve()",
     "note": {
@@ -569,7 +569,7 @@
       "en": "A.1.4 Coverage"
     },
     "relationship": "related",
-    "profile": "Coverage (CZ_Coverage)",
+    "profile": "Coverage (CZ_CoverageOrder)",
     "element": "",
     "navigation": "Composition.section[coverage].entry.resolve()",
     "note": {
@@ -586,7 +586,7 @@
       "en": "A.1.4.1 Coverage type"
     },
     "relationship": "equivalent",
-    "profile": "Coverage (CZ_Coverage)",
+    "profile": "Coverage (CZ_CoverageOrder)",
     "element": "type",
     "navigation": "Composition.section[coverage].entry.resolve()",
     "note": {
@@ -603,7 +603,7 @@
       "en": "A.1.4.2 Payer information"
     },
     "relationship": "equivalent",
-    "profile": "Coverage (CZ_Coverage)",
+    "profile": "Coverage (CZ_CoverageOrder)",
     "element": "payor",
     "navigation": "Composition.section[coverage].entry.resolve()",
     "note": {

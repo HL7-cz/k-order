@@ -9,7 +9,7 @@ Description: """Informace o objednaném termínu vyšetření (pokud byl termín
 * id 0..1 Identifier "A.2.5.1 - Termín ID" """Identifikátor záznamu termínu návštěvy"""
 * stav 1..1 CodeableConcept "A.2.5.2 - Stav termínu" """Stav termínu (navržený, potvrzený, zrušený).
 Preferovaný systém: hl7:valueset-appointmentstatus"""
-* popis 1..1 string "A.2.5.3 - Popis" """Stručný popis termínu návštěvy pro zobrazení v seznamu termínů."""
+* popis 0..1 string "A.2.5.3 - Popis" """Stručný popis termínu návštěvy pro zobrazení v seznamu termínů."""
 * datumACas 0..1 dateTime "A.2.5.4 - Plánovaný čas" """Datum a čas návštěvy"""
 * delkaVysetreni 0..1 Duration "A.2.5.5 - Délka vyšetření" """Délka vyšetření"""
 * komentar 0..1 string "A.2.5.6 - Komentář" """Doplňující komentář"""

@@ -84,7 +84,7 @@ EN: Request for echocardiography.
 * reasonReference[0] = Reference(KOrderCondition-Main)
 // ------------------------- Coverage ---------------------------------------
 Instance: KOrderCoverage-Example
-InstanceOf: CZ_Coverage
+InstanceOf: CZ_CoverageOrder
 Usage: #example
 Description: """
 CZ: Údaj o zdravotním pojištění pacienta.
@@ -92,11 +92,11 @@ EN: Patient health insurance coverage.
 """
 * language = #cs
 * id = "KOrderCoverage-Example"
+* type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)
 * payor[0] = Reference(Organization-Insurance111)
-* identifier[+].system = "https://ncez.mzcr.cz/fhir/sid/pojistovna"
-* identifier[=].value = "111"
+
 
 // ------------------------- Bundle (K-Order) -------------------------------
 Instance: BundleKOrderExample

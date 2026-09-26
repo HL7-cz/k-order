@@ -2,7 +2,7 @@
 
 Aktualizace 11. 9. 2026. Implementované sjednocení se týká hlavičky A.1, nikoli dosud rozdílných částí těla a logických modelů.
 
-Všechny tři žádanky používají stejných 70 mapovacích řádků a stejné cíle z CZ Core 1.0.0: CZ_PatientCore, CZ_PractitionerCore, CZ_PractitionerRoleCore, CZ_OrganizationCore, CZ_RelatedPersonCore a CZ_Coverage. Composition, ServiceRequest a Bundle zůstávají doménovými profily. CZ_PractitionerRoleOrder je specializace dostupná přímo v CZ Core; tabulka popisuje společný základ a neodstraňuje omezení konkrétní žádanky.
+Všechny tři žádanky používají stejných 70 mapovacích řádků a stejné cíle z CZ Core 1.0.0: CZ_PatientCore, CZ_PractitionerCore, CZ_PractitionerRoleCore, CZ_OrganizationCore, CZ_RelatedPersonCore a CZ_CoverageOrder. Composition, ServiceRequest a Bundle zůstávají doménovými profily. CZ_PractitionerRoleOrder je specializace dostupná přímo v CZ Core; tabulka popisuje společný základ a neodstraňuje omezení konkrétní žádanky.
 
 ## Zdroje a údržba
 

@@ -192,20 +192,20 @@ Usage: #definition
 * group[=].element[=].target.code = #Composition.section:order.insurance		
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "Composition.section:order.entry.ofType(CZ_ImagingInformationAboutOrder).insurance.ofType(CZ_Coverage)"
+* group[=].element[=].target.comment = "Composition.section:order.entry.ofType(CZ_ImagingInformationAboutOrder).insurance.ofType(CZ_CoverageOrder)"
 * group[=].element[+].code = #Header.payer.insuranceCode
 * group[=].element[=].display = "A.1.3.1 - Health insurance code"
-* group[=].element[=].target.code = #CZ_Coverage.payor.identifier
+* group[=].element[=].target.code = #CZ_CoverageOrder.payor.identifier
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[+].code = #Header.payer.insuranceName
 * group[=].element[=].display = "A.1.3.2 - Health insurance name"
-* group[=].element[=].target.code = #CZ_Coverage.payor.name
+* group[=].element[=].target.code = #CZ_CoverageOrder.payor.name
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 * group[=].element[+].code = #Header.payer.insuranceNumber
 * group[=].element[=].display = "A.1.3.3 - Health insurance number"
-* group[=].element[=].target.code = #CZ_Coverage.identifier
+* group[=].element[=].target.code = #CZ_CoverageOrder.identifier
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent		
 * group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/CoverageKOrderCz"
@@ -215,15 +215,15 @@ Usage: #definition
 * group[=].element[=].target.code = #Composition.section:Coverage					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "Composition.section:Coverage.entry.ofType(CZ_Coverage)"
+* group[=].element[=].target.comment = "Composition.section:Coverage.entry.ofType(CZ_CoverageOrder)"
 * group[=].element[+].code = #Header.coverage.method
 * group[=].element[=].display = "A.1.4.1 - Coverage method"
-* group[=].element[=].target.code = #CZ_Coverage.type					
+* group[=].element[=].target.code = #CZ_CoverageOrder.type					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[=].element[+].code = #Header.coverage.informationPayor
 * group[=].element[=].display = "A.1.4.2 - Information about Payor"
-* group[=].element[=].target.code = #CZ_Coverage.payor					
+* group[=].element[=].target.code = #CZ_CoverageOrder.payor					
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent					
 * group[+].source = "https://hl7.cz/fhir/k-order/StructureDefinition/AuthorKOrderCz"

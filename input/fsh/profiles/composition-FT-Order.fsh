@@ -105,7 +105,7 @@ Condition a DocumentReference.
   * code = $loinc#87520-3
   * title = "coverage"
   * entry 1..*
-  * entry only Reference(CZ_Coverage)
+  * entry only Reference(CZ_CoverageOrder)
 
 
 * section[appointment]

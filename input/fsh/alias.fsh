@@ -1,6 +1,6 @@
 Alias: $sct = http://snomed.info/sct
-// The Czech edition belongs in Coding.version; Coding.system remains SNOMED CT.
-Alias: $sctCZ = http://snomed.info/sct|http://snomed.info/sct/11000279109
+
+Alias: $sctCZ = http://snomed.info/sct|http://snomed.info/sct/11000279109 // The Czech edition belongs in Coding.version; Coding.system remains SNOMED CT.
 Alias: $loinc = http://loinc.org
 Alias: $vzp = urn:oid:1.2.203.439.4
 Alias: $request-priority = http://hl7.org/fhir/request-priority
@@ -15,8 +15,9 @@ Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code
 Alias: $nclp = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
 Alias: $nclp_new = https://ncez.mzcr.cz/nclp/CodeSystem/nclppol
 Alias: $bodySite-reference = http://hl7.org/fhir/StructureDefinition/bodySite
+Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
-//CZ Alias
 Alias: $cz-patient-rcis = https://ncez.mzcr.cz/fhir/sid/rcis
 Alias: $cz-patient-rid = https://ncez.mzcr.cz/fhir/sid/rid
 Alias: $cz-patient-relationship = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode

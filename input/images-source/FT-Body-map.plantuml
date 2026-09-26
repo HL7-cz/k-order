@@ -26,13 +26,13 @@ class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-
 "LMCzBodyFTOrderCz" <|. "CZ_Encounter"
 "FTOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
-class "CZ_Coverage" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
-"LMCzBodyFTOrderCz" <|. "CZ_Coverage"
-"CZ_Encounter" -d[hidden]-> "CZ_Coverage"
+class "CZ_CoverageOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_CoverageOrder"
+"CZ_Encounter" -d[hidden]-> "CZ_CoverageOrder"
 
 class "CZ_AppointmentCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_AppointmentCore"
-"CZ_Coverage" -d[hidden]-> "CZ_AppointmentCore"
+"CZ_CoverageOrder" -d[hidden]-> "CZ_AppointmentCore"
 
 class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_ConditionCore"

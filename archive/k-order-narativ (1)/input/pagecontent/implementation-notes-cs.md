@@ -15,7 +15,7 @@ classDiagram
   BundleOrderCz *-- "1" CZ_PatientCore
   BundleOrderCz *-- "1..*" KOrderServiceRequestCz
   BundleOrderCz *-- "1..*" FTServiceRequestCz
-  BundleOrderCz *-- "1..*" CZ_Coverage
+  BundleOrderCz *-- "1..*" CZ_CoverageOrder
   BundleOrderCz *-- "0..*" CZ_ConditionCore
   BundleOrderCz *-- "0..*" CZ_PractitionerCore
   BundleOrderCz *-- "0..*" CZ_PractitionerRoleOrder
@@ -27,7 +27,7 @@ classDiagram
   KOrderCompositionCz --> CZ_PractitionerRoleOrder: author
   KOrderCompositionCz --> CZ_OrganizationCore: custodian
   KOrderCompositionCz --> KOrderServiceRequestCz: section[orderInformation]
-  KOrderCompositionCz --> CZ_Coverage: section[coverage]
+  KOrderCompositionCz --> CZ_CoverageOrder: section[coverage]
   KOrderCompositionCz --> CZ_ConditionCore: section[significantMedicalHistory]
   KOrderCompositionCz --> CZ_ObservationOrder: section[supportingInformation]
   KOrderCompositionCz --> CZ_Attachment: section[attachments]
@@ -35,7 +35,7 @@ classDiagram
   FTOrderCompositionCz --> CZ_PatientCore: subject
   FTOrderCompositionCz --> CZ_PractitionerRoleOrder: author
   FTOrderCompositionCz --> FTServiceRequestCz: section[orderInformation]
-  FTOrderCompositionCz --> CZ_Coverage: section[coverage]
+  FTOrderCompositionCz --> CZ_CoverageOrder: section[coverage]
   FTOrderCompositionCz --> CZ_Attachment: section[attachments]
 ```
 

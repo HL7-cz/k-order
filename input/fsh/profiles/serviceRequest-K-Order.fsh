@@ -103,7 +103,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- coverage ---------------------------------------
 * insurance 0..1
-* insurance only Reference(CZ_Coverage)
+* insurance only Reference(CZ_CoverageOrder)
 
 // --------------------------- notes / attachments ------------------------------
 * note 0..*
