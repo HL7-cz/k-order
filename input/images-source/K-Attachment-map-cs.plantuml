@@ -1,0 +1,24 @@
+@startuml
+' Attachment mapping for CZ K-ORDER
+hide circle
+hide stereotype
+hide members
+hide methods
+skinparam linetype ortho
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+legend right
+| <#APPLICATION>  Logický model |
+| <#TECHNOLOGY>  Profil |
+endlegend
+class "Vizuální podoba dokumentu" as PresentedForm <<LogicalModel>> [[StructureDefinition-logPresentedFormCz.html]]
+class "Přílohy" as Attachments <<LogicalModel>> [[StructureDefinition-logAttachmentsCz.html]]
+PresentedForm -d[hidden]-> Attachments
+class "KOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+PresentedForm <|. Target0
+class "CZ_Attachment" as Target1 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html]]
+Attachments <|. Target1
+Target0 -d[hidden]-> Target1
+@enduml

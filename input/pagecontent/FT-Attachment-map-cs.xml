@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml">
+    <style type="text/css">
+
+      .model-map-block { margin: 0 0 1rem 0; }
+
+      .callout-wrapper {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f2f4f7;
+        padding: 10px 12px;
+      }
+
+      .callout-box { color: #222; }
+
+      .table-wrap {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f7f8fa;
+        padding: 10px;
+        margin: 0 0 1rem 0;
+      }
+
+      .table-wrap table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        background: #fff;
+      }
+
+      .table-wrap th,
+      .table-wrap td {
+        border: 1px solid #bfc5cc;
+        padding: 6px 8px;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+
+      .table-wrap caption {
+        text-align: left;
+        font-weight: bold;
+        margin: 0 0 6px 0;
+      }
+
+      .src-head { background: #2f63b7; color: #fff; }
+      .relhead { background: #7b389f; color: #fff; }
+      .tgt-head { background: #cf003e; color: #fff; }
+
+      .src-sub { background: #97abd7; }
+      .relsub { background: #c9bed1; }
+      .tgt-sub { background: #cf8398; }
+
+    </style>
+
+    <div class="model-map-block">
+      <div class="callout-wrapper">
+        <div class="callout-box">
+          <strong>Probíhající sladění:</strong>
+          Logické modely EHDS jsou průběžně revidovány a dále zpřesňovány. Aktualizace EHDS budou postupně promítány do této implementační příručky, aby byla zachována návaznost na vyvíjející se specifikace EHDS.
+        </div>
+      </div>
+    </div>
+
+    <!-- <h3>Vizuální podoba dokumentu a přílohy -&gt; FHIR profily (CZ FT-ORDER)</h3> -->
+
+    <p>
+      Tato stránka vysvětluje, jak jsou konceptuální prvky logického modelu vizuální podoby dokumentu a příloh vyjádřeny v odpovídajících FHIR profilech použitých v této implementační příručce.
+    </p>
+
+    <h3>Přehled modelu</h3>
+
+    <p>{% include FT-Attachment-map-cs.svg %}</p>
+
+    <div class="table-wrap">
+
+      <strong>Kontext mapování</strong>
+
+      <ul>
+        <li><strong>Zdrojové logické modely:</strong> <a href="StructureDefinition-logPresentedFormCz.html">logPresentedFormCz</a>, <a href="StructureDefinition-logAttachmentsCz.html">logAttachmentsCz</a></li>
+        <li><strong>Zdrojový mapovací soubor:</strong> <code>AttachmentFTOrder2FHIR.fsh</code></li>
+        <li><strong>Rozsah mapování:</strong> A.4 až A.5 Vizuální podoba dokumentu a přílohy</li>
+      </ul>
+
+    </div>
+
+    <div class="table-wrap">
+
+      <table summary="Mapování logického modelu vizuální podoby dokumentu a příloh na CZ FT-ORDER profily">
+
+        <caption>Vizuální podoba dokumentu a přílohy -&gt; FHIR profily (CZ FT-ORDER)</caption>
+
+        <thead>
+
+          <tr>
+            <th colspan="2" class="src-head">Vizuální podoba dokumentu a přílohy (Logický model)</th>
+            <th class="relhead">Vztah</th>
+            <th colspan="4" class="tgt-head">FHIR cíl</th>
+          </tr>
+
+          <tr>
+            <th class="src-sub">Prvek</th>
+            <th class="src-sub">Popis</th>
+            <th class="relsub">Vztah</th>
+            <th class="tgt-sub">Zdroj/Profil</th>
+            <th class="tgt-sub">Prvek</th>
+            <th class="tgt-sub">Reference</th>
+            <th class="tgt-sub">Poznámky</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm</a></td>
+            <td>
+            A.4 - Vizuální podoba dokumentu
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm].document
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.contentType</a></td>
+            <td>
+            A.4.1 - Typ obsahu vizuální podoby
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+            contentType
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.language</a></td>
+            <td>
+            A.4.2 - Jazyk vizuální podoby
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+            language
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.data</a></td>
+            <td>
+            A.4.3 - Data vizuální podoby
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+            data
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.url</a></td>
+            <td>
+            A.4.4 - URL vizuální podoby
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+            url
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.title</a></td>
+            <td>
+            A.4.5 - Název vizuální podoby
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+            title
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.creation</a></td>
+            <td>
+            A.4.6 - Datum a čas vytvoření
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition (FTOrderCompositionCz)</a></td>
+            <td>
+            creation
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz</a></td>
+            <td>
+            A.5 - Další přílohy
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            content
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz)
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.contentType</a></td>
+            <td>
+            A.5.1 - Typ obsahu dalších příloh
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.contentType
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.language</a></td>
+            <td>
+            A.5.2 - Jazyk dalších příloh
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.language
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.data</a></td>
+            <td>
+            A.5.3 - Data dalších příloh
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.data
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.url</a></td>
+            <td>
+            A.5.4 - URL dalších příloh
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.url
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.title</a></td>
+            <td>
+            A.5.5 - Název dalších příloh
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.title
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.creation</a></td>
+            <td>
+            A.5.6 - Datum a čas vytvoření
+            </td>
+            <td>
+            ekvivalentní
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.creation
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+</div>

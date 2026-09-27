@@ -118,18 +118,26 @@ pages:
     title: Hlavička dokumentu K-žádanky
   K-Body-map.html:
     title: Tělo dokumentu K-žádanky
+  K-Attachments-map.html:
+    title: Přílohy dokumentu K-žádanky
   FT-Header-map.html:
     title: Hlavička dokumentu FT-žádanky
   FT-Body-map.html:
     title: Tělo dokumentu FT-žádanky
+  FT-Attachments-map.html:
+    title: Přílohy dokumentu FT-žádanky
   K-Header-map-en.html:
     title: K-request document header
   K-Body-map-en.html:
     title: K-request document body
+  K-Attachments-map-en.html:
+    title: K-request document attachments
   FT-Header-map-en.html:
     title: FT-request document header
   FT-Body-map-en.html:
     title: FT-request document body
+  FT-Attachments-map-en.html:
+    title: FT-request document attachments
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide

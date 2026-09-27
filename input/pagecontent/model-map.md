@@ -6,6 +6,8 @@ This page lists the mappings between the logical models and the FHIR resources a
 |---|---|
 | Document header | [Header mapping](K-Header-map-en.html) |
 | Document body | [Body mapping](K-Body-map-en.html) |
+| Presented form | [Presented form mapping](K-Attachment-map.html) |
+| Attachments | [Attachments mapping](K-Attachment-map.html) |
 
 **Physiotherapy request (FT)**
 
@@ -13,4 +15,5 @@ This page lists the mappings between the logical models and the FHIR resources a
 |---|---|
 | Document header | [Header mapping](FT-Header-map-en.html) |
 | Document body | [Body mapping](FT-Body-map-en.html) |
-
+| Presented form | [Presented form mapping](FT-Attachment-map.html) |
+| Attachments | [Attachments mapping](FT-Attachment-map.html) |

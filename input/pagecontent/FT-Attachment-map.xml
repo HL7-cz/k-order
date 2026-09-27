@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml">
+    <style type="text/css">
+
+      .model-map-block { margin: 0 0 1rem 0; }
+
+      .callout-wrapper {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f2f4f7;
+        padding: 10px 12px;
+      }
+
+      .callout-box { color: #222; }
+
+      .table-wrap {
+        border: 1px solid #c9cdd3;
+        border-radius: 10px;
+        background: #f7f8fa;
+        padding: 10px;
+        margin: 0 0 1rem 0;
+      }
+
+      .table-wrap table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        background: #fff;
+      }
+
+      .table-wrap th,
+      .table-wrap td {
+        border: 1px solid #bfc5cc;
+        padding: 6px 8px;
+        vertical-align: top;
+        word-wrap: break-word;
+      }
+
+      .table-wrap caption {
+        text-align: left;
+        font-weight: bold;
+        margin: 0 0 6px 0;
+      }
+
+      .src-head { background: #2f63b7; color: #fff; }
+      .relhead { background: #7b389f; color: #fff; }
+      .tgt-head { background: #cf003e; color: #fff; }
+
+      .src-sub { background: #97abd7; }
+      .relsub { background: #c9bed1; }
+      .tgt-sub { background: #cf8398; }
+
+    </style>
+
+    <div class="model-map-block">
+      <div class="callout-wrapper">
+        <div class="callout-box">
+          <strong>Ongoing alignment:</strong>
+          The EHDS logical models are continuously reviewed and further refined. EHDS updates will be progressively incorporated into this Implementation Guide to maintain alignment with the evolving EHDS specifications.
+        </div>
+      </div>
+    </div>
+
+    <!-- <h3>Presented form and attachments -&gt; FHIR Profiles (CZ FT-ORDER)</h3> -->
+
+    <p>
+      This page explains how conceptual elements from the Presented Form and Attachments logical models are expressed in the corresponding FHIR profiles used by this Implementation Guide.
+    </p>
+
+    <h3>Model Overview</h3>
+
+    <p>{% include FT-Attachment-map.svg %}</p>
+
+    <div class="table-wrap">
+
+      <strong>Mapping Context</strong>
+
+      <ul>
+        <li><strong>Source logical models:</strong> <a href="StructureDefinition-logPresentedFormCz.html">logPresentedFormCz</a>, <a href="StructureDefinition-logAttachmentsCz.html">logAttachmentsCz</a></li>
+        <li><strong>Source mapping file:</strong> <code>AttachmentFTOrder2FHIR.fsh</code></li>
+        <li><strong>Mapping scope:</strong> A.4 to A.5 Presented form and attachments</li>
+      </ul>
+
+    </div>
+
+    <div class="table-wrap">
+
+      <table summary="Mapping of the Presented Form and Attachments logical models to CZ FT-ORDER profiles">
+
+        <caption>Presented form and attachments -&gt; FHIR Profiles (CZ FT-ORDER)</caption>
+
+        <thead>
+
+          <tr>
+            <th colspan="2" class="src-head">Presented Form and Attachments (Logical Models)</th>
+            <th class="relhead">Relationship</th>
+            <th colspan="4" class="tgt-head">FHIR Target</th>
+          </tr>
+
+          <tr>
+            <th class="src-sub">Element</th>
+            <th class="src-sub">Description</th>
+            <th class="relsub">Relationship</th>
+            <th class="tgt-sub">Resource/Profile</th>
+            <th class="tgt-sub">Element</th>
+            <th class="tgt-sub">Reference</th>
+            <th class="tgt-sub">Notes</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm</a></td>
+            <td>
+            A.4 - Presented form
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm].document
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.contentType</a></td>
+            <td>
+            A.4.1 - Type of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+            contentType
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.language</a></td>
+            <td>
+            A.4.2 - Language of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+            language
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.data</a></td>
+            <td>
+            A.4.3 - Data of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+            data
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.url</a></td>
+            <td>
+            A.4.4 - URL of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+            url
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.title</a></td>
+            <td>
+            A.4.5 - Title of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+            title
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logPresentedFormCz.html">PresentedForm.creation</a></td>
+            <td>
+            A.4.6 - Date of creation
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="StructureDefinition-FTOrderCompositionCz.html">Composition: FT Order (CZ)</a></td>
+            <td>
+            creation
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).extension[presentedForm]
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz</a></td>
+            <td>
+            A.5 - Attachments
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            content
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz)
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.contentType</a></td>
+            <td>
+            A.5.1 - Type of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.contentType
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.language</a></td>
+            <td>
+            A.5.2 - Language of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.language
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.data</a></td>
+            <td>
+            A.5.3 - Data of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.data
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.url</a></td>
+            <td>
+            A.5.4 - URL of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.url
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.title</a></td>
+            <td>
+            A.5.5 - Title of content
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.title
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td><a href="StructureDefinition-logAttachmentsCz.html">AttachmentsCz.creation</a></td>
+            <td>
+            A.5.6 - Date of creation
+            </td>
+            <td>
+            equivalent
+            </td>
+            <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (cz-attachment)</a></td>
+            <td>
+            attachment.creation
+            </td>
+            <td>
+            Composition (FTOrderCompositionCz).section[attachments].entry
+            </td>
+            <td>
+
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+</div>
