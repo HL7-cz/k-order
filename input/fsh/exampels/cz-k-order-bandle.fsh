@@ -6,7 +6,8 @@ Description: """
 CZ: Dokumentová Composition neadresné K-žádanky se dvěma požadovanými kardiologickými službami a pneumologem jako dodatečným příjemcem výsledku.
 EN: Document Composition of an unaddressed K-order with two requested cardiology services and a pulmonologist as an additional recipient of the result.
 """
-Usage: #example
+// Published and validated in its document Bundle, where references can resolve.
+Usage: #inline
 * language = #cs
 * id = "KOrderCompositionExample"
 * status = #final
@@ -92,6 +93,8 @@ EN: Patient health insurance coverage.
 """
 * language = #cs
 * id = "KOrderCoverage-Example"
+* identifier[0].system = "https://ncez.mzcr.cz/fhir/sid/cpoj"
+* identifier[0].value = "1118506151234"
 * type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)

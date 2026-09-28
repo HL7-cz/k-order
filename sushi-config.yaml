@@ -9,7 +9,7 @@ name: HL7CzOrderImplementationGuide
 title: HL7 Czech Order Implementation Guide
 description: HL7 Czech Order Implementation Guide
 status: draft # draft | active | retired | unknown
-version: 0.0.3
+version: 0.0.4
 language: cs
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
@@ -118,25 +118,25 @@ pages:
     title: Hlavička dokumentu K-žádanky
   K-Body-map.html:
     title: Tělo dokumentu K-žádanky
-  K-Attachment-map.html:
+  K-Attachment-map-cs.html:
     title: Přílohy dokumentu K-žádanky
   FT-Header-map.html:
     title: Hlavička dokumentu FT-žádanky
   FT-Body-map.html:
     title: Tělo dokumentu FT-žádanky
-  FT-Attachment-map.html:
+  FT-Attachment-map-cs.html:
     title: Přílohy dokumentu FT-žádanky
   K-Header-map-en.html:
     title: K-request document header
   K-Body-map-en.html:
     title: K-request document body
-  K-Attachment-map-en.html:
+  K-Attachment-map.html:
     title: K-request document attachments
   FT-Header-map-en.html:
     title: FT-request document header
   FT-Body-map-en.html:
     title: FT-request document body
-  FT-Attachment-map-en.html:
+  FT-Attachment-map.html:
     title: FT-request document attachments
 
 # The parameters property represents IG.definition.parameter. Rather

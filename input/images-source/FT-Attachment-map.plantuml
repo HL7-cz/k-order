@@ -1,5 +1,5 @@
 @startuml
-' Attachment mapping for CZ K-ORDER
+' Attachment mapping for CZ FT-ORDER
 hide circle
 hide stereotype
 hide members
@@ -10,13 +10,13 @@ BackgroundColor<<LogicalModel>> #APPLICATION
 BackgroundColor<<Profile>> #TECHNOLOGY
 }
 legend right
-| <#APPLICATION>  Logický model |
-| <#TECHNOLOGY>  Profil |
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
 endlegend
-class "Vizuální podoba dokumentu" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
-class "Přílohy" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
+class "Presented form" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
+class "Attachments" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
 PresentedForm -d[hidden]-> Attachments
-class "KOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+class "FTOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
 PresentedForm <|. Target0
 class "CZ_Attachment" as Target1 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html]]
 Attachments <|. Target1

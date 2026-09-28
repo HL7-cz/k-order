@@ -43,12 +43,14 @@ EN: A separate recommendation for hospital admission to investigate worsening re
 
 Instance: HospitalAdmissionCompositionExample
 InstanceOf: KOrderCompositionCz
-Usage: #example
+// Published and validated in its document Bundle, where references can resolve.
+Usage: #inline
 Description: """
 CZ: K dokument s doporučením k hospitalizaci jako samostatným ServiceRequest.
 EN: K document with a recommendation for hospital admission represented by its own ServiceRequest.
 """
 * language = #cs
+* id = "HospitalAdmissionCompositionExample"
 * status = #final
 * date = "2026-09-03T10:05:00+02:00"
 * title = "Doporučení k hospitalizaci"

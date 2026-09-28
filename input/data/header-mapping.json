@@ -714,6 +714,23 @@
     }
   },
   {
+    "code": "A.1.4.3",
+    "source": "kodNahrady",
+    "model": "coverage",
+    "label": {
+      "cs": "A.1.4.3 Kód náhrady",
+      "en": "A.1.4.3 Refund indicator code"
+    },
+    "relationship": "equivalent",
+    "profile": "Coverage (CZ_Coverage)",
+    "element": "extension[kodNahrady].valueCodeableConcept",
+    "navigation": "Composition.section[coverage].entry.resolve()",
+    "note": {
+      "cs": "Zděděno z CZ Core 1.0.0 také v CZ_CoverageOrder.",
+      "en": "Inherited from CZ Core 1.0.0 also in CZ_CoverageOrder."
+    }
+  },
+  {
     "code": "A.1.5",
     "source": "objednatel",
     "model": "header",

@@ -13,8 +13,8 @@ legend right
 | <#APPLICATION>  Logický model |
 | <#TECHNOLOGY>  Profil |
 endlegend
-class "Vizuální podoba dokumentu" as PresentedForm <<LogicalModel>> [[StructureDefinition-logPresentedFormCz.html]]
-class "Přílohy" as Attachments <<LogicalModel>> [[StructureDefinition-logAttachmentsCz.html]]
+class "Vizuální podoba dokumentu" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
+class "Přílohy" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
 PresentedForm -d[hidden]-> Attachments
 class "FTOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
 PresentedForm <|. Target0

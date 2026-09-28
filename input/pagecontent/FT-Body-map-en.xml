@@ -554,6 +554,7 @@
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
           <td>Total number of requested physiotherapy services.</td>
         </tr>
+        <tr id="A.3.2.1.6" data-mapping-id="A.3.2.1.6"><td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.frekvence</a></td><td>A.3.2.1.6 - Frequency</td><td>equivalent</td><td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td><td>occurrenceTiming</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td><td>Use Timing.repeat (frequency, period, periodUnit) for frequency and period; a textual description can be supplied in Timing.code.text.</td></tr>
         <tr>
           <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.poznamka</a></td>
           <td>A.3.2.1.7 - Note</td>

@@ -554,6 +554,7 @@
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
           <td>Celkový počet požadovaných provedení FT výkonu.</td>
         </tr>
+        <tr id="A.3.2.1.6" data-mapping-id="A.3.2.1.6"><td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.frekvence</a></td><td>A.3.2.1.6 - Frekvence</td><td>ekvivalentní</td><td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td><td>occurrenceTiming</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td><td>Frekvence a perioda se zapisují do Timing.repeat (frequency, period, periodUnit); textový popis lze uvést v Timing.code.text.</td></tr>
         <tr>
           <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.poznamka</a></td>
           <td>A.3.2.1.7 - Poznámka</td>

@@ -33,7 +33,7 @@ def profile_links(value):
         kind, name = match.groups()
         if name in PROFILES:
             href = CORE + 'StructureDefinition-' + PROFILES[name] + '.html'
-        elif name in ('{{ include.composition }}', '{{ include.bundle }}'):
+        elif name in ('{{ include.composition }}', '{{ include.bundle }}', 'CZ_CoverageOrder'):
             href = 'StructureDefinition-' + name + '.html'
         else:
             raise ValueError(f'Unknown profile: {name}')

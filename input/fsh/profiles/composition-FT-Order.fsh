@@ -135,7 +135,7 @@ Condition a DocumentReference.
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
   * entry 0..*
-  * entry only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
+  * entry only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_Anthropometric_Test_Result or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
 
 * section[attachments]
   * ^short = "Documents attached to the order"

@@ -1,0 +1,5877 @@
+{
+  "models": {
+    "LMSubjectOrderCz": {
+      "name": "LMCzSubjectOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.1_subjektOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikace",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.1",
+          "line": 9
+        },
+        {
+          "path": "identifikace.jmeno",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.1.1",
+          "line": 10
+        },
+        {
+          "path": "identifikace.prijmeni",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.1.2",
+          "line": 11
+        },
+        {
+          "path": "identifikace.datumNarozeni",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.1.1.3",
+          "line": 12
+        },
+        {
+          "path": "identifikace.datumUmrti",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.1.1.4",
+          "line": 13
+        },
+        {
+          "path": "identifikace.identifikator",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.1.5",
+          "line": 14
+        },
+        {
+          "path": "identifikace.statniObcanstvi",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.1.1.6",
+          "line": 15
+        },
+        {
+          "path": "identifikace.pohlavi",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.1.7",
+          "line": 16
+        },
+        {
+          "path": "identifikace.pohlaviProKlinickeUcely",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.1.8",
+          "line": 17
+        },
+        {
+          "path": "identifikace.komunikacniJazyk",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.1.9",
+          "line": 18
+        },
+        {
+          "path": "identifikace.handicap",
+          "min": 0,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.1.10",
+          "line": 19
+        },
+        {
+          "path": "kontakt",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.2",
+          "line": 20
+        },
+        {
+          "path": "kontakt.adresa",
+          "min": 0,
+          "max": "*",
+          "type": "Address",
+          "code": "A.1.2.1",
+          "line": 21
+        },
+        {
+          "path": "kontakt.telekom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.2.2",
+          "line": 22
+        },
+        {
+          "path": "kontakt.preferovanyLekar",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.1.2.3",
+          "line": 23
+        },
+        {
+          "path": "kontakt.preferovanyLekar.identifikator",
+          "min": 1,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.2.3.1",
+          "line": 24
+        },
+        {
+          "path": "kontakt.preferovanyLekar.jmeno",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.2.3.2",
+          "line": 25
+        },
+        {
+          "path": "kontakt.preferovanyLekar.specializace",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.1.2.3.3",
+          "line": 26
+        },
+        {
+          "path": "kontakt.preferovanyLekar.organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.2.3.4",
+          "line": 27
+        },
+        {
+          "path": "kontakt.preferovanyLekar.adresa",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.1.2.3.5",
+          "line": 28
+        },
+        {
+          "path": "kontakt.preferovanyLekar.telekom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.2.3.6",
+          "line": 29
+        },
+        {
+          "path": "kontakt.kontaktniOsoba",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.1.2.4",
+          "line": 30
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.typ",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.2.4.1",
+          "line": 31
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.vztah",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.2.4.2",
+          "line": 32
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.identifikator",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.2.4.3",
+          "line": 33
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.jmeno",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.2.4.4",
+          "line": 34
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.prijmeni",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.2.4.5",
+          "line": 35
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.adresa",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.1.2.4.6",
+          "line": 36
+        },
+        {
+          "path": "kontakt.kontaktniOsoba.telekom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.2.4.7",
+          "line": 37
+        }
+      ]
+    },
+    "LMPayerOrderCz": {
+      "name": "LMCzPayerOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.3_payerOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "kod",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.4.1",
+          "line": 8
+        },
+        {
+          "path": "nazev",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.1.3.2",
+          "line": 9
+        },
+        {
+          "path": "cisloPojistence",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.3.3",
+          "line": 10
+        }
+      ]
+    },
+    "LMCoverageOrderCz": {
+      "name": "LMCzCoverageOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.4_coverageOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "method",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.4.1",
+          "line": 8
+        },
+        {
+          "path": "infoOPlatci",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.4.2",
+          "line": 9
+        },
+        {
+          "path": "infoOPlatci.jmeno",
+          "min": 0,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.4.2.1",
+          "line": 10
+        },
+        {
+          "path": "infoOPlatci.idOrganizace",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.4.2.2",
+          "line": 11
+        },
+        {
+          "path": "infoOPlatci.organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.4.2.3",
+          "line": 12
+        },
+        {
+          "path": "infoOPlatci.adresa",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.1.4.2.4",
+          "line": 13
+        },
+        {
+          "path": "infoOPlatci.zeme",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.4.2.5",
+          "line": 14
+        },
+        {
+          "path": "infoOPlatci.telekom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.4.2.6",
+          "line": 15
+        },
+        {
+          "path": "kodNahrady",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.4.3",
+          "line": 17
+        }
+      ]
+    },
+    "LMAuthorOrderCz": {
+      "name": "LMCzKAuthorOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.5_authorOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikator",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.5.1",
+          "line": 8
+        },
+        {
+          "path": "jmeno",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.5.2",
+          "line": 9
+        },
+        {
+          "path": "adresa",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.5.3",
+          "line": 10
+        },
+        {
+          "path": "organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.5.4",
+          "line": 11
+        }
+      ]
+    },
+    "LMRequestedPerformerOrderCz": {
+      "name": "LMCzRequestedPerformerOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.6_perfomerOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "id",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.6.1",
+          "line": 8
+        },
+        {
+          "path": "jmeno",
+          "min": 0,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.6.2",
+          "line": 9
+        },
+        {
+          "path": "idOrganizace",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.6.3",
+          "line": 10
+        },
+        {
+          "path": "organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.6.4",
+          "line": 11
+        }
+      ]
+    },
+    "LMAdditionalRecipientCz": {
+      "name": "LMCzAdditionalRecipientOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.7_additionalRecipient-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikator",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.7.1",
+          "line": 8
+        },
+        {
+          "path": "jmeno",
+          "min": 0,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.7.2",
+          "line": 9
+        },
+        {
+          "path": "idOrganizace",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.7.3",
+          "line": 10
+        },
+        {
+          "path": "organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.7.4",
+          "line": 11
+        }
+      ]
+    },
+    "LMDocumentMetadataCz": {
+      "name": "LMCzDocumentMetadataOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.8_metadataOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "idDokumentu",
+          "min": 1,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.8.1",
+          "line": 6
+        },
+        {
+          "path": "kategorie",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.2",
+          "line": 7
+        },
+        {
+          "path": "stav",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.3",
+          "line": 8
+        },
+        {
+          "path": "datumACas",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.1.8.4",
+          "line": 9
+        },
+        {
+          "path": "nazev",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.1.8.5",
+          "line": 10
+        },
+        {
+          "path": "spravce",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.8.6",
+          "line": 11
+        },
+        {
+          "path": "duvernost",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.7",
+          "line": 12
+        },
+        {
+          "path": "jazyk",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.8",
+          "line": 13
+        },
+        {
+          "path": "verze",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.1.8.9",
+          "line": 14
+        }
+      ]
+    },
+    "LMDigitalSignatureOrderCz": {
+      "name": "LMCzDigitalSignatureOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1.9_signatureOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "elektronickyPodpis",
+          "min": 1,
+          "max": "1",
+          "type": "Signature",
+          "code": "A.1.9.1",
+          "line": 8
+        },
+        {
+          "path": "casoveRazitko",
+          "min": 0,
+          "max": "1",
+          "type": "instant",
+          "code": "A.1.9.2",
+          "line": 9
+        }
+      ]
+    },
+    "LMHeaderOrder": {
+      "name": "LMCzHeaderOrderCz",
+      "file": "input\\fsh\\czech-model\\A.1_headerOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "subjekt",
+          "min": 1,
+          "max": "1",
+          "type": "LMSubjectOrderCz",
+          "code": "A.1.1",
+          "line": 6
+        },
+        {
+          "path": "zdravotniPojisteni",
+          "min": 0,
+          "max": "1",
+          "type": "LMPayerOrderCz",
+          "code": "A.1.3",
+          "line": 7
+        },
+        {
+          "path": "uhrada",
+          "min": 1,
+          "max": "1",
+          "type": "LMCoverageOrderCz",
+          "code": "A.1.4",
+          "line": 8
+        },
+        {
+          "path": "objednatel",
+          "min": 1,
+          "max": "*",
+          "type": "LMAuthorOrderCz",
+          "code": "A.1.5",
+          "line": 9
+        },
+        {
+          "path": "provadejici",
+          "min": 0,
+          "max": "1",
+          "type": "LMRequestedPerformerOrderCz",
+          "code": "A.1.6",
+          "line": 10
+        },
+        {
+          "path": "dodatecniPrijemci",
+          "min": 0,
+          "max": "*",
+          "type": "LMAdditionalRecipientCz",
+          "code": "A.1.7",
+          "line": 11
+        },
+        {
+          "path": "metadataDokumentu",
+          "min": 1,
+          "max": "1",
+          "type": "LMDocumentMetadataCz",
+          "code": "A.1.8",
+          "line": 12
+        },
+        {
+          "path": "elektronickyPodpis",
+          "min": 1,
+          "max": "*",
+          "type": "LMDigitalSignatureOrderCz",
+          "code": "A.1.9",
+          "line": 13
+        }
+      ]
+    },
+    "LMOrderInformationCz": {
+      "name": "LMCzOrderInformationCz",
+      "file": "input\\fsh\\czech-model\\A.2.1_A.2.2_OrderInformation-cz.fsh",
+      "elements": [
+        {
+          "path": "detailyObjednavky",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.2.1",
+          "line": 8
+        },
+        {
+          "path": "detailyObjednavky.identifikator",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.1.1",
+          "line": 9
+        },
+        {
+          "path": "detailyObjednavky.datumACas",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.1.2",
+          "line": 10
+        },
+        {
+          "path": "detailyObjednavky.datumACasPozadovanehoProvedeni",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.1.3",
+          "line": 11
+        },
+        {
+          "path": "detailyObjednavky.urgentnost",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.1.4",
+          "line": 12
+        },
+        {
+          "path": "detailyObjednavky.textObjednavky",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.1.5",
+          "line": 14
+        },
+        {
+          "path": "detailyObjednavky.informaceProPacienta",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.1.6",
+          "line": 15
+        },
+        {
+          "path": "duvodObjednavky",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.2",
+          "line": 17
+        },
+        {
+          "path": "duvodObjednavky.problem",
+          "min": 1,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.2.2.1",
+          "line": 18
+        },
+        {
+          "path": "duvodObjednavky.klinickaOtazkaKod",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.2.2.2",
+          "line": 21
+        },
+        {
+          "path": "duvodObjednavky.klinickaOtazkaText",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.2.3",
+          "line": 23
+        },
+        {
+          "path": "duvodObjednavky.duvodKod",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.2.2.4",
+          "line": 24
+        },
+        {
+          "path": "duvodObjednavky.duvodText",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.2.5",
+          "line": 26
+        }
+      ]
+    },
+    "LMClinicalEventCz": {
+      "name": "LMCzClinicalEventCz",
+      "file": "input\\fsh\\czech-model\\A.2.3_clinicalEvent-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikator",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.3.1",
+          "line": 8
+        },
+        {
+          "path": "typ",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.2.3.2",
+          "line": 9
+        },
+        {
+          "path": "dalsiInformace",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.3.3",
+          "line": 10
+        }
+      ]
+    },
+    "LMCoverageBodyCz": {
+      "name": "LMCzCoverageBodyCz",
+      "file": "input\\fsh\\czech-model\\A.2.4_coverage-cz.fsh",
+      "elements": [
+        {
+          "path": "zpusob",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.4.1",
+          "line": 8
+        },
+        {
+          "path": "informaceOPlatci",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.4.2",
+          "line": 9
+        },
+        {
+          "path": "informaceOPlatci.jmeno",
+          "min": 0,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.2.4.2.1",
+          "line": 10
+        },
+        {
+          "path": "informaceOPlatci.identifikatorOrganizace",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.4.2.2",
+          "line": 11
+        },
+        {
+          "path": "informaceOPlatci.organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.4.2.3",
+          "line": 12
+        },
+        {
+          "path": "informaceOPlatci.adresa",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.2.4.2.4",
+          "line": 13
+        },
+        {
+          "path": "informaceOPlatci.zeme",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.4.2.5",
+          "line": 14
+        },
+        {
+          "path": "informaceOPlatci.telekom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.2.4.2.6",
+          "line": 15
+        },
+        {
+          "path": "komentar",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.4.3",
+          "line": 16
+        }
+      ]
+    },
+    "LMAppointmentCz": {
+      "name": "LMCzAppointmentCz",
+      "file": "input\\fsh\\czech-model\\A.2.5_appointment-cz.fsh",
+      "elements": [
+        {
+          "path": "id",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.2.5.1",
+          "line": 9
+        },
+        {
+          "path": "stav",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.5.2",
+          "line": 10
+        },
+        {
+          "path": "popis",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.5.3",
+          "line": 12
+        },
+        {
+          "path": "datumACas",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.5.4",
+          "line": 13
+        },
+        {
+          "path": "delkaVysetreni",
+          "min": 0,
+          "max": "1",
+          "type": "Duration",
+          "code": "A.2.5.5",
+          "line": 14
+        },
+        {
+          "path": "komentar",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.5.6",
+          "line": 15
+        },
+        {
+          "path": "instrukceProPacienta",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.5.7",
+          "line": 16
+        },
+        {
+          "path": "misto",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.5.8",
+          "line": 17
+        }
+      ]
+    },
+    "LMSpecimenInformationCz": {
+      "name": "LMCzSpecimenInformationCz",
+      "file": "input\\fsh\\czech-model\\A.2.6_specimenInformation-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikator",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.6.1",
+          "line": 8
+        },
+        {
+          "path": "druhOrganismu",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.2",
+          "line": 9
+        },
+        {
+          "path": "material",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.3",
+          "line": 10
+        },
+        {
+          "path": "datumACasOdberu",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.6.4",
+          "line": 11
+        },
+        {
+          "path": "datumACasTransportu",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.6.5",
+          "line": 12
+        },
+        {
+          "path": "typVzorku",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.6",
+          "line": 13
+        },
+        {
+          "path": "anatomickaLokalizace",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.7",
+          "line": 14
+        },
+        {
+          "path": "morfologie",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.8",
+          "line": 15
+        },
+        {
+          "path": "nastroj",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.9",
+          "line": 16
+        },
+        {
+          "path": "metodaOdberu",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.10",
+          "line": 17
+        },
+        {
+          "path": "zdrojoveZarizeni",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.11",
+          "line": 18
+        },
+        {
+          "path": "mistoOdberu",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.12",
+          "line": 19
+        },
+        {
+          "path": "poznamka",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.6.13",
+          "line": 20
+        },
+        {
+          "path": "nadoba",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.2.6.14",
+          "line": 22
+        },
+        {
+          "path": "nadoba.typ",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.14.1",
+          "line": 23
+        },
+        {
+          "path": "nadoba.pocet",
+          "min": 0,
+          "max": "1",
+          "type": "integer",
+          "code": "A.2.6.14.2",
+          "line": 24
+        },
+        {
+          "path": "nadoba.idZarizeni",
+          "min": 1,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.2.6.14.3",
+          "line": 25
+        },
+        {
+          "path": "nadoba.oznaceni",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.2.6.14.4",
+          "line": 26
+        },
+        {
+          "path": "dalsiUdaje",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.6.15",
+          "line": 28
+        },
+        {
+          "path": "dalsiUdaje.datum",
+          "min": 0,
+          "max": "1",
+          "type": "date",
+          "code": "A.2.6.15.1",
+          "line": 29
+        },
+        {
+          "path": "dalsiUdaje.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.6.15.2",
+          "line": 30
+        },
+        {
+          "path": "dalsiUdaje.hodnota",
+          "min": 0,
+          "max": "1",
+          "type": "Narrative",
+          "code": "A.2.6.15.3",
+          "line": 31
+        },
+        {
+          "path": "odberatel",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.6.16",
+          "line": 33
+        },
+        {
+          "path": "odberatel.identifikator",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.6.16.1",
+          "line": 34
+        },
+        {
+          "path": "odberatel.jmeno",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.2.6.16.2",
+          "line": 35
+        },
+        {
+          "path": "odberatel.kontakt",
+          "min": 1,
+          "max": "1",
+          "type": "ContactPoint",
+          "code": "A.2.6.16.3",
+          "line": 36
+        },
+        {
+          "path": "odberatel.organizace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.6.16.4",
+          "line": 37
+        }
+      ]
+    },
+    "LMBodyFTOrder": {
+      "name": "LMCzBodyFTOrderCz",
+      "file": "input\\fsh\\czech-model\\A.2_A.3_bodyFTOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "informaceOZadance",
+          "min": 0,
+          "max": "1",
+          "type": "LMOrderInformationCz",
+          "code": "",
+          "line": 7
+        },
+        {
+          "path": "klinickaUdalost",
+          "min": 0,
+          "max": "1",
+          "type": "LMClinicalEventCz",
+          "code": "",
+          "line": 11
+        },
+        {
+          "path": "uhrada",
+          "min": 1,
+          "max": "*",
+          "type": "LMCoverageBodyCz",
+          "code": "",
+          "line": 15
+        },
+        {
+          "path": "terminVysetreni",
+          "min": 0,
+          "max": "1",
+          "type": "LMAppointmentCz",
+          "code": "",
+          "line": 19
+        },
+        {
+          "path": "informaceOVzorku",
+          "min": 0,
+          "max": "*",
+          "type": "LMSpecimenInformationCz",
+          "code": "",
+          "line": 23
+        },
+        {
+          "path": "klinickeInformace",
+          "min": 1,
+          "max": "1",
+          "type": "LMClinicalInformationCz",
+          "code": "",
+          "line": 27
+        },
+        {
+          "path": "datoveElementyObjednavkyVysetreni",
+          "min": 1,
+          "max": "1",
+          "type": "LMFTOrderDataElementsCz",
+          "code": "",
+          "line": 31
+        },
+        {
+          "path": "odkazyNaObjednavkyPlanovanePece",
+          "min": 0,
+          "max": "1",
+          "type": "LMPlannedCareOrdersCz",
+          "code": "",
+          "line": 35
+        },
+        {
+          "path": "ostatniPodpurneInformace",
+          "min": 0,
+          "max": "*",
+          "type": "LMOtherSupportingInformationCz",
+          "code": "",
+          "line": 39
+        }
+      ]
+    },
+    "LMBodyKOrder": {
+      "name": "LMCzBodyKOrderCz",
+      "file": "input\\fsh\\czech-model\\A.2_A.3_bodyKOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "informaceOZadance",
+          "min": 0,
+          "max": "1",
+          "type": "LMOrderInformationCz",
+          "code": "",
+          "line": 7
+        },
+        {
+          "path": "klinickaUdalost",
+          "min": 0,
+          "max": "1",
+          "type": "LMClinicalEventCz",
+          "code": "",
+          "line": 11
+        },
+        {
+          "path": "uhrada",
+          "min": 1,
+          "max": "*",
+          "type": "LMCoverageBodyCz",
+          "code": "",
+          "line": 15
+        },
+        {
+          "path": "terminVysetreni",
+          "min": 0,
+          "max": "1",
+          "type": "LMAppointmentCz",
+          "code": "",
+          "line": 19
+        },
+        {
+          "path": "informaceOVzorku",
+          "min": 0,
+          "max": "*",
+          "type": "LMSpecimenInformationCz",
+          "code": "",
+          "line": 23
+        },
+        {
+          "path": "klinickeInformace",
+          "min": 1,
+          "max": "1",
+          "type": "LMClinicalInformationCz",
+          "code": "",
+          "line": 27
+        },
+        {
+          "path": "datoveElementyObjednavkyVysetreni",
+          "min": 1,
+          "max": "1",
+          "type": "LMKOrderDataElementsCz",
+          "code": "",
+          "line": 31
+        },
+        {
+          "path": "odkazyNaObjednavkyPlanovanePece",
+          "min": 0,
+          "max": "1",
+          "type": "LMPlannedCareOrdersCz",
+          "code": "",
+          "line": 35
+        },
+        {
+          "path": "ostatniPodpurneInformace",
+          "min": 0,
+          "max": "*",
+          "type": "LMOtherSupportingInformationCz",
+          "code": "",
+          "line": 39
+        }
+      ]
+    },
+    "LMBodyOrder": {
+      "name": "LMCzBodyOrderCz",
+      "file": "input\\fsh\\czech-model\\A.2_A.3_bodyOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "informaceOZadance",
+          "min": 0,
+          "max": "1",
+          "type": "LMOrderInformationCz",
+          "code": "",
+          "line": 7
+        },
+        {
+          "path": "klinickaUdalost",
+          "min": 0,
+          "max": "1",
+          "type": "LMClinicalEventCz",
+          "code": "",
+          "line": 11
+        },
+        {
+          "path": "uhrada",
+          "min": 1,
+          "max": "*",
+          "type": "LMCoverageBodyCz",
+          "code": "",
+          "line": 15
+        },
+        {
+          "path": "terminVysetreni",
+          "min": 0,
+          "max": "1",
+          "type": "LMAppointmentCz",
+          "code": "",
+          "line": 19
+        },
+        {
+          "path": "informaceOVzorku",
+          "min": 0,
+          "max": "*",
+          "type": "LMSpecimenInformationCz",
+          "code": "",
+          "line": 23
+        },
+        {
+          "path": "klinickeInformace",
+          "min": 1,
+          "max": "1",
+          "type": "LMClinicalInformationCz",
+          "code": "",
+          "line": 27
+        },
+        {
+          "path": "datoveElementyObjednavkyVysetreni",
+          "min": 1,
+          "max": "1",
+          "type": "LMOrderDataElementsCz",
+          "code": "",
+          "line": 31
+        },
+        {
+          "path": "odkazyNaObjednavkyPlanovanePece",
+          "min": 0,
+          "max": "1",
+          "type": "LMPlannedCareOrdersCz",
+          "code": "",
+          "line": 35
+        },
+        {
+          "path": "ostatniPodpurneInformace",
+          "min": 0,
+          "max": "*",
+          "type": "LMOtherSupportingInformationCz",
+          "code": "",
+          "line": 39
+        }
+      ]
+    },
+    "LMClinicalInformationCz": {
+      "name": "LMCzOrderClinicalInformationCz",
+      "file": "input\\fsh\\czech-model\\A.3.1_clinicalInformation-cz.fsh",
+      "elements": [
+        {
+          "path": "biometrickeUdaje",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.1",
+          "line": 8
+        },
+        {
+          "path": "biometrickeUdaje.vaha",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.1.1",
+          "line": 9
+        },
+        {
+          "path": "biometrickeUdaje.vaha.hodnota",
+          "min": 1,
+          "max": "1",
+          "type": "Quantity",
+          "code": "A.3.1.1.1.1",
+          "line": 10
+        },
+        {
+          "path": "biometrickeUdaje.vaha.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.1.1.2",
+          "line": 11
+        },
+        {
+          "path": "biometrickeUdaje.vaha.datumACas",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.3.1.1.1.3",
+          "line": 12
+        },
+        {
+          "path": "biometrickeUdaje.vyska",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.1.2",
+          "line": 13
+        },
+        {
+          "path": "biometrickeUdaje.vyska.hodnota",
+          "min": 1,
+          "max": "1",
+          "type": "Quantity",
+          "code": "A.3.1.1.2.1",
+          "line": 14
+        },
+        {
+          "path": "biometrickeUdaje.vyska.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.1.2.2",
+          "line": 15
+        },
+        {
+          "path": "biometrickeUdaje.vyska.datumACas",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.3.1.1.2.3",
+          "line": 16
+        },
+        {
+          "path": "dalsiRelevantniKlinickeInformace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.2",
+          "line": 18
+        },
+        {
+          "path": "dalsiRelevantniKlinickeInformace.kod",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.1.2.1",
+          "line": 19
+        },
+        {
+          "path": "dalsiRelevantniKlinickeInformace.text",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.1.2.2",
+          "line": 20
+        },
+        {
+          "path": "medikace",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.1.3",
+          "line": 22
+        },
+        {
+          "path": "medikace.identifikator",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.3.1.3.1",
+          "line": 23
+        },
+        {
+          "path": "medikace.kod",
+          "min": 0,
+          "max": "*",
+          "type": "code",
+          "code": "A.3.1.3.2",
+          "line": 24
+        },
+        {
+          "path": "medikace.mnozstvi",
+          "min": 0,
+          "max": "1",
+          "type": "Ratio",
+          "code": "A.3.1.3.3",
+          "line": 25
+        },
+        {
+          "path": "implantat",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.1.4",
+          "line": 27
+        },
+        {
+          "path": "implantat.typ",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.4.1",
+          "line": 28
+        },
+        {
+          "path": "implantat.identifikator",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.3.1.4.2",
+          "line": 29
+        },
+        {
+          "path": "implantat.model",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.1.4.3",
+          "line": 30
+        },
+        {
+          "path": "implantat.castTela",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.1.4.4",
+          "line": 31
+        },
+        {
+          "path": "urgentniInformace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.5",
+          "line": 33
+        },
+        {
+          "path": "urgentniInformace.alergieAIntolerance",
+          "min": 1,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.1.5.1",
+          "line": 34
+        },
+        {
+          "path": "urgentniInformace.varovani",
+          "min": 0,
+          "max": "*",
+          "type": "string",
+          "code": "A.3.1.5.2",
+          "line": 35
+        },
+        {
+          "path": "omezeniPohyblivostiPacienta",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.6",
+          "line": 37
+        },
+        {
+          "path": "omezeniPohyblivostiPacienta.datumACas",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.3.1.6.1",
+          "line": 38
+        },
+        {
+          "path": "omezeniPohyblivostiPacienta.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.6.2",
+          "line": 39
+        },
+        {
+          "path": "omezeniPohyblivostiPacienta.hodnota",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.6.3",
+          "line": 40
+        },
+        {
+          "path": "ockovani",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.1.7",
+          "line": 41
+        },
+        {
+          "path": "dalsiFormalizovaneUdaje",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.1.8",
+          "line": 43
+        },
+        {
+          "path": "dalsiFormalizovaneUdaje.datumACas",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.3.1.8.1",
+          "line": 44
+        },
+        {
+          "path": "dalsiFormalizovaneUdaje.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.8.2",
+          "line": 45
+        },
+        {
+          "path": "dalsiFormalizovaneUdaje.hodnota",
+          "min": 0,
+          "max": "1",
+          "type": "Narrative",
+          "code": "A.3.1.8.3",
+          "line": 46
+        }
+      ]
+    },
+    "LMFTOrderDataElementsCz": {
+      "name": "LMCzFTOrderDataElementsCz",
+      "file": "input\\fsh\\czech-model\\A.3.2_dataElementFTOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "pozadovaneVysetreni",
+          "min": 1,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.2.1",
+          "line": 6
+        },
+        {
+          "path": "pozadovaneVysetreni.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.1",
+          "line": 7
+        },
+        {
+          "path": "pozadovaneVysetreni.nazev",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.2",
+          "line": 8
+        },
+        {
+          "path": "pozadovaneVysetreni.castTela",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.3",
+          "line": 9
+        },
+        {
+          "path": "pozadovaneVysetreni.lateralita",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.4",
+          "line": 10
+        },
+        {
+          "path": "pozadovaneVysetreni.pocet",
+          "min": 0,
+          "max": "1",
+          "type": "positiveInt",
+          "code": "A.3.2.1.5",
+          "line": 11
+        },
+        {
+          "path": "pozadovaneVysetreni.frekvence",
+          "min": 0,
+          "max": "1",
+          "type": "Timing",
+          "code": "A.3.2.1.6",
+          "line": 12
+        },
+        {
+          "path": "pozadovaneVysetreni.poznamka",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.7",
+          "line": 13
+        },
+        {
+          "path": "pozadovaneVysetreni.mistoPoskytnutiPece",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.8",
+          "line": 14
+        },
+        {
+          "path": "cilVysetreni",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.2.2",
+          "line": 15
+        }
+      ]
+    },
+    "LMKOrderDataElementsCz": {
+      "name": "LMCzKOrderDataElementsCz",
+      "file": "input\\fsh\\czech-model\\A.3.2_dataElementKOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "pozadovaneVysetreni",
+          "min": 1,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.2.1",
+          "line": 6
+        },
+        {
+          "path": "pozadovaneVysetreni.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.1",
+          "line": 7
+        },
+        {
+          "path": "pozadovaneVysetreni.nazev",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.2",
+          "line": 8
+        },
+        {
+          "path": "pozadovaneVysetreni.poznamka",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.7",
+          "line": 9
+        },
+        {
+          "path": "zavaznaAnamnestickaData",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.2.2",
+          "line": 12
+        },
+        {
+          "path": "zavaznaAnamnestickaData.text",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "",
+          "line": 13
+        },
+        {
+          "path": "zavaznaAnamnestickaData.zaznam",
+          "min": 0,
+          "max": "*",
+          "type": "Reference(CZ_ConditionCore)",
+          "code": "",
+          "line": 14
+        },
+        {
+          "path": "vysledkyVysetreni",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.2.3",
+          "line": 15
+        },
+        {
+          "path": "vysledkyVysetreni.text",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "",
+          "line": 16
+        },
+        {
+          "path": "vysledkyVysetreni.zaznam",
+          "min": 0,
+          "max": "*",
+          "type": "Reference(CZ_MedicalTestResultCore)",
+          "code": "",
+          "line": 17
+        },
+        {
+          "path": "diferencialniDiagnostickaRozvaha",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.2.4",
+          "line": 18
+        },
+        {
+          "path": "diferencialniDiagnostickaRozvaha.text",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "",
+          "line": 19
+        },
+        {
+          "path": "diferencialniDiagnostickaRozvaha.zaznam",
+          "min": 0,
+          "max": "*",
+          "type": "Reference(CZ_ConditionCore)",
+          "code": "",
+          "line": 20
+        },
+        {
+          "path": "soucasnaLecba",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.2.5",
+          "line": 21
+        },
+        {
+          "path": "soucasnaLecba.text",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "",
+          "line": 22
+        },
+        {
+          "path": "soucasnaLecba.zaznam",
+          "min": 0,
+          "max": "*",
+          "type": "Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore)",
+          "code": "",
+          "line": 23
+        },
+        {
+          "path": "zapujcenaDokumentace",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.2.6",
+          "line": 24
+        },
+        {
+          "path": "zapujcenaDokumentace.text",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "",
+          "line": 25
+        },
+        {
+          "path": "zapujcenaDokumentace.zaznam",
+          "min": 0,
+          "max": "*",
+          "type": "Reference(CZ_Attachment)",
+          "code": "",
+          "line": 26
+        }
+      ]
+    },
+    "LMOrderDataElementsCz": {
+      "name": "LMCzOrderDataElementsCz",
+      "file": "input\\fsh\\czech-model\\A.3.2_dataElementOrder-cz.fsh",
+      "elements": [
+        {
+          "path": "pozadovaneVysetreni",
+          "min": 1,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.2.1",
+          "line": 6
+        },
+        {
+          "path": "pozadovaneVysetreni.kod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.1",
+          "line": 7
+        },
+        {
+          "path": "pozadovaneVysetreni.nazev",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.2",
+          "line": 8
+        }
+      ]
+    },
+    "LMPlannedCareOrdersCz": {
+      "name": "LMCzPlannedCareOrdersCz",
+      "file": "input\\fsh\\czech-model\\A.3.3_plannedCareOrders-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikator",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.3.3.1",
+          "line": 6
+        },
+        {
+          "path": "nazev",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.3.2",
+          "line": 7
+        }
+      ]
+    },
+    "LMOtherSupportingInformationCz": {
+      "name": "LMCzOtherSupportingInformationCz",
+      "file": "input\\fsh\\czech-model\\A.3.4_otherSupportingInformation-cz.fsh",
+      "elements": [
+        {
+          "path": "identifikator",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.3.4.1",
+          "line": 6
+        },
+        {
+          "path": "nazev",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.4.2",
+          "line": 7
+        }
+      ]
+    },
+    "LMPresentedFormOrderCz": {
+      "name": "LMCzPresentedFormOrderCz",
+      "file": "input\\fsh\\czech-model\\A.4_presentedForm-cz.fsh",
+      "elements": [
+        {
+          "path": "vizualniPodoba",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.4",
+          "line": 6
+        },
+        {
+          "path": "typObsahu",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.4.1",
+          "line": 7
+        },
+        {
+          "path": "jazyk",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.4.2",
+          "line": 8
+        },
+        {
+          "path": "data",
+          "min": 1,
+          "max": "1",
+          "type": "base64Binary",
+          "code": "A.4.3",
+          "line": 9
+        },
+        {
+          "path": "url",
+          "min": 0,
+          "max": "1",
+          "type": "url",
+          "code": "A.4.4",
+          "line": 10
+        },
+        {
+          "path": "nazev",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.4.5",
+          "line": 11
+        },
+        {
+          "path": "vytvoreni",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.4.6",
+          "line": 12
+        }
+      ]
+    },
+    "LMAttachmentsOrderCz": {
+      "name": "LMCzAttachmentsCz",
+      "file": "input\\fsh\\czech-model\\A.5_attachment-cz.fsh",
+      "elements": [
+        {
+          "path": "typObsahu",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.5.1",
+          "line": 7
+        },
+        {
+          "path": "jazyk",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.5.2",
+          "line": 8
+        },
+        {
+          "path": "data",
+          "min": 1,
+          "max": "1",
+          "type": "base64Binary",
+          "code": "A.5.3",
+          "line": 9
+        },
+        {
+          "path": "url",
+          "min": 0,
+          "max": "1",
+          "type": "url",
+          "code": "A.5.4",
+          "line": 10
+        },
+        {
+          "path": "nazev",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.5.5",
+          "line": 11
+        },
+        {
+          "path": "vytvoreni",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.5.6",
+          "line": 12
+        }
+      ]
+    },
+    "LMFTOrderCz": {
+      "name": "LMFTOrderCz",
+      "file": "input\\fsh\\czech-model\\FT_Order-cz .fsh",
+      "elements": [
+        {
+          "path": "hlavicka",
+          "min": 1,
+          "max": "1",
+          "type": "LMHeaderOrder",
+          "code": "",
+          "line": 9
+        },
+        {
+          "path": "telo",
+          "min": 1,
+          "max": "1",
+          "type": "LMBodyFTOrder",
+          "code": "",
+          "line": 13
+        },
+        {
+          "path": "prezentovanaForma",
+          "min": 0,
+          "max": "1",
+          "type": "LMPresentedFormOrderCz",
+          "code": "",
+          "line": 18
+        },
+        {
+          "path": "prilohy",
+          "min": 0,
+          "max": "*",
+          "type": "LMAttachmentsOrderCz",
+          "code": "",
+          "line": 22
+        }
+      ]
+    },
+    "LMKOrderCz": {
+      "name": "LMKOrderCz",
+      "file": "input\\fsh\\czech-model\\K_Order-cz.fsh",
+      "elements": [
+        {
+          "path": "hlavicka",
+          "min": 1,
+          "max": "1",
+          "type": "LMHeaderOrder",
+          "code": "",
+          "line": 9
+        },
+        {
+          "path": "telo",
+          "min": 1,
+          "max": "1",
+          "type": "LMBodyKOrder",
+          "code": "",
+          "line": 13
+        },
+        {
+          "path": "prezentovanaForma",
+          "min": 0,
+          "max": "1",
+          "type": "LMPresentedFormOrderCz",
+          "code": "",
+          "line": 18
+        },
+        {
+          "path": "prilohy",
+          "min": 0,
+          "max": "*",
+          "type": "LMAttachmentsOrderCz",
+          "code": "",
+          "line": 22
+        }
+      ]
+    },
+    "LMGeneralOrderCz": {
+      "name": "LMGeneralOrderCz",
+      "file": "input\\fsh\\czech-model\\Order-cz.fsh",
+      "elements": [
+        {
+          "path": "hlavicka",
+          "min": 1,
+          "max": "1",
+          "type": "LMHeaderOrder",
+          "code": "",
+          "line": 9
+        },
+        {
+          "path": "telo",
+          "min": 1,
+          "max": "1",
+          "type": "LMBodyOrder",
+          "code": "",
+          "line": 13
+        },
+        {
+          "path": "prezentovanaForma",
+          "min": 0,
+          "max": "1",
+          "type": "LMPresentedFormOrderCz",
+          "code": "",
+          "line": 18
+        },
+        {
+          "path": "prilohy",
+          "min": 0,
+          "max": "*",
+          "type": "LMAttachmentsOrderCz",
+          "code": "",
+          "line": 22
+        }
+      ]
+    },
+    "LMEnSubjectOrderCz": {
+      "name": "LMEnSubjectOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.1_A.1.2_subjektOrder-en.fsh",
+      "elements": [
+        {
+          "path": "subjectIdentification",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.1",
+          "line": 8
+        },
+        {
+          "path": "subjectIdentification.given",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.1.1",
+          "line": 9
+        },
+        {
+          "path": "subjectIdentification.family",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.1.2",
+          "line": 10
+        },
+        {
+          "path": "subjectIdentification.birthDate",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.1.1.3",
+          "line": 11
+        },
+        {
+          "path": "subjectIdentification.deathDate",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.1.1.4",
+          "line": 12
+        },
+        {
+          "path": "subjectIdentification.identifier",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.1.5",
+          "line": 13
+        },
+        {
+          "path": "subjectIdentification.nationality",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.1.1.6",
+          "line": 14
+        },
+        {
+          "path": "subjectIdentification.gender",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.1.7",
+          "line": 15
+        },
+        {
+          "path": "subjectIdentification.genderForClinicalUse",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.1.8",
+          "line": 16
+        },
+        {
+          "path": "subjectIdentification.communicationLanguage",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.1.1.9",
+          "line": 17
+        },
+        {
+          "path": "subjectIdentification.handicap",
+          "min": 0,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.1.10",
+          "line": 18
+        },
+        {
+          "path": "subjectContact",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.2",
+          "line": 19
+        },
+        {
+          "path": "subjectContact.address",
+          "min": 0,
+          "max": "*",
+          "type": "Address",
+          "code": "A.1.2.1",
+          "line": 20
+        },
+        {
+          "path": "subjectContact.telecom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.2.2",
+          "line": 21
+        },
+        {
+          "path": "subjectContact.preferredHP",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.1.2.3",
+          "line": 22
+        },
+        {
+          "path": "subjectContact.preferredHP.identifier",
+          "min": 1,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.2.3.1",
+          "line": 23
+        },
+        {
+          "path": "subjectContact.preferredHP.name",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.2.3.2",
+          "line": 24
+        },
+        {
+          "path": "subjectContact.preferredHP.role",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.1.2.3.3",
+          "line": 25
+        },
+        {
+          "path": "subjectContact.preferredHP.organization",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.2.3.4",
+          "line": 26
+        },
+        {
+          "path": "subjectContact.preferredHP.address",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.1.2.3.5",
+          "line": 27
+        },
+        {
+          "path": "subjectContact.preferredHP.telecom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.2.3.6",
+          "line": 28
+        },
+        {
+          "path": "subjectContact.contactPerson",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.1.2.4",
+          "line": 29
+        },
+        {
+          "path": "subjectContact.contactPerson.type",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.1.2.4.1",
+          "line": 30
+        },
+        {
+          "path": "subjectContact.contactPerson.relationship",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.2.4.2",
+          "line": 31
+        },
+        {
+          "path": "subjectContact.contactPerson.identifier",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.2.4.3",
+          "line": 32
+        },
+        {
+          "path": "subjectContact.contactPerson.given",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.2.4.4",
+          "line": 33
+        },
+        {
+          "path": "subjectContact.contactPerson.family",
+          "min": 1,
+          "max": "*",
+          "type": "string",
+          "code": "A.1.2.4.5",
+          "line": 34
+        },
+        {
+          "path": "subjectContact.contactPerson.address",
+          "min": 0,
+          "max": "*",
+          "type": "Address",
+          "code": "A.1.2.4.6",
+          "line": 35
+        },
+        {
+          "path": "subjectContact.contactPerson.telecom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.2.4.7",
+          "line": 36
+        }
+      ]
+    },
+    "LMEnPayerOrderCz": {
+      "name": "LMEnPayerOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.3_payerOrder-en.fsh",
+      "elements": [
+        {
+          "path": "coverageCode",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.3.1",
+          "line": 8
+        },
+        {
+          "path": "coverageName",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.1.3.2",
+          "line": 9
+        },
+        {
+          "path": "coverageNumber",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.3.3",
+          "line": 10
+        }
+      ]
+    },
+    "LMEnCoverageOrderCz": {
+      "name": "LMEnCoverageOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.4_coverageOrder-en.fsh",
+      "elements": [
+        {
+          "path": "method",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.4.1",
+          "line": 8
+        },
+        {
+          "path": "informationPayor",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.4.2",
+          "line": 9
+        },
+        {
+          "path": "informationPayor.name",
+          "min": 0,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.4.2.1",
+          "line": 10
+        },
+        {
+          "path": "informationPayor.organizationID",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.4.2.2",
+          "line": 11
+        },
+        {
+          "path": "informationPayor.organization",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.4.2.3",
+          "line": 12
+        },
+        {
+          "path": "informationPayor.address",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.1.4.2.4",
+          "line": 13
+        },
+        {
+          "path": "informationPayor.country",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.4.2.5",
+          "line": 14
+        },
+        {
+          "path": "informationPayor.telecom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.1.4.2.6",
+          "line": 15
+        }
+      ]
+    },
+    "LMEnAuthorOrderCz": {
+      "name": "LMEnKAuthorOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.5_authorOrder-en.fsh",
+      "elements": [
+        {
+          "path": "identifier",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.5.1",
+          "line": 8
+        },
+        {
+          "path": "name",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.5.2",
+          "line": 9
+        },
+        {
+          "path": "address",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.1.5.3",
+          "line": 10
+        },
+        {
+          "path": "organization",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.5.4",
+          "line": 11
+        }
+      ]
+    },
+    "LMEnRequestedPerformerOrderCz": {
+      "name": "LMEnRequestedPerformerOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.6_perfomerOrder-en.fsh",
+      "elements": [
+        {
+          "path": "identifier",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.6.1",
+          "line": 8
+        },
+        {
+          "path": "name",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.6.2",
+          "line": 9
+        },
+        {
+          "path": "organizationID",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.6.3",
+          "line": 10
+        },
+        {
+          "path": "organization",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.6.4",
+          "line": 11
+        }
+      ]
+    },
+    "LMEnAdditionalRecipientCz": {
+      "name": "LMEnAdditionalRecipientOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.7_additionalRecipient-en.fsh",
+      "elements": [
+        {
+          "path": "identifier",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.7.1",
+          "line": 8
+        },
+        {
+          "path": "name",
+          "min": 1,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.1.7.2",
+          "line": 9
+        },
+        {
+          "path": "organizationID",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.1.7.3",
+          "line": 10
+        },
+        {
+          "path": "organization",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.7.4",
+          "line": 11
+        }
+      ]
+    },
+    "LMEnDocumentMetadataCz": {
+      "name": "LMEnDocumentMetadataOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.8_metadataOrder-en.fsh",
+      "elements": [
+        {
+          "path": "identifier",
+          "min": 1,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.1.8.1",
+          "line": 6
+        },
+        {
+          "path": "category",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.2",
+          "line": 7
+        },
+        {
+          "path": "status",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.3",
+          "line": 8
+        },
+        {
+          "path": "dateTime",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.1.8.4",
+          "line": 9
+        },
+        {
+          "path": "title",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.1.8.5",
+          "line": 10
+        },
+        {
+          "path": "custodian",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.1.8.6",
+          "line": 11
+        },
+        {
+          "path": "confidentiality",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.7",
+          "line": 12
+        },
+        {
+          "path": "language",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.1.8.8",
+          "line": 13
+        },
+        {
+          "path": "version",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.1.8.9",
+          "line": 14
+        }
+      ]
+    },
+    "LMEnDigitalSignatureOrderCz": {
+      "name": "LMEnDigitalSignatureOrderCz",
+      "file": "input\\fsh\\en-model\\A.1.9_signatureOrder-en.fsh",
+      "elements": [
+        {
+          "path": "digitalSignature",
+          "min": 1,
+          "max": "1",
+          "type": "Signature",
+          "code": "A.1.9.1",
+          "line": 8
+        },
+        {
+          "path": "timestamp",
+          "min": 0,
+          "max": "1",
+          "type": "instant",
+          "code": "A.1.9.2",
+          "line": 9
+        }
+      ]
+    },
+    "LMEnHeaderOrder": {
+      "name": "LMEnHeaderOrderCz",
+      "file": "input\\fsh\\en-model\\A.1_headerOrder-en.fsh",
+      "elements": [
+        {
+          "path": "subject",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnSubjectOrderCz",
+          "code": "A.1.1",
+          "line": 8
+        },
+        {
+          "path": "payer",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnPayerOrderCz",
+          "code": "A.1.3",
+          "line": 9
+        },
+        {
+          "path": "coverage",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnCoverageOrderCz",
+          "code": "A.1.4",
+          "line": 10
+        },
+        {
+          "path": "author",
+          "min": 1,
+          "max": "*",
+          "type": "LMEnAuthorOrderCz",
+          "code": "A.1.5",
+          "line": 11
+        },
+        {
+          "path": "requestedPerformer",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnRequestedPerformerOrderCz",
+          "code": "A.1.6",
+          "line": 12
+        },
+        {
+          "path": "additionalRecipient",
+          "min": 0,
+          "max": "*",
+          "type": "LMEnAdditionalRecipientCz",
+          "code": "A.1.7",
+          "line": 13
+        },
+        {
+          "path": "documentMetadata",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnDocumentMetadataCz",
+          "code": "A.1.8",
+          "line": 14
+        },
+        {
+          "path": "digitalSignature",
+          "min": 1,
+          "max": "*",
+          "type": "LMEnDigitalSignatureOrderCz",
+          "code": "A.1.9",
+          "line": 15
+        }
+      ]
+    },
+    "LMEnOrderInformationCz": {
+      "name": "LMEnOrderInformationCz",
+      "file": "input\\fsh\\en-model\\A.2.1_A.2.2_OrderInformation-en.fsh",
+      "elements": [
+        {
+          "path": "orderDetails",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.2.1.1",
+          "line": 8
+        },
+        {
+          "path": "orderDetails.identifier",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.1.1.1",
+          "line": 9
+        },
+        {
+          "path": "orderDetails.dateTime",
+          "min": 1,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.1.1.2",
+          "line": 10
+        },
+        {
+          "path": "orderDetails.requestedExecdateTime",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.1.1.3",
+          "line": 11
+        },
+        {
+          "path": "orderDetails.urgency",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.1.1.4",
+          "line": 12
+        },
+        {
+          "path": "orderDetails.orderText",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.1.1.5",
+          "line": 13
+        },
+        {
+          "path": "orderDetails.infoForPatient",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.1.1.6",
+          "line": 14
+        },
+        {
+          "path": "diagnoses",
+          "min": 1,
+          "max": "*",
+          "type": "Base",
+          "code": "A.2.1.2",
+          "line": 16
+        },
+        {
+          "path": "diagnoses.primaryDiagnosis",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.1.2.1",
+          "line": 17
+        },
+        {
+          "path": "diagnoses.secondaryDiagnoses",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.2.1.2.2",
+          "line": 19
+        },
+        {
+          "path": "reimbursementCode",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.1.3",
+          "line": 21
+        }
+      ]
+    },
+    "LMEnClinicalEventCz": {
+      "name": "LMEnClinicalEventCz",
+      "file": "input\\fsh\\en-model\\A.2.3_clinicalEvent-en.fsh",
+      "elements": [
+        {
+          "path": "identifier",
+          "min": 1,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.3.1",
+          "line": 8
+        },
+        {
+          "path": "type",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.2.3.2",
+          "line": 9
+        },
+        {
+          "path": "additionalInformation",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.3.3",
+          "line": 10
+        }
+      ]
+    },
+    "LMEnCoverageBodyCz": {
+      "name": "LMEnCoverageBodyCz",
+      "file": "input\\fsh\\en-model\\A.2.4_coverage-en.fsh",
+      "elements": [
+        {
+          "path": "paymentMethod",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.4.1",
+          "line": 8
+        },
+        {
+          "path": "payerInformation",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.4.2",
+          "line": 9
+        },
+        {
+          "path": "payerInformation.name",
+          "min": 0,
+          "max": "1",
+          "type": "HumanName",
+          "code": "A.2.4.2.1",
+          "line": 10
+        },
+        {
+          "path": "payerInformation.organizationID",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.2.4.2.2",
+          "line": 11
+        },
+        {
+          "path": "payerInformation.organization",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.4.2.3",
+          "line": 12
+        },
+        {
+          "path": "payerInformation.address",
+          "min": 0,
+          "max": "1",
+          "type": "Address",
+          "code": "A.2.4.2.4",
+          "line": 13
+        },
+        {
+          "path": "payerInformation.country",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.4.2.5",
+          "line": 14
+        },
+        {
+          "path": "payerInformation.telecom",
+          "min": 0,
+          "max": "*",
+          "type": "ContactPoint",
+          "code": "A.2.4.2.6",
+          "line": 15
+        },
+        {
+          "path": "comment",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.4.3",
+          "line": 16
+        }
+      ]
+    },
+    "LMEnAppointmentCz": {
+      "name": "LMEnAppointmentCz",
+      "file": "input\\fsh\\en-model\\A.2.5_appointment-en.fsh",
+      "elements": [
+        {
+          "path": "identifier",
+          "min": 0,
+          "max": "1",
+          "type": "Identifier",
+          "code": "A.2.5.1",
+          "line": 8
+        },
+        {
+          "path": "status",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.2.5.2",
+          "line": 9
+        },
+        {
+          "path": "description",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.5.3",
+          "line": 10
+        },
+        {
+          "path": "dateTime",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.2.5.4",
+          "line": 11
+        },
+        {
+          "path": "duration",
+          "min": 0,
+          "max": "1",
+          "type": "Duration",
+          "code": "A.2.5.5",
+          "line": 12
+        },
+        {
+          "path": "comment",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.5.6",
+          "line": 13
+        },
+        {
+          "path": "instructionsForPatient",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.2.5.7",
+          "line": 14
+        },
+        {
+          "path": "location",
+          "min": 1,
+          "max": "1",
+          "type": "Base",
+          "code": "A.2.5.8",
+          "line": 15
+        }
+      ]
+    },
+    "LMEnBodyFTOrder": {
+      "name": "LMEnBodyFTOrderCz",
+      "file": "input\\fsh\\en-model\\A.2_A.3_bodyFTOrder-en.fsh",
+      "elements": [
+        {
+          "path": "orderInformation",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnOrderInformationCz",
+          "code": "",
+          "line": 7
+        },
+        {
+          "path": "clinicalEvent",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnClinicalEventCz",
+          "code": "",
+          "line": 11
+        },
+        {
+          "path": "coverage",
+          "min": 1,
+          "max": "*",
+          "type": "LMEnCoverageBodyCz",
+          "code": "",
+          "line": 15
+        },
+        {
+          "path": "appointment",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnAppointmentCz",
+          "code": "",
+          "line": 19
+        },
+        {
+          "path": "clinicalInformation",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnClinicalInformationCz",
+          "code": "",
+          "line": 23
+        },
+        {
+          "path": "dataElements",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnFTOrderDataElementsCz",
+          "code": "",
+          "line": 29
+        }
+      ]
+    },
+    "LMEnBodyKOrder": {
+      "name": "LMEnBodyKOrderCz",
+      "file": "input\\fsh\\en-model\\A.2_A.3_bodyKOrder-en.fsh",
+      "elements": [
+        {
+          "path": "orderInformation",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnOrderInformationCz",
+          "code": "A.2.1",
+          "line": 8
+        },
+        {
+          "path": "clinicalEvent",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnClinicalEventCz",
+          "code": "A.2.3",
+          "line": 9
+        },
+        {
+          "path": "coverage",
+          "min": 1,
+          "max": "*",
+          "type": "LMEnCoverageBodyCz",
+          "code": "A.2.4",
+          "line": 10
+        },
+        {
+          "path": "appointment",
+          "min": 0,
+          "max": "1",
+          "type": "LMEnAppointmentCz",
+          "code": "A.2.5",
+          "line": 11
+        },
+        {
+          "path": "supportingInformation",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnClinicalInformationCz",
+          "code": "A.3.1",
+          "line": 15
+        },
+        {
+          "path": "orderDataElements",
+          "min": 1,
+          "max": "1",
+          "type": "LMEnKOrderDataElementsCz",
+          "code": "A.3.2",
+          "line": 18
+        }
+      ]
+    },
+    "LMEnClinicalInformationCz": {
+      "name": "LMEnOrderClinicalInformationCz",
+      "file": "input\\fsh\\en-model\\A.3.1_clinicalInformation-en.fsh",
+      "elements": [
+        {
+          "path": "clinicalInformationText",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.1.1",
+          "line": 8
+        },
+        {
+          "path": "clinicalInformationCode",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.2",
+          "line": 9
+        },
+        {
+          "path": "description",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.1.3",
+          "line": 10
+        },
+        {
+          "path": "medication",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.1.4",
+          "line": 13
+        },
+        {
+          "path": "medication.id",
+          "min": 0,
+          "max": "*",
+          "type": "Identifier",
+          "code": "A.3.1.4.1",
+          "line": 16
+        },
+        {
+          "path": "medication.code",
+          "min": 0,
+          "max": "*",
+          "type": "code",
+          "code": "A.3.1.4.2",
+          "line": 17
+        },
+        {
+          "path": "medication.quantity",
+          "min": 0,
+          "max": "1",
+          "type": "Ratio",
+          "code": "A.3.1.4.3",
+          "line": 18
+        },
+        {
+          "path": "vaccination",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.1.5",
+          "line": 19
+        },
+        {
+          "path": "additionalData",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.3.1.6",
+          "line": 21
+        },
+        {
+          "path": "additionalData.date",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.3.1.6.1",
+          "line": 22
+        },
+        {
+          "path": "additionalData.code",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.1.6.2",
+          "line": 23
+        },
+        {
+          "path": "additionalData.value",
+          "min": 0,
+          "max": "1",
+          "type": "Narrative",
+          "code": "A.3.1.6.3",
+          "line": 26
+        }
+      ]
+    },
+    "LMEnFTOrderDataElementsCz": {
+      "name": "LMEnFTOrderDataElementsCz",
+      "file": "input\\fsh\\en-model\\A.3.2_dataElementFTOrder-en.fsh",
+      "elements": [
+        {
+          "path": "requestedExamination",
+          "min": 1,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.2.1",
+          "line": 6
+        },
+        {
+          "path": "requestedExamination.code",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.1",
+          "line": 7
+        },
+        {
+          "path": "requestedExamination.name",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.2",
+          "line": 8
+        },
+        {
+          "path": "requestedExamination.bodyPart",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.3",
+          "line": 9
+        },
+        {
+          "path": "requestedExamination.laterality",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.4",
+          "line": 10
+        },
+        {
+          "path": "requestedExamination.count",
+          "min": 0,
+          "max": "1",
+          "type": "positiveInt",
+          "code": "A.3.2.1.5",
+          "line": 11
+        },
+        {
+          "path": "requestedExamination.frequency",
+          "min": 0,
+          "max": "1",
+          "type": "Timing",
+          "code": "A.3.2.1.6",
+          "line": 12
+        },
+        {
+          "path": "requestedExamination.note",
+          "min": 0,
+          "max": "1",
+          "type": "string",
+          "code": "A.3.2.1.7",
+          "line": 13
+        },
+        {
+          "path": "requestedExamination.placeOfCare",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.3.2.1.8",
+          "line": 14
+        },
+        {
+          "path": "goal",
+          "min": 0,
+          "max": "*",
+          "type": "Base",
+          "code": "A.3.2.2",
+          "line": 15
+        }
+      ]
+    },
+    "LMEnKOrderDataElementsCz": {
+      "name": "LMEnKOrderDataElementsCz",
+      "file": "input\\fsh\\en-model\\A.3.2_dataElementKOrder-en.fsh",
+      "elements": [
+        {
+          "path": "examinationType",
+          "min": 1,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "",
+          "line": 7
+        },
+        {
+          "path": "examinationDescription",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "",
+          "line": 11
+        },
+        {
+          "path": "procedures",
+          "min": 0,
+          "max": "*",
+          "type": "CodeableConcept",
+          "code": "",
+          "line": 15
+        }
+      ]
+    },
+    "LMEnPresentedFormOrderCz": {
+      "name": "LMEnPresentedFormCz",
+      "file": "input\\fsh\\en-model\\A.4_presentedForm-en.fsh",
+      "elements": [
+        {
+          "path": "presentedForm",
+          "min": 0,
+          "max": "1",
+          "type": "Base",
+          "code": "A.5",
+          "line": 6
+        },
+        {
+          "path": "presentedForm.contentType",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.5.1",
+          "line": 7
+        },
+        {
+          "path": "presentedForm.language",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.5.2",
+          "line": 8
+        },
+        {
+          "path": "presentedForm.data",
+          "min": 1,
+          "max": "1",
+          "type": "base64Binary",
+          "code": "A.5.3",
+          "line": 9
+        },
+        {
+          "path": "presentedForm.url",
+          "min": 0,
+          "max": "1",
+          "type": "url",
+          "code": "A.5.4",
+          "line": 10
+        },
+        {
+          "path": "presentedForm.title",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.5.5",
+          "line": 11
+        },
+        {
+          "path": "presentedForm.creation",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.5.6",
+          "line": 12
+        }
+      ]
+    },
+    "LMEnAttachmentsOrderCz": {
+      "name": "LMEnAttachmentsCz",
+      "file": "input\\fsh\\en-model\\A.5_attachment-en.fsh",
+      "elements": [
+        {
+          "path": "contentType",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.5.1",
+          "line": 6
+        },
+        {
+          "path": "language",
+          "min": 0,
+          "max": "1",
+          "type": "CodeableConcept",
+          "code": "A.5.2",
+          "line": 7
+        },
+        {
+          "path": "data",
+          "min": 1,
+          "max": "1",
+          "type": "base64Binary",
+          "code": "A.5.3",
+          "line": 8
+        },
+        {
+          "path": "url",
+          "min": 0,
+          "max": "1",
+          "type": "url",
+          "code": "A.5.4",
+          "line": 9
+        },
+        {
+          "path": "title",
+          "min": 1,
+          "max": "1",
+          "type": "string",
+          "code": "A.5.5",
+          "line": 10
+        },
+        {
+          "path": "creation",
+          "min": 0,
+          "max": "1",
+          "type": "dateTime",
+          "code": "A.5.6",
+          "line": 11
+        }
+      ]
+    }
+  },
+  "edges": {
+    "LMSubjectOrderCz": [],
+    "LMPayerOrderCz": [],
+    "LMCoverageOrderCz": [],
+    "LMAuthorOrderCz": [],
+    "LMRequestedPerformerOrderCz": [],
+    "LMAdditionalRecipientCz": [],
+    "LMDocumentMetadataCz": [],
+    "LMDigitalSignatureOrderCz": [],
+    "LMHeaderOrder": [
+      "LMSubjectOrderCz",
+      "LMPayerOrderCz",
+      "LMCoverageOrderCz",
+      "LMAuthorOrderCz",
+      "LMRequestedPerformerOrderCz",
+      "LMAdditionalRecipientCz",
+      "LMDocumentMetadataCz",
+      "LMDigitalSignatureOrderCz"
+    ],
+    "LMOrderInformationCz": [],
+    "LMClinicalEventCz": [],
+    "LMCoverageBodyCz": [],
+    "LMAppointmentCz": [],
+    "LMSpecimenInformationCz": [],
+    "LMBodyFTOrder": [
+      "LMOrderInformationCz",
+      "LMClinicalEventCz",
+      "LMCoverageBodyCz",
+      "LMAppointmentCz",
+      "LMSpecimenInformationCz",
+      "LMClinicalInformationCz",
+      "LMFTOrderDataElementsCz",
+      "LMPlannedCareOrdersCz",
+      "LMOtherSupportingInformationCz"
+    ],
+    "LMBodyKOrder": [
+      "LMOrderInformationCz",
+      "LMClinicalEventCz",
+      "LMCoverageBodyCz",
+      "LMAppointmentCz",
+      "LMSpecimenInformationCz",
+      "LMClinicalInformationCz",
+      "LMKOrderDataElementsCz",
+      "LMPlannedCareOrdersCz",
+      "LMOtherSupportingInformationCz"
+    ],
+    "LMBodyOrder": [
+      "LMOrderInformationCz",
+      "LMClinicalEventCz",
+      "LMCoverageBodyCz",
+      "LMAppointmentCz",
+      "LMSpecimenInformationCz",
+      "LMClinicalInformationCz",
+      "LMOrderDataElementsCz",
+      "LMPlannedCareOrdersCz",
+      "LMOtherSupportingInformationCz"
+    ],
+    "LMClinicalInformationCz": [],
+    "LMFTOrderDataElementsCz": [],
+    "LMKOrderDataElementsCz": [],
+    "LMOrderDataElementsCz": [],
+    "LMPlannedCareOrdersCz": [],
+    "LMOtherSupportingInformationCz": [],
+    "LMPresentedFormOrderCz": [],
+    "LMAttachmentsOrderCz": [],
+    "LMFTOrderCz": [
+      "LMHeaderOrder",
+      "LMBodyFTOrder",
+      "LMPresentedFormOrderCz",
+      "LMAttachmentsOrderCz"
+    ],
+    "LMKOrderCz": [
+      "LMHeaderOrder",
+      "LMBodyKOrder",
+      "LMPresentedFormOrderCz",
+      "LMAttachmentsOrderCz"
+    ],
+    "LMGeneralOrderCz": [
+      "LMHeaderOrder",
+      "LMBodyOrder",
+      "LMPresentedFormOrderCz",
+      "LMAttachmentsOrderCz"
+    ],
+    "LMEnSubjectOrderCz": [],
+    "LMEnPayerOrderCz": [],
+    "LMEnCoverageOrderCz": [],
+    "LMEnAuthorOrderCz": [],
+    "LMEnRequestedPerformerOrderCz": [],
+    "LMEnAdditionalRecipientCz": [],
+    "LMEnDocumentMetadataCz": [],
+    "LMEnDigitalSignatureOrderCz": [],
+    "LMEnHeaderOrder": [
+      "LMEnSubjectOrderCz",
+      "LMEnPayerOrderCz",
+      "LMEnCoverageOrderCz",
+      "LMEnAuthorOrderCz",
+      "LMEnRequestedPerformerOrderCz",
+      "LMEnAdditionalRecipientCz",
+      "LMEnDocumentMetadataCz",
+      "LMEnDigitalSignatureOrderCz"
+    ],
+    "LMEnOrderInformationCz": [],
+    "LMEnClinicalEventCz": [],
+    "LMEnCoverageBodyCz": [],
+    "LMEnAppointmentCz": [],
+    "LMEnBodyFTOrder": [
+      "LMEnOrderInformationCz",
+      "LMEnClinicalEventCz",
+      "LMEnCoverageBodyCz",
+      "LMEnAppointmentCz",
+      "LMEnClinicalInformationCz",
+      "LMEnFTOrderDataElementsCz"
+    ],
+    "LMEnBodyKOrder": [
+      "LMEnOrderInformationCz",
+      "LMEnClinicalEventCz",
+      "LMEnCoverageBodyCz",
+      "LMEnAppointmentCz",
+      "LMEnClinicalInformationCz",
+      "LMEnKOrderDataElementsCz"
+    ],
+    "LMEnClinicalInformationCz": [],
+    "LMEnFTOrderDataElementsCz": [],
+    "LMEnKOrderDataElementsCz": [],
+    "LMEnPresentedFormOrderCz": [],
+    "LMEnAttachmentsOrderCz": []
+  },
+  "reachable": {
+    "LMKOrderCz": [
+      "LMAdditionalRecipientCz",
+      "LMAppointmentCz",
+      "LMAttachmentsOrderCz",
+      "LMAuthorOrderCz",
+      "LMBodyKOrder",
+      "LMClinicalEventCz",
+      "LMClinicalInformationCz",
+      "LMCoverageBodyCz",
+      "LMCoverageOrderCz",
+      "LMDigitalSignatureOrderCz",
+      "LMDocumentMetadataCz",
+      "LMHeaderOrder",
+      "LMKOrderCz",
+      "LMKOrderDataElementsCz",
+      "LMOrderInformationCz",
+      "LMOtherSupportingInformationCz",
+      "LMPayerOrderCz",
+      "LMPlannedCareOrdersCz",
+      "LMPresentedFormOrderCz",
+      "LMRequestedPerformerOrderCz",
+      "LMSpecimenInformationCz",
+      "LMSubjectOrderCz"
+    ],
+    "LMFTOrderCz": [
+      "LMAdditionalRecipientCz",
+      "LMAppointmentCz",
+      "LMAttachmentsOrderCz",
+      "LMAuthorOrderCz",
+      "LMBodyFTOrder",
+      "LMClinicalEventCz",
+      "LMClinicalInformationCz",
+      "LMCoverageBodyCz",
+      "LMCoverageOrderCz",
+      "LMDigitalSignatureOrderCz",
+      "LMDocumentMetadataCz",
+      "LMFTOrderCz",
+      "LMFTOrderDataElementsCz",
+      "LMHeaderOrder",
+      "LMOrderInformationCz",
+      "LMOtherSupportingInformationCz",
+      "LMPayerOrderCz",
+      "LMPlannedCareOrdersCz",
+      "LMPresentedFormOrderCz",
+      "LMRequestedPerformerOrderCz",
+      "LMSpecimenInformationCz",
+      "LMSubjectOrderCz"
+    ],
+    "LMGeneralOrderCz": [
+      "LMAdditionalRecipientCz",
+      "LMAppointmentCz",
+      "LMAttachmentsOrderCz",
+      "LMAuthorOrderCz",
+      "LMBodyOrder",
+      "LMClinicalEventCz",
+      "LMClinicalInformationCz",
+      "LMCoverageBodyCz",
+      "LMCoverageOrderCz",
+      "LMDigitalSignatureOrderCz",
+      "LMDocumentMetadataCz",
+      "LMGeneralOrderCz",
+      "LMHeaderOrder",
+      "LMOrderDataElementsCz",
+      "LMOrderInformationCz",
+      "LMOtherSupportingInformationCz",
+      "LMPayerOrderCz",
+      "LMPlannedCareOrdersCz",
+      "LMPresentedFormOrderCz",
+      "LMRequestedPerformerOrderCz",
+      "LMSpecimenInformationCz",
+      "LMSubjectOrderCz"
+    ]
+  },
+  "cycles": [],
+  "missingParents": [],
+  "emptyGroups": [
+    [
+      "LMSubjectOrderCz",
+      "kontakt.preferovanyLekar.organizace",
+      "A.1.2.3.4"
+    ],
+    [
+      "LMCoverageOrderCz",
+      "infoOPlatci.organizace",
+      "A.1.4.2.3"
+    ],
+    [
+      "LMAuthorOrderCz",
+      "adresa",
+      "A.1.5.3"
+    ],
+    [
+      "LMAuthorOrderCz",
+      "organizace",
+      "A.1.5.4"
+    ],
+    [
+      "LMRequestedPerformerOrderCz",
+      "organizace",
+      "A.1.6.4"
+    ],
+    [
+      "LMAdditionalRecipientCz",
+      "organizace",
+      "A.1.7.4"
+    ],
+    [
+      "LMDocumentMetadataCz",
+      "spravce",
+      "A.1.8.6"
+    ],
+    [
+      "LMCoverageBodyCz",
+      "informaceOPlatci.organizace",
+      "A.2.4.2.3"
+    ],
+    [
+      "LMAppointmentCz",
+      "misto",
+      "A.2.5.8"
+    ],
+    [
+      "LMSpecimenInformationCz",
+      "odberatel.organizace",
+      "A.2.6.16.4"
+    ],
+    [
+      "LMFTOrderDataElementsCz",
+      "cilVysetreni",
+      "A.3.2.2"
+    ],
+    [
+      "LMPresentedFormOrderCz",
+      "vizualniPodoba",
+      "A.4"
+    ],
+    [
+      "LMEnSubjectOrderCz",
+      "subjectContact.preferredHP.organization",
+      "A.1.2.3.4"
+    ],
+    [
+      "LMEnCoverageOrderCz",
+      "informationPayor.organization",
+      "A.1.4.2.3"
+    ],
+    [
+      "LMEnAuthorOrderCz",
+      "address",
+      "A.1.5.3"
+    ],
+    [
+      "LMEnAuthorOrderCz",
+      "organization",
+      "A.1.5.4"
+    ],
+    [
+      "LMEnRequestedPerformerOrderCz",
+      "organization",
+      "A.1.6.4"
+    ],
+    [
+      "LMEnAdditionalRecipientCz",
+      "organization",
+      "A.1.7.4"
+    ],
+    [
+      "LMEnDocumentMetadataCz",
+      "custodian",
+      "A.1.8.6"
+    ],
+    [
+      "LMEnCoverageBodyCz",
+      "payerInformation.organization",
+      "A.2.4.2.3"
+    ],
+    [
+      "LMEnAppointmentCz",
+      "location",
+      "A.2.5.8"
+    ],
+    [
+      "LMEnFTOrderDataElementsCz",
+      "goal",
+      "A.3.2.2"
+    ]
+  ],
+  "mappingRows": {
+    "K-Header-map.xml": 71,
+    "K-Header-map-en.xml": 71,
+    "K-Body-map.xml": 68,
+    "K-Body-map-en.xml": 62,
+    "K-Attachment-map.xml": 14,
+    "K-Attachment-map-cs.xml": 14,
+    "FT-Header-map.xml": 71,
+    "FT-Header-map-en.xml": 71,
+    "FT-Body-map.xml": 62,
+    "FT-Body-map-en.xml": 56,
+    "FT-Attachment-map.xml": 14,
+    "FT-Attachment-map-cs.xml": 14
+  },
+  "unresolvedMappingSources": [
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.datumCasVytvoreni",
+      "label": "A.2.1.2 - Datum a čas vytvoření objednávky"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.pozadovanyTermin",
+      "label": "A.2.1.3 - Datum a čas požadovaného provedení"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.urgence",
+      "label": "A.2.1.4 - Urgence objednávky"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMClinicalEventCz",
+      "path": "klinickaUdalost",
+      "label": "A.2.3 - Klinická událost (encounter)"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMCoverageBodyCz",
+      "path": "uhrada",
+      "label": "A.2.4 - Úhrada"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMAppointmentCz",
+      "path": "terminNavstevy",
+      "label": "A.2.5 - Termín návštěvy"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vaha.datumCas",
+      "label": "A.3.1.1.1.3 - Datum a čas"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vyska.datumCas",
+      "label": "A.3.1.1.2.3 - Datum a čas"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMPlannedCareOrdersCz",
+      "path": "odkazyNaObjednavkyPlanovanePece",
+      "label": "A.3.3 - Odkazy na objednávky plánované péče"
+    },
+    {
+      "page": "K-Body-map.xml",
+      "model": "LMOtherSupportingInformationCz",
+      "path": "ostatniPodpurneInformace",
+      "label": "A.3.4 - Ostatní podpůrné informace"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.datumCasVytvoreni",
+      "label": "A.2.1.2 - Request authored date and time"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.pozadovanyTermin",
+      "label": "A.2.1.3 - Requested occurrence date and time"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.urgence",
+      "label": "A.2.1.4 - Request priority"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMClinicalEventCz",
+      "path": "klinickaUdalost",
+      "label": "A.2.3 - Clinical event (encounter)"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMCoverageBodyCz",
+      "path": "uhrada",
+      "label": "A.2.4 - Coverage"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMAppointmentCz",
+      "path": "terminNavstevy",
+      "label": "A.2.5 - Appointment"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vaha.datumCas",
+      "label": "A.3.1.1.1.3 - Weight date and time"
+    },
+    {
+      "page": "K-Body-map-en.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vyska.datumCas",
+      "label": "A.3.1.1.2.3 - Height date and time"
+    },
+    {
+      "page": "K-Attachment-map.xml",
+      "model": "LMAttachmentsOrderCz",
+      "path": "LMAttachmentsOrderCz",
+      "label": "A.5 - Attachments"
+    },
+    {
+      "page": "K-Attachment-map-cs.xml",
+      "model": "LMAttachmentsOrderCz",
+      "path": "LMAttachmentsOrderCz",
+      "label": "A.5 - Ostatní přílohy"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.datumCasVytvoreni",
+      "label": "A.2.1.2 - Datum a čas vytvoření objednávky"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.pozadovanyTermin",
+      "label": "A.2.1.3 - Datum a čas požadovaného provedení"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.urgence",
+      "label": "A.2.1.4 - Urgence objednávky"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMClinicalEventCz",
+      "path": "klinickaUdalost",
+      "label": "A.2.3 - Klinická událost (encounter)"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMCoverageBodyCz",
+      "path": "uhrada",
+      "label": "A.2.4 - Úhrada"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMAppointmentCz",
+      "path": "terminNavstevy",
+      "label": "A.2.5 - Termín návštěvy"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vaha.datumCas",
+      "label": "A.3.1.1.1.3 - Datum a čas"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vyska.datumCas",
+      "label": "A.3.1.1.2.3 - Datum a čas"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMPlannedCareOrdersCz",
+      "path": "odkazyNaObjednavkyPlanovanePece",
+      "label": "A.3.3 - Odkazy na objednávky plánované péče"
+    },
+    {
+      "page": "FT-Body-map.xml",
+      "model": "LMOtherSupportingInformationCz",
+      "path": "ostatniPodpurneInformace",
+      "label": "A.3.4 - Ostatní podpůrné informace"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.datumCasVytvoreni",
+      "label": "A.2.1.2 - Request authored date and time"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.pozadovanyTermin",
+      "label": "A.2.1.3 - Requested occurrence date and time"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMOrderInformationCz",
+      "path": "detailyObjednavky.urgence",
+      "label": "A.2.1.4 - Request priority"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMClinicalEventCz",
+      "path": "klinickaUdalost",
+      "label": "A.2.3 - Clinical event (encounter)"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMCoverageBodyCz",
+      "path": "uhrada",
+      "label": "A.2.4 - Coverage"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMAppointmentCz",
+      "path": "terminNavstevy",
+      "label": "A.2.5 - Appointment"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vaha.datumCas",
+      "label": "A.3.1.1.1.3 - Weight date and time"
+    },
+    {
+      "page": "FT-Body-map-en.xml",
+      "model": "LMClinicalInformationCz",
+      "path": "biometrickeUdaje.vyska.datumCas",
+      "label": "A.3.1.1.2.3 - Height date and time"
+    },
+    {
+      "page": "FT-Attachment-map.xml",
+      "model": "LMAttachmentsOrderCz",
+      "path": "LMAttachmentsOrderCz",
+      "label": "A.5 - Attachments"
+    },
+    {
+      "page": "FT-Attachment-map-cs.xml",
+      "model": "LMAttachmentsOrderCz",
+      "path": "LMAttachmentsOrderCz",
+      "label": "A.5 - Ostatní přílohy"
+    }
+  ],
+  "codeMismatches": [
+    {
+      "page": "K-Header-map.xml",
+      "model": "LMPayerOrderCz",
+      "path": "kod",
+      "modelCode": "A.1.4.1",
+      "mappingCode": "A.1.3.1"
+    },
+    {
+      "page": "K-Header-map-en.xml",
+      "model": "LMPayerOrderCz",
+      "path": "kod",
+      "modelCode": "A.1.4.1",
+      "mappingCode": "A.1.3.1"
+    },
+    {
+      "page": "FT-Header-map.xml",
+      "model": "LMPayerOrderCz",
+      "path": "kod",
+      "modelCode": "A.1.4.1",
+      "mappingCode": "A.1.3.1"
+    },
+    {
+      "page": "FT-Header-map-en.xml",
+      "model": "LMPayerOrderCz",
+      "path": "kod",
+      "modelCode": "A.1.4.1",
+      "mappingCode": "A.1.3.1"
+    }
+  ],
+  "unmappedLeaves": {
+    "K": [
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "biometrickeUdaje.vaha.datumACas",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.1.1.3",
+        "line": 12
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "biometrickeUdaje.vyska.datumACas",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.1.2.3",
+        "line": 16
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiRelevantniKlinickeInformace.kod",
+        "min": 0,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.2.1",
+        "line": 19
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiRelevantniKlinickeInformace.text",
+        "min": 0,
+        "max": "1",
+        "type": "string",
+        "code": "A.3.1.2.2",
+        "line": 20
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "medikace.identifikator",
+        "min": 0,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.3.1.3.1",
+        "line": 23
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "medikace.kod",
+        "min": 0,
+        "max": "*",
+        "type": "code",
+        "code": "A.3.1.3.2",
+        "line": 24
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "medikace.mnozstvi",
+        "min": 0,
+        "max": "1",
+        "type": "Ratio",
+        "code": "A.3.1.3.3",
+        "line": 25
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.typ",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.4.1",
+        "line": 28
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.identifikator",
+        "min": 0,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.3.1.4.2",
+        "line": 29
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.model",
+        "min": 1,
+        "max": "1",
+        "type": "string",
+        "code": "A.3.1.4.3",
+        "line": 30
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.castTela",
+        "min": 0,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.4.4",
+        "line": 31
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "urgentniInformace.alergieAIntolerance",
+        "min": 1,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.5.1",
+        "line": 34
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "urgentniInformace.varovani",
+        "min": 0,
+        "max": "*",
+        "type": "string",
+        "code": "A.3.1.5.2",
+        "line": 35
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "omezeniPohyblivostiPacienta.datumACas",
+        "min": 1,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.6.1",
+        "line": 38
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "omezeniPohyblivostiPacienta.kod",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.6.2",
+        "line": 39
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "omezeniPohyblivostiPacienta.hodnota",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.6.3",
+        "line": 40
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "ockovani",
+        "min": 0,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.7",
+        "line": 41
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiFormalizovaneUdaje.datumACas",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.8.1",
+        "line": 44
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiFormalizovaneUdaje.kod",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.8.2",
+        "line": 45
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiFormalizovaneUdaje.hodnota",
+        "min": 0,
+        "max": "1",
+        "type": "Narrative",
+        "code": "A.3.1.8.3",
+        "line": 46
+      },
+      {
+        "model": "LMOrderInformationCz",
+        "path": "detailyObjednavky.datumACas",
+        "min": 1,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.1.2",
+        "line": 10
+      },
+      {
+        "model": "LMOrderInformationCz",
+        "path": "detailyObjednavky.datumACasPozadovanehoProvedeni",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.1.3",
+        "line": 11
+      },
+      {
+        "model": "LMOrderInformationCz",
+        "path": "detailyObjednavky.urgentnost",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.1.4",
+        "line": 12
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "identifikator",
+        "min": 1,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.2.6.1",
+        "line": 8
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "druhOrganismu",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.2",
+        "line": 9
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "material",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.3",
+        "line": 10
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "datumACasOdberu",
+        "min": 1,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.6.4",
+        "line": 11
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "datumACasTransportu",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.6.5",
+        "line": 12
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "typVzorku",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.6",
+        "line": 13
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "anatomickaLokalizace",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.7",
+        "line": 14
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "morfologie",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.8",
+        "line": 15
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nastroj",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.9",
+        "line": 16
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "metodaOdberu",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.10",
+        "line": 17
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "zdrojoveZarizeni",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.11",
+        "line": 18
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "mistoOdberu",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.12",
+        "line": 19
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "poznamka",
+        "min": 0,
+        "max": "1",
+        "type": "string",
+        "code": "A.2.6.13",
+        "line": 20
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.typ",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.14.1",
+        "line": 23
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.pocet",
+        "min": 0,
+        "max": "1",
+        "type": "integer",
+        "code": "A.2.6.14.2",
+        "line": 24
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.idZarizeni",
+        "min": 1,
+        "max": "1",
+        "type": "Identifier",
+        "code": "A.2.6.14.3",
+        "line": 25
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.oznaceni",
+        "min": 0,
+        "max": "1",
+        "type": "Identifier",
+        "code": "A.2.6.14.4",
+        "line": 26
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "dalsiUdaje.datum",
+        "min": 0,
+        "max": "1",
+        "type": "date",
+        "code": "A.2.6.15.1",
+        "line": 29
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "dalsiUdaje.kod",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.15.2",
+        "line": 30
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "dalsiUdaje.hodnota",
+        "min": 0,
+        "max": "1",
+        "type": "Narrative",
+        "code": "A.2.6.15.3",
+        "line": 31
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.identifikator",
+        "min": 1,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.2.6.16.1",
+        "line": 34
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.jmeno",
+        "min": 1,
+        "max": "1",
+        "type": "HumanName",
+        "code": "A.2.6.16.2",
+        "line": 35
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.kontakt",
+        "min": 1,
+        "max": "1",
+        "type": "ContactPoint",
+        "code": "A.2.6.16.3",
+        "line": 36
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.organizace",
+        "min": 0,
+        "max": "1",
+        "type": "Base",
+        "code": "A.2.6.16.4",
+        "line": 37
+      }
+    ],
+    "FT": [
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "biometrickeUdaje.vaha.datumACas",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.1.1.3",
+        "line": 12
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "biometrickeUdaje.vyska.datumACas",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.1.2.3",
+        "line": 16
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiRelevantniKlinickeInformace.kod",
+        "min": 0,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.2.1",
+        "line": 19
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiRelevantniKlinickeInformace.text",
+        "min": 0,
+        "max": "1",
+        "type": "string",
+        "code": "A.3.1.2.2",
+        "line": 20
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "medikace.identifikator",
+        "min": 0,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.3.1.3.1",
+        "line": 23
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "medikace.kod",
+        "min": 0,
+        "max": "*",
+        "type": "code",
+        "code": "A.3.1.3.2",
+        "line": 24
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "medikace.mnozstvi",
+        "min": 0,
+        "max": "1",
+        "type": "Ratio",
+        "code": "A.3.1.3.3",
+        "line": 25
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.typ",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.4.1",
+        "line": 28
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.identifikator",
+        "min": 0,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.3.1.4.2",
+        "line": 29
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.model",
+        "min": 1,
+        "max": "1",
+        "type": "string",
+        "code": "A.3.1.4.3",
+        "line": 30
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "implantat.castTela",
+        "min": 0,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.4.4",
+        "line": 31
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "urgentniInformace.alergieAIntolerance",
+        "min": 1,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.5.1",
+        "line": 34
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "urgentniInformace.varovani",
+        "min": 0,
+        "max": "*",
+        "type": "string",
+        "code": "A.3.1.5.2",
+        "line": 35
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "omezeniPohyblivostiPacienta.datumACas",
+        "min": 1,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.6.1",
+        "line": 38
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "omezeniPohyblivostiPacienta.kod",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.6.2",
+        "line": 39
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "omezeniPohyblivostiPacienta.hodnota",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.6.3",
+        "line": 40
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "ockovani",
+        "min": 0,
+        "max": "*",
+        "type": "CodeableConcept",
+        "code": "A.3.1.7",
+        "line": 41
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiFormalizovaneUdaje.datumACas",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.3.1.8.1",
+        "line": 44
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiFormalizovaneUdaje.kod",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.3.1.8.2",
+        "line": 45
+      },
+      {
+        "model": "LMClinicalInformationCz",
+        "path": "dalsiFormalizovaneUdaje.hodnota",
+        "min": 0,
+        "max": "1",
+        "type": "Narrative",
+        "code": "A.3.1.8.3",
+        "line": 46
+      },
+      {
+        "model": "LMOrderInformationCz",
+        "path": "detailyObjednavky.datumACas",
+        "min": 1,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.1.2",
+        "line": 10
+      },
+      {
+        "model": "LMOrderInformationCz",
+        "path": "detailyObjednavky.datumACasPozadovanehoProvedeni",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.1.3",
+        "line": 11
+      },
+      {
+        "model": "LMOrderInformationCz",
+        "path": "detailyObjednavky.urgentnost",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.1.4",
+        "line": 12
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "identifikator",
+        "min": 1,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.2.6.1",
+        "line": 8
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "druhOrganismu",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.2",
+        "line": 9
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "material",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.3",
+        "line": 10
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "datumACasOdberu",
+        "min": 1,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.6.4",
+        "line": 11
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "datumACasTransportu",
+        "min": 0,
+        "max": "1",
+        "type": "dateTime",
+        "code": "A.2.6.5",
+        "line": 12
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "typVzorku",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.6",
+        "line": 13
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "anatomickaLokalizace",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.7",
+        "line": 14
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "morfologie",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.8",
+        "line": 15
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nastroj",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.9",
+        "line": 16
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "metodaOdberu",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.10",
+        "line": 17
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "zdrojoveZarizeni",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.11",
+        "line": 18
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "mistoOdberu",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.12",
+        "line": 19
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "poznamka",
+        "min": 0,
+        "max": "1",
+        "type": "string",
+        "code": "A.2.6.13",
+        "line": 20
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.typ",
+        "min": 0,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.14.1",
+        "line": 23
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.pocet",
+        "min": 0,
+        "max": "1",
+        "type": "integer",
+        "code": "A.2.6.14.2",
+        "line": 24
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.idZarizeni",
+        "min": 1,
+        "max": "1",
+        "type": "Identifier",
+        "code": "A.2.6.14.3",
+        "line": 25
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "nadoba.oznaceni",
+        "min": 0,
+        "max": "1",
+        "type": "Identifier",
+        "code": "A.2.6.14.4",
+        "line": 26
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "dalsiUdaje.datum",
+        "min": 0,
+        "max": "1",
+        "type": "date",
+        "code": "A.2.6.15.1",
+        "line": 29
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "dalsiUdaje.kod",
+        "min": 1,
+        "max": "1",
+        "type": "CodeableConcept",
+        "code": "A.2.6.15.2",
+        "line": 30
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "dalsiUdaje.hodnota",
+        "min": 0,
+        "max": "1",
+        "type": "Narrative",
+        "code": "A.2.6.15.3",
+        "line": 31
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.identifikator",
+        "min": 1,
+        "max": "*",
+        "type": "Identifier",
+        "code": "A.2.6.16.1",
+        "line": 34
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.jmeno",
+        "min": 1,
+        "max": "1",
+        "type": "HumanName",
+        "code": "A.2.6.16.2",
+        "line": 35
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.kontakt",
+        "min": 1,
+        "max": "1",
+        "type": "ContactPoint",
+        "code": "A.2.6.16.3",
+        "line": 36
+      },
+      {
+        "model": "LMSpecimenInformationCz",
+        "path": "odberatel.organizace",
+        "min": 0,
+        "max": "1",
+        "type": "Base",
+        "code": "A.2.6.16.4",
+        "line": 37
+      }
+    ]
+  },
+  "languagePairs": [
+    {
+      "cs": "LMSubjectOrderCz",
+      "en": "LMEnSubjectOrderCz",
+      "differences": [
+        {
+          "code": "A.1.1.9",
+          "cs": {
+            "path": "identifikace.komunikacniJazyk",
+            "min": 0,
+            "max": "1",
+            "type": "CodeableConcept",
+            "code": "A.1.1.9",
+            "line": 18
+          },
+          "en": {
+            "path": "subjectIdentification.communicationLanguage",
+            "min": 0,
+            "max": "*",
+            "type": "CodeableConcept",
+            "code": "A.1.1.9",
+            "line": 17
+          }
+        },
+        {
+          "code": "A.1.2.4.1",
+          "cs": {
+            "path": "kontakt.kontaktniOsoba.typ",
+            "min": 0,
+            "max": "1",
+            "type": "CodeableConcept",
+            "code": "A.1.2.4.1",
+            "line": 31
+          },
+          "en": {
+            "path": "subjectContact.contactPerson.type",
+            "min": 0,
+            "max": "*",
+            "type": "CodeableConcept",
+            "code": "A.1.2.4.1",
+            "line": 30
+          }
+        },
+        {
+          "code": "A.1.2.4.6",
+          "cs": {
+            "path": "kontakt.kontaktniOsoba.adresa",
+            "min": 0,
+            "max": "1",
+            "type": "Address",
+            "code": "A.1.2.4.6",
+            "line": 36
+          },
+          "en": {
+            "path": "subjectContact.contactPerson.address",
+            "min": 0,
+            "max": "*",
+            "type": "Address",
+            "code": "A.1.2.4.6",
+            "line": 35
+          }
+        }
+      ]
+    },
+    {
+      "cs": "LMPayerOrderCz",
+      "en": "LMEnPayerOrderCz",
+      "differences": [
+        {
+          "code": "A.1.3.1",
+          "missing": "CS"
+        },
+        {
+          "code": "A.1.4.1",
+          "missing": "EN"
+        }
+      ]
+    },
+    {
+      "cs": "LMCoverageOrderCz",
+      "en": "LMEnCoverageOrderCz",
+      "differences": [
+        {
+          "code": "A.1.4.3",
+          "missing": "EN"
+        }
+      ]
+    },
+    {
+      "cs": "LMAuthorOrderCz",
+      "en": "LMEnAuthorOrderCz",
+      "differences": [
+        {
+          "code": "A.1.5.3",
+          "cs": {
+            "path": "adresa",
+            "min": 1,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.5.3",
+            "line": 10
+          },
+          "en": {
+            "path": "address",
+            "min": 0,
+            "max": "*",
+            "type": "Base",
+            "code": "A.1.5.3",
+            "line": 10
+          }
+        },
+        {
+          "code": "A.1.5.4",
+          "cs": {
+            "path": "organizace",
+            "min": 0,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.5.4",
+            "line": 11
+          },
+          "en": {
+            "path": "organization",
+            "min": 1,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.5.4",
+            "line": 11
+          }
+        }
+      ]
+    },
+    {
+      "cs": "LMRequestedPerformerOrderCz",
+      "en": "LMEnRequestedPerformerOrderCz",
+      "differences": [
+        {
+          "code": "A.1.6.1",
+          "cs": {
+            "path": "id",
+            "min": 0,
+            "max": "1",
+            "type": "Identifier",
+            "code": "A.1.6.1",
+            "line": 8
+          },
+          "en": {
+            "path": "identifier",
+            "min": 1,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.1.6.1",
+            "line": 8
+          }
+        },
+        {
+          "code": "A.1.6.2",
+          "cs": {
+            "path": "jmeno",
+            "min": 0,
+            "max": "1",
+            "type": "HumanName",
+            "code": "A.1.6.2",
+            "line": 9
+          },
+          "en": {
+            "path": "name",
+            "min": 1,
+            "max": "1",
+            "type": "HumanName",
+            "code": "A.1.6.2",
+            "line": 9
+          }
+        },
+        {
+          "code": "A.1.6.3",
+          "cs": {
+            "path": "idOrganizace",
+            "min": 0,
+            "max": "1",
+            "type": "Identifier",
+            "code": "A.1.6.3",
+            "line": 10
+          },
+          "en": {
+            "path": "organizationID",
+            "min": 0,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.1.6.3",
+            "line": 10
+          }
+        },
+        {
+          "code": "A.1.6.4",
+          "cs": {
+            "path": "organizace",
+            "min": 0,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.6.4",
+            "line": 11
+          },
+          "en": {
+            "path": "organization",
+            "min": 1,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.6.4",
+            "line": 11
+          }
+        }
+      ]
+    },
+    {
+      "cs": "LMAdditionalRecipientCz",
+      "en": "LMEnAdditionalRecipientCz",
+      "differences": [
+        {
+          "code": "A.1.7.1",
+          "cs": {
+            "path": "identifikator",
+            "min": 0,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.1.7.1",
+            "line": 8
+          },
+          "en": {
+            "path": "identifier",
+            "min": 1,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.1.7.1",
+            "line": 8
+          }
+        },
+        {
+          "code": "A.1.7.2",
+          "cs": {
+            "path": "jmeno",
+            "min": 0,
+            "max": "1",
+            "type": "HumanName",
+            "code": "A.1.7.2",
+            "line": 9
+          },
+          "en": {
+            "path": "name",
+            "min": 1,
+            "max": "1",
+            "type": "HumanName",
+            "code": "A.1.7.2",
+            "line": 9
+          }
+        },
+        {
+          "code": "A.1.7.3",
+          "cs": {
+            "path": "idOrganizace",
+            "min": 0,
+            "max": "1",
+            "type": "Identifier",
+            "code": "A.1.7.3",
+            "line": 10
+          },
+          "en": {
+            "path": "organizationID",
+            "min": 0,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.1.7.3",
+            "line": 10
+          }
+        },
+        {
+          "code": "A.1.7.4",
+          "cs": {
+            "path": "organizace",
+            "min": 0,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.7.4",
+            "line": 11
+          },
+          "en": {
+            "path": "organization",
+            "min": 1,
+            "max": "1",
+            "type": "Base",
+            "code": "A.1.7.4",
+            "line": 11
+          }
+        }
+      ]
+    },
+    {
+      "cs": "LMDocumentMetadataCz",
+      "en": "LMEnDocumentMetadataCz",
+      "differences": []
+    },
+    {
+      "cs": "LMDigitalSignatureOrderCz",
+      "en": "LMEnDigitalSignatureOrderCz",
+      "differences": []
+    },
+    {
+      "cs": "LMHeaderOrder",
+      "en": "LMEnHeaderOrder",
+      "differences": [
+        {
+          "code": "A.1.3",
+          "cs": {
+            "path": "zdravotniPojisteni",
+            "min": 0,
+            "max": "1",
+            "type": "LMPayerOrderCz",
+            "code": "A.1.3",
+            "line": 7
+          },
+          "en": {
+            "path": "payer",
+            "min": 1,
+            "max": "1",
+            "type": "LMEnPayerOrderCz",
+            "code": "A.1.3",
+            "line": 9
+          }
+        }
+      ]
+    },
+    {
+      "cs": "LMOrderInformationCz",
+      "en": "LMEnOrderInformationCz",
+      "differences": [
+        {
+          "code": "A.2.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.1.1",
+          "cs": {
+            "path": "detailyObjednavky.identifikator",
+            "min": 1,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.2.1.1",
+            "line": 9
+          },
+          "en": {
+            "path": "orderDetails",
+            "min": 0,
+            "max": "*",
+            "type": "Base",
+            "code": "A.2.1.1",
+            "line": 8
+          }
+        },
+        {
+          "code": "A.2.1.1.1",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.1.2",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.1.3",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.1.4",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.1.5",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.1.6",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.2",
+          "cs": {
+            "path": "detailyObjednavky.datumACas",
+            "min": 1,
+            "max": "1",
+            "type": "dateTime",
+            "code": "A.2.1.2",
+            "line": 10
+          },
+          "en": {
+            "path": "diagnoses",
+            "min": 1,
+            "max": "*",
+            "type": "Base",
+            "code": "A.2.1.2",
+            "line": 16
+          }
+        },
+        {
+          "code": "A.2.1.2.1",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.2.2",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.1.3",
+          "cs": {
+            "path": "detailyObjednavky.datumACasPozadovanehoProvedeni",
+            "min": 0,
+            "max": "1",
+            "type": "dateTime",
+            "code": "A.2.1.3",
+            "line": 11
+          },
+          "en": {
+            "path": "reimbursementCode",
+            "min": 0,
+            "max": "1",
+            "type": "CodeableConcept",
+            "code": "A.2.1.3",
+            "line": 21
+          }
+        },
+        {
+          "code": "A.2.1.4",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.1.5",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.1.6",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.2.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.2.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.2.3",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.2.4",
+          "missing": "EN"
+        },
+        {
+          "code": "A.2.2.5",
+          "missing": "EN"
+        }
+      ]
+    },
+    {
+      "cs": "LMClinicalEventCz",
+      "en": "LMEnClinicalEventCz",
+      "differences": []
+    },
+    {
+      "cs": "LMCoverageBodyCz",
+      "en": "LMEnCoverageBodyCz",
+      "differences": []
+    },
+    {
+      "cs": "LMAppointmentCz",
+      "en": "LMEnAppointmentCz",
+      "differences": []
+    },
+    {
+      "cs": "LMBodyFTOrder",
+      "en": "LMEnBodyFTOrder",
+      "differences": []
+    },
+    {
+      "cs": "LMBodyKOrder",
+      "en": "LMEnBodyKOrder",
+      "differences": [
+        {
+          "code": "A.2.1",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.3",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.4",
+          "missing": "CS"
+        },
+        {
+          "code": "A.2.5",
+          "missing": "CS"
+        },
+        {
+          "code": "A.3.1",
+          "missing": "CS"
+        },
+        {
+          "code": "A.3.2",
+          "missing": "CS"
+        }
+      ]
+    },
+    {
+      "cs": "LMClinicalInformationCz",
+      "en": "LMEnClinicalInformationCz",
+      "differences": [
+        {
+          "code": "A.3.1.1",
+          "cs": {
+            "path": "biometrickeUdaje",
+            "min": 0,
+            "max": "1",
+            "type": "Base",
+            "code": "A.3.1.1",
+            "line": 8
+          },
+          "en": {
+            "path": "clinicalInformationText",
+            "min": 0,
+            "max": "1",
+            "type": "string",
+            "code": "A.3.1.1",
+            "line": 8
+          }
+        },
+        {
+          "code": "A.3.1.1.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.1.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.1.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.1.3",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.2.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.2.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.1.2.3",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.2",
+          "cs": {
+            "path": "dalsiRelevantniKlinickeInformace",
+            "min": 0,
+            "max": "1",
+            "type": "Base",
+            "code": "A.3.1.2",
+            "line": 18
+          },
+          "en": {
+            "path": "clinicalInformationCode",
+            "min": 0,
+            "max": "1",
+            "type": "CodeableConcept",
+            "code": "A.3.1.2",
+            "line": 9
+          }
+        },
+        {
+          "code": "A.3.1.2.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.2.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.3",
+          "cs": {
+            "path": "medikace",
+            "min": 0,
+            "max": "*",
+            "type": "Base",
+            "code": "A.3.1.3",
+            "line": 22
+          },
+          "en": {
+            "path": "description",
+            "min": 0,
+            "max": "*",
+            "type": "CodeableConcept",
+            "code": "A.3.1.3",
+            "line": 10
+          }
+        },
+        {
+          "code": "A.3.1.3.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.3.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.3.3",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.4.1",
+          "cs": {
+            "path": "implantat.typ",
+            "min": 1,
+            "max": "1",
+            "type": "CodeableConcept",
+            "code": "A.3.1.4.1",
+            "line": 28
+          },
+          "en": {
+            "path": "medication.id",
+            "min": 0,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.3.1.4.1",
+            "line": 16
+          }
+        },
+        {
+          "code": "A.3.1.4.2",
+          "cs": {
+            "path": "implantat.identifikator",
+            "min": 0,
+            "max": "*",
+            "type": "Identifier",
+            "code": "A.3.1.4.2",
+            "line": 29
+          },
+          "en": {
+            "path": "medication.code",
+            "min": 0,
+            "max": "*",
+            "type": "code",
+            "code": "A.3.1.4.2",
+            "line": 17
+          }
+        },
+        {
+          "code": "A.3.1.4.3",
+          "cs": {
+            "path": "implantat.model",
+            "min": 1,
+            "max": "1",
+            "type": "string",
+            "code": "A.3.1.4.3",
+            "line": 30
+          },
+          "en": {
+            "path": "medication.quantity",
+            "min": 0,
+            "max": "1",
+            "type": "Ratio",
+            "code": "A.3.1.4.3",
+            "line": 18
+          }
+        },
+        {
+          "code": "A.3.1.4.4",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.5",
+          "cs": {
+            "path": "urgentniInformace",
+            "min": 0,
+            "max": "1",
+            "type": "Base",
+            "code": "A.3.1.5",
+            "line": 33
+          },
+          "en": {
+            "path": "vaccination",
+            "min": 0,
+            "max": "*",
+            "type": "CodeableConcept",
+            "code": "A.3.1.5",
+            "line": 19
+          }
+        },
+        {
+          "code": "A.3.1.5.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.5.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.6.1",
+          "cs": {
+            "path": "omezeniPohyblivostiPacienta.datumACas",
+            "min": 1,
+            "max": "1",
+            "type": "dateTime",
+            "code": "A.3.1.6.1",
+            "line": 38
+          },
+          "en": {
+            "path": "additionalData.date",
+            "min": 0,
+            "max": "1",
+            "type": "dateTime",
+            "code": "A.3.1.6.1",
+            "line": 22
+          }
+        },
+        {
+          "code": "A.3.1.6.3",
+          "cs": {
+            "path": "omezeniPohyblivostiPacienta.hodnota",
+            "min": 1,
+            "max": "1",
+            "type": "CodeableConcept",
+            "code": "A.3.1.6.3",
+            "line": 40
+          },
+          "en": {
+            "path": "additionalData.value",
+            "min": 0,
+            "max": "1",
+            "type": "Narrative",
+            "code": "A.3.1.6.3",
+            "line": 26
+          }
+        },
+        {
+          "code": "A.3.1.7",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.8",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.8.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.8.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.1.8.3",
+          "missing": "EN"
+        }
+      ]
+    },
+    {
+      "cs": "LMFTOrderDataElementsCz",
+      "en": "LMEnFTOrderDataElementsCz",
+      "differences": []
+    },
+    {
+      "cs": "LMKOrderDataElementsCz",
+      "en": "LMEnKOrderDataElementsCz",
+      "differences": [
+        {
+          "code": "A.3.2.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.1.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.1.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.1.7",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.3",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.4",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.5",
+          "missing": "EN"
+        },
+        {
+          "code": "A.3.2.6",
+          "missing": "EN"
+        }
+      ]
+    },
+    {
+      "cs": "LMPresentedFormOrderCz",
+      "en": "LMEnPresentedFormOrderCz",
+      "differences": [
+        {
+          "code": "A.4",
+          "missing": "EN"
+        },
+        {
+          "code": "A.4.1",
+          "missing": "EN"
+        },
+        {
+          "code": "A.4.2",
+          "missing": "EN"
+        },
+        {
+          "code": "A.4.3",
+          "missing": "EN"
+        },
+        {
+          "code": "A.4.4",
+          "missing": "EN"
+        },
+        {
+          "code": "A.4.5",
+          "missing": "EN"
+        },
+        {
+          "code": "A.4.6",
+          "missing": "EN"
+        },
+        {
+          "code": "A.5",
+          "missing": "CS"
+        },
+        {
+          "code": "A.5.1",
+          "missing": "CS"
+        },
+        {
+          "code": "A.5.2",
+          "missing": "CS"
+        },
+        {
+          "code": "A.5.3",
+          "missing": "CS"
+        },
+        {
+          "code": "A.5.4",
+          "missing": "CS"
+        },
+        {
+          "code": "A.5.5",
+          "missing": "CS"
+        },
+        {
+          "code": "A.5.6",
+          "missing": "CS"
+        }
+      ]
+    },
+    {
+      "cs": "LMAttachmentsOrderCz",
+      "en": "LMEnAttachmentsOrderCz",
+      "differences": []
+    }
+  ]
+}

@@ -118,13 +118,5 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * basedOn 0..*
 * basedOn only Reference(KOrderServiceRequestCz)
 
-// --------------------------- invariants --------------------------------------
-Invariant: code-required
-Description: "K-order musí mít vyplněný kód vyšetření/výkonu."
-Severity: #error
-Expression: "code.coding.exists()"
-
-Invariant: subject-is-patient
-Description: "Subjekt žádanky musí být pacient."
-Severity: #error
-Expression: "subject.resolve().resourceType = 'Patient'"
+// code 1..1 permits a coded concept or a textual description in code.text.
+// subject only Reference(CZ_PatientCore) constrains the subject to a patient.

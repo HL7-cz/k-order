@@ -111,7 +111,8 @@ EN: Clinical photo documentation of the pigmented lesion.
 
 Instance: DermatologyCompositionExample
 InstanceOf: KOrderCompositionCz
-Usage: #example
+// Published and validated in its document Bundle, where references can resolve.
+Usage: #inline
 Description: """
 CZ: Urgentní adresná K-žádanka do pigmentové poradny pro rychle se měnící pigmentový útvar s přiloženou fotodokumentací.
 EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing pigmented lesion with attached photo documentation.
@@ -253,8 +254,8 @@ EN: eGFR laboratory result.
 * category[0].coding[0].code = #laboratory
 * category[0].coding[0].display = "Laboratory"
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
-* code.coding[0] = $loinc#62238-1 "Glomerulární filtrace odhad [Objemový tok/plocha], systém: Sérum/plazma/krev, metoda: Vzorec založený na kreatininu a cystatinu C (CKD-EPI)"
-* code.text = "eGFR"
+* code.coding[0] = $loinc#62238-1
+* code.text = "eGFR podle kreatininu (CKD-EPI), vztaženo na 1,73 m²"
 * valueQuantity.value = 24
 * valueQuantity.unit = "mL/min/1.73 m2"
 * valueQuantity.system = "http://unitsofmeasure.org"
@@ -279,8 +280,8 @@ EN: Serum creatinine laboratory result.
 * category[0].coding[0].code = #laboratory
 * category[0].coding[0].display = "Laboratory"
 * effectiveDateTime = "2026-08-28T08:30:00+02:00"
-* code.coding[0] = $loinc#2160-0 "Kreatinin [Hmotnost/objem], systém: Sérum/plazma"
-* code.text = "Kreatinin v seru"
+* code.coding[0] = $loinc#14682-9
+* code.text = "Kreatinin v séru – látková koncentrace"
 * valueQuantity.value = 245
 * valueQuantity.unit = "umol/L"
 * valueQuantity.system = "http://unitsofmeasure.org"
@@ -332,7 +333,8 @@ EN: Recommendation for transfer to nephrology care accompanying the consultation
 
 Instance: NephrologyCompositionExample
 InstanceOf: KOrderCompositionCz
-Usage: #example
+// Published and validated in its document Bundle, where references can resolve.
+Usage: #inline
 Description: """
 CZ: K-žádanka pro převzetí pacienta s chronickým onemocněním ledvin ve stadiu 4 do nefrologické péče.
 EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease to nephrology care.

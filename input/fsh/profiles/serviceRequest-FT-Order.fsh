@@ -4,16 +4,16 @@ Id: FTServiceRequestCz
 Title: "FT (CZ) – ServiceRequest"
 Description: """
 Národní profil ServiceRequest pro eŽádanku fyzioterapie (FT).
-Zachovává strukturu KOrderServiceRequestCz, ale:
-- code je VZP výkon (1 ServiceRequest = 1 řádek poukazu)
-- quantity[x] je povinné (např. 12×)
+Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
+- code je povinné; code.coding má preferovanou vazbu na FTOrderProceduresVS (SNOMED CT), požadavek lze vyjádřit také textem v code.text
+- quantity[x] je volitelné (0..1); pokud je počet uveden, použije se Quantity s povinnou hodnotou value
 - typ FT dokumentu je určen v Composition.type
 """
 * ^publisher = "HL7 CZ"
 * ^copyright = "HL7 CZ"
 
 * . ^short = "FT ServiceRequest"
-* . ^definition = "ServiceRequest reprezentuje jeden požadovaný FT výkon (1 řádek). Více výkonů = více ServiceRequest v jedné Composition."
+* . ^definition = "ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon. Konkrétní výkony může určit fyzioterapeut; počet není povinný. Více samostatných požadavků se předává jako více ServiceRequest v jedné Composition."
 
 * insert SetFmmandStatusRule ( 0, draft )
 
@@ -92,7 +92,8 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 
 * code 1..1 MS
 * code.coding from FTOrderProceduresVS (preferred)
-* code ^short = "Požadovaný FT výkon (1 řádek poukazu)"
+* code ^short = "Požadovaná FT péče nebo výkon"
+* code ^comment = "Preferováno je kódování z FTOrderProceduresVS (SNOMED CT). Pokud není vhodný kód k dispozici, lze požadavek popsat v code.text. Profil nevyžaduje kód výkonu VZP."
 
 * priority 0..1 MS
 
@@ -133,18 +134,6 @@ Zachovává strukturu KOrderServiceRequestCz, ale:
 * supportingInfo only Reference(Goal or CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
 * supportingInfo ^short = "Clinical information supporting the requested intervention"
 * insert OrderServiceRequestSupportingInformation
-// --------------------------- invariants --------------------------------------
-Invariant: ft-code-required
-Description: "FT ServiceRequest musí mít vyplněný kód výkonu."
-Severity: #error
-Expression: "code.coding.exists()"
-
-Invariant: ft-subject-is-patient
-Description: "Subjekt žádanky musí být pacient."
-Severity: #error
-Expression: "subject.resolve().resourceType = 'Patient'"
-
-Invariant: ft-quantity-required
-Description: "FT ServiceRequest musí mít vyplněný počet opakování (např. 12×)."
-Severity: #error
-Expression: "quantity.exists() and quantity.as(Quantity).value.exists()"
+// code 1..1 permits a coded concept or a textual description in code.text.
+// subject only Reference(CZ_PatientCore) constrains the subject to a patient.
+// quantityQuantity.value 1..1 applies only when the optional quantity is present.

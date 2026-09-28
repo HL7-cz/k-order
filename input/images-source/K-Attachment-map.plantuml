@@ -10,11 +10,11 @@ BackgroundColor<<LogicalModel>> #APPLICATION
 BackgroundColor<<Profile>> #TECHNOLOGY
 }
 legend right
-| <#APPLICATION>  Logický model |
-| <#TECHNOLOGY>  Profil |
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
 endlegend
-class "Vizuální podoba dokumentu" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
-class "Přílohy" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
+class "Presented form" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
+class "Attachments" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
 PresentedForm -d[hidden]-> Attachments
 class "KOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
 PresentedForm <|. Target0
