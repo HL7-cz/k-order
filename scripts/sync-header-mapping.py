@@ -33,7 +33,9 @@ def profile_links(value):
         kind, name = match.groups()
         if name in PROFILES:
             href = CORE + 'StructureDefinition-' + PROFILES[name] + '.html'
-        elif name in ('{{ include.composition }}', '{{ include.bundle }}', 'CZ_CoverageOrder'):
+        elif name == 'CZ_CoverageOrder':
+            href = 'StructureDefinition-cz-coverage-order.html'
+        elif name in ('{{ include.composition }}', '{{ include.bundle }}'):
             href = 'StructureDefinition-' + name + '.html'
         else:
             raise ValueError(f'Unknown profile: {name}')
@@ -64,6 +66,9 @@ def diagram(header, composition, request, bundle):
              '| <#TECHNOLOGY>  Profile |', 'endlegend',
              f'class "{header}" as Header <<LogicalModel>> [[StructureDefinition-{header}.html]]']
     profiles = [(name, CORE + 'StructureDefinition-' + identifier + '.html') for name, identifier in PROFILES.items()]
+    if composition in ('KOrderCompositionCz', 'FTOrderCompositionCz'):
+        profiles = [('CZ_CoverageOrder', 'StructureDefinition-cz-coverage-order.html')
+                    if name == 'CZ_Coverage' else (name, link) for name, link in profiles]
     profiles += [(name, 'StructureDefinition-' + name + '.html') for name in (composition, request, bundle)]
     for index, (name, link) in enumerate(profiles):
         lines += [f'class "{name}" as Target{index} <<Profile>> [[{link}]]', f'Header <|. Target{index}']

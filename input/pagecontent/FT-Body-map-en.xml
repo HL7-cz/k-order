@@ -182,26 +182,10 @@
   →ServiceRequest (FTServiceRequestCz).encounter</td>
           <td></td>
         </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td>
-          <td>A.2.3.2 - Clinical event type</td>
-          <td>equivalent</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td>
-          <td>type</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).encounter</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalEventCz.html">dalsiInformace</a></td>
-          <td>A.2.3.3 - Additional clinical event information</td>
-          <td>equivalent</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td>
-          <td>type.text</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).encounter</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).encounter</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">dalsiInformace</a></td><td>A.2.3.3 - Additional clinical event information</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry
+  →ServiceRequest (FTServiceRequestCz).encounter</td><td></td></tr>
 
         <tr>
           <td colspan="7"><b>Coverage</b></td>
@@ -389,118 +373,53 @@
           <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
-        <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">misto</a></td>
-          <td>A.2.5.8 - Appointment location</td>
-          <td>related</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
-          <td>participant.actor</td>
-          <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMAppointmentCz.html">misto</a></td><td>A.2.5.8 - Appointment location</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td><td>participant.actor.resolve().ofType(Location).address</td><td>Composition (FTOrderCompositionCz).section[appointment].entry.resolve()</td><td>Select Location participants, resolve their references and use their address.</td></tr>
         <tr>
           <td colspan="7"><b>Biometric data</b></td>
         </tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha</a></td>
-          <td>A.3.1.1.1 - Weight</td>
-          <td>related-to</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha</a></td><td>A.3.1.1.1 - Weight</td><td>related-to</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.hodnota</a></td>
-          <td>A.3.1.1.1.1 - Weight value</td>
-          <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td>valueQuantity</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.hodnota</a></td><td>A.3.1.1.1.1 - Weight value</td><td>equivalent</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td>valueQuantity</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.kod</a></td>
-          <td>A.3.1.1.1.2 - Code</td>
-          <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td>code</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.kod</a></td><td>A.3.1.1.1.2 - Code</td><td>equivalent</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td>code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.datumCas</a></td>
-          <td>A.3.1.1.1.3 - Weight date and time</td>
-          <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td>effectiveDateTime</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.datumCas</a></td><td>A.3.1.1.1.3 - Weight date and time</td><td>equivalent</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td>effectiveDateTime</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska</a></td>
-          <td>A.3.1.1.2 - Height</td>
-          <td>related-to</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska</a></td><td>A.3.1.1.2 - Height</td><td>related-to</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.hodnota</a></td>
-          <td>A.3.1.1.2.1 - Height value</td>
-          <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td>valueQuantity</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.hodnota</a></td><td>A.3.1.1.2.1 - Height value</td><td>equivalent</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td>valueQuantity</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.kod</a></td>
-          <td>A.3.1.1.2.2 - Code</td>
-          <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td>code</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.kod</a></td><td>A.3.1.1.2.2 - Code</td><td>equivalent</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td>code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr>
-          <td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.datumCas</a></td>
-          <td>A.3.1.1.2.3 - Height date and time</td>
-          <td>equivalent</td>
-          <td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td>
-          <td>effectiveDateTime</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).supportingInfo
-  →Observation (CZ_Anthropometric_Test_Result)</td>
-          <td></td>
-        </tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.datumCas</a></td><td>A.3.1.1.2.3 - Height date and time</td><td>equivalent</td><td><a href="StructureDefinition-cz-anthropometric-test-result.html">Observation (CZ_Anthropometric_Test_Result)</a></td><td>effectiveDateTime</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
         <tr>
           <td colspan="7"><b>Request data elements</b></td>
         </tr>
-        <tr>
+        <tr><td colspan="7"><b>Additional clinical information</b></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace</a></td><td>A.3.1.2 - Other relevant clinical information</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>One Condition per clinical condition.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.kod</a></td><td>A.3.1.2.1 - Information code</td><td>equivalent</td><td>Condition (CZ_ConditionCore)</td><td>code.coding</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.text</a></td><td>A.3.1.2.2 - Information text</td><td>equivalent</td><td>Condition (CZ_ConditionCore)</td><td>code.text</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace</a></td><td>A.3.1.3 - Medication</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>MedicationStatement records medication use; MedicationAdministration records an administration event. Reference the same resource instance from both locations.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace</a></td><td>A.3.1.3 - Medication</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>MedicationStatement records medication use; MedicationAdministration records an administration event. Reference the same resource instance from both locations.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.identifikator</a></td><td>A.3.1.3.1 - Medication ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>medicationReference.resolve().identifier</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Identifier of the referenced Medication, not the statement or administration record. Requires medicationReference.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.identifikator</a></td><td>A.3.1.3.1 - Medication ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationReference.resolve().identifier</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Identifier of the referenced Medication, not the statement or administration record. Requires medicationReference.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.kod</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.kod</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.mnozstvi</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>dosage.doseAndRate.doseQuantity</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.mnozstvi</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>dosage.dose</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat</a></td><td>A.3.1.4 - Implant</td><td>related</td><td><a href="StructureDefinition-cz-deviceUseStatement.html">DeviceUseStatement (CZ_DeviceUseStatement)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Uses the IMG-Order representation.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.typ</a></td><td>A.3.1.4.1 - Implant type</td><td>equivalent</td><td>Device (CZ_MedicalDevice)</td><td>type</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.identifikator</a></td><td>A.3.1.4.2 - Implant ID</td><td>equivalent</td><td>Device (CZ_MedicalDevice)</td><td>identifier</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.model</a></td><td>A.3.1.4.3 - Specific model</td><td>equivalent</td><td>Device (CZ_MedicalDevice)</td><td>modelNumber</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.castTela</a></td><td>A.3.1.4.4 - Body site</td><td>equivalent</td><td>DeviceUseStatement (CZ_DeviceUseStatement)</td><td>bodySite</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">urgentniInformace.alergieAIntolerance</a></td><td>A.3.1.5.1 - Allergies and intolerances</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td><td>code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>One instance per stated concept.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">urgentniInformace.varovani</a></td><td>A.3.1.5.2 - Warnings</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html">Flag (CZ_FlagPatientCore)</a></td><td>text</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Flag.text is a Narrative. Convert the text to XHTML in text.div and populate text.status.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta</a></td><td>A.3.1.6 - Patient mobility limitation</td><td>related</td><td><a href="StructureDefinition-cz-patient-mobility.html">Observation (CZ_PatientMobility)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.datumACas</a></td><td>A.3.1.6.1 - Assessment date and time</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>effectiveDateTime</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>The observation time belongs in effectiveDateTime; the profile uses valueCodeableConcept for the mobility result.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.kod</a></td><td>A.3.1.6.2 - Assessment code</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.hodnota</a></td><td>A.3.1.6.3 - Assessment value</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>valueCodeableConcept</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr>
           <td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni</a></td>
           <td>A.3.2.1 - Requested service</td>
           <td>related</td>
@@ -532,7 +451,7 @@
           <td>A.3.2.1.3 - Body site</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
-          <td>extension[bodySite].valueReference path</td>
+          <td>extension[bodySite].valueReference</td>
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
           <td></td>
         </tr>

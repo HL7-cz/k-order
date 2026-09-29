@@ -124,7 +124,7 @@ Usage: #definition
 
 * group[=].element[+].code = #typ
 * group[=].element[=].display = "A.2.3.2 - Typ klinické události"
-* group[=].element[=].target.code = #CZ_Encounter.class
+* group[=].element[=].target.code = #CZ_Encounter.type
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -134,7 +134,7 @@ Usage: #definition
 
 * group[=].element[+].code = #dalsiInformace
 * group[=].element[=].display = "A.2.3.3 - Další informace o klinické události"
-* group[=].element[=].target.code = #CZ_Encounter.class.text
+* group[=].element[=].target.code = #CZ_Encounter.type.text
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 ///////////////////////////////////////////////////////////////////////////////
@@ -320,7 +320,7 @@ Usage: #definition
 
 * group[=].element[+].code = #misto
 * group[=].element[=].display = "A.2.5.8 - Místo obědnání"
-* group[=].element[=].target.code = #CZ_AppointmentCore.participant.actor
+* group[=].element[=].target.code = #Appointment.participant.actor.resolve().ofType(Location).address
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
 
@@ -332,15 +332,21 @@ Usage: #definition
 // A.3.1.1.1 - Váha
 ///////////////////////////////////////////////////////////////////////////////
 
+
+* group[=].element[=].target.comment = "Z účastníků Appointment vybrat reference na Location a po jejich rozřešení předat Location.address."
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-anthropometric-test-result"
 
 * group[=].element[+].code = #biometrickeUdaje.vaha
 * group[=].element[=].display = "A.3.1.1.1 - Váha"
-* group[=].element[=].target.code = #ServiceRequest.supportingInfo.ofType(CZ_Anthropometric_Test_Result)
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto
 
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #biometrickeUdaje.vaha.hodnota
 * group[=].element[=].display = "A.3.1.1.1.1 - Hodnota"
 * group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.valueQuantity
@@ -369,10 +375,14 @@ Usage: #definition
 
 * group[=].element[+].code = #biometrickeUdaje.vyska
 * group[=].element[=].display = "A.3.1.1.2 - Výška"
-* group[=].element[=].target.code = #ServiceRequest.supportingInfo.ofType(CZ_Anthropometric_Test_Result)
-* group[=].element[=].target.display = ""
-* group[=].element[=].target.equivalence = #relatedto
 
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #biometrickeUdaje.vyska.hodnota
 * group[=].element[=].display = "A.3.1.1.2.1 - Hodnota"
 * group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.valueQuantity
@@ -400,9 +410,14 @@ Usage: #definition
 
 * group[=].element[+].code = #dalsiRelevantniKlinickeInformace
 * group[=].element[=].display = "A.3.1.2 - Další relevantní klinické informace"
-* group[=].element[=].target[0].code = #ServiceRequest.supportingInfo
-* group[=].element[=].target[0].equivalence = #relatedto
 
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_ConditionCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_ConditionCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #dalsiRelevantniKlinickeInformace.kod
 * group[=].element[=].display = "A.3.1.2.1 - Kód další klinické informace"
 * group[=].element[=].target[0].code = #Condition.code.coding
@@ -421,22 +436,32 @@ Usage: #definition
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_MedicationStatement"
 
-* group[=].element[+].code = #mozneKontraindikaceVLecbe
-* group[=].element[=].display = "A.3.1.3 - Možné kontraindikace v medikaci"
-* group[=].element[=].target[0].code = #ServiceRequest.supportingInfo
-* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[+].code = #medikace
+* group[=].element[=].display = "A.3.1.3 - Medikace"
 
-* group[=].element[+].code = #mozneKontraindikaceVLecbe.identifikator
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_MedicationStatementCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_MedicationStatementCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[+].code = #medikace.identifikator
 * group[=].element[=].display = "A.3.1.3.1 - Identifikátor medikace"
-* group[=].element[=].target[0].code = #MedicationStatement.identifier
+* group[=].element[=].target[0].code = #MedicationStatement.medicationReference.resolve().identifier
 * group[=].element[=].target[0].equivalence = #equivalent
 
-* group[=].element[+].code = #mozneKontraindikaceVLecbe.kod
+
+* group[=].element[=].target[0].comment = "Identifikátor léčiva Medication, nikoli záznamu MedicationStatement. Vyžaduje medicationReference na Medication."
+* group[=].element[+].code = #medikace.kod
 * group[=].element[=].display = "A.3.1.3.2 - Kód medikace"
 * group[=].element[=].target[0].code = #MedicationStatement.medicationCodeableConcept
 * group[=].element[=].target[0].equivalence = #equivalent
+* group[=].element[=].target[1].code = #MedicationStatement.medicationReference.resolve().code
+* group[=].element[=].target[1].equivalence = #equivalent
+* group[=].element[=].target[1].comment = "Alternative when medicationReference is used; resolve the same Medication as for its identifier."
 
-* group[=].element[+].code = #mozneKontraindikaceVLecbe.mnozstvi
+* group[=].element[+].code = #medikace.mnozstvi
 * group[=].element[=].display = "A.3.1.3.3 - Množství medikace"
 * group[=].element[=].target[0].code = #MedicationStatement.dosage.doseAndRate.doseQuantity
 * group[=].element[=].target[0].equivalence = #equivalent
@@ -450,14 +475,21 @@ Usage: #definition
 
 * group[=].element[+].code = #implantat
 * group[=].element[=].display = "A.3.1.4 - Implantát"
-* group[=].element[=].target[0].code = #ServiceRequest.supportingInfo
-* group[=].element[=].target[0].equivalence = #relatedto
 
+
+* group[=].element[=].target[0].code = #Composition.section[medicalDevices].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_DeviceUseStatement). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_DeviceUseStatement). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #implantat.typ
 * group[=].element[=].display = "A.3.1.4.1 - Typ implantátu"
-* group[=].element[=].target[0].code = #DeviceUseStatement.device
+* group[=].element[=].target[0].code = #DeviceUseStatement.device.resolve().type
 * group[=].element[=].target[0].equivalence = #equivalent
 
+
+* group[=].element[=].target[0].comment = "Typ implantátu je Device.type; DeviceUseStatement.device je reference, kterou je nutné rozřešit."
 * group[=].element[+].code = #implantat.identifikator
 * group[=].element[=].display = "A.3.1.4.2 - Identifikátor implantátu"
 * group[=].element[=].target[0].code = #Device.identifier
@@ -482,9 +514,14 @@ Usage: #definition
 
 * group[=].element[+].code = #alergie
 * group[=].element[=].display = "A.3.1.5.1 - Alergie a intolerance"
-* group[=].element[=].target[0].code = #ServiceRequest.supportingInfo
-* group[=].element[=].target[0].equivalence = #relatedto
 
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_AllergyIntolerance). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_AllergyIntolerance). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #alergie.identifikator
 * group[=].element[=].display = "A.3.1.5.1.1 - Identifikátor alergie"
 * group[=].element[=].target[0].code = #AllergyIntolerance.identifier
@@ -524,31 +561,44 @@ Usage: #definition
 
 * group[=].element[+].code = #varovani
 * group[=].element[=].display = "A.3.1.5.2 - Varování"
-* group[=].element[=].target[0].code = #ServiceRequest.supportingInfo
-* group[=].element[=].target[0].equivalence = #relatedto
 
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_FlagPatientCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_FlagPatientCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #varovani.text
 * group[=].element[=].display = "A.3.1.5.2.1 - Text varování"
-* group[=].element[=].target[0].code = #Flag.code.text
-* group[=].element[=].target[0].equivalence = #equivalent
+* group[=].element[=].target[0].code = #Flag.text
+* group[=].element[=].target[0].equivalence = #relatedto
 
 ///////////////////////////////////////////////////////////////////////////////
 // A.3.1.6 - Omezení pohyblivosti pacienta -> CZ_PatientMobility
 ///////////////////////////////////////////////////////////////////////////////
+
+* group[=].element[=].target[0].comment = "Flag.text je Narrative. Prostý text převést na XHTML v text.div a vyplnit text.status."
 * group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-patient-mobility"
 
 * group[=].element[+].code = #omezeniPohyblivostiPacienta
 * group[=].element[=].display = "A.3.1.6 - Omezení pohyblivosti pacienta"
+
+
 * group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
 * group[=].element[=].target[0].equivalence = #relatedto
-* group[=].element[=].target[0].comment = "Reference(CZ_PatientMobility)"
-
+* group[=].element[=].target[0].comment = "Reference(CZ_PatientMobility). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_PatientMobility). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #omezeniPohyblivostiPacienta.datumACas
 * group[=].element[=].display = "A.3.1.6.1 - Datum a čas informace"
 * group[=].element[=].target[0].code = #CZ_PatientMobility.effectiveDateTime
 * group[=].element[=].target[0].equivalence = #equivalent
 
+
+* group[=].element[=].target[0].comment = "Čas zjištění patří do effectiveDateTime podle CZ_PatientMobility. valueDateTime ze Z nepřebírat: výsledek mobility používá povinné valueCodeableConcept."
 * group[=].element[+].code = #omezeniPohyblivostiPacienta.kod
 * group[=].element[=].display = "A.3.1.6.2 - Kód informace"
 * group[=].element[=].target[0].code = #CZ_PatientMobility.code
@@ -623,5 +673,249 @@ Usage: #definition
 * group[=].element[=].target.display = "Composition.section (referencedDocumentation).text"
 * group[=].element[=].target.equivalence = #equivalent
 
+// Additional mappings from the current Body mapping table.
 
+// A.2.2.1 - Indikační diagnóza odkazem
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOrderInformationCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/condition-cz-core"
+* group[=].element[+].code = #duvodObjednavky.problem
+* group[=].element[=].display = "A.2.2.1 - Indikační diagnóza odkazem"
+* group[=].element[=].target.code = #Condition.code
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().reasonReference.resolve() Alternativa k reasonCode, pokud existuje odpovídající Condition. Použije se stejná instance."
 
+// A.2.2.3 - Text strukturované klinické otázky
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOrderInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/cz-clinicalQuestion"
+* group[=].element[+].code = #duvodObjednavky.klinickaOtazkaText
+* group[=].element[=].display = "A.2.2.3 - Text strukturované klinické otázky"
+* group[=].element[=].target.code = #Condition.code.text
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[clinicalQuestion].entry.resolve() Pokud je klinický problém reprezentován jako Condition, jeho text je povinný a musí být v souladu s narativem sekce. Otázka sama nepotvrzuje diagnózu."
+
+// A.2.2.4 - Důvod objednávky kódem
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOrderInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
+* group[=].element[+].code = #duvodObjednavky.duvodKod
+* group[=].element[=].display = "A.2.2.4 - Důvod objednávky kódem"
+* group[=].element[=].target.code = #ServiceRequest.reasonCode
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[orderInformation].entry.resolve() Přenáší se celý CodeableConcept. Nezavádí se slice reasonCode.coding[reason]."
+
+// A.2.2.5 - Důvod objednávky textem
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOrderInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
+* group[=].element[+].code = #duvodObjednavky.duvodText
+* group[=].element[=].display = "A.2.2.5 - Důvod objednávky textem"
+* group[=].element[=].target.code = #ServiceRequest.reasonCode.text
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[orderInformation].entry.resolve() Důvod výkonu lze shrnout i v narativu clinicalQuestion; není zaměnitelný s klinickou otázkou A.2.2.3."
+
+// A.3.2.1.7 - Poznámka
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
+* group[=].element[+].code = #pozadovaneVysetreni.poznamka
+* group[=].element[=].display = "A.3.2.1.7 - Poznámka"
+* group[=].element[=].target.code = #ServiceRequest.note.text
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()"
+
+// A.3.2.2 - Závažná anamnestická data
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #zavaznaAnamnestickaData.text
+* group[=].element[=].display = "A.3.2.2 - Závažná anamnestická data"
+* group[=].element[=].target.code = #Composition.section[supportingInformation].text
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Textový souhrn závažných anamnestických údajů v narativu podpůrných informací."
+
+// A.3.2.2 - Závažná anamnestická data
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/condition-cz-core"
+* group[=].element[+].code = #zavaznaAnamnestickaData.zaznam
+* group[=].element[=].display = "A.3.2.2 - Závažná anamnestická data"
+* group[=].element[=].target.code = #Condition
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve() Strukturované historické a dlouhodobé stavy se předávají jako CZ_ConditionCore. Pro konkrétní službu odkazujte na stejnou Condition ze ServiceRequest.supportingInfo; přímá indikace patří do reasonReference."
+
+// A.3.2.3 - Výsledky vyšetření
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #vysledkyVysetreni.zaznam
+* group[=].element[=].display = "A.3.2.3 - Výsledky vyšetření"
+* group[=].element[=].target.code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Observation (CZ_MedicalTestResultCore). Výsledky vyšetření se předávají jako obecné CZ Observation v otevřené části seznamu. Typ vyšetření patří do code, výsledek do value[x] nebo component a komentář do note; textový souhrn lze uvést v narativu supportingInformation."
+
+// A.3.2.3 - Výsledky vyšetření
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #vysledkyVysetreni.text
+* group[=].element[=].display = "A.3.2.3 - Výsledky vyšetření"
+* group[=].element[=].target.code = #Composition.section[supportingInformation].text
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Textový souhrn."
+
+// A.3.2.3 - Výsledky vyšetření
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
+* group[=].element[+].code = #vysledkyVysetreni.zaznam
+* group[=].element[=].display = "A.3.2.3 - Výsledky vyšetření"
+* group[=].element[=].target.code = #ServiceRequest.supportingInfo
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[orderInformation].entry.resolve() Observation (CZ_MedicalTestResultCore). Ze ServiceRequest se odkazuje na stejné Observation jako z Composition.section[supportingInformation].entry, pokud jsou relevantní pro tento požadavek. Duplicitní je reference, nikoli zdroj s výsledkem."
+
+// A.3.2.4 - Diferenciální diagnostická rozvaha
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/condition-cz-core"
+* group[=].element[+].code = #diferencialniDiagnostickaRozvaha.zaznam
+* group[=].element[=].display = "A.3.2.4 - Diferenciální diagnostická rozvaha"
+* group[=].element[=].target.code = #Condition
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve() Diferenciální diagnóza má mít vyplněný Condition.verificationStatus vyjadřující diagnostickou jistotu, např. differential. Zdůvodnění lze uvést v Condition.note. Pro konkrétní službu se stejná Condition odkazuje ze ServiceRequest.supportingInfo; přímá indikace patří do reasonReference."
+
+// A.3.2.4 - Diferenciální diagnostická rozvaha
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #diferencialniDiagnostickaRozvaha.text
+* group[=].element[=].display = "A.3.2.4 - Diferenciální diagnostická rozvaha"
+* group[=].element[=].target.code = #Composition.section[supportingInformation].text
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Textový souhrn."
+
+// A.3.2.5 - Současná léčba
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/medicationStatement-cz-core"
+* group[=].element[+].code = #soucasnaLecba.zaznam
+* group[=].element[=].display = "A.3.2.5 - Současná léčba"
+* group[=].element[=].target.code = #MedicationStatement
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve() Užívání léčiva se mapuje na MedicationStatement, konkrétní podání na MedicationAdministration. Zachovejte stav, čas a dávkování; nevytvářejte záznam podání pouze z informace o užívání. Textový souhrn léčby patří do narativu supportingInformation."
+
+// A.3.2.5 - Současná léčba
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #soucasnaLecba.text
+* group[=].element[=].display = "A.3.2.5 - Současná léčba"
+* group[=].element[=].target.code = #Composition.section[supportingInformation].text
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Textový souhrn."
+
+// A.3.2.5 - Současná léčba
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/MedicationAdministration-cz-core"
+* group[=].element[+].code = #soucasnaLecba.zaznam
+* group[=].element[=].display = "A.3.2.5 - Současná léčba"
+* group[=].element[=].target.code = #MedicationAdministration
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve() Užívání léčiva se mapuje na MedicationStatement, konkrétní podání na MedicationAdministration. Zachovejte stav, čas a dávkování; nevytvářejte záznam podání pouze z informace o užívání. Textový souhrn léčby patří do narativu supportingInformation."
+
+// A.3.2.6 - Zapůjčená dokumentace
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
+* group[=].element[+].code = #zapujcenaDokumentace.text
+* group[=].element[=].display = "A.3.2.6 - Zapůjčená dokumentace"
+* group[=].element[=].target.code = #Composition.section[attachments].text
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Seznam nebo popis doplňující dokumentace patří do narativu příloh."
+
+// A.3.2.6 - Zapůjčená dokumentace
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-attachment"
+* group[=].element[+].code = #zapujcenaDokumentace.zaznam
+* group[=].element[=].display = "A.3.2.6 - Zapůjčená dokumentace"
+* group[=].element[=].target.code = #DocumentReference
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[attachments].entry.resolve() Konkrétní dokument se odkazuje jako CZ_Attachment. Vložený obsah i URL patří do stejné sekce attachments; tentýž dokument se nepředává podruhé v samostatné sekci."
+
+// A.3.3 - Odkazy na objednávky plánované péče
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMBodyKOrder"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/carePlan-cz-core"
+* group[=].element[+].code = #odkazyNaObjednavkyPlanovanePece
+* group[=].element[=].display = "A.3.3 - Odkazy na objednávky plánované péče"
+* group[=].element[=].target.code = #CarePlan
+* group[=].element[=].target.equivalence = #relatedto
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[carePlan].entry"
+
+// A.3.3.1 - Identifikátor objednávky plánované péče
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMPlannedCareOrdersCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/carePlan-cz-core"
+* group[=].element[+].code = #identifikator
+* group[=].element[=].display = "A.3.3.1 - Identifikátor objednávky plánované péče"
+* group[=].element[=].target.code = #CarePlan.identifier
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[carePlan].entry Opraveno původní mapování do code."
+
+// A.3.3.2 - Název
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMPlannedCareOrdersCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/carePlan-cz-core"
+* group[=].element[+].code = #nazev
+* group[=].element[=].display = "A.3.3.2 - Název"
+* group[=].element[=].target.code = #CarePlan.title
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[carePlan].entry"
+
+// A.3.4 - Ostatní podpůrné informace
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMBodyKOrder"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core"
+* group[=].element[+].code = #ostatniPodpurneInformace
+* group[=].element[=].display = "A.3.4 - Ostatní podpůrné informace"
+
+// A.3.4.1 - Identifikátor podpůrné informace
+
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_MedicalTestResultCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_MedicalTestResultCore). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOtherSupportingInformationCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core"
+* group[=].element[+].code = #identifikator
+* group[=].element[=].display = "A.3.4.1 - Identifikátor podpůrné informace"
+* group[=].element[=].target.code = #Observation.identifier
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[supportingInformation].entry Opraveno původní mapování do code."
+
+// A.3.4.2 - Název
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOtherSupportingInformationCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core"
+* group[=].element[+].code = #nazev
+* group[=].element[=].display = "A.3.4.2 - Název"
+* group[=].element[=].target.code = #Observation.code.text
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = "Composition (KOrderCompositionCz).section[supportingInformation].entry"
+
+// A.3.1.3 - Konkrétní podání léčiva podle Z mapování
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/MedicationAdministration-cz-core"
+
+* group[=].element[+].code = #medikace
+* group[=].element[=].display = "A.3.1.3 - Medikace: konkrétní podání"
+* group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Reference(CZ_MedicationAdministrationCore). Obě reference odkazují na tutéž instanci konkrétního podání."
+* group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Reference(CZ_MedicationAdministrationCore). Obě reference odkazují na tutéž instanci konkrétního podání."
+
+* group[=].element[+].code = #medikace.identifikator
+* group[=].element[=].display = "A.3.1.3.1 - Identifikátor léčiva"
+* group[=].element[=].target[0].code = #MedicationAdministration.medicationReference.resolve().identifier
+* group[=].element[=].target[0].equivalence = #equivalent
+* group[=].element[=].target[0].comment = "Identifikátor odkazovaného Medication, nikoli identifikátor záznamu o podání."
+
+* group[=].element[+].code = #medikace.kod
+* group[=].element[=].display = "A.3.1.3.2 - Kód léčiva"
+* group[=].element[=].target[0].code = #MedicationAdministration.medicationCodeableConcept
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Alternativní zápis podle zvoleného typu medication[x]; code a reference se nezapisují současně."
+* group[=].element[=].target[1].code = #MedicationAdministration.medicationReference.resolve().code
+* group[=].element[=].target[1].equivalence = #relatedto
+* group[=].element[=].target[1].comment = "Alternativní zápis podle zvoleného typu medication[x]; code a reference se nezapisují současně."
+
+* group[=].element[+].code = #medikace.mnozstvi
+* group[=].element[=].display = "A.3.1.3.3 - Množství podaného léčiva"
+* group[=].element[=].target[0].code = #MedicationAdministration.dosage.dose
+* group[=].element[=].target[0].equivalence = #relatedto
+* group[=].element[=].target[0].comment = "Dávka konkrétního podání včetně jednotky; zdrojový údaj převést podle jeho významu."

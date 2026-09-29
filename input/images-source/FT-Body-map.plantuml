@@ -26,7 +26,7 @@ class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-
 "LMCzBodyFTOrderCz" <|. "CZ_Encounter"
 "FTOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
-class "CZ_CoverageOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
+class "CZ_CoverageOrder" <<Profile>> [[StructureDefinition-cz-coverage-order.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_CoverageOrder"
 "CZ_Encounter" -d[hidden]-> "CZ_CoverageOrder"
 

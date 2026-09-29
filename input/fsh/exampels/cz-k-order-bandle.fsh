@@ -93,8 +93,7 @@ EN: Patient health insurance coverage.
 """
 * language = #cs
 * id = "KOrderCoverage-Example"
-* identifier[0].system = "https://ncez.mzcr.cz/fhir/sid/cpoj"
-* identifier[0].value = "1118506151234"
+* subscriberId[0].value = "8506151234"
 * type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)
