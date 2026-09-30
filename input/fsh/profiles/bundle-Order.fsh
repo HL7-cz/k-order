@@ -14,55 +14,54 @@ Severity: #error
 Invariant: insurance-requester
 Description: "For every general order covered by public health insurance, the ServiceRequest requester, or the Composition author when requester is absent, SHALL have an ICP organization identifier and a contractual specialty."
 Severity: #error
-Expression: "
-  entry.resource.ofType(ServiceRequest).all(
-    insurance.resolve().ofType(Coverage)
-      .type.coding.where(
-        system = 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
-        and code = 'HIP'
-      ).exists()
-    implies
+Expression: """
+entry.resource.ofType(ServiceRequest).all(
+  insurance.resolve().ofType(Coverage)
+    .type.coding.where(
+      system = 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
+      and code = 'HIP'
+    ).exists()
+  implies
+  (
     (
-      (
-        requester.exists()
-        and
-        requester.resolve().ofType(PractitionerRole)
-          .where(
-            organization.resolve().ofType(Organization)
-              .identifier.where(
-                system = 'https://ncez.mzcr.cz/fhir/sid/icp'
-                and value.exists()
-              ).exists()
-            and
-            specialty.coding.where(
-              system = 'https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost'
-              and code.exists()
+      requester.exists()
+      and
+      requester.resolve().ofType(PractitionerRole)
+        .where(
+          organization.resolve().ofType(Organization)
+            .identifier.where(
+              system = 'https://ncez.mzcr.cz/fhir/sid/icp'
+              and value.exists()
             ).exists()
+          and
+          specialty.coding.where(
+            system = 'https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost'
+            and code.exists()
           ).exists()
-      )
-      or
-      (
-        requester.empty()
-        and
-        %resource.entry.resource.ofType(Composition)
-          .author.resolve().ofType(PractitionerRole)
-          .where(
-            organization.resolve().ofType(Organization)
-              .identifier.where(
-                system = 'https://ncez.mzcr.cz/fhir/sid/icp'
-                and value.exists()
-              ).exists()
-            and
-            specialty.coding.where(
-              system = 'https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost'
-              and code.exists()
+        ).exists()
+    )
+    or
+    (
+      requester.empty()
+      and
+      %resource.entry.resource.ofType(Composition)
+        .author.resolve().ofType(PractitionerRole)
+        .where(
+          organization.resolve().ofType(Organization)
+            .identifier.where(
+              system = 'https://ncez.mzcr.cz/fhir/sid/icp'
+              and value.exists()
             ).exists()
+          and
+          specialty.coding.where(
+            system = 'https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost'
+            and code.exists()
           ).exists()
-      )
+        ).exists()
     )
   )
-"
-
+)
+"""
 
 /*
 Invariant: one-comp
