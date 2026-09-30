@@ -12,7 +12,7 @@
     }
   ],
   "url": "https://hl7.cz/fhir/order/StructureDefinition/LMFTOrderCompleteCz",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "name": "LMFTOrderCompleteCz",
   "title": "FT-žádanka – úplný logický model",
   "status": "draft",
@@ -1401,7 +1401,7 @@
         "path": "LMFTOrderCompleteCz.telo.terminVysetreni.popis",
         "short": "A.2.5.3 - Popis",
         "definition": "Stručný popis termínu návštěvy pro zobrazení v seznamu termínů.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -2380,7 +2380,7 @@
         "max": "1",
         "type": [
           {
-            "code": "string"
+            "code": "Timing"
           }
         ]
       },

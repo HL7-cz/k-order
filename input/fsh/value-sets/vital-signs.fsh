@@ -1,6 +1,6 @@
 ValueSet: CZ_LoincVitalSignsVs
 Id: loinc-vital-signs
-Title: "Anthropometric metrics (CZ)"
+Title: "Anthropometric metrics - LOINC (CZ)"
 Description: "LOINC magic codes and SNOMED CT concepts for quantitative anthropometric measurements supported in imaging orders."
 * ^language = #cs
 * ^version = "1.0.0"

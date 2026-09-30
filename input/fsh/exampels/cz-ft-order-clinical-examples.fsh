@@ -227,7 +227,7 @@ EN: Orthopedist role at the orthopedic clinic.
 * specialty[0].text = "Ortopedie"
 
 Instance: Coverage-FTHipRehabilitation
-InstanceOf: CZ_Coverage
+InstanceOf: CZ_CoverageOrder
 Usage: #example
 Description: """
 CZ: Zdravotní pojištění pacienta po náhradě kyčelního kloubu.
@@ -235,6 +235,7 @@ EN: Health insurance coverage for the patient after hip joint replacement.
 """
 * language = #cs
 * id = "Coverage-FTHipRehabilitation"
+* type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-FTHipRehabilitation)
 * payor[0] = Reference(Organization-Insurance111)
@@ -453,7 +454,7 @@ EN: Respiratory physiotherapy goal for COPD.
 * subject = Reference(Patient-FTCopdHomeCare)
 
 Instance: Coverage-FTCopdHomeCare
-InstanceOf: CZ_Coverage
+InstanceOf: CZ_CoverageOrder
 Usage: #example
 Description: """
 CZ: Zdravotní pojištění pacienta s CHOPN.
@@ -461,6 +462,7 @@ EN: Health insurance coverage for the patient with COPD.
 """
 * language = #cs
 * id = "Coverage-FTCopdHomeCare"
+* type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-FTCopdHomeCare)
 * payor[0] = Reference(Organization-Insurance111)
@@ -750,7 +752,7 @@ EN: Pediatrician role at the pediatric clinic.
 * specialty[0].text = "Praktické lékařství pro děti a dorost"
 
 Instance: Coverage-FTPediatricPosture
-InstanceOf: CZ_Coverage
+InstanceOf: CZ_CoverageOrder
 Usage: #example
 Description: """
 CZ: Zdravotní pojištění dětského pacienta.
@@ -758,6 +760,7 @@ EN: Health insurance coverage for the pediatric patient.
 """
 * language = #cs
 * id = "Coverage-FTPediatricPosture"
+* type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-FTPediatricPosture)
 * payor[0] = Reference(Organization-Insurance111)

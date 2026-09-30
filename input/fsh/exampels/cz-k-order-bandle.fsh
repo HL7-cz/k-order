@@ -93,7 +93,7 @@ EN: Patient health insurance coverage.
 """
 * language = #cs
 * id = "KOrderCoverage-Example"
-* subscriberId[0].value = "8506151234"
+* subscriberId = "8506151234"
 * type = $v3-ActCode#HIP
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)

@@ -12,7 +12,7 @@
     }
   ],
   "url": "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderCompleteCz",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "name": "LMKOrderCompleteCz",
   "title": "K-žádanka – úplný logický model",
   "status": "draft",
@@ -1401,7 +1401,7 @@
         "path": "LMKOrderCompleteCz.telo.terminVysetreni.popis",
         "short": "A.2.5.3 - Popis",
         "definition": "Stručný popis termínu návštěvy pro zobrazení v seznamu termínů.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -2349,12 +2349,41 @@
         "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zavaznaAnamnestickaData",
         "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zavaznaAnamnestickaData",
         "short": "A.3.2.2 - Závažná anamnestická data",
-        "definition": "Textový popis významných anamnestických údajů relevantních k požadovanému vyšetření nebo zdravotnímu stavu pacienta.",
+        "definition": "Textový souhrn a/nebo odkazy na strukturované záznamy. Stejné záznamy lze sdílet s obecnými prvky A.3.1 a A.5 bez jejich duplikace.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zavaznaAnamnestickaData.text",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zavaznaAnamnestickaData.text",
+        "short": "Textový souhrn",
+        "definition": "Volný text v narativu příslušné sekce Composition. Samotný text nevyžaduje vytvoření strukturovaného zdroje.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zavaznaAnamnestickaData.zaznam",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zavaznaAnamnestickaData.zaznam",
+        "short": "Strukturované záznamy",
+        "definition": "Odkazy na záznamy splňující cílový profil včetně jeho povinných prvků. Stejná klinická skutečnost používá stejný zdroj a identifikátor.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/condition-cz-core"
+            ]
           }
         ]
       },
@@ -2362,12 +2391,41 @@
         "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.vysledkyVysetreni",
         "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.vysledkyVysetreni",
         "short": "A.3.2.3 - Výsledky provedených vyšetření",
-        "definition": "Souhrn nebo výběr výsledků již provedených vyšetření, které jsou relevantní k aktuální objednávce nebo klinickému rozhodování.",
+        "definition": "Textový souhrn a/nebo odkazy na strukturované záznamy. Stejné záznamy lze sdílet s obecnými prvky A.3.1 a A.5 bez jejich duplikace.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.vysledkyVysetreni.text",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.vysledkyVysetreni.text",
+        "short": "Textový souhrn",
+        "definition": "Volný text v narativu příslušné sekce Composition. Samotný text nevyžaduje vytvoření strukturovaného zdroje.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.vysledkyVysetreni.zaznam",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.vysledkyVysetreni.zaznam",
+        "short": "Strukturované záznamy",
+        "definition": "Odkazy na záznamy splňující cílový profil včetně jeho povinných prvků. Stejná klinická skutečnost používá stejný zdroj a identifikátor.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core"
+            ]
           }
         ]
       },
@@ -2375,12 +2433,41 @@
         "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.diferencialniDiagnostickaRozvaha",
         "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.diferencialniDiagnostickaRozvaha",
         "short": "A.3.2.4 - Diferenciálně diagnostická rozvaha",
-        "definition": "Popis diferenciálně diagnostických úvah lékaře, včetně zvažovaných diagnóz a jejich zdůvodnění.",
+        "definition": "Textový souhrn a/nebo odkazy na strukturované záznamy. Stejné záznamy lze sdílet s obecnými prvky A.3.1 a A.5 bez jejich duplikace.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.diferencialniDiagnostickaRozvaha.text",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.diferencialniDiagnostickaRozvaha.text",
+        "short": "Textový souhrn",
+        "definition": "Volný text v narativu příslušné sekce Composition. Samotný text nevyžaduje vytvoření strukturovaného zdroje.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.diferencialniDiagnostickaRozvaha.zaznam",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.diferencialniDiagnostickaRozvaha.zaznam",
+        "short": "Strukturované záznamy",
+        "definition": "Odkazy na záznamy splňující cílový profil včetně jeho povinných prvků. Stejná klinická skutečnost používá stejný zdroj a identifikátor.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/condition-cz-core"
+            ]
           }
         ]
       },
@@ -2388,7 +2475,20 @@
         "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.soucasnaLecba",
         "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.soucasnaLecba",
         "short": "A.3.2.5 - Současná léčba, medikace včetně dávkování",
-        "definition": "Přehled aktuálně probíhající léčby pacienta, včetně užívaných léčivých přípravků a jejich dávkování.",
+        "definition": "Textový souhrn a/nebo odkazy na strukturované záznamy. Stejné záznamy lze sdílet s obecnými prvky A.3.1 a A.5 bez jejich duplikace.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.soucasnaLecba.text",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.soucasnaLecba.text",
+        "short": "Textový souhrn",
+        "definition": "Volný text v narativu příslušné sekce Composition. Samotný text nevyžaduje vytvoření strukturovaného zdroje.",
         "min": 0,
         "max": "1",
         "type": [
@@ -2398,15 +2498,61 @@
         ]
       },
       {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.soucasnaLecba.zaznam",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.soucasnaLecba.zaznam",
+        "short": "Strukturované záznamy",
+        "definition": "Odkazy na záznamy splňující cílový profil včetně jeho povinných prvků. Stejná klinická skutečnost používá stejný zdroj a identifikátor.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/medicationStatement-cz-core",
+              "https://hl7.cz/fhir/core/StructureDefinition/MedicationAdministration-cz-core"
+            ]
+          }
+        ]
+      },
+      {
         "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zapujcenaDokumentace",
         "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zapujcenaDokumentace",
         "short": "A.3.2.6 - Zapůjčená dokumentace",
-        "definition": "Seznam nebo popis zapůjčené zdravotnické dokumentace přiložené k objednávce (např. obrazová dokumentace, zprávy z jiných pracovišť).",
+        "definition": "Textový souhrn a/nebo odkazy na strukturované záznamy. Stejné záznamy lze sdílet s obecnými prvky A.3.1 a A.5 bez jejich duplikace.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zapujcenaDokumentace.text",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zapujcenaDokumentace.text",
+        "short": "Textový souhrn",
+        "definition": "Volný text v narativu příslušné sekce Composition. Samotný text nevyžaduje vytvoření strukturovaného zdroje.",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zapujcenaDokumentace.zaznam",
+        "path": "LMKOrderCompleteCz.telo.datoveElementyObjednavkyVysetreni.zapujcenaDokumentace.zaznam",
+        "short": "Strukturované záznamy",
+        "definition": "Odkazy na záznamy splňující cílový profil včetně jeho povinných prvků. Stejná klinická skutečnost používá stejný zdroj a identifikátor.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://hl7.cz/fhir/core/StructureDefinition/cz-attachment"
+            ]
           }
         ]
       },

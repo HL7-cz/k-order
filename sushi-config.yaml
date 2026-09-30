@@ -155,6 +155,8 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
     - https://terminology.uzis.cz/CodeSystem/Mkn10_5
     - https://ncez.mzcr.cz/terminology/ValueSet/ft-category-service-request
     - https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs
+    - https://ncez.mzcr.cz/terminology/ValueSet/cz-anthropometric-metric
+    - https://ncez.mzcr.cz/terminology/ValueSet/sct-vital-signs
 # path-resource:
 #    - input/resources
 #    - fsh-generated/resources
@@ -414,4 +416,3 @@ instanceOptions:
 #   if InstanceOf references a profile:
 #
 #   setId: always # always | standalone-only
-
