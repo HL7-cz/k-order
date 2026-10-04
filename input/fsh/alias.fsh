@@ -62,3 +62,9 @@ Alias: $sctBodySite = http://hl7.org/fhir/ValueSet/body-site
 Alias: $orphanet-vs = https://ncez.mzcr.cz/terminology/ValueSet/orphanet-rare-diseases
 Alias: $mkn10vs = https://uzis.cz/terminology/ValueSet/mkn-10
 Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code
+
+Alias: $sctCzEdition = http://snomed.info/sct/11000279109
+
+Alias: $hl7-observation-category-cs = http://terminology.hl7.org/CodeSystem/observation-category
+
+Alias: $vital-signs = http://hl7.org/fhir/StructureDefinition/vitalsigns

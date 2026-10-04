@@ -41,27 +41,26 @@ Description: "Observation used as supporting clinical information in Czech gener
 * note
 
 Profile: CZ_PatientMobility
-Parent: CZ_ObservationOrder
+Parent: CZ_MedicalTestResultCore
 Id: cz-patient-mobility
 Title: "Patient mobility: General Order (CZ)"
 Description: "Patient mobility observation used as supporting clinical information in Czech general orders."
 
 * identifier
 * title
-* category 1..1
-* category = http://terminology.hl7.org/CodeSystem/observation-category#activity
-* code
-* code.coding[SNOMEDCT] 1..1
-  * ^short = "SNOMED CT code for the observation"
-  * system 1..
-  * system = $sct (exactly)
-  * code 1..
-  * code from CZ_MobilityTypeVs
-* valueCodeableConcept 1..1
-* valueCodeableConcept from CZ_MobilityValueVs
-* valueQuantity 0..0
+* category ^slicing.discriminator[0].type = #value
+* category ^slicing.discriminator[0].path = "$this"
+* category ^slicing.ordered = false
+* category ^slicing.rules = #open
+* category contains activity 1..1
+* category[activity] = $hl7-observation-category-cs#activity
+* code from CZ_MobilityTypeVs (required)
+
+* value[x] only CodeableConcept
+* valueCodeableConcept from CZ_MobilityValueVs (required)
 * effective[x] 1..1
 * effective[x] only dateTime
+* component 0..0
 
 Profile: CZ_PhysicalFindingOrder
 Parent: CZ_ObservationOrder

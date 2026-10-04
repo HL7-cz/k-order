@@ -125,13 +125,13 @@ EN: Reduced patient mobility after hip surgery.
 * language = #cs
 * id = "Observation-FTHipMobility"
 * status = #final
-* category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
-* category[0].coding[0].code = #activity
-* category[0].coding[0].display = "Activity"
+* category[activity].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
+* category[activity].coding[0].code = #activity
+* category[activity].coding[0].display = "Activity"
 * subject = Reference(Patient-FTHipRehabilitation)
 * performer[0] = Reference(PractitionerRole-Orthopedist)
 * effectiveDateTime = "2026-09-04T08:30:00+02:00"
-* code.coding[SNOMEDCT] = $sctCZ#282870005 "Ability to stand up"
+* code = $sctCZ#282870005 "Ability to stand up"
 * valueCodeableConcept.coding[0] = $sctCZ#282873007 "dokáže vstát"
 
 Instance: Device-FTHipImplant
@@ -431,13 +431,13 @@ EN: Limited mobility of the patient with COPD.
 * language = #cs
 * id = "Observation-FTCopdMobility"
 * status = #final
-* category[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
-* category[0].coding[0].code = #activity
-* category[0].coding[0].display = "Activity"
+* category[activity].coding[0].system = "http://terminology.hl7.org/CodeSystem/observation-category"
+* category[activity].coding[0].code = #activity
+* category[activity].coding[0].display = "Activity"
 * subject = Reference(Patient-FTCopdHomeCare)
 * performer[0] = Reference(PractitionerRole-Pulmonologist)
 * effectiveDateTime = "2026-09-04T10:00:00+02:00"
-* code.coding[SNOMEDCT] = $sctCZ#282870005 "Ability to stand up"
+* code = $sctCZ#282870005 "Ability to stand up"
 * valueCodeableConcept.coding[0] = $sctCZ#282873007 "dokáže vstát"
 
 Instance: Goal-FTCopdRespiratory

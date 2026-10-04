@@ -157,6 +157,8 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
     - https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-anthropometric-metric
     - https://ncez.mzcr.cz/terminology/ValueSet/sct-vital-signs
+    - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-type
+    - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-value
 # path-resource:
 #    - input/resources
 #    - fsh-generated/resources
