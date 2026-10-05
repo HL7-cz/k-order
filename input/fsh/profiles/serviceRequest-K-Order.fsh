@@ -110,7 +110,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- supporting clinical information -----------------
 * supportingInfo 0..*
-* supportingInfo only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_BodyHeight or CZ_BodyWeight or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
+* supportingInfo only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_Anthropometric_Test_Result or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
 * insert OrderServiceRequestSupportingInformation
 
 
