@@ -22,25 +22,28 @@ Target0 -d[hidden]-> Target1
 class "CZ_PractitionerRoleCore" as Target2 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-practitionerrole-core.html]]
 Header <|. Target2
 Target1 -d[hidden]-> Target2
-class "CZ_OrganizationCore" as Target3 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html]]
+class "CZ_PractitionerRoleOrder" as Target3 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html]]
 Header <|. Target3
 Target2 -d[hidden]-> Target3
-class "CZ_RelatedPersonCore" as Target4 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-relatedPerson-core.html]]
+class "CZ_OrganizationCore" as Target4 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html]]
 Header <|. Target4
 Target3 -d[hidden]-> Target4
-class "CZ_CoverageOrder" as Target5 <<Profile>> [[StructureDefinition-cz-coverage-order.html]]
+class "CZ_RelatedPersonCore" as Target5 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-relatedPerson-core.html]]
 Header <|. Target5
 Target4 -d[hidden]-> Target5
-class "CZ_Provenance" as Target6 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]
+class "CZ_CoverageOrder" as Target6 <<Profile>> [[StructureDefinition-cz-coverage-order.html]]
 Header <|. Target6
 Target5 -d[hidden]-> Target6
-class "FTOrderCompositionCz" as Target7 <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
+class "CZ_Provenance" as Target7 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]
 Header <|. Target7
 Target6 -d[hidden]-> Target7
-class "FTServiceRequestCz" as Target8 <<Profile>> [[StructureDefinition-FTServiceRequestCz.html]]
+class "FTOrderCompositionCz" as Target8 <<Profile>> [[StructureDefinition-ft-order-composition-cz.html]]
 Header <|. Target8
 Target7 -d[hidden]-> Target8
-class "BundleOrderCz" as Target9 <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+class "FTServiceRequestCz" as Target9 <<Profile>> [[StructureDefinition-FTServiceRequestCz.html]]
 Header <|. Target9
 Target8 -d[hidden]-> Target9
+class "BundleOrderCz" as Target10 <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+Header <|. Target10
+Target9 -d[hidden]-> Target10
 @enduml

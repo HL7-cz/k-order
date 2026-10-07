@@ -1,15 +1,13 @@
-# Příklady
-
 Tato stránka sdružuje příklady dokumentových Bundle pro profily žádanek.
 
-## Příklady K-žádanek
+### Příklady K-žádanek
 
 1. [Kardiologické konzilium pro námahovou dušnost](Bundle-BundleKOrderExample.html) - Neadresná žádanka praktického lékaře pro kardiologické konzilium a echokardiografii s pneumologem jako dodatečným příjemcem výsledku.
 2. [Urgentní dermatologické konzilium pro suspektní pigmentový útvar](Bundle-BundleDermatologyUrgentExample.html) - Adresná urgentní žádanka do pigmentové poradny s přiloženou klinickou fotodokumentací.
 3. [Nefrologické konzilium a převzetí pacienta do péče](Bundle-BundleNephrologyHandoverExample.html) - Dva ServiceRequesty: objednávka nefrologického konzilia (`intent = order`) a doporučení k převzetí do péče (`intent = proposal`, SNOMED CT `183444007`). Součástí jsou relevantní laboratorní výsledky.
 4. [Doporučení k hospitalizaci](Bundle-BundleHospitalAdmissionRecommendationExample.html) - Objednávka konziliárního vyšetření (`intent = order`) doplněná samostatným doporučením k hospitalizaci (`intent = proposal`), s vlastním identifikátorem, důvodem a podpůrnými výsledky.
 
-## Příklady FT-žádanek
+### Příklady FT-žádanek
 
 1. [Rehabilitace po totální endoprotéze kyčle](Bundle-BundleFTHipRehabilitation.html) - Neadresná žádanka na fyzioterapii po náhradě kyčelního kloubu včetně data operace, povolené zátěže, informace o implantátu a snížené mobility.
 2. [Respirační fyzioterapie u pacienta s CHOPN](Bundle-BundleFTCopdHomeCare.html) - Kompletně vyplněný poukaz na péči v domácím prostředí imobilního pacienta na dlouhodobé domácí oxygenoterapii, s konkrétními výkony, deseti procedurami a frekvencí dvakrát týdně.

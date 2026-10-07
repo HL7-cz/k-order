@@ -16,7 +16,7 @@ endlegend
 class "Presented form" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
 class "Attachments" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
 PresentedForm -d[hidden]-> Attachments
-class "KOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+class "KOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-k-order-composition-cz.html]]
 PresentedForm <|. Target0
 class "CZ_Attachment" as Target1 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html]]
 Attachments <|. Target1

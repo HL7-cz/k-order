@@ -4,19 +4,20 @@ RuleSet: OrderclinicalQuestionSection
 * section[clinicalQuestion]
   * ^short = "Clinical indication and question"
   * ^definition = "Reason for issuing the order and the clinical question to be addressed by the recipient. Entries may identify actual or suspected conditions supporting the indication."
+  * ^comment = "A Clinical question can be expressed either in the section.narrative and/or in the CZ_ClinicalQuestion."
   * code = $loinc#104720-8
   * title = "Clinical indication and question"
-  * text 1..1 MS
+  * text 1..1 //MS
   * text ^short = "Clinical question and indication text"
-  * entry 0..*
+  // * entry 0..*
   * entry only Reference(CZ_ClinicalQuestion)
-  * ^comment = "Record the indication for each individual service in ServiceRequest.reasonCode or reasonReference. Reuse the same Condition when applicable. A clinical question can be expressed in the narrative without creating a Condition."
+
 RuleSet: OrderCarePlanSection
 * section[carePlan]
   * ^short = "Planned care"
   * ^definition = "Care plans describing related planned care in A.3.3 of the order document."
   * code = $loinc#18776-5
   * title = "Care plan"
-  * entry 0..*
+  // * entry 0..*
   * entry only Reference(CZ_CarePlanCore)
-  * ^comment = "Present planned care here rather than repeating the CarePlan in supportingInformation. Inclusion does not assign the plan to every ServiceRequest."
+  // * ^comment = "Present planned care here rather than repeating the CarePlan in supportingInformation. Inclusion does not assign the plan to every ServiceRequest."

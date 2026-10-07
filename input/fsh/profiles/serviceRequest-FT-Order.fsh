@@ -131,8 +131,16 @@ Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
 
 // --------------------------- other resources --------------------------------
 * supportingInfo 0..*
-* supportingInfo only Reference(Goal or CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_Anthropometric_Test_Result or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
-* supportingInfo ^short = "Clinical information supporting the requested intervention"
+
+* supportingInfo only Reference(CZ_MedicationAdministrationCore or CZ_MedicationStatementCore or CZ_ImmunizationCore or CZ_MedicalTestResultCore or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_DeviceUseStatementCore or CZ_FlagPatientCore or CZ_CarePlanCore or Goal)
+* supportingInfo ^slicing.discriminator[0].type = #profile
+* supportingInfo ^slicing.discriminator[0].path = "resolve()"
+* supportingInfo ^slicing.rules = #open
+* supportingInfo contains
+    anthropometric 0..* and
+    mobility 0..1
+* supportingInfo[anthropometric] only Reference(CZ_Anthropometric_Test_Result)
+* supportingInfo[mobility] only Reference(CZ_PatientMobility)
 * insert OrderServiceRequestSupportingInformation
 // code 1..1 permits a coded concept or a textual description in code.text.
 // subject only Reference(CZ_PatientCore) constrains the subject to a patient.

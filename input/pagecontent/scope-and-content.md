@@ -4,13 +4,13 @@
   {% include orderDiagram-cz.svg %}
 </figure>
 
-###### Order Form Header
+#### Order Form Header
 
 <figure>
   {% include orderHeaderDiagram.svg %}
 </figure>
 
-###### Order Body
+#### Order Body
 
 <figure>
   {% include orderBodyDiagram.svg %}

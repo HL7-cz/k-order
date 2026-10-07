@@ -19,15 +19,20 @@ Usage: #inline
 * author[0] = Reference(Practitioner-Author-detail)
 * extension[informationRecipient][0].valueReference = Reference(PractitionerRole-Pulmonologist)
 
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Požadováno kardiologické konziliární vyšetření a echokardiografie k objasnění příčiny námahové dušnosti.</p>]])
 * section[orderInformation].entry[0] = Reference(KOrderServiceRequest-1)
 * section[orderInformation].entry[1] = Reference(KOrderServiceRequest-2)
 * section[clinicalQuestion].text.status = #generated
 * section[clinicalQuestion] insert CzechNarrative([[Objasnění příčiny námahové dušnosti.]])
 * section[clinicalQuestion].entry[0] = Reference(KOrderCondition-Main)
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Číslo pojištěnce: 8506151234.</p>]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[carePlan].text.status = #generated
 * section[carePlan] insert CzechNarrative([[Kontrola u odesílajícího lékaře po dokončení vyšetření.]])
 
+* identifier.system = "http://example.cz/fhir/Composition"
 * identifier.value = "KORD-COMP-2025-001"
 
 // ------------------------- Condition -------------------------------------

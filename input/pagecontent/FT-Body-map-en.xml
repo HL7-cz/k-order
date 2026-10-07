@@ -100,7 +100,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -109,7 +109,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>identifier</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -118,7 +118,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>authoredOn</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -127,7 +127,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>occurrenceDateTime</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -136,7 +136,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>priority</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -145,7 +145,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>note.text</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -154,7 +154,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>patientInstruction</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
 
@@ -168,8 +168,7 @@
           <td>related</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td>
           <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).encounter</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -178,14 +177,11 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td>
           <td>identifier</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).encounter</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td>
           <td></td>
         </tr>
-        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).encounter</td><td></td></tr>
-        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">dalsiInformace</a></td><td>A.2.3.3 - Additional clinical event information</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).encounter</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">dalsiInformace</a></td><td>A.2.3.3 - Additional clinical event information</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
 
         <tr>
           <td colspan="7"><b>Coverage</b></td>
@@ -194,31 +190,27 @@
           <td><a href="StructureDefinition-LMCoverageBodyCz.html">uhrada</a></td>
           <td>A.2.4 - Coverage</td>
           <td>related</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
           <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve()</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMCoverageBodyCz.html">zpusob</a></td>
           <td>A.2.4.1 - Coverage type</td>
           <td>equivalent</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
           <td>type</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve()</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci</a></td>
           <td>A.2.4.2 - Payer information</td>
           <td>related</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
           <td>payor</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve()</td>
           <td>The `payor` branch is polymorphic; the ConceptMap maps the name to `RelatedPerson.name`.</td>
         </tr>
         <tr>
@@ -227,9 +219,7 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-relatedPerson-core.html">RelatedPerson (cz-relatedperson-core)</a></td>
           <td>name</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -238,9 +228,7 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
           <td>identifier</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -249,9 +237,7 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
           <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -260,9 +246,7 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
           <td>address</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -271,9 +255,7 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
           <td>address.country</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -282,19 +264,16 @@
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
           <td>telecom</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance
-  →Coverage (cz-coverage).payor</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve().payor.resolve()</td>
           <td></td>
         </tr>
         <tr>
           <td><a href="StructureDefinition-LMCoverageBodyCz.html">komentar</a></td>
           <td>A.2.4.3 - Comment</td>
           <td>equivalent</td>
-          <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html">Coverage (cz-coverage)</a></td>
+          <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
           <td>extension:comment</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry
-  →ServiceRequest (FTServiceRequestCz).insurance</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().insurance.resolve()</td>
           <td></td>
         </tr>
 
@@ -408,11 +387,11 @@
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.kod</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.mnozstvi</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>dosage.doseAndRate.doseQuantity</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.mnozstvi</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>dosage.dose</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat</a></td><td>A.3.1.4 - Implant</td><td>related</td><td><a href="StructureDefinition-cz-deviceUseStatement.html">DeviceUseStatement (CZ_DeviceUseStatement)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Uses the IMG-Order representation.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.typ</a></td><td>A.3.1.4.1 - Implant type</td><td>equivalent</td><td>Device (CZ_MedicalDevice)</td><td>type</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.identifikator</a></td><td>A.3.1.4.2 - Implant ID</td><td>equivalent</td><td>Device (CZ_MedicalDevice)</td><td>identifier</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.model</a></td><td>A.3.1.4.3 - Specific model</td><td>equivalent</td><td>Device (CZ_MedicalDevice)</td><td>modelNumber</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.castTela</a></td><td>A.3.1.4.4 - Body site</td><td>equivalent</td><td>DeviceUseStatement (CZ_DeviceUseStatement)</td><td>bodySite</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat</a></td><td>A.3.1.4 - Implant</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html">DeviceUseStatement (CZ_DeviceUseStatementCore)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Uses the IMG-Order representation.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.typ</a></td><td>A.3.1.4.1 - Implant type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>type</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.identifikator</a></td><td>A.3.1.4.2 - Implant ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>identifier</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.model</a></td><td>A.3.1.4.3 - Specific model</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>modelNumber</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.castTela</a></td><td>A.3.1.4.4 - Body site</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html">DeviceUseStatement (CZ_DeviceUseStatementCore)</a></td><td>bodySite</td><td>Composition (FTOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">urgentniInformace.alergieAIntolerance</a></td><td>A.3.1.5.1 - Allergies and intolerances</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td><td>code</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>One instance per stated concept.</td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">urgentniInformace.varovani</a></td><td>A.3.1.5.2 - Warnings</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html">Flag (CZ_FlagPatientCore)</a></td><td>text</td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td>Flag.text is a Narrative. Convert the text to XHTML in text.div and populate text.status.</td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta</a></td><td>A.3.1.6 - Patient mobility limitation</td><td>related</td><td><a href="StructureDefinition-cz-patient-mobility.html">Observation (CZ_PatientMobility)</a></td><td></td><td>Composition (FTOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (FTServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
@@ -425,7 +404,7 @@
           <td>related</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td></td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -434,7 +413,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>code</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td>The requested procedure is coded using SNOMED CT procedure concepts.</td>
         </tr>
         <tr>
@@ -443,7 +422,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>code.text</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -452,7 +431,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>extension[bodySite].valueReference</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -461,7 +440,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>extension[bodySite].extension[laterality]</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td>The ConceptMap uses the legacy notation `extension:bodySite.extension:laterality`.</td>
         </tr>
         <tr>
@@ -470,7 +449,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>quantityQuantity.value</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td>Total number of requested physiotherapy services.</td>
         </tr>
         <tr id="A.3.2.1.6" data-mapping-id="A.3.2.1.6"><td><a href="StructureDefinition-LMFTOrderDataElementsCz.html">pozadovaneVysetreni.frekvence</a></td><td>A.3.2.1.6 - Frequency</td><td>equivalent</td><td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td><td>occurrenceTiming</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td><td>Use Timing.repeat (frequency, period, periodUnit) for frequency and period; a textual description can be supplied in Timing.code.text.</td></tr>
@@ -480,7 +459,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>note.text</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
         <tr>
@@ -489,7 +468,7 @@
           <td>equivalent</td>
           <td><a href="StructureDefinition-FTServiceRequestCz.html">ServiceRequest (FTServiceRequestCz)</a></td>
           <td>locationCode</td>
-          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry</td>
+          <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td>For example, the patient's home.</td>
         </tr>
         <tr>

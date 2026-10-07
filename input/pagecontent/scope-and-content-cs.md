@@ -4,13 +4,13 @@
   {% include orderDiagram-cz.svg %}
 </figure>
 
-###### Hlavička žádanky
+#### Hlavička žádanky
 
 <figure>
   {% include orderHeaderDiagram.svg %}
 </figure>
 
-###### Tělo žádanky
+#### Tělo žádanky
 
 <figure>
   {% include orderBodyDiagram.svg %}

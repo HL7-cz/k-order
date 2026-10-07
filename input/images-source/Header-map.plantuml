@@ -12,26 +12,26 @@ legend right
 | <#APPLICATION>  Logical Model |
 | <#TECHNOLOGY>  Profile |
 endlegend
-class "Header" <<LogicalModel>> [[StructureDefinition-LogCzHeaderKOrderCz.html]]
+class "Header" <<LogicalModel>> [[StructureDefinition-LMHeaderOrder.html]]
 note top #PaleTurquoise [[ConceptMap-KOrderHeader2FHIRcz-cz.html]]
 Concept Map
 endnote
-class "patient-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core.html]]
+class "patient-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html]]
 "Header" <|. "patient-cz-core"
 
-class "practitioner-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition/cz-practitioner-core.html]]
+class "practitioner-cz-core" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html]]
 "Header" <|. "practitioner-cz-core"
 "patient-cz-core" -d[hidden]-> "practitioner-cz-core"
 
-class "CZ_PractitionerRoleOrder" <<Profile>> [[StructureDefinition-CZ_PractitionerRoleOrder.html]]
+class "CZ_PractitionerRoleOrder" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-practitionerrole-cz-order.html]]
 "Header" <|. "CZ_PractitionerRoleOrder   "
 "practitioner-cz-core" -d[hidden]-> "CZ_PractitionerRoleOrder"
 
-class "Coverage-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/StructureDefinition-cz-coverage.html]]
+class "Coverage-cz" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-coverage.html]]
 "Header" <|. "Coverage-cz"
 "CZ_PractitionerRoleOrder" -d[hidden]-> "Coverage-cz"
 
-class "Encounter-cz" <<Profile>> [[https://build.fhir.org/ig/HL7-cz/cz-core/StructureDefinition-cz-encounter.html]]
+class "Encounter-cz" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html]]
 "Header" <|. "Encounter-cz"
 "Coverage-cz" -d[hidden]-> "Encounter-cz"
 
@@ -39,7 +39,7 @@ class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
 "Header" <|. "BundleOrderCz"
 "Encounter-cz" -d[hidden]-> "BundleOrderCz" 
 
-class "K-Order-composition" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+class "K-Order-composition" <<Profile>> [[StructureDefinition-k-order-composition-cz.html]]
 "Header" <|. "K-Order-composition"
 "BundleOrderCz" -d[hidden]-> "K-Order-composition" 
 @enduml

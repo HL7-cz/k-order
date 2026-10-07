@@ -1,10 +1,12 @@
 ////////////////////////////////////////////////////////////
 // INVARIANTS
 ////////////////////////////////////////////////////////////
+/* Vzhledem ke kardinalitě composition je invariant zbytečný
 Invariant: one-comp
 Description: "The document Bundle SHALL include one and only one Composition."
 Expression: "entry.resource.ofType(Composition).count() = 1"
 Severity: #error
+ */
 /*
 Invariant: coverage-author-specialty
 Description: "For insurance coverage, the Composition author SHALL be a PractitionerRole with specialty and an organization identified by ICP."
@@ -64,11 +66,6 @@ entry.resource.ofType(ServiceRequest).all(
 """
 
 /*
-Invariant: one-comp
-Description: "The document Bundle SHALL include one and only one Composition."
-Expression: "entry.resource.ofType(Composition).count() = 1"
-Severity: #error
-
 // performer sjednocený přes performer.first() (protože performer je 0..*)
 // a zároveň safe pro 0 nebo 1 ServiceRequest
 Invariant: same-servicerequest-performer
@@ -82,10 +79,12 @@ Description: "All ServiceRequests SHALL have the same occurrence[x] (if present)
 Expression: "entry.resource.ofType(ServiceRequest).count() <= 1 or entry.resource.ofType(ServiceRequest).all(occurrence = entry.resource.ofType(ServiceRequest).first().occurrence)"
 Severity: #warning*/
 // FT-order a K-order kompozice jsou navzájem exkluzivní
+/* invariant je zbytečný, povolena je pouze jedna kompozice a to typu K nebo FT
 Invariant: bundle-composition-xor
 Description: "Bundle must contain exactly one Composition of type K or FT."
 Expression: "entry.resource.ofType(Composition).where(type.coding.where(system = 'http://loinc.org' and (code = '57133-1' or code = '57154-7')).exists()).count() = 1"
 Severity: #error
+*/
 
 ////////////////////////////////////////////////////////////
 // PROFILE
@@ -102,8 +101,8 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 * . ^short = "Referral order document Bundle (CZ)"
 * . ^definition = "The document Bundle for CZ requests. It SHALL contain exactly one Composition and all referenced resources."
 
-* obeys one-comp
-* obeys bundle-composition-xor
+//* obeys one-comp je vzhledem ke kardinalitě compoistion redundantní
+//* obeys bundle-composition-xor
 //* obeys coverage-author-specialty
 * obeys insurance-requester
 
@@ -112,7 +111,6 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 // FIXED BUNDLE METADATA
 ////////////////////////////////////////////////////////////
 
-* type 1..1
 * type = #document
 * type ^short = "This SHALL be a document bundle"
 
@@ -124,6 +122,8 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 
 * total 0..0
 * link 0..0
+* signature ^short = "Digital Signature of this order"
+* signature only CZ_Signature
 
 
 ////////////////////////////////////////////////////////////
@@ -131,38 +131,95 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 ////////////////////////////////////////////////////////////
 
 * entry 1..*
+  * link ..0
+  * fullUrl 1..1
+  * resource 1..
+  * search ..0
+  * request ..0
+  * response ..0
+
 * entry ^slicing.discriminator[0].type = #type
 * entry ^slicing.discriminator[0].path = "resource"
 * entry ^slicing.discriminator[+].type = #profile
 * entry ^slicing.discriminator[=].path = "resource"
 * entry ^slicing.rules = #open
+* entry ^short = "Entry resource in the order bundle"
+* entry ^definition = "An entry resource included in the order document bundle resource."
+* entry ^comment = "Must contain the Composition as the first entry (only a single Composition resource instance may be included).  Additional constraints are specified in the specific Order Composition profiles."
+* entry.resource 1..
 
 * entry contains
-    composition 0..1 and
-    compositionFt 0..1 and
+    composition 1..1 and
     patient 1..1 and
+    coverage 1..* and
     serviceRequest 0..* and
-    condition 0..* and
+    bodyStructure 0..* and
+    appointment 0..* and
+    // specimen 0..* and
     practitioner 0..* and
     practitionerRole 0..* and
-    organization 0..* and
-    coverage 1..* and
+    medication 0..* and
+    medicationStatement 0..* and
+    medicationAdministration 0..* and
+    immunization 0..* and
+    condition 0..* and
+    allergyIntolerance 0..* and
+    flag 0..* and
+    carePlan 0..* and
     goal 0..* and
     observation 0..* and
+    deviceUse 0..* and
+    device 0..* and
     attachment 0..* and
+    organisation 0..* and
+    location 0..* and
+    encounter 0..* and
+    diagnosticReport 0..* and
+    relatedPerson 0..* and
     provenance 0..*
 
+* entry[composition].resource only FTOrderCompositionCz or KOrderCompositionCz
+* entry[patient].resource only CZ_PatientCore or CZ_PatientAnimal
+* entry[coverage].resource only CZ_CoverageOrder
+* entry[serviceRequest].resource only KOrderServiceRequestCz or FTServiceRequestCz
+* entry[bodyStructure].resource only BodyStructureCzCore
+* entry[appointment].resource only CZ_AppointmentCore
+// * entry[specimen].resource only CZ_Specimen
+* entry[practitioner].resource only CZ_PractitionerCore
+* entry[practitionerRole].resource only CZ_PractitionerRoleCore
+* entry[medication].resource only CZ_MedicationCore
+* entry[medicationStatement].resource only CZ_MedicationStatementCore
+* entry[medicationAdministration].resource only CZ_MedicationAdministrationCore
+* entry[immunization].resource only CZ_ImmunizationCore
+* entry[condition].resource only CZ_ConditionCore
+* entry[allergyIntolerance].resource only CZ_AllergyIntolerance
+* entry[flag].resource only CZ_FlagPatientCore
+* entry[carePlan].resource only CZ_CarePlanCore
+* entry[observation].resource only CZ_MedicalTestResultCore
+* entry[goal].resource only Goal
+* entry[deviceUse].resource only CZ_DeviceUseStatementCore
+* entry[device].resource only CZ_MedicalDevice or CZ_DeviceObserver
+* entry[attachment].resource only DocumentReference
+* entry[organisation].resource only CZ_OrganizationCore
+* entry[location].resource only CZ_LocationCore
+* entry[encounter].resource only CZ_EncounterCore
+* entry[diagnosticReport].resource only CZ_DiagnosticReportCore
+* entry[relatedPerson].resource only CZ_RelatedPersonCore
+* entry[provenance].resource only CZ_Provenance
+* entry[provenance] ^short = "Provenance and signatures for resources in the document"
+* entry[provenance] ^definition = "Provenance resources recording the origin and signatures of document resources. Provenance.target identifies the signed resources; the Composition does not reference Provenance through a signature section."
 
+/*
 ////////////////////////////////////////////////////////////
 // RESOURCE CONSTRAINTS
 ////////////////////////////////////////////////////////////
 
 // Composition
-* entry[composition].resource 1..
-* entry[composition].resource only KOrderCompositionCz 
+//* entry[composition].resource 1..1
+* entry[composition].resource only KOrderCompositionCz or FTOrderCompositionCz
 
-* entry[compositionFt].resource 1..
-* entry[compositionFt].resource only FTOrderCompositionCz 
+// * entry[compositionFt].resource 1..
+// * entry[compositionFt].resource only FTOrderCompositionCz
 
 // Patient
 * entry[patient].resource 1..
@@ -206,7 +263,7 @@ Description: "Klinický dokument obsahující žádanky (K-order and FT-order)."
 // SIGNATURE
 ////////////////////////////////////////////////////////////
 
-* signature 0..1
-* signature only CZ_Signature
-* signature ^short = "Digital signature of the document"
-* signature ^definition = "Digital signature of the document Bundle. Signatures for individual document resources may be recorded in Provenance.signature, with Provenance.target identifying the signed resources."
+// * signature only CZ_Signature
+// * signature ^short = "Digital signature of the document"
+// * signature ^definition = "Digital signature of the document Bundle. Signatures for individual document resources may be recorded in Provenance.signature, with Provenance.target identifying the signed resources."
+ */

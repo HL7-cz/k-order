@@ -57,11 +57,18 @@ EN: K document with a recommendation for hospital admission represented by its o
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "8d16bc92-afdc-4198-b14c-6aef6a8c8b15"
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Doporučeno přijetí k hospitalizaci za účelem došetření zhoršení renálních funkcí. Současně požadováno konziliární vyšetření.</p>]])
 * section[orderInformation].entry[0] = Reference(HospitalAdmissionServiceRequest-Example)
 * section[orderInformation].entry[1] = Reference(HospitalAdmissionConsultation-Example)
 * section[clinicalQuestion].text.status = #generated
 * section[clinicalQuestion] insert CzechNarrative([[Žádáno konziliární vyšetření při zhoršení renálních funkcí. Současně doporučeno přijetí k hospitalizaci za účelem došetření.]])
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Číslo pojištěnce: 8506151234.</p>]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
+* section[supportingInformation].title = "Podpůrné klinické informace"
+* section[supportingInformation].text.status = #generated
+* section[supportingInformation] insert CzechNarrative([[<p>Chronické onemocnění ledvin ve stadiu 4. Laboratorní výsledky ze dne 28. srpna 2026: eGFR 24 ml/min/1,73 m²; kreatinin v séru 245 µmol/l.</p>]])
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
 * section[supportingInformation].entry[2] = Reference(NephrologyCondition-CKDStage4)

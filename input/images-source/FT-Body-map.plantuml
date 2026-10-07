@@ -19,12 +19,12 @@ endlegend
 
 class "LMCzBodyFTOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyFTOrder.html]]
 
-class "FTOrderServiceRequestCz" <<Profile>> [[StructureDefinition-FTServiceRequestCz.html]]
-"LMCzBodyFTOrderCz" <|. "FTOrderServiceRequestCz"
+class "FTServiceRequestCz" <<Profile>> [[StructureDefinition-FTServiceRequestCz.html]]
+"LMCzBodyFTOrderCz" <|. "FTServiceRequestCz"
 
-class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-encounter-cz-core.html]]
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_Encounter"
-"FTOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
+"FTServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
 class "CZ_CoverageOrder" <<Profile>> [[StructureDefinition-cz-coverage-order.html]]
 "LMCzBodyFTOrderCz" <|. "CZ_CoverageOrder"
@@ -46,7 +46,7 @@ class "CZ_Provenance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition
 "LMCzBodyFTOrderCz" <|. "CZ_Provenance"
 "CZ_Attachment" -d[hidden]-> "CZ_Provenance"
 
-class "FTOrderCompositionCz" <<Profile>> [[StructureDefinition-FTOrderCompositionCz.html]]
+class "FTOrderCompositionCz" <<Profile>> [[StructureDefinition-ft-order-composition-cz.html]]
 "LMCzBodyFTOrderCz" <|. "FTOrderCompositionCz"
 "CZ_Provenance" -d[hidden]-> "FTOrderCompositionCz"
 

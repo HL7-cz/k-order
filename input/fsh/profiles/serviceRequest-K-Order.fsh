@@ -27,7 +27,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
     and CompositionBasedOnOrderOrRequisition named basedOnComposition 0..*
 
 * extension[informationRecipient].valueReference only Reference(
-    CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or 
+    CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
     CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
 )
 
@@ -62,8 +62,8 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * encounter only Reference(CZ_Encounter)
 
 * reasonReference 0..*
-* reasonReference only Reference(CZ_ConditionCore)
-* reasonReference ^short = "Diagnózy odůvodňující žádanku"
+* reasonReference only Reference(CZ_ConditionCore or CZ_MedicalTestResultCore or CZ_DiagnosticReportCore or DocumentReference)
+* reasonReference ^short = "Okolnosti odůvodňující žádanku"
 
 * reasonCode 0..*
 * reasonCode ^short = "Slovní/číselné zdůvodnění žádosti"
@@ -110,13 +110,21 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- supporting clinical information -----------------
 * supportingInfo 0..*
-* supportingInfo only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_Anthropometric_Test_Result or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore or CZ_DeviceUseStatement)
+* supportingInfo only Reference(CZ_MedicationAdministrationCore or CZ_MedicationStatementCore or CZ_ImmunizationCore or CZ_MedicalTestResultCore or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_DeviceUseStatementCore or CZ_FlagPatientCore or CZ_CarePlanCore or Goal)
+* supportingInfo ^slicing.discriminator[0].type = #profile
+* supportingInfo ^slicing.discriminator[0].path = "resolve()"
+* supportingInfo ^slicing.rules = #open
+* supportingInfo contains
+    anthropometric 0..* and
+    mobility 0..1
+* supportingInfo[anthropometric] only Reference(CZ_Anthropometric_Test_Result)
+* supportingInfo[mobility] only Reference(CZ_PatientMobility)
 * insert OrderServiceRequestSupportingInformation
 
 
 // --------------------------- workflow links ----------------------------------
 * basedOn 0..*
-* basedOn only Reference(KOrderServiceRequestCz)
+//* basedOn only Reference(KOrderServiceRequestCz)
 
 // code 1..1 permits a coded concept or a textual description in code.text.
 // subject only Reference(CZ_PatientCore) constrains the subject to a patient.

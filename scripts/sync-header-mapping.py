@@ -15,11 +15,19 @@ PROFILES = {
     'CZ_PatientCore': 'cz-patient-core',
     'CZ_PractitionerCore': 'cz-practitioner-core',
     'CZ_PractitionerRoleCore': 'cz-practitionerrole-core',
+    'CZ_PractitionerRoleOrder': 'practitionerrole-cz-order',
     'CZ_OrganizationCore': 'cz-organization-core',
     'CZ_RelatedPersonCore': 'cz-relatedPerson-core',
     'CZ_Coverage': 'cz-coverage',
     'CZ_Provenance': 'cz-provenance',
 }
+LOCAL_PROFILES = {
+    'KOrderCompositionCz': 'k-order-composition-cz',
+    'FTOrderCompositionCz': 'ft-order-composition-cz',
+}
+
+def local_id(name):
+    return LOCAL_PROFILES.get(name, name)
 
 def esc(value):
     return html.escape(value, quote=False)
@@ -36,17 +44,21 @@ def profile_links(value):
         elif name == 'CZ_CoverageOrder':
             href = 'StructureDefinition-cz-coverage-order.html'
         elif name in ('{{ include.composition }}', '{{ include.bundle }}'):
-            href = 'StructureDefinition-' + name + '.html'
+            identifier = '{{ include.composition_id }}' if name == '{{ include.composition }}' else name
+            href = 'StructureDefinition-' + identifier + '.html'
         else:
             raise ValueError(f'Unknown profile: {name}')
         parts.append(f'<a href="{href}">{esc(part)}</a>')
     return ' / '.join(parts)
 
-def render(rows, lang):
+def render(rows, lang, order=False):
     relationships = {'equivalent': 'ekvivalentní', 'related': 'související', 'unmatched': 'bez přímého mapování'} if lang == 'cs' else {
         'equivalent': 'equivalent', 'related': 'related', 'unmatched': 'no direct mapping'}
     output = ['<!-- Generated from input/data/header-mapping.json by scripts/sync-header-mapping.py. -->']
     for row in rows:
+        row = dict(row)
+        if order and row['code'].startswith('A.1.6'):
+            row['profile'] = row['profile'].replace('CZ_PractitionerRoleCore', 'CZ_PractitionerRoleOrder')
         model = '{{ include.' + row['model'] + '_model }}'
         source = f'<a href="StructureDefinition-{model}.html">{esc(row["source"])}</a>'
         cells = [source, esc(row['label'][lang]), relationships[row['relationship']],
@@ -69,7 +81,7 @@ def diagram(header, composition, request, bundle):
     if composition in ('KOrderCompositionCz', 'FTOrderCompositionCz'):
         profiles = [('CZ_CoverageOrder', 'StructureDefinition-cz-coverage-order.html')
                     if name == 'CZ_Coverage' else (name, link) for name, link in profiles]
-    profiles += [(name, 'StructureDefinition-' + name + '.html') for name in (composition, request, bundle)]
+    profiles += [(name, 'StructureDefinition-' + local_id(name) + '.html') for name in (composition, request, bundle)]
     for index, (name, link) in enumerate(profiles):
         lines += [f'class "{name}" as Target{index} <<Profile>> [[{link}]]', f'Header <|. Target{index}']
         if index:
@@ -81,13 +93,13 @@ GUIDANCE = {
     'cs': '''<div xmlns="http://www.w3.org/1999/xhtml">
   <p>Hlavička A.1 používá společné mapování IMG, K a FT na CZ Core 1.0.0. Liší se pouze doménový profil Composition, ServiceRequest a Bundle a názvy zdrojových modelů. Obě jazykové tabulky odkazují na české logické modely; jazyk mění popisky, nikoli FHIR cíle.</p>
   <p>Sloupec Reference uvádí navigaci ke zdroji, sloupec Prvek jeho relativní element. Zápis section[název] označuje slice profilu, nikoli doslovný FHIRPath; resolve() znamená průchod referencí. Ve skutečném FHIRPath se sekce vybírá podle jejího kódu. Doménový ServiceRequest je v section[orderInformation].entry. Stejné reference se znovu používají pro dokument a příslušný požadavek.</p>
-  <p>CZ_PractitionerRoleOrder je specializace z balíčku CZ Core. Tabulka zobrazuje společný základ CZ_PractitionerRoleCore; omezení konkrétního profilu žádanky zůstávají závazná. Chybějící přímé mapování identifikátoru kontaktní osoby je uvedeno výslovně. Čas podpisu není samostatný kryptografický token časového razítka.</p>
+  <p>CZ_PractitionerRoleOrder je specializace z balíčku CZ Core. U K a FT používá autor Composition profil CZ_PractitionerRoleCore, zatímco ServiceRequest.requester a role v performer a informationRecipient používají CZ_PractitionerRoleOrder. Příjemce dokumentu používá zděděné rozšíření Composition.informationRecipient s CZ_PractitionerRoleCore; příjemce konkrétního požadavku používá ServiceRequest.informationRecipient s CZ_PractitionerRoleOrder. Chybějící přímé mapování identifikátoru kontaktní osoby je uvedeno výslovně. Čas podpisu není samostatný kryptografický token časového razítka.</p>
 </div>
 ''',
     'en': '''<div xmlns="http://www.w3.org/1999/xhtml">
   <p>Header A.1 uses the same CZ Core 1.0.0 mapping for IMG, K and FT. Only the domain Composition, ServiceRequest and Bundle profiles and source model names differ. Both language tables reference the Czech logical models; language changes labels, not FHIR targets.</p>
   <p>The Reference column navigates to the resource; Element is relative to that resource. section[name] denotes a profile slice, not literal FHIRPath; resolve() traverses a reference. Executable FHIRPath selects sections by their codes. The domain ServiceRequest is in section[orderInformation].entry. Reuse the same resources for document and applicable request references.</p>
-  <p>CZ_PractitionerRoleOrder is a specialization from the CZ Core package. The table shows the common CZ_PractitionerRoleCore base; constraints of each order profile still apply. The lack of a direct mapping for a contact person's identifier is stated explicitly. Signing time is not a standalone cryptographic timestamp token.</p>
+  <p>CZ_PractitionerRoleOrder is a specialization from the CZ Core package. For K and FT, the Composition author uses CZ_PractitionerRoleCore, while ServiceRequest.requester and roles in performer and informationRecipient use CZ_PractitionerRoleOrder. The document recipient uses the inherited Composition.informationRecipient extension with CZ_PractitionerRoleCore; the recipient of a specific request uses ServiceRequest.informationRecipient with CZ_PractitionerRoleOrder. The lack of a direct mapping for a contact person's identifier is stated explicitly. Signing time is not a standalone cryptographic timestamp token.</p>
 </div>
 ''',
 }
@@ -121,7 +133,7 @@ def main():
 
     for lang in ('cs', 'en'):
         for root in ((ROOT,) if args.order_only else (ROOT, img)):
-            output(root / f'input/includes/header-core-map-{lang}.xml', render(rows, lang))
+            output(root / f'input/includes/header-core-map-{lang}.xml', render(rows, lang, order=root == ROOT))
             output(root / f'input/includes/header-core-guidance-{lang}.xml', GUIDANCE[lang])
         pages = [(ROOT, 'K-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'KOrderCompositionCz', 'KOrderServiceRequestCz', 'BundleOrderCz', order_models, 'provadejici'),
                  (ROOT, 'FT-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'FTOrderCompositionCz', 'FTServiceRequestCz', 'BundleOrderCz', order_models, 'provadejici'),
@@ -131,7 +143,7 @@ def main():
                 continue
             path = root / 'input/pagecontent' / filename
             text = path.read_text(encoding='utf-8')
-            params = dict(composition=composition, service_request=request, bundle=bundle, performer_element=performer,
+            params = dict(composition=composition, composition_id=local_id(composition), service_request=request, bundle=bundle, performer_element=performer,
                           **{key + '_model': value for key, value in models.items()})
             include = '{% include header-core-map-' + lang + '.xml ' + ' '.join(f'{k}="{v}"' for k, v in params.items()) + ' %}'
             text, count = re.subn(r'<tbody>.*?</tbody>', '<tbody>\n        ' + include + '\n      </tbody>', text, flags=re.S)
@@ -142,7 +154,7 @@ def main():
                 # Place guidance before the mapping table, outside table content.
                 text = re.sub(r'(<div class="table-wrap">\s*<table)', guidance + '\n\n  ' + r'\1', text, count=1)
             context = '<p class="header-domain-context">' + '; '.join(
-                f'{kind}: <a href="StructureDefinition-{identifier}.html">{identifier}</a>'
+                f'{kind}: <a href="StructureDefinition-{local_id(identifier)}.html">{identifier}</a>'
                 for kind, identifier in [('Composition', composition), ('ServiceRequest', request), ('Bundle', bundle)]) + '</p>'
             if 'class="header-domain-context"' in text:
                 text = re.sub(r'<p class="header-domain-context">.*?</p>', context, text)

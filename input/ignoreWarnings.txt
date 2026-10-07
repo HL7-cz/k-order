@@ -3,6 +3,10 @@
 # Ignore actor OID assignment information
 %could usefully have an OID assigned (OIDs are easy to assign%
 
+# OID assignment for terminology resources is deferred; canonical URLs identify them.
+# Suppress only the recommendation to assign an OID, not terminology validation issues.
+%should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage%
+
 # Expected ambiguity in hl7.fhir.uv.xver-r5.r4#0.1.0:
 # the cross-version R5 Composition profile derives from the R4 Composition profile.
 %among choices: http://hl7.org/fhir/5.0/StructureDefinition/profile-Composition|0.1.0, http://hl7.org/fhir/StructureDefinition/Composition|4.0.1%
@@ -12,9 +16,6 @@
 
 # The same expected open-slicing information inherited from CZ Core.
 %This element does not match any known slice defined in the profile https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core|1.0.0%
-
-# Notices are expected with the current author slicing.
-%This element does not match any known slice defined in the profile https://hl7.cz/fhir/img/StructureDefinition/cz-composition-imaging|1.0.0%
 
 # Czech implementations use the national MKN-10 code system.
 # The inherited eHDSI ICD-10 additional binding applies only to cross-border exchange.

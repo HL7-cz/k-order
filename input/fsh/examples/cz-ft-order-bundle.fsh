@@ -5,7 +5,7 @@
 
 // ------------------------- Composition (FT) -------------------------
 Instance: FTCompositionExample
-InstanceOf: FTOrderCompositionCz
+InstanceOf: ft-order-composition-cz
 Usage: #example
 Description: """
 CZ: Composition fyzioterapeutické eŽádanky se čtyřmi požadovanými výkony.
@@ -23,6 +23,8 @@ EN: Physiotherapy order Composition with four requested procedures.
 * type = $loinc#57154-7
 * type.text = "žádanka o fyzioterapii"
 // Requested physiotherapy services.
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Požadované fyzioterapeutické výkony:</p><ul><li>MGT, elektro: 12×.</li><li>Léčebná tělesná výchova (LTV): 12×.</li><li>Mobilizace: 12×.</li><li>Manuální terapie (MT): 12×.</li></ul>]])
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-21113)
 
 * section[orderInformation].entry[1] = Reference(FTServiceRequest-21225)
@@ -33,13 +35,17 @@ EN: Physiotherapy order Composition with four requested procedures.
 
 * section[clinicalQuestion] insert CzechNarrative([[Stav vyžadující FT: B<br/>Cíl, kterého má být dosaženo: C<br/>Rizika / upozornění: D]])
 // Reuse the existing Coverage.
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Číslo pojištěnce: 8506151234.</p>]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
 * section[carePlan].text.status = #generated
 * section[carePlan] insert CzechNarrative([[Kontrola po dokončení předepsané fyzioterapie.]])
 
 // identifier.system je fixed v profilu → nastavuje se jen value
-* identifier.value = "FT-COMP-2025-001"
+// * identifier.value = "FT-COMP-2025-001"
 
+* identifier[+].system = "urn:ietf:rfc:3986"
+* identifier[=].value = "urn:uuid:95c00a16-a484-4bbd-be18-3bee172c7536"
 
 // ============================================================================
 // FT – ServiceRequests (1 řádek poukazu = 1 SR)

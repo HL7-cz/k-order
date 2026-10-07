@@ -71,7 +71,7 @@
   </div>
 
   {% include header-core-guidance-cs.xml %}
-  <p class="header-domain-context">Composition: <a href="StructureDefinition-FTOrderCompositionCz.html">FTOrderCompositionCz</a>; ServiceRequest: <a href="StructureDefinition-FTServiceRequestCz.html">FTServiceRequestCz</a>; Bundle: <a href="StructureDefinition-BundleOrderCz.html">BundleOrderCz</a></p>
+  <p class="header-domain-context">Composition: <a href="StructureDefinition-ft-order-composition-cz.html">FTOrderCompositionCz</a>; ServiceRequest: <a href="StructureDefinition-FTServiceRequestCz.html">FTServiceRequestCz</a>; Bundle: <a href="StructureDefinition-BundleOrderCz.html">BundleOrderCz</a></p>
 
   <div class="table-wrap">
 
@@ -100,7 +100,7 @@
       </thead>
 
       <tbody>
-        {% include header-core-map-cs.xml composition="FTOrderCompositionCz" service_request="FTServiceRequestCz" bundle="BundleOrderCz" performer_element="provadejici" header_model="LMHeaderOrder" subject_model="LMSubjectOrderCz" payer_model="LMPayerOrderCz" coverage_model="LMCoverageOrderCz" author_model="LMAuthorOrderCz" performer_model="LMRequestedPerformerOrderCz" recipient_model="LMAdditionalRecipientCz" metadata_model="LMDocumentMetadataCz" signature_model="LMDigitalSignatureOrderCz" %}
+        {% include header-core-map-cs.xml composition="FTOrderCompositionCz" composition_id="ft-order-composition-cz" service_request="FTServiceRequestCz" bundle="BundleOrderCz" performer_element="provadejici" header_model="LMHeaderOrder" subject_model="LMSubjectOrderCz" payer_model="LMPayerOrderCz" coverage_model="LMCoverageOrderCz" author_model="LMAuthorOrderCz" performer_model="LMRequestedPerformerOrderCz" recipient_model="LMAdditionalRecipientCz" metadata_model="LMDocumentMetadataCz" signature_model="LMDigitalSignatureOrderCz" %}
       </tbody>
 
     </table>

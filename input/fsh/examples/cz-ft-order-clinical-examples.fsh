@@ -83,6 +83,7 @@ Usage: #example
 Description: "Clinical problem addressed by the physiotherapy question after hip replacement. The example uses the required text without an optional coded diagnosis."
 * language = #cs
 * subject = Reference(Patient-FTHipRehabilitation)
+* code.coding[0] = $sct#82971005 "narušená pohyblivost"
 * code.text = "Omezená pohyblivost po náhradě kyčelního kloubu – posouzení možností rehabilitace."
 
 Instance: Condition-FTHipArthroplasty
@@ -149,7 +150,7 @@ EN: Total hip prosthesis of the left hip joint.
 * deviceName[0].type = #user-friendly-name
 
 Instance: DeviceUseStatement-FTHipImplant
-InstanceOf: CZ_DeviceUseStatement
+InstanceOf: CZ_DeviceUseStatementCore
 Usage: #example
 Description: """
 CZ: Informace o implantované totální endoprotéze levého kyčelního kloubu.
@@ -283,14 +284,26 @@ EN: Unaddressed FT order after total hip arthroplasty.
 * subject = Reference(Patient-FTHipRehabilitation)
 * author[0] = Reference(PractitionerRole-Orthopedist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840102"
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Požadována mobilizační a cvičebná fyzioterapie po totální endoprotéze levé kyčle. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Pracoviště fyzioterapie volí pacient podle bydliště.</p>]])
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-HipRehabilitation)
 * section[clinicalQuestion].text.status = #generated
 * section[clinicalQuestion] insert CzechNarrative([[Stav po TEP levé kyčle dne 2026-08-20. Povolené zatěžování levé dolní končetiny do 50 % tělesné hmotnosti. Implantát: totální endoprotéza levého kyčelního kloubu.]])
 * section[clinicalQuestion].entry[0] = Reference(Condition-FTClinicalQuestion)
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTHipRehabilitation)
+* section[goals].text.status = #generated
+* section[goals] insert CzechNarrative([[<p>Obnovení bezpečné chůze s postupným zatěžováním levé dolní končetiny.</p>]])
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Zdravotní pojišťovna: 111.</p>]])
 * section[coverage].entry[0] = Reference(Coverage-FTHipRehabilitation)
+* section[medicalDevices].title = "Zdravotnické prostředky"
+* section[medicalDevices].text.status = #generated
+* section[medicalDevices] insert CzechNarrative([[<p>Totální endoprotéza levého kyčelního kloubu, implantovaná dne 20. srpna 2026.</p>]])
 * section[medicalDevices].entry[0] = Reference(DeviceUseStatement-FTHipImplant)
+* section[supportingInformation].title = "Podpůrné klinické informace"
+* section[supportingInformation].text.status = #generated
+* section[supportingInformation] insert CzechNarrative([[<p>Mobilita po operaci kyčle: pacient dokáže vstát. Hodnocení ze dne 4. září 2026.</p>]])
 * section[supportingInformation].entry[0] = Reference(Observation-FTHipMobility)
 
 Instance: BundleFTHipRehabilitation
@@ -516,12 +529,21 @@ EN: Fully completed FT order for respiratory physiotherapy in the patient's home
 * subject = Reference(Patient-FTCopdHomeCare)
 * author[0] = Reference(PractitionerRole-Pulmonologist)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840202"
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Požadována fyzioterapie hrudníku a respirační expanzní cvičení v domácím prostředí pacienta: deset procedur, dvakrát týdně.</p>]])
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-CopdChestPhysiotherapy)
 * section[clinicalQuestion].text.status = #generated
 * section[clinicalQuestion] insert CzechNarrative([[CHOPN u imobilního pacienta na dlouhodobé domácí oxygenoterapii. Požadováno deset procedur dvakrát týdně v domácím prostředí pacienta.]])
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTCopdRespiratory)
+* section[goals].text.status = #generated
+* section[goals] insert CzechNarrative([[<p>Zlepšení odkašlávání a nácvik dechových technik v domácím prostředí.</p>]])
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Zdravotní pojišťovna: 111.</p>]])
 * section[coverage].entry[0] = Reference(Coverage-FTCopdHomeCare)
+* section[supportingInformation].title = "Podpůrné klinické informace"
+* section[supportingInformation].text.status = #generated
+* section[supportingInformation] insert CzechNarrative([[<p>Hodnocení mobility ze dne 4. září 2026: pacient dokáže vstát.</p>]])
 * section[supportingInformation].entry[0] = Reference(Observation-FTCopdMobility)
 
 Instance: BundleFTCopdHomeCare
@@ -536,7 +558,7 @@ EN: Fully completed FT order for respiratory physiotherapy at home.
 * id = "BundleFTCopdHomeCare"
 * type = #document
 * timestamp = "2026-09-04T10:20:00+02:00"
-* identifier.system = "https://hl7.cz/fhir/order/sid/document"
+* identifier.system = "https://example.cz/fhir/Document"
 * identifier.value = "FTCOPD-2026-0001"
 * entry[0].fullUrl = "https://example.cz/fhir/Composition/FTCompositionCopdHomeCare"
 * entry[0].resource = FTCompositionCopdHomeCare
@@ -805,12 +827,21 @@ EN: General FT order for a pediatric patient without specified individual proced
 * subject = Reference(Patient-FTPediatricPosture)
 * author[0] = Reference(PractitionerRole-Pediatrician)
 * identifier.value = "6a77187d-7e74-4fce-b604-bad9b2840302"
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Požadována fyzioterapie při vadném držení těla a začínající skolióze. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.</p>]])
 * section[orderInformation].entry[0] = Reference(FTServiceRequest-PediatricGeneralPhysiotherapy)
 * section[clinicalQuestion].text.status = #generated
 * section[clinicalQuestion] insert CzechNarrative([[Vadné držení těla a začínající skolióza. Konkrétní výkony ani jejich počet nejsou určeny; rozsah péče navrhne fyzioterapeut.]])
 * section[goals].title = "Cíle terapie"
 * section[goals].entry[0] = Reference(Goal-FTPediatricPosture)
+* section[goals].text.status = #generated
+* section[goals] insert CzechNarrative([[<p>Nácvik správného držení těla a stabilizačních cvičení.</p>]])
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Zdravotní pojišťovna: 111.</p>]])
 * section[coverage].entry[0] = Reference(Coverage-FTPediatricPosture)
+* section[supportingInformation].title = "Podpůrné klinické informace"
+* section[supportingInformation].text.status = #generated
+* section[supportingInformation] insert CzechNarrative([[<p>Začínající skolióza u dětského pacienta.</p>]])
 * section[supportingInformation].entry[0] = Reference(Condition-FTPediatricScoliosis)
 
 Instance: BundleFTPediatricPosture

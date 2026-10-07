@@ -22,7 +22,7 @@ class "LMCzBodyKOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyKOrder.htm
 class "KOrderServiceRequestCz" <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
 "LMCzBodyKOrderCz" <|. "KOrderServiceRequestCz"
 
-class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-encounter-cz-core.html]]
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html]]
 "LMCzBodyKOrderCz" <|. "CZ_Encounter"
 "KOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
 
@@ -38,33 +38,29 @@ class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinit
 "LMCzBodyKOrderCz" <|. "CZ_ConditionCore"
 "CZ_AppointmentCore" -d[hidden]-> "CZ_ConditionCore"
 
-class "CZ_MedicationStatement" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html]]
-"LMCzBodyKOrderCz" <|. "CZ_MedicationStatement"
-"CZ_ConditionCore" -d[hidden]-> "CZ_MedicationStatement"
+class "CZ_MedicationStatementCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_MedicationStatementCore"
+"CZ_ConditionCore" -d[hidden]-> "CZ_MedicationStatementCore"
 
-class "CZ_DeviceUseStatement" <<Profile>> [[StructureDefinition-cz-deviceUseStatement.html]]
-"LMCzBodyKOrderCz" <|. "CZ_DeviceUseStatement"
-"CZ_MedicationStatement" -d[hidden]-> "CZ_DeviceUseStatement"
+class "CZ_DeviceUseStatementCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_DeviceUseStatementCore"
+"CZ_MedicationStatementCore" -d[hidden]-> "CZ_DeviceUseStatementCore"
 
 class "CZ_AllergyIntolerance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_AllergyIntolerance"
-"CZ_DeviceUseStatement" -d[hidden]-> "CZ_AllergyIntolerance"
+"CZ_DeviceUseStatementCore" -d[hidden]-> "CZ_AllergyIntolerance"
 
 class "CZ_FlagPatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html]]
 "LMCzBodyKOrderCz" <|. "CZ_FlagPatientCore"
 "CZ_AllergyIntolerance" -d[hidden]-> "CZ_FlagPatientCore"
 
-class "CZ_BodyWeight" <<Profile>> [[StructureDefinition-cz-bodyweight.html]]
-"LMCzBodyKOrderCz" <|. "CZ_BodyWeight"
-"CZ_FlagPatientCore" -d[hidden]-> "CZ_BodyWeight"
+class "CZ_Anthropometric_Test_Result" <<Profile>> [[StructureDefinition-cz-anthropometric-test-result.html]]
+"LMCzBodyKOrderCz" <|. "CZ_Anthropometric_Test_Result"
+"CZ_FlagPatientCore" -d[hidden]-> "CZ_Anthropometric_Test_Result"
 
-class "CZ_BodyHeight" <<Profile>> [[StructureDefinition-cz-bodyheight.html]]
-"LMCzBodyKOrderCz" <|. "CZ_BodyHeight"
-"CZ_BodyWeight" -d[hidden]-> "CZ_BodyHeight"
-
-class "KOrderCompositionCz" <<Profile>> [[StructureDefinition-KOrderCompositionCz.html]]
+class "KOrderCompositionCz" <<Profile>> [[StructureDefinition-k-order-composition-cz.html]]
 "LMCzBodyKOrderCz" <|. "KOrderCompositionCz"
-"CZ_BodyHeight" -d[hidden]-> "KOrderCompositionCz"
+"CZ_Anthropometric_Test_Result" -d[hidden]-> "KOrderCompositionCz"
 
 class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
 "LMCzBodyKOrderCz" <|. "BundleOrderCz"

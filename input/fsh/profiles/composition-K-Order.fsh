@@ -4,8 +4,8 @@ Severity: #error
 Expression: "entry.resolve().ofType(ServiceRequest).where(intent = 'order').exists()"
 
 Profile: KOrderCompositionCz
-Parent: Composition
-Id: KOrderCompositionCz
+Parent: CZ_CompositionCore
+Id: k-order-composition-cz
 Title: "Composition: K-order (Zadanka) (CZ)"
 Description: """
 K-order Composition pro narodni IG (CZ).
@@ -18,14 +18,14 @@ Condition a DocumentReference.
 
 * insert SetFmmandStatusRule ( 0, draft )
 
-* meta
-  * security 0..* MS
+// * meta
+//   * security 0..* //MS
 
-* identifier 1..1 
-* identifier.system = "urn:ietf:rfc:4122"
+// * identifier 1..1
+// * identifier.system = "urn:ietf:rfc:4122"
 
 
-* type 1..1 
+// * type 1..1
 * type from $OrderTypes (required)
   * coding 1..1
   * coding = $loinc#57133-1
@@ -45,30 +45,30 @@ Condition a DocumentReference.
   * data ^short = "B64 in-line data"
   * url ^short = "URL of the document"
 
-* extension contains
-    $information-recipient-url named informationRecipient 0..*
-* extension[informationRecipient].valueReference only Reference(
-  CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
-  CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
-)
+// * extension contains
+//     $information-recipient-url named informationRecipient 0..*
+// * extension[informationRecipient].valueReference only Reference(
+//   CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
+//   CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
+// )
 
-* status 1..1 MS
-* status = #final (exactly)
-* title 1..1 MS
-* date 1..1 MS
+// * status 1..1 //MS
+// * status = #final (exactly)
+* title 1..1 //MS
+* date 1..1 //MS
 
-* subject 1..1 MS
-* subject only Reference(CZ_PatientCore)
+//* subject 1..1 //MS
+//* subject only Reference(CZ_PatientCore)
 
-* custodian 0..1 MS
-* custodian only Reference(CZ_OrganizationCore)
+//* custodian 0..1 //MS
+//* custodian only Reference(CZ_OrganizationCore)
 
-* author only Reference(CZ_PractitionerRoleOrder or CZ_PractitionerRoleCore)
+* author only Reference(CZ_PractitionerRoleCore)
 
-* encounter 0..1
+// * encounter 0..1
 * encounter only Reference(CZ_EncounterCore)
 
-* section 1..* MS
+* section 1..* //MS
 * section ^slicing.discriminator.type = #pattern
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
@@ -76,14 +76,14 @@ Condition a DocumentReference.
 * section ^comment = "Recommended document presentation order follows the declared slices, with attachments last. Common sections retain the IMG-Order sequence. As in IMG-Order, slicing does not enforce instance order."
 
 * section contains
-    orderInformation 1..1 MS and
-    clinicalQuestion 0..1 MS and
-    coverage 1..1 MS and
-    appointment 0..1 MS and
-    carePlan 0..1 MS and
-    medicalDevices 0..1 MS and
-    supportingInformation 0..1 MS and
-    attachments 0..1 MS
+    orderInformation 1..1 and //MS
+    clinicalQuestion 0..1 and //MS
+    coverage 1..1 and //MS
+    appointment 0..1 and //MS
+    carePlan 0..1 and //MS
+    medicalDevices 0..1 and //MS
+    supportingInformation 0..1 and //MS
+    attachments 0..1 //MS
 
 * section[orderInformation]
   * obeys k-order-requires-order
@@ -121,7 +121,7 @@ Condition a DocumentReference.
   * ^extension[0].valueString = "Section"
   * code = $loinc#97813-0
   * entry 1..*
-  * entry only Reference(CZ_DeviceUseStatement)
+  * entry only Reference(CZ_DeviceUseStatementCore)
 
 * section[supportingInformation]
   * ^short = "Clinical information supporting the order"
@@ -130,7 +130,15 @@ Condition a DocumentReference.
   * ^extension[0].valueString = "Section"
   * code = $loinc#55752-0
   * entry 0..*
-  * entry only Reference(CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_Anthropometric_Test_Result or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_FlagPatientCore or CZ_PatientMobility or CZ_PhysicalFindingOrder or CZ_MedicalTestResultCore or CZ_Encounter or CZ_ImmunizationCore)
+  * entry only Reference(CZ_MedicalTestResultCore or CZ_ConditionCore or CZ_AllergyIntolerance or CZ_MedicationStatementCore or CZ_MedicationAdministrationCore or CZ_ImmunizationCore or CZ_FlagPatientCore)
+  * entry ^slicing.discriminator[0].type = #profile
+  * entry ^slicing.discriminator[0].path = "resolve()"
+  * entry ^slicing.rules = #open
+  * entry contains
+      anthropometric 0..* and
+      mobility 0..1
+  * entry[anthropometric] only Reference(CZ_Anthropometric_Test_Result)
+  * entry[mobility] only Reference(CZ_PatientMobility)
 
 * section[attachments]
   * ^short = "Documents attached to the order"
@@ -148,10 +156,10 @@ Condition a DocumentReference.
 * insert OrderCompositionSupportingInformation
 * section[supportingInformation] ^definition = "Shared structured clinical context in A.3.1 and additional supporting information in A.3.4, including measurements, conditions, medication, allergies, alerts, mobility, findings, encounters and immunizations. Use clinicalQuestion for the reason and clinical question, carePlan for planned care and medicalDevices for device use. Link the same resources to individual ServiceRequest instances where relevant."
 
-Extension: KOrderRequestReference
-Id: korder-composition-requestReference
-Title: "K-order Request Reference"
-Description: "Reference to the K-order ServiceRequest instance(s) that the Composition documents."
-* insert ExtensionContext(Composition)
-* insert SetFmmandStatusRule ( 2, trial-use)
-* value[x] only Reference(KOrderServiceRequestCz)
+// Extension: KOrderRequestReference
+// Id: korder-composition-requestReference
+// Title: "K-order Request Reference"
+// Description: "Reference to the K-order ServiceRequest instance(s) that the Composition documents."
+// * insert ExtensionContext(Composition)
+// * insert SetFmmandStatusRule ( 2, trial-use)
+// * value[x] only Reference(KOrderServiceRequestCz)

@@ -127,9 +127,18 @@ EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing
 * subject = Reference(Patient-Novak-Petr)
 * author[0] = Reference(Practitioner-Author-detail)
 * identifier.value = "KORD-DERM-COMP-2026-0001"
+* section[orderInformation].text.status = #generated
+* section[orderInformation] insert CzechNarrative([[<p>Požadováno urgentní dermatologické konziliární vyšetření v pigmentové poradně pro rychle se měnící pigmentový útvar na zádech.</p>]])
 * section[orderInformation].entry[0] = Reference(DermatologyServiceRequest-Urgent)
+* section[supportingInformation].title = "Podpůrné klinické informace"
+* section[supportingInformation].text.status = #generated
+* section[supportingInformation] insert CzechNarrative([[<p>Rychle se měnící pigmentový útvar na zádech se změnou velikosti a pigmentace. Diferenciální diagnóza: novotvar nejistého nebo neznámého chování kůže.</p>]])
 * section[supportingInformation].entry[0] = Reference(DermatologyCondition-PigmentedLesion)
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Číslo pojištěnce: 8506151234.</p>]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
+* section[attachments].text.status = #generated
+* section[attachments] insert CzechNarrative([[<p>Přiložena klinická fotografie pigmentového útvaru na zádech s označením lokalizace, pořízená dne 2. září 2026.</p>]])
 * section[attachments].entry[0] = Reference(DermatologyLesionPhoto)
 
 Instance: BundleDermatologyUrgentExample
@@ -353,7 +362,12 @@ EN: K-order requesting transfer of a patient with stage 4 chronic kidney disease
 * section[orderInformation].entry[1] = Reference(NephrologyServiceRequest-Handover)
 * section[orderInformation].text.status = #generated
 * section[orderInformation] insert CzechNarrative([[Objednáno nefrologické konziliární vyšetření při progresi chronického onemocnění ledvin. Současně je doporučeno převzetí pacienta do dlouhodobé nefrologické péče.]])
+* section[coverage].text.status = #generated
+* section[coverage] insert CzechNarrative([[<p>Úhrada z veřejného zdravotního pojištění. Číslo pojištěnce: 8506151234.</p>]])
 * section[coverage].entry[0] = Reference(KOrderCoverage-Example)
+* section[supportingInformation].title = "Podpůrné klinické informace"
+* section[supportingInformation].text.status = #generated
+* section[supportingInformation] insert CzechNarrative([[<p>Chronické onemocnění ledvin ve stadiu 4. Laboratorní výsledky ze dne 28. srpna 2026: eGFR 24 ml/min/1,73 m²; kreatinin v séru 245 µmol/l.</p>]])
 * section[supportingInformation].entry[0] = Reference(Observation-eGFRExample)
 * section[supportingInformation].entry[1] = Reference(Observation-CreatinineExample)
 * section[supportingInformation].entry[2] = Reference(NephrologyCondition-CKDStage4)
