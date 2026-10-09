@@ -4,12 +4,12 @@
 # see: https://fshschool.org/docs/sushi/configuration/.
 #
 id: hl7.fhir.cz.order
-canonical: https://hl7.cz/fhir/order 
+canonical: https://hl7.cz/fhir/order
 name: HL7CzOrderImplementationGuide
 title: HL7 Czech Order Implementation Guide
 description: HL7 Czech Order Implementation Guide
 status: draft # draft | active | retired | unknown
-version: 0.0.4
+version: 1.0.0
 language: cs
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
@@ -148,14 +148,15 @@ pages:
 #
 parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   # Keep Czech section narratives when rendering document Bundles.
-  i18n-default-lang: cs
+  # i18n-default-lang: cs # lze použít až po lokalizaci toolingu jinak generuje zmršené IG bez přeložených informací
   special-url:
-    - https://vzp.cz/cis/vykony
-    - urn:oid:1.2.203.7898.1.5
-    - https://terminology.uzis.cz/CodeSystem/Mkn10_5
-    - https://ncez.mzcr.cz/terminology/ValueSet/ft-category-service-request
+    - https://ncez.mzcr.cz/terminology/ValueSet/loinc-vital-signs
+  #  - https://vzp.cz/cis/vykony
+  #  - urn:oid:1.2.203.7898.1.5
+  #  - https://uzis.cz/terminology/CodeSystem/Mkn10_5
+  #  - https://ncez.mzcr.cz/terminology/ValueSet/ft-category-service-request
     - https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs
-    - https://ncez.mzcr.cz/terminology/ValueSet/cz-anthropometric-metric
+  #  - https://ncez.mzcr.cz/terminology/ValueSet/cz-anthropometric-metric
     - https://ncez.mzcr.cz/terminology/ValueSet/sct-vital-signs
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-type
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-value
@@ -326,7 +327,7 @@ groups:
     resources:
       - StructureDefinition/LMKOrderCz
       - StructureDefinition/LMKOrderCompleteCz
-  
+
   czech-logical-model-ft-order:
     name: Logický model FT žádanky
     description: FT-žádanka specifické logické modely.
@@ -360,14 +361,14 @@ groups:
 #     resources:
 #       - StructureDefinition/LMEnBodyKOrder
 #       - StructureDefinition/LMEnKOrderDataElementsCz
-#       
+#
 #   english-logical-model-ft-order:
 #     name: English logical model FT order
 #     description: FT-order specific logical model resources.
 #     resources:
 #       - StructureDefinition/LMEnBodyFTOrder
 #       - StructureDefinition/LMEnFTOrderDataElementsCz
-#        
+#
 #
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

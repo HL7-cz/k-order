@@ -22,7 +22,7 @@ Description: "The anthropometric observation must contain either a value or a da
 Severity: #error
 Expression: "value.exists() or dataAbsentReason.exists()"
 
-Profile: CZ_Anthropometric_Test_Result
+Profile: CZ_VitalSign
 Parent: CZ_MedicalTestResultCore
 Id: cz-anthropometric-test-result
 Title: "Anthropometric Test Result (CZ)"

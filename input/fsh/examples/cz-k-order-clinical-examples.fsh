@@ -14,7 +14,7 @@ EN: Rapidly changing pigmented lesion on the back.
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#differential
 * subject = Reference(Patient-Novak-Petr)
 * code.coding[0] = $mkn10#D485 "Novotvar NNCH - kůže"
-* code.text = "Rychle se menici pigmentovy utvar na zadech"
+* code.text = "Rychle se měnící pigmentový útvar na zádech"
 
 Instance: Practitioner-Dermatologist
 InstanceOf: CZ_PractitionerCore

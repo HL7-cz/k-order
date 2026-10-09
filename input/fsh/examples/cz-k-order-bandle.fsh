@@ -32,7 +32,7 @@ Usage: #inline
 * section[carePlan].text.status = #generated
 * section[carePlan] insert CzechNarrative([[Kontrola u odesílajícího lékaře po dokončení vyšetření.]])
 
-* identifier.system = "http://example.cz/fhir/Composition"
+* identifier.system = "http://example.org/fhir/Composition"
 * identifier.value = "KORD-COMP-2025-001"
 
 // ------------------------- Condition -------------------------------------
@@ -121,49 +121,49 @@ Usage: #example
 * identifier.system = "https://hospital.example.cz/korder"
 * identifier.value = "KORD-2025-000123"
 
-* entry[0].fullUrl = "https://example.cz/fhir/Composition/KOrderCompositionExample"
+* entry[0].fullUrl = "https://example.org/fhir/Composition/KOrderCompositionExample"
 * entry[0].resource = KOrderCompositionExample
 
-* entry[+].fullUrl = "https://example.cz/fhir/Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
+* entry[+].fullUrl = "https://example.org/fhir/Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
 * entry[=].resource = Patient-Novak-Petr
 
-* entry[+].fullUrl = "https://example.cz/fhir/Practitioner/a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
+* entry[+].fullUrl = "https://example.org/fhir/Practitioner/a81e74c9-fe94-4eb1-9233-4c8f0b2d4e3a"
 * entry[=].resource = Practitioner-Author
 
-* entry[+].fullUrl = "https://example.cz/fhir/PractitionerRole/2b7e9637-5018-4542-9faf-d5abdee7b849"
+* entry[+].fullUrl = "https://example.org/fhir/PractitionerRole/2b7e9637-5018-4542-9faf-d5abdee7b849"
 * entry[=].resource = Practitioner-Author-detail
 
-* entry[+].fullUrl = "https://example.cz/fhir/Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+* entry[+].fullUrl = "https://example.org/fhir/Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
 * entry[=].resource = Organization-1
 
-* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-Insurance111"
+* entry[+].fullUrl = "https://example.org/fhir/Organization/Organization-Insurance111"
 * entry[=].resource = Organization-Insurance111
 
-* entry[+].fullUrl = "https://example.cz/fhir/Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
+* entry[+].fullUrl = "https://example.org/fhir/Organization/af2b3114-e872-43b9-9875-cceb39122f7f"
 * entry[=].resource = Organization-L1-Odd
 
-* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-PulmonologyProvider"
+* entry[+].fullUrl = "https://example.org/fhir/Organization/Organization-PulmonologyProvider"
 * entry[=].resource = Organization-PulmonologyProvider
 
-* entry[+].fullUrl = "https://example.cz/fhir/Condition/KOrderCondition-Main"
+* entry[+].fullUrl = "https://example.org/fhir/Condition/KOrderCondition-Main"
 * entry[=].resource = KOrderCondition-Main
 
-* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/KOrderServiceRequest-1"
+* entry[+].fullUrl = "https://example.org/fhir/ServiceRequest/KOrderServiceRequest-1"
 * entry[=].resource = KOrderServiceRequest-1
 
-* entry[+].fullUrl = "https://example.cz/fhir/ServiceRequest/KOrderServiceRequest-2"
+* entry[+].fullUrl = "https://example.org/fhir/ServiceRequest/KOrderServiceRequest-2"
 * entry[=].resource = KOrderServiceRequest-2
 
-* entry[+].fullUrl = "https://example.cz/fhir/Coverage/KOrderCoverage-Example"
+* entry[+].fullUrl = "https://example.org/fhir/Coverage/KOrderCoverage-Example"
 * entry[=].resource = KOrderCoverage-Example
 
-* entry[+].fullUrl = "https://example.cz/fhir/Practitioner/Practitioner-Pulmonologist"
+* entry[+].fullUrl = "https://example.org/fhir/Practitioner/Practitioner-Pulmonologist"
 * entry[=].resource = Practitioner-Pulmonologist
 
-* entry[+].fullUrl = "https://example.cz/fhir/PractitionerRole/PractitionerRole-Pulmonologist"
+* entry[+].fullUrl = "https://example.org/fhir/PractitionerRole/PractitionerRole-Pulmonologist"
 * entry[=].resource = PractitionerRole-Pulmonologist
 
-* entry[+].fullUrl = "https://example.cz/fhir/Organization/Organization-PulmonologyClinic"
+* entry[+].fullUrl = "https://example.org/fhir/Organization/Organization-PulmonologyClinic"
 * entry[=].resource = Organization-PulmonologyClinic
 
 Instance: Patient-Novak-Petr

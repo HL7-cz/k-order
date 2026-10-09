@@ -137,7 +137,7 @@ Condition a DocumentReference.
   * entry contains
       anthropometric 0..* and
       mobility 0..1
-  * entry[anthropometric] only Reference(CZ_Anthropometric_Test_Result)
+  * entry[anthropometric] only Reference(CZ_VitalSign)
   * entry[mobility] only Reference(CZ_PatientMobility)
 
 * section[attachments]

@@ -139,7 +139,7 @@ Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
 * supportingInfo contains
     anthropometric 0..* and
     mobility 0..1
-* supportingInfo[anthropometric] only Reference(CZ_Anthropometric_Test_Result)
+* supportingInfo[anthropometric] only Reference(CZ_VitalSign)
 * supportingInfo[mobility] only Reference(CZ_PatientMobility)
 * insert OrderServiceRequestSupportingInformation
 // code 1..1 permits a coded concept or a textual description in code.text.

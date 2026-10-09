@@ -11,11 +11,10 @@
 # the cross-version R5 Composition profile derives from the R4 Composition profile.
 %among choices: http://hl7.org/fhir/5.0/StructureDefinition/profile-Composition|0.1.0, http://hl7.org/fhir/StructureDefinition/Composition|4.0.1%
 
-# valueString is permitted by the open type slicing of Observation.value[x].
-%This element does not match any known slice defined in the profile https://hl7.cz/fhir/img/StructureDefinition/cz-observation-result-imaging|1.0.0%
-
-# The same expected open-slicing information inherited from CZ Core.
-%This element does not match any known slice defined in the profile https://hl7.cz/fhir/core/StructureDefinition/medicalTestResult-cz-core|1.0.0%
+# Open slicing permits entries that do not match a named slice (for example,
+# Conditions in supportingInformation and general observations). Suppress this
+# informational message across profiles; slice validation errors remain visible.
+%This element does not match any known slice defined in the profile %
 
 # Czech implementations use the national MKN-10 code system.
 # The inherited eHDSI ICD-10 additional binding applies only to cross-border exchange.
@@ -187,3 +186,10 @@ WARNING: 5: The HTML fragment 'expansion-params.xhtml' is not included anywhere 
 %Pinned the version of http://terminology.hl7.org/ValueSet/v2-0276 to 3.0.0 from choices of 2.0.0 (hl7.terminology.r4#6.3.0), 3.0.0 (hl7.terminology.r4#7.1.0)%
 %Pinned the version of http://hl7.org/fhir/StructureDefinition/flag-priority to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
 %Pinned the version of http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)%
+
+# Expected overlap of CZ_MedicalDevice and CZ_DeviceObserver.
+# A device may legitimately conform to both profiles. Medical devices and implants
+# use CZ_MedicalDevice; observers and performers use CZ_DeviceObserver.
+# Both profiles remain allowed in Bundle.entry[device].resource.
+# Suppress only this profile-pair ambiguity; keep other warnings and errors visible.
+%Found multiple matching profiles among 2 choices: https://hl7.cz/fhir/core/StructureDefinition/cz-device-observer, https://hl7.cz/fhir/core/StructureDefinition/cz-medical-device%

@@ -1,0 +1,17 @@
+{
+  "package-id": "hl7.fhir.cz.order",
+  "version": "1.0.0",
+  "path": "https://hl7.cz/fhir/order/1.0.0",
+  "mode": "milestone",
+  "status": "trial-use",
+  "sequence": "STU 1",
+  "first": true,
+  "ci-build": "https://build.fhir.org/ig/HL7-cz/k-order",
+  "category": "Order",
+  "introduction": "This guide defines FHIR R4 electronic referral documents in the Czech national context for consultation orders (type K) and physiotherapy or occupational therapy orders (type FT). It specifies logical models, mappings to FHIR resources and profiles, document Bundle structures, value sets and examples.",
+  "title": "Czech FHIR Order",
+  "registry-description": "Czech national FHIR R4 implementation guide for consultation (K) and physiotherapy or occupational therapy (FT) order documents. Laboratory and imaging orders are covered by separate implementation guides.",
+  "registry-country": "cz",
+  "registry-authority": "HL7 Czech Republic",
+  "desc": "First STU 1 release of the Czech Order FHIR Implementation Guide, covering consultation (K) and physiotherapy or occupational therapy (FT) order documents."
+}
