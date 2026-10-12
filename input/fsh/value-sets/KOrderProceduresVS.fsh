@@ -7,8 +7,14 @@ Description: "SNOMED CT procedury pro požadované konziliární služby a konzu
 * ^publisher = "HL7 CZ"
 * insert SNOMEDCopyrightForVS
 
+// Consultation (konzultace) včetně podřazených konceptů
 * include codes from system $sctCZ where concept is-a #11429006
-* include $sctCZ#183444007 //"doporučení k další péči"
+// Patient referral (doporučení pacienta) včetně podřazených konceptů
+* include codes from system $sctCZ where concept is-a #3457005
+// Transfer of care (předání péče)
+* include $sctCZ#308292007 "Transfer of care"
+// Transfer of care to hospital (předání péče do nemocnice)
+* include $sctCZ#429202003 "Transfer of care to hospital"
 /* 
 * exclude $sctCZ#11429006 //"Consultation"
 * exclude $sctCZ#726007 //"Pathology consultation, comprehensive, records and specimen with report"
