@@ -9,6 +9,7 @@ Description: "SNOMED CT procedury pro požadované konziliární služby a konzu
 
 * include codes from system $sctCZ where concept is-a #11429006
 * include $sctCZ#183444007 //"doporučení k další péči"
+/* 
 * exclude $sctCZ#11429006 //"Consultation"
 * exclude $sctCZ#726007 //"Pathology consultation, comprehensive, records and specimen with report"
 * exclude $sctCZ#28191001 //"Consultation and report by radiologist"
@@ -36,3 +37,4 @@ Description: "SNOMED CT procedury pro požadované konziliární služby a konzu
 * exclude codes from system $sctCZ where concept is-a #698311009  // konzultace k výkonu asistované reprodukce
 * exclude codes from system $sctCZ where concept is-a #698312002  // konzultace k malému abdominálnímu operačnímu výkonu - Consultation for minor abdominal procedure
 * exclude codes from system $sctCZ where concept is-a #698313007  // konzultace k malému operačnímu výkonu
+*/ // V této verzi publikace zatím dovoleny všechny procedury, včetně obecných pojmů. V budoucnu bude nutné omezit na konkrétní výkony.

@@ -9,7 +9,7 @@ Description: "SNOMED CT procedury pro požadované fyzioterapeutické a rehabili
 * ^url = "https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs"
 
 * include codes from system $sctCZ where concept is-a #91251008
-// Obecný pojem je povolen pro žádanku, ve které konkrétní výkony určí fyzioterapeut.
+/* Obecný pojem je povolen pro žádanku, ve které konkrétní výkony určí fyzioterapeut.
 * exclude $sctCZ#115985003 
 * exclude codes from system $sctCZ where concept is-a #17395000
 * exclude codes from system $sctCZ where concept is-a #80504003
@@ -18,3 +18,4 @@ Description: "SNOMED CT procedury pro požadované fyzioterapeutické a rehabili
 * exclude codes from system $sctCZ where concept is-a #183281008
 * exclude codes from system $sctCZ where concept is-a #78795004
 * exclude codes from system $sctCZ where concept is-a #28443006
+*/ //V této verzi publikace zatím dovoleny všechny procedury, včetně obecných pojmů. V budoucnu bude nutné omezit na konkrétní výkony.
