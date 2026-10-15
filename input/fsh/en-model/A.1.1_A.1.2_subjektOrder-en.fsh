@@ -3,7 +3,7 @@ Id: LMEnSubjectOrderCz
 Title: "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject"
 Description: """Order - Order subject data element - A.1.1 and A.1.2"""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * subjectIdentification 1..1 Base "A.1.1 - Identification of the patient/subject" """Identification of the patient/subject"""
 * subjectIdentification.given 1..* string "A.1.1.1 - Given name" """The given name/first name of the patient (also known as forename or first name). This field can contain more than one element."""

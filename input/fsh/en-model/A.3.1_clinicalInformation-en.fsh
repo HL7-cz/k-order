@@ -3,7 +3,7 @@ Id: LMEnClinicalInformationCz
 Title: "A.3.1 - Clinical Information (Medical History)"
 Description: """Information and data communicated to the performing site that may affect execution of the order or interpretation of the results."""
 
-* insert SetFmmandStatusRule( 1, draft)
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * clinicalInformationText 0..1 string "A.3.1.1 - Clinical information in free text" """Clinical information necessary for correct execution of the order or interpretation of the results."""
 * clinicalInformationCode 0..1 CodeableConcept "A.3.1.2 - Clinical information (medical history), formalized" """Formalized clinical information (medical history)."""

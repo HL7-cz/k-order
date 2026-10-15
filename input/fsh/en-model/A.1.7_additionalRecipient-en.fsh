@@ -3,7 +3,7 @@ Id: LMEnAdditionalRecipientCz
 Title: "A.1.7 - Additional Recipient"
 Description: """Additional Recipient (Additional recipients of the finding in addition to the author)"""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * identifier 1..* Identifier "A.1.7.1 - Additional Recipient identifier" """The health professional identification number. Either an internal identifier assigned by a healthcare provider institution or (preferably) a national health professional ID such as the licence or registration number. Multiple identifiers could be provided."""
 * name 1..1 HumanName "A.1.7.2 - Additional Recipient name" """Person name [the structure of the name will be the same as for the patient (given name, family name / surname)]."""

@@ -2,9 +2,9 @@ Logical: LMKOrderCz
 Id: LMKOrderCz
 Title: "K-žádanka"
 Description: """Kompletní logický model K-žádanky obsahující hlavičku dokumentu,
-tělo žádanky, prezentovanou formu a přílohy.""" 
+tělo žádanky, prezentovanou formu a přílohy."""
 
-* insert SetFmmandStatusRule ( 0, draft )
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * hlavicka 1..1 LMHeaderOrder
   "A.1 - Hlavička"

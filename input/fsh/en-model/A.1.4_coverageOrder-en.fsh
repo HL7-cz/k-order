@@ -3,7 +3,7 @@ Id: LMEnCoverageOrderCz
 Title: "A.1.4 - Information about coverage"
 Description: """Coverage information - Information about method of coverage, payer identification data and additional information"""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * method 1..1 CodeableConcept "A.1.4.1 - Method of coverage" """Method of payment for the order (health coverage, paid by the patient, other)"""
 * informationPayor 0..1 Base "A.1.4.2 - Information about payor" """Payer identification data and additional information regarding reimbursement other than from health coverage. Identification data includes the identifier, name of the organization or name of the payer, address of the payer and telecommunications connection."""

@@ -1,9 +1,9 @@
 Logical: LMEnHeaderOrderCz
 Id: LMEnHeaderOrder
-Title: "A.1 Order header data elements"				
-Description:  """Order header data elements"""		
+Title: "A.1 Order header data elements"
+Description:  """Order header data elements"""
 
-* insert SetFmmandStatusRule( 1, draft)	
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * subject 1..1 LMEnSubjectOrderCz "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject" """Identification of the patient/subject and Patient/subject related contact information"""
 * payer 1..1 LMEnPayerOrderCz "A.1.3 - Health coverage and payment information - Health coverage information is not always required, however, in some jurisdictions, the coverage number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care." """Health coverage and payment information - Health coverage information is not always required, however, in some jurisdictions, the coverage number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care."""

@@ -3,7 +3,7 @@ Id: LMEnAppointmentCz
 Title: "A.2.5 - Appointment"
 Description: """Information about the booked examination appointment (if reserved)."""
 
-* insert SetFmmandStatusRule ( 0, draft )
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * identifier 0..1 Identifier "A.2.5.1 - Appointment ID" """Identifier of the appointment record."""
 * status 1..1 CodeableConcept "A.2.5.2 - Appointment status" """Status of appointment (proposed, confirmed, cancelled). Preferred system: hl7:valueset-appointmentstatus."""

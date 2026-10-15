@@ -2,9 +2,9 @@ Logical: LMFTOrderCz
 Id: LMFTOrderCz
 Title: "FT-žádanka"
 Description: """Kompletní logický model FT-žádanky obsahující hlavičku dokumentu,
-tělo žádanky, prezentovanou formu a přílohy.""" 
+tělo žádanky, prezentovanou formu a přílohy."""
 
-* insert SetFmmandStatusRule ( 0, draft )
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * hlavicka 1..1 LMHeaderOrder
   "A.1 - Hlavička"
