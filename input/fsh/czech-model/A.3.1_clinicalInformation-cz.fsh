@@ -1,9 +1,9 @@
-Logical: LMCzOrderClinicalInformationCz				
+Logical: LMCzOrderClinicalInformationCz
 Id: LMClinicalInformationCz
-Title: "A.3.1 - Klinické informace / podpůrné informace"				
-Description:  """Informace a údaje sdělované provádějícímu pracovišti, které mají vliv na provedení žádanky nebo interpretaci výsledků."""		
+Title: "A.3.1 - Klinické informace / podpůrné informace"
+Description:  """Informace a údaje sdělované provádějícímu pracovišti, které mají vliv na provedení žádanky nebo interpretaci výsledků."""
 
-* insert SetFmmandStatusRule( 1, draft)	
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * biometrickeUdaje 0..1 Base "A.3.1.1 - Biometrické údaje" """Biometrické údaje relevantní pro provedení žádanky."""
 * biometrickeUdaje.vaha 0..1 Base "A.3.1.1.1 - Váha" """Údaj o tělesné hmotnosti pacienta."""

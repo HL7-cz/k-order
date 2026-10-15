@@ -3,7 +3,7 @@ Id: LMCoverageBodyCz
 Title: "A.2.4 - Úhrada"
 Description: """Informace o způsobu úhrady objednávky vyšetření"""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * zpusob 1..1 CodeableConcept "A.2.4.1 - Způsob úhrady" """Method of payment for the order (health coverage, paid by the patient, other)"""
 * informaceOPlatci 0..1 Base "A.2.4.2 - Informace o plátci" """Payer identification data and additional information regarding reimbursement other than from health coverage. Identification data includes the identifier, name of the organization or name of the payer, address of the payer and telecommunications connection."""

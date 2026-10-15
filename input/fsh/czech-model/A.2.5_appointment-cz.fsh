@@ -4,7 +4,7 @@ Id: LMAppointmentCz
 Title: "A.2.5 - Termín návštěvy"
 Description: """Informace o objednaném termínu vyšetření (pokud byl termín rezervován)"""
 
-* insert SetFmmandStatusRule ( 0, draft )
+* insert SetFmmandStatusRule( 2, trial-use )
 
 * id 0..1 Identifier "A.2.5.1 - Termín ID" """Identifikátor záznamu termínu návštěvy"""
 * stav 1..1 CodeableConcept "A.2.5.2 - Stav termínu" """Stav termínu (navržený, potvrzený, zrušený).
