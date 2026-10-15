@@ -3,7 +3,7 @@ Id: LMPayerOrderCz
 Title: "A.1.3 - Zdravotní pojištění"
 Description: """Informace o zdravotním pojištění."""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * kod 0..1 Identifier "A.1.4.1 - Kód zdravotní pojišťovny" """Kód zdravotní pojišťovny."""
 * nazev 0..1 string "A.1.3.2 - Název zdravotní pojišťovny" """Název zdravotní pojišťovny"""

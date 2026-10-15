@@ -4,7 +4,7 @@ Id: LMSubjectOrderCz
 Title: "A.1.1 - Identifikace a A.1.2 - Kontaktní informace Pacienta/subjektu"
 Description: """Identifikace pacienta a kontaktní informace pacienta"""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * identifikace 1..1 Base "A.1.1 - Identifikace pacienta/subjektu" """Identifikace pacienta/subjektu"""
 * identifikace.jmeno 1..* string "A.1.1.1 - Jméno" """Křestní jméno pacienta."""

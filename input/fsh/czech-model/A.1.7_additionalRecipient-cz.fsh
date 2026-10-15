@@ -3,7 +3,7 @@ Id: LMAdditionalRecipientCz
 Title: "A.1.7 - Příjemce nálezu"
 Description: """Příjemce nálezu (Dodateční příjemci nálezu kromě objednatele)"""
 
-* insert SetFmmandStatusRule ( 1, draft )
+* insert SetFmmandStatusRule ( 2, trial-use )
 
 * identifikator 0..* Identifier "A.1.7.1 - Identifikátor příjemce" """I Identifikátor, který se vztahuje na tuto osobu v této roli."""
 * jmeno 0..1 HumanName "A.1.7.2 - Jméno příjemce" """Jméno a příjmení osoby příjemce."""
