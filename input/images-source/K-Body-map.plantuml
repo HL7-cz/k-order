@@ -54,13 +54,13 @@ class "CZ_FlagPatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefin
 "LMCzBodyKOrderCz" <|. "CZ_FlagPatientCore"
 "CZ_AllergyIntolerance" -d[hidden]-> "CZ_FlagPatientCore"
 
-class "CZ_Anthropometric_Test_Result" <<Profile>> [[StructureDefinition-cz-anthropometric-test-result.html]]
-"LMCzBodyKOrderCz" <|. "CZ_Anthropometric_Test_Result"
-"CZ_FlagPatientCore" -d[hidden]-> "CZ_Anthropometric_Test_Result"
+class "CZ_VitalSign" <<Profile>> [[StructureDefinition-cz-anthropometric-test-result.html]]
+"LMCzBodyKOrderCz" <|. "CZ_VitalSign"
+"CZ_FlagPatientCore" -d[hidden]-> "CZ_VitalSign"
 
 class "KOrderCompositionCz" <<Profile>> [[StructureDefinition-k-order-composition-cz.html]]
 "LMCzBodyKOrderCz" <|. "KOrderCompositionCz"
-"CZ_Anthropometric_Test_Result" -d[hidden]-> "KOrderCompositionCz"
+"CZ_VitalSign" -d[hidden]-> "KOrderCompositionCz"
 
 class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
 "LMCzBodyKOrderCz" <|. "BundleOrderCz"

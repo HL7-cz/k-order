@@ -15,28 +15,12 @@ Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
 * . ^short = "FT ServiceRequest"
 * . ^definition = "ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon. Konkrétní výkony může určit fyzioterapeut; počet není povinný. Více samostatných požadavků se předává jako více ServiceRequest v jedné Composition."
 
-* insert SetFmmandStatusRule ( 0, draft )
-
-// --------------------------- identifiers -------------------------------------
-* identifier 1..* MS
-* identifier.system 1..1 MS
-* identifier.value 1..1 MS
-* identifier.system = "urn:ietf:rfc:4122" (exactly)
-
-// --------------------------- extensions --------------------------------------
-* extension contains
-    $information-recipient-url named informationRecipient 0..*
-    and CompositionBasedOnOrderOrRequisition named basedOnComposition 0..*
-
-* extension[informationRecipient].valueReference only Reference(
-    CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
-    CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
-)
+* insert SetFmmandStatusRule( 2, trial-use )
 * extension contains $bodySite-reference named bodySite 0..1
 * extension[bodySite].valueReference only Reference(BodyStructureCzCore)
 
 // NOTE: zachovávám název basedOnComposition, ale opravím typ na Composition (pokud máte extension takto myšlenou)
-* extension[basedOnComposition].valueReference only Reference(FTServiceRequestCz)
+//* extension[basedOnComposition].valueReference only Reference(FTServiceRequestCz)
 
 // --------------------------- lifecycle / status / intent ---------------------
 * status 1..1 MS
@@ -123,11 +107,11 @@ Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
 
 // --------------------------- workflow links ----------------------------------
 * basedOn 0..*
-* basedOn only Reference(ServiceRequest)
-
+* basedOn only Reference(ServiceRequest or CZ_CarePlanCore)
+* replaces only Reference(FTServiceRequestCz or ServiceRequest)
 // --------------------------- body site --------------------------------
 * bodySite 0..1
-* bodySite from http://hl7.org/fhir/ValueSet/body-site (preferred)
+* bodySite from $sctBodySite (required)
 
 // --------------------------- other resources --------------------------------
 * supportingInfo 0..*

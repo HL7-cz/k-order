@@ -111,10 +111,9 @@ EN: Role of the patient's registering general practitioner.
 * practitioner = Reference(Practitioner-Author)
 * organization = Reference(Organization-L1-Odd)
 * code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
-* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
-* specialty[0].coding[0].code = #001
-* specialty[0].coding[0].display = "Pracoviště praktického lékaře pro dospělé"
-* specialty[0].text = "Všeobecné praktické lékařství"
+* specialty[0] = $vzp-odbornost#001 "Pracoviště praktického lékaře pro dospělé"
+* specialty[0].text = "Vseobecne prakticke lekarstvi"
+* specialty[+] = $sctCZ#408443003
 
 Instance: Observation-FTHipMobility
 InstanceOf: CZ_PatientMobility
@@ -222,10 +221,11 @@ EN: Orthopedist role at the orthopedic clinic.
 * practitioner = Reference(Practitioner-Orthopedist)
 * organization = Reference(Organization-OrthopedicsClinic)
 * code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
-* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
+* specialty[0].coding[0].system = $vzp-odbornost
 * specialty[0].coding[0].code = #606
 * specialty[0].coding[0].display = "Pracoviště ortopedie"
 * specialty[0].text = "Ortopedie"
+* specialty[+] = $sctCZ#1345026002 "ortopedie - specializace"
 
 Instance: Coverage-FTHipRehabilitation
 InstanceOf: CZ_CoverageOrder
@@ -768,10 +768,11 @@ EN: Pediatrician role at the pediatric clinic.
 * practitioner = Reference(Practitioner-Pediatrician)
 * organization = Reference(Organization-PediatricsClinic)
 * code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
-* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
+* specialty[0].coding[0].system = $vzp-odbornost
 * specialty[0].coding[0].code = #002
 * specialty[0].coding[0].display = "Pracoviště praktického lékaře pro děti a dorost"
 * specialty[0].text = "Praktické lékařství pro děti a dorost"
+* specialty[+] = $sctCZ#24251000087109
 
 Instance: Coverage-FTPediatricPosture
 InstanceOf: CZ_CoverageOrder

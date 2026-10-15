@@ -7,9 +7,14 @@ Description: "SNOMED CT procedury pro požadované konziliární služby a konzu
 * ^publisher = "HL7 CZ"
 * insert SNOMEDCopyrightForVS
 
-* include codes from system $sctCZ where concept is-a #11429006
-* include $sctCZ#183444007 //"doporučení k další péči"
-/* 
+// * include codes from system $sctCZ where concept is-a #11429006 //"Consultation"
+// * include $sctCZ#183444007 //"doporučení k další péči"
+
+// Zvoleny jsou všechny procedury s výjimkou imagingu a FT protože očekáváme, že lze na K žádance objednat cokoli
+* include codes from system $sctCZ where concept is-a #71388002 //"Procedure"
+* exclude codes from valueset FTOrderProceduresVS
+* exclude codes from system $sctCZ where concept is-a #363679005 // Imaging procedures
+/*
 * exclude $sctCZ#11429006 //"Consultation"
 * exclude $sctCZ#726007 //"Pathology consultation, comprehensive, records and specimen with report"
 * exclude $sctCZ#28191001 //"Consultation and report by radiologist"

@@ -69,6 +69,7 @@ EN: Request for a cardiology consultation.
 * code.text = "Kardiologicke konziliarni vysetreni"
 * code.coding[+] = $sctCZ#185387006 "konzultace s novým pacientem"
 * reasonReference[0] = Reference(KOrderCondition-Main)
+
 Instance: KOrderServiceRequest-2
 InstanceOf: KOrderServiceRequestCz
 Usage: #example
@@ -88,6 +89,7 @@ EN: Request for echocardiography.
 * code.text = "Echokardiograficke vysetreni"
 * code.coding[+] = $sctCZ#40701008 "echokardiografie"
 * reasonReference[0] = Reference(KOrderCondition-Main)
+
 // ------------------------- Coverage ---------------------------------------
 Instance: KOrderCoverage-Example
 InstanceOf: CZ_CoverageOrder
@@ -103,7 +105,6 @@ EN: Patient health insurance coverage.
 * status = #active
 * beneficiary = Reference(Patient-Novak-Petr)
 * payor[0] = Reference(Organization-Insurance111)
-
 
 // ------------------------- Bundle (K-Order) -------------------------------
 Instance: BundleKOrderExample
@@ -218,10 +219,9 @@ EN: Healthcare practitioner role detail.
 * practitioner = Reference(Practitioner-Author) "MUDr. Ivan Andel"
 * organization = Reference(Organization-L1-Odd) "Ordinace praktickeho lekare"
 * code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
-* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
-* specialty[0].coding[0].code = #001
-* specialty[0].coding[0].display = "Pracoviště praktického lékaře pro dospělé"
+* specialty[0] = $vzp-odbornost#001 "Pracoviště praktického lékaře pro dospělé"
 * specialty[0].text = "Vseobecne prakticke lekarstvi"
+* specialty[+] = $sctCZ#408443003
 * insert CzechNarrative([[MUDr. Ivan Andel, vseobecny prakticky lekar]])
 * text.status = #generated
 
@@ -365,10 +365,11 @@ EN: Role of the additional result recipient.
 * practitioner = Reference(Practitioner-Pulmonologist)
 * organization = Reference(Organization-PulmonologyClinic)
 * code = $cz-nrzp_povolani#L1 "Lékař po absolvování odborné způsobilosti (L1)"
-* specialty[0].coding[0].system = "https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost"
+* specialty[0].coding[0].system = $vzp-odbornost
 * specialty[0].coding[0].code = #205
 * specialty[0].coding[0].display = "Pracoviště tuberkulózy a respiračních nemocí"
 * specialty[0].text = "Pneumologie a ftizeologie"
+* specialty[+] = $sctCZ#418112009 "pneumologie"
 
 Instance: Organization-PulmonologyClinic
 InstanceOf: CZ_OrganizationCore

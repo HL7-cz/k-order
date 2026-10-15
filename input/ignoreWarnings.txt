@@ -20,6 +20,10 @@
 # The inherited eHDSI ICD-10 additional binding applies only to cross-border exchange.
 %None of the codings provided are in the value set 'eHDSI Illness and Disorder' (http://terminology.ehdsi.eu/ValueSet/eHDSIIllnessandDisorder|0.2.0) specified in an additional binding, and a coding is recommended to come from this value set%
 
+# Czech contractual specialties use VZP codes rather than the preferred FHIR practice codes.
+# Suppress only the preferred-binding message for this ValueSet and VZP code system.
+%None of the codings provided are in the value set 'Practice Setting Code Value Set' (http://hl7.org/fhir/ValueSet/c80-practice-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://ncez.mzcr.cz/terminology/CodeSystem/vzp-smluvni-odbornost#%
+
 # A definition for CodeSystem or ValueSet 'url' could not be found
 # A definition for CodeSystem 'http://snomed.info/sct' could not be found, so the code cannot be validated
 # A definition for CodeSystem 'https://www.dastacr.cz/dasta/hypertext/DSBFV.htm' could not be found, so the code cannot be validated

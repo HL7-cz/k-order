@@ -65,6 +65,7 @@ EN: Dermatologist role in the pigmented lesion clinic.
 * specialty[0].coding[0].code = #404
 * specialty[0].coding[0].display = "Pracoviště dermatovenerologie"
 * specialty[0].text = "Dermatovenerologie"
+* specialty[+] = $sctCZ#394582007
 
 Instance: DermatologyServiceRequest-Urgent
 InstanceOf: KOrderServiceRequestCz
@@ -246,6 +247,7 @@ EN: Nephrologist role in the nephrology clinic.
 * specialty[0].coding[0].code = #108
 * specialty[0].coding[0].display = "Pracoviště nefrologie"
 * specialty[0].text = "Nefrologie"
+* specialty[+] = $sctCZ#394589003 "nefrologie"
 
 Instance: Observation-eGFRExample
 InstanceOf: CZ_MedicalTestResultCore

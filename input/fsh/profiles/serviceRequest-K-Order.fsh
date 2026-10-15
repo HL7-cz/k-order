@@ -13,25 +13,11 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * . ^short = "K-order ServiceRequest"
 * . ^definition = "ServiceRequest reprezentuje požadavek na vyšetření nebo výkon v rámci K-order."
 
-* insert SetFmmandStatusRule ( 0, draft )
+* insert SetFmmandStatusRule( 2, trial-use )
 
-// --------------------------- identifiers -------------------------------------
-* identifier 1..* MS
-* identifier.system 1..1 MS
-* identifier.value 1..1 MS
-* identifier.system = "urn:ietf:rfc:4122" (exactly)
-
-// --------------------------- extensions --------------------------------------
-* extension contains
-    $information-recipient-url named informationRecipient 0..*
-    and CompositionBasedOnOrderOrRequisition named basedOnComposition 0..*
-
-* extension[informationRecipient].valueReference only Reference(
-    CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or
-    CZ_RelatedPersonCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
-)
-
-* extension[basedOnComposition].valueReference only Reference(KOrderServiceRequestCz)
+// --------------------------- extensions
+* extension contains $bodySite-reference named bodySite 0..1
+* extension[bodySite].valueReference only Reference(BodyStructureCzCore)
 
 // --------------------------- lifecycle / status / intent ---------------------
 * status 1..1 MS
@@ -84,17 +70,17 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- type / code / priority ---------------------------------
 
-* code 1..1 MS
+* code 1..1 //MS
 * code.coding from KOrderProceduresVS (preferred)
 * code ^short = "Požadované vyšetření/výkon"
 * code ^comment = "A hospital admission or transfer of care is a separate requested service, recorded in its own ServiceRequest.code. If no agreed code is available, use code.text; do not introduce a disposition extension or a local code list to represent the request."
 
-* priority 0..1 MS
+* priority 0..1 //MS
 // Česky překlad v lokalním VS KOrderPriorityVS
 //* priority from KOrderPriorityVS (required)
 
 // --------------------------- timing / quantity -------------------------------
-* occurrence[x] 0..1 MS
+* occurrence[x] 0..1 //MS
 
 
 // --------------------------- specimens ---------------------------------------
@@ -124,7 +110,8 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 
 // --------------------------- workflow links ----------------------------------
 * basedOn 0..*
-//* basedOn only Reference(KOrderServiceRequestCz)
+* basedOn only Reference(ServiceRequest or CZ_CarePlanCore or CZ_MedicationRequestCore)
+* replaces only Reference(KOrderServiceRequestCz or ServiceRequest)
 
 // code 1..1 permits a coded concept or a textual description in code.text.
 // subject only Reference(CZ_PatientCore) constrains the subject to a patient.
