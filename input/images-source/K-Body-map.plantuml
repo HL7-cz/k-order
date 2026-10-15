@@ -54,7 +54,7 @@ class "CZ_FlagPatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefin
 "LMCzBodyKOrderCz" <|. "CZ_FlagPatientCore"
 "CZ_AllergyIntolerance" -d[hidden]-> "CZ_FlagPatientCore"
 
-class "CZ_VitalSign" <<Profile>> [[StructureDefinition-cz-anthropometric-test-result.html]]
+class "CZ_VitalSign" <<Profile>> [[StructureDefinition-cz-vital-sign.html]]
 "LMCzBodyKOrderCz" <|. "CZ_VitalSign"
 "CZ_FlagPatientCore" -d[hidden]-> "CZ_VitalSign"
 
