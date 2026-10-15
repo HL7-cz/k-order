@@ -1,7 +1,7 @@
 Instance: KOrderBody2FHIRcz-cz
 InstanceOf: ConceptMap
 Usage: #definition
-* url = "https://hl7.cz/fhir/korder/ConceptMap/KOrderBody2FHIRcz-cz"
+* url = "https://hl7.cz/fhir/order/ConceptMap/KOrderBody2FHIRcz-cz"
 * name = "KOrderBody2FHIRcz"
 * title = "CZ K-order Body Model to this guide Map"
 * status = #draft
@@ -12,8 +12,8 @@ Usage: #definition
 // A.2.1.1 – Informace o objednávce
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/logKOrderInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/logKOrderInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
 
 
 * group[=].element[+].code = #detailyObjednavky.id
@@ -81,8 +81,8 @@ Usage: #definition
 // A.2.2 – Klinické zdůvodnění žádosti
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/logClinicalReasonKOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/logClinicalReasonKOrder"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
 
 * group[=].element[+].code = #textZduvodneni
 * group[=].element[=].display = "A.2.2 – Klinické zdůvodnění žádosti"
@@ -94,8 +94,8 @@ Usage: #definition
 // A.2.3 – Požadované vyšetření / výkony
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/logRequestedServiceKOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/logRequestedServiceKOrder"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
 
 
 * group[=].element[+].code = #typVysetreni
@@ -121,8 +121,8 @@ Usage: #definition
 // A.2.4 – Doporučení
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/logRecommendationKOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/logRecommendationKOrder"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
 
 
 * group[=].element[+].code = #doporuceniKam
@@ -141,13 +141,13 @@ Usage: #definition
 * group[=].element[=].target.comment =
   "Textové doplnění doporučení"
 
-  
+
 ///////////////////////////////////////////////////////////////////////////////
 // A.2.5 – Doplňující klinické informace → Composition sections
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/logAdditionalClinicalInfoKOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/logAdditionalClinicalInfoKOrder"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
 
 
 * group[=].element[+].code = #poznamka

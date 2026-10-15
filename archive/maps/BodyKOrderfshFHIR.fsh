@@ -1,7 +1,7 @@
 Instance: KOrderBody2FHIRcz-cz
 InstanceOf: ConceptMap
 Usage: #definition
-* url = "https://hl7.cz/fhir/korder/ConceptMap/KOrderBody2FHIRcz-cz"
+* url = "https://hl7.cz/fhir/order/ConceptMap/KOrderBody2FHIRcz-cz"
 * name = "KOrderBody2FHIRcz"
 * title = "CZ K-order Body Model to This Guide Map"
 * status = #draft
@@ -9,8 +9,8 @@ Usage: #definition
 * description = "CZ K-order Body (A.2-A.6) to FHIR mapping for ServiceRequest, Condition, DocumentReference, Provenance and Composition sections."
 
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMOrderInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMOrderInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
 
 ///////////////////////////////////////////////////////////////////////////////
 // A.2.1 - Detail objednávky
@@ -98,7 +98,7 @@ Usage: #definition
 // A.2.3 - Klinická událost
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalEventCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalEventCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_Encounter"
 
 * group[=].element[+].code = #klinickaUdalost
@@ -141,7 +141,7 @@ Usage: #definition
 // A.2.4 - Úhrada
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMCoverageBodyCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMCoverageBodyCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
 
 * group[=].element[+].code = #uhrada
@@ -234,7 +234,7 @@ Usage: #definition
 // A.2.5 - Termín návštěvy
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAppointmentCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMAppointmentCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/appointment-cz-core"
 
 * group[=].element[+].code = #terminNavstevy
@@ -334,8 +334,8 @@ Usage: #definition
 
 
 * group[=].element[=].target.comment = "Z účastníků Appointment vybrat reference na Location a po jejich rozřešení předat Location.address."
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-anthropometric-test-result"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/cz-anthropometric-test-result"
 
 * group[=].element[+].code = #biometrickeUdaje.vaha
 * group[=].element[=].display = "A.3.1.1.1 - Váha"
@@ -343,25 +343,25 @@ Usage: #definition
 
 * group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
 * group[=].element[=].target[0].equivalence = #relatedto
-* group[=].element[=].target[0].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[0].comment = "Reference(CZ_VitalSign). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
 * group[=].element[=].target[1].equivalence = #relatedto
-* group[=].element[=].target[1].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].comment = "Reference(CZ_VitalSign). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #biometrickeUdaje.vaha.hodnota
 * group[=].element[=].display = "A.3.1.1.1.1 - Hodnota"
-* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.valueQuantity
+* group[=].element[=].target.code = #CZ_VitalSign.valueQuantity
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #biometrickeUdaje.vaha.kod
 * group[=].element[=].display = "A.3.1.1.1.2 - Kód"
-* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.code
+* group[=].element[=].target.code = #CZ_VitalSign.code
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #biometrickeUdaje.vaha.datumCas
 * group[=].element[=].display = "A.3.1.1.1.3 - Datum a čas"
-* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.effectiveDateTime
+* group[=].element[=].target.code = #CZ_VitalSign.effectiveDateTime
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -370,8 +370,8 @@ Usage: #definition
 // A.3.1.1.2 - Výška
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-anthropometric-test-result"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/cz-anthropometric-test-result"
 
 * group[=].element[+].code = #biometrickeUdaje.vyska
 * group[=].element[=].display = "A.3.1.1.2 - Výška"
@@ -379,25 +379,25 @@ Usage: #definition
 
 * group[=].element[=].target[0].code = #Composition.section[supportingInformation].entry
 * group[=].element[=].target[0].equivalence = #relatedto
-* group[=].element[=].target[0].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[0].comment = "Reference(CZ_VitalSign). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[=].target[1].code = #ServiceRequest.supportingInfo
 * group[=].element[=].target[1].equivalence = #relatedto
-* group[=].element[=].target[1].comment = "Reference(CZ_Anthropometric_Test_Result). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
+* group[=].element[=].target[1].comment = "Reference(CZ_VitalSign). Composition (KOrderCompositionCz) a příslušný ServiceRequest odkazují na tutéž instanci; nevytvářet kopie."
 * group[=].element[+].code = #biometrickeUdaje.vyska.hodnota
 * group[=].element[=].display = "A.3.1.1.2.1 - Hodnota"
-* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.valueQuantity
+* group[=].element[=].target.code = #CZ_VitalSign.valueQuantity
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #biometrickeUdaje.vyska.kod
 * group[=].element[=].display = "A.3.1.1.2.2 - Kód"
-* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.code
+* group[=].element[=].target.code = #CZ_VitalSign.code
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #biometrickeUdaje.vyska.datumCas
 * group[=].element[=].display = "A.3.1.1.2.3 - Datum a čas"
-* group[=].element[=].target.code = #CZ_Anthropometric_Test_Result.effectiveDateTime
+* group[=].element[=].target.code = #CZ_VitalSign.effectiveDateTime
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
@@ -405,7 +405,7 @@ Usage: #definition
 // A.3.1.2 - Další klinické informace -> Vedlejší diagnoza
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_ConditionCore"
 
 * group[=].element[+].code = #dalsiRelevantniKlinickeInformace
@@ -433,7 +433,7 @@ Usage: #definition
 // A.3.1.3 - Medikace -> MedicationStatement
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_MedicationStatement"
 
 * group[=].element[+].code = #medikace
@@ -470,7 +470,7 @@ Usage: #definition
 // A.3.1.4 - Implantát -> DeviceUseStatement
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_DeviceUseStatement"
 
 * group[=].element[+].code = #implantat
@@ -509,7 +509,7 @@ Usage: #definition
 // A.3.1.5 - Alergie a varování
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_AllergyIntolerance"
 
 * group[=].element[+].code = #alergie
@@ -556,7 +556,7 @@ Usage: #definition
 // A.3.1.5.2 - Varování -> Flag
 ///////////////////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
 * group[=].target = "https://hl7.cz/fhir/cz/core/StructureDefinition/CZ_Flag"
 
 * group[=].element[+].code = #varovani
@@ -579,8 +579,8 @@ Usage: #definition
 ///////////////////////////////////////////////////////////////////////////////
 
 * group[=].element[=].target[0].comment = "Flag.text je Narrative. Prostý text převést na XHTML v text.div a vyplnit text.status."
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMClinicalInformationCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/cz-patient-mobility"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMClinicalInformationCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/cz-patient-mobility"
 
 * group[=].element[+].code = #omezeniPohyblivostiPacienta
 * group[=].element[=].display = "A.3.1.6 - Omezení pohyblivosti pacienta"
@@ -613,8 +613,8 @@ Usage: #definition
 ///////////////////////////////////////////////////////////////////////////////
 // A.3.2 - Datové elementy objednávky / vyšetření
 ///////////////////////////////////////////////////////////////////////////////
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMKOrderDataElementsCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderServiceRequestCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderDataElementsCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderServiceRequestCz"
 
 ///////////////////////////////////////////////////////////////////////////////
 // A.3.2.1 - Požadované vyšetření

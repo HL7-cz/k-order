@@ -1,7 +1,7 @@
 Instance: KOrderHeader2FHIRcz-cz
 InstanceOf: ConceptMap
 Usage: #definition
-* url = "https://hl7.cz/fhir/korder/ConceptMap/KOrderHeader2FHIRcz-cz"
+* url = "https://hl7.cz/fhir/order/ConceptMap/KOrderHeader2FHIRcz-cz"
 * name = "KOrderHeader2FHIRcz"
 * title = "CZ K-order Header Model to this guide Map"
 * status = #draft
@@ -12,7 +12,7 @@ Usage: #definition
 // A.1.1 IDENTIFIKACE PACIENTA
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
 
 * group[=].element[+].code = #pacient
@@ -59,7 +59,7 @@ Usage: #definition
 // A.1.2 KONTAKTNÍ INFORMACE PACIENTA
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
 
 * group[=].element[+].code = #pacient.kontaktniUdaje.adresa
@@ -81,7 +81,7 @@ Usage: #definition
 // A.1.3 ZÁKONNÝ ZÁSTUPCE / KONTAKT
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-relatedPerson-core"
 
 * group[=].element[+].code = #pacient.zakonnyZastupce
@@ -108,7 +108,7 @@ Usage: #definition
 // A.1.4 POJIŠTĚNÍ
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
 
 * group[=].element[+].code = #pojisteni
@@ -135,7 +135,7 @@ Usage: #definition
 // A.1.5 ŽADATEL (REQUESTER)
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
 
 * group[=].element[+].code = #zadatel
@@ -157,7 +157,7 @@ Usage: #definition
 // A.1.6 ZPRACOVATEL (PERFORMER)
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
 
 * group[=].element[+].code = #zpracovatel
@@ -169,8 +169,8 @@ Usage: #definition
 // A.1.8 METADATA DOKUMENTU (Composition)
 //////////////////////////////////////////////////////////////////
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
 
 * group[=].element[+].code = #kOrder.identifikatorEZadanky
 * group[=].element[=].display = "A.1.8.1 – Identifikátor dokumentu"

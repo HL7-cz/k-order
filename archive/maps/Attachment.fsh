@@ -1,7 +1,7 @@
 Instance: AttachmentKOrder2FHIR-cz
 InstanceOf: ConceptMap
 Usage: #definition
-* url = "https://hl7.cz/fhir/korder/ConceptMap/AttachmentKOrder2FHIR-cz"
+* url = "https://hl7.cz/fhir/order/ConceptMap/AttachmentKOrder2FHIR-cz"
 * name = "AttachmentKOrder2FHIRcz"
 * title = "CZ K-order Attachment Model to this guide Map"
 * status = #draft
@@ -13,7 +13,7 @@ Usage: #definition
 // A.5 – PŘÍLOHY (LogCzKOrder.priloha)
 // -----------------------------------------------------------------------------
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LogCzKOrder"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LogCzKOrder"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-attachment"
 
 // celá příloha
@@ -21,7 +21,7 @@ Usage: #definition
 * group[=].element[=].display = "A.5 – Přílohy"
 * group[=].element[=].target.code = #Attachment
 * group[=].element[=].target.equivalence = #relatedto
-* group[=].element[=].target.comment = 
+* group[=].element[=].target.comment =
     "Attachment is typically included as DocumentReference.content.attachment"
 
 // MIME type

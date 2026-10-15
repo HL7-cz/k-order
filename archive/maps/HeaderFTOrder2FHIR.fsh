@@ -1,14 +1,14 @@
 Instance: LabFTOrderHeader2FHIRcz-cz
 InstanceOf: ConceptMap
 Usage: #definition
-* url = "https://hl7.cz/fhir/korder/ConceptMap/LabFTOrderHeader2FHIRcz-cz"
+* url = "https://hl7.cz/fhir/order/ConceptMap/LabFTOrderHeader2FHIRcz-cz"
 * name = "FTOrderHeader2FHIRcz"
 * title = "Mapa hlavičky CZ modelu FT žádanky do této implementační příručky"
 * status = #draft
 * experimental = true
 * description = """Mapování hlavičky fyzioterapeutického požadavkového modelu do této implementační příručky. Mapování vychází z obecné žádanky logického modelu českého standardu HL7 FHIR"""
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMSubjectOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-patient-core"
 * group[=].element[+].code = #identifikace
 * group[=].element[=].display = "A.1.1 Identifikace pacienta/subjektu"
@@ -127,7 +127,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent
 
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMSubjectOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMSubjectOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerrole-core"
 * group[=].element[+].code = #kontakt.preferovanyLekar
 * group[=].element[=].display = "A.1.2.3 Preferovaný lékař"
@@ -165,7 +165,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMPayerOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMPayerOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
 * group[=].element[+].code = #zdravotniPojisteni
 * group[=].element[=].display = "A.1.3 Zdravotní pojištění"
@@ -189,7 +189,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMCoverageOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMCoverageOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-coverage"
 * group[=].element[+].code = #uhrada
 * group[=].element[=].display = "A.1.4 Úhrada"
@@ -208,7 +208,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAuthorOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMAuthorOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
 * group[=].element[+].code = #objednatel
 * group[=].element[=].display = "A.1.5 Objednatel"
@@ -238,7 +238,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAuthorOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMAuthorOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-encounter"
 * group[=].element[+].code = #organizace
 * group[=].element[=].display = "A.1.5.4 Organizace zadavatele objednávky"
@@ -246,7 +246,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMRequestedPerformerOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMRequestedPerformerOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
 * group[=].element[+].code = #Provádějící
 * group[=].element[=].display = "A.1.6 Provádějící"
@@ -274,7 +274,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMAdditionalRecipientCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMAdditionalRecipientCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-practitionerRole-core"
 * group[=].element[+].code = #dodatecniPrijemci
 * group[=].element[=].display = "A.1.7 Příjemce nálezu"
@@ -302,8 +302,8 @@ Usage: #definition
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMDocumentMetadataCz"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/BundleOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMDocumentMetadataCz"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/BundleOrderCz"
 * group[=].element[+].code = #idDokumentu
 * group[=].element[=].display = "A.1.8.1 ID dokumentu"
 * group[=].element[=].target.code = #Bundle.identifier
@@ -317,8 +317,8 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent
 * group[=].element[=].target.comment = "Pokud jde o čas, kdy byla tato konkrétní verze objednávky sestavena do Bundle."
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMHeaderOrder"
-* group[=].target = "https://hl7.cz/fhir/korder/StructureDefinition/KOrderCompositionCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMHeaderOrder"
+* group[=].target = "https://hl7.cz/fhir/order/StructureDefinition/KOrderCompositionCz"
 * group[=].element[+].code = #subjekt
 * group[=].element[=].display = "A.1.1 Identifikace a A.1.2 kontaktní informace pacienta/subjektu"
 * group[=].element[=].target.code = #Composition.subject
@@ -372,7 +372,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent
 * group[=].element[=].target.comment = "Jako business verze, nikoli jako verze resource"
 
-* group[+].source = "https://hl7.cz/fhir/korder/StructureDefinition/LMDigitalSignatureOrderCz"
+* group[+].source = "https://hl7.cz/fhir/order/StructureDefinition/LMDigitalSignatureOrderCz"
 * group[=].target = "https://hl7.cz/fhir/core/StructureDefinition/cz-provenance"
 * group[=].element[+].code = #podpis
 * group[=].element[=].target.code = #Provenance.signature
