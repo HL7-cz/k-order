@@ -20,28 +20,30 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * extension[bodySite].valueReference only Reference(BodyStructureCzCore)
 
 // --------------------------- lifecycle / status / intent ---------------------
-* status 1..1 MS
-* intent 1..1 MS
+* status 1..1 //MS
+* intent 1..1 //MS
 * intent ^comment = "Use proposal for a recommendation, including a recommendation for hospital admission. Use order for an actual order. Represent each distinct requested service by a separate ServiceRequest. The containing K-order Composition must reference at least one ServiceRequest with intent order in its orderInformation section (k-order-requires-order); a document containing only proposals is not permitted."
 
-* authoredOn 1..1 MS
+* authoredOn 1..1 //MS
 * authoredOn ^short = "Datum a čas vystavení žádanky"
 
 // --------------------------- subject (patient) -------------------------------
-* subject 1..1 MS
+* subject 1..1 //MS
 * subject only Reference(CZ_PatientCore)
 * subject ^short = "Pacient, pro kterého je žádanka určena"
 
 // --------------------------- requester / performer ---------------------------
-* requester 1..1 MS
+* requester 1..1 //MS
 * requester ^short = "Žadatel (lékař / pracoviště)"
 * requester only Reference(CZ_PractitionerRoleOrder)
 
-* performer 0..* MS
+* performer 0..* //MS
 * performer ^short = "Cílový příjemce (laboratoř / PZS)"
 * performer only Reference(
     CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
 )
+
+* locationCode from $v3-ServiceDeliveryLocationRoleTypeCZ
 
 // --------------------------- clinical context --------------------------------
 * encounter 0..1
@@ -76,8 +78,7 @@ Používá CZ core profily pro Patient, Practitioner, Organization, Coverage a C
 * code ^comment = "A hospital admission or transfer of care is a separate requested service, recorded in its own ServiceRequest.code. If no agreed code is available, use code.text; do not introduce a disposition extension or a local code list to represent the request."
 
 * priority 0..1 //MS
-// Česky překlad v lokalním VS KOrderPriorityVS
-//* priority from KOrderPriorityVS (required)
+* priority from $VSRequestPriorityCZ (required)
 
 // --------------------------- timing / quantity -------------------------------
 * occurrence[x] 0..1 //MS

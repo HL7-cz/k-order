@@ -96,8 +96,8 @@ Instance: DermatologyLesionPhoto
 InstanceOf: CZ_Attachment
 Usage: #example
 Description: """
-CZ: Klinická fotodokumentace pigmentového útvaru.
-EN: Clinical photo documentation of the pigmented lesion.
+CZ: Fiktivní fotodokumentace pigmentového útvaru se syntetickým obrázkem, který nezobrazuje skutečného pacienta.
+EN: Fictional documentation of a pigmented lesion using a synthetic image that does not depict a real patient.
 """
 * language = #cs
 * id = "DermatologyLesionPhoto"
@@ -106,7 +106,7 @@ EN: Clinical photo documentation of the pigmented lesion.
 * type.text = "Klinicka fotodokumentace pigmentoveho utvaru"
 * content[0].attachment.contentType = #image/jpeg
 * content[0].attachment.url = "https://example.cz/fhir/Binary/dermatology-lesion-photo"
-* content[0].attachment.title = "Pigmentovy utvar na zadech - klinicka fotografie"
+* content[0].attachment.title = "Pigmentový útvar na zádech – fiktivní ukázka"
 * content[0].attachment.creation = "2026-09-02T09:05:00+02:00"
 * context.related[0] = Reference(DermatologyServiceRequest-Urgent)
 
@@ -183,6 +183,8 @@ EN: Document Bundle for an urgent dermatology K-order with clinical photo docume
 * entry[=].resource = DermatologyServiceRequest-Urgent
 * entry[+].fullUrl = "https://example.cz/fhir/DocumentReference/DermatologyLesionPhoto"
 * entry[=].resource = DermatologyLesionPhoto
+* entry[+].fullUrl = "https://example.cz/fhir/Binary/dermatology-lesion-photo"
+* entry[=].resource = DermatologyLesionPhotoBinary
 
 // ------------------------- Example 3: nephrology handover -------------------------
 Instance: NephrologyCondition-CKDStage4
@@ -382,7 +384,7 @@ Description: "Manželka a kontaktní osoba pacienta v příkladu nefrologické �
 * language = #cs
 * active = true
 * patient = Reference(Patient-Novak-Petr)
-* relationship = $cz-patient-relationship#WIFE
+* relationship = $v3-RoleCode#WIFE
 * relationship.text = "manželka"
 * name.use = #official
 * name.family = "Nováková"
@@ -409,7 +411,7 @@ EN: Document Bundle for a nephrology K-order requesting transfer of care, includ
 * entry[0].resource = NephrologyCompositionExample
 * entry[+].fullUrl = "https://example.cz/fhir/Patient/48a9d440-4194-42c1-87ad-b5a39020a4d0"
 * entry[=].resource = Patient-Novak-Petr
-* entry[=].resource.contact[0].relationship[0] = $cz-patient-relationship#WIFE
+* entry[=].resource.contact[0].relationship[0] = $v3-RoleCode#WIFE
 * entry[=].resource.contact[0].relationship[0].text = "manželka"
 * entry[=].resource.contact[0].name.family = "Nováková"
 * entry[=].resource.contact[0].name.given[0] = "Marie"

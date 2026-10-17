@@ -20,7 +20,8 @@ Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
 Alias: $cz-patient-rcis = https://ncez.mzcr.cz/fhir/sid/rcis
 Alias: $cz-patient-rid = https://ncez.mzcr.cz/fhir/sid/rid
-Alias: $cz-patient-relationship = 	http://terminology.hl7.org/CodeSystem/v3-RoleCode
+Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode|4.0.0
+Alias: $v3-RoleCode-cz = https://hl7.cz/terminology/CodeSystem/v3-RoleCode-cz|1.0.0
 Alias: $cz-practitioner-krzp = https://ncez.mzcr.cz/fhir/sid/krzp
 Alias: $cz-practitioner-CLK = https://ncez.mzcr.cz/fhir/sid/clk
 Alias: $cz-organization-krpzs = https://ncez.mzcr.cz/fhir/sid/krpzs
@@ -60,11 +61,12 @@ Alias: $flag-priority = http://hl7.org/fhir/StructureDefinition/flag-priority
 Alias: $data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason|4.0.1
 Alias: $sctBodySite = https://ncez.mzcr.cz/terminology/ValueSet/cz-body-site
 Alias: $orphanet-vs = https://ncez.mzcr.cz/terminology/ValueSet/orphanet-rare-diseases
+Alias: $v3-ServiceDeliveryLocationRoleTypeCZ = https://hl7.cz/terminology/ValueSet/v3-ServiceDeliveryLocationRoleType-cz
 Alias: $mkn10vs = https://uzis.cz/terminology/ValueSet/mkn-10
 Alias: $sct-condition-code = http://hl7.org/fhir/ValueSet/condition-code
-
 Alias: $sctCzEdition = http://snomed.info/sct/11000279109
-
 Alias: $hl7-observation-category-cs = http://terminology.hl7.org/CodeSystem/observation-category
-
 Alias: $vital-signs = http://hl7.org/fhir/StructureDefinition/vitalsigns
+Alias: $RequestPriorityCZ = https://hl7.cz/terminology/CodeSystem/request-priority-cz|4.0.1
+Alias: $RequestPriority = http://hl7.org/fhir/request-priority|4.0.1
+Alias: $VSRequestPriorityCZ = https://hl7.cz/terminology/ValueSet/request-priority-cz

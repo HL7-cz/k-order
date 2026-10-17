@@ -23,30 +23,31 @@ Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
 //* extension[basedOnComposition].valueReference only Reference(FTServiceRequestCz)
 
 // --------------------------- lifecycle / status / intent ---------------------
-* status 1..1 MS
-* intent 1..1 MS
+* status 1..1 //MS
+* intent 1..1 //MS
 
-* authoredOn 1..1 MS
+* authoredOn 1..1 //MS
 * authoredOn ^short = "Datum a čas vystavení žádanky"
 
 // --------------------------- subject (patient) -------------------------------
-* subject 1..1 MS
+* subject 1..1 //MS
 * subject only Reference(CZ_PatientCore)
 * subject ^short = "Pacient, pro kterého je žádanka určena"
 
 // --------------------------- requester / performer ---------------------------
-* requester 1..1 MS
+* requester 1..1 //MS
 * requester ^short = "Žadatel (lékař / pracoviště)"
 * requester only Reference(CZ_PractitionerRoleOrder)
 
-* performer 0..* MS
+* performer 0..* //MS
 * performer ^short = "Cílový příjemce (pracoviště / poskytovatel FT)"
 * performer only Reference(
     CZ_PractitionerCore or CZ_PractitionerRoleOrder or CZ_OrganizationCore
 )
 
-* locationCode 0..1 MS
+//* locationCode 0..1 //MS
 * locationCode ^short = "Požadované místo poskytnutí FT, například domácí prostředí pacienta"
+* locationCode from $v3-ServiceDeliveryLocationRoleTypeCZ
 
 // --------------------------- clinical context --------------------------------
 * encounter 0..1
@@ -74,25 +75,26 @@ Jeden ServiceRequest reprezentuje jeden požadavek na FT péči nebo výkon:
 * reasonCode.coding[orphacode].system = "https://www.orpha.net" (exactly)
 // --------------------------- type / code / priority --------------------------
 
-* code 1..1 MS
+* code 1..1 //MS
 * code.coding from FTOrderProceduresVS (preferred)
 * code ^short = "Požadovaná FT péče nebo výkon"
 * code ^comment = "Preferováno je kódování z FTOrderProceduresVS (SNOMED CT). Pokud není vhodný kód k dispozici, lze požadavek popsat v code.text. Profil nevyžaduje kód výkonu VZP."
 
-* priority 0..1 MS
+* priority 0..1 //MS
+* priority from $VSRequestPriorityCZ (required)
 
 // --------------------------- timing / quantity -------------------------------
 // Počet FT výkonů je volitelný; pokud je uveden, musí obsahovat hodnotu.
-* quantity[x] 0..1 MS
+* quantity[x] 0..1 //MS
 * quantity[x] only Quantity
-* quantityQuantity.value 1..1 MS
+* quantityQuantity.value 1..1 //MS
 * quantityQuantity.unit 0..1
 * quantityQuantity.code 0..1
 * quantityQuantity.system 0..1
 // Doporučení: unit/code třeba "x" (pokud si zavedete jednotku)
 
 // occurrence ponechávám stejně jako K-order
-* occurrence[x] 0..1 MS
+* occurrence[x] 0..1 //MS
 
 // --------------------------- specimens ---------------------------------------
 * specimen 0..*

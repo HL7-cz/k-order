@@ -505,7 +505,7 @@ EN: Request for chest physiotherapy and breathing exercises for a patient with C
 * occurrenceTiming.repeat.frequency = 2
 * occurrenceTiming.repeat.period = 1
 * occurrenceTiming.repeat.periodUnit = #wk
-* locationCode.coding[0] = $cz-patient-relationship#PTRES "Patient's Residence"
+* locationCode.coding[0] = $v3-RoleCode#PTRES "Patient's Residence"
 * locationCode.text = "Domácí prostředí pacienta"
 * reasonReference[0] = Reference(Condition-FTCopd)
 * supportingInfo[0] = Reference(Goal-FTCopdRespiratory)
@@ -578,6 +578,8 @@ EN: Fully completed FT order for respiratory physiotherapy at home.
 * entry[=].resource = Organization-PulmonologyProvider
 * entry[+].fullUrl = "https://example.org/fhir/Organization/Organization-PulmonologyClinic"
 * entry[=].resource = Organization-PulmonologyClinic
+* entry[+].fullUrl = "https://example.org/fhir/Organization/ace081ba-e0a8-4b89-a4a7-c5b7cd3c8169"
+* entry[=].resource = Organization-1
 * entry[+].fullUrl = "https://example.org/fhir/Organization/Organization-Insurance111"
 * entry[=].resource = Organization-Insurance111
 * entry[+].fullUrl = "https://example.org/fhir/Coverage/Coverage-FTCopdHomeCare"
@@ -641,7 +643,7 @@ EN: Ten-year-old child with poor posture and early scoliosis.
 * managingOrganization = Reference(Organization-PediatricsClinic)
 * extension[registeringProvider].extension[value].valueReference = Reference(PractitionerRole-Pediatrician)
 * extension[registeringProvider].extension[category].valueCodeableConcept.coding[0] = $sctCZ#700232004 "služba - všeobecná lékařská péče"
-* contact[0].relationship[0].coding[0] = $cz-patient-relationship#MTH
+* contact[0].relationship[0].coding[0] = $v3-RoleCode#MTH
 * contact[0].relationship[0].text = "matka"
 * contact[0].name.family = "Svobodova"
 * contact[0].name.given[0] = "Lucie"
@@ -672,7 +674,7 @@ Description: "Lucie Svobodová, matka a kontaktní osoba nezletilé pacientky v 
 * language = #cs
 * active = true
 * patient = Reference(Patient-FTPediatricPosture)
-* relationship = $cz-patient-relationship#MTH
+* relationship = $v3-RoleCode#MTH
 * relationship.text = "matka"
 * name.use = #official
 * name.family = "Svobodova"

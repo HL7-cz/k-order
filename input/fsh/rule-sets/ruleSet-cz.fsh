@@ -49,5 +49,5 @@ RuleSet: SliceElement( type, path )
 RuleSet: ImposeProfile ( profile, index )
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile][{index}].valueCanonical = {profile}
 
-RuleSet: ValuSetSupplementRule (codeSystem)
+RuleSet: ValueSetSupplementRule (codeSystem)
 * ^extension[http://hl7.org/fhir/StructureDefinition/valueset-supplement].valueCanonical = {codeSystem}

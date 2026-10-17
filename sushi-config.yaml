@@ -38,7 +38,7 @@ publisher:
 dependencies:
   hl7.fhir.uv.ips: 2.0.1
   hl7.fhir.eu.base: 2.0.1
-  hl7.fhir.eu.laboratory: 2.0.0
+  hl7.fhir.eu.laboratory: 2.1.0
   hl7.fhir.uv.xver-r5.r4: 0.1.0
   hl7.fhir.eu.extensions.r4: 1.3.1
   hl7.fhir.cz.core: 1.0.0
@@ -151,15 +151,12 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
   # i18n-default-lang: cs # lze použít až po lokalizaci toolingu jinak generuje zmršené IG bez přeložených informací
   special-url:
     - https://ncez.mzcr.cz/terminology/ValueSet/loinc-vital-signs
-  #  - https://vzp.cz/cis/vykony
-  #  - urn:oid:1.2.203.7898.1.5
-  #  - https://uzis.cz/terminology/CodeSystem/Mkn10_5
-  #  - https://ncez.mzcr.cz/terminology/ValueSet/ft-category-service-request
     - https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs
-  #  - https://ncez.mzcr.cz/terminology/ValueSet/cz-anthropometric-metric
     - https://ncez.mzcr.cz/terminology/ValueSet/sct-vital-signs
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-type
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-value
+
+  special-url-base: https://hl7.cz/terminology
 # path-resource:
 #    - input/resources
 #    - fsh-generated/resources
@@ -177,7 +174,7 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
   apply-contact: true
   apply-jurisdiction: true
   apply-publisher: true
-  apply-version: true
+  apply-version: false
   pin-canonicals: pin-multiples
   path-expansion-params: '../../expansion-params.json'
   show-inherited-invariants: true
