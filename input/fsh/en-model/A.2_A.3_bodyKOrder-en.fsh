@@ -5,6 +5,8 @@ Description: """Body of the K-order document containing clinical data, diagnoses
 clinical reasons for the request, and specification of requested orderInformation
 and procedures."""
 
+* ^version = "1.0.0"
+
 * orderInformation 0..1 LMEnOrderInformationCz "A.2.1 - Order and A.2.2 order reason"
 * clinicalEvent 0..1 LMEnClinicalEventCz "A.2.3 - Clinical Event" """Information about the clinical event to which the order relates"""
 * coverage 1..* LMEnCoverageBodyCz "A.2.4 - Coverage" """Coverage information - Information about method of coverage, payer identification data and additional information"""

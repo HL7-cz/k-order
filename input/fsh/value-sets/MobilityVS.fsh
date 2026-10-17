@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 ValueSet: CZ_MobilityTypeVs
 Id: cz-mobility-type
 Title: "CZ Mobility Type"

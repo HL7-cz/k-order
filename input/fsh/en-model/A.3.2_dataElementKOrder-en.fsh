@@ -4,6 +4,8 @@ Title: "A.2.3 - Requested orderInformation / procedures"
 Description: """Specification of requested consultative orderInformation,
 treatments, or medical procedures."""
 
+* ^version = "1.0.0"
+
 * examinationType 1..1 CodeableConcept
   "Type of requested examination"
   """Consultative examination, examination, or treatment."""

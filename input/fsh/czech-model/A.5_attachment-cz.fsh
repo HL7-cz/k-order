@@ -4,6 +4,8 @@ Id: LMAttachmentsOrderCz
 Title: "A.5 - Ostatní přílohy"
 Description: """Ostatní přílohy zprávy z obrazového vyšetření"""
 
+* ^version = "1.0.0"
+
 * typObsahu 0..1 CodeableConcept "A.5.1 - Typ obsahu" """Typ obsahu - je  požadován MIME typ"""
 * jazyk 0..1 CodeableConcept "A.5.2 - Jazyk obsahu" """Jazyk obsahu - je požadována hodnata z HL7 valueset Languages"""
 * data 1..1 base64Binary "A.5.3 - Data obsahu" """Data v base64"""

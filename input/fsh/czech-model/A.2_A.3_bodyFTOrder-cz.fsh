@@ -4,6 +4,8 @@ Title: "A.2 - Tělo dokumentu FT-žádanky"
 Description: """Tělo dokumentu FT-žádanky obsahující informace o objednávce,
 klinické údaje, úhradu, termín návštěvy a specifikaci požadovaných služeb.""" 
 
+* ^version = "1.0.0"
+
 * informaceOZadance 0..1 LMOrderInformationCz
   "A.2.1 - Informace o objednávce"
   """Základní informace o žádance včetně diagnóz a důvodu žádosti."""

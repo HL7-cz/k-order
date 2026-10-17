@@ -135,8 +135,8 @@ def main():
         for root in ((ROOT,) if args.order_only else (ROOT, img)):
             output(root / f'input/includes/header-core-map-{lang}.xml', render(rows, lang, order=root == ROOT))
             output(root / f'input/includes/header-core-guidance-{lang}.xml', GUIDANCE[lang])
-        pages = [(ROOT, 'K-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'KOrderCompositionCz', 'KOrderServiceRequestCz', 'BundleOrderCz', order_models, 'provadejici'),
-                 (ROOT, 'FT-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'FTOrderCompositionCz', 'FTServiceRequestCz', 'BundleOrderCz', order_models, 'provadejici'),
+        pages = [(ROOT, 'K-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'KOrderCompositionCz', 'KOrderServiceRequestCz', 'KOrderBundleCz', order_models, 'provadejici'),
+                 (ROOT, 'FT-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'FTOrderCompositionCz', 'FTServiceRequestCz', 'FTOrderBundleCz', order_models, 'provadejici'),
                  (img, 'Header-map' + ('-cs' if lang == 'cs' else '') + '.xml', 'cz-compositionImageOrder', 'cz-imagingOrderInformation', 'cz-bundleImageOrder', img_models, 'zpracovatel')]
         for root, filename, composition, request, bundle, models, performer in pages:
             if args.order_only and root == img:

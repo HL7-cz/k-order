@@ -176,7 +176,7 @@ EN: Request for manual therapy.
 // ============================================================================
 
 Instance: BundleFTExample
-InstanceOf: BundleOrderCz
+InstanceOf: FTOrderBundleCz
 Usage: #example
 Description: """
 CZ: Dokumentový Bundle fyzioterapeutické eŽádanky.

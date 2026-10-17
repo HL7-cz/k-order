@@ -3,6 +3,8 @@ Id: LMHeaderOrder
 Title: "A.1 - Hlavička dokumentu"
 Description: """Záhlaví dokumentu s administrativními údaji"""
 
+* ^version = "1.0.0"
+
 * subjekt 1..1 LMSubjectOrderCz "A.1.1 - Identifikace pacienta  A.1.2 Kontaktní informace pacienta/subjektu" """Identifikace pacienta/subjektu a jeho kontaktních informací"""
 * zdravotniPojisteni 0..1 LMPayerOrderCz "A.1.3 - Zdravotní pojištění" """Informace o zdravotním pojištění."""
 * uhrada 1..1 LMCoverageOrderCz "A.1.4 - Úhrada" """Informace o způsobu úhrady objednávky vyšetření."""

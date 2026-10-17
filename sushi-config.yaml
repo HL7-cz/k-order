@@ -152,6 +152,7 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
   special-url:
     - https://ncez.mzcr.cz/terminology/ValueSet/loinc-vital-signs
     - https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs
+    - https://ncez.mzcr.cz/terminology/ValueSet/korder-procedures-vs
     - https://ncez.mzcr.cz/terminology/ValueSet/sct-vital-signs
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-type
     - https://ncez.mzcr.cz/terminology/ValueSet/cz-mobility-value
@@ -174,7 +175,9 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
   apply-contact: true
   apply-jurisdiction: true
   apply-publisher: true
+  # Preserve explicit terminology versions; use the IG version where none is set.
   apply-version: false
+  default-version: true
   pin-canonicals: pin-multiples
   path-expansion-params: '../../expansion-params.json'
   show-inherited-invariants: true

@@ -3,6 +3,8 @@ Id: LMSpecimenInformationCz
 Title: "A.2.6 - Informace o vzorku"
 Description: """Informace o vzorku souvisejícím s žádankou."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * identifikator 1..* Identifier "A.2.6.1 - Identifikátor vzorku" """Jednoznačný identifikátor vzorku v daném kontextu."""

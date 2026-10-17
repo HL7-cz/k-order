@@ -74,7 +74,7 @@ EN: K document with a recommendation for hospital admission represented by its o
 * section[supportingInformation].entry[2] = Reference(NephrologyCondition-CKDStage4)
 
 Instance: BundleHospitalAdmissionRecommendationExample
-InstanceOf: BundleOrderCz
+InstanceOf: KOrderBundleCz
 Usage: #example
 Description: """
 CZ: Dokumentový Bundle K doporučení k hospitalizaci. Navržené přijetí má vlastní ServiceRequest s intent proposal, nikoli extension na jiném požadavku.

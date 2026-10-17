@@ -1,5 +1,5 @@
 Přehled hlavních změn realizovaných do této verze IG.
 
-### Od 0.0.3 do ...
+### Od 1.0.0 do ...
 
 * Popis změny

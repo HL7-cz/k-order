@@ -3,6 +3,8 @@ Id: LMCoverageOrderCz
 Title: "A.1.4 - Úhrada"
 Description: """Informace o způsobu úhrady objednávky vyšetření"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * method 1..1 CodeableConcept "A.1.4.1 - Způsob úhrady" """Způsob úhrady objednávky (zdravotní pojištění, hradí pacient, jiný)."""

@@ -4,18 +4,18 @@
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-      "valueInteger": 0
+      "valueInteger": 2
     },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode": "draft"
+      "valueCode": "trial-use"
     }
   ],
   "url": "https://hl7.cz/fhir/order/StructureDefinition/LMKOrderCompleteCz",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "name": "LMKOrderCompleteCz",
   "title": "K-žádanka – úplný logický model",
-  "status": "draft",
+  "status": "active",
   "description": "Úplná hierarchie K-žádanky automaticky odvozená z LMKOrderCz a jeho sdílených podmodelů. Definice se udržují v dílčích modelech; tento přehled zachovává jejich položky, popisy a lokální kardinality.",
   "fhirVersion": "4.0.1",
   "kind": "logical",
@@ -1062,7 +1062,7 @@
         "id": "LMKOrderCompleteCz.telo.informaceOZadance.detailyObjednavky.urgentnost",
         "path": "LMKOrderCompleteCz.telo.informaceOZadance.detailyObjednavky.urgentnost",
         "short": "A.2.1.4 - Urgentnost objednávky",
-        "definition": "Urgentnost objednávky (rutinní, urgentní, statim).  \n- Preferovaný systém: HL7:RequestPriority",
+        "definition": "Urgentnost objednávky (rutinní, urgentní, statim).\n- Preferovaný systém: HL7:RequestPriority",
         "min": 0,
         "max": "1",
         "type": [

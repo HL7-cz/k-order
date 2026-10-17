@@ -3,6 +3,8 @@ Id: LMEnCoverageOrderCz
 Title: "A.1.4 - Information about coverage"
 Description: """Coverage information - Information about method of coverage, payer identification data and additional information"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * method 1..1 CodeableConcept "A.1.4.1 - Method of coverage" """Method of payment for the order (health coverage, paid by the patient, other)"""

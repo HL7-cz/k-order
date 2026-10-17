@@ -108,7 +108,7 @@ EN: Patient health insurance coverage.
 
 // ------------------------- Bundle (K-Order) -------------------------------
 Instance: BundleKOrderExample
-InstanceOf: BundleOrderCz
+InstanceOf: KOrderBundleCz
 Title: "Příklad 1: Kardiologické konzilium pro námahovou dušnost"
 Description: """
 CZ: Neadresná K-žádanka praktického lékaře pro námahovou dušnost se SNOMED CT procedurami, kardiologickým konziliem, echokardiografií a pneumologem jako dodatečným příjemcem výsledku.

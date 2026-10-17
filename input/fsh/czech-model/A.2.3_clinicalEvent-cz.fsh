@@ -3,6 +3,8 @@ Id: LMClinicalEventCz
 Title: "A.2.3 - Klinická událost (encounter)"
 Description: """Informace o klinické události, ke které se objednávka vztahuje (odkaz na návštěvu)"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * identifikator 1..* Identifier "A.2.3.1 - ID klinické události" """Jednoznačný, globálně unikátní identifikátor klinické události, k němuž se objednávka vztahuje."""

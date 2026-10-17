@@ -3,6 +3,8 @@ Id: LMOrderInformationCz
 Title: "A.2.1 - Informace o objednávce and A.2.2 - Odůvodnění vyšetření (důvod objednávky)"
 Description:  """Informace o objednávce a Odůvodnění vyšetření (důvod objednávky)"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * detailyObjednavky 0..* Base "A.2.1 - Informace o objednávce" """Informace o objednávce"""

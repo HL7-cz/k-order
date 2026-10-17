@@ -43,7 +43,7 @@ Target7 -d[hidden]-> Target8
 class "KOrderServiceRequestCz" as Target9 <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
 Header <|. Target9
 Target8 -d[hidden]-> Target9
-class "BundleOrderCz" as Target10 <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+class "KOrderBundleCz" as Target10 <<Profile>> [[StructureDefinition-KOrderBundleCz.html]]
 Header <|. Target10
 Target9 -d[hidden]-> Target10
 @enduml

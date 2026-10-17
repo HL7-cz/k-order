@@ -225,7 +225,7 @@ EN: Orthopedist role at the orthopedic clinic.
 * specialty[0].coding[0].code = #606
 * specialty[0].coding[0].display = "Pracoviště ortopedie"
 * specialty[0].text = "Ortopedie"
-* specialty[+] = $sctCZ#1345026002 "ortopedie - specializace"
+* specialty[+] = $sctCZ#394801008 "traumatologie a ortopedie"
 
 Instance: Coverage-FTHipRehabilitation
 InstanceOf: CZ_CoverageOrder
@@ -307,7 +307,7 @@ EN: Unaddressed FT order after total hip arthroplasty.
 * section[supportingInformation].entry[0] = Reference(Observation-FTHipMobility)
 
 Instance: BundleFTHipRehabilitation
-InstanceOf: BundleOrderCz
+InstanceOf: FTOrderBundleCz
 Usage: #example
 Title: "Příklad FT 1: Rehabilitace po totální endoprotéze kyčle"
 Description: """
@@ -547,7 +547,7 @@ EN: Fully completed FT order for respiratory physiotherapy in the patient's home
 * section[supportingInformation].entry[0] = Reference(Observation-FTCopdMobility)
 
 Instance: BundleFTCopdHomeCare
-InstanceOf: BundleOrderCz
+InstanceOf: FTOrderBundleCz
 Usage: #example
 Title: "Příklad FT 2: Respirační fyzioterapie u pacienta s CHOPN"
 Description: """
@@ -848,7 +848,7 @@ EN: General FT order for a pediatric patient without specified individual proced
 * section[supportingInformation].entry[0] = Reference(Condition-FTPediatricScoliosis)
 
 Instance: BundleFTPediatricPosture
-InstanceOf: BundleOrderCz
+InstanceOf: FTOrderBundleCz
 Usage: #example
 Title: "Příklad FT 3: Fyzioterapie u dětského pacienta s vadným držením těla"
 Description: """

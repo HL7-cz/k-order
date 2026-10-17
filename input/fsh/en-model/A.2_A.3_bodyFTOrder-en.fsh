@@ -4,6 +4,8 @@ Title: "A.2 - Document Body"
 Description: """Body of the FT-order document containing order information,
 clinical data, coverage, appointment details, and specification of requested services."""
 
+* ^version = "1.0.0"
+
 * orderInformation 0..1 LMEnOrderInformationCz
   "A.2.1 - Order information"
   """Basic information about the request including diagnoses and the reason for the request."""

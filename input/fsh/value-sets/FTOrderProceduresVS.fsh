@@ -3,8 +3,9 @@ Id: ft-order-procedures-vs
 Title: "FT Procedures ValueSet (CZ)"
 Description: "SNOMED CT procedury pro požadované fyzioterapeutické a rehabilitační výkony v FT žádance."
 * ^language = #cs
+* ^version = "1.0.0"
 * ^status = #active
-* ^publisher = "HL7 CZ"
+* ^publisher = "NCEZ"
 * insert SNOMEDCopyrightForVS
 * ^url = "https://ncez.mzcr.cz/terminology/ValueSet/ft-order-procedures-vs"
 

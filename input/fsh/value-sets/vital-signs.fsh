@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 ValueSet: CZ_LoincVitalSignsVs
 Id: loinc-vital-signs
 Title: "Vital signs Loinc(CZ)"

@@ -3,6 +3,8 @@ Id: LMEnClinicalEventCz
 Title: "A.2.3 - Clinical event (encounter)"
 Description: """Information about the clinical event to which the order relates (encounter reference)."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * identifier 1..* Identifier "A.2.3.1 - Clinical event ID" """A unique, globally unique identifier of the clinical event to which the order relates."""

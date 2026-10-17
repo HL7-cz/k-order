@@ -63,7 +63,7 @@ Condition a DocumentReference.
 * encounter only Reference(CZ_EncounterCore)
 
 * section 1..* //MS
-* section ^slicing.discriminator.type = #pattern
+* section ^slicing.discriminator.type = #value
 * section ^slicing.discriminator.path = "code"
 * section ^slicing.rules = #open
 * section ^slicing.ordered = false

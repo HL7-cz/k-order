@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 ValueSet: V3ServiceDeliveryLocationRoleTypeCZ
 Id: v3-ServiceDeliveryLocationRoleType-cz
 Title: "Service delivery location code (CZ)"

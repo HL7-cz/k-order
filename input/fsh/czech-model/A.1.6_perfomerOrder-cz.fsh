@@ -3,6 +3,8 @@ Id: LMRequestedPerformerOrderCz
 Title: "A.1.6 - Provádějící"
 Description: """Předpokládaný Provádějící žádanky (u neadresné žádanky nebude Provádějící uveden)."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * id 0..1 Identifier "A.1.6.1 -ID Provádějícího" """Identifikátor, který se vztahuje na tuto osobu v této roli. Identifikátor z KRZP."""

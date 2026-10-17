@@ -3,6 +3,8 @@ Id: LMAuthorOrderCz
 Title: "A.1.5 - Objednatel"
 Description: """Objednatel (Objednatel provedení zdravotní služby)."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * identifikator 1..* Identifier "A.1.5.1 - Identifikátor zadavatele objednávky" """Identifikační číslo zdravotnického pracovníka –  národní ID zdravotnického pracovníka vedený v KRZP. V případě, že není objednávka zadána zdravotnickým pracovníkem, ale například samotným pacientem, měl by být použit osobní identifikátor RID (případně DRID)."""

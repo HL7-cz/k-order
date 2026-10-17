@@ -3,6 +3,8 @@ Id: LMEnAttachmentsOrderCz
 Title: "A.5 - Additional attachments"
 Description: """K-Order additional attachments - A.4"""
 
+* ^version = "1.0.0"
+
 * contentType 0..1 CodeableConcept "A.5.1 - Type of content" """Type of content - MIME type is required"""
 * language 0..1 CodeableConcept "A.5.2 - Language of content" """Language of content - HL7 valueset of languages is required"""
 * data 1..1 base64Binary "A.5.3 - Data of content" """Data inline, base64ed"""

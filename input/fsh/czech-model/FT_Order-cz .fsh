@@ -4,6 +4,8 @@ Title: "FT-žádanka"
 Description: """Kompletní logický model FT-žádanky obsahující hlavičku dokumentu,
 tělo žádanky, prezentovanou formu a přílohy."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * hlavicka 1..1 LMHeaderOrder

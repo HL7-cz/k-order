@@ -3,6 +3,8 @@ Id: LMEnRequestedPerformerOrderCz
 Title: "A.1.6 - Requested Performer (processing person)"
 Description: """Person who is requested to process document."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * identifier 1..* Identifier "A.1.6.1 -Requested Performer identifier" """The health professional identification number. Either an internal identifier assigned by a healthcare provider institution or (preferably) a national health professional ID such as the licence or registration number."""

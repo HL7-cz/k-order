@@ -3,6 +3,8 @@ Id: LMEnCoverageBodyCz
 Title: "A.2.4 - Coverage"
 Description: """Information about the payment method for the requested examination."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * paymentMethod 1..1 CodeableConcept "A.2.4.1 - Payment method" """Method of payment for the order (health coverage, paid by the patient, other)."""

@@ -3,6 +3,8 @@ Id: LMEnAppointmentCz
 Title: "A.2.5 - Appointment"
 Description: """Information about the booked examination appointment (if reserved)."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * identifier 0..1 Identifier "A.2.5.1 - Appointment ID" """Identifier of the appointment record."""

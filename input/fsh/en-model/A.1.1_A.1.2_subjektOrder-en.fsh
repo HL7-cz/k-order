@@ -3,6 +3,8 @@ Id: LMEnSubjectOrderCz
 Title: "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject"
 Description: """Order - Order subject data element - A.1.1 and A.1.2"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * subjectIdentification 1..1 Base "A.1.1 - Identification of the patient/subject" """Identification of the patient/subject"""

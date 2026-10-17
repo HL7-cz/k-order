@@ -3,6 +3,8 @@ Id: LMOrderDataElementsCz
 Title: "A.3.2 - Datové elementy objednávky / vyšetření"
 Description: """Datové elementy objednávky / vyšetření"""
 
+* ^version = "1.0.0"
+
 * pozadovaneVysetreni 1..* Base "A.3.2.1 - Požadované vyšetření" """Požadované vyšetření nebo služba."""
 * pozadovaneVysetreni.kod 1..1 CodeableConcept "A.3.2.1.1 - Kód vyšetření" """Kód reprezentující vyšetření v rámci dohodnutého číselníku včetně jeho názvu."""
 * pozadovaneVysetreni.nazev 0..1 string "A.3.2.1.2 - Název vyšetření" """Celý název vyšetření, pokud je odlišný od kódované informace."""

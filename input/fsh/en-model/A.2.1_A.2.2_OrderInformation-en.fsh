@@ -3,6 +3,8 @@ Id: LMEnOrderInformationCz
 Title: "A.2.1 - Order information and A.2.2 - Order reason"
 Description:  """Information about order and order reason"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * orderDetails 0..* Base "A.2.1.1 - Order information" """Order information could respond to multiple test orders """

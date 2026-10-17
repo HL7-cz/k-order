@@ -3,6 +3,8 @@ Id: LMEnDigitalSignatureOrderCz
 Title: "A.1.9 - Digital signature"
 Description: """Digital signature - Electronic signature or seal of a document according to Act 327/2011 Â§54a"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * digitalSignature 1..1 Signature "A.1.9.1 - Electronic signature or document seal" """Electronic signature or document seal."""

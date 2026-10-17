@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 ValueSet: CZ_SnomedVitalSignsVs
 Id: sct-vital-signs
 Title: "Anthropometric metrics SNOMED CT (CZ)"

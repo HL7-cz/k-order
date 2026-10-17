@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 ValueSet: PracticeSettingCodeValueSetCZ
 Id: c80-practice-codes-cz
 Title: "Practice Setting Code Value Set (CZ)"
@@ -133,3 +134,4 @@ Description: """Číselník reprezentující specializaci zdravotnického pracov
 * $sctCZ#394612005
 * $sctCZ#394733009
 * $sctCZ#394732004
+* $sctCZ#394537008

@@ -3,6 +3,8 @@ Id: LMEnDocumentMetadataCz
 Title: "A.1.8 - Document metadata"
 Description: """Document metadata"""
 
+* ^version = "1.0.0"
+
 * identifier 1..1 Identifier "A.1.8.1 - Document ID" """Unique identifier of the document"""
 * category 1..1 CodeableConcept "A.1.8.2 - Document category" """Identifies the category of document at hand, e.g. Lab order."""
 * status 1..1 CodeableConcept "A.1.8.3 - Document status" """The status of the Lab order. E.g., preliminary, final."""

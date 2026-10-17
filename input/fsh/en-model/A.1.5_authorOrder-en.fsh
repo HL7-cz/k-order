@@ -3,6 +3,8 @@ Id: LMEnAuthorOrderCz
 Title: "A.1.5 - Author"
 Description: """Author (by whom the Lab order was/were authored). Multiple authors could be provided."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule ( 2, trial-use )
 
 * identifier 1..* Identifier "A.1.5.1 - Author identifier" """The health professional identifier that will allow addressing recipients within a national or international data exchange infrastructure, such as the licence or registration number. In case when the recipient is not a health professional, e.g. patient, appropriate personal identifier should be used."""

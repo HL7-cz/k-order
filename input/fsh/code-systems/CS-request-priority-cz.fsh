@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 CodeSystem: RequestPriorityCz
 Id: request-priority-cz
 Title: "RequestPriority (CZ Supplement)"

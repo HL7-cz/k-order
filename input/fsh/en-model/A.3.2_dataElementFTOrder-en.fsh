@@ -3,6 +3,8 @@ Id: LMEnFTOrderDataElementsCz
 Title: "A.3.2 - Order / examination data elements"
 Description: """Data elements of the order / examination."""
 
+* ^version = "1.0.0"
+
 * requestedExamination 1..* Base "A.3.2.1 - Requested examination" """Requested examination."""
 * requestedExamination.code 1..1 CodeableConcept "A.3.2.1.1 - Examination code" """Code representing the examination within the agreed code system, including its name."""
 * requestedExamination.name 0..1 string "A.3.2.1.2 - Examination name" """Full name of the examination, if different from the coded information."""

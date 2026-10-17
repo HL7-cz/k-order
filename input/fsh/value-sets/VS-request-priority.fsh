@@ -1,3 +1,4 @@
+// TODO: Zrušit po aktualizaci terminology IG
 ValueSet: RequestPriorityCZ
 Id: request-priority-cz
 Title: "Service request priority (CZ)"

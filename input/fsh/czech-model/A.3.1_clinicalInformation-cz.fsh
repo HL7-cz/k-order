@@ -3,6 +3,8 @@ Id: LMClinicalInformationCz
 Title: "A.3.1 - Klinické informace / podpůrné informace"
 Description:  """Informace a údaje sdělované provádějícímu pracovišti, které mají vliv na provedení žádanky nebo interpretaci výsledků."""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * biometrickeUdaje 0..1 Base "A.3.1.1 - Biometrické údaje" """Biometrické údaje relevantní pro provedení žádanky."""

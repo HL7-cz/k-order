@@ -143,7 +143,7 @@ EN: Urgent addressed K-order to a pigmented lesion clinic for a rapidly changing
 * section[attachments].entry[0] = Reference(DermatologyLesionPhoto)
 
 Instance: BundleDermatologyUrgentExample
-InstanceOf: BundleOrderCz
+InstanceOf: KOrderBundleCz
 Usage: #example
 Description: """
 CZ: Dokumentový Bundle urgentní dermatologické K-žádanky s klinickou fotodokumentací.
@@ -395,7 +395,7 @@ Description: "Manželka a kontaktní osoba pacienta v příkladu nefrologické �
 * insert CzechNarrative([[<p>Marie Nováková, manželka pacienta Petra Nováka, kontaktní osoba pro nefrologickou žádanku.</p>]])
 
 Instance: BundleNephrologyHandoverExample
-InstanceOf: BundleOrderCz
+InstanceOf: KOrderBundleCz
 Usage: #example
 Description: """
 CZ: Dokumentový Bundle nefrologické K-žádanky pro převzetí pacienta do péče včetně laboratorních výsledků.

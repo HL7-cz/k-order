@@ -4,7 +4,9 @@ Title: "K-order Procedures ValueSet (CZ)"
 Description: "SNOMED CT procedury pro požadované konziliární služby a konzultace v K-order."
 * ^language = #cs
 * ^status = #active
-* ^publisher = "HL7 CZ"
+* ^version = "1.0.0"
+* ^publisher = "NCEZ"
+* ^url = "https://ncez.mzcr.cz/terminology/ValueSet/korder-procedures-vs"
 * insert SNOMEDCopyrightForVS
 
 // * include codes from system $sctCZ where concept is-a #11429006 //"Consultation"
@@ -13,7 +15,9 @@ Description: "SNOMED CT procedury pro požadované konziliární služby a konzu
 // Zvoleny jsou všechny procedury s výjimkou imagingu a FT protože očekáváme, že lze na K žádance objednat cokoli
 * include codes from system $sctCZ where concept is-a #71388002 //"Procedure"
 * exclude codes from valueset FTOrderProceduresVS
-* exclude codes from system $sctCZ where concept is-a #363679005 // Imaging procedures
+//* exclude codes from system $sctCZ where concept is-a #363679005 // Imaging procedures
+
+
 /*
 * exclude $sctCZ#11429006 //"Consultation"
 * exclude $sctCZ#726007 //"Pathology consultation, comprehensive, records and specimen with report"

@@ -3,6 +3,8 @@ Id: LMEnHeaderOrder
 Title: "A.1 Order header data elements"
 Description:  """Order header data elements"""
 
+* ^version = "1.0.0"
+
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * subject 1..1 LMEnSubjectOrderCz "A.1.1 - Identification and A.1.2 - related contact information of the Patient/subject" """Identification of the patient/subject and Patient/subject related contact information"""
