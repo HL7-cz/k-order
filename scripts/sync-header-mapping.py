@@ -52,15 +52,20 @@ def profile_links(value):
     return ' / '.join(parts)
 
 def render(rows, lang, order=False):
+    """Render table rows; Order uses source elements of the logical model in the page language.
+
+    IMG-Order keeps the Czech source element names in both languages.
+    """
     relationships = {'equivalent': 'ekvivalentní', 'related': 'související', 'unmatched': 'bez přímého mapování'} if lang == 'cs' else {
         'equivalent': 'equivalent', 'related': 'related', 'unmatched': 'no direct mapping'}
+    source_lang = lang if order else 'cs'
     output = ['<!-- Generated from input/data/header-mapping.json by scripts/sync-header-mapping.py. -->']
     for row in rows:
         row = dict(row)
         if order and row['code'].startswith('A.1.6'):
             row['profile'] = row['profile'].replace('CZ_PractitionerRoleCore', 'CZ_PractitionerRoleOrder')
         model = '{{ include.' + row['model'] + '_model }}'
-        source = f'<a href="StructureDefinition-{model}.html">{esc(row["source"])}</a>'
+        source = f'<a href="StructureDefinition-{model}.html">{esc(row["source"][source_lang])}</a>'
         cells = [source, esc(row['label'][lang]), relationships[row['relationship']],
                  profile_links(row['profile']), esc(row['element']),
                  esc(row['navigation']), esc(row['note'][lang])]
@@ -91,13 +96,13 @@ def diagram(header, composition, request, bundle):
 
 GUIDANCE = {
     'cs': '''<div xmlns="http://www.w3.org/1999/xhtml">
-  <p>Hlavička A.1 používá společné mapování IMG, K a FT na CZ Core 1.0.0. Liší se pouze doménový profil Composition, ServiceRequest a Bundle a názvy zdrojových modelů. Obě jazykové tabulky odkazují na české logické modely; jazyk mění popisky, nikoli FHIR cíle.</p>
+  <p>Hlavička A.1 používá společné mapování IMG, K a FT na CZ Core 1.0.0. Liší se pouze doménový profil Composition, ServiceRequest a Bundle a názvy zdrojových modelů. Česká tabulka vychází z českých logických modelů, anglická z anglických; FHIR cíle jsou v obou jazycích stejné.</p>
   <p>Sloupec Reference uvádí navigaci ke zdroji, sloupec Prvek jeho relativní element. Zápis section[název] označuje slice profilu, nikoli doslovný FHIRPath; resolve() znamená průchod referencí. Ve skutečném FHIRPath se sekce vybírá podle jejího kódu. Doménový ServiceRequest je v section[orderInformation].entry. Stejné reference se znovu používají pro dokument a příslušný požadavek.</p>
   <p>CZ_PractitionerRoleOrder je specializace z balíčku CZ Core. U K a FT používá autor Composition profil CZ_PractitionerRoleCore, zatímco ServiceRequest.requester a role v performer a informationRecipient používají CZ_PractitionerRoleOrder. Příjemce dokumentu používá zděděné rozšíření Composition.informationRecipient s CZ_PractitionerRoleCore; příjemce konkrétního požadavku používá ServiceRequest.informationRecipient s CZ_PractitionerRoleOrder. Chybějící přímé mapování identifikátoru kontaktní osoby je uvedeno výslovně. Čas podpisu není samostatný kryptografický token časového razítka.</p>
 </div>
 ''',
     'en': '''<div xmlns="http://www.w3.org/1999/xhtml">
-  <p>Header A.1 uses the same CZ Core 1.0.0 mapping for IMG, K and FT. Only the domain Composition, ServiceRequest and Bundle profiles and source model names differ. Both language tables reference the Czech logical models; language changes labels, not FHIR targets.</p>
+  <p>Header A.1 uses the same CZ Core 1.0.0 mapping for IMG, K and FT. Only the domain Composition, ServiceRequest and Bundle profiles and source model names differ. The Czech table is based on the Czech logical models and the English table on the English logical models; the FHIR targets are the same in both languages.</p>
   <p>The Reference column navigates to the resource; Element is relative to that resource. section[name] denotes a profile slice, not literal FHIRPath; resolve() traverses a reference. Executable FHIRPath selects sections by their codes. The domain ServiceRequest is in section[orderInformation].entry. Reuse the same resources for document and applicable request references.</p>
   <p>CZ_PractitionerRoleOrder is a specialization from the CZ Core package. For K and FT, the Composition author uses CZ_PractitionerRoleCore, while ServiceRequest.requester and roles in performer and informationRecipient use CZ_PractitionerRoleOrder. The document recipient uses the inherited Composition.informationRecipient extension with CZ_PractitionerRoleCore; the recipient of a specific request uses ServiceRequest.informationRecipient with CZ_PractitionerRoleOrder. The lack of a direct mapping for a contact person's identifier is stated explicitly. Signing time is not a standalone cryptographic timestamp token.</p>
 </div>
@@ -117,6 +122,9 @@ def main():
     order_models = dict(header='LMHeaderOrder', subject='LMSubjectOrderCz', payer='LMPayerOrderCz',
                         coverage='LMCoverageOrderCz', author='LMAuthorOrderCz', performer='LMRequestedPerformerOrderCz',
                         recipient='LMAdditionalRecipientCz', metadata='LMDocumentMetadataCz', signature='LMDigitalSignatureOrderCz')
+    order_models_en = dict(header='LMEnHeaderOrder', subject='LMEnSubjectOrderCz', payer='LMEnPayerOrderCz',
+                           coverage='LMEnCoverageOrderCz', author='LMEnAuthorOrderCz', performer='LMEnRequestedPerformerOrderCz',
+                           recipient='LMEnAdditionalRecipientCz', metadata='LMEnDocumentMetadataCz', signature='LMEnDigitalSignatureOrderCz')
     img_models = dict(header='logHeaderImagingOrder', subject='logSubjectCz', payer='logPayerCz',
                       coverage='logCoverageOrderCz', author='logAuthorCz', performer='logRequestedPerformerCz',
                       recipient='logAdditionalRecipientCz', metadata='logDocumentMetadataCz', signature='logdigitalSignatureCz')
@@ -135,8 +143,11 @@ def main():
         for root in ((ROOT,) if args.order_only else (ROOT, img)):
             output(root / f'input/includes/header-core-map-{lang}.xml', render(rows, lang, order=root == ROOT))
             output(root / f'input/includes/header-core-guidance-{lang}.xml', GUIDANCE[lang])
-        pages = [(ROOT, 'K-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'KOrderCompositionCz', 'KOrderServiceRequestCz', 'KOrderBundleCz', order_models, 'provadejici'),
-                 (ROOT, 'FT-Header-map' + ('' if lang == 'cs' else '-en') + '.xml', 'FTOrderCompositionCz', 'FTServiceRequestCz', 'FTOrderBundleCz', order_models, 'provadejici'),
+        # Page naming follows the IG convention: English page without suffix, Czech page with -cs.
+        suffix = '-cs' if lang == 'cs' else ''
+        models_lang, performer_lang = (order_models, 'provadejici') if lang == 'cs' else (order_models_en, 'requestedPerformer')
+        pages = [(ROOT, 'K-Header-map' + suffix + '.xml', 'KOrderCompositionCz', 'KOrderServiceRequestCz', 'KOrderBundleCz', models_lang, performer_lang),
+                 (ROOT, 'FT-Header-map' + suffix + '.xml', 'FTOrderCompositionCz', 'FTServiceRequestCz', 'FTOrderBundleCz', models_lang, performer_lang),
                  (img, 'Header-map' + ('-cs' if lang == 'cs' else '') + '.xml', 'cz-compositionImageOrder', 'cz-imagingOrderInformation', 'cz-bundleImageOrder', img_models, 'zpracovatel')]
         for root, filename, composition, request, bundle, models, performer in pages:
             if args.order_only and root == img:
@@ -161,7 +172,7 @@ def main():
             else:
                 text = text.replace(guidance, guidance + '\n  ' + context)
             output(path, text)
-            diagram_name = ('imgOrderHead-map' + ('-cs' if lang == 'cs' else '') if root == img else filename.split('-Header')[0] + '-Header-map')
+            diagram_name = ('imgOrderHead-map' + ('-cs' if lang == 'cs' else '') if root == img else filename[:-len('.xml')])
             output(root / 'input/images-source' / (diagram_name + '.plantuml'),
                    diagram(models['header'], composition, request, bundle))
     if args.check and changed:

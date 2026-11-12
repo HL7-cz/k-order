@@ -1,0 +1,69 @@
+@startuml
+
+hide circle
+hide stereotype
+hide members
+hide methods
+
+skinparam linetype ortho
+
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+
+legend right
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
+endlegend
+
+class "LMCzBodyKOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyKOrder.html]]
+
+class "KOrderServiceRequestCz" <<Profile>> [[StructureDefinition-KOrderServiceRequestCz.html]]
+"LMCzBodyKOrderCz" <|. "KOrderServiceRequestCz"
+
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html]]
+"LMCzBodyKOrderCz" <|. "CZ_Encounter"
+"KOrderServiceRequestCz" -d[hidden]-> "CZ_Encounter"
+
+class "CZ_CoverageOrder" <<Profile>> [[StructureDefinition-cz-coverage-order.html]]
+"LMCzBodyKOrderCz" <|. "CZ_CoverageOrder"
+"CZ_Encounter" -d[hidden]-> "CZ_CoverageOrder"
+
+class "CZ_AppointmentCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_AppointmentCore"
+"CZ_CoverageOrder" -d[hidden]-> "CZ_AppointmentCore"
+
+class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_ConditionCore"
+"CZ_AppointmentCore" -d[hidden]-> "CZ_ConditionCore"
+
+class "CZ_MedicationStatementCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_MedicationStatementCore"
+"CZ_ConditionCore" -d[hidden]-> "CZ_MedicationStatementCore"
+
+class "CZ_DeviceUseStatementCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_DeviceUseStatementCore"
+"CZ_MedicationStatementCore" -d[hidden]-> "CZ_DeviceUseStatementCore"
+
+class "CZ_AllergyIntolerance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_AllergyIntolerance"
+"CZ_DeviceUseStatementCore" -d[hidden]-> "CZ_AllergyIntolerance"
+
+class "CZ_FlagPatientCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html]]
+"LMCzBodyKOrderCz" <|. "CZ_FlagPatientCore"
+"CZ_AllergyIntolerance" -d[hidden]-> "CZ_FlagPatientCore"
+
+class "CZ_VitalSign" <<Profile>> [[StructureDefinition-cz-vital-sign.html]]
+"LMCzBodyKOrderCz" <|. "CZ_VitalSign"
+"CZ_FlagPatientCore" -d[hidden]-> "CZ_VitalSign"
+
+class "KOrderCompositionCz" <<Profile>> [[StructureDefinition-k-order-composition-cz.html]]
+"LMCzBodyKOrderCz" <|. "KOrderCompositionCz"
+"CZ_VitalSign" -d[hidden]-> "KOrderCompositionCz"
+
+class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+"LMCzBodyKOrderCz" <|. "BundleOrderCz"
+"KOrderCompositionCz" -d[hidden]-> "BundleOrderCz"
+
+@enduml

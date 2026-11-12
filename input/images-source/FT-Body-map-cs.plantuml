@@ -1,0 +1,57 @@
+@startuml
+
+hide circle
+hide stereotype
+hide members
+hide methods
+
+skinparam linetype ortho
+
+skinparam class {
+BackgroundColor<<LogicalModel>> #APPLICATION
+BackgroundColor<<Profile>> #TECHNOLOGY
+}
+
+legend right
+| <#APPLICATION>  Logical Model |
+| <#TECHNOLOGY>  Profile |
+endlegend
+
+class "LMCzBodyFTOrderCz" <<LogicalModel>> [[StructureDefinition-LMBodyFTOrder.html]]
+
+class "FTServiceRequestCz" <<Profile>> [[StructureDefinition-FTServiceRequestCz.html]]
+"LMCzBodyFTOrderCz" <|. "FTServiceRequestCz"
+
+class "CZ_Encounter" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Encounter"
+"FTServiceRequestCz" -d[hidden]-> "CZ_Encounter"
+
+class "CZ_CoverageOrder" <<Profile>> [[StructureDefinition-cz-coverage-order.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_CoverageOrder"
+"CZ_Encounter" -d[hidden]-> "CZ_CoverageOrder"
+
+class "CZ_AppointmentCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_AppointmentCore"
+"CZ_CoverageOrder" -d[hidden]-> "CZ_AppointmentCore"
+
+class "CZ_ConditionCore" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_ConditionCore"
+"CZ_AppointmentCore" -d[hidden]-> "CZ_ConditionCore"
+
+class "CZ_Attachment" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Attachment"
+"CZ_ConditionCore" -d[hidden]-> "CZ_Attachment"
+
+class "CZ_Provenance" <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-provenance.html]]
+"LMCzBodyFTOrderCz" <|. "CZ_Provenance"
+"CZ_Attachment" -d[hidden]-> "CZ_Provenance"
+
+class "FTOrderCompositionCz" <<Profile>> [[StructureDefinition-ft-order-composition-cz.html]]
+"LMCzBodyFTOrderCz" <|. "FTOrderCompositionCz"
+"CZ_Provenance" -d[hidden]-> "FTOrderCompositionCz"
+
+class "BundleOrderCz" <<Profile>> [[StructureDefinition-BundleOrderCz.html]]
+"LMCzBodyFTOrderCz" <|. "BundleOrderCz"
+"FTOrderCompositionCz" -d[hidden]-> "BundleOrderCz"
+
+@enduml

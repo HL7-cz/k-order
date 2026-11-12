@@ -115,29 +115,29 @@ pages:
     title: Závislosti
  # === MAP ====
   K-Header-map.html:
+    title: K-request document header
+  K-Header-map-cs.html:
     title: Hlavička dokumentu K-žádanky
   K-Body-map.html:
+    title: K-request document body
+  K-Body-map-cs.html:
     title: Tělo dokumentu K-žádanky
+  K-Attachment-map.html:
+    title: K-request document attachments
   K-Attachment-map-cs.html:
     title: Přílohy dokumentu K-žádanky
   FT-Header-map.html:
+    title: FT-request document header
+  FT-Header-map-cs.html:
     title: Hlavička dokumentu FT-žádanky
   FT-Body-map.html:
-    title: Tělo dokumentu FT-žádanky
-  FT-Attachment-map-cs.html:
-    title: Přílohy dokumentu FT-žádanky
-  K-Header-map-en.html:
-    title: K-request document header
-  K-Body-map-en.html:
-    title: K-request document body
-  K-Attachment-map.html:
-    title: K-request document attachments
-  FT-Header-map-en.html:
-    title: FT-request document header
-  FT-Body-map-en.html:
     title: FT-request document body
+  FT-Body-map-cs.html:
+    title: Tělo dokumentu FT-žádanky
   FT-Attachment-map.html:
     title: FT-request document attachments
+  FT-Attachment-map-cs.html:
+    title: Přílohy dokumentu FT-žádanky
 
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide

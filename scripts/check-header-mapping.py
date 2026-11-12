@@ -79,16 +79,18 @@ for row in rows:
         for path in row['element'].split('; '):
             validate_path(definitions[canonical], path)
 
-for root, files in ((ROOT, ['K-Header-map.xml', 'K-Header-map-en.xml', 'FT-Header-map.xml', 'FT-Header-map-en.xml']),
+for root, files in ((ROOT, ['K-Header-map-cs.xml', 'K-Header-map.xml', 'FT-Header-map-cs.xml', 'FT-Header-map.xml']),
                     (IMG, ['Header-map-cs.xml', 'Header-map.xml'])):
     if args.order_only and root == IMG:
         continue
     models = {}
-    for path in (root / 'input/fsh/czech-model').glob('*.fsh'):
-        text = path.read_text(encoding='utf-8')
-        model = re.search(r'^Id:\s*(\S+)', text, re.M)
-        if model:
-            models[model[1]] = set(re.findall(r'^\*\s+(\S+)\s+\d+\.\.', text, re.M))
+    # Order: Czech pages use czech-model, English pages use en-model. IMG keeps Czech sources in both.
+    for folder in ('czech-model', 'en-model'):
+        for path in (root / 'input/fsh' / folder).glob('*.fsh'):
+            text = path.read_text(encoding='utf-8')
+            model = re.search(r'^Id:\s*(\S+)', text, re.M)
+            if model:
+                models[model[1]] = set(re.findall(r'^\*\s+(\S+)\s+\d+\.\.', text, re.M))
     signatures = []
     for filename in files:
         page = (root / 'input/pagecontent' / filename).read_text(encoding='utf-8')
@@ -102,9 +104,11 @@ for root, files in ((ROOT, ['K-Header-map.xml', 'K-Header-map-en.xml', 'FT-Heade
         parsed = ET.fromstring('<table>' + table + '</table>')
         signature = []
         for tr, row in zip(parsed.findall('tr'), rows):
-            source = row['source'].replace('{{ include.performer_element }}', params['performer_element'])
+            source_lang = include[2] if root == ROOT else 'cs'
+            source = row['source'][source_lang].replace('{{ include.performer_element }}', params['performer_element'])
             assert source in models[params[row['model'] + '_model']], (filename, row['code'], source)
             cells = [''.join(td.itertext()) for td in tr.findall('td')]
+            assert cells[0] == source, (filename, row['code'], cells[0], source)
             signature.append((row['code'], row['relationship'], cells[3], cells[4], cells[5]))
         assert len(signature) == len(rows)
         # Normalize the two document-specific target labels before comparing.

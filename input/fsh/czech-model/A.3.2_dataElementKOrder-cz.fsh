@@ -8,7 +8,7 @@ Description: """Datové elementy objednávky / vyšetření"""
 * pozadovaneVysetreni 1..* Base "A.3.2.1 - Požadované vyšetření" """Požadované vyšetření nebo služba."""
 * pozadovaneVysetreni.kod 1..1 CodeableConcept "A.3.2.1.1 - Kód vyšetření" """Kód reprezentující vyšetření v rámci dohodnutého číselníku včetně jeho názvu."""
 * pozadovaneVysetreni.nazev 0..1 string "A.3.2.1.2 - Název vyšetření" """Celý název vyšetření, pokud je odlišný od kódované informace."""
-* pozadovaneVysetreni.poznamka 0..1 string "A.3.2.1.7 - Poznámka" """Poznámka objednatele k žádanému vyšetření."""
+* pozadovaneVysetreni.poznamka 0..1 string "A.3.2.1.3 - Poznámka" """Poznámka objednatele k žádanému vyšetření."""
 // Doporučení k hospitalizaci nebo převzetí do péče je samostatná požadovaná
 // služba v pozadovaneVysetreni, mapovaná na vlastní ServiceRequest.
 * zavaznaAnamnestickaData 0..1 Base "A.3.2.2 - Závažná anamnestická data" """Textový souhrn a/nebo odkazy na strukturované záznamy. Stejné záznamy lze sdílet s obecnými prvky A.3.1 a A.5 bez jejich duplikace."""

@@ -20,3 +20,4 @@ Description: """Coverage information - Information about method of coverage, pay
 
 
 
+* compensationCode 0..1 CodeableConcept "A.1.4.3 - Compensation code" """The healthcare provider is obliged to report injuries and other harm to the health of persons to whom it provided healthcare if it reasonably suspects that the injury or other harm was caused by the actions of a legal or natural person, according to the VZP code list \"Compensation for healthcare\"."""

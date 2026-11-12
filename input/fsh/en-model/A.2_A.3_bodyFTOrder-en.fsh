@@ -1,6 +1,6 @@
 Logical: LMEnBodyFTOrderCz
 Id: LMEnBodyFTOrder
-Title: "A.2 - Document Body"
+Title: "A.2 - FT-order document body"
 Description: """Body of the FT-order document containing order information,
 clinical data, coverage, appointment details, and specification of requested services."""
 
@@ -8,7 +8,7 @@ clinical data, coverage, appointment details, and specification of requested ser
 
 * orderInformation 0..1 LMEnOrderInformationCz
   "A.2.1 - Order information"
-  """Basic information about the request including diagnoses and the reason for the request."""
+  """Basic information about the order including diagnoses and the reason for the request."""
 
 * clinicalEvent 0..1 LMEnClinicalEventCz
   "A.2.3 - Clinical event"
@@ -22,14 +22,22 @@ clinical data, coverage, appointment details, and specification of requested ser
   "A.2.5 - Appointment"
   """Information about the planned appointment date or patient booking."""
 
-* clinicalInformation 1..1 LMEnClinicalInformationCz
-  "A.3.1 - Clinical information"
-  """Clinical information related to the request,
-such as medical history, findings, examination results,
-differential diagnostic considerations, or treatment."""
+* specimenInformation 0..* LMEnSpecimenInformationCz
+  "A.2.6 - Specimen information"
+  """Information about the specimen related to the order."""
 
-* dataElements 1..1 LMEnFTOrderDataElementsCz
+* clinicalInformation 1..1 LMEnClinicalInformationCz
+  "A.3.1 - Supporting information"
+  """Clinical and other supporting information relevant to execution of the order and interpretation of the results."""
+
+* orderDataElements 1..1 LMEnFTOrderDataElementsCz
   "A.3.2 - Order data elements"
-  """Structured specification of requested healthcare services,
-procedures, and recommendations for further management.
-Content corresponds to ServiceRequest.code and ServiceRequest.orderDetail."""
+  """Structured specification of the requested healthcare services or examinations."""
+
+* plannedCareOrders 0..1 LMEnPlannedCareOrdersCz
+  "A.3.3 - References to planned care orders following this order"
+  """References to related planned care orders."""
+
+* otherSupportingInformation 0..* LMEnOtherSupportingInformationCz
+  "A.3.4 - Other supporting information"
+  """References to other supporting information related to the order."""

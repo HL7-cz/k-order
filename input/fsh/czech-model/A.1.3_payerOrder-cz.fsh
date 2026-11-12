@@ -7,6 +7,6 @@ Description: """Informace o zdravotním pojištění."""
 
 * insert SetFmmandStatusRule ( 2, trial-use )
 
-* kod 0..1 Identifier "A.1.4.1 - Kód zdravotní pojišťovny" """Kód zdravotní pojišťovny."""
+* kod 0..1 Identifier "A.1.3.1 - Kód zdravotní pojišťovny" """Kód zdravotní pojišťovny."""
 * nazev 0..1 string "A.1.3.2 - Název zdravotní pojišťovny" """Název zdravotní pojišťovny"""
 * cisloPojistence 0..1 Identifier "A.1.3.3 - Číslo zdravotního pojištění" """Číslo pojištěnce."""
