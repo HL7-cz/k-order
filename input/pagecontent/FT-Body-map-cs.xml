@@ -179,7 +179,8 @@
           <td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td>
           <td></td>
         </tr>
-        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Typ klinické události</td><td>ekvivalentní</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Typ klinické události</td><td>ekvivalentní</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>class</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td>Základní třída klinické události (např. AMB ambulantní péče, IMP hospitalizace, EMER urgentní péče); v Encounter povinný prvek.</td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Typ klinické události</td><td>související</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td>Podrobnější typ klinické události, pokud je k dispozici.</td></tr>
         <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">dalsiInformace</a></td><td>A.2.3.3 - Další informace o klinické události</td><td>ekvivalentní</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (FTOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
 
         <tr>
@@ -320,7 +321,7 @@
           <td>A.2.5.4 - Plánovaný čas</td>
           <td>ekvivalentní</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
-          <td>created</td>
+          <td>start</td>
           <td>Composition (FTOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>

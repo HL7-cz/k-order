@@ -189,7 +189,8 @@
           <td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td>
           <td></td>
         </tr>
-        <tr><td><a href="StructureDefinition-LMEnClinicalEventCz.html">type</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalEventCz.html">type</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>class</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td>Basic class of the clinical event (e.g. AMB outpatient, IMP inpatient, EMER emergency); mandatory element of Encounter.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalEventCz.html">type</a></td><td>A.2.3.2 - Clinical event type</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td>More specific type of the clinical event, if available.</td></tr>
         <tr><td><a href="StructureDefinition-LMEnClinicalEventCz.html">additionalInformation</a></td><td>A.2.3.3 - Additional clinical event information</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
 
         <tr>
@@ -330,7 +331,7 @@
           <td>A.2.5.4 - Planned time</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
-          <td>created</td>
+          <td>start</td>
           <td>Composition (KOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
