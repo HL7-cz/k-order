@@ -13,7 +13,7 @@ legend right
 | <#APPLICATION>  Logical Model |
 | <#TECHNOLOGY>  Profile |
 endlegend
-class "LMHeaderOrder" as Header <<LogicalModel>> [[StructureDefinition-LMHeaderOrder.html]]
+class "LMEnHeaderOrder" as Header <<LogicalModel>> [[StructureDefinition-LMEnHeaderOrder.html]]
 class "CZ_PatientCore" as Target0 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-patient-core.html]]
 Header <|. Target0
 class "CZ_PractitionerCore" as Target1 <<Profile>> [[https://hl7.cz/fhir/core/StructureDefinition-cz-practitioner-core.html]]

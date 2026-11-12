@@ -1,16 +1,13 @@
 Logical: LMEnPresentedFormCz
 Id: LMEnPresentedFormOrderCz
-Title: "A.5 - Presented form"
-Description: """Presented form - Entire report as issued. Various formats could be provided, pdf format is recommended."""
+Title: "A.4 - Presented form"
+Description: """Human-readable form of the order; PDF format is required."""
 
 * ^version = "1.0.0"
 
-* presentedForm 0..1 Base "A.5 - Presented form" """Presented form of document"""
-* presentedForm.contentType 0..1 CodeableConcept "A.5.1 - Type of content" """Type of content - MIME type is required"""
-* presentedForm.language 0..1 CodeableConcept "A.5.2 - Language of content" """Language of content - HL7 valueset of languages is required"""
-* presentedForm.data 1..1 base64Binary "A.5.3 - Data of content" """Data inline, base64ed"""
-* presentedForm.url 0..1 url "A.5.4 - URL of content" """Uri where the data can be found"""
-* presentedForm.title 1..1 string "A.5.5 - Title of content" """Label to display in place of the data"""
-* presentedForm.creation 0..1 dateTime "A.5.6 - Date of creation" """Date attachment was first created"""
-
-
+* contentType 0..1 CodeableConcept "A.4.1 - Type of content" """Type of content - MIME type is required"""
+* language 0..1 CodeableConcept "A.4.2 - Language of content" """Language of content - a value from the HL7 Languages value set is required"""
+* data 1..1 base64Binary "A.4.3 - Data of content" """Data inline, base64 encoded"""
+* url 0..1 url "A.4.4 - URL of content" """URI where the data can be found"""
+* title 1..1 string "A.4.5 - Title of content" """Label to display in place of the data"""
+* creation 0..1 dateTime "A.4.6 - Date of creation" """Date the content was first created"""

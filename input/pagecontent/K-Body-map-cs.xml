@@ -60,7 +60,7 @@
 
   <h3>Přehled modelu</h3>
 
-  <p>{% include K-Body-map.svg %}</p>
+  <p>{% include K-Body-map-cs.svg %}</p>
 
   <h3 id="k-specific-context">Vztah A.3.2.2–A.3.2.6 k obecným údajům</h3>
   <p>Prvky A.3.2.2 až A.3.2.6 jsou tematické souhrny a výběry údajů pro K-žádanku, nikoli další nezávislé kopie klinických záznamů. Každý prvek LM má text (0..1) a zaznam (0..*), tedy odkazy na strukturované zdroje. Lze předat text, odkazy nebo obojí. Text se zapisuje do narativu sekce; samotný volný text nevyžaduje vytvoření Condition, Observation nebo jiného strukturovaného zdroje. Pokud se strukturovaný zdroj předává, musí splnit cílový profil včetně povinných prvků.</p>
@@ -76,7 +76,6 @@
     <strong>Kontext mapování</strong>
     <ul>
       <li><strong>Zdrojový logický model:</strong> <a href="StructureDefinition-LMBodyKOrder.html">LMBodyKOrder</a></li>
-      <li><strong>Zdrojový mapovací soubor:</strong> <code>BodyKOrderfshFHIR.fsh</code></li>
       <li><strong>Rozsah mapování:</strong> A.2-A.3 Tělo dokumentu K-žádanky</li>
     </ul>
   </div>
@@ -123,7 +122,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.datumCasVytvoreni</a></td>
+          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.datumACas</a></td>
           <td>A.2.1.2 - Datum a čas vytvoření objednávky</td>
           <td>ekvivalentní</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -132,7 +131,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.pozadovanyTermin</a></td>
+          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.datumACasPozadovanehoProvedeni</a></td>
           <td>A.2.1.3 - Datum a čas požadovaného provedení</td>
           <td>ekvivalentní</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -141,7 +140,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.urgence</a></td>
+          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.urgentnost</a></td>
           <td>A.2.1.4 - Urgence objednávky</td>
           <td>ekvivalentní</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -291,7 +290,7 @@
           <td colspan="7"><b>Termín návštěvy</b></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">terminNavstevy</a></td>
+          <td><a href="StructureDefinition-LMAppointmentCz.html">terminVysetreni</a></td>
           <td>A.2.5 - Termín návštěvy</td>
           <td>související</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -373,7 +372,7 @@
 
         <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.kod</a></td><td>A.3.1.1.1.2 - Kód</td><td>ekvivalentní</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.datumCas</a></td><td>A.3.1.1.1.3 - Datum a čas</td><td>ekvivalentní</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.datumACas</a></td><td>A.3.1.1.1.3 - Datum a čas</td><td>ekvivalentní</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
 
         <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska</a></td><td>A.3.1.1.2 - Výška</td><td>související</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
 
@@ -381,7 +380,7 @@
 
         <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.kod</a></td><td>A.3.1.1.2.2 - Kód</td><td>ekvivalentní</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.datumCas</a></td><td>A.3.1.1.2.3 - Datum a čas</td><td>ekvivalentní</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
+        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.datumACas</a></td><td>A.3.1.1.2.3 - Datum a čas</td><td>ekvivalentní</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Obě reference směřují na tutéž instanci měření.</td></tr>
         <tr><td colspan="7"><b>Další klinické informace</b></td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace</a></td><td>A.3.1.2 - Další relevantní klinické informace</td><td>související</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Jedna Condition pro každý klinický stav.</td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.kod</a></td><td>A.3.1.2.1 - Kód informace</td><td>ekvivalentní</td><td>Condition (CZ_ConditionCore)</td><td>code.coding</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
@@ -405,6 +404,11 @@
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.datumACas</a></td><td>A.3.1.6.1 - Datum a čas informace</td><td>ekvivalentní</td><td>Observation (CZ_PatientMobility)</td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Čas zjištění patří do effectiveDateTime; profil používá valueCodeableConcept pro výsledek mobility.</td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.kod</a></td><td>A.3.1.6.2 - Kód informace</td><td>ekvivalentní</td><td>Observation (CZ_PatientMobility)</td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
 <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.hodnota</a></td><td>A.3.1.6.3 - Hodnota informace</td><td>ekvivalentní</td><td>Observation (CZ_PatientMobility)</td><td>valueCodeableConcept</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">ockovani</a></td><td>A.3.1.7 - Očkování</td><td>související</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-immunization-cz-core.html">Immunization (CZ_ImmunizationCore)</a></td><td>vaccineCode</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>FHIR Immunization dále vyžaduje status, patient a occurrence[x].</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiFormalizovaneUdaje</a></td><td>A.3.1.8 - Další formalizované údaje</td><td>související</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Jedna obecná Observation pro každý údaj v otevřené části seznamu referencí.</td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiFormalizovaneUdaje.datumACas</a></td><td>A.3.1.8.1 - Datum</td><td>ekvivalentní</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiFormalizovaneUdaje.kod</a></td><td>A.3.1.8.2 - Kód</td><td>ekvivalentní</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiFormalizovaneUdaje.hodnota</a></td><td>A.3.1.8.3 - Hodnota</td><td>související</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td>value[x]</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Zdrojový Narrative je nutné převést na odpovídající FHIR datový typ hodnoty.</td></tr>
 <tr>
           <td colspan="7"><b>Datové elementy objednávky / vyšetření</b></td>
         </tr>
@@ -435,7 +439,7 @@
           <td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
-        <tr id="A.3.2.1.7" data-mapping-id="A.3.2.1.7"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">pozadovaneVysetreni.poznamka</a></td><td>A.3.2.1.7 - Poznámka</td><td>ekvivalentní</td><td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td><td>note.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td><td></td></tr>
+        <tr id="A.3.2.1.3" data-mapping-id="A.3.2.1.3"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">pozadovaneVysetreni.poznamka</a></td><td>A.3.2.1.3 - Poznámka</td><td>ekvivalentní</td><td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td><td>note.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td><td></td></tr>
         <tr id="A.3.2.2" data-mapping-id="A.3.2.2"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">zavaznaAnamnestickaData.text</a></td><td>A.3.2.2 - Závažná anamnestická data</td><td>související</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textový souhrn závažných anamnestických údajů v narativu podpůrných informací.</td></tr>
         <tr data-mapping-id="A.3.2.2"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">zavaznaAnamnestickaData.zaznam</a></td><td>A.3.2.2 - Závažná anamnestická data</td><td>související</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()</td><td>Strukturované historické a dlouhodobé stavy se předávají jako CZ_ConditionCore. Pro konkrétní službu odkazujte na stejnou Condition ze ServiceRequest.supportingInfo; přímá indikace patří do reasonReference.</td></tr>
         <tr id="A.3.2.3" data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">vysledkyVysetreni.zaznam</a></td><td>A.3.2.3 - Výsledky vyšetření</td><td>související</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].entry</td><td></td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a>. Výsledky vyšetření se předávají jako obecné CZ Observation v otevřené části seznamu. Typ vyšetření patří do code, výsledek do value[x] nebo component a komentář do note; textový souhrn lze uvést v narativu supportingInformation.</td></tr>

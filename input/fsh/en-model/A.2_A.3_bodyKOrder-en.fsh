@@ -1,20 +1,43 @@
 Logical: LMEnBodyKOrderCz
 Id: LMEnBodyKOrder
-Title: "A.2 A.3“ Document Body"
-Description: """Body of the K-order document containing clinical data, diagnoses,
-clinical reasons for the request, and specification of requested orderInformation
-and procedures."""
+Title: "A.2 - K-order document body"
+Description: """Body of the K-order document containing order information,
+clinical data, coverage, appointment details, and specification of requested services."""
 
 * ^version = "1.0.0"
 
-* orderInformation 0..1 LMEnOrderInformationCz "A.2.1 - Order and A.2.2 order reason"
-* clinicalEvent 0..1 LMEnClinicalEventCz "A.2.3 - Clinical Event" """Information about the clinical event to which the order relates"""
-* coverage 1..* LMEnCoverageBodyCz "A.2.4 - Coverage" """Coverage information - Information about method of coverage, payer identification data and additional information"""
-* appointment 0..1 LMEnAppointmentCz "A.2.5 - Appointment" """Information about planned care order related to this request form"""
+* orderInformation 0..1 LMEnOrderInformationCz
+  "A.2.1 - Order information"
+  """Basic information about the order including diagnoses and the reason for the request."""
 
+* clinicalEvent 0..1 LMEnClinicalEventCz
+  "A.2.3 - Clinical event"
+  """Information about the clinical event related to the request."""
 
-//specific elements
-* supportingInformation 1..1 LMEnClinicalInformationCz "A.3.1 - Supporting clinical information" """
-Information and data provided by the performing organization that impact the execution of the examination or the interpretation of the examination results.
-"""
-* orderDataElements 1..1 LMEnKOrderDataElementsCz "A.3.2 - Order data elements" """Information about Required orderInformation (service request)"""
+* coverage 1..* LMEnCoverageBodyCz
+  "A.2.4 - Coverage"
+  """Information about the type of coverage for the healthcare service."""
+
+* appointment 0..1 LMEnAppointmentCz
+  "A.2.5 - Appointment"
+  """Information about the planned appointment date or patient booking."""
+
+* specimenInformation 0..* LMEnSpecimenInformationCz
+  "A.2.6 - Specimen information"
+  """Information about the specimen related to the order."""
+
+* clinicalInformation 1..1 LMEnClinicalInformationCz
+  "A.3.1 - Supporting information"
+  """Clinical and other supporting information relevant to execution of the order and interpretation of the results."""
+
+* orderDataElements 1..1 LMEnKOrderDataElementsCz
+  "A.3.2 - Order data elements"
+  """Structured specification of the requested healthcare services or examinations."""
+
+* plannedCareOrders 0..1 LMEnPlannedCareOrdersCz
+  "A.3.3 - References to planned care orders following this order"
+  """References to related planned care orders."""
+
+* otherSupportingInformation 0..* LMEnOtherSupportingInformationCz
+  "A.3.4 - Other supporting information"
+  """References to other supporting information related to the order."""

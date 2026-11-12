@@ -8,7 +8,7 @@ Description:  """Informace o objednávce a Odůvodnění vyšetření (důvod ob
 * insert SetFmmandStatusRule( 2, trial-use )
 
 * detailyObjednavky 0..* Base "A.2.1 - Informace o objednávce" """Informace o objednávce"""
-* detailyObjednavky.identifikator 1..* Identifier "A.2.1.1 - ID objednávky" """Identifikátor objednávky vyšetření."""
+* detailyObjednavky.identifikator 0..* Identifier "A.2.1.1 - ID objednávky" """Identifikátor objednávky vyšetření."""
 * detailyObjednavky.datumACas 1..1 dateTime "A.2.1.2 - Datum a čas objednávky" """Datum a čas zadání objednávky."""
 * detailyObjednavky.datumACasPozadovanehoProvedeni 0..1 dateTime "A.2.1.3 - Datum a čas požadovaného provedení" """Datum a čas požadovaného provedení"""
 * detailyObjednavky.urgentnost 0..1 CodeableConcept "A.2.1.4 - Urgentnost objednávky" """Urgentnost objednávky (rutinní, urgentní, statim).
@@ -24,5 +24,5 @@ Description:  """Informace o objednávce a Odůvodnění vyšetření (důvod ob
 - Preferovaný systém: SNOMED CT"""
 * duvodObjednavky.klinickaOtazkaText 1..1 string "A.2.2.3 - Klinická otázka textem" """Klinická otázka, na kterou má požadované vyšetření nebo péče odpovědět. Mapuje se na text klinické sekce; pokud popisuje klinický problém reprezentovaný jako Condition, také na CZ_ClinicalQuestion.code.text."""
 * duvodObjednavky.duvodKod 0..* CodeableConcept "A.2.2.4 - Důvod objednávky kódem" """kódovaná informace z 2.2.5, pokud je zadána
-- Preferovaný systém: SNOMED CT ReasonCodelist 243796009"""
+- Preferovaný systém: SNOMED CT – klinické nálezy (hodnotová sada condition-code)"""
 * duvodObjednavky.duvodText 0..1 string "A.2.2.5 - Důvod objednávky textem" """Důvod vystavení objednávky k vyšetření vyjádřený volným textem (např. \"3 týdny neustupující kašel\")"""

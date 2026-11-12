@@ -65,7 +65,7 @@
   <div class="table-wrap">
     <strong>Mapping context</strong>
     <ul>
-      <li><strong>Source logical model:</strong> <a href="StructureDefinition-LMHeaderOrder.html">LMHeaderOrder</a></li>
+      <li><strong>Source logical model:</strong> <a href="StructureDefinition-LMEnHeaderOrder.html">LMEnHeaderOrder</a></li>
       <li><strong>Mapping scope:</strong> A.1 FT-request document header</li>
     </ul>
   </div>
@@ -100,7 +100,7 @@
       </thead>
 
       <tbody>
-        {% include header-core-map-en.xml composition="FTOrderCompositionCz" composition_id="ft-order-composition-cz" service_request="FTServiceRequestCz" bundle="FTOrderBundleCz" performer_element="provadejici" header_model="LMHeaderOrder" subject_model="LMSubjectOrderCz" payer_model="LMPayerOrderCz" coverage_model="LMCoverageOrderCz" author_model="LMAuthorOrderCz" performer_model="LMRequestedPerformerOrderCz" recipient_model="LMAdditionalRecipientCz" metadata_model="LMDocumentMetadataCz" signature_model="LMDigitalSignatureOrderCz" %}
+        {% include header-core-map-en.xml composition="FTOrderCompositionCz" composition_id="ft-order-composition-cz" service_request="FTServiceRequestCz" bundle="FTOrderBundleCz" performer_element="requestedPerformer" header_model="LMEnHeaderOrder" subject_model="LMEnSubjectOrderCz" payer_model="LMEnPayerOrderCz" coverage_model="LMEnCoverageOrderCz" author_model="LMEnAuthorOrderCz" performer_model="LMEnRequestedPerformerOrderCz" recipient_model="LMEnAdditionalRecipientCz" metadata_model="LMEnDocumentMetadataCz" signature_model="LMEnDigitalSignatureOrderCz" %}
       </tbody>
 
     </table>

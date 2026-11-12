@@ -60,7 +60,7 @@
 
   <h3>Přehled modelu</h3>
 
-  <p>{% include K-Header-map.svg %}</p>
+  <p>{% include K-Header-map-cs.svg %}</p>
 
   <div class="table-wrap">
     <strong>Kontext mapování</strong>

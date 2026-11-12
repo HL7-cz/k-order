@@ -11,19 +11,19 @@ Description:  """Informace a údaje sdělované provádějícímu pracovišti, k
 * biometrickeUdaje.vaha 0..1 Base "A.3.1.1.1 - Váha" """Údaj o tělesné hmotnosti pacienta."""
 * biometrickeUdaje.vaha.hodnota 1..1 Quantity "A.3.1.1.1.1 - Hodnota váhy" """Hodnota váhy včetně jednotky."""
 * biometrickeUdaje.vaha.kod 1..1 CodeableConcept "A.3.1.1.1.2 - Kód váhy" """Kód určující význam údaje o váze."""
-* biometrickeUdaje.vaha.datumACas 0..1 dateTime "A.3.1.1.1.3 - Datum a čas váhy" """Datum a čas zjištění váhy, pokud se liší od data žádanky."""
+* biometrickeUdaje.vaha.datumACas 1..1 dateTime "A.3.1.1.1.3 - Datum a čas váhy" """Datum a čas zjištění váhy."""
 * biometrickeUdaje.vyska 0..1 Base "A.3.1.1.2 - Výška" """Údaj o tělesné výšce pacienta."""
 * biometrickeUdaje.vyska.hodnota 1..1 Quantity "A.3.1.1.2.1 - Hodnota výšky" """Hodnota výšky včetně jednotky."""
 * biometrickeUdaje.vyska.kod 1..1 CodeableConcept "A.3.1.1.2.2 - Kód výšky" """Kód určující význam údaje o výšce."""
-* biometrickeUdaje.vyska.datumACas 0..1 dateTime "A.3.1.1.2.3 - Datum a čas výšky" """Datum a čas zjištění výšky, pokud se liší od data žádanky."""
+* biometrickeUdaje.vyska.datumACas 1..1 dateTime "A.3.1.1.2.3 - Datum a čas výšky" """Datum a čas zjištění výšky."""
 
-* dalsiRelevantniKlinickeInformace 0..1 Base "A.3.1.2 - Další relevantní klinické informace" """Další klinické informace relevantní pro provedení žádanky nebo interpretaci výsledků."""
+* dalsiRelevantniKlinickeInformace 0..1 Base "A.3.1.2 - Další relevantní klinické informace" """Další klinické informace relevantní pro provedení žádanky nebo interpretaci výsledků. Uvádějí se zde mimo jiné vedlejší diagnózy."""
 * dalsiRelevantniKlinickeInformace.kod 0..* CodeableConcept "A.3.1.2.1 - Kód informace (vedlejší diagnoza)" """Diagnózy a jiné klinické informace důležité pro provedení žádanky nebo interpretaci výsledků."""
 * dalsiRelevantniKlinickeInformace.text 0..1 string "A.3.1.2.2 - Text informace" """Textový popis dalších relevantních klinických informací."""
 
 * medikace 0..* Base "A.3.1.3 - Medikace" """Informace o medikaci mající vliv na průběh nebo výsledek vyšetření či péče."""
 * medikace.identifikator 0..* Identifier "A.3.1.3.1 - ID medikace" """Identifikátor medikace."""
-* medikace.kod 0..* code "A.3.1.3.2 - Kód medikace" """Kód medikace."""
+* medikace.kod 0..* CodeableConcept "A.3.1.3.2 - Kód medikace" """Kód medikace."""
 * medikace.mnozstvi 0..1 Ratio "A.3.1.3.3 - Množství" """Množství nebo dávka medikace."""
 
 * implantat 0..* Base "A.3.1.4 - Implantát" """Seznam implantátů nebo pomůcek majících vliv na provedení žádanky či interpretaci výsledků."""
@@ -43,6 +43,6 @@ Description:  """Informace a údaje sdělované provádějícímu pracovišti, k
 * ockovani 0..* CodeableConcept "A.3.1.7 - Očkování" """Informace o očkování, pokud jsou relevantní."""
 
 * dalsiFormalizovaneUdaje 0..* Base "A.3.1.8 - Další formalizované údaje" """Další formalizované údaje sdělované provádějícímu pracovišti."""
-* dalsiFormalizovaneUdaje.datumACas 0..1 dateTime "A.3.1.8.1 - Datum" """Datum zjištění údaje, pokud se liší od data vystavení objednávky."""
+* dalsiFormalizovaneUdaje.datumACas 1..1 dateTime "A.3.1.8.1 - Datum" """Datum zjištění údaje."""
 * dalsiFormalizovaneUdaje.kod 1..1 CodeableConcept "A.3.1.8.2 - Kód" """Kód pozorování identifikující význam údaje."""
 * dalsiFormalizovaneUdaje.hodnota 0..1 Narrative "A.3.1.8.3 - Hodnota" """Hodnota údaje včetně jednotky měření."""

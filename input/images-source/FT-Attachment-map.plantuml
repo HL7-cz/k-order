@@ -13,8 +13,8 @@ legend right
 | <#APPLICATION>  Logical Model |
 | <#TECHNOLOGY>  Profile |
 endlegend
-class "Presented form" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMPresentedFormOrderCz.html]]
-class "Attachments" as Attachments <<LogicalModel>> [[StructureDefinition-LMAttachmentsOrderCz.html]]
+class "Presented form" as PresentedForm <<LogicalModel>> [[StructureDefinition-LMEnPresentedFormOrderCz.html]]
+class "Attachments" as Attachments <<LogicalModel>> [[StructureDefinition-LMEnAttachmentsOrderCz.html]]
 PresentedForm -d[hidden]-> Attachments
 class "FTOrderCompositionCz" as Target0 <<Profile>> [[StructureDefinition-ft-order-composition-cz.html]]
 PresentedForm <|. Target0

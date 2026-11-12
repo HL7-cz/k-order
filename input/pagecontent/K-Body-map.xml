@@ -75,8 +75,7 @@
   <div class="table-wrap">
     <strong>Mapping context</strong>
     <ul>
-      <li><strong>Source logical model:</strong> <a href="StructureDefinition-LMBodyKOrder.html">LMBodyKOrder</a></li>
-      <li><strong>Source mapping file:</strong> <code>BodyKOrderfshFHIR.fsh</code></li>
+      <li><strong>Source logical model:</strong> <a href="StructureDefinition-LMEnBodyKOrder.html">LMEnBodyKOrder</a></li>
       <li><strong>Mapping scope:</strong> A.2-A.3 K-request document body</li>
     </ul>
   </div>
@@ -105,7 +104,7 @@
           <td colspan="7"><b>Request information</b></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails</a></td>
           <td>A.2.1 - Request details</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -114,7 +113,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.identifikator</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails.identifier</a></td>
           <td>A.2.1.1 - Request detail identifier</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -123,7 +122,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.datumCasVytvoreni</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails.dateTime</a></td>
           <td>A.2.1.2 - Request authored date and time</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -132,7 +131,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.pozadovanyTermin</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails.requestedDateTime</a></td>
           <td>A.2.1.3 - Requested occurrence date and time</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -141,7 +140,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.urgence</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails.urgency</a></td>
           <td>A.2.1.4 - Request priority</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -150,7 +149,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.textObjednavky</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails.orderText</a></td>
           <td>A.2.1.5 - Request text</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -159,7 +158,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMOrderInformationCz.html">detailyObjednavky.informaceProPacienta</a></td>
+          <td><a href="StructureDefinition-LMEnOrderInformationCz.html">orderDetails.patientInstructions</a></td>
           <td>A.2.1.6 - Patient instructions</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -173,7 +172,7 @@
           <td colspan="7"><b>Clinical event</b></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMClinicalEventCz.html">klinickaUdalost</a></td>
+          <td><a href="StructureDefinition-LMEnClinicalEventCz.html">clinicalEvent</a></td>
           <td>A.2.3 - Clinical event (encounter)</td>
           <td>related</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td>
@@ -182,7 +181,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMClinicalEventCz.html">identifikator</a></td>
+          <td><a href="StructureDefinition-LMEnClinicalEventCz.html">identifier</a></td>
           <td>A.2.3.1 - Clinical event identifier</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td>
@@ -190,14 +189,14 @@
           <td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td>
           <td></td>
         </tr>
-        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">typ</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
-        <tr><td><a href="StructureDefinition-LMClinicalEventCz.html">dalsiInformace</a></td><td>A.2.3.3 - Additional clinical event information</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalEventCz.html">type</a></td><td>A.2.3.2 - Clinical event type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalEventCz.html">additionalInformation</a></td><td>A.2.3.3 - Additional clinical event information</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-encounter.html">Encounter (CZ_Encounter)</a></td><td>type.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve().encounter.resolve()</td><td></td></tr>
 
         <tr>
           <td colspan="7"><b>Coverage</b></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">uhrada</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">coverage</a></td>
           <td>A.2.4 - Coverage</td>
           <td>related</td>
           <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
@@ -206,7 +205,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">zpusob</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">paymentMethod</a></td>
           <td>A.2.4.1 - Coverage type</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
@@ -215,7 +214,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation</a></td>
           <td>A.2.4.2 - Payer information</td>
           <td>related</td>
           <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
@@ -224,7 +223,7 @@
           <td>The `payor` branch is polymorphic; the ConceptMap maps the name to `RelatedPerson.name`.</td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.jmeno</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation.name</a></td>
           <td>A.2.4.2.1 - Payer name</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-relatedPerson-core.html">RelatedPerson (cz-relatedperson-core)</a></td>
@@ -233,7 +232,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.identifikatorOrganizace</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation.organizationID</a></td>
           <td>A.2.4.2.2 - Payer organization identifier</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
@@ -242,7 +241,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.organizace</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation.organization</a></td>
           <td>A.2.4.2.3 - Payer organization</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
@@ -251,7 +250,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.adresa</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation.address</a></td>
           <td>A.2.4.2.4 - Address</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
@@ -260,7 +259,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.zeme</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation.country</a></td>
           <td>A.2.4.2.5 - Country</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
@@ -269,7 +268,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">informaceOPlatci.telekom</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">payerInformation.telecom</a></td>
           <td>A.2.4.2.6 - Telecommunications</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-organization-core.html">Organization (cz-organization-core)</a></td>
@@ -278,7 +277,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMCoverageBodyCz.html">komentar</a></td>
+          <td><a href="StructureDefinition-LMEnCoverageBodyCz.html">comment</a></td>
           <td>A.2.4.3 - Comment</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-cz-coverage-order.html">Coverage (CZ_CoverageOrder)</a></td>
@@ -291,7 +290,7 @@
           <td colspan="7"><b>Appointment</b></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">terminNavstevy</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">appointment</a></td>
           <td>A.2.5 - Appointment</td>
           <td>related</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -300,7 +299,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">id</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">identifier</a></td>
           <td>A.2.5.1 - Appointment identifier</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -309,7 +308,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">stav</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">status</a></td>
           <td>A.2.5.2 - Appointment status</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -318,7 +317,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">popis</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">description</a></td>
           <td>A.2.5.3 - Description</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -327,7 +326,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">datumACas</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">dateTime</a></td>
           <td>A.2.5.4 - Planned time</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -336,7 +335,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">delkaVysetreni</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">duration</a></td>
           <td>A.2.5.5 - Examination duration</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -345,7 +344,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">komentar</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">comment</a></td>
           <td>A.2.5.6 - Comment</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -354,7 +353,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMAppointmentCz.html">instrukceProPacienta</a></td>
+          <td><a href="StructureDefinition-LMEnAppointmentCz.html">instructionsForPatient</a></td>
           <td>A.2.5.7 - Patient instructions</td>
           <td>equivalent</td>
           <td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td>
@@ -362,54 +361,59 @@
           <td>Composition (KOrderCompositionCz).section[appointment].entry</td>
           <td></td>
         </tr>
-        <tr><td><a href="StructureDefinition-LMAppointmentCz.html">misto</a></td><td>A.2.5.8 - Appointment location</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td><td>participant.actor.resolve().ofType(Location).address</td><td>Composition (KOrderCompositionCz).section[appointment].entry.resolve()</td><td>Select Location participants, resolve their references and use their address.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnAppointmentCz.html">location</a></td><td>A.2.5.8 - Appointment location</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-appointment-cz-core.html">Appointment (CZ_AppointmentCore)</a></td><td>participant.actor.resolve().ofType(Location).address</td><td>Composition (KOrderCompositionCz).section[appointment].entry.resolve()</td><td>Select Location participants, resolve their references and use their address.</td></tr>
         <tr>
           <td colspan="7"><b>Biometric data</b></td>
         </tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha</a></td><td>A.3.1.1.1 - Weight</td><td>related-to</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.weight</a></td><td>A.3.1.1.1 - Weight</td><td>related</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.hodnota</a></td><td>A.3.1.1.1.1 - Weight value</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>valueQuantity</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.weight.value</a></td><td>A.3.1.1.1.1 - Weight value</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>valueQuantity</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.kod</a></td><td>A.3.1.1.1.2 - Code</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.weight.code</a></td><td>A.3.1.1.1.2 - Code</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vaha.datumCas</a></td><td>A.3.1.1.1.3 - Weight date and time</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.weight.dateTime</a></td><td>A.3.1.1.1.3 - Weight date and time</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska</a></td><td>A.3.1.1.2 - Height</td><td>related-to</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.height</a></td><td>A.3.1.1.2 - Height</td><td>related</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.hodnota</a></td><td>A.3.1.1.2.1 - Height value</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>valueQuantity</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.height.value</a></td><td>A.3.1.1.2.1 - Height value</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>valueQuantity</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.kod</a></td><td>A.3.1.1.2.2 - Code</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.height.code</a></td><td>A.3.1.1.2.2 - Code</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
 
-        <tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">biometrickeUdaje.vyska.datumCas</a></td><td>A.3.1.1.2.3 - Height date and time</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
+        <tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">biometricData.height.dateTime</a></td><td>A.3.1.1.2.3 - Height date and time</td><td>equivalent</td><td><a href="StructureDefinition-cz-vital-sign.html">Observation (CZ_VitalSign)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Both references point to the same measurement instance.</td></tr>
         <tr>
           <td colspan="7"><b>Request data elements</b></td>
         </tr>
         <tr><td colspan="7"><b>Additional clinical information</b></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace</a></td><td>A.3.1.2 - Other relevant clinical information</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>One Condition per clinical condition.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.kod</a></td><td>A.3.1.2.1 - Information code</td><td>equivalent</td><td>Condition (CZ_ConditionCore)</td><td>code.coding</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">dalsiRelevantniKlinickeInformace.text</a></td><td>A.3.1.2.2 - Information text</td><td>equivalent</td><td>Condition (CZ_ConditionCore)</td><td>code.text</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace</a></td><td>A.3.1.3 - Medication</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>MedicationStatement records medication use; MedicationAdministration records an administration event. Reference the same resource instance from both locations.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace</a></td><td>A.3.1.3 - Medication</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>MedicationStatement records medication use; MedicationAdministration records an administration event. Reference the same resource instance from both locations.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.identifikator</a></td><td>A.3.1.3.1 - Medication ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>medicationReference.resolve().identifier</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Identifier of the referenced Medication, not the statement or administration record. Requires medicationReference.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.identifikator</a></td><td>A.3.1.3.1 - Medication ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationReference.resolve().identifier</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Identifier of the referenced Medication, not the statement or administration record. Requires medicationReference.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.kod</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.kod</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.mnozstvi</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>dosage.doseAndRate.doseQuantity</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">medikace.mnozstvi</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>dosage.dose</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat</a></td><td>A.3.1.4 - Implant</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html">DeviceUseStatement (CZ_DeviceUseStatementCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Uses the IMG-Order representation.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.typ</a></td><td>A.3.1.4.1 - Implant type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>type</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.identifikator</a></td><td>A.3.1.4.2 - Implant ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>identifier</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.model</a></td><td>A.3.1.4.3 - Specific model</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>modelNumber</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">implantat.castTela</a></td><td>A.3.1.4.4 - Body site</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html">DeviceUseStatement (CZ_DeviceUseStatementCore)</a></td><td>bodySite</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">urgentniInformace.alergieAIntolerance</a></td><td>A.3.1.5.1 - Allergies and intolerances</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>One instance per stated concept.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">urgentniInformace.varovani</a></td><td>A.3.1.5.2 - Warnings</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html">Flag (CZ_FlagPatientCore)</a></td><td>text</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Flag.text is a Narrative. Convert the text to XHTML in text.div and populate text.status.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta</a></td><td>A.3.1.6 - Patient mobility limitation</td><td>related</td><td><a href="StructureDefinition-cz-patient-mobility.html">Observation (CZ_PatientMobility)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.datumACas</a></td><td>A.3.1.6.1 - Assessment date and time</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>The observation time belongs in effectiveDateTime; the profile uses valueCodeableConcept for the mobility result.</td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.kod</a></td><td>A.3.1.6.2 - Assessment code</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
-<tr><td><a href="StructureDefinition-LMClinicalInformationCz.html">omezeniPohyblivostiPacienta.hodnota</a></td><td>A.3.1.6.3 - Assessment value</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>valueCodeableConcept</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">otherClinicalInformation</a></td><td>A.3.1.2 - Other relevant clinical information</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>One Condition per clinical condition.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">otherClinicalInformation.code</a></td><td>A.3.1.2.1 - Information code</td><td>equivalent</td><td>Condition (CZ_ConditionCore)</td><td>code.coding</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">otherClinicalInformation.text</a></td><td>A.3.1.2.2 - Information text</td><td>equivalent</td><td>Condition (CZ_ConditionCore)</td><td>code.text</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication</a></td><td>A.3.1.3 - Medication</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>MedicationStatement records medication use; MedicationAdministration records an administration event. Reference the same resource instance from both locations.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication</a></td><td>A.3.1.3 - Medication</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>MedicationStatement records medication use; MedicationAdministration records an administration event. Reference the same resource instance from both locations.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication.identifier</a></td><td>A.3.1.3.1 - Medication ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>medicationReference.resolve().identifier</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Identifier of the referenced Medication, not the statement or administration record. Requires medicationReference.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication.identifier</a></td><td>A.3.1.3.1 - Medication ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationReference.resolve().identifier</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Identifier of the referenced Medication, not the statement or administration record. Requires medicationReference.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication.code</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication.code</a></td><td>A.3.1.3.2 - Medication code</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>medicationCodeableConcept<br/>medicationReference.resolve().code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Alternatives according to the selected medication[x] type; do not populate both choices.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication.quantity</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td>dosage.doseAndRate.doseQuantity</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">medication.quantity</a></td><td>A.3.1.3.3 - Quantity</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td>dosage.dose</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Express the dose as Quantity including its unit; interpret and convert the source value according to its meaning.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">implant</a></td><td>A.3.1.4 - Implant</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html">DeviceUseStatement (CZ_DeviceUseStatementCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Uses the IMG-Order representation.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">implant.type</a></td><td>A.3.1.4.1 - Implant type</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>type</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">implant.identifier</a></td><td>A.3.1.4.2 - Implant ID</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>identifier</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">implant.model</a></td><td>A.3.1.4.3 - Specific model</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-medical-device.html">Device (CZ_MedicalDevice)</a></td><td>modelNumber</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve().device.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve().ofType(DeviceUseStatement).device.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">implant.bodySite</a></td><td>A.3.1.4.4 - Body site</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-deviceUseStatement-cz-core.html">DeviceUseStatement (CZ_DeviceUseStatementCore)</a></td><td>bodySite</td><td>Composition (KOrderCompositionCz).section[medicalDevices].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">urgentInformation.allergyIntolerance</a></td><td>A.3.1.5.1 - Allergies and intolerances</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-allergyIntolerance-cz-core.html">AllergyIntolerance (CZ_AllergyIntolerance)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>One instance per stated concept.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">urgentInformation.warning</a></td><td>A.3.1.5.2 - Warnings</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-flag-patient-cz-core.html">Flag (CZ_FlagPatientCore)</a></td><td>text</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Flag.text is a Narrative. Convert the text to XHTML in text.div and populate text.status.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">mobilityLimitation</a></td><td>A.3.1.6 - Patient mobility limitation</td><td>related</td><td><a href="StructureDefinition-cz-patient-mobility.html">Observation (CZ_PatientMobility)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">mobilityLimitation.dateTime</a></td><td>A.3.1.6.1 - Assessment date and time</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>The observation time belongs in effectiveDateTime; the profile uses valueCodeableConcept for the mobility result.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">mobilityLimitation.code</a></td><td>A.3.1.6.2 - Assessment code</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">mobilityLimitation.value</a></td><td>A.3.1.6.3 - Assessment value</td><td>equivalent</td><td>Observation (CZ_PatientMobility)</td><td>valueCodeableConcept</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">vaccination</a></td><td>A.3.1.7 - Vaccination</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-immunization-cz-core.html">Immunization (CZ_ImmunizationCore)</a></td><td>vaccineCode</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>FHIR Immunization also requires status, patient and occurrence[x].</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">additionalFormalizedData</a></td><td>A.3.1.8 - Other formalized data</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>One general Observation per data item, in the open part of the reference list.</td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">additionalFormalizedData.dateTime</a></td><td>A.3.1.8.1 - Date</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td>effectiveDateTime</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">additionalFormalizedData.code</a></td><td>A.3.1.8.2 - Code</td><td>equivalent</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td>code</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td></td></tr>
+<tr><td><a href="StructureDefinition-LMEnClinicalInformationCz.html">additionalFormalizedData.value</a></td><td>A.3.1.8.3 - Value</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a></td><td>value[x]</td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Convert the source Narrative to the appropriate FHIR value data type.</td></tr>
 <tr>
-          <td><a href="StructureDefinition-LMKOrderDataElementsCz.html">pozadovaneVysetreni</a></td>
+          <td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">requestedExamination</a></td>
           <td>A.3.2.1 - Requested service</td>
           <td>related</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -418,7 +422,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMKOrderDataElementsCz.html">pozadovaneVysetreni.kod</a></td>
+          <td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">requestedExamination.code</a></td>
           <td>A.3.2.1.1 - Requested service code</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -427,7 +431,7 @@
           <td></td>
         </tr>
         <tr>
-          <td><a href="StructureDefinition-LMKOrderDataElementsCz.html">pozadovaneVysetreni.nazev</a></td>
+          <td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">requestedExamination.name</a></td>
           <td>A.3.2.1.2 - Requested service name</td>
           <td>equivalent</td>
           <td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td>
@@ -435,19 +439,19 @@
           <td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td>
           <td></td>
         </tr>
-        <tr id="A.3.2.1.7" data-mapping-id="A.3.2.1.7"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">pozadovaneVysetreni.poznamka</a></td><td>A.3.2.1.7 - Note</td><td>equivalent</td><td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td><td>note.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td><td></td></tr>
-        <tr id="A.3.2.2" data-mapping-id="A.3.2.2"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">zavaznaAnamnestickaData.text</a></td><td>A.3.2.2 - Significant medical history</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Summarize relevant medical history in the supporting information narrative.</td></tr>
-        <tr data-mapping-id="A.3.2.2"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">zavaznaAnamnestickaData.zaznam</a></td><td>A.3.2.2 - Significant medical history</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()</td><td>Represent structured historical and long-term conditions as CZ_ConditionCore. Reference the same Condition from ServiceRequest.supportingInfo when relevant to a particular service; use reasonReference for a direct indication.</td></tr>
-        <tr id="A.3.2.3" data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">vysledkyVysetreni.zaznam</a></td><td>A.3.2.3 - Examination results</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].entry</td><td></td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a>. Examination results use general CZ Observations in the open part of the list. Record the test in code, the result in value[x] or component and comments in note; a textual summary may appear in the supportingInformation narrative.</td></tr>
-        <tr data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">vysledkyVysetreni.text</a></td><td>A.3.2.3 - Examination results</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textual summary.</td></tr>
-        <tr data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">vysledkyVysetreni.zaznam</a></td><td>A.3.2.3 - Examination results</td><td>related</td><td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td><td>supportingInfo</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a>. Reference the same Observations as Composition.section[supportingInformation].entry when relevant to this request. Repeat the reference, not the result resource.</td></tr>
-        <tr id="A.3.2.4" data-mapping-id="A.3.2.4"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">diferencialniDiagnostickaRozvaha.zaznam</a></td><td>A.3.2.4 - Differential diagnostic assessment</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()</td><td>A differential diagnosis should have Condition.verificationStatus populated to express diagnostic certainty, for example differential. Record the rationale in Condition.note. For a particular service, reference the same Condition from ServiceRequest.supportingInfo; use reasonReference for the direct indication.</td></tr>
-        <tr data-mapping-id="A.3.2.4"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">diferencialniDiagnostickaRozvaha.text</a></td><td>A.3.2.4 - Differential diagnostic assessment</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textual summary.</td></tr>
-        <tr id="A.3.2.5" data-mapping-id="A.3.2.5"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">soucasnaLecba.zaznam</a></td><td>A.3.2.5 - Current treatment</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Map medication use to MedicationStatement and an administration event to MedicationAdministration. Preserve status, timing and dosage; medication use alone does not establish an administration event. Record a textual treatment summary in the supportingInformation narrative.</td></tr>
-        <tr data-mapping-id="A.3.2.5"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">soucasnaLecba.text</a></td><td>A.3.2.5 - Current treatment</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textual summary.</td></tr>
-        <tr data-mapping-id="A.3.2.5"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">soucasnaLecba.zaznam</a></td><td>A.3.2.5 - Current treatment</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Map medication use to MedicationStatement and an administration event to MedicationAdministration. Preserve status, timing and dosage; medication use alone does not establish an administration event. Record a textual treatment summary in the supportingInformation narrative.</td></tr>
-        <tr id="A.3.2.6" data-mapping-id="A.3.2.6"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">zapujcenaDokumentace.text</a></td><td>A.3.2.6 - Referenced documentation</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[attachments].text</td><td></td><td>Record the list or description of supporting documents in the attachments narrative.</td></tr>
-        <tr data-mapping-id="A.3.2.6"><td><a href="StructureDefinition-LMKOrderDataElementsCz.html">zapujcenaDokumentace.zaznam</a></td><td>A.3.2.6 - Referenced documentation</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (CZ_Attachment)</a></td><td></td><td>Composition (KOrderCompositionCz).section[attachments].entry.resolve()</td><td>Reference each document as CZ_Attachment. Inline content and URLs use the same attachments section; do not repeat the document in a separate section.</td></tr>
+        <tr id="A.3.2.1.3" data-mapping-id="A.3.2.1.3"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">requestedExamination.note</a></td><td>A.3.2.1.3 - Note</td><td>equivalent</td><td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td><td>note.text</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td><td></td></tr>
+        <tr id="A.3.2.2" data-mapping-id="A.3.2.2"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">significantHistory.text</a></td><td>A.3.2.2 - Significant medical history</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Summarize relevant medical history in the supporting information narrative.</td></tr>
+        <tr data-mapping-id="A.3.2.2"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">significantHistory.record</a></td><td>A.3.2.2 - Significant medical history</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()</td><td>Represent structured historical and long-term conditions as CZ_ConditionCore. Reference the same Condition from ServiceRequest.supportingInfo when relevant to a particular service; use reasonReference for a direct indication.</td></tr>
+        <tr id="A.3.2.3" data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">examinationResults.record</a></td><td>A.3.2.3 - Examination results</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].entry</td><td></td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a>. Examination results use general CZ Observations in the open part of the list. Record the test in code, the result in value[x] or component and comments in note; a textual summary may appear in the supportingInformation narrative.</td></tr>
+        <tr data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">examinationResults.text</a></td><td>A.3.2.3 - Examination results</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textual summary.</td></tr>
+        <tr data-mapping-id="A.3.2.3"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">examinationResults.record</a></td><td>A.3.2.3 - Examination results</td><td>related</td><td><a href="StructureDefinition-KOrderServiceRequestCz.html">ServiceRequest (KOrderServiceRequestCz)</a></td><td>supportingInfo</td><td>Composition (KOrderCompositionCz).section[orderInformation].entry.resolve()</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicalTestResult-cz-core.html">Observation (CZ_MedicalTestResultCore)</a>. Reference the same Observations as Composition.section[supportingInformation].entry when relevant to this request. Repeat the reference, not the result resource.</td></tr>
+        <tr id="A.3.2.4" data-mapping-id="A.3.2.4"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">differentialDiagnosis.record</a></td><td>A.3.2.4 - Differential diagnostic assessment</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-condition-cz-core.html">Condition (CZ_ConditionCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()</td><td>A differential diagnosis should have Condition.verificationStatus populated to express diagnostic certainty, for example differential. Record the rationale in Condition.note. For a particular service, reference the same Condition from ServiceRequest.supportingInfo; use reasonReference for the direct indication.</td></tr>
+        <tr data-mapping-id="A.3.2.4"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">differentialDiagnosis.text</a></td><td>A.3.2.4 - Differential diagnostic assessment</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textual summary.</td></tr>
+        <tr id="A.3.2.5" data-mapping-id="A.3.2.5"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">currentTreatment.record</a></td><td>A.3.2.5 - Current treatment</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-medicationStatement-cz-core.html">MedicationStatement (CZ_MedicationStatementCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Map medication use to MedicationStatement and an administration event to MedicationAdministration. Preserve status, timing and dosage; medication use alone does not establish an administration event. Record a textual treatment summary in the supportingInformation narrative.</td></tr>
+        <tr data-mapping-id="A.3.2.5"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">currentTreatment.text</a></td><td>A.3.2.5 - Current treatment</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[supportingInformation].text</td><td></td><td>Textual summary.</td></tr>
+        <tr data-mapping-id="A.3.2.5"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">currentTreatment.record</a></td><td>A.3.2.5 - Current treatment</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-MedicationAdministration-cz-core.html">MedicationAdministration (CZ_MedicationAdministrationCore)</a></td><td></td><td>Composition (KOrderCompositionCz).section[supportingInformation].entry.resolve()<br/>ServiceRequest (KOrderServiceRequestCz).supportingInfo.resolve()</td><td>Map medication use to MedicationStatement and an administration event to MedicationAdministration. Preserve status, timing and dosage; medication use alone does not establish an administration event. Record a textual treatment summary in the supportingInformation narrative.</td></tr>
+        <tr id="A.3.2.6" data-mapping-id="A.3.2.6"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">loanedDocumentation.text</a></td><td>A.3.2.6 - Referenced documentation</td><td>related</td><td><a href="StructureDefinition-k-order-composition-cz.html">Composition (KOrderCompositionCz)</a></td><td>section[attachments].text</td><td></td><td>Record the list or description of supporting documents in the attachments narrative.</td></tr>
+        <tr data-mapping-id="A.3.2.6"><td><a href="StructureDefinition-LMEnKOrderDataElementsCz.html">loanedDocumentation.record</a></td><td>A.3.2.6 - Referenced documentation</td><td>related</td><td><a href="https://hl7.cz/fhir/core/StructureDefinition-cz-attachment.html">DocumentReference (CZ_Attachment)</a></td><td></td><td>Composition (KOrderCompositionCz).section[attachments].entry.resolve()</td><td>Reference each document as CZ_Attachment. Inline content and URLs use the same attachments section; do not repeat the document in a separate section.</td></tr>
         {% include follow-up-orders-map-en.xml composition="KOrderCompositionCz" %}
       </tbody>
     </table>
